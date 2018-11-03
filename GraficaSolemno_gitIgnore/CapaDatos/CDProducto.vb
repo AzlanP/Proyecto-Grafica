@@ -62,11 +62,11 @@ Public Class CDProducto
     Public Sub ModificarProducto(ByVal oCEProducto As CEProducto)
         oCDConexion.Conectar()
         Try
-            Dim instruccionsql = " UPDATE Producto SET Nombre=@Nombre, ID_Productos=@ID_Productos, Codigo=@Codigo, Descripcion=@Descripcion, Cantidad=@Cantidad, Precio=@Precio, Tipo=@Tipo"
+            Dim instruccionsql = " UPDATE Producto SET Nombre=@Nombre, IDProductos=@IDProductos, Codigo=@Codigo, Descripcion=@Descripcion, Cantidad=@Cantidad, Precio=@Precio, Tipo=@Tipo"
             Dim comando As New SQLiteCommand(instruccionsql, oCDConexion.con)
             With comando.Parameters
                 .Add("@Nombre", SqlDbType.Int).Value = oCEProducto.Nombre
-                .Add("@ID_Producto", SqlDbType.Int).Value = oCEProducto.IDProductos
+                .Add("@IDProductos", SqlDbType.Int).Value = oCEProducto.IDProductos
                 .Add("@Codigo", SqlDbType.Int).Value = oCEProducto.Codigo
                 .Add("@Descripcion", SqlDbType.Int).Value = oCEProducto.Descripcion
                 .Add("@Cantidad", SqlDbType.Int).Value = oCEProducto.Cantidad
@@ -102,30 +102,11 @@ Public Class CDProducto
         Finally
             oCDConexion.Desconectar()
         End Try
-
-        'oCDConexion.Conectar()
-        'Dim da = New SQLiteDataAdapter
-        'Dim dt As New DataTable
-        'Dim instruccionSQL = "Select * FROM Productos where " & camp & "=@buscar "
-        'Dim comando As New SQLiteCommand(instruccionSQL, oCDConexion.con)
-        'da.SelectCommand = comando
-        'da.Fill(dt)
-        'Return dt
     End Function
     Public Function ConsultarUltimoID() As Integer
-        oCDConexion.Conectar()
-        Try
-            'la sentencia retorna el id del ultimo registro agregado guardado en la tabla de configuracion sequence del autoincrementar.
-            Dim sql As String = "Select seq from sqlite_sequence where name='Productos'"
-            Dim cmd As New SQLiteCommand(sql, oCDConexion.con)
-            'el executescalar devuelve la primera columna de la primera fila
-            Dim UltimoID As Integer = CInt(cmd.ExecuteScalar())
-            Return UltimoID + 1
-        Catch ex As Exception
-            Throw New Exception("ERROR La consulta de ultimo ID fallo. Descripcion:" & ex.Message)
-        End Try
-        oCDConexion.Desconectar()
 
+        Return oCDConexion.ConsultarUltimoID("Productos")
+        
     End Function
 
 End Class

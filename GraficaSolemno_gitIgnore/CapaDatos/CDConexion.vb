@@ -86,4 +86,19 @@ Public Class CDConexion
         End Try
         
     End Function
+    Function ConsultarUltimoID(ByVal tabla As String) As Integer
+        'Se le ingresa como parametro el nombre de la tabla 
+        Conectar()
+        Try
+            'la sentencia retorna el id del ultimo registro agregado guardado en la tabla de configuracion sequence del autoincrementar.
+            Dim sql As String = "Select seq from sqlite_sequence where name='" & tabla & "'"
+            Dim cmd As New SQLiteCommand(sql, con)
+            'el executescalar devuelve la primera columna de la primera fila
+            Dim UltimoID As Integer = CInt(cmd.ExecuteScalar())
+            Return UltimoID + 1
+        Catch ex As Exception
+            Throw New Exception("ERROR La consulta de ultimo ID fallo. Descripcion:" & ex.Message)
+        End Try
+        Desconectar()
+    End Function
 End Class
