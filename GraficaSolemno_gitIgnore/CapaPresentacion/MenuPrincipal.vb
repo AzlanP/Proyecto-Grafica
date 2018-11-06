@@ -1,7 +1,7 @@
 ﻿Imports CapaNegocio
 Imports CapaEntidad
 
-Public Class FrmMenu
+Public Class frmMenuPrincipal
     Dim oCECliente As CECliente
     Dim oCNCliente As New CNCliente
     Dim ID As String
@@ -72,7 +72,7 @@ Public Class FrmMenu
 
     Private Sub btnBuscar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscarCliente.Click
         Dim dt As DataTable
-        dt = oCNCliente.Buscar(cboBuscar.Text, txtBuscar.Text)
+        dt = oCNCliente.Buscar(cboBuscarCliente.Text, txtBuscarCliente.Text)
         DGCliente.DataSource = dt
         'para que el combobox no permita escribir, se cambio el dropdownstyle =DropDownList
     End Sub
@@ -141,5 +141,5 @@ Public Class FrmMenu
         frmRegistrar.ShowDialog()
     End Sub
 
-  
+
 End Class
