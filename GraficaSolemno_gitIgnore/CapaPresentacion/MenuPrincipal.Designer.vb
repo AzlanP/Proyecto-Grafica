@@ -84,16 +84,17 @@ Partial Class frmMenuPrincipal
         Me.TabGeneral.Controls.Add(Me.TabAyuda)
         Me.TabGeneral.Location = New System.Drawing.Point(12, 12)
         Me.TabGeneral.Name = "TabGeneral"
+        Me.TabGeneral.Padding = New System.Drawing.Point(6, 4)
         Me.TabGeneral.SelectedIndex = 0
         Me.TabGeneral.Size = New System.Drawing.Size(702, 450)
         Me.TabGeneral.TabIndex = 0
         '
         'TabTareas
         '
-        Me.TabTareas.Location = New System.Drawing.Point(4, 22)
+        Me.TabTareas.Location = New System.Drawing.Point(4, 24)
         Me.TabTareas.Name = "TabTareas"
         Me.TabTareas.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabTareas.Size = New System.Drawing.Size(694, 424)
+        Me.TabTareas.Size = New System.Drawing.Size(694, 422)
         Me.TabTareas.TabIndex = 6
         Me.TabTareas.Text = "Tareas"
         Me.TabTareas.UseVisualStyleBackColor = True
@@ -109,10 +110,10 @@ Partial Class frmMenuPrincipal
         Me.TabCliente.Controls.Add(Me.btnModificarCliente)
         Me.TabCliente.Controls.Add(Me.btnNuevoCliente)
         Me.TabCliente.Controls.Add(Me.txtBuscarCliente)
-        Me.TabCliente.Location = New System.Drawing.Point(4, 22)
+        Me.TabCliente.Location = New System.Drawing.Point(4, 24)
         Me.TabCliente.Name = "TabCliente"
         Me.TabCliente.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabCliente.Size = New System.Drawing.Size(694, 424)
+        Me.TabCliente.Size = New System.Drawing.Size(694, 422)
         Me.TabCliente.TabIndex = 0
         Me.TabCliente.Text = "Cliente"
         '
@@ -203,9 +204,9 @@ Partial Class frmMenuPrincipal
         Me.TabPedido.Controls.Add(Me.Button7)
         Me.TabPedido.Controls.Add(Me.btnNuevoPedido)
         Me.TabPedido.Controls.Add(Me.DGPedido)
-        Me.TabPedido.Location = New System.Drawing.Point(4, 22)
+        Me.TabPedido.Location = New System.Drawing.Point(4, 24)
         Me.TabPedido.Name = "TabPedido"
-        Me.TabPedido.Size = New System.Drawing.Size(694, 424)
+        Me.TabPedido.Size = New System.Drawing.Size(694, 422)
         Me.TabPedido.TabIndex = 2
         Me.TabPedido.Text = "Pedido"
         '
@@ -291,10 +292,10 @@ Partial Class frmMenuPrincipal
         Me.TabProducto.Controls.Add(Me.btnAgregarProducto)
         Me.TabProducto.Controls.Add(Me.btnBuscarProducto)
         Me.TabProducto.Controls.Add(Me.DGProducto)
-        Me.TabProducto.Location = New System.Drawing.Point(4, 22)
+        Me.TabProducto.Location = New System.Drawing.Point(4, 24)
         Me.TabProducto.Name = "TabProducto"
         Me.TabProducto.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabProducto.Size = New System.Drawing.Size(694, 424)
+        Me.TabProducto.Size = New System.Drawing.Size(694, 422)
         Me.TabProducto.TabIndex = 1
         Me.TabProducto.Text = "Producto"
         '
@@ -378,10 +379,10 @@ Partial Class frmMenuPrincipal
         Me.TabServicios.Controls.Add(Me.btnModificarServicio)
         Me.TabServicios.Controls.Add(Me.btnNuevoServicio)
         Me.TabServicios.Controls.Add(Me.txtBuscarServicio)
-        Me.TabServicios.Location = New System.Drawing.Point(4, 22)
+        Me.TabServicios.Location = New System.Drawing.Point(4, 24)
         Me.TabServicios.Name = "TabServicios"
         Me.TabServicios.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabServicios.Size = New System.Drawing.Size(694, 424)
+        Me.TabServicios.Size = New System.Drawing.Size(694, 422)
         Me.TabServicios.TabIndex = 5
         Me.TabServicios.Text = "Servicios"
         '
@@ -463,18 +464,18 @@ Partial Class frmMenuPrincipal
         '
         'TabEstadistica
         '
-        Me.TabEstadistica.Location = New System.Drawing.Point(4, 22)
+        Me.TabEstadistica.Location = New System.Drawing.Point(4, 24)
         Me.TabEstadistica.Name = "TabEstadistica"
-        Me.TabEstadistica.Size = New System.Drawing.Size(694, 424)
+        Me.TabEstadistica.Size = New System.Drawing.Size(694, 422)
         Me.TabEstadistica.TabIndex = 3
         Me.TabEstadistica.Text = "Estadistica"
         Me.TabEstadistica.UseVisualStyleBackColor = True
         '
         'TabAyuda
         '
-        Me.TabAyuda.Location = New System.Drawing.Point(4, 22)
+        Me.TabAyuda.Location = New System.Drawing.Point(4, 24)
         Me.TabAyuda.Name = "TabAyuda"
-        Me.TabAyuda.Size = New System.Drawing.Size(694, 424)
+        Me.TabAyuda.Size = New System.Drawing.Size(694, 422)
         Me.TabAyuda.TabIndex = 4
         Me.TabAyuda.Text = "Ayuda"
         Me.TabAyuda.UseVisualStyleBackColor = True
