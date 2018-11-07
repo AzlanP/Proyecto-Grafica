@@ -4,7 +4,7 @@ Public Class RegistrarCliente
     Dim oCNCliente As New CNCliente
     Dim oCECliente As New CECliente
 
-    Private Sub btnRegistrar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+    Private Sub btnRegistrar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRegistrar.Click
 
         oCNCliente.RegistrarCliente(TomarDatos())
         MsgBox("Los Datos fueron guardados con exito.")
@@ -56,7 +56,7 @@ Public Class RegistrarCliente
         oCECliente.Telefono2 = CInt(txtCel.Text)
         oCECliente.DNI = CInt(txtDNI.Text)
         oCECliente.CUIT = CInt(txtDNI.Text)
-        oCECliente.Pais = CInt(cboPais.Text)
+        oCECliente.Pais = CInt(cboPais.ValueMember)
         oCECliente.Provincia = CInt(cboProvincia.Text)
         oCECliente.Ciudad = CInt(txtCiudad.Text)
         oCECliente.Barrio = txtBarrio.Text
@@ -82,7 +82,7 @@ Public Class RegistrarCliente
         Next
 
     End Sub
-    Private Sub btnCancelar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+    Private Sub btnCancelar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancelar.Click
         'MsgBox("Esta seguro de descartar los cambios?", vbOKCancel, "Confirmacion!")
         'If DialogResult.OK Then
 
@@ -93,13 +93,12 @@ Public Class RegistrarCliente
 
     End Sub
 
-    Private Sub btnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+    Private Sub btnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGuardar.Click
         oCNCliente.ModificarCliente(TomarDatos())
         MsgBox("Los Datos fueron modificados con exito.")
         Close()
     End Sub
 
-    Private Sub RegistrarCliente_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-
-    End Sub
+ 
+    
 End Class

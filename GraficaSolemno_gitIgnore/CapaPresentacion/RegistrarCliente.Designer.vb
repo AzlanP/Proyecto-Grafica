@@ -67,7 +67,7 @@ Partial Class RegistrarCliente
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(13, 241)
+        Me.Label9.Location = New System.Drawing.Point(13, 199)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(32, 15)
         Me.Label9.TabIndex = 118
@@ -77,7 +77,7 @@ Partial Class RegistrarCliente
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(13, 205)
+        Me.Label8.Location = New System.Drawing.Point(13, 165)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(39, 15)
         Me.Label8.TabIndex = 117
@@ -85,7 +85,7 @@ Partial Class RegistrarCliente
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(140, 238)
+        Me.TextBox1.Location = New System.Drawing.Point(140, 194)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(203, 21)
         Me.TextBox1.TabIndex = 116
@@ -93,7 +93,7 @@ Partial Class RegistrarCliente
         'btnGuardar
         '
         Me.btnGuardar.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnGuardar.Location = New System.Drawing.Point(208, 436)
+        Me.btnGuardar.Location = New System.Drawing.Point(182, 371)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(137, 33)
         Me.btnGuardar.TabIndex = 115
@@ -105,7 +105,7 @@ Partial Class RegistrarCliente
         '
         Me.lblID.AutoSize = True
         Me.lblID.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblID.Location = New System.Drawing.Point(137, 64)
+        Me.lblID.Location = New System.Drawing.Point(140, 64)
         Me.lblID.Name = "lblID"
         Me.lblID.Size = New System.Drawing.Size(0, 15)
         Me.lblID.TabIndex = 114
@@ -114,7 +114,7 @@ Partial Class RegistrarCliente
         '
         Me.lblIDinfo.AutoSize = True
         Me.lblIDinfo.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblIDinfo.Location = New System.Drawing.Point(13, 64)
+        Me.lblIDinfo.Location = New System.Drawing.Point(24, 64)
         Me.lblIDinfo.Name = "lblIDinfo"
         Me.lblIDinfo.Size = New System.Drawing.Size(21, 15)
         Me.lblIDinfo.TabIndex = 113
@@ -123,7 +123,7 @@ Partial Class RegistrarCliente
         'btnCancelar
         '
         Me.btnCancelar.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCancelar.Location = New System.Drawing.Point(402, 436)
+        Me.btnCancelar.Location = New System.Drawing.Point(386, 410)
         Me.btnCancelar.Name = "btnCancelar"
         Me.btnCancelar.Size = New System.Drawing.Size(182, 33)
         Me.btnCancelar.TabIndex = 112
@@ -133,7 +133,7 @@ Partial Class RegistrarCliente
         'dpFecha
         '
         Me.dpFecha.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dpFecha.Location = New System.Drawing.Point(140, 310)
+        Me.dpFecha.Location = New System.Drawing.Point(488, 12)
         Me.dpFecha.Name = "dpFecha"
         Me.dpFecha.Size = New System.Drawing.Size(203, 21)
         Me.dpFecha.TabIndex = 111
@@ -142,7 +142,7 @@ Partial Class RegistrarCliente
         'cbIVA
         '
         Me.cbIVA.FormattingEnabled = True
-        Me.cbIVA.Location = New System.Drawing.Point(140, 346)
+        Me.cbIVA.Location = New System.Drawing.Point(140, 228)
         Me.cbIVA.Name = "cbIVA"
         Me.cbIVA.Size = New System.Drawing.Size(205, 23)
         Me.cbIVA.TabIndex = 110
@@ -152,16 +152,16 @@ Partial Class RegistrarCliente
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(398, 316)
+        Me.Label1.Location = New System.Drawing.Point(383, 271)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(59, 15)
+        Me.Label1.Size = New System.Drawing.Size(65, 15)
         Me.Label1.TabIndex = 108
-        Me.Label1.Text = "Domicilio"
+        Me.Label1.Text = "Domicilio :"
         '
         'cboProvincia
         '
         Me.cboProvincia.FormattingEnabled = True
-        Me.cboProvincia.Location = New System.Drawing.Point(504, 204)
+        Me.cboProvincia.Location = New System.Drawing.Point(489, 130)
         Me.cboProvincia.Name = "cboProvincia"
         Me.cboProvincia.Size = New System.Drawing.Size(205, 23)
         Me.cboProvincia.TabIndex = 106
@@ -170,7 +170,8 @@ Partial Class RegistrarCliente
         '
         Me.cboPais.AutoCompleteCustomSource.AddRange(New String() {"Argentina", "Chile", "Bolivia", "Uruguay", "Paraguay"})
         Me.cboPais.FormattingEnabled = True
-        Me.cboPais.Location = New System.Drawing.Point(504, 166)
+        Me.cboPais.Items.AddRange(New Object() {"Argentina", "Chile", "Bolivia", "Paraguay", "Uruguay", "Brasil"})
+        Me.cboPais.Location = New System.Drawing.Point(489, 92)
         Me.cboPais.Name = "cboPais"
         Me.cboPais.Size = New System.Drawing.Size(205, 23)
         Me.cboPais.TabIndex = 105
@@ -178,45 +179,45 @@ Partial Class RegistrarCliente
         '
         'txtCP
         '
-        Me.txtCP.Location = New System.Drawing.Point(140, 274)
+        Me.txtCP.Location = New System.Drawing.Point(489, 201)
         Me.txtCP.Name = "txtCP"
         Me.txtCP.Size = New System.Drawing.Size(203, 21)
         Me.txtCP.TabIndex = 104
         '
         'txtNumeracion
         '
-        Me.txtNumeracion.Location = New System.Drawing.Point(503, 313)
+        Me.txtNumeracion.Location = New System.Drawing.Point(489, 265)
         Me.txtNumeracion.Name = "txtNumeracion"
         Me.txtNumeracion.Size = New System.Drawing.Size(203, 21)
         Me.txtNumeracion.TabIndex = 103
         '
         'txtCalle
         '
-        Me.txtCalle.Location = New System.Drawing.Point(402, 369)
+        Me.txtCalle.Location = New System.Drawing.Point(543, 298)
         Me.txtCalle.Name = "txtCalle"
-        Me.txtCalle.Size = New System.Drawing.Size(57, 21)
+        Me.txtCalle.Size = New System.Drawing.Size(58, 21)
         Me.txtCalle.TabIndex = 102
         '
         'Label19
         '
         Me.Label19.AutoSize = True
         Me.Label19.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label19.Location = New System.Drawing.Point(399, 351)
+        Me.Label19.Location = New System.Drawing.Point(489, 304)
         Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(52, 15)
+        Me.Label19.Size = New System.Drawing.Size(58, 15)
         Me.Label19.TabIndex = 101
-        Me.Label19.Text = "Numero"
+        Me.Label19.Text = "Numero :"
         '
         'txtBarrio
         '
-        Me.txtBarrio.Location = New System.Drawing.Point(504, 278)
+        Me.txtBarrio.Location = New System.Drawing.Point(489, 233)
         Me.txtBarrio.Name = "txtBarrio"
         Me.txtBarrio.Size = New System.Drawing.Size(203, 21)
         Me.txtBarrio.TabIndex = 100
         '
         'txtCiudad
         '
-        Me.txtCiudad.Location = New System.Drawing.Point(504, 242)
+        Me.txtCiudad.Location = New System.Drawing.Point(489, 168)
         Me.txtCiudad.Name = "txtCiudad"
         Me.txtCiudad.Size = New System.Drawing.Size(203, 21)
         Me.txtCiudad.TabIndex = 99
@@ -225,57 +226,57 @@ Partial Class RegistrarCliente
         '
         Me.Label18.AutoSize = True
         Me.Label18.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label18.Location = New System.Drawing.Point(13, 313)
+        Me.Label18.Location = New System.Drawing.Point(435, 18)
         Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(41, 15)
+        Me.Label18.Size = New System.Drawing.Size(47, 15)
         Me.Label18.TabIndex = 98
-        Me.Label18.Text = "Fecha"
+        Me.Label18.Text = "Fecha :"
         '
         'Label17
         '
         Me.Label17.AutoSize = True
         Me.Label17.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label17.Location = New System.Drawing.Point(13, 351)
+        Me.Label17.Location = New System.Drawing.Point(12, 233)
         Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(101, 15)
+        Me.Label17.Size = New System.Drawing.Size(107, 15)
         Me.Label17.TabIndex = 97
-        Me.Label17.Text = "Condicion de IVA"
+        Me.Label17.Text = "Condicion de IVA :"
         '
         'Label16
         '
         Me.Label16.AutoSize = True
         Me.Label16.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label16.Location = New System.Drawing.Point(13, 277)
+        Me.Label16.Location = New System.Drawing.Point(383, 204)
         Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(85, 15)
+        Me.Label16.Size = New System.Drawing.Size(91, 15)
         Me.Label16.TabIndex = 96
-        Me.Label16.Text = "Codigo Postal"
+        Me.Label16.Text = "Codigo Postal :"
         '
         'Label11
         '
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(399, 281)
+        Me.Label11.Location = New System.Drawing.Point(383, 236)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(42, 15)
+        Me.Label11.Size = New System.Drawing.Size(48, 15)
         Me.Label11.TabIndex = 95
-        Me.Label11.Text = "Barrio"
+        Me.Label11.Text = "Barrio :"
         '
         'Label10
         '
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(399, 171)
+        Me.Label10.Location = New System.Drawing.Point(383, 97)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(32, 15)
+        Me.Label10.Size = New System.Drawing.Size(38, 15)
         Me.Label10.TabIndex = 94
-        Me.Label10.Text = "Pais"
+        Me.Label10.Text = "Pais :"
         '
         'Label7
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(399, 97)
+        Me.Label7.Location = New System.Drawing.Point(13, 131)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(58, 15)
         Me.Label7.TabIndex = 93
@@ -293,42 +294,42 @@ Partial Class RegistrarCliente
         '
         'txtNombre
         '
-        Me.txtNombre.Location = New System.Drawing.Point(140, 94)
+        Me.txtNombre.Location = New System.Drawing.Point(140, 92)
         Me.txtNombre.Name = "txtNombre"
         Me.txtNombre.Size = New System.Drawing.Size(203, 21)
         Me.txtNombre.TabIndex = 91
         '
         'txtDNI
         '
-        Me.txtDNI.Location = New System.Drawing.Point(140, 202)
+        Me.txtDNI.Location = New System.Drawing.Point(140, 160)
         Me.txtDNI.Name = "txtDNI"
         Me.txtDNI.Size = New System.Drawing.Size(203, 21)
         Me.txtDNI.TabIndex = 90
         '
         'txtEmail
         '
-        Me.txtEmail.Location = New System.Drawing.Point(140, 166)
+        Me.txtEmail.Location = New System.Drawing.Point(140, 332)
         Me.txtEmail.Name = "txtEmail"
         Me.txtEmail.Size = New System.Drawing.Size(203, 21)
         Me.txtEmail.TabIndex = 89
         '
         'txtCel
         '
-        Me.txtCel.Location = New System.Drawing.Point(504, 130)
+        Me.txtCel.Location = New System.Drawing.Point(140, 298)
         Me.txtCel.Name = "txtCel"
         Me.txtCel.Size = New System.Drawing.Size(203, 21)
         Me.txtCel.TabIndex = 88
         '
         'txtTel
         '
-        Me.txtTel.Location = New System.Drawing.Point(140, 130)
+        Me.txtTel.Location = New System.Drawing.Point(140, 264)
         Me.txtTel.Name = "txtTel"
         Me.txtTel.Size = New System.Drawing.Size(203, 21)
         Me.txtTel.TabIndex = 87
         '
         'txtApellido
         '
-        Me.txtApellido.Location = New System.Drawing.Point(504, 94)
+        Me.txtApellido.Location = New System.Drawing.Point(140, 126)
         Me.txtApellido.Name = "txtApellido"
         Me.txtApellido.Size = New System.Drawing.Size(203, 21)
         Me.txtApellido.TabIndex = 86
@@ -337,27 +338,27 @@ Partial Class RegistrarCliente
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(399, 209)
+        Me.Label6.Location = New System.Drawing.Point(383, 135)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(60, 15)
+        Me.Label6.Size = New System.Drawing.Size(66, 15)
         Me.Label6.TabIndex = 85
-        Me.Label6.Text = "Provincia"
+        Me.Label6.Text = "Provincia :"
         '
         'Label5
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(399, 245)
+        Me.Label5.Location = New System.Drawing.Point(383, 171)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(62, 15)
+        Me.Label5.Size = New System.Drawing.Size(68, 15)
         Me.Label5.TabIndex = 84
-        Me.Label5.Text = "Localidad"
+        Me.Label5.Text = "Localidad :"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(13, 169)
+        Me.Label4.Location = New System.Drawing.Point(12, 335)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(52, 15)
         Me.Label4.TabIndex = 83
@@ -367,17 +368,17 @@ Partial Class RegistrarCliente
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(399, 133)
+        Me.Label3.Location = New System.Drawing.Point(14, 301)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(62, 15)
+        Me.Label3.Size = New System.Drawing.Size(68, 15)
         Me.Label3.TabIndex = 82
-        Me.Label3.Text = "Telefono2"
+        Me.Label3.Text = "Telefono 2:"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(13, 133)
+        Me.Label2.Location = New System.Drawing.Point(13, 267)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(61, 15)
         Me.Label2.TabIndex = 81
@@ -386,7 +387,7 @@ Partial Class RegistrarCliente
         'btnRegistrar
         '
         Me.btnRegistrar.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnRegistrar.Location = New System.Drawing.Point(208, 436)
+        Me.btnRegistrar.Location = New System.Drawing.Point(206, 410)
         Me.btnRegistrar.Name = "btnRegistrar"
         Me.btnRegistrar.Size = New System.Drawing.Size(137, 33)
         Me.btnRegistrar.TabIndex = 80
@@ -395,27 +396,27 @@ Partial Class RegistrarCliente
         '
         'TextBox3
         '
-        Me.TextBox3.Location = New System.Drawing.Point(486, 367)
+        Me.TextBox3.Location = New System.Drawing.Point(646, 298)
         Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(57, 21)
+        Me.TextBox3.Size = New System.Drawing.Size(45, 21)
         Me.TextBox3.TabIndex = 122
         '
         'Label14
         '
         Me.Label14.AutoSize = True
         Me.Label14.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(500, 346)
+        Me.Label14.Location = New System.Drawing.Point(607, 304)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(33, 15)
+        Me.Label14.Size = New System.Drawing.Size(39, 15)
         Me.Label14.TabIndex = 121
-        Me.Label14.Text = "Dpto"
+        Me.Label14.Text = "Dpto :"
         '
         'RegistrarCliente
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.Khaki
-        Me.ClientSize = New System.Drawing.Size(723, 533)
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.ClientSize = New System.Drawing.Size(749, 483)
         Me.Controls.Add(Me.TextBox3)
         Me.Controls.Add(Me.Label14)
         Me.Controls.Add(Me.Label9)
