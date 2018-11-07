@@ -69,9 +69,9 @@ Partial Class RegistrarCliente
         Me.Label9.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.Location = New System.Drawing.Point(13, 241)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(26, 15)
+        Me.Label9.Size = New System.Drawing.Size(32, 15)
         Me.Label9.TabIndex = 118
-        Me.Label9.Text = "DNI"
+        Me.Label9.Text = "DNI :"
         '
         'Label8
         '
@@ -79,9 +79,9 @@ Partial Class RegistrarCliente
         Me.Label8.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.Location = New System.Drawing.Point(13, 205)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(33, 15)
+        Me.Label8.Size = New System.Drawing.Size(39, 15)
         Me.Label8.TabIndex = 117
-        Me.Label8.Text = "CUIT"
+        Me.Label8.Text = "CUIT :"
         '
         'TextBox1
         '
@@ -247,9 +247,9 @@ Partial Class RegistrarCliente
         Me.Label16.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label16.Location = New System.Drawing.Point(13, 277)
         Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(84, 15)
+        Me.Label16.Size = New System.Drawing.Size(85, 15)
         Me.Label16.TabIndex = 96
-        Me.Label16.Text = "Codigo postal"
+        Me.Label16.Text = "Codigo Postal"
         '
         'Label11
         '
@@ -267,9 +267,9 @@ Partial Class RegistrarCliente
         Me.Label10.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.Location = New System.Drawing.Point(399, 171)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(31, 15)
+        Me.Label10.Size = New System.Drawing.Size(32, 15)
         Me.Label10.TabIndex = 94
-        Me.Label10.Text = "pais"
+        Me.Label10.Text = "Pais"
         '
         'Label7
         '
@@ -277,9 +277,9 @@ Partial Class RegistrarCliente
         Me.Label7.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.Location = New System.Drawing.Point(399, 97)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(51, 15)
+        Me.Label7.Size = New System.Drawing.Size(58, 15)
         Me.Label7.TabIndex = 93
-        Me.Label7.Text = "apellido"
+        Me.Label7.Text = "Apellido :"
         '
         'Label12
         '
@@ -287,9 +287,9 @@ Partial Class RegistrarCliente
         Me.Label12.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label12.Location = New System.Drawing.Point(13, 97)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(52, 15)
+        Me.Label12.Size = New System.Drawing.Size(58, 15)
         Me.Label12.TabIndex = 92
-        Me.Label12.Text = "Nombre"
+        Me.Label12.Text = "Nombre :"
         '
         'txtNombre
         '
@@ -359,9 +359,9 @@ Partial Class RegistrarCliente
         Me.Label4.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(13, 169)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(46, 15)
+        Me.Label4.Size = New System.Drawing.Size(52, 15)
         Me.Label4.TabIndex = 83
-        Me.Label4.Text = "E-MAIL"
+        Me.Label4.Text = "E-MAIL :"
         '
         'Label3
         '
@@ -379,9 +379,9 @@ Partial Class RegistrarCliente
         Me.Label2.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(13, 133)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(55, 15)
+        Me.Label2.Size = New System.Drawing.Size(61, 15)
         Me.Label2.TabIndex = 81
-        Me.Label2.Text = "Teléfono"
+        Me.Label2.Text = "Teléfono :"
         '
         'btnRegistrar
         '
