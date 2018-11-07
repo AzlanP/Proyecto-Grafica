@@ -99,4 +99,8 @@ Public Class RegistrarCliente
         MsgBox("Los Datos fueron modificados con exito.")
         Close()
     End Sub
+
+    Private Sub RegistrarCliente_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class

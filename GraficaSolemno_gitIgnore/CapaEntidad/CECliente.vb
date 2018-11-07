@@ -2,8 +2,8 @@
     'tendria que ver si es mejor referirse como ciudad o localidad
     Dim oCECliente As CECliente
 
-    Private _IDCliente, _Nombre, _Apellido, _Email, _Barrio, _Calle As String
-    Private _Telefono, _Celular, _CUIT, _DNI, _NroCasa, _NroCalle, _NroDpto, _CP As Integer
+    Private _IDCliente, _Nombre, _Apellido, _Email, _Barrio, _Domicilio As String
+    Private _Telefono, _Telefono2, _CUIT, _DNI, _NroCalle, _Dpto, _CP As Integer
     Private _Pais, _Provincia, _Ciudad, _CondIVA As Integer
     Private _Fecha As Date
 
@@ -64,12 +64,12 @@
             _Barrio = value
         End Set
     End Property
-    Public Property Calle() As String
+    Public Property Domicilio() As String
         Get
-            Return _Calle
+            Return _Domicilio
         End Get
         Set(ByVal value As String)
-            _Calle = value
+            _Domicilio = value
         End Set
     End Property
     Public Property CondIVA() As Integer
@@ -88,12 +88,12 @@
             _Telefono = value
         End Set
     End Property
-    Public Property Celular() As Integer
+    Public Property Telefono2() As Integer
         Get
-            Return _Celular
+            Return _Telefono2
         End Get
         Set(ByVal value As Integer)
-            _Celular = value
+            _Telefono2 = value
         End Set
     End Property
     Public Property CUIT() As Integer
@@ -112,14 +112,6 @@
             _DNI = value
         End Set
     End Property
-    Public Property NroCasa() As Integer
-        Get
-            Return _NroCasa
-        End Get
-        Set(ByVal value As Integer)
-            _NroCasa = value
-        End Set
-    End Property
     Public Property NroCalle() As Integer
         Get
             Return _NroCalle
@@ -128,12 +120,12 @@
             _NroCalle = value
         End Set
     End Property
-    Public Property NroDpto() As Integer
+    Public Property Dpto() As Integer
         Get
-            Return _NroDpto
+            Return _Dpto
         End Get
         Set(ByVal value As Integer)
-            _NroDpto = value
+            _Dpto = value
         End Set
     End Property
     Public Property CP() As Integer

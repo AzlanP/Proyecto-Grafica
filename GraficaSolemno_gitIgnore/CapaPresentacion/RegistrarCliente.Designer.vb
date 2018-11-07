@@ -31,9 +31,7 @@ Partial Class RegistrarCliente
         Me.btnCancelar = New System.Windows.Forms.Button()
         Me.dpFecha = New System.Windows.Forms.DateTimePicker()
         Me.cbIVA = New System.Windows.Forms.ComboBox()
-        Me.checkCasa = New System.Windows.Forms.CheckBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.checkDpto = New System.Windows.Forms.CheckBox()
         Me.cboProvincia = New System.Windows.Forms.ComboBox()
         Me.cboPais = New System.Windows.Forms.ComboBox()
         Me.txtCP = New System.Windows.Forms.TextBox()
@@ -61,6 +59,8 @@ Partial Class RegistrarCliente
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.btnRegistrar = New System.Windows.Forms.Button()
+        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.Label14 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'Label9
@@ -148,35 +148,15 @@ Partial Class RegistrarCliente
         Me.cbIVA.TabIndex = 110
         Me.cbIVA.Text = "Consumidor Final"
         '
-        'checkCasa
-        '
-        Me.checkCasa.AutoSize = True
-        Me.checkCasa.Location = New System.Drawing.Point(504, 387)
-        Me.checkCasa.Name = "checkCasa"
-        Me.checkCasa.Size = New System.Drawing.Size(55, 19)
-        Me.checkCasa.TabIndex = 109
-        Me.checkCasa.Text = "Casa"
-        Me.checkCasa.UseVisualStyleBackColor = True
-        '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(399, 353)
+        Me.Label1.Location = New System.Drawing.Point(398, 316)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(55, 15)
+        Me.Label1.Size = New System.Drawing.Size(59, 15)
         Me.Label1.TabIndex = 108
-        Me.Label1.Text = "Numero:"
-        '
-        'checkDpto
-        '
-        Me.checkDpto.AutoSize = True
-        Me.checkDpto.Location = New System.Drawing.Point(590, 387)
-        Me.checkDpto.Name = "checkDpto"
-        Me.checkDpto.Size = New System.Drawing.Size(55, 19)
-        Me.checkDpto.TabIndex = 107
-        Me.checkDpto.Text = "Dpto "
-        Me.checkDpto.UseVisualStyleBackColor = True
+        Me.Label1.Text = "Domicilio"
         '
         'cboProvincia
         '
@@ -205,27 +185,27 @@ Partial Class RegistrarCliente
         '
         'txtNumeracion
         '
-        Me.txtNumeracion.Location = New System.Drawing.Point(504, 350)
+        Me.txtNumeracion.Location = New System.Drawing.Point(503, 313)
         Me.txtNumeracion.Name = "txtNumeracion"
         Me.txtNumeracion.Size = New System.Drawing.Size(203, 21)
         Me.txtNumeracion.TabIndex = 103
         '
         'txtCalle
         '
-        Me.txtCalle.Location = New System.Drawing.Point(504, 314)
+        Me.txtCalle.Location = New System.Drawing.Point(402, 369)
         Me.txtCalle.Name = "txtCalle"
-        Me.txtCalle.Size = New System.Drawing.Size(203, 21)
+        Me.txtCalle.Size = New System.Drawing.Size(57, 21)
         Me.txtCalle.TabIndex = 102
         '
         'Label19
         '
         Me.Label19.AutoSize = True
         Me.Label19.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label19.Location = New System.Drawing.Point(399, 317)
+        Me.Label19.Location = New System.Drawing.Point(399, 351)
         Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(34, 15)
+        Me.Label19.Size = New System.Drawing.Size(52, 15)
         Me.Label19.TabIndex = 101
-        Me.Label19.Text = "calle"
+        Me.Label19.Text = "Numero"
         '
         'txtBarrio
         '
@@ -389,9 +369,9 @@ Partial Class RegistrarCliente
         Me.Label3.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(399, 133)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(47, 15)
+        Me.Label3.Size = New System.Drawing.Size(62, 15)
         Me.Label3.TabIndex = 82
-        Me.Label3.Text = "Celular"
+        Me.Label3.Text = "Telefono2"
         '
         'Label2
         '
@@ -413,12 +393,31 @@ Partial Class RegistrarCliente
         Me.btnRegistrar.Text = "Registrar Cliente"
         Me.btnRegistrar.UseVisualStyleBackColor = True
         '
+        'TextBox3
+        '
+        Me.TextBox3.Location = New System.Drawing.Point(486, 367)
+        Me.TextBox3.Name = "TextBox3"
+        Me.TextBox3.Size = New System.Drawing.Size(57, 21)
+        Me.TextBox3.TabIndex = 122
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label14.Location = New System.Drawing.Point(500, 346)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(33, 15)
+        Me.Label14.TabIndex = 121
+        Me.Label14.Text = "Dpto"
+        '
         'RegistrarCliente
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Khaki
         Me.ClientSize = New System.Drawing.Size(723, 533)
+        Me.Controls.Add(Me.TextBox3)
+        Me.Controls.Add(Me.Label14)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.TextBox1)
@@ -428,9 +427,7 @@ Partial Class RegistrarCliente
         Me.Controls.Add(Me.btnCancelar)
         Me.Controls.Add(Me.dpFecha)
         Me.Controls.Add(Me.cbIVA)
-        Me.Controls.Add(Me.checkCasa)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.checkDpto)
         Me.Controls.Add(Me.cboProvincia)
         Me.Controls.Add(Me.cboPais)
         Me.Controls.Add(Me.txtCP)
@@ -474,9 +471,7 @@ Partial Class RegistrarCliente
     Friend WithEvents btnCancelar As System.Windows.Forms.Button
     Friend WithEvents dpFecha As System.Windows.Forms.DateTimePicker
     Friend WithEvents cbIVA As System.Windows.Forms.ComboBox
-    Friend WithEvents checkCasa As System.Windows.Forms.CheckBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents checkDpto As System.Windows.Forms.CheckBox
     Friend WithEvents cboProvincia As System.Windows.Forms.ComboBox
     Friend WithEvents cboPais As System.Windows.Forms.ComboBox
     Friend WithEvents txtCP As System.Windows.Forms.TextBox
@@ -504,4 +499,6 @@ Partial Class RegistrarCliente
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents btnRegistrar As System.Windows.Forms.Button
+    Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
+    Friend WithEvents Label14 As System.Windows.Forms.Label
 End Class

@@ -39,13 +39,14 @@ Partial Class FormularioPedido
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.Button6 = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(20, 356)
+        Me.Label6.Location = New System.Drawing.Point(17, 356)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(72, 13)
         Me.Label6.TabIndex = 33
@@ -79,7 +80,7 @@ Partial Class FormularioPedido
         '
         'TextBox2
         '
-        Me.TextBox2.Location = New System.Drawing.Point(87, 315)
+        Me.TextBox2.Location = New System.Drawing.Point(98, 312)
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(108, 20)
         Me.TextBox2.TabIndex = 29
@@ -186,11 +187,21 @@ Partial Class FormularioPedido
         Me.Label1.TabIndex = 17
         Me.Label1.Text = "Cliente"
         '
+        'Button6
+        '
+        Me.Button6.Location = New System.Drawing.Point(260, 353)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(75, 26)
+        Me.Button6.TabIndex = 34
+        Me.Button6.Text = "envio"
+        Me.Button6.UseVisualStyleBackColor = True
+        '
         'FormularioPedido
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(571, 420)
+        Me.Controls.Add(Me.Button6)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.ComboBox2)
         Me.Controls.Add(Me.Button5)
@@ -232,4 +243,5 @@ Partial Class FormularioPedido
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents Button6 As System.Windows.Forms.Button
 End Class

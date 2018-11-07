@@ -12,23 +12,23 @@ Public Class CDCliente
         oCDConexion.Conectar()
         Try
             'ya la sentencia quedo bien...NO TOCAR!!!
-            Dim instruccionSQL = "INSERT INTO Clientes  (IDCliente, Nombre ,Apellido ,Telefono, Celular, DNI, CUIT, IDPais, IDProvincia, IDCiudad, Barrio, Calle, Nro_Calle, Nro_Dpto, CP, EMAIL, IDCondIVA, Fecha) VALUES (@IDCliente, @Nombre ,@Apellido ,@Telefono, @Celular, @DNI, @CUIT, @IDPais, @IDProvincia, @IDCiudad, @Barrio, @Calle, @Nro_Calle, @Nro_Dpto, @CP, @EMAIL, @IDCondIVA, @Fecha)"
+            Dim instruccionSQL = "INSERT INTO Clientes  (IDCliente, Nombre ,Apellido ,Telefono, Telefono2, DNI, CUIT, IDPais, IDProvincia, IDCiudad, Barrio, Domicilio, NroCalle, Dpto, CP, EMAIL, IDCondIVA, Fecha) VALUES (@IDCliente, @Nombre ,@Apellido ,@Telefono, @Telefono2, @DNI, @CUIT, @IDPais, @IDProvincia, @IDCiudad, @Barrio, @Domicilio, @NroCalle, @Dpto, @CP, @EMAIL, @IDCondIVA, @Fecha)"
             Dim comando As New SQLiteCommand(instruccionSQL, oCDConexion.con)
             With comando.Parameters
                 .Add("@IDCliente", SqlDbType.Int).Value = oCECliente.IDCliente
                 .Add("@Nombre", SqlDbType.VarChar).Value = oCECliente.Nombre
                 .Add("@Apellido", SqlDbType.VarChar).Value = oCECliente.Apellido
                 .Add("@Telefono", SqlDbType.Int).Value = oCECliente.Telefono
-                .Add("@Celular", SqlDbType.Int).Value = oCECliente.Celular
+                .Add("@Telefono2", SqlDbType.Int).Value = oCECliente.Telefono2
                 .Add("@DNI", SqlDbType.Int).Value = oCECliente.DNI
                 .Add("@CUIT", SqlDbType.Int).Value = oCECliente.CUIT
                 .Add("@IDPais", SqlDbType.Int).Value = oCECliente.Pais
                 .Add("@IDProvincia", SqlDbType.Int).Value = oCECliente.Provincia
                 .Add("@IDCiudad", SqlDbType.Int).Value = oCECliente.Ciudad
                 .Add("@Barrio", SqlDbType.VarChar).Value = oCECliente.Barrio
-                .Add("@Calle", SqlDbType.VarChar).Value = oCECliente.Calle
-                .Add("@Nro_Calle", SqlDbType.Int).Value = oCECliente.NroCalle
-                .Add("@Nro_Dpto", SqlDbType.Int).Value = oCECliente.NroDpto
+                .Add("@Domicilio", SqlDbType.VarChar).Value = oCECliente.Domicilio
+                .Add("@NroCalle", SqlDbType.Int).Value = oCECliente.NroCalle
+                .Add("@Dpto", SqlDbType.Int).Value = oCECliente.Dpto
                 .Add("@CP", SqlDbType.Int).Value = oCECliente.CP
                 .Add("@EMAIL", SqlDbType.VarChar).Value = oCECliente.Email
                 .Add("@IDCondIVA", SqlDbType.Int).Value = oCECliente.CondIVA
@@ -60,23 +60,23 @@ Public Class CDCliente
     Public Sub ModificarCliente(ByVal oCECliente As CECliente)
         oCDConexion.Conectar()
         Try
-            Dim instruccionSQL = "UPDATE Clientes  SET Nombre=@Nombre ,Apellido=@Apellido ,Telefono=@Telefono, Celular=@Celular, DNI=@DNI, CUIT= @CUIT, IDPais=@IDPais, IDProvincia=@IDProvincia, IDCiudad=@IDCiudad, Barrio=@Barrio, Calle=@Calle, Nro_Calle=@Nro_Calle, Nro_Dpto=@Nro_Dpto, CP=@CP, EMAIL=@EMAIL, IDCondIVA=@IDCondIVA, Fecha=@Fecha WHERE IDCliente=@IDCliente"
+            Dim instruccionSQL = "UPDATE Clientes  SET Nombre=@Nombre ,Apellido=@Apellido ,Telefono=@Telefono, Telefono2=@Telefono2, DNI=@DNI, CUIT= @CUIT, IDPais=@IDPais, IDProvincia=@IDProvincia, IDCiudad=@IDCiudad, Barrio=@Barrio, Domicilio=@Domicilio, NroCalle=@NroCalle, Dpto=@Dpto, CP=@CP, EMAIL=@EMAIL, IDCondIVA=@IDCondIVA, Fecha=@Fecha WHERE IDCliente=@IDCliente"
             Dim comando As New SQLiteCommand(instruccionSQL, oCDConexion.con)
             With comando.Parameters
                 .Add("@IDCliente", SqlDbType.Int).Value = oCECliente.IDCliente
                 .Add("@Nombre", SqlDbType.VarChar).Value = oCECliente.Nombre
                 .Add("@Apellido", SqlDbType.VarChar).Value = oCECliente.Apellido
                 .Add("@Telefono", SqlDbType.Int).Value = oCECliente.Telefono
-                .Add("@Celular", SqlDbType.Int).Value = oCECliente.Celular
+                .Add("@Telefono2", SqlDbType.Int).Value = oCECliente.Telefono2
                 .Add("@DNI", SqlDbType.Int).Value = oCECliente.DNI
                 .Add("@CUIT", SqlDbType.Int).Value = oCECliente.CUIT
                 .Add("@IDPais", SqlDbType.Int).Value = oCECliente.Pais
                 .Add("@IDProvincia", SqlDbType.Int).Value = oCECliente.Provincia
                 .Add("@IDCiudad", SqlDbType.Int).Value = oCECliente.Ciudad
                 .Add("@Barrio", SqlDbType.VarChar).Value = oCECliente.Barrio
-                .Add("@Calle", SqlDbType.VarChar).Value = oCECliente.Calle
+                .Add("@Domicilio", SqlDbType.VarChar).Value = oCECliente.Domicilio
                 .Add("@Nro_Calle", SqlDbType.Int).Value = oCECliente.NroCalle
-                .Add("@Nro_Dpto", SqlDbType.Int).Value = oCECliente.NroDpto
+                .Add("@Dpto", SqlDbType.Int).Value = oCECliente.Dpto
                 .Add("@CP", SqlDbType.Int).Value = oCECliente.CP
                 .Add("@EMAIL", SqlDbType.VarChar).Value = oCECliente.Email
                 .Add("@IDCondIVA", SqlDbType.Int).Value = oCECliente.CondIVA
