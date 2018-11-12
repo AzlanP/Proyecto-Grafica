@@ -140,10 +140,7 @@ Public Class frmMenuPrincipal
         frmRegistrar.LlenarFormulario(ID)
         frmRegistrar.ShowDialog()
     End Sub
-<<<<<<< HEAD
-=======
 
 
    
->>>>>>> 7b340e24fdbe3eb02e79e32394797af566ae641b
 End Class
