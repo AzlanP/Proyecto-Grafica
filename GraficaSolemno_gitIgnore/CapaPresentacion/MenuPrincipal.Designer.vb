@@ -55,13 +55,18 @@ Partial Class frmMenuPrincipal
         Me.DGServicios = New System.Windows.Forms.DataGridView()
         Me.cboBuscarServicio = New System.Windows.Forms.ComboBox()
         Me.btnBuscarServicio = New System.Windows.Forms.Button()
-        Me.btnEliminarServicio = New System.Windows.Forms.Button()
-        Me.btnVerServicio = New System.Windows.Forms.Button()
-        Me.btnModificarServicio = New System.Windows.Forms.Button()
-        Me.btnNuevoServicio = New System.Windows.Forms.Button()
         Me.txtBuscarServicio = New System.Windows.Forms.TextBox()
         Me.TabEstadistica = New System.Windows.Forms.TabPage()
         Me.TabAyuda = New System.Windows.Forms.TabPage()
+        Me.PanelServicios1 = New System.Windows.Forms.Panel()
+        Me.iconoServicio = New System.Windows.Forms.PictureBox()
+        Me.PanelServiciosSuperior = New System.Windows.Forms.Panel()
+        Me.lblTituloServicio = New System.Windows.Forms.Label()
+        Me.panelServicioCentral = New System.Windows.Forms.Panel()
+        Me.btnNuevoServicio = New System.Windows.Forms.Button()
+        Me.btnVerServicio = New System.Windows.Forms.Button()
+        Me.BtnModificarServicio = New System.Windows.Forms.Button()
+        Me.btnEliminarServicio = New System.Windows.Forms.Button()
         Me.TabGeneral.SuspendLayout()
         Me.TabCliente.SuspendLayout()
         CType(Me.DGCliente, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -71,6 +76,10 @@ Partial Class frmMenuPrincipal
         CType(Me.DGProducto, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabServicios.SuspendLayout()
         CType(Me.DGServicios, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PanelServicios1.SuspendLayout()
+        CType(Me.iconoServicio, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PanelServiciosSuperior.SuspendLayout()
+        Me.panelServicioCentral.SuspendLayout()
         Me.SuspendLayout()
         '
         'TabGeneral
@@ -86,7 +95,7 @@ Partial Class frmMenuPrincipal
         Me.TabGeneral.Name = "TabGeneral"
         Me.TabGeneral.Padding = New System.Drawing.Point(6, 4)
         Me.TabGeneral.SelectedIndex = 0
-        Me.TabGeneral.Size = New System.Drawing.Size(688, 422)
+        Me.TabGeneral.Size = New System.Drawing.Size(832, 489)
         Me.TabGeneral.SizeMode = System.Windows.Forms.TabSizeMode.Fixed
         Me.TabGeneral.TabIndex = 0
         '
@@ -296,7 +305,7 @@ Partial Class frmMenuPrincipal
         Me.TabProducto.Location = New System.Drawing.Point(4, 24)
         Me.TabProducto.Name = "TabProducto"
         Me.TabProducto.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabProducto.Size = New System.Drawing.Size(680, 394)
+        Me.TabProducto.Size = New System.Drawing.Size(791, 453)
         Me.TabProducto.TabIndex = 1
         Me.TabProducto.Text = "Producto"
         '
@@ -372,18 +381,13 @@ Partial Class frmMenuPrincipal
         'TabServicios
         '
         Me.TabServicios.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.TabServicios.Controls.Add(Me.DGServicios)
-        Me.TabServicios.Controls.Add(Me.cboBuscarServicio)
-        Me.TabServicios.Controls.Add(Me.btnBuscarServicio)
-        Me.TabServicios.Controls.Add(Me.btnEliminarServicio)
-        Me.TabServicios.Controls.Add(Me.btnVerServicio)
-        Me.TabServicios.Controls.Add(Me.btnModificarServicio)
-        Me.TabServicios.Controls.Add(Me.btnNuevoServicio)
-        Me.TabServicios.Controls.Add(Me.txtBuscarServicio)
+        Me.TabServicios.Controls.Add(Me.panelServicioCentral)
+        Me.TabServicios.Controls.Add(Me.PanelServiciosSuperior)
+        Me.TabServicios.Controls.Add(Me.PanelServicios1)
         Me.TabServicios.Location = New System.Drawing.Point(4, 24)
         Me.TabServicios.Name = "TabServicios"
         Me.TabServicios.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabServicios.Size = New System.Drawing.Size(680, 394)
+        Me.TabServicios.Size = New System.Drawing.Size(824, 461)
         Me.TabServicios.TabIndex = 5
         Me.TabServicios.Text = "Servicios"
         '
@@ -394,11 +398,11 @@ Partial Class frmMenuPrincipal
         Me.DGServicios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader
         Me.DGServicios.BackgroundColor = System.Drawing.Color.White
         Me.DGServicios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGServicios.Location = New System.Drawing.Point(38, 62)
+        Me.DGServicios.Location = New System.Drawing.Point(37, 68)
         Me.DGServicios.MultiSelect = False
         Me.DGServicios.Name = "DGServicios"
         Me.DGServicios.ReadOnly = True
-        Me.DGServicios.Size = New System.Drawing.Size(621, 284)
+        Me.DGServicios.Size = New System.Drawing.Size(578, 269)
         Me.DGServicios.TabIndex = 15
         '
         'cboBuscarServicio
@@ -406,61 +410,25 @@ Partial Class frmMenuPrincipal
         Me.cboBuscarServicio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboBuscarServicio.FormattingEnabled = True
         Me.cboBuscarServicio.Items.AddRange(New Object() {"Nombre", "Apellido", "DNI", "CUIT"})
-        Me.cboBuscarServicio.Location = New System.Drawing.Point(396, 35)
+        Me.cboBuscarServicio.Location = New System.Drawing.Point(307, 24)
         Me.cboBuscarServicio.Name = "cboBuscarServicio"
-        Me.cboBuscarServicio.Size = New System.Drawing.Size(121, 21)
+        Me.cboBuscarServicio.Size = New System.Drawing.Size(95, 21)
         Me.cboBuscarServicio.TabIndex = 14
         '
         'btnBuscarServicio
         '
-        Me.btnBuscarServicio.Location = New System.Drawing.Point(537, 35)
+        Me.btnBuscarServicio.Location = New System.Drawing.Point(424, 22)
         Me.btnBuscarServicio.Name = "btnBuscarServicio"
         Me.btnBuscarServicio.Size = New System.Drawing.Size(75, 23)
         Me.btnBuscarServicio.TabIndex = 13
         Me.btnBuscarServicio.Text = "Buscar"
         Me.btnBuscarServicio.UseVisualStyleBackColor = True
         '
-        'btnEliminarServicio
-        '
-        Me.btnEliminarServicio.Location = New System.Drawing.Point(175, 352)
-        Me.btnEliminarServicio.Name = "btnEliminarServicio"
-        Me.btnEliminarServicio.Size = New System.Drawing.Size(110, 23)
-        Me.btnEliminarServicio.TabIndex = 12
-        Me.btnEliminarServicio.Text = "Eliminar"
-        Me.btnEliminarServicio.UseVisualStyleBackColor = True
-        '
-        'btnVerServicio
-        '
-        Me.btnVerServicio.Location = New System.Drawing.Point(326, 352)
-        Me.btnVerServicio.Name = "btnVerServicio"
-        Me.btnVerServicio.Size = New System.Drawing.Size(110, 23)
-        Me.btnVerServicio.TabIndex = 11
-        Me.btnVerServicio.Text = "Ver servicio"
-        Me.btnVerServicio.UseVisualStyleBackColor = True
-        '
-        'btnModificarServicio
-        '
-        Me.btnModificarServicio.Location = New System.Drawing.Point(442, 352)
-        Me.btnModificarServicio.Name = "btnModificarServicio"
-        Me.btnModificarServicio.Size = New System.Drawing.Size(110, 23)
-        Me.btnModificarServicio.TabIndex = 10
-        Me.btnModificarServicio.Text = "Modificar"
-        Me.btnModificarServicio.UseVisualStyleBackColor = True
-        '
-        'btnNuevoServicio
-        '
-        Me.btnNuevoServicio.Location = New System.Drawing.Point(48, 352)
-        Me.btnNuevoServicio.Name = "btnNuevoServicio"
-        Me.btnNuevoServicio.Size = New System.Drawing.Size(110, 23)
-        Me.btnNuevoServicio.TabIndex = 9
-        Me.btnNuevoServicio.Text = "Nuevo Servicio"
-        Me.btnNuevoServicio.UseVisualStyleBackColor = True
-        '
         'txtBuscarServicio
         '
-        Me.txtBuscarServicio.Location = New System.Drawing.Point(38, 36)
+        Me.txtBuscarServicio.Location = New System.Drawing.Point(37, 24)
         Me.txtBuscarServicio.Name = "txtBuscarServicio"
-        Me.txtBuscarServicio.Size = New System.Drawing.Size(352, 20)
+        Me.txtBuscarServicio.Size = New System.Drawing.Size(247, 20)
         Me.txtBuscarServicio.TabIndex = 8
         '
         'TabEstadistica
@@ -481,12 +449,123 @@ Partial Class frmMenuPrincipal
         Me.TabAyuda.Text = "Ayuda"
         Me.TabAyuda.UseVisualStyleBackColor = True
         '
+        'PanelServicios1
+        '
+        Me.PanelServicios1.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(134, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.PanelServicios1.Controls.Add(Me.btnEliminarServicio)
+        Me.PanelServicios1.Controls.Add(Me.BtnModificarServicio)
+        Me.PanelServicios1.Controls.Add(Me.btnVerServicio)
+        Me.PanelServicios1.Controls.Add(Me.btnNuevoServicio)
+        Me.PanelServicios1.Controls.Add(Me.iconoServicio)
+        Me.PanelServicios1.Dock = System.Windows.Forms.DockStyle.Left
+        Me.PanelServicios1.Location = New System.Drawing.Point(3, 3)
+        Me.PanelServicios1.Name = "PanelServicios1"
+        Me.PanelServicios1.Size = New System.Drawing.Size(186, 455)
+        Me.PanelServicios1.TabIndex = 16
+        '
+        'iconoServicio
+        '
+        Me.iconoServicio.Location = New System.Drawing.Point(37, 12)
+        Me.iconoServicio.Name = "iconoServicio"
+        Me.iconoServicio.Size = New System.Drawing.Size(109, 99)
+        Me.iconoServicio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.iconoServicio.TabIndex = 13
+        Me.iconoServicio.TabStop = False
+        '
+        'PanelServiciosSuperior
+        '
+        Me.PanelServiciosSuperior.BackColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(166, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.PanelServiciosSuperior.Controls.Add(Me.lblTituloServicio)
+        Me.PanelServiciosSuperior.Dock = System.Windows.Forms.DockStyle.Top
+        Me.PanelServiciosSuperior.Location = New System.Drawing.Point(189, 3)
+        Me.PanelServiciosSuperior.Name = "PanelServiciosSuperior"
+        Me.PanelServiciosSuperior.Size = New System.Drawing.Size(632, 95)
+        Me.PanelServiciosSuperior.TabIndex = 17
+        '
+        'lblTituloServicio
+        '
+        Me.lblTituloServicio.AutoSize = True
+        Me.lblTituloServicio.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, System.Drawing.FontStyle.Bold)
+        Me.lblTituloServicio.Location = New System.Drawing.Point(191, 25)
+        Me.lblTituloServicio.Name = "lblTituloServicio"
+        Me.lblTituloServicio.Size = New System.Drawing.Size(227, 55)
+        Me.lblTituloServicio.TabIndex = 0
+        Me.lblTituloServicio.Text = "Servicios"
+        '
+        'panelServicioCentral
+        '
+        Me.panelServicioCentral.Controls.Add(Me.DGServicios)
+        Me.panelServicioCentral.Controls.Add(Me.btnBuscarServicio)
+        Me.panelServicioCentral.Controls.Add(Me.cboBuscarServicio)
+        Me.panelServicioCentral.Controls.Add(Me.txtBuscarServicio)
+        Me.panelServicioCentral.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.panelServicioCentral.Location = New System.Drawing.Point(189, 98)
+        Me.panelServicioCentral.Name = "panelServicioCentral"
+        Me.panelServicioCentral.Size = New System.Drawing.Size(632, 360)
+        Me.panelServicioCentral.TabIndex = 18
+        '
+        'btnNuevoServicio
+        '
+        Me.btnNuevoServicio.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnNuevoServicio.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnNuevoServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnNuevoServicio.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnNuevoServicio.ForeColor = System.Drawing.Color.White
+        Me.btnNuevoServicio.Location = New System.Drawing.Point(-3, 136)
+        Me.btnNuevoServicio.Name = "btnNuevoServicio"
+        Me.btnNuevoServicio.Size = New System.Drawing.Size(195, 50)
+        Me.btnNuevoServicio.TabIndex = 14
+        Me.btnNuevoServicio.Text = "Nuevo Servicio"
+        Me.btnNuevoServicio.UseVisualStyleBackColor = False
+        '
+        'btnVerServicio
+        '
+        Me.btnVerServicio.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnVerServicio.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnVerServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnVerServicio.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnVerServicio.ForeColor = System.Drawing.Color.White
+        Me.btnVerServicio.Location = New System.Drawing.Point(-4, 211)
+        Me.btnVerServicio.Name = "btnVerServicio"
+        Me.btnVerServicio.Size = New System.Drawing.Size(195, 50)
+        Me.btnVerServicio.TabIndex = 15
+        Me.btnVerServicio.Text = "Ver Servicio"
+        Me.btnVerServicio.UseVisualStyleBackColor = False
+        '
+        'BtnModificarServicio
+        '
+        Me.BtnModificarServicio.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.BtnModificarServicio.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.BtnModificarServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnModificarServicio.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnModificarServicio.ForeColor = System.Drawing.Color.White
+        Me.BtnModificarServicio.Location = New System.Drawing.Point(-7, 286)
+        Me.BtnModificarServicio.Name = "BtnModificarServicio"
+        Me.BtnModificarServicio.Size = New System.Drawing.Size(195, 50)
+        Me.BtnModificarServicio.TabIndex = 16
+        Me.BtnModificarServicio.Text = "Modificar"
+        Me.BtnModificarServicio.UseVisualStyleBackColor = False
+        '
+        'btnEliminarServicio
+        '
+        Me.btnEliminarServicio.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnEliminarServicio.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnEliminarServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnEliminarServicio.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEliminarServicio.ForeColor = System.Drawing.Color.White
+        Me.btnEliminarServicio.Location = New System.Drawing.Point(-4, 361)
+        Me.btnEliminarServicio.Name = "btnEliminarServicio"
+        Me.btnEliminarServicio.Size = New System.Drawing.Size(195, 50)
+        Me.btnEliminarServicio.TabIndex = 17
+        Me.btnEliminarServicio.Text = "Eliminar"
+        Me.btnEliminarServicio.UseVisualStyleBackColor = False
+        '
         'frmMenuPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LimeGreen
-        Me.ClientSize = New System.Drawing.Size(726, 491)
+        Me.ClientSize = New System.Drawing.Size(879, 525)
         Me.Controls.Add(Me.TabGeneral)
         Me.Name = "frmMenuPrincipal"
         Me.Text = "MenuPrincipal"
@@ -501,8 +580,13 @@ Partial Class frmMenuPrincipal
         Me.TabProducto.PerformLayout()
         CType(Me.DGProducto, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabServicios.ResumeLayout(False)
-        Me.TabServicios.PerformLayout()
         CType(Me.DGServicios, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.PanelServicios1.ResumeLayout(False)
+        CType(Me.iconoServicio, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.PanelServiciosSuperior.ResumeLayout(False)
+        Me.PanelServiciosSuperior.PerformLayout()
+        Me.panelServicioCentral.ResumeLayout(False)
+        Me.panelServicioCentral.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -541,9 +625,14 @@ Partial Class frmMenuPrincipal
     Friend WithEvents DGServicios As System.Windows.Forms.DataGridView
     Friend WithEvents cboBuscarServicio As System.Windows.Forms.ComboBox
     Friend WithEvents btnBuscarServicio As System.Windows.Forms.Button
-    Friend WithEvents btnEliminarServicio As System.Windows.Forms.Button
-    Friend WithEvents btnVerServicio As System.Windows.Forms.Button
-    Friend WithEvents btnModificarServicio As System.Windows.Forms.Button
-    Friend WithEvents btnNuevoServicio As System.Windows.Forms.Button
     Friend WithEvents txtBuscarServicio As System.Windows.Forms.TextBox
+    Friend WithEvents panelServicioCentral As System.Windows.Forms.Panel
+    Friend WithEvents PanelServiciosSuperior As System.Windows.Forms.Panel
+    Friend WithEvents lblTituloServicio As System.Windows.Forms.Label
+    Friend WithEvents PanelServicios1 As System.Windows.Forms.Panel
+    Friend WithEvents btnNuevoServicio As System.Windows.Forms.Button
+    Friend WithEvents iconoServicio As System.Windows.Forms.PictureBox
+    Friend WithEvents btnEliminarServicio As System.Windows.Forms.Button
+    Friend WithEvents BtnModificarServicio As System.Windows.Forms.Button
+    Friend WithEvents btnVerServicio As System.Windows.Forms.Button
 End Class
