@@ -37,10 +37,6 @@ Partial Class frmMenuPrincipal
         Me.cboBuscarPedido = New System.Windows.Forms.ComboBox()
         Me.txtBuscarPedido = New System.Windows.Forms.TextBox()
         Me.btnBuscarPedido = New System.Windows.Forms.Button()
-        Me.btnEliminarPedido = New System.Windows.Forms.Button()
-        Me.btnModificarPedido = New System.Windows.Forms.Button()
-        Me.Button7 = New System.Windows.Forms.Button()
-        Me.btnNuevoPedido = New System.Windows.Forms.Button()
         Me.DGPedido = New System.Windows.Forms.DataGridView()
         Me.TabProducto = New System.Windows.Forms.TabPage()
         Me.cboBuscarProducto = New System.Windows.Forms.ComboBox()
@@ -62,6 +58,15 @@ Partial Class frmMenuPrincipal
         Me.txtBuscarServicio = New System.Windows.Forms.TextBox()
         Me.TabEstadistica = New System.Windows.Forms.TabPage()
         Me.TabAyuda = New System.Windows.Forms.TabPage()
+        Me.PanelPedidoLateral = New System.Windows.Forms.Panel()
+        Me.PanelPedidoSuperior = New System.Windows.Forms.Panel()
+        Me.PanelPedidoCentral = New System.Windows.Forms.Panel()
+        Me.IconoPedido = New System.Windows.Forms.PictureBox()
+        Me.btnNuenoPedido = New System.Windows.Forms.Button()
+        Me.btnModificarPedido = New System.Windows.Forms.Button()
+        Me.btnEliminarPedido = New System.Windows.Forms.Button()
+        Me.btnVerPedido = New System.Windows.Forms.Button()
+        Me.lblPedido = New System.Windows.Forms.Label()
         Me.TabGeneral.SuspendLayout()
         Me.TabCliente.SuspendLayout()
         CType(Me.DGCliente, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -71,6 +76,10 @@ Partial Class frmMenuPrincipal
         CType(Me.DGProducto, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabServicios.SuspendLayout()
         CType(Me.DGServicios, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PanelPedidoLateral.SuspendLayout()
+        Me.PanelPedidoSuperior.SuspendLayout()
+        Me.PanelPedidoCentral.SuspendLayout()
+        CType(Me.IconoPedido, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TabGeneral
@@ -86,7 +95,7 @@ Partial Class frmMenuPrincipal
         Me.TabGeneral.Name = "TabGeneral"
         Me.TabGeneral.Padding = New System.Drawing.Point(6, 4)
         Me.TabGeneral.SelectedIndex = 0
-        Me.TabGeneral.Size = New System.Drawing.Size(688, 422)
+        Me.TabGeneral.Size = New System.Drawing.Size(845, 449)
         Me.TabGeneral.SizeMode = System.Windows.Forms.TabSizeMode.Fixed
         Me.TabGeneral.TabIndex = 0
         '
@@ -197,17 +206,12 @@ Partial Class frmMenuPrincipal
         'TabPedido
         '
         Me.TabPedido.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.TabPedido.Controls.Add(Me.cboBuscarPedido)
-        Me.TabPedido.Controls.Add(Me.txtBuscarPedido)
-        Me.TabPedido.Controls.Add(Me.btnBuscarPedido)
-        Me.TabPedido.Controls.Add(Me.btnEliminarPedido)
-        Me.TabPedido.Controls.Add(Me.btnModificarPedido)
-        Me.TabPedido.Controls.Add(Me.Button7)
-        Me.TabPedido.Controls.Add(Me.btnNuevoPedido)
-        Me.TabPedido.Controls.Add(Me.DGPedido)
+        Me.TabPedido.Controls.Add(Me.PanelPedidoCentral)
+        Me.TabPedido.Controls.Add(Me.PanelPedidoSuperior)
+        Me.TabPedido.Controls.Add(Me.PanelPedidoLateral)
         Me.TabPedido.Location = New System.Drawing.Point(4, 24)
         Me.TabPedido.Name = "TabPedido"
-        Me.TabPedido.Size = New System.Drawing.Size(680, 394)
+        Me.TabPedido.Size = New System.Drawing.Size(837, 421)
         Me.TabPedido.TabIndex = 2
         Me.TabPedido.Text = "Pedido"
         '
@@ -216,70 +220,34 @@ Partial Class frmMenuPrincipal
         Me.cboBuscarPedido.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboBuscarPedido.FormattingEnabled = True
         Me.cboBuscarPedido.Items.AddRange(New Object() {"Nombre", "Apellido", "DNI", "CUIT"})
-        Me.cboBuscarPedido.Location = New System.Drawing.Point(385, 36)
+        Me.cboBuscarPedido.Location = New System.Drawing.Point(412, 27)
         Me.cboBuscarPedido.Name = "cboBuscarPedido"
         Me.cboBuscarPedido.Size = New System.Drawing.Size(121, 21)
         Me.cboBuscarPedido.TabIndex = 13
         '
         'txtBuscarPedido
         '
-        Me.txtBuscarPedido.Location = New System.Drawing.Point(38, 36)
+        Me.txtBuscarPedido.Location = New System.Drawing.Point(8, 27)
         Me.txtBuscarPedido.Name = "txtBuscarPedido"
-        Me.txtBuscarPedido.Size = New System.Drawing.Size(341, 20)
+        Me.txtBuscarPedido.Size = New System.Drawing.Size(398, 20)
         Me.txtBuscarPedido.TabIndex = 12
         '
         'btnBuscarPedido
         '
-        Me.btnBuscarPedido.Location = New System.Drawing.Point(512, 34)
+        Me.btnBuscarPedido.Location = New System.Drawing.Point(549, 24)
         Me.btnBuscarPedido.Name = "btnBuscarPedido"
         Me.btnBuscarPedido.Size = New System.Drawing.Size(75, 23)
         Me.btnBuscarPedido.TabIndex = 11
         Me.btnBuscarPedido.Text = "Buscar"
         Me.btnBuscarPedido.UseVisualStyleBackColor = True
         '
-        'btnEliminarPedido
-        '
-        Me.btnEliminarPedido.Location = New System.Drawing.Point(184, 359)
-        Me.btnEliminarPedido.Name = "btnEliminarPedido"
-        Me.btnEliminarPedido.Size = New System.Drawing.Size(114, 23)
-        Me.btnEliminarPedido.TabIndex = 10
-        Me.btnEliminarPedido.Text = "Eliminar"
-        Me.btnEliminarPedido.UseVisualStyleBackColor = True
-        '
-        'btnModificarPedido
-        '
-        Me.btnModificarPedido.Location = New System.Drawing.Point(320, 359)
-        Me.btnModificarPedido.Name = "btnModificarPedido"
-        Me.btnModificarPedido.Size = New System.Drawing.Size(114, 23)
-        Me.btnModificarPedido.TabIndex = 9
-        Me.btnModificarPedido.Text = "Modificar"
-        Me.btnModificarPedido.UseVisualStyleBackColor = True
-        '
-        'Button7
-        '
-        Me.Button7.Location = New System.Drawing.Point(456, 359)
-        Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(114, 23)
-        Me.Button7.TabIndex = 8
-        Me.Button7.Text = "Ver"
-        Me.Button7.UseVisualStyleBackColor = True
-        '
-        'btnNuevoPedido
-        '
-        Me.btnNuevoPedido.Location = New System.Drawing.Point(48, 359)
-        Me.btnNuevoPedido.Name = "btnNuevoPedido"
-        Me.btnNuevoPedido.Size = New System.Drawing.Size(114, 23)
-        Me.btnNuevoPedido.TabIndex = 7
-        Me.btnNuevoPedido.Text = "Nuevo Producto"
-        Me.btnNuevoPedido.UseVisualStyleBackColor = True
-        '
         'DGPedido
         '
         Me.DGPedido.BackgroundColor = System.Drawing.SystemColors.ControlLightLight
         Me.DGPedido.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGPedido.Location = New System.Drawing.Point(38, 62)
+        Me.DGPedido.Location = New System.Drawing.Point(8, 53)
         Me.DGPedido.Name = "DGPedido"
-        Me.DGPedido.Size = New System.Drawing.Size(621, 284)
+        Me.DGPedido.Size = New System.Drawing.Size(616, 251)
         Me.DGPedido.TabIndex = 6
         '
         'TabProducto
@@ -481,12 +449,122 @@ Partial Class frmMenuPrincipal
         Me.TabAyuda.Text = "Ayuda"
         Me.TabAyuda.UseVisualStyleBackColor = True
         '
+        'PanelPedidoLateral
+        '
+        Me.PanelPedidoLateral.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(134, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.PanelPedidoLateral.Controls.Add(Me.btnVerPedido)
+        Me.PanelPedidoLateral.Controls.Add(Me.btnEliminarPedido)
+        Me.PanelPedidoLateral.Controls.Add(Me.btnModificarPedido)
+        Me.PanelPedidoLateral.Controls.Add(Me.btnNuenoPedido)
+        Me.PanelPedidoLateral.Controls.Add(Me.IconoPedido)
+        Me.PanelPedidoLateral.Dock = System.Windows.Forms.DockStyle.Left
+        Me.PanelPedidoLateral.Location = New System.Drawing.Point(0, 0)
+        Me.PanelPedidoLateral.Name = "PanelPedidoLateral"
+        Me.PanelPedidoLateral.Size = New System.Drawing.Size(200, 421)
+        Me.PanelPedidoLateral.TabIndex = 14
+        '
+        'PanelPedidoSuperior
+        '
+        Me.PanelPedidoSuperior.BackColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(166, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.PanelPedidoSuperior.Controls.Add(Me.lblPedido)
+        Me.PanelPedidoSuperior.Dock = System.Windows.Forms.DockStyle.Top
+        Me.PanelPedidoSuperior.Location = New System.Drawing.Point(200, 0)
+        Me.PanelPedidoSuperior.Name = "PanelPedidoSuperior"
+        Me.PanelPedidoSuperior.Size = New System.Drawing.Size(637, 100)
+        Me.PanelPedidoSuperior.TabIndex = 15
+        '
+        'PanelPedidoCentral
+        '
+        Me.PanelPedidoCentral.Controls.Add(Me.DGPedido)
+        Me.PanelPedidoCentral.Controls.Add(Me.txtBuscarPedido)
+        Me.PanelPedidoCentral.Controls.Add(Me.cboBuscarPedido)
+        Me.PanelPedidoCentral.Controls.Add(Me.btnBuscarPedido)
+        Me.PanelPedidoCentral.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PanelPedidoCentral.Location = New System.Drawing.Point(200, 100)
+        Me.PanelPedidoCentral.Name = "PanelPedidoCentral"
+        Me.PanelPedidoCentral.Size = New System.Drawing.Size(637, 321)
+        Me.PanelPedidoCentral.TabIndex = 16
+        '
+        'IconoPedido
+        '
+        Me.IconoPedido.Location = New System.Drawing.Point(20, 15)
+        Me.IconoPedido.Name = "IconoPedido"
+        Me.IconoPedido.Size = New System.Drawing.Size(165, 144)
+        Me.IconoPedido.TabIndex = 11
+        Me.IconoPedido.TabStop = False
+        '
+        'btnNuenoPedido
+        '
+        Me.btnNuenoPedido.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnNuenoPedido.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnNuenoPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnNuenoPedido.Font = New System.Drawing.Font("WarHeliosCondCBold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnNuenoPedido.ForeColor = System.Drawing.Color.White
+        Me.btnNuenoPedido.Location = New System.Drawing.Point(2, 171)
+        Me.btnNuenoPedido.Name = "btnNuenoPedido"
+        Me.btnNuenoPedido.Size = New System.Drawing.Size(195, 50)
+        Me.btnNuenoPedido.TabIndex = 12
+        Me.btnNuenoPedido.Text = "Nuevo Pedido"
+        Me.btnNuenoPedido.UseVisualStyleBackColor = False
+        '
+        'btnModificarPedido
+        '
+        Me.btnModificarPedido.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnModificarPedido.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnModificarPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnModificarPedido.Font = New System.Drawing.Font("WarHeliosCondCBold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnModificarPedido.ForeColor = System.Drawing.Color.White
+        Me.btnModificarPedido.Location = New System.Drawing.Point(0, 227)
+        Me.btnModificarPedido.Name = "btnModificarPedido"
+        Me.btnModificarPedido.Size = New System.Drawing.Size(195, 50)
+        Me.btnModificarPedido.TabIndex = 13
+        Me.btnModificarPedido.Text = "Modificar Pedido"
+        Me.btnModificarPedido.UseVisualStyleBackColor = False
+        '
+        'btnEliminarPedido
+        '
+        Me.btnEliminarPedido.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnEliminarPedido.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnEliminarPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnEliminarPedido.Font = New System.Drawing.Font("WarHeliosCondCBold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEliminarPedido.ForeColor = System.Drawing.Color.White
+        Me.btnEliminarPedido.Location = New System.Drawing.Point(0, 283)
+        Me.btnEliminarPedido.Name = "btnEliminarPedido"
+        Me.btnEliminarPedido.Size = New System.Drawing.Size(195, 50)
+        Me.btnEliminarPedido.TabIndex = 14
+        Me.btnEliminarPedido.Text = "Eliminar Pedido"
+        Me.btnEliminarPedido.UseVisualStyleBackColor = False
+        '
+        'btnVerPedido
+        '
+        Me.btnVerPedido.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnVerPedido.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnVerPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnVerPedido.Font = New System.Drawing.Font("WarHeliosCondCBold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnVerPedido.ForeColor = System.Drawing.Color.White
+        Me.btnVerPedido.Location = New System.Drawing.Point(0, 339)
+        Me.btnVerPedido.Name = "btnVerPedido"
+        Me.btnVerPedido.Size = New System.Drawing.Size(195, 50)
+        Me.btnVerPedido.TabIndex = 15
+        Me.btnVerPedido.Text = "Mostrar Detalles Pedido"
+        Me.btnVerPedido.UseVisualStyleBackColor = False
+        '
+        'lblPedido
+        '
+        Me.lblPedido.AutoSize = True
+        Me.lblPedido.Font = New System.Drawing.Font("WarHeliosCondCBold", 36.0!, System.Drawing.FontStyle.Bold)
+        Me.lblPedido.Location = New System.Drawing.Point(234, 27)
+        Me.lblPedido.Name = "lblPedido"
+        Me.lblPedido.Size = New System.Drawing.Size(172, 59)
+        Me.lblPedido.TabIndex = 0
+        Me.lblPedido.Text = "Pedidos"
+        '
         'frmMenuPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LimeGreen
-        Me.ClientSize = New System.Drawing.Size(726, 491)
+        Me.ClientSize = New System.Drawing.Size(901, 491)
         Me.Controls.Add(Me.TabGeneral)
         Me.Name = "frmMenuPrincipal"
         Me.Text = "MenuPrincipal"
@@ -495,7 +573,6 @@ Partial Class frmMenuPrincipal
         Me.TabCliente.PerformLayout()
         CType(Me.DGCliente, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPedido.ResumeLayout(False)
-        Me.TabPedido.PerformLayout()
         CType(Me.DGPedido, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabProducto.ResumeLayout(False)
         Me.TabProducto.PerformLayout()
@@ -503,6 +580,12 @@ Partial Class frmMenuPrincipal
         Me.TabServicios.ResumeLayout(False)
         Me.TabServicios.PerformLayout()
         CType(Me.DGServicios, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.PanelPedidoLateral.ResumeLayout(False)
+        Me.PanelPedidoSuperior.ResumeLayout(False)
+        Me.PanelPedidoSuperior.PerformLayout()
+        Me.PanelPedidoCentral.ResumeLayout(False)
+        Me.PanelPedidoCentral.PerformLayout()
+        CType(Me.IconoPedido, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -529,10 +612,6 @@ Partial Class frmMenuPrincipal
     Friend WithEvents btnBuscarProducto As System.Windows.Forms.Button
     Friend WithEvents DGProducto As System.Windows.Forms.DataGridView
     Friend WithEvents btnBuscarPedido As System.Windows.Forms.Button
-    Friend WithEvents btnEliminarPedido As System.Windows.Forms.Button
-    Friend WithEvents btnModificarPedido As System.Windows.Forms.Button
-    Friend WithEvents Button7 As System.Windows.Forms.Button
-    Friend WithEvents btnNuevoPedido As System.Windows.Forms.Button
     Friend WithEvents DGPedido As System.Windows.Forms.DataGridView
     Friend WithEvents TabTareas As System.Windows.Forms.TabPage
     Friend WithEvents TabServicios As System.Windows.Forms.TabPage
@@ -546,4 +625,13 @@ Partial Class frmMenuPrincipal
     Friend WithEvents btnModificarServicio As System.Windows.Forms.Button
     Friend WithEvents btnNuevoServicio As System.Windows.Forms.Button
     Friend WithEvents txtBuscarServicio As System.Windows.Forms.TextBox
+    Friend WithEvents PanelPedidoCentral As System.Windows.Forms.Panel
+    Friend WithEvents PanelPedidoSuperior As System.Windows.Forms.Panel
+    Friend WithEvents PanelPedidoLateral As System.Windows.Forms.Panel
+    Friend WithEvents btnNuenoPedido As System.Windows.Forms.Button
+    Friend WithEvents IconoPedido As System.Windows.Forms.PictureBox
+    Friend WithEvents lblPedido As System.Windows.Forms.Label
+    Friend WithEvents btnVerPedido As System.Windows.Forms.Button
+    Friend WithEvents btnEliminarPedido As System.Windows.Forms.Button
+    Friend WithEvents btnModificarPedido As System.Windows.Forms.Button
 End Class
