@@ -25,61 +25,112 @@ Partial Class frmMenuPrincipal
         Me.TabGeneral = New System.Windows.Forms.TabControl()
         Me.TabTareas = New System.Windows.Forms.TabPage()
         Me.TabCliente = New System.Windows.Forms.TabPage()
-        Me.DGCliente = New System.Windows.Forms.DataGridView()
-        Me.cboBuscarCliente = New System.Windows.Forms.ComboBox()
+        Me.PanelCentralCliente = New System.Windows.Forms.Panel()
+        Me.txtBuscarCliente = New System.Windows.Forms.TextBox()
         Me.btnBuscarCliente = New System.Windows.Forms.Button()
+        Me.cboBuscarCliente = New System.Windows.Forms.ComboBox()
+        Me.DGCliente = New System.Windows.Forms.DataGridView()
+        Me.PanelSuperiorCliente = New System.Windows.Forms.Panel()
+        Me.lbltituloCliente = New System.Windows.Forms.Label()
+        Me.PanelLateralCliente = New System.Windows.Forms.Panel()
+        Me.PictureBoxCliente = New System.Windows.Forms.PictureBox()
         Me.btnEliminarCliente = New System.Windows.Forms.Button()
         Me.btnVerCliente = New System.Windows.Forms.Button()
         Me.btnModificarCliente = New System.Windows.Forms.Button()
         Me.btnNuevoCliente = New System.Windows.Forms.Button()
-        Me.txtBuscarCliente = New System.Windows.Forms.TextBox()
         Me.TabPedido = New System.Windows.Forms.TabPage()
-        Me.cboBuscarPedido = New System.Windows.Forms.ComboBox()
+        Me.PanelCentralPedido = New System.Windows.Forms.Panel()
         Me.txtBuscarPedido = New System.Windows.Forms.TextBox()
         Me.btnBuscarPedido = New System.Windows.Forms.Button()
+        Me.DGPedido = New System.Windows.Forms.DataGridView()
+        Me.cboBuscarPedido = New System.Windows.Forms.ComboBox()
+        Me.PanelSuperiorPedido = New System.Windows.Forms.Panel()
+        Me.lblTituloPedidos = New System.Windows.Forms.Label()
+        Me.PanelLateralPedido = New System.Windows.Forms.Panel()
         Me.btnEliminarPedido = New System.Windows.Forms.Button()
         Me.btnModificarPedido = New System.Windows.Forms.Button()
-        Me.Button7 = New System.Windows.Forms.Button()
+        Me.btnVerPedido = New System.Windows.Forms.Button()
         Me.btnNuevoPedido = New System.Windows.Forms.Button()
-        Me.DGPedido = New System.Windows.Forms.DataGridView()
+        Me.IconoPedido = New System.Windows.Forms.PictureBox()
         Me.TabProducto = New System.Windows.Forms.TabPage()
-        Me.cboBuscarProducto = New System.Windows.Forms.ComboBox()
+        Me.panelCentralProducto = New System.Windows.Forms.Panel()
         Me.txtBuscarProducto = New System.Windows.Forms.TextBox()
+        Me.DGProducto = New System.Windows.Forms.DataGridView()
+        Me.btnBuscarProducto = New System.Windows.Forms.Button()
+        Me.cboBuscarProducto = New System.Windows.Forms.ComboBox()
+        Me.panelSuperiorProducto = New System.Windows.Forms.Panel()
+        Me.lblTituloProducto = New System.Windows.Forms.Label()
+        Me.panelLateralProducto = New System.Windows.Forms.Panel()
         Me.btnVerProducto = New System.Windows.Forms.Button()
         Me.btnModificarProducto = New System.Windows.Forms.Button()
         Me.btnEliminarProducto = New System.Windows.Forms.Button()
         Me.btnAgregarProducto = New System.Windows.Forms.Button()
-        Me.btnBuscarProducto = New System.Windows.Forms.Button()
-        Me.DGProducto = New System.Windows.Forms.DataGridView()
+        Me.IconoProducto = New System.Windows.Forms.PictureBox()
         Me.TabServicios = New System.Windows.Forms.TabPage()
+        Me.panelCentralServicio = New System.Windows.Forms.Panel()
         Me.DGServicios = New System.Windows.Forms.DataGridView()
-        Me.cboBuscarServicio = New System.Windows.Forms.ComboBox()
         Me.btnBuscarServicio = New System.Windows.Forms.Button()
+        Me.cboBuscarServicio = New System.Windows.Forms.ComboBox()
         Me.txtBuscarServicio = New System.Windows.Forms.TextBox()
-        Me.TabEstadistica = New System.Windows.Forms.TabPage()
-        Me.TabAyuda = New System.Windows.Forms.TabPage()
-        Me.PanelServicios1 = New System.Windows.Forms.Panel()
-        Me.iconoServicio = New System.Windows.Forms.PictureBox()
-        Me.PanelServiciosSuperior = New System.Windows.Forms.Panel()
+        Me.panelSuperiorServicio = New System.Windows.Forms.Panel()
         Me.lblTituloServicio = New System.Windows.Forms.Label()
-        Me.panelServicioCentral = New System.Windows.Forms.Panel()
-        Me.btnNuevoServicio = New System.Windows.Forms.Button()
-        Me.btnVerServicio = New System.Windows.Forms.Button()
-        Me.BtnModificarServicio = New System.Windows.Forms.Button()
+        Me.panelLateralServicio = New System.Windows.Forms.Panel()
         Me.btnEliminarServicio = New System.Windows.Forms.Button()
+        Me.BtnModificarServicio = New System.Windows.Forms.Button()
+        Me.btnVerServicio = New System.Windows.Forms.Button()
+        Me.btnNuevoServicio = New System.Windows.Forms.Button()
+        Me.iconoServicio = New System.Windows.Forms.PictureBox()
+        Me.TabEstadistica = New System.Windows.Forms.TabPage()
+        Me.Panel7 = New System.Windows.Forms.Panel()
+        Me.PanelSupEstadistica = New System.Windows.Forms.Panel()
+        Me.lblTituloEstadistica = New System.Windows.Forms.Label()
+        Me.PnlLateralEstadistica = New System.Windows.Forms.Panel()
+        Me.lblSubtituloEstadisticas = New System.Windows.Forms.Label()
+        Me.btnGraficosProducto = New System.Windows.Forms.Button()
+        Me.btnGraficoServicios = New System.Windows.Forms.Button()
+        Me.btnGraficoMedios = New System.Windows.Forms.Button()
+        Me.btnGraficoPedidos = New System.Windows.Forms.Button()
+        Me.PictureBoxEstadistic = New System.Windows.Forms.PictureBox()
+        Me.TabAyuda = New System.Windows.Forms.TabPage()
+        Me.PanelCentralAyuda = New System.Windows.Forms.Panel()
+        Me.PanelSuperiorAyuda = New System.Windows.Forms.Panel()
+        Me.lblTituloAyuda = New System.Windows.Forms.Label()
+        Me.PanelLateralAyuda = New System.Windows.Forms.Panel()
+        Me.lblIndice = New System.Windows.Forms.Label()
+        Me.IconoAyuda = New System.Windows.Forms.PictureBox()
         Me.TabGeneral.SuspendLayout()
         Me.TabCliente.SuspendLayout()
+        Me.PanelCentralCliente.SuspendLayout()
         CType(Me.DGCliente, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PanelSuperiorCliente.SuspendLayout()
+        Me.PanelLateralCliente.SuspendLayout()
+        CType(Me.PictureBoxCliente, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPedido.SuspendLayout()
+        Me.PanelCentralPedido.SuspendLayout()
         CType(Me.DGPedido, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PanelSuperiorPedido.SuspendLayout()
+        Me.PanelLateralPedido.SuspendLayout()
+        CType(Me.IconoPedido, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabProducto.SuspendLayout()
+        Me.panelCentralProducto.SuspendLayout()
         CType(Me.DGProducto, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.panelSuperiorProducto.SuspendLayout()
+        Me.panelLateralProducto.SuspendLayout()
+        CType(Me.IconoProducto, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabServicios.SuspendLayout()
+        Me.panelCentralServicio.SuspendLayout()
         CType(Me.DGServicios, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.PanelServicios1.SuspendLayout()
+        Me.panelSuperiorServicio.SuspendLayout()
+        Me.panelLateralServicio.SuspendLayout()
         CType(Me.iconoServicio, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.PanelServiciosSuperior.SuspendLayout()
-        Me.panelServicioCentral.SuspendLayout()
+        Me.TabEstadistica.SuspendLayout()
+        Me.PanelSupEstadistica.SuspendLayout()
+        Me.PnlLateralEstadistica.SuspendLayout()
+        CType(Me.PictureBoxEstadistic, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabAyuda.SuspendLayout()
+        Me.PanelSuperiorAyuda.SuspendLayout()
+        Me.PanelLateralAyuda.SuspendLayout()
+        CType(Me.IconoAyuda, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TabGeneral
@@ -95,7 +146,7 @@ Partial Class frmMenuPrincipal
         Me.TabGeneral.Name = "TabGeneral"
         Me.TabGeneral.Padding = New System.Drawing.Point(6, 4)
         Me.TabGeneral.SelectedIndex = 0
-        Me.TabGeneral.Size = New System.Drawing.Size(832, 489)
+        Me.TabGeneral.Size = New System.Drawing.Size(861, 501)
         Me.TabGeneral.SizeMode = System.Windows.Forms.TabSizeMode.Fixed
         Me.TabGeneral.TabIndex = 0
         '
@@ -104,7 +155,7 @@ Partial Class frmMenuPrincipal
         Me.TabTareas.Location = New System.Drawing.Point(4, 24)
         Me.TabTareas.Name = "TabTareas"
         Me.TabTareas.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabTareas.Size = New System.Drawing.Size(680, 394)
+        Me.TabTareas.Size = New System.Drawing.Size(853, 473)
         Me.TabTareas.TabIndex = 6
         Me.TabTareas.Text = "Tareas"
         Me.TabTareas.UseVisualStyleBackColor = True
@@ -112,20 +163,53 @@ Partial Class frmMenuPrincipal
         'TabCliente
         '
         Me.TabCliente.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.TabCliente.Controls.Add(Me.DGCliente)
-        Me.TabCliente.Controls.Add(Me.cboBuscarCliente)
-        Me.TabCliente.Controls.Add(Me.btnBuscarCliente)
-        Me.TabCliente.Controls.Add(Me.btnEliminarCliente)
-        Me.TabCliente.Controls.Add(Me.btnVerCliente)
-        Me.TabCliente.Controls.Add(Me.btnModificarCliente)
-        Me.TabCliente.Controls.Add(Me.btnNuevoCliente)
-        Me.TabCliente.Controls.Add(Me.txtBuscarCliente)
+        Me.TabCliente.Controls.Add(Me.PanelCentralCliente)
+        Me.TabCliente.Controls.Add(Me.PanelSuperiorCliente)
+        Me.TabCliente.Controls.Add(Me.PanelLateralCliente)
         Me.TabCliente.Location = New System.Drawing.Point(4, 24)
         Me.TabCliente.Name = "TabCliente"
         Me.TabCliente.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabCliente.Size = New System.Drawing.Size(680, 394)
+        Me.TabCliente.Size = New System.Drawing.Size(853, 473)
         Me.TabCliente.TabIndex = 0
         Me.TabCliente.Text = "Cliente"
+        '
+        'PanelCentralCliente
+        '
+        Me.PanelCentralCliente.Controls.Add(Me.txtBuscarCliente)
+        Me.PanelCentralCliente.Controls.Add(Me.btnBuscarCliente)
+        Me.PanelCentralCliente.Controls.Add(Me.cboBuscarCliente)
+        Me.PanelCentralCliente.Controls.Add(Me.DGCliente)
+        Me.PanelCentralCliente.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PanelCentralCliente.Location = New System.Drawing.Point(190, 72)
+        Me.PanelCentralCliente.Name = "PanelCentralCliente"
+        Me.PanelCentralCliente.Size = New System.Drawing.Size(660, 398)
+        Me.PanelCentralCliente.TabIndex = 13
+        '
+        'txtBuscarCliente
+        '
+        Me.txtBuscarCliente.Location = New System.Drawing.Point(40, 30)
+        Me.txtBuscarCliente.Name = "txtBuscarCliente"
+        Me.txtBuscarCliente.Size = New System.Drawing.Size(352, 20)
+        Me.txtBuscarCliente.TabIndex = 0
+        '
+        'btnBuscarCliente
+        '
+        Me.btnBuscarCliente.Location = New System.Drawing.Point(536, 27)
+        Me.btnBuscarCliente.Name = "btnBuscarCliente"
+        Me.btnBuscarCliente.Size = New System.Drawing.Size(75, 23)
+        Me.btnBuscarCliente.TabIndex = 5
+        Me.btnBuscarCliente.Text = "Buscar"
+        Me.btnBuscarCliente.UseVisualStyleBackColor = True
+        '
+        'cboBuscarCliente
+        '
+        Me.cboBuscarCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboBuscarCliente.FormattingEnabled = True
+        Me.cboBuscarCliente.Items.AddRange(New Object() {"Nombre", "Apellido", "DNI", "CUIT"})
+        Me.cboBuscarCliente.Location = New System.Drawing.Point(398, 29)
+        Me.cboBuscarCliente.Name = "cboBuscarCliente"
+        Me.cboBuscarCliente.Size = New System.Drawing.Size(121, 21)
+        Me.cboBuscarCliente.TabIndex = 6
         '
         'DGCliente
         '
@@ -134,262 +218,451 @@ Partial Class frmMenuPrincipal
         Me.DGCliente.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader
         Me.DGCliente.BackgroundColor = System.Drawing.Color.White
         Me.DGCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGCliente.Location = New System.Drawing.Point(38, 62)
+        Me.DGCliente.Location = New System.Drawing.Point(20, 74)
         Me.DGCliente.MultiSelect = False
         Me.DGCliente.Name = "DGCliente"
         Me.DGCliente.ReadOnly = True
-        Me.DGCliente.Size = New System.Drawing.Size(621, 284)
+        Me.DGCliente.Size = New System.Drawing.Size(630, 310)
         Me.DGCliente.TabIndex = 7
         '
-        'cboBuscarCliente
+        'PanelSuperiorCliente
         '
-        Me.cboBuscarCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cboBuscarCliente.FormattingEnabled = True
-        Me.cboBuscarCliente.Items.AddRange(New Object() {"Nombre", "Apellido", "DNI", "CUIT"})
-        Me.cboBuscarCliente.Location = New System.Drawing.Point(405, 35)
-        Me.cboBuscarCliente.Name = "cboBuscarCliente"
-        Me.cboBuscarCliente.Size = New System.Drawing.Size(121, 21)
-        Me.cboBuscarCliente.TabIndex = 6
+        Me.PanelSuperiorCliente.BackColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(166, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.PanelSuperiorCliente.Controls.Add(Me.lbltituloCliente)
+        Me.PanelSuperiorCliente.Dock = System.Windows.Forms.DockStyle.Top
+        Me.PanelSuperiorCliente.Location = New System.Drawing.Point(190, 3)
+        Me.PanelSuperiorCliente.Name = "PanelSuperiorCliente"
+        Me.PanelSuperiorCliente.Size = New System.Drawing.Size(660, 69)
+        Me.PanelSuperiorCliente.TabIndex = 12
         '
-        'btnBuscarCliente
+        'lbltituloCliente
         '
-        Me.btnBuscarCliente.Location = New System.Drawing.Point(543, 33)
-        Me.btnBuscarCliente.Name = "btnBuscarCliente"
-        Me.btnBuscarCliente.Size = New System.Drawing.Size(75, 23)
-        Me.btnBuscarCliente.TabIndex = 5
-        Me.btnBuscarCliente.Text = "Buscar"
-        Me.btnBuscarCliente.UseVisualStyleBackColor = True
+        Me.lbltituloCliente.AutoSize = True
+        Me.lbltituloCliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, System.Drawing.FontStyle.Bold)
+        Me.lbltituloCliente.Location = New System.Drawing.Point(269, 11)
+        Me.lbltituloCliente.Name = "lbltituloCliente"
+        Me.lbltituloCliente.Size = New System.Drawing.Size(180, 55)
+        Me.lbltituloCliente.TabIndex = 1
+        Me.lbltituloCliente.Text = "Cliente"
+        '
+        'PanelLateralCliente
+        '
+        Me.PanelLateralCliente.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(134, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.PanelLateralCliente.Controls.Add(Me.PictureBoxCliente)
+        Me.PanelLateralCliente.Controls.Add(Me.btnEliminarCliente)
+        Me.PanelLateralCliente.Controls.Add(Me.btnVerCliente)
+        Me.PanelLateralCliente.Controls.Add(Me.btnModificarCliente)
+        Me.PanelLateralCliente.Controls.Add(Me.btnNuevoCliente)
+        Me.PanelLateralCliente.Dock = System.Windows.Forms.DockStyle.Left
+        Me.PanelLateralCliente.Location = New System.Drawing.Point(3, 3)
+        Me.PanelLateralCliente.Name = "PanelLateralCliente"
+        Me.PanelLateralCliente.Size = New System.Drawing.Size(187, 467)
+        Me.PanelLateralCliente.TabIndex = 11
+        '
+        'PictureBoxCliente
+        '
+        Me.PictureBoxCliente.Location = New System.Drawing.Point(10, 11)
+        Me.PictureBoxCliente.Name = "PictureBoxCliente"
+        Me.PictureBoxCliente.Size = New System.Drawing.Size(171, 150)
+        Me.PictureBoxCliente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBoxCliente.TabIndex = 10
+        Me.PictureBoxCliente.TabStop = False
         '
         'btnEliminarCliente
         '
-        Me.btnEliminarCliente.Location = New System.Drawing.Point(441, 352)
+        Me.btnEliminarCliente.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnEliminarCliente.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnEliminarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnEliminarCliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEliminarCliente.ForeColor = System.Drawing.Color.White
+        Me.btnEliminarCliente.Location = New System.Drawing.Point(-2, 386)
         Me.btnEliminarCliente.Name = "btnEliminarCliente"
-        Me.btnEliminarCliente.Size = New System.Drawing.Size(110, 23)
-        Me.btnEliminarCliente.TabIndex = 4
-        Me.btnEliminarCliente.Text = "Eliminar"
-        Me.btnEliminarCliente.UseVisualStyleBackColor = True
+        Me.btnEliminarCliente.Size = New System.Drawing.Size(189, 50)
+        Me.btnEliminarCliente.TabIndex = 9
+        Me.btnEliminarCliente.Text = "Eliminar Cliente"
+        Me.btnEliminarCliente.UseVisualStyleBackColor = False
         '
         'btnVerCliente
         '
-        Me.btnVerCliente.Location = New System.Drawing.Point(299, 352)
+        Me.btnVerCliente.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnVerCliente.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnVerCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnVerCliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnVerCliente.ForeColor = System.Drawing.Color.White
+        Me.btnVerCliente.Location = New System.Drawing.Point(0, 313)
         Me.btnVerCliente.Name = "btnVerCliente"
-        Me.btnVerCliente.Size = New System.Drawing.Size(110, 23)
-        Me.btnVerCliente.TabIndex = 3
-        Me.btnVerCliente.Text = "Ver Cliente"
-        Me.btnVerCliente.UseVisualStyleBackColor = True
+        Me.btnVerCliente.Size = New System.Drawing.Size(189, 50)
+        Me.btnVerCliente.TabIndex = 8
+        Me.btnVerCliente.Text = "Ver Detalles Cliente"
+        Me.btnVerCliente.UseVisualStyleBackColor = False
         '
         'btnModificarCliente
         '
-        Me.btnModificarCliente.Location = New System.Drawing.Point(167, 352)
+        Me.btnModificarCliente.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnModificarCliente.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnModificarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnModificarCliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnModificarCliente.ForeColor = System.Drawing.Color.White
+        Me.btnModificarCliente.Location = New System.Drawing.Point(0, 240)
         Me.btnModificarCliente.Name = "btnModificarCliente"
-        Me.btnModificarCliente.Size = New System.Drawing.Size(110, 23)
-        Me.btnModificarCliente.TabIndex = 2
-        Me.btnModificarCliente.Text = "Modificar"
-        Me.btnModificarCliente.UseVisualStyleBackColor = True
+        Me.btnModificarCliente.Size = New System.Drawing.Size(189, 50)
+        Me.btnModificarCliente.TabIndex = 7
+        Me.btnModificarCliente.Text = "Modificar Cliente"
+        Me.btnModificarCliente.UseVisualStyleBackColor = False
         '
         'btnNuevoCliente
         '
-        Me.btnNuevoCliente.Location = New System.Drawing.Point(38, 352)
+        Me.btnNuevoCliente.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnNuevoCliente.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnNuevoCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnNuevoCliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnNuevoCliente.ForeColor = System.Drawing.Color.White
+        Me.btnNuevoCliente.Location = New System.Drawing.Point(3, 167)
         Me.btnNuevoCliente.Name = "btnNuevoCliente"
-        Me.btnNuevoCliente.Size = New System.Drawing.Size(110, 23)
-        Me.btnNuevoCliente.TabIndex = 1
+        Me.btnNuevoCliente.Size = New System.Drawing.Size(189, 50)
+        Me.btnNuevoCliente.TabIndex = 6
         Me.btnNuevoCliente.Text = "Nuevo Cliente"
-        Me.btnNuevoCliente.UseVisualStyleBackColor = True
-        '
-        'txtBuscarCliente
-        '
-        Me.txtBuscarCliente.Location = New System.Drawing.Point(38, 36)
-        Me.txtBuscarCliente.Name = "txtBuscarCliente"
-        Me.txtBuscarCliente.Size = New System.Drawing.Size(352, 20)
-        Me.txtBuscarCliente.TabIndex = 0
+        Me.btnNuevoCliente.UseVisualStyleBackColor = False
         '
         'TabPedido
         '
         Me.TabPedido.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.TabPedido.Controls.Add(Me.cboBuscarPedido)
-        Me.TabPedido.Controls.Add(Me.txtBuscarPedido)
-        Me.TabPedido.Controls.Add(Me.btnBuscarPedido)
-        Me.TabPedido.Controls.Add(Me.btnEliminarPedido)
-        Me.TabPedido.Controls.Add(Me.btnModificarPedido)
-        Me.TabPedido.Controls.Add(Me.Button7)
-        Me.TabPedido.Controls.Add(Me.btnNuevoPedido)
-        Me.TabPedido.Controls.Add(Me.DGPedido)
+        Me.TabPedido.Controls.Add(Me.PanelCentralPedido)
+        Me.TabPedido.Controls.Add(Me.PanelSuperiorPedido)
+        Me.TabPedido.Controls.Add(Me.PanelLateralPedido)
         Me.TabPedido.Location = New System.Drawing.Point(4, 24)
         Me.TabPedido.Name = "TabPedido"
-        Me.TabPedido.Size = New System.Drawing.Size(680, 394)
+        Me.TabPedido.Size = New System.Drawing.Size(853, 473)
         Me.TabPedido.TabIndex = 2
         Me.TabPedido.Text = "Pedido"
+        '
+        'PanelCentralPedido
+        '
+        Me.PanelCentralPedido.Controls.Add(Me.txtBuscarPedido)
+        Me.PanelCentralPedido.Controls.Add(Me.btnBuscarPedido)
+        Me.PanelCentralPedido.Controls.Add(Me.DGPedido)
+        Me.PanelCentralPedido.Controls.Add(Me.cboBuscarPedido)
+        Me.PanelCentralPedido.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PanelCentralPedido.Location = New System.Drawing.Point(184, 102)
+        Me.PanelCentralPedido.Name = "PanelCentralPedido"
+        Me.PanelCentralPedido.Size = New System.Drawing.Size(669, 371)
+        Me.PanelCentralPedido.TabIndex = 16
+        '
+        'txtBuscarPedido
+        '
+        Me.txtBuscarPedido.Location = New System.Drawing.Point(6, 37)
+        Me.txtBuscarPedido.Name = "txtBuscarPedido"
+        Me.txtBuscarPedido.Size = New System.Drawing.Size(328, 20)
+        Me.txtBuscarPedido.TabIndex = 12
+        '
+        'btnBuscarPedido
+        '
+        Me.btnBuscarPedido.Location = New System.Drawing.Point(482, 34)
+        Me.btnBuscarPedido.Name = "btnBuscarPedido"
+        Me.btnBuscarPedido.Size = New System.Drawing.Size(123, 23)
+        Me.btnBuscarPedido.TabIndex = 11
+        Me.btnBuscarPedido.Text = "Buscar"
+        Me.btnBuscarPedido.UseVisualStyleBackColor = True
+        '
+        'DGPedido
+        '
+        Me.DGPedido.BackgroundColor = System.Drawing.SystemColors.ControlLightLight
+        Me.DGPedido.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DGPedido.Location = New System.Drawing.Point(6, 63)
+        Me.DGPedido.Name = "DGPedido"
+        Me.DGPedido.Size = New System.Drawing.Size(599, 294)
+        Me.DGPedido.TabIndex = 6
         '
         'cboBuscarPedido
         '
         Me.cboBuscarPedido.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboBuscarPedido.FormattingEnabled = True
         Me.cboBuscarPedido.Items.AddRange(New Object() {"Nombre", "Apellido", "DNI", "CUIT"})
-        Me.cboBuscarPedido.Location = New System.Drawing.Point(385, 36)
+        Me.cboBuscarPedido.Location = New System.Drawing.Point(340, 36)
         Me.cboBuscarPedido.Name = "cboBuscarPedido"
-        Me.cboBuscarPedido.Size = New System.Drawing.Size(121, 21)
+        Me.cboBuscarPedido.Size = New System.Drawing.Size(136, 21)
         Me.cboBuscarPedido.TabIndex = 13
         '
-        'txtBuscarPedido
+        'PanelSuperiorPedido
         '
-        Me.txtBuscarPedido.Location = New System.Drawing.Point(38, 36)
-        Me.txtBuscarPedido.Name = "txtBuscarPedido"
-        Me.txtBuscarPedido.Size = New System.Drawing.Size(341, 20)
-        Me.txtBuscarPedido.TabIndex = 12
+        Me.PanelSuperiorPedido.BackColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(166, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.PanelSuperiorPedido.Controls.Add(Me.lblTituloPedidos)
+        Me.PanelSuperiorPedido.Dock = System.Windows.Forms.DockStyle.Top
+        Me.PanelSuperiorPedido.Location = New System.Drawing.Point(184, 0)
+        Me.PanelSuperiorPedido.Name = "PanelSuperiorPedido"
+        Me.PanelSuperiorPedido.Size = New System.Drawing.Size(669, 102)
+        Me.PanelSuperiorPedido.TabIndex = 15
         '
-        'btnBuscarPedido
+        'lblTituloPedidos
         '
-        Me.btnBuscarPedido.Location = New System.Drawing.Point(512, 34)
-        Me.btnBuscarPedido.Name = "btnBuscarPedido"
-        Me.btnBuscarPedido.Size = New System.Drawing.Size(75, 23)
-        Me.btnBuscarPedido.TabIndex = 11
-        Me.btnBuscarPedido.Text = "Buscar"
-        Me.btnBuscarPedido.UseVisualStyleBackColor = True
+        Me.lblTituloPedidos.AutoSize = True
+        Me.lblTituloPedidos.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, System.Drawing.FontStyle.Bold)
+        Me.lblTituloPedidos.Location = New System.Drawing.Point(195, 23)
+        Me.lblTituloPedidos.Name = "lblTituloPedidos"
+        Me.lblTituloPedidos.Size = New System.Drawing.Size(205, 55)
+        Me.lblTituloPedidos.TabIndex = 2
+        Me.lblTituloPedidos.Text = "Pedidos"
+        '
+        'PanelLateralPedido
+        '
+        Me.PanelLateralPedido.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(134, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.PanelLateralPedido.Controls.Add(Me.btnEliminarPedido)
+        Me.PanelLateralPedido.Controls.Add(Me.btnModificarPedido)
+        Me.PanelLateralPedido.Controls.Add(Me.btnVerPedido)
+        Me.PanelLateralPedido.Controls.Add(Me.btnNuevoPedido)
+        Me.PanelLateralPedido.Controls.Add(Me.IconoPedido)
+        Me.PanelLateralPedido.Dock = System.Windows.Forms.DockStyle.Left
+        Me.PanelLateralPedido.Location = New System.Drawing.Point(0, 0)
+        Me.PanelLateralPedido.Name = "PanelLateralPedido"
+        Me.PanelLateralPedido.Size = New System.Drawing.Size(184, 473)
+        Me.PanelLateralPedido.TabIndex = 14
         '
         'btnEliminarPedido
         '
-        Me.btnEliminarPedido.Location = New System.Drawing.Point(184, 359)
+        Me.btnEliminarPedido.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnEliminarPedido.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnEliminarPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnEliminarPedido.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEliminarPedido.ForeColor = System.Drawing.Color.White
+        Me.btnEliminarPedido.Location = New System.Drawing.Point(3, 313)
         Me.btnEliminarPedido.Name = "btnEliminarPedido"
-        Me.btnEliminarPedido.Size = New System.Drawing.Size(114, 23)
-        Me.btnEliminarPedido.TabIndex = 10
-        Me.btnEliminarPedido.Text = "Eliminar"
-        Me.btnEliminarPedido.UseVisualStyleBackColor = True
+        Me.btnEliminarPedido.Size = New System.Drawing.Size(179, 50)
+        Me.btnEliminarPedido.TabIndex = 27
+        Me.btnEliminarPedido.Text = "Eliminar Pedido"
+        Me.btnEliminarPedido.UseVisualStyleBackColor = False
         '
         'btnModificarPedido
         '
-        Me.btnModificarPedido.Location = New System.Drawing.Point(320, 359)
+        Me.btnModificarPedido.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnModificarPedido.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnModificarPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnModificarPedido.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnModificarPedido.ForeColor = System.Drawing.Color.White
+        Me.btnModificarPedido.Location = New System.Drawing.Point(3, 234)
         Me.btnModificarPedido.Name = "btnModificarPedido"
-        Me.btnModificarPedido.Size = New System.Drawing.Size(114, 23)
-        Me.btnModificarPedido.TabIndex = 9
-        Me.btnModificarPedido.Text = "Modificar"
-        Me.btnModificarPedido.UseVisualStyleBackColor = True
+        Me.btnModificarPedido.Size = New System.Drawing.Size(179, 50)
+        Me.btnModificarPedido.TabIndex = 26
+        Me.btnModificarPedido.Text = "Modificar Pedido"
+        Me.btnModificarPedido.UseVisualStyleBackColor = False
         '
-        'Button7
+        'btnVerPedido
         '
-        Me.Button7.Location = New System.Drawing.Point(456, 359)
-        Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(114, 23)
-        Me.Button7.TabIndex = 8
-        Me.Button7.Text = "Ver"
-        Me.Button7.UseVisualStyleBackColor = True
+        Me.btnVerPedido.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnVerPedido.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnVerPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnVerPedido.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnVerPedido.ForeColor = System.Drawing.Color.White
+        Me.btnVerPedido.Location = New System.Drawing.Point(3, 382)
+        Me.btnVerPedido.Name = "btnVerPedido"
+        Me.btnVerPedido.Size = New System.Drawing.Size(179, 50)
+        Me.btnVerPedido.TabIndex = 25
+        Me.btnVerPedido.Text = "Ver Detalles Pedido"
+        Me.btnVerPedido.UseVisualStyleBackColor = False
         '
         'btnNuevoPedido
         '
-        Me.btnNuevoPedido.Location = New System.Drawing.Point(48, 359)
+        Me.btnNuevoPedido.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnNuevoPedido.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnNuevoPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnNuevoPedido.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnNuevoPedido.ForeColor = System.Drawing.Color.White
+        Me.btnNuevoPedido.Location = New System.Drawing.Point(3, 158)
         Me.btnNuevoPedido.Name = "btnNuevoPedido"
-        Me.btnNuevoPedido.Size = New System.Drawing.Size(114, 23)
-        Me.btnNuevoPedido.TabIndex = 7
-        Me.btnNuevoPedido.Text = "Nuevo Producto"
-        Me.btnNuevoPedido.UseVisualStyleBackColor = True
+        Me.btnNuevoPedido.Size = New System.Drawing.Size(179, 50)
+        Me.btnNuevoPedido.TabIndex = 24
+        Me.btnNuevoPedido.Text = "Nuevo Pedido"
+        Me.btnNuevoPedido.UseVisualStyleBackColor = False
         '
-        'DGPedido
+        'IconoPedido
         '
-        Me.DGPedido.BackgroundColor = System.Drawing.SystemColors.ControlLightLight
-        Me.DGPedido.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGPedido.Location = New System.Drawing.Point(38, 62)
-        Me.DGPedido.Name = "DGPedido"
-        Me.DGPedido.Size = New System.Drawing.Size(621, 284)
-        Me.DGPedido.TabIndex = 6
+        Me.IconoPedido.Location = New System.Drawing.Point(16, 29)
+        Me.IconoPedido.Name = "IconoPedido"
+        Me.IconoPedido.Size = New System.Drawing.Size(150, 118)
+        Me.IconoPedido.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.IconoPedido.TabIndex = 23
+        Me.IconoPedido.TabStop = False
         '
         'TabProducto
         '
         Me.TabProducto.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.TabProducto.Controls.Add(Me.cboBuscarProducto)
-        Me.TabProducto.Controls.Add(Me.txtBuscarProducto)
-        Me.TabProducto.Controls.Add(Me.btnVerProducto)
-        Me.TabProducto.Controls.Add(Me.btnModificarProducto)
-        Me.TabProducto.Controls.Add(Me.btnEliminarProducto)
-        Me.TabProducto.Controls.Add(Me.btnAgregarProducto)
-        Me.TabProducto.Controls.Add(Me.btnBuscarProducto)
-        Me.TabProducto.Controls.Add(Me.DGProducto)
+        Me.TabProducto.Controls.Add(Me.panelCentralProducto)
+        Me.TabProducto.Controls.Add(Me.panelSuperiorProducto)
+        Me.TabProducto.Controls.Add(Me.panelLateralProducto)
         Me.TabProducto.Location = New System.Drawing.Point(4, 24)
         Me.TabProducto.Name = "TabProducto"
         Me.TabProducto.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabProducto.Size = New System.Drawing.Size(791, 453)
+        Me.TabProducto.Size = New System.Drawing.Size(853, 473)
         Me.TabProducto.TabIndex = 1
         Me.TabProducto.Text = "Producto"
         '
-        'cboBuscarProducto
+        'panelCentralProducto
         '
-        Me.cboBuscarProducto.FormattingEnabled = True
-        Me.cboBuscarProducto.Location = New System.Drawing.Point(409, 34)
-        Me.cboBuscarProducto.Name = "cboBuscarProducto"
-        Me.cboBuscarProducto.Size = New System.Drawing.Size(169, 21)
-        Me.cboBuscarProducto.TabIndex = 15
+        Me.panelCentralProducto.Controls.Add(Me.txtBuscarProducto)
+        Me.panelCentralProducto.Controls.Add(Me.DGProducto)
+        Me.panelCentralProducto.Controls.Add(Me.btnBuscarProducto)
+        Me.panelCentralProducto.Controls.Add(Me.cboBuscarProducto)
+        Me.panelCentralProducto.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.panelCentralProducto.Location = New System.Drawing.Point(184, 112)
+        Me.panelCentralProducto.Name = "panelCentralProducto"
+        Me.panelCentralProducto.Size = New System.Drawing.Size(666, 358)
+        Me.panelCentralProducto.TabIndex = 17
         '
         'txtBuscarProducto
         '
-        Me.txtBuscarProducto.Location = New System.Drawing.Point(38, 35)
+        Me.txtBuscarProducto.Location = New System.Drawing.Point(54, 20)
         Me.txtBuscarProducto.Name = "txtBuscarProducto"
-        Me.txtBuscarProducto.Size = New System.Drawing.Size(365, 20)
+        Me.txtBuscarProducto.Size = New System.Drawing.Size(376, 20)
         Me.txtBuscarProducto.TabIndex = 14
         '
-        'btnVerProducto
+        'DGProducto
         '
-        Me.btnVerProducto.Location = New System.Drawing.Point(460, 352)
-        Me.btnVerProducto.Name = "btnVerProducto"
-        Me.btnVerProducto.Size = New System.Drawing.Size(112, 23)
-        Me.btnVerProducto.TabIndex = 13
-        Me.btnVerProducto.Text = "Ver Producto"
-        Me.btnVerProducto.UseVisualStyleBackColor = True
-        '
-        'btnModificarProducto
-        '
-        Me.btnModificarProducto.Location = New System.Drawing.Point(312, 352)
-        Me.btnModificarProducto.Name = "btnModificarProducto"
-        Me.btnModificarProducto.Size = New System.Drawing.Size(126, 23)
-        Me.btnModificarProducto.TabIndex = 12
-        Me.btnModificarProducto.Text = "Modificar Producto"
-        Me.btnModificarProducto.UseVisualStyleBackColor = True
-        '
-        'btnEliminarProducto
-        '
-        Me.btnEliminarProducto.Location = New System.Drawing.Point(169, 352)
-        Me.btnEliminarProducto.Name = "btnEliminarProducto"
-        Me.btnEliminarProducto.Size = New System.Drawing.Size(119, 23)
-        Me.btnEliminarProducto.TabIndex = 11
-        Me.btnEliminarProducto.Text = "Eliminar Producto"
-        Me.btnEliminarProducto.UseVisualStyleBackColor = True
-        '
-        'btnAgregarProducto
-        '
-        Me.btnAgregarProducto.Location = New System.Drawing.Point(38, 352)
-        Me.btnAgregarProducto.Name = "btnAgregarProducto"
-        Me.btnAgregarProducto.Size = New System.Drawing.Size(111, 23)
-        Me.btnAgregarProducto.TabIndex = 10
-        Me.btnAgregarProducto.Text = "Nuevo Producto"
-        Me.btnAgregarProducto.UseVisualStyleBackColor = True
+        Me.DGProducto.BackgroundColor = System.Drawing.SystemColors.Window
+        Me.DGProducto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DGProducto.Location = New System.Drawing.Point(54, 44)
+        Me.DGProducto.Name = "DGProducto"
+        Me.DGProducto.Size = New System.Drawing.Size(568, 267)
+        Me.DGProducto.TabIndex = 8
         '
         'btnBuscarProducto
         '
-        Me.btnBuscarProducto.Location = New System.Drawing.Point(584, 32)
+        Me.btnBuscarProducto.Location = New System.Drawing.Point(536, 19)
         Me.btnBuscarProducto.Name = "btnBuscarProducto"
         Me.btnBuscarProducto.Size = New System.Drawing.Size(75, 21)
         Me.btnBuscarProducto.TabIndex = 9
         Me.btnBuscarProducto.Text = "Buscar"
         Me.btnBuscarProducto.UseVisualStyleBackColor = True
         '
-        'DGProducto
+        'cboBuscarProducto
         '
-        Me.DGProducto.BackgroundColor = System.Drawing.SystemColors.Window
-        Me.DGProducto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGProducto.Location = New System.Drawing.Point(38, 59)
-        Me.DGProducto.Name = "DGProducto"
-        Me.DGProducto.Size = New System.Drawing.Size(621, 284)
-        Me.DGProducto.TabIndex = 8
+        Me.cboBuscarProducto.FormattingEnabled = True
+        Me.cboBuscarProducto.Location = New System.Drawing.Point(436, 19)
+        Me.cboBuscarProducto.Name = "cboBuscarProducto"
+        Me.cboBuscarProducto.Size = New System.Drawing.Size(77, 21)
+        Me.cboBuscarProducto.TabIndex = 15
+        '
+        'panelSuperiorProducto
+        '
+        Me.panelSuperiorProducto.BackColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(166, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.panelSuperiorProducto.Controls.Add(Me.lblTituloProducto)
+        Me.panelSuperiorProducto.Dock = System.Windows.Forms.DockStyle.Top
+        Me.panelSuperiorProducto.Location = New System.Drawing.Point(184, 3)
+        Me.panelSuperiorProducto.Name = "panelSuperiorProducto"
+        Me.panelSuperiorProducto.Size = New System.Drawing.Size(666, 109)
+        Me.panelSuperiorProducto.TabIndex = 17
+        '
+        'lblTituloProducto
+        '
+        Me.lblTituloProducto.AutoSize = True
+        Me.lblTituloProducto.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, System.Drawing.FontStyle.Bold)
+        Me.lblTituloProducto.Location = New System.Drawing.Point(205, 23)
+        Me.lblTituloProducto.Name = "lblTituloProducto"
+        Me.lblTituloProducto.Size = New System.Drawing.Size(250, 55)
+        Me.lblTituloProducto.TabIndex = 1
+        Me.lblTituloProducto.Text = "Productos"
+        '
+        'panelLateralProducto
+        '
+        Me.panelLateralProducto.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(134, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.panelLateralProducto.Controls.Add(Me.btnVerProducto)
+        Me.panelLateralProducto.Controls.Add(Me.btnModificarProducto)
+        Me.panelLateralProducto.Controls.Add(Me.btnEliminarProducto)
+        Me.panelLateralProducto.Controls.Add(Me.btnAgregarProducto)
+        Me.panelLateralProducto.Controls.Add(Me.IconoProducto)
+        Me.panelLateralProducto.Dock = System.Windows.Forms.DockStyle.Left
+        Me.panelLateralProducto.Location = New System.Drawing.Point(3, 3)
+        Me.panelLateralProducto.Name = "panelLateralProducto"
+        Me.panelLateralProducto.Size = New System.Drawing.Size(181, 467)
+        Me.panelLateralProducto.TabIndex = 16
+        '
+        'btnVerProducto
+        '
+        Me.btnVerProducto.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnVerProducto.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnVerProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnVerProducto.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnVerProducto.ForeColor = System.Drawing.Color.White
+        Me.btnVerProducto.Location = New System.Drawing.Point(0, 307)
+        Me.btnVerProducto.Name = "btnVerProducto"
+        Me.btnVerProducto.Size = New System.Drawing.Size(179, 50)
+        Me.btnVerProducto.TabIndex = 22
+        Me.btnVerProducto.Text = "Eliminar Producto"
+        Me.btnVerProducto.UseVisualStyleBackColor = False
+        '
+        'btnModificarProducto
+        '
+        Me.btnModificarProducto.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnModificarProducto.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnModificarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnModificarProducto.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnModificarProducto.ForeColor = System.Drawing.Color.White
+        Me.btnModificarProducto.Location = New System.Drawing.Point(0, 228)
+        Me.btnModificarProducto.Name = "btnModificarProducto"
+        Me.btnModificarProducto.Size = New System.Drawing.Size(179, 50)
+        Me.btnModificarProducto.TabIndex = 21
+        Me.btnModificarProducto.Text = "Modificar Producto"
+        Me.btnModificarProducto.UseVisualStyleBackColor = False
+        '
+        'btnEliminarProducto
+        '
+        Me.btnEliminarProducto.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnEliminarProducto.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnEliminarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnEliminarProducto.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEliminarProducto.ForeColor = System.Drawing.Color.White
+        Me.btnEliminarProducto.Location = New System.Drawing.Point(0, 376)
+        Me.btnEliminarProducto.Name = "btnEliminarProducto"
+        Me.btnEliminarProducto.Size = New System.Drawing.Size(179, 50)
+        Me.btnEliminarProducto.TabIndex = 20
+        Me.btnEliminarProducto.Text = "Ver Detalles Producto"
+        Me.btnEliminarProducto.UseVisualStyleBackColor = False
+        '
+        'btnAgregarProducto
+        '
+        Me.btnAgregarProducto.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnAgregarProducto.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnAgregarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAgregarProducto.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAgregarProducto.ForeColor = System.Drawing.Color.White
+        Me.btnAgregarProducto.Location = New System.Drawing.Point(0, 152)
+        Me.btnAgregarProducto.Name = "btnAgregarProducto"
+        Me.btnAgregarProducto.Size = New System.Drawing.Size(179, 50)
+        Me.btnAgregarProducto.TabIndex = 19
+        Me.btnAgregarProducto.Text = "Nuevo Producto"
+        Me.btnAgregarProducto.UseVisualStyleBackColor = False
+        '
+        'IconoProducto
+        '
+        Me.IconoProducto.Location = New System.Drawing.Point(13, 23)
+        Me.IconoProducto.Name = "IconoProducto"
+        Me.IconoProducto.Size = New System.Drawing.Size(150, 118)
+        Me.IconoProducto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.IconoProducto.TabIndex = 18
+        Me.IconoProducto.TabStop = False
         '
         'TabServicios
         '
         Me.TabServicios.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.TabServicios.Controls.Add(Me.panelServicioCentral)
-        Me.TabServicios.Controls.Add(Me.PanelServiciosSuperior)
-        Me.TabServicios.Controls.Add(Me.PanelServicios1)
+        Me.TabServicios.Controls.Add(Me.panelCentralServicio)
+        Me.TabServicios.Controls.Add(Me.panelSuperiorServicio)
+        Me.TabServicios.Controls.Add(Me.panelLateralServicio)
         Me.TabServicios.Location = New System.Drawing.Point(4, 24)
         Me.TabServicios.Name = "TabServicios"
         Me.TabServicios.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabServicios.Size = New System.Drawing.Size(824, 461)
+        Me.TabServicios.Size = New System.Drawing.Size(853, 473)
         Me.TabServicios.TabIndex = 5
         Me.TabServicios.Text = "Servicios"
+        '
+        'panelCentralServicio
+        '
+        Me.panelCentralServicio.Controls.Add(Me.DGServicios)
+        Me.panelCentralServicio.Controls.Add(Me.btnBuscarServicio)
+        Me.panelCentralServicio.Controls.Add(Me.cboBuscarServicio)
+        Me.panelCentralServicio.Controls.Add(Me.txtBuscarServicio)
+        Me.panelCentralServicio.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.panelCentralServicio.Location = New System.Drawing.Point(189, 98)
+        Me.panelCentralServicio.Name = "panelCentralServicio"
+        Me.panelCentralServicio.Size = New System.Drawing.Size(661, 372)
+        Me.panelCentralServicio.TabIndex = 18
         '
         'DGServicios
         '
@@ -405,6 +678,15 @@ Partial Class frmMenuPrincipal
         Me.DGServicios.Size = New System.Drawing.Size(578, 269)
         Me.DGServicios.TabIndex = 15
         '
+        'btnBuscarServicio
+        '
+        Me.btnBuscarServicio.Location = New System.Drawing.Point(424, 22)
+        Me.btnBuscarServicio.Name = "btnBuscarServicio"
+        Me.btnBuscarServicio.Size = New System.Drawing.Size(75, 23)
+        Me.btnBuscarServicio.TabIndex = 13
+        Me.btnBuscarServicio.Text = "Buscar"
+        Me.btnBuscarServicio.UseVisualStyleBackColor = True
+        '
         'cboBuscarServicio
         '
         Me.cboBuscarServicio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
@@ -415,15 +697,6 @@ Partial Class frmMenuPrincipal
         Me.cboBuscarServicio.Size = New System.Drawing.Size(95, 21)
         Me.cboBuscarServicio.TabIndex = 14
         '
-        'btnBuscarServicio
-        '
-        Me.btnBuscarServicio.Location = New System.Drawing.Point(424, 22)
-        Me.btnBuscarServicio.Name = "btnBuscarServicio"
-        Me.btnBuscarServicio.Size = New System.Drawing.Size(75, 23)
-        Me.btnBuscarServicio.TabIndex = 13
-        Me.btnBuscarServicio.Text = "Buscar"
-        Me.btnBuscarServicio.UseVisualStyleBackColor = True
-        '
         'txtBuscarServicio
         '
         Me.txtBuscarServicio.Location = New System.Drawing.Point(37, 24)
@@ -431,56 +704,15 @@ Partial Class frmMenuPrincipal
         Me.txtBuscarServicio.Size = New System.Drawing.Size(247, 20)
         Me.txtBuscarServicio.TabIndex = 8
         '
-        'TabEstadistica
+        'panelSuperiorServicio
         '
-        Me.TabEstadistica.Location = New System.Drawing.Point(4, 24)
-        Me.TabEstadistica.Name = "TabEstadistica"
-        Me.TabEstadistica.Size = New System.Drawing.Size(680, 394)
-        Me.TabEstadistica.TabIndex = 3
-        Me.TabEstadistica.Text = "Estadistica"
-        Me.TabEstadistica.UseVisualStyleBackColor = True
-        '
-        'TabAyuda
-        '
-        Me.TabAyuda.Location = New System.Drawing.Point(4, 24)
-        Me.TabAyuda.Name = "TabAyuda"
-        Me.TabAyuda.Size = New System.Drawing.Size(680, 394)
-        Me.TabAyuda.TabIndex = 4
-        Me.TabAyuda.Text = "Ayuda"
-        Me.TabAyuda.UseVisualStyleBackColor = True
-        '
-        'PanelServicios1
-        '
-        Me.PanelServicios1.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(134, Byte), Integer), CType(CType(67, Byte), Integer))
-        Me.PanelServicios1.Controls.Add(Me.btnEliminarServicio)
-        Me.PanelServicios1.Controls.Add(Me.BtnModificarServicio)
-        Me.PanelServicios1.Controls.Add(Me.btnVerServicio)
-        Me.PanelServicios1.Controls.Add(Me.btnNuevoServicio)
-        Me.PanelServicios1.Controls.Add(Me.iconoServicio)
-        Me.PanelServicios1.Dock = System.Windows.Forms.DockStyle.Left
-        Me.PanelServicios1.Location = New System.Drawing.Point(3, 3)
-        Me.PanelServicios1.Name = "PanelServicios1"
-        Me.PanelServicios1.Size = New System.Drawing.Size(186, 455)
-        Me.PanelServicios1.TabIndex = 16
-        '
-        'iconoServicio
-        '
-        Me.iconoServicio.Location = New System.Drawing.Point(37, 12)
-        Me.iconoServicio.Name = "iconoServicio"
-        Me.iconoServicio.Size = New System.Drawing.Size(109, 99)
-        Me.iconoServicio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.iconoServicio.TabIndex = 13
-        Me.iconoServicio.TabStop = False
-        '
-        'PanelServiciosSuperior
-        '
-        Me.PanelServiciosSuperior.BackColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(166, Byte), Integer), CType(CType(63, Byte), Integer))
-        Me.PanelServiciosSuperior.Controls.Add(Me.lblTituloServicio)
-        Me.PanelServiciosSuperior.Dock = System.Windows.Forms.DockStyle.Top
-        Me.PanelServiciosSuperior.Location = New System.Drawing.Point(189, 3)
-        Me.PanelServiciosSuperior.Name = "PanelServiciosSuperior"
-        Me.PanelServiciosSuperior.Size = New System.Drawing.Size(632, 95)
-        Me.PanelServiciosSuperior.TabIndex = 17
+        Me.panelSuperiorServicio.BackColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(166, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.panelSuperiorServicio.Controls.Add(Me.lblTituloServicio)
+        Me.panelSuperiorServicio.Dock = System.Windows.Forms.DockStyle.Top
+        Me.panelSuperiorServicio.Location = New System.Drawing.Point(189, 3)
+        Me.panelSuperiorServicio.Name = "panelSuperiorServicio"
+        Me.panelSuperiorServicio.Size = New System.Drawing.Size(661, 95)
+        Me.panelSuperiorServicio.TabIndex = 17
         '
         'lblTituloServicio
         '
@@ -492,17 +724,61 @@ Partial Class frmMenuPrincipal
         Me.lblTituloServicio.TabIndex = 0
         Me.lblTituloServicio.Text = "Servicios"
         '
-        'panelServicioCentral
+        'panelLateralServicio
         '
-        Me.panelServicioCentral.Controls.Add(Me.DGServicios)
-        Me.panelServicioCentral.Controls.Add(Me.btnBuscarServicio)
-        Me.panelServicioCentral.Controls.Add(Me.cboBuscarServicio)
-        Me.panelServicioCentral.Controls.Add(Me.txtBuscarServicio)
-        Me.panelServicioCentral.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.panelServicioCentral.Location = New System.Drawing.Point(189, 98)
-        Me.panelServicioCentral.Name = "panelServicioCentral"
-        Me.panelServicioCentral.Size = New System.Drawing.Size(632, 360)
-        Me.panelServicioCentral.TabIndex = 18
+        Me.panelLateralServicio.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(134, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.panelLateralServicio.Controls.Add(Me.btnEliminarServicio)
+        Me.panelLateralServicio.Controls.Add(Me.BtnModificarServicio)
+        Me.panelLateralServicio.Controls.Add(Me.btnVerServicio)
+        Me.panelLateralServicio.Controls.Add(Me.btnNuevoServicio)
+        Me.panelLateralServicio.Controls.Add(Me.iconoServicio)
+        Me.panelLateralServicio.Dock = System.Windows.Forms.DockStyle.Left
+        Me.panelLateralServicio.Location = New System.Drawing.Point(3, 3)
+        Me.panelLateralServicio.Name = "panelLateralServicio"
+        Me.panelLateralServicio.Size = New System.Drawing.Size(186, 467)
+        Me.panelLateralServicio.TabIndex = 16
+        '
+        'btnEliminarServicio
+        '
+        Me.btnEliminarServicio.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnEliminarServicio.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnEliminarServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnEliminarServicio.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEliminarServicio.ForeColor = System.Drawing.Color.White
+        Me.btnEliminarServicio.Location = New System.Drawing.Point(-4, 291)
+        Me.btnEliminarServicio.Name = "btnEliminarServicio"
+        Me.btnEliminarServicio.Size = New System.Drawing.Size(195, 50)
+        Me.btnEliminarServicio.TabIndex = 17
+        Me.btnEliminarServicio.Text = "Eliminar"
+        Me.btnEliminarServicio.UseVisualStyleBackColor = False
+        '
+        'BtnModificarServicio
+        '
+        Me.BtnModificarServicio.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.BtnModificarServicio.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.BtnModificarServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnModificarServicio.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnModificarServicio.ForeColor = System.Drawing.Color.White
+        Me.BtnModificarServicio.Location = New System.Drawing.Point(-4, 212)
+        Me.BtnModificarServicio.Name = "BtnModificarServicio"
+        Me.BtnModificarServicio.Size = New System.Drawing.Size(195, 50)
+        Me.BtnModificarServicio.TabIndex = 16
+        Me.BtnModificarServicio.Text = "Modificar"
+        Me.BtnModificarServicio.UseVisualStyleBackColor = False
+        '
+        'btnVerServicio
+        '
+        Me.btnVerServicio.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnVerServicio.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnVerServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnVerServicio.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnVerServicio.ForeColor = System.Drawing.Color.White
+        Me.btnVerServicio.Location = New System.Drawing.Point(-7, 360)
+        Me.btnVerServicio.Name = "btnVerServicio"
+        Me.btnVerServicio.Size = New System.Drawing.Size(195, 50)
+        Me.btnVerServicio.TabIndex = 15
+        Me.btnVerServicio.Text = "Ver Servicio"
+        Me.btnVerServicio.UseVisualStyleBackColor = False
         '
         'btnNuevoServicio
         '
@@ -518,105 +794,287 @@ Partial Class frmMenuPrincipal
         Me.btnNuevoServicio.Text = "Nuevo Servicio"
         Me.btnNuevoServicio.UseVisualStyleBackColor = False
         '
-        'btnVerServicio
+        'iconoServicio
         '
-        Me.btnVerServicio.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
-        Me.btnVerServicio.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
-        Me.btnVerServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnVerServicio.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnVerServicio.ForeColor = System.Drawing.Color.White
-        Me.btnVerServicio.Location = New System.Drawing.Point(-4, 211)
-        Me.btnVerServicio.Name = "btnVerServicio"
-        Me.btnVerServicio.Size = New System.Drawing.Size(195, 50)
-        Me.btnVerServicio.TabIndex = 15
-        Me.btnVerServicio.Text = "Ver Servicio"
-        Me.btnVerServicio.UseVisualStyleBackColor = False
+        Me.iconoServicio.Location = New System.Drawing.Point(20, 12)
+        Me.iconoServicio.Name = "iconoServicio"
+        Me.iconoServicio.Size = New System.Drawing.Size(150, 118)
+        Me.iconoServicio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.iconoServicio.TabIndex = 13
+        Me.iconoServicio.TabStop = False
         '
-        'BtnModificarServicio
+        'TabEstadistica
         '
-        Me.BtnModificarServicio.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
-        Me.BtnModificarServicio.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
-        Me.BtnModificarServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnModificarServicio.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnModificarServicio.ForeColor = System.Drawing.Color.White
-        Me.BtnModificarServicio.Location = New System.Drawing.Point(-7, 286)
-        Me.BtnModificarServicio.Name = "BtnModificarServicio"
-        Me.BtnModificarServicio.Size = New System.Drawing.Size(195, 50)
-        Me.BtnModificarServicio.TabIndex = 16
-        Me.BtnModificarServicio.Text = "Modificar"
-        Me.BtnModificarServicio.UseVisualStyleBackColor = False
+        Me.TabEstadistica.Controls.Add(Me.Panel7)
+        Me.TabEstadistica.Controls.Add(Me.PanelSupEstadistica)
+        Me.TabEstadistica.Controls.Add(Me.PnlLateralEstadistica)
+        Me.TabEstadistica.Location = New System.Drawing.Point(4, 24)
+        Me.TabEstadistica.Name = "TabEstadistica"
+        Me.TabEstadistica.Size = New System.Drawing.Size(853, 473)
+        Me.TabEstadistica.TabIndex = 3
+        Me.TabEstadistica.Text = "Estadistica"
+        Me.TabEstadistica.UseVisualStyleBackColor = True
         '
-        'btnEliminarServicio
+        'Panel7
         '
-        Me.btnEliminarServicio.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
-        Me.btnEliminarServicio.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
-        Me.btnEliminarServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnEliminarServicio.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnEliminarServicio.ForeColor = System.Drawing.Color.White
-        Me.btnEliminarServicio.Location = New System.Drawing.Point(-4, 361)
-        Me.btnEliminarServicio.Name = "btnEliminarServicio"
-        Me.btnEliminarServicio.Size = New System.Drawing.Size(195, 50)
-        Me.btnEliminarServicio.TabIndex = 17
-        Me.btnEliminarServicio.Text = "Eliminar"
-        Me.btnEliminarServicio.UseVisualStyleBackColor = False
+        Me.Panel7.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.Panel7.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel7.Location = New System.Drawing.Point(195, 94)
+        Me.Panel7.Name = "Panel7"
+        Me.Panel7.Size = New System.Drawing.Size(658, 379)
+        Me.Panel7.TabIndex = 6
+        '
+        'PanelSupEstadistica
+        '
+        Me.PanelSupEstadistica.BackColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(166, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.PanelSupEstadistica.Controls.Add(Me.lblTituloEstadistica)
+        Me.PanelSupEstadistica.Dock = System.Windows.Forms.DockStyle.Top
+        Me.PanelSupEstadistica.Location = New System.Drawing.Point(195, 0)
+        Me.PanelSupEstadistica.Name = "PanelSupEstadistica"
+        Me.PanelSupEstadistica.Size = New System.Drawing.Size(658, 94)
+        Me.PanelSupEstadistica.TabIndex = 5
+        '
+        'lblTituloEstadistica
+        '
+        Me.lblTituloEstadistica.AutoSize = True
+        Me.lblTituloEstadistica.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTituloEstadistica.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.lblTituloEstadistica.Location = New System.Drawing.Point(-5, 22)
+        Me.lblTituloEstadistica.Name = "lblTituloEstadistica"
+        Me.lblTituloEstadistica.Size = New System.Drawing.Size(667, 55)
+        Me.lblTituloEstadistica.TabIndex = 0
+        Me.lblTituloEstadistica.Text = "Grafico - Pedidos mensuales"
+        '
+        'PnlLateralEstadistica
+        '
+        Me.PnlLateralEstadistica.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(134, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.PnlLateralEstadistica.Controls.Add(Me.lblSubtituloEstadisticas)
+        Me.PnlLateralEstadistica.Controls.Add(Me.btnGraficosProducto)
+        Me.PnlLateralEstadistica.Controls.Add(Me.btnGraficoServicios)
+        Me.PnlLateralEstadistica.Controls.Add(Me.btnGraficoMedios)
+        Me.PnlLateralEstadistica.Controls.Add(Me.btnGraficoPedidos)
+        Me.PnlLateralEstadistica.Controls.Add(Me.PictureBoxEstadistic)
+        Me.PnlLateralEstadistica.Dock = System.Windows.Forms.DockStyle.Left
+        Me.PnlLateralEstadistica.Location = New System.Drawing.Point(0, 0)
+        Me.PnlLateralEstadistica.Name = "PnlLateralEstadistica"
+        Me.PnlLateralEstadistica.Size = New System.Drawing.Size(195, 473)
+        Me.PnlLateralEstadistica.TabIndex = 4
+        '
+        'lblSubtituloEstadisticas
+        '
+        Me.lblSubtituloEstadisticas.AutoSize = True
+        Me.lblSubtituloEstadisticas.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSubtituloEstadisticas.ForeColor = System.Drawing.Color.White
+        Me.lblSubtituloEstadisticas.Location = New System.Drawing.Point(43, 155)
+        Me.lblSubtituloEstadisticas.Name = "lblSubtituloEstadisticas"
+        Me.lblSubtituloEstadisticas.Size = New System.Drawing.Size(107, 25)
+        Me.lblSubtituloEstadisticas.TabIndex = 5
+        Me.lblSubtituloEstadisticas.Text = "Graficas:"
+        '
+        'btnGraficosProducto
+        '
+        Me.btnGraficosProducto.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnGraficosProducto.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnGraficosProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnGraficosProducto.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnGraficosProducto.ForeColor = System.Drawing.Color.White
+        Me.btnGraficosProducto.Location = New System.Drawing.Point(0, 388)
+        Me.btnGraficosProducto.Name = "btnGraficosProducto"
+        Me.btnGraficosProducto.Size = New System.Drawing.Size(195, 50)
+        Me.btnGraficosProducto.TabIndex = 4
+        Me.btnGraficosProducto.Text = "Productos Solicitados"
+        Me.btnGraficosProducto.UseVisualStyleBackColor = False
+        '
+        'btnGraficoServicios
+        '
+        Me.btnGraficoServicios.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnGraficoServicios.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnGraficoServicios.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnGraficoServicios.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnGraficoServicios.ForeColor = System.Drawing.Color.White
+        Me.btnGraficoServicios.Location = New System.Drawing.Point(0, 324)
+        Me.btnGraficoServicios.Name = "btnGraficoServicios"
+        Me.btnGraficoServicios.Size = New System.Drawing.Size(195, 50)
+        Me.btnGraficoServicios.TabIndex = 3
+        Me.btnGraficoServicios.Text = "Servicios Solicitados"
+        Me.btnGraficoServicios.UseVisualStyleBackColor = False
+        '
+        'btnGraficoMedios
+        '
+        Me.btnGraficoMedios.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnGraficoMedios.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnGraficoMedios.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnGraficoMedios.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnGraficoMedios.ForeColor = System.Drawing.Color.White
+        Me.btnGraficoMedios.Location = New System.Drawing.Point(0, 260)
+        Me.btnGraficoMedios.Name = "btnGraficoMedios"
+        Me.btnGraficoMedios.Size = New System.Drawing.Size(195, 50)
+        Me.btnGraficoMedios.TabIndex = 2
+        Me.btnGraficoMedios.Text = "Medios"
+        Me.btnGraficoMedios.UseVisualStyleBackColor = False
+        '
+        'btnGraficoPedidos
+        '
+        Me.btnGraficoPedidos.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnGraficoPedidos.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnGraficoPedidos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnGraficoPedidos.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnGraficoPedidos.ForeColor = System.Drawing.Color.White
+        Me.btnGraficoPedidos.Location = New System.Drawing.Point(0, 196)
+        Me.btnGraficoPedidos.Name = "btnGraficoPedidos"
+        Me.btnGraficoPedidos.Size = New System.Drawing.Size(195, 50)
+        Me.btnGraficoPedidos.TabIndex = 1
+        Me.btnGraficoPedidos.Text = "Pedidos Mensuales"
+        Me.btnGraficoPedidos.UseVisualStyleBackColor = False
+        '
+        'PictureBoxEstadistic
+        '
+        Me.PictureBoxEstadistic.Location = New System.Drawing.Point(16, 12)
+        Me.PictureBoxEstadistic.Name = "PictureBoxEstadistic"
+        Me.PictureBoxEstadistic.Size = New System.Drawing.Size(160, 140)
+        Me.PictureBoxEstadistic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBoxEstadistic.TabIndex = 0
+        Me.PictureBoxEstadistic.TabStop = False
+        '
+        'TabAyuda
+        '
+        Me.TabAyuda.Controls.Add(Me.PanelCentralAyuda)
+        Me.TabAyuda.Controls.Add(Me.PanelSuperiorAyuda)
+        Me.TabAyuda.Controls.Add(Me.PanelLateralAyuda)
+        Me.TabAyuda.Location = New System.Drawing.Point(4, 24)
+        Me.TabAyuda.Name = "TabAyuda"
+        Me.TabAyuda.Size = New System.Drawing.Size(853, 473)
+        Me.TabAyuda.TabIndex = 4
+        Me.TabAyuda.Text = "Ayuda"
+        Me.TabAyuda.UseVisualStyleBackColor = True
+        '
+        'PanelCentralAyuda
+        '
+        Me.PanelCentralAyuda.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.PanelCentralAyuda.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PanelCentralAyuda.Location = New System.Drawing.Point(186, 95)
+        Me.PanelCentralAyuda.Name = "PanelCentralAyuda"
+        Me.PanelCentralAyuda.Size = New System.Drawing.Size(667, 378)
+        Me.PanelCentralAyuda.TabIndex = 19
+        '
+        'PanelSuperiorAyuda
+        '
+        Me.PanelSuperiorAyuda.BackColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(166, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.PanelSuperiorAyuda.Controls.Add(Me.lblTituloAyuda)
+        Me.PanelSuperiorAyuda.Dock = System.Windows.Forms.DockStyle.Top
+        Me.PanelSuperiorAyuda.Location = New System.Drawing.Point(186, 0)
+        Me.PanelSuperiorAyuda.Name = "PanelSuperiorAyuda"
+        Me.PanelSuperiorAyuda.Size = New System.Drawing.Size(667, 95)
+        Me.PanelSuperiorAyuda.TabIndex = 18
+        '
+        'lblTituloAyuda
+        '
+        Me.lblTituloAyuda.AutoSize = True
+        Me.lblTituloAyuda.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, System.Drawing.FontStyle.Bold)
+        Me.lblTituloAyuda.Location = New System.Drawing.Point(117, 23)
+        Me.lblTituloAyuda.Name = "lblTituloAyuda"
+        Me.lblTituloAyuda.Size = New System.Drawing.Size(476, 55)
+        Me.lblTituloAyuda.TabIndex = 0
+        Me.lblTituloAyuda.Text = "Ayuda del programa"
+        '
+        'PanelLateralAyuda
+        '
+        Me.PanelLateralAyuda.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(134, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.PanelLateralAyuda.Controls.Add(Me.lblIndice)
+        Me.PanelLateralAyuda.Controls.Add(Me.IconoAyuda)
+        Me.PanelLateralAyuda.Dock = System.Windows.Forms.DockStyle.Left
+        Me.PanelLateralAyuda.Location = New System.Drawing.Point(0, 0)
+        Me.PanelLateralAyuda.Name = "PanelLateralAyuda"
+        Me.PanelLateralAyuda.Size = New System.Drawing.Size(186, 473)
+        Me.PanelLateralAyuda.TabIndex = 17
+        '
+        'lblIndice
+        '
+        Me.lblIndice.AutoSize = True
+        Me.lblIndice.Font = New System.Drawing.Font("WarHeliosCondCBold", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblIndice.Location = New System.Drawing.Point(56, 150)
+        Me.lblIndice.Name = "lblIndice"
+        Me.lblIndice.Size = New System.Drawing.Size(78, 33)
+        Me.lblIndice.TabIndex = 14
+        Me.lblIndice.Text = "Indice"
+        '
+        'IconoAyuda
+        '
+        Me.IconoAyuda.Location = New System.Drawing.Point(20, 12)
+        Me.IconoAyuda.Name = "IconoAyuda"
+        Me.IconoAyuda.Size = New System.Drawing.Size(150, 118)
+        Me.IconoAyuda.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.IconoAyuda.TabIndex = 13
+        Me.IconoAyuda.TabStop = False
         '
         'frmMenuPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LimeGreen
-        Me.ClientSize = New System.Drawing.Size(879, 525)
+        Me.ClientSize = New System.Drawing.Size(1014, 525)
         Me.Controls.Add(Me.TabGeneral)
         Me.Name = "frmMenuPrincipal"
         Me.Text = "MenuPrincipal"
         Me.TabGeneral.ResumeLayout(False)
         Me.TabCliente.ResumeLayout(False)
-        Me.TabCliente.PerformLayout()
+        Me.PanelCentralCliente.ResumeLayout(False)
+        Me.PanelCentralCliente.PerformLayout()
         CType(Me.DGCliente, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.PanelSuperiorCliente.ResumeLayout(False)
+        Me.PanelSuperiorCliente.PerformLayout()
+        Me.PanelLateralCliente.ResumeLayout(False)
+        CType(Me.PictureBoxCliente, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPedido.ResumeLayout(False)
-        Me.TabPedido.PerformLayout()
+        Me.PanelCentralPedido.ResumeLayout(False)
+        Me.PanelCentralPedido.PerformLayout()
         CType(Me.DGPedido, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.PanelSuperiorPedido.ResumeLayout(False)
+        Me.PanelSuperiorPedido.PerformLayout()
+        Me.PanelLateralPedido.ResumeLayout(False)
+        CType(Me.IconoPedido, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabProducto.ResumeLayout(False)
-        Me.TabProducto.PerformLayout()
+        Me.panelCentralProducto.ResumeLayout(False)
+        Me.panelCentralProducto.PerformLayout()
         CType(Me.DGProducto, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.panelSuperiorProducto.ResumeLayout(False)
+        Me.panelSuperiorProducto.PerformLayout()
+        Me.panelLateralProducto.ResumeLayout(False)
+        CType(Me.IconoProducto, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabServicios.ResumeLayout(False)
+        Me.panelCentralServicio.ResumeLayout(False)
+        Me.panelCentralServicio.PerformLayout()
         CType(Me.DGServicios, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.PanelServicios1.ResumeLayout(False)
+        Me.panelSuperiorServicio.ResumeLayout(False)
+        Me.panelSuperiorServicio.PerformLayout()
+        Me.panelLateralServicio.ResumeLayout(False)
         CType(Me.iconoServicio, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.PanelServiciosSuperior.ResumeLayout(False)
-        Me.PanelServiciosSuperior.PerformLayout()
-        Me.panelServicioCentral.ResumeLayout(False)
-        Me.panelServicioCentral.PerformLayout()
+        Me.TabEstadistica.ResumeLayout(False)
+        Me.PanelSupEstadistica.ResumeLayout(False)
+        Me.PanelSupEstadistica.PerformLayout()
+        Me.PnlLateralEstadistica.ResumeLayout(False)
+        Me.PnlLateralEstadistica.PerformLayout()
+        CType(Me.PictureBoxEstadistic, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabAyuda.ResumeLayout(False)
+        Me.PanelSuperiorAyuda.ResumeLayout(False)
+        Me.PanelSuperiorAyuda.PerformLayout()
+        Me.PanelLateralAyuda.ResumeLayout(False)
+        Me.PanelLateralAyuda.PerformLayout()
+        CType(Me.IconoAyuda, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
     Friend WithEvents TabGeneral As System.Windows.Forms.TabControl
     Friend WithEvents TabCliente As System.Windows.Forms.TabPage
     Friend WithEvents TabProducto As System.Windows.Forms.TabPage
-    Friend WithEvents DGCliente As System.Windows.Forms.DataGridView
-    Friend WithEvents cboBuscarCliente As System.Windows.Forms.ComboBox
-    Friend WithEvents btnBuscarCliente As System.Windows.Forms.Button
-    Friend WithEvents btnEliminarCliente As System.Windows.Forms.Button
-    Friend WithEvents btnVerCliente As System.Windows.Forms.Button
-    Friend WithEvents btnModificarCliente As System.Windows.Forms.Button
-    Friend WithEvents btnNuevoCliente As System.Windows.Forms.Button
-    Friend WithEvents txtBuscarCliente As System.Windows.Forms.TextBox
     Friend WithEvents TabPedido As System.Windows.Forms.TabPage
     Friend WithEvents TabEstadistica As System.Windows.Forms.TabPage
     Friend WithEvents TabAyuda As System.Windows.Forms.TabPage
     Friend WithEvents cboBuscarProducto As System.Windows.Forms.ComboBox
     Friend WithEvents txtBuscarProducto As System.Windows.Forms.TextBox
-    Friend WithEvents btnVerProducto As System.Windows.Forms.Button
-    Friend WithEvents btnModificarProducto As System.Windows.Forms.Button
-    Friend WithEvents btnEliminarProducto As System.Windows.Forms.Button
-    Friend WithEvents btnAgregarProducto As System.Windows.Forms.Button
     Friend WithEvents btnBuscarProducto As System.Windows.Forms.Button
     Friend WithEvents DGProducto As System.Windows.Forms.DataGridView
     Friend WithEvents btnBuscarPedido As System.Windows.Forms.Button
-    Friend WithEvents btnEliminarPedido As System.Windows.Forms.Button
-    Friend WithEvents btnModificarPedido As System.Windows.Forms.Button
-    Friend WithEvents Button7 As System.Windows.Forms.Button
-    Friend WithEvents btnNuevoPedido As System.Windows.Forms.Button
     Friend WithEvents DGPedido As System.Windows.Forms.DataGridView
     Friend WithEvents TabTareas As System.Windows.Forms.TabPage
     Friend WithEvents TabServicios As System.Windows.Forms.TabPage
@@ -626,13 +1084,60 @@ Partial Class frmMenuPrincipal
     Friend WithEvents cboBuscarServicio As System.Windows.Forms.ComboBox
     Friend WithEvents btnBuscarServicio As System.Windows.Forms.Button
     Friend WithEvents txtBuscarServicio As System.Windows.Forms.TextBox
-    Friend WithEvents panelServicioCentral As System.Windows.Forms.Panel
-    Friend WithEvents PanelServiciosSuperior As System.Windows.Forms.Panel
+    Friend WithEvents panelCentralServicio As System.Windows.Forms.Panel
+    Friend WithEvents panelSuperiorServicio As System.Windows.Forms.Panel
     Friend WithEvents lblTituloServicio As System.Windows.Forms.Label
-    Friend WithEvents PanelServicios1 As System.Windows.Forms.Panel
+    Friend WithEvents panelLateralServicio As System.Windows.Forms.Panel
     Friend WithEvents btnNuevoServicio As System.Windows.Forms.Button
     Friend WithEvents iconoServicio As System.Windows.Forms.PictureBox
     Friend WithEvents btnEliminarServicio As System.Windows.Forms.Button
     Friend WithEvents BtnModificarServicio As System.Windows.Forms.Button
     Friend WithEvents btnVerServicio As System.Windows.Forms.Button
+    Friend WithEvents panelCentralProducto As System.Windows.Forms.Panel
+    Friend WithEvents panelSuperiorProducto As System.Windows.Forms.Panel
+    Friend WithEvents panelLateralProducto As System.Windows.Forms.Panel
+    Friend WithEvents btnVerProducto As System.Windows.Forms.Button
+    Friend WithEvents btnModificarProducto As System.Windows.Forms.Button
+    Friend WithEvents btnEliminarProducto As System.Windows.Forms.Button
+    Friend WithEvents btnAgregarProducto As System.Windows.Forms.Button
+    Friend WithEvents IconoProducto As System.Windows.Forms.PictureBox
+    Friend WithEvents PanelCentralPedido As System.Windows.Forms.Panel
+    Friend WithEvents PanelSuperiorPedido As System.Windows.Forms.Panel
+    Friend WithEvents PanelLateralPedido As System.Windows.Forms.Panel
+    Friend WithEvents btnEliminarPedido As System.Windows.Forms.Button
+    Friend WithEvents btnModificarPedido As System.Windows.Forms.Button
+    Friend WithEvents btnVerPedido As System.Windows.Forms.Button
+    Friend WithEvents btnNuevoPedido As System.Windows.Forms.Button
+    Friend WithEvents IconoPedido As System.Windows.Forms.PictureBox
+    Friend WithEvents lblTituloProducto As System.Windows.Forms.Label
+    Friend WithEvents lblTituloPedidos As System.Windows.Forms.Label
+    Friend WithEvents PanelCentralCliente As System.Windows.Forms.Panel
+    Friend WithEvents txtBuscarCliente As System.Windows.Forms.TextBox
+    Friend WithEvents btnBuscarCliente As System.Windows.Forms.Button
+    Friend WithEvents cboBuscarCliente As System.Windows.Forms.ComboBox
+    Friend WithEvents DGCliente As System.Windows.Forms.DataGridView
+    Friend WithEvents PanelSuperiorCliente As System.Windows.Forms.Panel
+    Friend WithEvents lbltituloCliente As System.Windows.Forms.Label
+    Friend WithEvents PanelLateralCliente As System.Windows.Forms.Panel
+    Friend WithEvents PictureBoxCliente As System.Windows.Forms.PictureBox
+    Friend WithEvents btnEliminarCliente As System.Windows.Forms.Button
+    Friend WithEvents btnVerCliente As System.Windows.Forms.Button
+    Friend WithEvents btnModificarCliente As System.Windows.Forms.Button
+    Friend WithEvents btnNuevoCliente As System.Windows.Forms.Button
+    Friend WithEvents PanelSupEstadistica As System.Windows.Forms.Panel
+    Friend WithEvents lblTituloEstadistica As System.Windows.Forms.Label
+    Friend WithEvents PnlLateralEstadistica As System.Windows.Forms.Panel
+    Friend WithEvents lblSubtituloEstadisticas As System.Windows.Forms.Label
+    Friend WithEvents btnGraficosProducto As System.Windows.Forms.Button
+    Friend WithEvents btnGraficoServicios As System.Windows.Forms.Button
+    Friend WithEvents btnGraficoMedios As System.Windows.Forms.Button
+    Friend WithEvents btnGraficoPedidos As System.Windows.Forms.Button
+    Friend WithEvents PictureBoxEstadistic As System.Windows.Forms.PictureBox
+    Friend WithEvents PanelCentralAyuda As System.Windows.Forms.Panel
+    Friend WithEvents PanelSuperiorAyuda As System.Windows.Forms.Panel
+    Friend WithEvents lblTituloAyuda As System.Windows.Forms.Label
+    Friend WithEvents PanelLateralAyuda As System.Windows.Forms.Panel
+    Friend WithEvents lblIndice As System.Windows.Forms.Label
+    Friend WithEvents IconoAyuda As System.Windows.Forms.PictureBox
+    Friend WithEvents Panel7 As System.Windows.Forms.Panel
 End Class

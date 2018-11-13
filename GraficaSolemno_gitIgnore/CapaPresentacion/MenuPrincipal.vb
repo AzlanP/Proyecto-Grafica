@@ -97,20 +97,20 @@ Public Class frmMenuPrincipal
 
 
     'REGISTRO DE PRODUCTO
-    Private Sub btnAgregarProducto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAgregarProducto.Click
+    Private Sub btnAgregarProducto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Dim frmRegistrar As New RegistrarProducto
         frmRegistrar.lblID.Text = oCNProducto.ConsultarUltimoID()
         frmRegistrar.ShowDialog()
         CargarGridProducto()
     End Sub
 
-    Private Sub btnEliminarProducto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEliminarProducto.Click
+    Private Sub btnEliminarProducto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         ID = DGProducto.Rows(DGProducto.CurrentCell.RowIndex).Cells("IDProductos").Value
         oCNProducto.EliminarProducto(ID)
         CargarGridProducto()
     End Sub
 
-    Private Sub btnModificarProducto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnModificarProducto.Click
+    Private Sub btnModificarProducto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         ID = DGProducto.Rows(DGProducto.CurrentCell.RowIndex).Cells("IDProductos").Value
         Dim frmRegistrar As New RegistrarProducto
         frmRegistrar.LlenarFormulario(ID)
@@ -118,7 +118,7 @@ Public Class frmMenuPrincipal
         CargarGridProducto()
     End Sub
 
-    Private Sub btnVerProducto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnVerProducto.Click
+    Private Sub btnVerProducto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         ID = DGProducto.Rows(DGProducto.CurrentCell.RowIndex).Cells("IDProductos").Value
         Dim frmRegistrar As New RegistrarProducto
         frmRegistrar.LlenarFormulario(ID)
@@ -142,5 +142,5 @@ Public Class frmMenuPrincipal
     End Sub
 
 
-   
+
 End Class
