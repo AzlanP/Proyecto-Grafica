@@ -146,19 +146,18 @@ Partial Class frmMenuPrincipal
         Me.TabGeneral.Name = "TabGeneral"
         Me.TabGeneral.Padding = New System.Drawing.Point(6, 4)
         Me.TabGeneral.SelectedIndex = 0
-        Me.TabGeneral.Size = New System.Drawing.Size(861, 501)
+        Me.TabGeneral.Size = New System.Drawing.Size(882, 500)
         Me.TabGeneral.SizeMode = System.Windows.Forms.TabSizeMode.Fixed
         Me.TabGeneral.TabIndex = 0
         '
         'TabTareas
         '
+        Me.TabTareas.BackColor = System.Drawing.SystemColors.Control
         Me.TabTareas.Location = New System.Drawing.Point(4, 24)
         Me.TabTareas.Name = "TabTareas"
-        Me.TabTareas.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabTareas.Size = New System.Drawing.Size(853, 473)
+        Me.TabTareas.Size = New System.Drawing.Size(874, 472)
         Me.TabTareas.TabIndex = 6
         Me.TabTareas.Text = "Tareas"
-        Me.TabTareas.UseVisualStyleBackColor = True
         '
         'TabCliente
         '
@@ -168,8 +167,7 @@ Partial Class frmMenuPrincipal
         Me.TabCliente.Controls.Add(Me.PanelLateralCliente)
         Me.TabCliente.Location = New System.Drawing.Point(4, 24)
         Me.TabCliente.Name = "TabCliente"
-        Me.TabCliente.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabCliente.Size = New System.Drawing.Size(853, 473)
+        Me.TabCliente.Size = New System.Drawing.Size(874, 472)
         Me.TabCliente.TabIndex = 0
         Me.TabCliente.Text = "Cliente"
         '
@@ -180,35 +178,38 @@ Partial Class frmMenuPrincipal
         Me.PanelCentralCliente.Controls.Add(Me.cboBuscarCliente)
         Me.PanelCentralCliente.Controls.Add(Me.DGCliente)
         Me.PanelCentralCliente.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PanelCentralCliente.Location = New System.Drawing.Point(190, 72)
+        Me.PanelCentralCliente.Location = New System.Drawing.Point(184, 89)
         Me.PanelCentralCliente.Name = "PanelCentralCliente"
-        Me.PanelCentralCliente.Size = New System.Drawing.Size(660, 398)
+        Me.PanelCentralCliente.Size = New System.Drawing.Size(690, 383)
         Me.PanelCentralCliente.TabIndex = 13
         '
         'txtBuscarCliente
         '
-        Me.txtBuscarCliente.Location = New System.Drawing.Point(40, 30)
+        Me.txtBuscarCliente.Location = New System.Drawing.Point(20, 36)
         Me.txtBuscarCliente.Name = "txtBuscarCliente"
-        Me.txtBuscarCliente.Size = New System.Drawing.Size(352, 20)
+        Me.txtBuscarCliente.Size = New System.Drawing.Size(389, 20)
         Me.txtBuscarCliente.TabIndex = 0
         '
         'btnBuscarCliente
         '
-        Me.btnBuscarCliente.Location = New System.Drawing.Point(536, 27)
+        Me.btnBuscarCliente.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnBuscarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnBuscarCliente.Location = New System.Drawing.Point(535, 33)
         Me.btnBuscarCliente.Name = "btnBuscarCliente"
-        Me.btnBuscarCliente.Size = New System.Drawing.Size(75, 23)
+        Me.btnBuscarCliente.Size = New System.Drawing.Size(115, 24)
         Me.btnBuscarCliente.TabIndex = 5
         Me.btnBuscarCliente.Text = "Buscar"
-        Me.btnBuscarCliente.UseVisualStyleBackColor = True
+        Me.btnBuscarCliente.UseVisualStyleBackColor = False
         '
         'cboBuscarCliente
         '
+        Me.cboBuscarCliente.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.cboBuscarCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboBuscarCliente.FormattingEnabled = True
         Me.cboBuscarCliente.Items.AddRange(New Object() {"Nombre", "Apellido", "DNI", "CUIT"})
-        Me.cboBuscarCliente.Location = New System.Drawing.Point(398, 29)
+        Me.cboBuscarCliente.Location = New System.Drawing.Point(415, 35)
         Me.cboBuscarCliente.Name = "cboBuscarCliente"
-        Me.cboBuscarCliente.Size = New System.Drawing.Size(121, 21)
+        Me.cboBuscarCliente.Size = New System.Drawing.Size(114, 21)
         Me.cboBuscarCliente.TabIndex = 6
         '
         'DGCliente
@@ -230,18 +231,18 @@ Partial Class frmMenuPrincipal
         Me.PanelSuperiorCliente.BackColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(166, Byte), Integer), CType(CType(63, Byte), Integer))
         Me.PanelSuperiorCliente.Controls.Add(Me.lbltituloCliente)
         Me.PanelSuperiorCliente.Dock = System.Windows.Forms.DockStyle.Top
-        Me.PanelSuperiorCliente.Location = New System.Drawing.Point(190, 3)
+        Me.PanelSuperiorCliente.Location = New System.Drawing.Point(184, 0)
         Me.PanelSuperiorCliente.Name = "PanelSuperiorCliente"
-        Me.PanelSuperiorCliente.Size = New System.Drawing.Size(660, 69)
+        Me.PanelSuperiorCliente.Size = New System.Drawing.Size(690, 89)
         Me.PanelSuperiorCliente.TabIndex = 12
         '
         'lbltituloCliente
         '
         Me.lbltituloCliente.AutoSize = True
-        Me.lbltituloCliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, System.Drawing.FontStyle.Bold)
-        Me.lbltituloCliente.Location = New System.Drawing.Point(269, 11)
+        Me.lbltituloCliente.Font = New System.Drawing.Font("WarHeliosCondCBold", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbltituloCliente.Location = New System.Drawing.Point(241, 14)
         Me.lbltituloCliente.Name = "lbltituloCliente"
-        Me.lbltituloCliente.Size = New System.Drawing.Size(180, 55)
+        Me.lbltituloCliente.Size = New System.Drawing.Size(151, 59)
         Me.lbltituloCliente.TabIndex = 1
         Me.lbltituloCliente.Text = "Cliente"
         '
@@ -254,16 +255,16 @@ Partial Class frmMenuPrincipal
         Me.PanelLateralCliente.Controls.Add(Me.btnModificarCliente)
         Me.PanelLateralCliente.Controls.Add(Me.btnNuevoCliente)
         Me.PanelLateralCliente.Dock = System.Windows.Forms.DockStyle.Left
-        Me.PanelLateralCliente.Location = New System.Drawing.Point(3, 3)
+        Me.PanelLateralCliente.Location = New System.Drawing.Point(0, 0)
         Me.PanelLateralCliente.Name = "PanelLateralCliente"
-        Me.PanelLateralCliente.Size = New System.Drawing.Size(187, 467)
+        Me.PanelLateralCliente.Size = New System.Drawing.Size(184, 472)
         Me.PanelLateralCliente.TabIndex = 11
         '
         'PictureBoxCliente
         '
-        Me.PictureBoxCliente.Location = New System.Drawing.Point(10, 11)
+        Me.PictureBoxCliente.Location = New System.Drawing.Point(7, 14)
         Me.PictureBoxCliente.Name = "PictureBoxCliente"
-        Me.PictureBoxCliente.Size = New System.Drawing.Size(171, 150)
+        Me.PictureBoxCliente.Size = New System.Drawing.Size(170, 150)
         Me.PictureBoxCliente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBoxCliente.TabIndex = 10
         Me.PictureBoxCliente.TabStop = False
@@ -275,9 +276,9 @@ Partial Class frmMenuPrincipal
         Me.btnEliminarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnEliminarCliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnEliminarCliente.ForeColor = System.Drawing.Color.White
-        Me.btnEliminarCliente.Location = New System.Drawing.Point(-2, 386)
+        Me.btnEliminarCliente.Location = New System.Drawing.Point(0, 386)
         Me.btnEliminarCliente.Name = "btnEliminarCliente"
-        Me.btnEliminarCliente.Size = New System.Drawing.Size(189, 50)
+        Me.btnEliminarCliente.Size = New System.Drawing.Size(184, 50)
         Me.btnEliminarCliente.TabIndex = 9
         Me.btnEliminarCliente.Text = "Eliminar Cliente"
         Me.btnEliminarCliente.UseVisualStyleBackColor = False
@@ -289,9 +290,9 @@ Partial Class frmMenuPrincipal
         Me.btnVerCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnVerCliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnVerCliente.ForeColor = System.Drawing.Color.White
-        Me.btnVerCliente.Location = New System.Drawing.Point(0, 313)
+        Me.btnVerCliente.Location = New System.Drawing.Point(0, 330)
         Me.btnVerCliente.Name = "btnVerCliente"
-        Me.btnVerCliente.Size = New System.Drawing.Size(189, 50)
+        Me.btnVerCliente.Size = New System.Drawing.Size(184, 50)
         Me.btnVerCliente.TabIndex = 8
         Me.btnVerCliente.Text = "Ver Detalles Cliente"
         Me.btnVerCliente.UseVisualStyleBackColor = False
@@ -303,9 +304,9 @@ Partial Class frmMenuPrincipal
         Me.btnModificarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnModificarCliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnModificarCliente.ForeColor = System.Drawing.Color.White
-        Me.btnModificarCliente.Location = New System.Drawing.Point(0, 240)
+        Me.btnModificarCliente.Location = New System.Drawing.Point(0, 274)
         Me.btnModificarCliente.Name = "btnModificarCliente"
-        Me.btnModificarCliente.Size = New System.Drawing.Size(189, 50)
+        Me.btnModificarCliente.Size = New System.Drawing.Size(184, 50)
         Me.btnModificarCliente.TabIndex = 7
         Me.btnModificarCliente.Text = "Modificar Cliente"
         Me.btnModificarCliente.UseVisualStyleBackColor = False
@@ -317,9 +318,9 @@ Partial Class frmMenuPrincipal
         Me.btnNuevoCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnNuevoCliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnNuevoCliente.ForeColor = System.Drawing.Color.White
-        Me.btnNuevoCliente.Location = New System.Drawing.Point(3, 167)
+        Me.btnNuevoCliente.Location = New System.Drawing.Point(0, 218)
         Me.btnNuevoCliente.Name = "btnNuevoCliente"
-        Me.btnNuevoCliente.Size = New System.Drawing.Size(189, 50)
+        Me.btnNuevoCliente.Size = New System.Drawing.Size(184, 50)
         Me.btnNuevoCliente.TabIndex = 6
         Me.btnNuevoCliente.Text = "Nuevo Cliente"
         Me.btnNuevoCliente.UseVisualStyleBackColor = False
@@ -332,7 +333,7 @@ Partial Class frmMenuPrincipal
         Me.TabPedido.Controls.Add(Me.PanelLateralPedido)
         Me.TabPedido.Location = New System.Drawing.Point(4, 24)
         Me.TabPedido.Name = "TabPedido"
-        Me.TabPedido.Size = New System.Drawing.Size(853, 473)
+        Me.TabPedido.Size = New System.Drawing.Size(874, 472)
         Me.TabPedido.TabIndex = 2
         Me.TabPedido.Text = "Pedido"
         '
@@ -343,34 +344,36 @@ Partial Class frmMenuPrincipal
         Me.PanelCentralPedido.Controls.Add(Me.DGPedido)
         Me.PanelCentralPedido.Controls.Add(Me.cboBuscarPedido)
         Me.PanelCentralPedido.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PanelCentralPedido.Location = New System.Drawing.Point(184, 102)
+        Me.PanelCentralPedido.Location = New System.Drawing.Point(184, 89)
         Me.PanelCentralPedido.Name = "PanelCentralPedido"
-        Me.PanelCentralPedido.Size = New System.Drawing.Size(669, 371)
+        Me.PanelCentralPedido.Size = New System.Drawing.Size(690, 383)
         Me.PanelCentralPedido.TabIndex = 16
         '
         'txtBuscarPedido
         '
-        Me.txtBuscarPedido.Location = New System.Drawing.Point(6, 37)
+        Me.txtBuscarPedido.Location = New System.Drawing.Point(20, 36)
         Me.txtBuscarPedido.Name = "txtBuscarPedido"
-        Me.txtBuscarPedido.Size = New System.Drawing.Size(328, 20)
+        Me.txtBuscarPedido.Size = New System.Drawing.Size(389, 20)
         Me.txtBuscarPedido.TabIndex = 12
         '
         'btnBuscarPedido
         '
-        Me.btnBuscarPedido.Location = New System.Drawing.Point(482, 34)
+        Me.btnBuscarPedido.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnBuscarPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnBuscarPedido.Location = New System.Drawing.Point(535, 33)
         Me.btnBuscarPedido.Name = "btnBuscarPedido"
-        Me.btnBuscarPedido.Size = New System.Drawing.Size(123, 23)
+        Me.btnBuscarPedido.Size = New System.Drawing.Size(115, 24)
         Me.btnBuscarPedido.TabIndex = 11
         Me.btnBuscarPedido.Text = "Buscar"
-        Me.btnBuscarPedido.UseVisualStyleBackColor = True
+        Me.btnBuscarPedido.UseVisualStyleBackColor = False
         '
         'DGPedido
         '
         Me.DGPedido.BackgroundColor = System.Drawing.SystemColors.ControlLightLight
         Me.DGPedido.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGPedido.Location = New System.Drawing.Point(6, 63)
+        Me.DGPedido.Location = New System.Drawing.Point(20, 74)
         Me.DGPedido.Name = "DGPedido"
-        Me.DGPedido.Size = New System.Drawing.Size(599, 294)
+        Me.DGPedido.Size = New System.Drawing.Size(630, 310)
         Me.DGPedido.TabIndex = 6
         '
         'cboBuscarPedido
@@ -378,9 +381,9 @@ Partial Class frmMenuPrincipal
         Me.cboBuscarPedido.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboBuscarPedido.FormattingEnabled = True
         Me.cboBuscarPedido.Items.AddRange(New Object() {"Nombre", "Apellido", "DNI", "CUIT"})
-        Me.cboBuscarPedido.Location = New System.Drawing.Point(340, 36)
+        Me.cboBuscarPedido.Location = New System.Drawing.Point(415, 35)
         Me.cboBuscarPedido.Name = "cboBuscarPedido"
-        Me.cboBuscarPedido.Size = New System.Drawing.Size(136, 21)
+        Me.cboBuscarPedido.Size = New System.Drawing.Size(114, 21)
         Me.cboBuscarPedido.TabIndex = 13
         '
         'PanelSuperiorPedido
@@ -390,16 +393,16 @@ Partial Class frmMenuPrincipal
         Me.PanelSuperiorPedido.Dock = System.Windows.Forms.DockStyle.Top
         Me.PanelSuperiorPedido.Location = New System.Drawing.Point(184, 0)
         Me.PanelSuperiorPedido.Name = "PanelSuperiorPedido"
-        Me.PanelSuperiorPedido.Size = New System.Drawing.Size(669, 102)
+        Me.PanelSuperiorPedido.Size = New System.Drawing.Size(690, 89)
         Me.PanelSuperiorPedido.TabIndex = 15
         '
         'lblTituloPedidos
         '
         Me.lblTituloPedidos.AutoSize = True
-        Me.lblTituloPedidos.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, System.Drawing.FontStyle.Bold)
-        Me.lblTituloPedidos.Location = New System.Drawing.Point(195, 23)
+        Me.lblTituloPedidos.Font = New System.Drawing.Font("WarHeliosCondCBold", 36.0!, System.Drawing.FontStyle.Bold)
+        Me.lblTituloPedidos.Location = New System.Drawing.Point(241, 14)
         Me.lblTituloPedidos.Name = "lblTituloPedidos"
-        Me.lblTituloPedidos.Size = New System.Drawing.Size(205, 55)
+        Me.lblTituloPedidos.Size = New System.Drawing.Size(172, 59)
         Me.lblTituloPedidos.TabIndex = 2
         Me.lblTituloPedidos.Text = "Pedidos"
         '
@@ -414,7 +417,7 @@ Partial Class frmMenuPrincipal
         Me.PanelLateralPedido.Dock = System.Windows.Forms.DockStyle.Left
         Me.PanelLateralPedido.Location = New System.Drawing.Point(0, 0)
         Me.PanelLateralPedido.Name = "PanelLateralPedido"
-        Me.PanelLateralPedido.Size = New System.Drawing.Size(184, 473)
+        Me.PanelLateralPedido.Size = New System.Drawing.Size(184, 472)
         Me.PanelLateralPedido.TabIndex = 14
         '
         'btnEliminarPedido
@@ -424,9 +427,9 @@ Partial Class frmMenuPrincipal
         Me.btnEliminarPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnEliminarPedido.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnEliminarPedido.ForeColor = System.Drawing.Color.White
-        Me.btnEliminarPedido.Location = New System.Drawing.Point(3, 313)
+        Me.btnEliminarPedido.Location = New System.Drawing.Point(0, 330)
         Me.btnEliminarPedido.Name = "btnEliminarPedido"
-        Me.btnEliminarPedido.Size = New System.Drawing.Size(179, 50)
+        Me.btnEliminarPedido.Size = New System.Drawing.Size(184, 50)
         Me.btnEliminarPedido.TabIndex = 27
         Me.btnEliminarPedido.Text = "Eliminar Pedido"
         Me.btnEliminarPedido.UseVisualStyleBackColor = False
@@ -438,9 +441,9 @@ Partial Class frmMenuPrincipal
         Me.btnModificarPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnModificarPedido.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnModificarPedido.ForeColor = System.Drawing.Color.White
-        Me.btnModificarPedido.Location = New System.Drawing.Point(3, 234)
+        Me.btnModificarPedido.Location = New System.Drawing.Point(0, 274)
         Me.btnModificarPedido.Name = "btnModificarPedido"
-        Me.btnModificarPedido.Size = New System.Drawing.Size(179, 50)
+        Me.btnModificarPedido.Size = New System.Drawing.Size(184, 50)
         Me.btnModificarPedido.TabIndex = 26
         Me.btnModificarPedido.Text = "Modificar Pedido"
         Me.btnModificarPedido.UseVisualStyleBackColor = False
@@ -452,9 +455,9 @@ Partial Class frmMenuPrincipal
         Me.btnVerPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnVerPedido.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnVerPedido.ForeColor = System.Drawing.Color.White
-        Me.btnVerPedido.Location = New System.Drawing.Point(3, 382)
+        Me.btnVerPedido.Location = New System.Drawing.Point(0, 386)
         Me.btnVerPedido.Name = "btnVerPedido"
-        Me.btnVerPedido.Size = New System.Drawing.Size(179, 50)
+        Me.btnVerPedido.Size = New System.Drawing.Size(184, 50)
         Me.btnVerPedido.TabIndex = 25
         Me.btnVerPedido.Text = "Ver Detalles Pedido"
         Me.btnVerPedido.UseVisualStyleBackColor = False
@@ -466,18 +469,18 @@ Partial Class frmMenuPrincipal
         Me.btnNuevoPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnNuevoPedido.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnNuevoPedido.ForeColor = System.Drawing.Color.White
-        Me.btnNuevoPedido.Location = New System.Drawing.Point(3, 158)
+        Me.btnNuevoPedido.Location = New System.Drawing.Point(0, 218)
         Me.btnNuevoPedido.Name = "btnNuevoPedido"
-        Me.btnNuevoPedido.Size = New System.Drawing.Size(179, 50)
+        Me.btnNuevoPedido.Size = New System.Drawing.Size(184, 50)
         Me.btnNuevoPedido.TabIndex = 24
         Me.btnNuevoPedido.Text = "Nuevo Pedido"
         Me.btnNuevoPedido.UseVisualStyleBackColor = False
         '
         'IconoPedido
         '
-        Me.IconoPedido.Location = New System.Drawing.Point(16, 29)
+        Me.IconoPedido.Location = New System.Drawing.Point(7, 14)
         Me.IconoPedido.Name = "IconoPedido"
-        Me.IconoPedido.Size = New System.Drawing.Size(150, 118)
+        Me.IconoPedido.Size = New System.Drawing.Size(170, 150)
         Me.IconoPedido.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.IconoPedido.TabIndex = 23
         Me.IconoPedido.TabStop = False
@@ -490,8 +493,7 @@ Partial Class frmMenuPrincipal
         Me.TabProducto.Controls.Add(Me.panelLateralProducto)
         Me.TabProducto.Location = New System.Drawing.Point(4, 24)
         Me.TabProducto.Name = "TabProducto"
-        Me.TabProducto.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabProducto.Size = New System.Drawing.Size(853, 473)
+        Me.TabProducto.Size = New System.Drawing.Size(874, 472)
         Me.TabProducto.TabIndex = 1
         Me.TabProducto.Text = "Producto"
         '
@@ -502,42 +504,44 @@ Partial Class frmMenuPrincipal
         Me.panelCentralProducto.Controls.Add(Me.btnBuscarProducto)
         Me.panelCentralProducto.Controls.Add(Me.cboBuscarProducto)
         Me.panelCentralProducto.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.panelCentralProducto.Location = New System.Drawing.Point(184, 112)
+        Me.panelCentralProducto.Location = New System.Drawing.Point(184, 89)
         Me.panelCentralProducto.Name = "panelCentralProducto"
-        Me.panelCentralProducto.Size = New System.Drawing.Size(666, 358)
+        Me.panelCentralProducto.Size = New System.Drawing.Size(690, 383)
         Me.panelCentralProducto.TabIndex = 17
         '
         'txtBuscarProducto
         '
-        Me.txtBuscarProducto.Location = New System.Drawing.Point(54, 20)
+        Me.txtBuscarProducto.Location = New System.Drawing.Point(20, 36)
         Me.txtBuscarProducto.Name = "txtBuscarProducto"
-        Me.txtBuscarProducto.Size = New System.Drawing.Size(376, 20)
+        Me.txtBuscarProducto.Size = New System.Drawing.Size(389, 20)
         Me.txtBuscarProducto.TabIndex = 14
         '
         'DGProducto
         '
         Me.DGProducto.BackgroundColor = System.Drawing.SystemColors.Window
         Me.DGProducto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGProducto.Location = New System.Drawing.Point(54, 44)
+        Me.DGProducto.Location = New System.Drawing.Point(20, 74)
         Me.DGProducto.Name = "DGProducto"
-        Me.DGProducto.Size = New System.Drawing.Size(568, 267)
+        Me.DGProducto.Size = New System.Drawing.Size(630, 310)
         Me.DGProducto.TabIndex = 8
         '
         'btnBuscarProducto
         '
-        Me.btnBuscarProducto.Location = New System.Drawing.Point(536, 19)
+        Me.btnBuscarProducto.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnBuscarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnBuscarProducto.Location = New System.Drawing.Point(535, 33)
         Me.btnBuscarProducto.Name = "btnBuscarProducto"
-        Me.btnBuscarProducto.Size = New System.Drawing.Size(75, 21)
+        Me.btnBuscarProducto.Size = New System.Drawing.Size(115, 24)
         Me.btnBuscarProducto.TabIndex = 9
         Me.btnBuscarProducto.Text = "Buscar"
-        Me.btnBuscarProducto.UseVisualStyleBackColor = True
+        Me.btnBuscarProducto.UseVisualStyleBackColor = False
         '
         'cboBuscarProducto
         '
         Me.cboBuscarProducto.FormattingEnabled = True
-        Me.cboBuscarProducto.Location = New System.Drawing.Point(436, 19)
+        Me.cboBuscarProducto.Location = New System.Drawing.Point(415, 35)
         Me.cboBuscarProducto.Name = "cboBuscarProducto"
-        Me.cboBuscarProducto.Size = New System.Drawing.Size(77, 21)
+        Me.cboBuscarProducto.Size = New System.Drawing.Size(114, 21)
         Me.cboBuscarProducto.TabIndex = 15
         '
         'panelSuperiorProducto
@@ -545,18 +549,18 @@ Partial Class frmMenuPrincipal
         Me.panelSuperiorProducto.BackColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(166, Byte), Integer), CType(CType(63, Byte), Integer))
         Me.panelSuperiorProducto.Controls.Add(Me.lblTituloProducto)
         Me.panelSuperiorProducto.Dock = System.Windows.Forms.DockStyle.Top
-        Me.panelSuperiorProducto.Location = New System.Drawing.Point(184, 3)
+        Me.panelSuperiorProducto.Location = New System.Drawing.Point(184, 0)
         Me.panelSuperiorProducto.Name = "panelSuperiorProducto"
-        Me.panelSuperiorProducto.Size = New System.Drawing.Size(666, 109)
+        Me.panelSuperiorProducto.Size = New System.Drawing.Size(690, 89)
         Me.panelSuperiorProducto.TabIndex = 17
         '
         'lblTituloProducto
         '
         Me.lblTituloProducto.AutoSize = True
-        Me.lblTituloProducto.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, System.Drawing.FontStyle.Bold)
-        Me.lblTituloProducto.Location = New System.Drawing.Point(205, 23)
+        Me.lblTituloProducto.Font = New System.Drawing.Font("WarHeliosCondCBold", 36.0!, System.Drawing.FontStyle.Bold)
+        Me.lblTituloProducto.Location = New System.Drawing.Point(207, 14)
         Me.lblTituloProducto.Name = "lblTituloProducto"
-        Me.lblTituloProducto.Size = New System.Drawing.Size(250, 55)
+        Me.lblTituloProducto.Size = New System.Drawing.Size(211, 59)
         Me.lblTituloProducto.TabIndex = 1
         Me.lblTituloProducto.Text = "Productos"
         '
@@ -569,9 +573,9 @@ Partial Class frmMenuPrincipal
         Me.panelLateralProducto.Controls.Add(Me.btnAgregarProducto)
         Me.panelLateralProducto.Controls.Add(Me.IconoProducto)
         Me.panelLateralProducto.Dock = System.Windows.Forms.DockStyle.Left
-        Me.panelLateralProducto.Location = New System.Drawing.Point(3, 3)
+        Me.panelLateralProducto.Location = New System.Drawing.Point(0, 0)
         Me.panelLateralProducto.Name = "panelLateralProducto"
-        Me.panelLateralProducto.Size = New System.Drawing.Size(181, 467)
+        Me.panelLateralProducto.Size = New System.Drawing.Size(184, 472)
         Me.panelLateralProducto.TabIndex = 16
         '
         'btnVerProducto
@@ -581,9 +585,9 @@ Partial Class frmMenuPrincipal
         Me.btnVerProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnVerProducto.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnVerProducto.ForeColor = System.Drawing.Color.White
-        Me.btnVerProducto.Location = New System.Drawing.Point(0, 307)
+        Me.btnVerProducto.Location = New System.Drawing.Point(0, 330)
         Me.btnVerProducto.Name = "btnVerProducto"
-        Me.btnVerProducto.Size = New System.Drawing.Size(179, 50)
+        Me.btnVerProducto.Size = New System.Drawing.Size(184, 50)
         Me.btnVerProducto.TabIndex = 22
         Me.btnVerProducto.Text = "Eliminar Producto"
         Me.btnVerProducto.UseVisualStyleBackColor = False
@@ -595,9 +599,9 @@ Partial Class frmMenuPrincipal
         Me.btnModificarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnModificarProducto.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnModificarProducto.ForeColor = System.Drawing.Color.White
-        Me.btnModificarProducto.Location = New System.Drawing.Point(0, 228)
+        Me.btnModificarProducto.Location = New System.Drawing.Point(0, 274)
         Me.btnModificarProducto.Name = "btnModificarProducto"
-        Me.btnModificarProducto.Size = New System.Drawing.Size(179, 50)
+        Me.btnModificarProducto.Size = New System.Drawing.Size(184, 50)
         Me.btnModificarProducto.TabIndex = 21
         Me.btnModificarProducto.Text = "Modificar Producto"
         Me.btnModificarProducto.UseVisualStyleBackColor = False
@@ -609,9 +613,9 @@ Partial Class frmMenuPrincipal
         Me.btnEliminarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnEliminarProducto.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnEliminarProducto.ForeColor = System.Drawing.Color.White
-        Me.btnEliminarProducto.Location = New System.Drawing.Point(0, 376)
+        Me.btnEliminarProducto.Location = New System.Drawing.Point(0, 386)
         Me.btnEliminarProducto.Name = "btnEliminarProducto"
-        Me.btnEliminarProducto.Size = New System.Drawing.Size(179, 50)
+        Me.btnEliminarProducto.Size = New System.Drawing.Size(184, 50)
         Me.btnEliminarProducto.TabIndex = 20
         Me.btnEliminarProducto.Text = "Ver Detalles Producto"
         Me.btnEliminarProducto.UseVisualStyleBackColor = False
@@ -623,18 +627,18 @@ Partial Class frmMenuPrincipal
         Me.btnAgregarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAgregarProducto.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAgregarProducto.ForeColor = System.Drawing.Color.White
-        Me.btnAgregarProducto.Location = New System.Drawing.Point(0, 152)
+        Me.btnAgregarProducto.Location = New System.Drawing.Point(0, 218)
         Me.btnAgregarProducto.Name = "btnAgregarProducto"
-        Me.btnAgregarProducto.Size = New System.Drawing.Size(179, 50)
+        Me.btnAgregarProducto.Size = New System.Drawing.Size(184, 50)
         Me.btnAgregarProducto.TabIndex = 19
         Me.btnAgregarProducto.Text = "Nuevo Producto"
         Me.btnAgregarProducto.UseVisualStyleBackColor = False
         '
         'IconoProducto
         '
-        Me.IconoProducto.Location = New System.Drawing.Point(13, 23)
+        Me.IconoProducto.Location = New System.Drawing.Point(7, 14)
         Me.IconoProducto.Name = "IconoProducto"
-        Me.IconoProducto.Size = New System.Drawing.Size(150, 118)
+        Me.IconoProducto.Size = New System.Drawing.Size(170, 150)
         Me.IconoProducto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.IconoProducto.TabIndex = 18
         Me.IconoProducto.TabStop = False
@@ -647,8 +651,7 @@ Partial Class frmMenuPrincipal
         Me.TabServicios.Controls.Add(Me.panelLateralServicio)
         Me.TabServicios.Location = New System.Drawing.Point(4, 24)
         Me.TabServicios.Name = "TabServicios"
-        Me.TabServicios.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabServicios.Size = New System.Drawing.Size(853, 473)
+        Me.TabServicios.Size = New System.Drawing.Size(874, 472)
         Me.TabServicios.TabIndex = 5
         Me.TabServicios.Text = "Servicios"
         '
@@ -659,9 +662,9 @@ Partial Class frmMenuPrincipal
         Me.panelCentralServicio.Controls.Add(Me.cboBuscarServicio)
         Me.panelCentralServicio.Controls.Add(Me.txtBuscarServicio)
         Me.panelCentralServicio.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.panelCentralServicio.Location = New System.Drawing.Point(189, 98)
+        Me.panelCentralServicio.Location = New System.Drawing.Point(184, 89)
         Me.panelCentralServicio.Name = "panelCentralServicio"
-        Me.panelCentralServicio.Size = New System.Drawing.Size(661, 372)
+        Me.panelCentralServicio.Size = New System.Drawing.Size(690, 383)
         Me.panelCentralServicio.TabIndex = 18
         '
         'DGServicios
@@ -671,37 +674,40 @@ Partial Class frmMenuPrincipal
         Me.DGServicios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader
         Me.DGServicios.BackgroundColor = System.Drawing.Color.White
         Me.DGServicios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGServicios.Location = New System.Drawing.Point(37, 68)
+        Me.DGServicios.Location = New System.Drawing.Point(20, 74)
         Me.DGServicios.MultiSelect = False
         Me.DGServicios.Name = "DGServicios"
         Me.DGServicios.ReadOnly = True
-        Me.DGServicios.Size = New System.Drawing.Size(578, 269)
+        Me.DGServicios.Size = New System.Drawing.Size(630, 310)
         Me.DGServicios.TabIndex = 15
         '
         'btnBuscarServicio
         '
-        Me.btnBuscarServicio.Location = New System.Drawing.Point(424, 22)
+        Me.btnBuscarServicio.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnBuscarServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnBuscarServicio.Location = New System.Drawing.Point(535, 33)
         Me.btnBuscarServicio.Name = "btnBuscarServicio"
-        Me.btnBuscarServicio.Size = New System.Drawing.Size(75, 23)
+        Me.btnBuscarServicio.Size = New System.Drawing.Size(115, 24)
         Me.btnBuscarServicio.TabIndex = 13
         Me.btnBuscarServicio.Text = "Buscar"
-        Me.btnBuscarServicio.UseVisualStyleBackColor = True
+        Me.btnBuscarServicio.UseVisualStyleBackColor = False
         '
         'cboBuscarServicio
         '
+        Me.cboBuscarServicio.BackColor = System.Drawing.SystemColors.MenuHighlight
         Me.cboBuscarServicio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboBuscarServicio.FormattingEnabled = True
         Me.cboBuscarServicio.Items.AddRange(New Object() {"Nombre", "Apellido", "DNI", "CUIT"})
-        Me.cboBuscarServicio.Location = New System.Drawing.Point(307, 24)
+        Me.cboBuscarServicio.Location = New System.Drawing.Point(415, 35)
         Me.cboBuscarServicio.Name = "cboBuscarServicio"
-        Me.cboBuscarServicio.Size = New System.Drawing.Size(95, 21)
+        Me.cboBuscarServicio.Size = New System.Drawing.Size(114, 21)
         Me.cboBuscarServicio.TabIndex = 14
         '
         'txtBuscarServicio
         '
-        Me.txtBuscarServicio.Location = New System.Drawing.Point(37, 24)
+        Me.txtBuscarServicio.Location = New System.Drawing.Point(20, 36)
         Me.txtBuscarServicio.Name = "txtBuscarServicio"
-        Me.txtBuscarServicio.Size = New System.Drawing.Size(247, 20)
+        Me.txtBuscarServicio.Size = New System.Drawing.Size(389, 20)
         Me.txtBuscarServicio.TabIndex = 8
         '
         'panelSuperiorServicio
@@ -709,18 +715,18 @@ Partial Class frmMenuPrincipal
         Me.panelSuperiorServicio.BackColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(166, Byte), Integer), CType(CType(63, Byte), Integer))
         Me.panelSuperiorServicio.Controls.Add(Me.lblTituloServicio)
         Me.panelSuperiorServicio.Dock = System.Windows.Forms.DockStyle.Top
-        Me.panelSuperiorServicio.Location = New System.Drawing.Point(189, 3)
+        Me.panelSuperiorServicio.Location = New System.Drawing.Point(184, 0)
         Me.panelSuperiorServicio.Name = "panelSuperiorServicio"
-        Me.panelSuperiorServicio.Size = New System.Drawing.Size(661, 95)
+        Me.panelSuperiorServicio.Size = New System.Drawing.Size(690, 89)
         Me.panelSuperiorServicio.TabIndex = 17
         '
         'lblTituloServicio
         '
         Me.lblTituloServicio.AutoSize = True
-        Me.lblTituloServicio.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, System.Drawing.FontStyle.Bold)
-        Me.lblTituloServicio.Location = New System.Drawing.Point(191, 25)
+        Me.lblTituloServicio.Font = New System.Drawing.Font("WarHeliosCondCBold", 36.0!, System.Drawing.FontStyle.Bold)
+        Me.lblTituloServicio.Location = New System.Drawing.Point(236, 14)
         Me.lblTituloServicio.Name = "lblTituloServicio"
-        Me.lblTituloServicio.Size = New System.Drawing.Size(227, 55)
+        Me.lblTituloServicio.Size = New System.Drawing.Size(195, 59)
         Me.lblTituloServicio.TabIndex = 0
         Me.lblTituloServicio.Text = "Servicios"
         '
@@ -733,9 +739,9 @@ Partial Class frmMenuPrincipal
         Me.panelLateralServicio.Controls.Add(Me.btnNuevoServicio)
         Me.panelLateralServicio.Controls.Add(Me.iconoServicio)
         Me.panelLateralServicio.Dock = System.Windows.Forms.DockStyle.Left
-        Me.panelLateralServicio.Location = New System.Drawing.Point(3, 3)
+        Me.panelLateralServicio.Location = New System.Drawing.Point(0, 0)
         Me.panelLateralServicio.Name = "panelLateralServicio"
-        Me.panelLateralServicio.Size = New System.Drawing.Size(186, 467)
+        Me.panelLateralServicio.Size = New System.Drawing.Size(184, 472)
         Me.panelLateralServicio.TabIndex = 16
         '
         'btnEliminarServicio
@@ -745,9 +751,9 @@ Partial Class frmMenuPrincipal
         Me.btnEliminarServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnEliminarServicio.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnEliminarServicio.ForeColor = System.Drawing.Color.White
-        Me.btnEliminarServicio.Location = New System.Drawing.Point(-4, 291)
+        Me.btnEliminarServicio.Location = New System.Drawing.Point(0, 330)
         Me.btnEliminarServicio.Name = "btnEliminarServicio"
-        Me.btnEliminarServicio.Size = New System.Drawing.Size(195, 50)
+        Me.btnEliminarServicio.Size = New System.Drawing.Size(184, 50)
         Me.btnEliminarServicio.TabIndex = 17
         Me.btnEliminarServicio.Text = "Eliminar"
         Me.btnEliminarServicio.UseVisualStyleBackColor = False
@@ -759,9 +765,9 @@ Partial Class frmMenuPrincipal
         Me.BtnModificarServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnModificarServicio.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnModificarServicio.ForeColor = System.Drawing.Color.White
-        Me.BtnModificarServicio.Location = New System.Drawing.Point(-4, 212)
+        Me.BtnModificarServicio.Location = New System.Drawing.Point(0, 274)
         Me.BtnModificarServicio.Name = "BtnModificarServicio"
-        Me.BtnModificarServicio.Size = New System.Drawing.Size(195, 50)
+        Me.BtnModificarServicio.Size = New System.Drawing.Size(184, 50)
         Me.BtnModificarServicio.TabIndex = 16
         Me.BtnModificarServicio.Text = "Modificar"
         Me.BtnModificarServicio.UseVisualStyleBackColor = False
@@ -773,9 +779,9 @@ Partial Class frmMenuPrincipal
         Me.btnVerServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnVerServicio.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnVerServicio.ForeColor = System.Drawing.Color.White
-        Me.btnVerServicio.Location = New System.Drawing.Point(-7, 360)
+        Me.btnVerServicio.Location = New System.Drawing.Point(0, 386)
         Me.btnVerServicio.Name = "btnVerServicio"
-        Me.btnVerServicio.Size = New System.Drawing.Size(195, 50)
+        Me.btnVerServicio.Size = New System.Drawing.Size(184, 50)
         Me.btnVerServicio.TabIndex = 15
         Me.btnVerServicio.Text = "Ver Servicio"
         Me.btnVerServicio.UseVisualStyleBackColor = False
@@ -787,18 +793,18 @@ Partial Class frmMenuPrincipal
         Me.btnNuevoServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnNuevoServicio.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnNuevoServicio.ForeColor = System.Drawing.Color.White
-        Me.btnNuevoServicio.Location = New System.Drawing.Point(-3, 136)
+        Me.btnNuevoServicio.Location = New System.Drawing.Point(0, 218)
         Me.btnNuevoServicio.Name = "btnNuevoServicio"
-        Me.btnNuevoServicio.Size = New System.Drawing.Size(195, 50)
+        Me.btnNuevoServicio.Size = New System.Drawing.Size(184, 50)
         Me.btnNuevoServicio.TabIndex = 14
         Me.btnNuevoServicio.Text = "Nuevo Servicio"
         Me.btnNuevoServicio.UseVisualStyleBackColor = False
         '
         'iconoServicio
         '
-        Me.iconoServicio.Location = New System.Drawing.Point(20, 12)
+        Me.iconoServicio.Location = New System.Drawing.Point(7, 14)
         Me.iconoServicio.Name = "iconoServicio"
-        Me.iconoServicio.Size = New System.Drawing.Size(150, 118)
+        Me.iconoServicio.Size = New System.Drawing.Size(170, 150)
         Me.iconoServicio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.iconoServicio.TabIndex = 13
         Me.iconoServicio.TabStop = False
@@ -810,18 +816,17 @@ Partial Class frmMenuPrincipal
         Me.TabEstadistica.Controls.Add(Me.PnlLateralEstadistica)
         Me.TabEstadistica.Location = New System.Drawing.Point(4, 24)
         Me.TabEstadistica.Name = "TabEstadistica"
-        Me.TabEstadistica.Size = New System.Drawing.Size(853, 473)
+        Me.TabEstadistica.Size = New System.Drawing.Size(874, 472)
         Me.TabEstadistica.TabIndex = 3
         Me.TabEstadistica.Text = "Estadistica"
-        Me.TabEstadistica.UseVisualStyleBackColor = True
         '
         'Panel7
         '
         Me.Panel7.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.Panel7.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel7.Location = New System.Drawing.Point(195, 94)
+        Me.Panel7.Location = New System.Drawing.Point(184, 89)
         Me.Panel7.Name = "Panel7"
-        Me.Panel7.Size = New System.Drawing.Size(658, 379)
+        Me.Panel7.Size = New System.Drawing.Size(690, 383)
         Me.Panel7.TabIndex = 6
         '
         'PanelSupEstadistica
@@ -829,21 +834,21 @@ Partial Class frmMenuPrincipal
         Me.PanelSupEstadistica.BackColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(166, Byte), Integer), CType(CType(63, Byte), Integer))
         Me.PanelSupEstadistica.Controls.Add(Me.lblTituloEstadistica)
         Me.PanelSupEstadistica.Dock = System.Windows.Forms.DockStyle.Top
-        Me.PanelSupEstadistica.Location = New System.Drawing.Point(195, 0)
+        Me.PanelSupEstadistica.Location = New System.Drawing.Point(184, 0)
         Me.PanelSupEstadistica.Name = "PanelSupEstadistica"
-        Me.PanelSupEstadistica.Size = New System.Drawing.Size(658, 94)
+        Me.PanelSupEstadistica.Size = New System.Drawing.Size(690, 89)
         Me.PanelSupEstadistica.TabIndex = 5
         '
         'lblTituloEstadistica
         '
         Me.lblTituloEstadistica.AutoSize = True
-        Me.lblTituloEstadistica.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTituloEstadistica.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.lblTituloEstadistica.Location = New System.Drawing.Point(-5, 22)
+        Me.lblTituloEstadistica.Font = New System.Drawing.Font("WarHeliosCondCBold", 36.0!, System.Drawing.FontStyle.Bold)
+        Me.lblTituloEstadistica.ForeColor = System.Drawing.Color.Black
+        Me.lblTituloEstadistica.Location = New System.Drawing.Point(136, 14)
         Me.lblTituloEstadistica.Name = "lblTituloEstadistica"
-        Me.lblTituloEstadistica.Size = New System.Drawing.Size(667, 55)
+        Me.lblTituloEstadistica.Size = New System.Drawing.Size(381, 59)
         Me.lblTituloEstadistica.TabIndex = 0
-        Me.lblTituloEstadistica.Text = "Grafico - Pedidos mensuales"
+        Me.lblTituloEstadistica.Text = "Pedidos mensuales"
         '
         'PnlLateralEstadistica
         '
@@ -857,7 +862,7 @@ Partial Class frmMenuPrincipal
         Me.PnlLateralEstadistica.Dock = System.Windows.Forms.DockStyle.Left
         Me.PnlLateralEstadistica.Location = New System.Drawing.Point(0, 0)
         Me.PnlLateralEstadistica.Name = "PnlLateralEstadistica"
-        Me.PnlLateralEstadistica.Size = New System.Drawing.Size(195, 473)
+        Me.PnlLateralEstadistica.Size = New System.Drawing.Size(184, 472)
         Me.PnlLateralEstadistica.TabIndex = 4
         '
         'lblSubtituloEstadisticas
@@ -865,7 +870,7 @@ Partial Class frmMenuPrincipal
         Me.lblSubtituloEstadisticas.AutoSize = True
         Me.lblSubtituloEstadisticas.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblSubtituloEstadisticas.ForeColor = System.Drawing.Color.White
-        Me.lblSubtituloEstadisticas.Location = New System.Drawing.Point(43, 155)
+        Me.lblSubtituloEstadisticas.Location = New System.Drawing.Point(44, 184)
         Me.lblSubtituloEstadisticas.Name = "lblSubtituloEstadisticas"
         Me.lblSubtituloEstadisticas.Size = New System.Drawing.Size(107, 25)
         Me.lblSubtituloEstadisticas.TabIndex = 5
@@ -878,9 +883,9 @@ Partial Class frmMenuPrincipal
         Me.btnGraficosProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnGraficosProducto.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnGraficosProducto.ForeColor = System.Drawing.Color.White
-        Me.btnGraficosProducto.Location = New System.Drawing.Point(0, 388)
+        Me.btnGraficosProducto.Location = New System.Drawing.Point(0, 386)
         Me.btnGraficosProducto.Name = "btnGraficosProducto"
-        Me.btnGraficosProducto.Size = New System.Drawing.Size(195, 50)
+        Me.btnGraficosProducto.Size = New System.Drawing.Size(184, 50)
         Me.btnGraficosProducto.TabIndex = 4
         Me.btnGraficosProducto.Text = "Productos Solicitados"
         Me.btnGraficosProducto.UseVisualStyleBackColor = False
@@ -892,9 +897,9 @@ Partial Class frmMenuPrincipal
         Me.btnGraficoServicios.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnGraficoServicios.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnGraficoServicios.ForeColor = System.Drawing.Color.White
-        Me.btnGraficoServicios.Location = New System.Drawing.Point(0, 324)
+        Me.btnGraficoServicios.Location = New System.Drawing.Point(0, 330)
         Me.btnGraficoServicios.Name = "btnGraficoServicios"
-        Me.btnGraficoServicios.Size = New System.Drawing.Size(195, 50)
+        Me.btnGraficoServicios.Size = New System.Drawing.Size(184, 50)
         Me.btnGraficoServicios.TabIndex = 3
         Me.btnGraficoServicios.Text = "Servicios Solicitados"
         Me.btnGraficoServicios.UseVisualStyleBackColor = False
@@ -906,9 +911,9 @@ Partial Class frmMenuPrincipal
         Me.btnGraficoMedios.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnGraficoMedios.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnGraficoMedios.ForeColor = System.Drawing.Color.White
-        Me.btnGraficoMedios.Location = New System.Drawing.Point(0, 260)
+        Me.btnGraficoMedios.Location = New System.Drawing.Point(0, 274)
         Me.btnGraficoMedios.Name = "btnGraficoMedios"
-        Me.btnGraficoMedios.Size = New System.Drawing.Size(195, 50)
+        Me.btnGraficoMedios.Size = New System.Drawing.Size(184, 50)
         Me.btnGraficoMedios.TabIndex = 2
         Me.btnGraficoMedios.Text = "Medios"
         Me.btnGraficoMedios.UseVisualStyleBackColor = False
@@ -920,18 +925,18 @@ Partial Class frmMenuPrincipal
         Me.btnGraficoPedidos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnGraficoPedidos.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnGraficoPedidos.ForeColor = System.Drawing.Color.White
-        Me.btnGraficoPedidos.Location = New System.Drawing.Point(0, 196)
+        Me.btnGraficoPedidos.Location = New System.Drawing.Point(0, 218)
         Me.btnGraficoPedidos.Name = "btnGraficoPedidos"
-        Me.btnGraficoPedidos.Size = New System.Drawing.Size(195, 50)
+        Me.btnGraficoPedidos.Size = New System.Drawing.Size(184, 50)
         Me.btnGraficoPedidos.TabIndex = 1
         Me.btnGraficoPedidos.Text = "Pedidos Mensuales"
         Me.btnGraficoPedidos.UseVisualStyleBackColor = False
         '
         'PictureBoxEstadistic
         '
-        Me.PictureBoxEstadistic.Location = New System.Drawing.Point(16, 12)
+        Me.PictureBoxEstadistic.Location = New System.Drawing.Point(7, 14)
         Me.PictureBoxEstadistic.Name = "PictureBoxEstadistic"
-        Me.PictureBoxEstadistic.Size = New System.Drawing.Size(160, 140)
+        Me.PictureBoxEstadistic.Size = New System.Drawing.Size(170, 150)
         Me.PictureBoxEstadistic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBoxEstadistic.TabIndex = 0
         Me.PictureBoxEstadistic.TabStop = False
@@ -943,18 +948,17 @@ Partial Class frmMenuPrincipal
         Me.TabAyuda.Controls.Add(Me.PanelLateralAyuda)
         Me.TabAyuda.Location = New System.Drawing.Point(4, 24)
         Me.TabAyuda.Name = "TabAyuda"
-        Me.TabAyuda.Size = New System.Drawing.Size(853, 473)
+        Me.TabAyuda.Size = New System.Drawing.Size(874, 472)
         Me.TabAyuda.TabIndex = 4
         Me.TabAyuda.Text = "Ayuda"
-        Me.TabAyuda.UseVisualStyleBackColor = True
         '
         'PanelCentralAyuda
         '
         Me.PanelCentralAyuda.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.PanelCentralAyuda.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PanelCentralAyuda.Location = New System.Drawing.Point(186, 95)
+        Me.PanelCentralAyuda.Location = New System.Drawing.Point(184, 89)
         Me.PanelCentralAyuda.Name = "PanelCentralAyuda"
-        Me.PanelCentralAyuda.Size = New System.Drawing.Size(667, 378)
+        Me.PanelCentralAyuda.Size = New System.Drawing.Size(690, 383)
         Me.PanelCentralAyuda.TabIndex = 19
         '
         'PanelSuperiorAyuda
@@ -962,18 +966,18 @@ Partial Class frmMenuPrincipal
         Me.PanelSuperiorAyuda.BackColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(166, Byte), Integer), CType(CType(63, Byte), Integer))
         Me.PanelSuperiorAyuda.Controls.Add(Me.lblTituloAyuda)
         Me.PanelSuperiorAyuda.Dock = System.Windows.Forms.DockStyle.Top
-        Me.PanelSuperiorAyuda.Location = New System.Drawing.Point(186, 0)
+        Me.PanelSuperiorAyuda.Location = New System.Drawing.Point(184, 0)
         Me.PanelSuperiorAyuda.Name = "PanelSuperiorAyuda"
-        Me.PanelSuperiorAyuda.Size = New System.Drawing.Size(667, 95)
+        Me.PanelSuperiorAyuda.Size = New System.Drawing.Size(690, 89)
         Me.PanelSuperiorAyuda.TabIndex = 18
         '
         'lblTituloAyuda
         '
         Me.lblTituloAyuda.AutoSize = True
-        Me.lblTituloAyuda.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, System.Drawing.FontStyle.Bold)
-        Me.lblTituloAyuda.Location = New System.Drawing.Point(117, 23)
+        Me.lblTituloAyuda.Font = New System.Drawing.Font("WarHeliosCondCBold", 36.0!, System.Drawing.FontStyle.Bold)
+        Me.lblTituloAyuda.Location = New System.Drawing.Point(137, 14)
         Me.lblTituloAyuda.Name = "lblTituloAyuda"
-        Me.lblTituloAyuda.Size = New System.Drawing.Size(476, 55)
+        Me.lblTituloAyuda.Size = New System.Drawing.Size(394, 59)
         Me.lblTituloAyuda.TabIndex = 0
         Me.lblTituloAyuda.Text = "Ayuda del programa"
         '
@@ -985,14 +989,14 @@ Partial Class frmMenuPrincipal
         Me.PanelLateralAyuda.Dock = System.Windows.Forms.DockStyle.Left
         Me.PanelLateralAyuda.Location = New System.Drawing.Point(0, 0)
         Me.PanelLateralAyuda.Name = "PanelLateralAyuda"
-        Me.PanelLateralAyuda.Size = New System.Drawing.Size(186, 473)
+        Me.PanelLateralAyuda.Size = New System.Drawing.Size(184, 472)
         Me.PanelLateralAyuda.TabIndex = 17
         '
         'lblIndice
         '
         Me.lblIndice.AutoSize = True
         Me.lblIndice.Font = New System.Drawing.Font("WarHeliosCondCBold", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblIndice.Location = New System.Drawing.Point(56, 150)
+        Me.lblIndice.Location = New System.Drawing.Point(57, 176)
         Me.lblIndice.Name = "lblIndice"
         Me.lblIndice.Size = New System.Drawing.Size(78, 33)
         Me.lblIndice.TabIndex = 14
@@ -1000,9 +1004,9 @@ Partial Class frmMenuPrincipal
         '
         'IconoAyuda
         '
-        Me.IconoAyuda.Location = New System.Drawing.Point(20, 12)
+        Me.IconoAyuda.Location = New System.Drawing.Point(7, 14)
         Me.IconoAyuda.Name = "IconoAyuda"
-        Me.IconoAyuda.Size = New System.Drawing.Size(150, 118)
+        Me.IconoAyuda.Size = New System.Drawing.Size(170, 150)
         Me.IconoAyuda.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.IconoAyuda.TabIndex = 13
         Me.IconoAyuda.TabStop = False
@@ -1012,7 +1016,7 @@ Partial Class frmMenuPrincipal
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LimeGreen
-        Me.ClientSize = New System.Drawing.Size(1014, 525)
+        Me.ClientSize = New System.Drawing.Size(913, 525)
         Me.Controls.Add(Me.TabGeneral)
         Me.Name = "frmMenuPrincipal"
         Me.Text = "MenuPrincipal"
