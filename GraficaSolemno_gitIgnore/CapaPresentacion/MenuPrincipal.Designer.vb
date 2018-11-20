@@ -22,9 +22,9 @@ Partial Class frmMenuPrincipal
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea5 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend5 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series5 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.TabGeneral = New System.Windows.Forms.TabControl()
         Me.TabTareas = New System.Windows.Forms.TabPage()
         Me.TabCliente = New System.Windows.Forms.TabPage()
@@ -433,7 +433,7 @@ Partial Class frmMenuPrincipal
         Me.btnEliminarPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnEliminarPedido.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnEliminarPedido.ForeColor = System.Drawing.Color.White
-        Me.btnEliminarPedido.Location = New System.Drawing.Point(0, 330)
+        Me.btnEliminarPedido.Location = New System.Drawing.Point(0, 386)
         Me.btnEliminarPedido.Name = "btnEliminarPedido"
         Me.btnEliminarPedido.Size = New System.Drawing.Size(184, 50)
         Me.btnEliminarPedido.TabIndex = 27
@@ -461,7 +461,7 @@ Partial Class frmMenuPrincipal
         Me.btnVerPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnVerPedido.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnVerPedido.ForeColor = System.Drawing.Color.White
-        Me.btnVerPedido.Location = New System.Drawing.Point(0, 386)
+        Me.btnVerPedido.Location = New System.Drawing.Point(0, 330)
         Me.btnVerPedido.Name = "btnVerPedido"
         Me.btnVerPedido.Size = New System.Drawing.Size(184, 50)
         Me.btnVerPedido.TabIndex = 25
@@ -545,6 +545,7 @@ Partial Class frmMenuPrincipal
         'cboBuscarProducto
         '
         Me.cboBuscarProducto.FormattingEnabled = True
+        Me.cboBuscarProducto.Items.AddRange(New Object() {"Nombre", "Codigo"})
         Me.cboBuscarProducto.Location = New System.Drawing.Point(415, 35)
         Me.cboBuscarProducto.Name = "cboBuscarProducto"
         Me.cboBuscarProducto.Size = New System.Drawing.Size(114, 21)
@@ -595,7 +596,7 @@ Partial Class frmMenuPrincipal
         Me.btnVerProducto.Name = "btnVerProducto"
         Me.btnVerProducto.Size = New System.Drawing.Size(184, 50)
         Me.btnVerProducto.TabIndex = 22
-        Me.btnVerProducto.Text = "Eliminar Producto"
+        Me.btnVerProducto.Text = "Detalles  de Producto"
         Me.btnVerProducto.UseVisualStyleBackColor = False
         '
         'btnModificarProducto
@@ -623,7 +624,7 @@ Partial Class frmMenuPrincipal
         Me.btnEliminarProducto.Name = "btnEliminarProducto"
         Me.btnEliminarProducto.Size = New System.Drawing.Size(184, 50)
         Me.btnEliminarProducto.TabIndex = 20
-        Me.btnEliminarProducto.Text = "Ver Detalles Producto"
+        Me.btnEliminarProducto.Text = "Eliminar Producto"
         Me.btnEliminarProducto.UseVisualStyleBackColor = False
         '
         'btnAgregarProducto
@@ -757,7 +758,7 @@ Partial Class frmMenuPrincipal
         Me.btnEliminarServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnEliminarServicio.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnEliminarServicio.ForeColor = System.Drawing.Color.White
-        Me.btnEliminarServicio.Location = New System.Drawing.Point(0, 330)
+        Me.btnEliminarServicio.Location = New System.Drawing.Point(0, 386)
         Me.btnEliminarServicio.Name = "btnEliminarServicio"
         Me.btnEliminarServicio.Size = New System.Drawing.Size(184, 50)
         Me.btnEliminarServicio.TabIndex = 17
@@ -785,7 +786,7 @@ Partial Class frmMenuPrincipal
         Me.btnVerServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnVerServicio.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnVerServicio.ForeColor = System.Drawing.Color.White
-        Me.btnVerServicio.Location = New System.Drawing.Point(0, 386)
+        Me.btnVerServicio.Location = New System.Drawing.Point(0, 330)
         Me.btnVerServicio.Name = "btnVerServicio"
         Me.btnVerServicio.Size = New System.Drawing.Size(184, 50)
         Me.btnVerServicio.TabIndex = 15
@@ -840,19 +841,19 @@ Partial Class frmMenuPrincipal
         '
         Me.Chart1.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.Chart1.BackSecondaryColor = System.Drawing.Color.White
-        ChartArea1.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        ChartArea1.BackHatchStyle = System.Windows.Forms.DataVisualization.Charting.ChartHatchStyle.DarkDownwardDiagonal
-        ChartArea1.Name = "ChartArea1"
-        Me.Chart1.ChartAreas.Add(ChartArea1)
-        Legend1.Name = "Legend1"
-        Me.Chart1.Legends.Add(Legend1)
+        ChartArea5.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        ChartArea5.BackHatchStyle = System.Windows.Forms.DataVisualization.Charting.ChartHatchStyle.DarkDownwardDiagonal
+        ChartArea5.Name = "ChartArea1"
+        Me.Chart1.ChartAreas.Add(ChartArea5)
+        Legend5.Name = "Legend1"
+        Me.Chart1.Legends.Add(Legend5)
         Me.Chart1.Location = New System.Drawing.Point(19, 36)
         Me.Chart1.Name = "Chart1"
         Me.Chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen
-        Series1.ChartArea = "ChartArea1"
-        Series1.Legend = "Legend1"
-        Series1.Name = "CantidadPedidos"
-        Me.Chart1.Series.Add(Series1)
+        Series5.ChartArea = "ChartArea1"
+        Series5.Legend = "Legend1"
+        Series5.Name = "CantidadPedidos"
+        Me.Chart1.Series.Add(Series5)
         Me.Chart1.Size = New System.Drawing.Size(646, 300)
         Me.Chart1.TabIndex = 0
         Me.Chart1.Text = "Chart1"

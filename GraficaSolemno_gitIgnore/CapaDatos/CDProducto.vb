@@ -13,28 +13,22 @@ Public Class CDProducto
 
     Public Sub RegistrarProducto(ByVal oCEProducto As CEProducto)
         oCDConexion.Conectar()
-        Dim confirma As String
+
         Try
-            Dim instruccionSQL = "INSERT INTO Productos (IDProductos, Nombre, Cantidad, Precio, Tipo, Descripcion,Codigo) VALUES (@IDProducto, @Nombre, @Cantidad, @Precio, @Tipo, @Descripcion, @Codigo)"
+            Dim instruccionSQL = "INSERT INTO Productos (IDProducto, Nombre, Cantidad, Precio, Descripcion,Codigo) VALUES (@IDProducto, @Nombre, @Cantidad, @Precio, @Descripcion, @Codigo)"
 
             Dim comando As New SQLiteCommand(instruccionSQL, oCDConexion.con)
             With comando.Parameters
-                .Add("@IDProducto", SqlDbType.Int).Value = oCEProducto.IDProductos
+                .Add("@IDProducto", SqlDbType.Int).Value = oCEProducto.IDProducto
                 .Add("@Nombre", SqlDbType.VarChar).Value = oCEProducto.Nombre
                 .Add("@Cantidad", SqlDbType.Int).Value = oCEProducto.Cantidad
-                .Add("@Precio", SqlDbType.Int).Value = oCEProducto.Precio
-                .Add("@Tipo", SqlDbType.Int).Value = oCEProducto.Tipo
+                .Add("@Precio", SqlDbType.Real).Value = oCEProducto.Precio
                 .Add("@Descripcion", SqlDbType.VarChar).Value = oCEProducto.Descripcion
-                .Add("@Codigo", SqlDbType.Int).Value = oCEProducto.Codigo
+                .Add("@Codigo", SqlDbType.VarChar).Value = oCEProducto.Codigo
             End With
             MsgBox(instruccionSQL)
             comando.ExecuteNonQuery()
-            'confirma = Console.ReadLine()
-            'If confirma.ToUpper = "s" Then
-            '    MsgBox("Se ah hecho el registro del producto con exito")
-            'Else
-            '    MsgBox("No se cargo el registro del producto")
-            'End If
+            MsgBox("El Producto se ah Registrado con Exito")
         Catch ex As Exception
 
 
@@ -46,9 +40,9 @@ Public Class CDProducto
     Public Sub EliminarProducto(ByVal id As Integer)
         oCDConexion.Conectar()
         Try
-            Dim instruccionsql = "DELETE FROM Productos WHERE (IDProductos=@IDProductos)"
+            Dim instruccionsql = "DELETE FROM Productos WHERE (IDProducto=@IDProducto)"
             Dim comando As New SQLiteCommand(instruccionsql, oCDConexion.con)
-            comando.Parameters.Add("@IDProductos", SqlDbType.Int).Value = id
+            comando.Parameters.Add("@IDProducto", SqlDbType.Int).Value = id
             comando.ExecuteNonQuery()
 
             MsgBox("Registro eliminado")
@@ -62,16 +56,16 @@ Public Class CDProducto
     Public Sub ModificarProducto(ByVal oCEProducto As CEProducto)
         oCDConexion.Conectar()
         Try
-            Dim instruccionsql = " UPDATE Producto SET Nombre=@Nombre, IDProductos=@IDProductos, Codigo=@Codigo, Descripcion=@Descripcion, Cantidad=@Cantidad, Precio=@Precio, Tipo=@Tipo"
+            Dim instruccionsql = " UPDATE Productos SET Nombre=@Nombre,Cantidad=@Cantidad, Precio=@Precio, Descripcion=@Descripcion, Codigo=@Codigo where IDProducto=@IDProducto"
             Dim comando As New SQLiteCommand(instruccionsql, oCDConexion.con)
             With comando.Parameters
-                .Add("@Nombre", SqlDbType.Int).Value = oCEProducto.Nombre
-                .Add("@IDProductos", SqlDbType.Int).Value = oCEProducto.IDProductos
-                .Add("@Codigo", SqlDbType.Int).Value = oCEProducto.Codigo
-                .Add("@Descripcion", SqlDbType.Int).Value = oCEProducto.Descripcion
+                .Add("@IDProducto", SqlDbType.Int).Value = oCEProducto.IDProducto
+                .Add("@Nombre", SqlDbType.VarChar).Value = oCEProducto.Nombre
+                .Add("@Codigo", SqlDbType.VarChar).Value = oCEProducto.Codigo
+                .Add("@Descripcion", SqlDbType.VarChar).Value = oCEProducto.Descripcion
                 .Add("@Cantidad", SqlDbType.Int).Value = oCEProducto.Cantidad
-                .Add("@Precio", SqlDbType.Int).Value = oCEProducto.Precio
-                .Add("@Tipo", SqlDbType.Int).Value = oCEProducto.Tipo
+                .Add("@Precio", SqlDbType.Real).Value = oCEProducto.Precio
+
             End With
             comando.ExecuteNonQuery()
         Catch ex As Exception

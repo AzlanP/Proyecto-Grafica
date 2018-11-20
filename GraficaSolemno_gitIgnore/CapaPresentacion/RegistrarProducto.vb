@@ -6,12 +6,10 @@ Public Class RegistrarProducto
 
 
     Public Function TomarDatos() As CEProducto
-
-        oCEProducto.IDProductos = CInt(lblID.Text)
+        oCEProducto.IDProducto = CInt(lblID.Text)
         oCEProducto.Nombre = txtNombre.Text
         oCEProducto.Cantidad = CInt(txtCantidad.Text)
         oCEProducto.Precio = CDbl(txtPrecio.Text)
-        oCEProducto.Tipo = txtTipo.Text
         oCEProducto.Descripcion = txtDescripcion.Text
         oCEProducto.Codigo = CInt(txtCodigo.Text)
         Return oCEProducto
@@ -20,13 +18,13 @@ Public Class RegistrarProducto
     Public Sub LlenarFormulario(ByVal ID As Integer)
         Dim dt As New DataTable
         Dim dr As DataRow
-        dt = oCNProducto.BuscarProducto("IDProductos", ID)
+        dt = oCNProducto.BuscarProducto("IDProducto", ID)
         dr = dt.Rows(0)
-        lblID.Text = dr("IDProductos").ToString
+        lblID.Text = dr("IDProducto").ToString
         txtNombre.Text = dr("Nombre").ToString
         txtCantidad.Text = dr("Cantidad").ToString
         txtPrecio.Text = dr("Precio").ToString
-        txtTipo.Text = dr("Tipo").ToString
+
         txtDescripcion.Text = dr("Descripcion").ToString
         txtCodigo.Text = dr("Codigo").ToString
 

@@ -1,11 +1,11 @@
 ﻿Public Class CEProducto
     Private _Nombre As String
-    Private _IDProductos As Integer
-    Private _Codigo As Integer
+    Private _IDProducto As Integer
+    Private _Codigo As String
     Private _Descripcion As String
     Private _Cantidad As Integer
     Private _Precio As Double
-    Private _Tipo As String
+
 
     Public Property Nombre() As String
         Get
@@ -15,20 +15,20 @@
             _Nombre = value
         End Set
     End Property
-    Public Property IDProductos() As Integer
+    Public Property IDProducto() As Integer
         Get
-            Return _IDProductos
+            Return _IDProducto
         End Get
         Set(ByVal value As Integer)
-            _IDProductos = value
+            _IDProducto = value
         End Set
     End Property
 
-    Public Property Codigo() As Integer
+    Public Property Codigo() As String
         Get
             Return _Codigo
         End Get
-        Set(ByVal value As Integer)
+        Set(ByVal value As String)
             _Codigo = value
         End Set
     End Property
@@ -58,13 +58,5 @@
             _Precio = value
         End Set
     End Property
-    Public Property Tipo() As String
-        Get
-            Return _Tipo
-        End Get
-        Set(ByVal value As String)
-            _Tipo = value
-        End Set
-    End Property
-
+ 
 End Class
