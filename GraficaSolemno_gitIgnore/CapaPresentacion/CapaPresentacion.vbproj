@@ -91,6 +91,12 @@
     <Compile Include="FormularioPedido.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmRegistrarServicio.Designer.vb">
+      <DependentUpon>frmRegistrarServicio.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmRegistrarServicio.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="MenuPrincipal.Designer.vb">
       <DependentUpon>MenuPrincipal.vb</DependentUpon>
     </Compile>
@@ -134,6 +140,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormularioPedido.resx">
       <DependentUpon>FormularioPedido.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRegistrarServicio.resx">
+      <DependentUpon>frmRegistrarServicio.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuPrincipal.resx">
       <DependentUpon>MenuPrincipal.vb</DependentUpon>

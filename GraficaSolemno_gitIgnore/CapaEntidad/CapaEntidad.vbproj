@@ -69,6 +69,7 @@
     <Compile Include="CEPostick.vb" />
     <Compile Include="CEProducto.vb" />
     <Compile Include="CEServicio.vb" />
+    <Compile Include="CEServicios.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>

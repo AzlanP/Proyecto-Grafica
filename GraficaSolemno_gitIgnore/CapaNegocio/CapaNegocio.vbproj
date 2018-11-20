@@ -66,6 +66,7 @@
   <ItemGroup>
     <Compile Include="CNCliente.vb" />
     <Compile Include="CNProducto.vb" />
+    <Compile Include="CNServicios.vb" />
     <Compile Include="CNValidacion.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">

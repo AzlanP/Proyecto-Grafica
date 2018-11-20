@@ -72,6 +72,7 @@
     <Compile Include="CDConexion.vb" />
     <Compile Include="CDPedido.vb" />
     <Compile Include="CDProducto.vb" />
+    <Compile Include="CDServicios.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
