@@ -22,226 +22,264 @@ Partial Class FormularioPedido
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
-        Me.Button5 = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Button6 = New System.Windows.Forms.Button()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.lblTipoEnvio = New System.Windows.Forms.Label()
+        Me.cboTipoEnvio = New System.Windows.Forms.ComboBox()
+        Me.btnCancelarPedido = New System.Windows.Forms.Button()
+        Me.btnGuardarPedido = New System.Windows.Forms.Button()
+        Me.txtDescripcion = New System.Windows.Forms.TextBox()
+        Me.dtpFecha = New System.Windows.Forms.DateTimePicker()
+        Me.cboCliente = New System.Windows.Forms.ComboBox()
+        Me.btnModificarPedido = New System.Windows.Forms.Button()
+        Me.btnQuitar = New System.Windows.Forms.Button()
+        Me.btnAgregarProducto = New System.Windows.Forms.Button()
+        Me.DGListaDePedido = New System.Windows.Forms.DataGridView()
+        Me.lblDetalles = New System.Windows.Forms.Label()
+        Me.lblID = New System.Windows.Forms.Label()
+        Me.lblDescripcion = New System.Windows.Forms.Label()
+        Me.lblFecha = New System.Windows.Forms.Label()
+        Me.lblCliente = New System.Windows.Forms.Label()
+        Me.btnTipoEnvio = New System.Windows.Forms.Button()
+        Me.lblEstado = New System.Windows.Forms.Label()
+        Me.cboEstado = New System.Windows.Forms.ComboBox()
+        Me.lblMedio = New System.Windows.Forms.Label()
+        Me.cboMedio = New System.Windows.Forms.ComboBox()
+        CType(Me.DGListaDePedido, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'Label6
+        'lblTipoEnvio
         '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(17, 356)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(72, 13)
-        Me.Label6.TabIndex = 33
-        Me.Label6.Text = "Tipo de envio"
+        Me.lblTipoEnvio.AutoSize = True
+        Me.lblTipoEnvio.Location = New System.Drawing.Point(17, 356)
+        Me.lblTipoEnvio.Name = "lblTipoEnvio"
+        Me.lblTipoEnvio.Size = New System.Drawing.Size(72, 13)
+        Me.lblTipoEnvio.TabIndex = 33
+        Me.lblTipoEnvio.Text = "Tipo de envio"
         '
-        'ComboBox2
+        'cboTipoEnvio
         '
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(98, 353)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(156, 21)
-        Me.ComboBox2.TabIndex = 32
+        Me.cboTipoEnvio.FormattingEnabled = True
+        Me.cboTipoEnvio.Location = New System.Drawing.Point(98, 353)
+        Me.cboTipoEnvio.Name = "cboTipoEnvio"
+        Me.cboTipoEnvio.Size = New System.Drawing.Size(156, 21)
+        Me.cboTipoEnvio.TabIndex = 32
         '
-        'Button5
+        'btnCancelarPedido
         '
-        Me.Button5.Location = New System.Drawing.Point(482, 383)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(81, 34)
-        Me.Button5.TabIndex = 31
-        Me.Button5.Text = "Cancelar"
-        Me.Button5.UseVisualStyleBackColor = True
+        Me.btnCancelarPedido.Location = New System.Drawing.Point(482, 383)
+        Me.btnCancelarPedido.Name = "btnCancelarPedido"
+        Me.btnCancelarPedido.Size = New System.Drawing.Size(81, 34)
+        Me.btnCancelarPedido.TabIndex = 31
+        Me.btnCancelarPedido.Text = "Cancelar"
+        Me.btnCancelarPedido.UseVisualStyleBackColor = True
         '
-        'Button4
+        'btnGuardarPedido
         '
-        Me.Button4.Location = New System.Drawing.Point(382, 383)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(81, 34)
-        Me.Button4.TabIndex = 30
-        Me.Button4.Text = "Cargar Pedido"
-        Me.Button4.UseVisualStyleBackColor = True
+        Me.btnGuardarPedido.Location = New System.Drawing.Point(382, 383)
+        Me.btnGuardarPedido.Name = "btnGuardarPedido"
+        Me.btnGuardarPedido.Size = New System.Drawing.Size(81, 34)
+        Me.btnGuardarPedido.TabIndex = 30
+        Me.btnGuardarPedido.Text = "Cargar Pedido"
+        Me.btnGuardarPedido.UseVisualStyleBackColor = True
         '
-        'TextBox2
+        'txtDescripcion
         '
-        Me.TextBox2.Location = New System.Drawing.Point(98, 312)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(108, 20)
-        Me.TextBox2.TabIndex = 29
+        Me.txtDescripcion.Location = New System.Drawing.Point(98, 312)
+        Me.txtDescripcion.Name = "txtDescripcion"
+        Me.txtDescripcion.Size = New System.Drawing.Size(108, 20)
+        Me.txtDescripcion.TabIndex = 29
         '
-        'DateTimePicker1
+        'dtpFecha
         '
-        Me.DateTimePicker1.Location = New System.Drawing.Point(75, 71)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(200, 20)
-        Me.DateTimePicker1.TabIndex = 28
+        Me.dtpFecha.Location = New System.Drawing.Point(75, 71)
+        Me.dtpFecha.Name = "dtpFecha"
+        Me.dtpFecha.Size = New System.Drawing.Size(200, 20)
+        Me.dtpFecha.TabIndex = 28
         '
-        'ComboBox1
+        'cboCliente
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(75, 38)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox1.TabIndex = 27
+        Me.cboCliente.FormattingEnabled = True
+        Me.cboCliente.Location = New System.Drawing.Point(75, 38)
+        Me.cboCliente.Name = "cboCliente"
+        Me.cboCliente.Size = New System.Drawing.Size(121, 21)
+        Me.cboCliente.TabIndex = 27
         '
-        'TextBox1
+        'btnModificarPedido
         '
-        Me.TextBox1.Location = New System.Drawing.Point(75, 9)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(155, 20)
-        Me.TextBox1.TabIndex = 26
+        Me.btnModificarPedido.Location = New System.Drawing.Point(465, 199)
+        Me.btnModificarPedido.Name = "btnModificarPedido"
+        Me.btnModificarPedido.Size = New System.Drawing.Size(81, 34)
+        Me.btnModificarPedido.TabIndex = 25
+        Me.btnModificarPedido.Text = "Modificar"
+        Me.btnModificarPedido.UseVisualStyleBackColor = True
         '
-        'Button3
+        'btnQuitar
         '
-        Me.Button3.Location = New System.Drawing.Point(465, 159)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(81, 34)
-        Me.Button3.TabIndex = 25
-        Me.Button3.Text = "Modificar"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.btnQuitar.Location = New System.Drawing.Point(465, 159)
+        Me.btnQuitar.Name = "btnQuitar"
+        Me.btnQuitar.Size = New System.Drawing.Size(81, 34)
+        Me.btnQuitar.TabIndex = 24
+        Me.btnQuitar.Text = "Quitar"
+        Me.btnQuitar.UseVisualStyleBackColor = True
         '
-        'Button2
+        'btnAgregarProducto
         '
-        Me.Button2.Location = New System.Drawing.Point(465, 199)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(81, 34)
-        Me.Button2.TabIndex = 24
-        Me.Button2.Text = "Quitar"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.btnAgregarProducto.Location = New System.Drawing.Point(465, 119)
+        Me.btnAgregarProducto.Name = "btnAgregarProducto"
+        Me.btnAgregarProducto.Size = New System.Drawing.Size(81, 34)
+        Me.btnAgregarProducto.TabIndex = 23
+        Me.btnAgregarProducto.Text = "Agregar Producto"
+        Me.btnAgregarProducto.UseVisualStyleBackColor = True
         '
-        'Button1
+        'DGListaDePedido
         '
-        Me.Button1.Location = New System.Drawing.Point(465, 119)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(81, 34)
-        Me.Button1.TabIndex = 23
-        Me.Button1.Text = "Agregar"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.DGListaDePedido.BackgroundColor = System.Drawing.Color.White
+        Me.DGListaDePedido.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DGListaDePedido.Location = New System.Drawing.Point(22, 120)
+        Me.DGListaDePedido.Name = "DGListaDePedido"
+        Me.DGListaDePedido.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DGListaDePedido.Size = New System.Drawing.Size(406, 174)
+        Me.DGListaDePedido.TabIndex = 22
         '
-        'DataGridView1
+        'lblDetalles
         '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(22, 120)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(406, 174)
-        Me.DataGridView1.TabIndex = 22
+        Me.lblDetalles.AutoSize = True
+        Me.lblDetalles.Location = New System.Drawing.Point(20, 104)
+        Me.lblDetalles.Name = "lblDetalles"
+        Me.lblDetalles.Size = New System.Drawing.Size(43, 13)
+        Me.lblDetalles.TabIndex = 21
+        Me.lblDetalles.Text = "Detalle:"
         '
-        'Label5
+        'lblID
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(20, 104)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(43, 13)
-        Me.Label5.TabIndex = 21
-        Me.Label5.Text = "Detalle:"
+        Me.lblID.AutoSize = True
+        Me.lblID.Location = New System.Drawing.Point(20, 14)
+        Me.lblID.Name = "lblID"
+        Me.lblID.Size = New System.Drawing.Size(21, 13)
+        Me.lblID.TabIndex = 20
+        Me.lblID.Text = "ID:"
         '
-        'Label4
+        'lblDescripcion
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(20, 14)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(21, 13)
-        Me.Label4.TabIndex = 20
-        Me.Label4.Text = "ID:"
+        Me.lblDescripcion.AutoSize = True
+        Me.lblDescripcion.Location = New System.Drawing.Point(17, 312)
+        Me.lblDescripcion.Name = "lblDescripcion"
+        Me.lblDescripcion.Size = New System.Drawing.Size(63, 13)
+        Me.lblDescripcion.TabIndex = 19
+        Me.lblDescripcion.Text = "Descripcion"
         '
-        'Label3
+        'lblFecha
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(17, 312)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(63, 13)
-        Me.Label3.TabIndex = 19
-        Me.Label3.Text = "Descripcion"
+        Me.lblFecha.AutoSize = True
+        Me.lblFecha.Location = New System.Drawing.Point(20, 78)
+        Me.lblFecha.Name = "lblFecha"
+        Me.lblFecha.Size = New System.Drawing.Size(37, 13)
+        Me.lblFecha.TabIndex = 18
+        Me.lblFecha.Text = "Fecha"
         '
-        'Label2
+        'lblCliente
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(20, 78)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(37, 13)
-        Me.Label2.TabIndex = 18
-        Me.Label2.Text = "Fecha"
+        Me.lblCliente.AutoSize = True
+        Me.lblCliente.Location = New System.Drawing.Point(20, 38)
+        Me.lblCliente.Name = "lblCliente"
+        Me.lblCliente.Size = New System.Drawing.Size(39, 13)
+        Me.lblCliente.TabIndex = 17
+        Me.lblCliente.Text = "Cliente"
         '
-        'Label1
+        'btnTipoEnvio
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(20, 38)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(39, 13)
-        Me.Label1.TabIndex = 17
-        Me.Label1.Text = "Cliente"
+        Me.btnTipoEnvio.Location = New System.Drawing.Point(260, 353)
+        Me.btnTipoEnvio.Name = "btnTipoEnvio"
+        Me.btnTipoEnvio.Size = New System.Drawing.Size(75, 26)
+        Me.btnTipoEnvio.TabIndex = 34
+        Me.btnTipoEnvio.Text = "envio"
+        Me.btnTipoEnvio.UseVisualStyleBackColor = True
         '
-        'Button6
+        'lblEstado
         '
-        Me.Button6.Location = New System.Drawing.Point(260, 353)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(75, 26)
-        Me.Button6.TabIndex = 34
-        Me.Button6.Text = "envio"
-        Me.Button6.UseVisualStyleBackColor = True
+        Me.lblEstado.AutoSize = True
+        Me.lblEstado.Location = New System.Drawing.Point(40, 394)
+        Me.lblEstado.Name = "lblEstado"
+        Me.lblEstado.Size = New System.Drawing.Size(40, 13)
+        Me.lblEstado.TabIndex = 36
+        Me.lblEstado.Text = "Estado"
+        '
+        'cboEstado
+        '
+        Me.cboEstado.FormattingEnabled = True
+        Me.cboEstado.Location = New System.Drawing.Point(98, 391)
+        Me.cboEstado.Name = "cboEstado"
+        Me.cboEstado.Size = New System.Drawing.Size(156, 21)
+        Me.cboEstado.TabIndex = 35
+        '
+        'lblMedio
+        '
+        Me.lblMedio.AutoSize = True
+        Me.lblMedio.Location = New System.Drawing.Point(253, 315)
+        Me.lblMedio.Name = "lblMedio"
+        Me.lblMedio.Size = New System.Drawing.Size(123, 13)
+        Me.lblMedio.TabIndex = 38
+        Me.lblMedio.Text = "Medio De Comunicacion"
+        '
+        'cboMedio
+        '
+        Me.cboMedio.FormattingEnabled = True
+        Me.cboMedio.Location = New System.Drawing.Point(382, 309)
+        Me.cboMedio.Name = "cboMedio"
+        Me.cboMedio.Size = New System.Drawing.Size(156, 21)
+        Me.cboMedio.TabIndex = 37
         '
         'FormularioPedido
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(571, 420)
-        Me.Controls.Add(Me.Button6)
-        Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.ComboBox2)
-        Me.Controls.Add(Me.Button5)
-        Me.Controls.Add(Me.Button4)
-        Me.Controls.Add(Me.TextBox2)
-        Me.Controls.Add(Me.DateTimePicker1)
-        Me.Controls.Add(Me.ComboBox1)
-        Me.Controls.Add(Me.TextBox1)
-        Me.Controls.Add(Me.Button3)
-        Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.DataGridView1)
-        Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.lblMedio)
+        Me.Controls.Add(Me.cboMedio)
+        Me.Controls.Add(Me.lblEstado)
+        Me.Controls.Add(Me.cboEstado)
+        Me.Controls.Add(Me.btnTipoEnvio)
+        Me.Controls.Add(Me.lblTipoEnvio)
+        Me.Controls.Add(Me.cboTipoEnvio)
+        Me.Controls.Add(Me.btnCancelarPedido)
+        Me.Controls.Add(Me.btnGuardarPedido)
+        Me.Controls.Add(Me.txtDescripcion)
+        Me.Controls.Add(Me.dtpFecha)
+        Me.Controls.Add(Me.cboCliente)
+        Me.Controls.Add(Me.btnModificarPedido)
+        Me.Controls.Add(Me.btnQuitar)
+        Me.Controls.Add(Me.btnAgregarProducto)
+        Me.Controls.Add(Me.DGListaDePedido)
+        Me.Controls.Add(Me.lblDetalles)
+        Me.Controls.Add(Me.lblID)
+        Me.Controls.Add(Me.lblDescripcion)
+        Me.Controls.Add(Me.lblFecha)
+        Me.Controls.Add(Me.lblCliente)
         Me.Name = "FormularioPedido"
         Me.Text = "FormularioPedido"
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DGListaDePedido, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents Label6 As System.Windows.Forms.Label
-    Friend WithEvents ComboBox2 As System.Windows.Forms.ComboBox
-    Friend WithEvents Button5 As System.Windows.Forms.Button
-    Friend WithEvents Button4 As System.Windows.Forms.Button
-    Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
-    Friend WithEvents DateTimePicker1 As System.Windows.Forms.DateTimePicker
-    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
-    Friend WithEvents Button3 As System.Windows.Forms.Button
-    Friend WithEvents Button2 As System.Windows.Forms.Button
-    Friend WithEvents Button1 As System.Windows.Forms.Button
-    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
-    Friend WithEvents Label5 As System.Windows.Forms.Label
-    Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents Button6 As System.Windows.Forms.Button
+    Friend WithEvents lblTipoEnvio As System.Windows.Forms.Label
+    Friend WithEvents cboTipoEnvio As System.Windows.Forms.ComboBox
+    Friend WithEvents btnCancelarPedido As System.Windows.Forms.Button
+    Friend WithEvents btnGuardarPedido As System.Windows.Forms.Button
+    Friend WithEvents txtDescripcion As System.Windows.Forms.TextBox
+    Friend WithEvents dtpFecha As System.Windows.Forms.DateTimePicker
+    Friend WithEvents cboCliente As System.Windows.Forms.ComboBox
+    Friend WithEvents btnModificarPedido As System.Windows.Forms.Button
+    Friend WithEvents btnQuitar As System.Windows.Forms.Button
+    Friend WithEvents btnAgregarProducto As System.Windows.Forms.Button
+    Friend WithEvents DGListaDePedido As System.Windows.Forms.DataGridView
+    Friend WithEvents lblDetalles As System.Windows.Forms.Label
+    Friend WithEvents lblID As System.Windows.Forms.Label
+    Friend WithEvents lblDescripcion As System.Windows.Forms.Label
+    Friend WithEvents lblFecha As System.Windows.Forms.Label
+    Friend WithEvents lblCliente As System.Windows.Forms.Label
+    Friend WithEvents btnTipoEnvio As System.Windows.Forms.Button
+    Friend WithEvents lblEstado As System.Windows.Forms.Label
+    Friend WithEvents cboEstado As System.Windows.Forms.ComboBox
+    Friend WithEvents lblMedio As System.Windows.Forms.Label
+    Friend WithEvents cboMedio As System.Windows.Forms.ComboBox
 End Class

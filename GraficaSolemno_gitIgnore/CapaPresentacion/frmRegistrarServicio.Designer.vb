@@ -22,45 +22,44 @@ Partial Class frmRegistrarServicio
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.btnGuardarCambios = New System.Windows.Forms.Button()
-        Me.btnCancelar = New System.Windows.Forms.Button()
-        Me.btnGuardarNuevo = New System.Windows.Forms.Button()
+        Me.btnGuardarCambiosRegServ = New System.Windows.Forms.Button()
+        Me.btnCancelarRegServ = New System.Windows.Forms.Button()
+        Me.btnGuardarNuevoRegServ = New System.Windows.Forms.Button()
         Me.txtNombreServicio = New System.Windows.Forms.TextBox()
         Me.lblNombre = New System.Windows.Forms.Label()
-        Me.txtIDServicio = New System.Windows.Forms.TextBox()
         Me.lblID = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
-        'btnGuardarCambios
+        'btnGuardarCambiosRegServ
         '
-        Me.btnGuardarCambios.Location = New System.Drawing.Point(34, 171)
-        Me.btnGuardarCambios.Name = "btnGuardarCambios"
-        Me.btnGuardarCambios.Size = New System.Drawing.Size(102, 23)
-        Me.btnGuardarCambios.TabIndex = 13
-        Me.btnGuardarCambios.Text = "Guardar Cambios"
-        Me.btnGuardarCambios.UseVisualStyleBackColor = True
+        Me.btnGuardarCambiosRegServ.Location = New System.Drawing.Point(89, 200)
+        Me.btnGuardarCambiosRegServ.Name = "btnGuardarCambiosRegServ"
+        Me.btnGuardarCambiosRegServ.Size = New System.Drawing.Size(102, 23)
+        Me.btnGuardarCambiosRegServ.TabIndex = 13
+        Me.btnGuardarCambiosRegServ.Text = "Guardar Cambios"
+        Me.btnGuardarCambiosRegServ.UseVisualStyleBackColor = True
         '
-        'btnCancelar
+        'btnCancelarRegServ
         '
-        Me.btnCancelar.Location = New System.Drawing.Point(135, 200)
-        Me.btnCancelar.Name = "btnCancelar"
-        Me.btnCancelar.Size = New System.Drawing.Size(75, 23)
-        Me.btnCancelar.TabIndex = 12
-        Me.btnCancelar.Text = "Cancelar"
-        Me.btnCancelar.UseVisualStyleBackColor = True
+        Me.btnCancelarRegServ.Location = New System.Drawing.Point(197, 200)
+        Me.btnCancelarRegServ.Name = "btnCancelarRegServ"
+        Me.btnCancelarRegServ.Size = New System.Drawing.Size(75, 23)
+        Me.btnCancelarRegServ.TabIndex = 12
+        Me.btnCancelarRegServ.Text = "Cancelar"
+        Me.btnCancelarRegServ.UseVisualStyleBackColor = True
         '
-        'btnGuardarNuevo
+        'btnGuardarNuevoRegServ
         '
-        Me.btnGuardarNuevo.Location = New System.Drawing.Point(34, 200)
-        Me.btnGuardarNuevo.Name = "btnGuardarNuevo"
-        Me.btnGuardarNuevo.Size = New System.Drawing.Size(75, 23)
-        Me.btnGuardarNuevo.TabIndex = 11
-        Me.btnGuardarNuevo.Text = "Registrar"
-        Me.btnGuardarNuevo.UseVisualStyleBackColor = True
+        Me.btnGuardarNuevoRegServ.Location = New System.Drawing.Point(8, 200)
+        Me.btnGuardarNuevoRegServ.Name = "btnGuardarNuevoRegServ"
+        Me.btnGuardarNuevoRegServ.Size = New System.Drawing.Size(75, 23)
+        Me.btnGuardarNuevoRegServ.TabIndex = 11
+        Me.btnGuardarNuevoRegServ.Text = "Registrar"
+        Me.btnGuardarNuevoRegServ.UseVisualStyleBackColor = True
         '
         'txtNombreServicio
         '
-        Me.txtNombreServicio.Location = New System.Drawing.Point(102, 80)
+        Me.txtNombreServicio.Location = New System.Drawing.Point(92, 80)
         Me.txtNombreServicio.Name = "txtNombreServicio"
         Me.txtNombreServicio.Size = New System.Drawing.Size(148, 20)
         Me.txtNombreServicio.TabIndex = 10
@@ -68,39 +67,30 @@ Partial Class frmRegistrarServicio
         'lblNombre
         '
         Me.lblNombre.AutoSize = True
-        Me.lblNombre.Location = New System.Drawing.Point(57, 83)
+        Me.lblNombre.Location = New System.Drawing.Point(31, 80)
         Me.lblNombre.Name = "lblNombre"
         Me.lblNombre.Size = New System.Drawing.Size(44, 13)
         Me.lblNombre.TabIndex = 9
         Me.lblNombre.Text = "Nombre"
         '
-        'txtIDServicio
-        '
-        Me.txtIDServicio.Location = New System.Drawing.Point(102, 38)
-        Me.txtIDServicio.Name = "txtIDServicio"
-        Me.txtIDServicio.Size = New System.Drawing.Size(148, 20)
-        Me.txtIDServicio.TabIndex = 8
-        '
         'lblID
         '
         Me.lblID.AutoSize = True
-        Me.lblID.Location = New System.Drawing.Point(57, 41)
+        Me.lblID.Location = New System.Drawing.Point(57, 42)
         Me.lblID.Name = "lblID"
-        Me.lblID.Size = New System.Drawing.Size(28, 13)
+        Me.lblID.Size = New System.Drawing.Size(0, 13)
         Me.lblID.TabIndex = 7
-        Me.lblID.Text = "lblID"
         '
         'frmRegistrarServicio
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(284, 261)
-        Me.Controls.Add(Me.btnGuardarCambios)
-        Me.Controls.Add(Me.btnCancelar)
-        Me.Controls.Add(Me.btnGuardarNuevo)
+        Me.Controls.Add(Me.btnGuardarCambiosRegServ)
+        Me.Controls.Add(Me.btnCancelarRegServ)
+        Me.Controls.Add(Me.btnGuardarNuevoRegServ)
         Me.Controls.Add(Me.txtNombreServicio)
         Me.Controls.Add(Me.lblNombre)
-        Me.Controls.Add(Me.txtIDServicio)
         Me.Controls.Add(Me.lblID)
         Me.Name = "frmRegistrarServicio"
         Me.Text = "frmRegistrarServicio"
@@ -108,11 +98,10 @@ Partial Class frmRegistrarServicio
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents btnGuardarCambios As System.Windows.Forms.Button
-    Friend WithEvents btnCancelar As System.Windows.Forms.Button
-    Friend WithEvents btnGuardarNuevo As System.Windows.Forms.Button
+    Friend WithEvents btnGuardarCambiosRegServ As System.Windows.Forms.Button
+    Friend WithEvents btnCancelarRegServ As System.Windows.Forms.Button
+    Friend WithEvents btnGuardarNuevoRegServ As System.Windows.Forms.Button
     Friend WithEvents txtNombreServicio As System.Windows.Forms.TextBox
     Friend WithEvents lblNombre As System.Windows.Forms.Label
-    Friend WithEvents txtIDServicio As System.Windows.Forms.TextBox
     Friend WithEvents lblID As System.Windows.Forms.Label
 End Class

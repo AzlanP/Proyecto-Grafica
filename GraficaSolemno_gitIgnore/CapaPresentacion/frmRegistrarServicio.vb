@@ -5,24 +5,24 @@ Public Class frmRegistrarServicio
     Dim oCEServicios As New CEServicios
     Dim oCNServicios As New CNServicios
     Public Function TomarDatos() As CEServicios
-        oCEServicios.IDServicio = CInt(txtIDServicio.Text)
+        oCEServicios.IDServicio = CInt(lblID.Text)
 
         oCEServicios.Nombre = txtNombreServicio.Text
         Return oCEServicios
 
     End Function
 
-    Private Sub btnGuardarNuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGuardarNuevo.Click
+    Private Sub btnGuardarNuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGuardarNuevoRegServ.Click
         oCNServicios.NuevoServicio(TomarDatos())
         Me.Close()
     End Sub
 
-    Private Sub btnCancelar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancelar.Click
+    Private Sub btnCancelar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancelarRegServ.Click
         Me.Close()
 
     End Sub
 
-    Private Sub btnGuardarCambios_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGuardarCambios.Click
+    Private Sub btnGuardarCambios_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGuardarCambiosRegServ.Click
         oCNServicios.ModificarServicio(TomarDatos())
 
         Close()
@@ -45,7 +45,7 @@ Public Class frmRegistrarServicio
         dt = oCNServicios.BuscarServicio(ID, "IDServicio")
         dr = dt.Rows(0)
 
-        txtIDServicio.Text = dr("IDServicio").ToString
+        lblID.Text = dr("IDServicio").ToString
         txtNombreServicio.Text = dr("Nombre").ToString
 
 

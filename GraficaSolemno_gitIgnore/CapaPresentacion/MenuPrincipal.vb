@@ -144,8 +144,8 @@ Public Class frmMenuPrincipal
     Private Sub btnNuevoServicio_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNuevoServicio.Click
         Dim frmNuevoServicio As New frmRegistrarServicio
         frmNuevoServicio.txtIDServicio.Text = oCNServicio.ConsultarUltimoID
-        frmNuevoServicio.btnGuardarCambios.Visible = False
-        frmNuevoServicio.btnGuardarNuevo.Visible = True
+        frmNuevoServicio.btnGuardarCambiosRegServ.Visible = False
+        frmNuevoServicio.btnGuardarNuevoRegServ.Visible = True
         frmNuevoServicio.ShowDialog()
 
         CargarGridServicios()
@@ -154,7 +154,7 @@ Public Class frmMenuPrincipal
         ID = DGServicios.Rows(DGServicios.CurrentCell.RowIndex).Cells("IDServicio").Value
         Dim frmNuevoServicio As New frmRegistrarServicio
         frmNuevoServicio.LLenarFormulario(ID)
-        frmNuevoServicio.btnGuardarNuevo.Visible = False
+        frmNuevoServicio.btnGuardarNuevoRegServ.Visible = False
         frmNuevoServicio.ShowDialog()
         CargarGridServicios()
     End Sub
@@ -163,8 +163,8 @@ Public Class frmMenuPrincipal
         Dim frmNuevoServicio As New frmRegistrarServicio
         frmNuevoServicio.LLenarFormulario(ID)
         frmNuevoServicio.Disesabletext()
-        frmNuevoServicio.btnGuardarNuevo.Visible = False
-        frmNuevoServicio.btnGuardarcambios.Visible = False
+        frmNuevoServicio.btnGuardarNuevoRegServ.Visible = False
+        frmNuevoServicio.btnGuardarCambiosRegServ.Visible = False
         frmNuevoServicio.ShowDialog()
     End Sub
     Private Sub btnEliminarServicio_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEliminarServicio.Click
@@ -182,7 +182,7 @@ Public Class frmMenuPrincipal
         ID = DGServicios.Rows(DGServicios.CurrentCell.RowIndex).Cells("IDServicio").Value
         Dim oNuevoServicio As New frmRegistrarServicio
         oNuevoServicio.LLenarFormulario(ID)
-        oNuevoServicio.btnGuardarNuevo.Visible = False
+        oNuevoServicio.btnGuardarNuevoRegServ.Visible = False
         oNuevoServicio.ShowDialog()
         CargarGridServicios()
     End Sub
@@ -200,25 +200,45 @@ Public Class frmMenuPrincipal
     End Sub
     Private Sub btnNuevoPedido_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNuevoPedido.Click
         Dim frmPedido As New FormularioPedido
-        'frmPedido.lblID.Text = oCNPedido.ConsultarUltimoID()
+        frmPedido.lblID.Text = oCNPedido.ConsultarUltimoID()
         frmPedido.ShowDialog()
         CargarGridProducto()
     End Sub
 
     Private Sub btnModificarPedido_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnModificarPedido.Click
-
+        ID = DGPedido.Rows(DGPedido.CurrentCell.RowIndex).Cells("IDPedido").Value
+        Dim frmPedido As New FormularioPedido
+        frmPedido.LLenarFormulario(ID)
+        frmPedido.ShowDialog()
+        CargarGridServicios()
     End Sub
 
     Private Sub btnVerPedido_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnVerPedido.Click
-
+        ID = DGPedido.Rows(DGPedido.CurrentCell.RowIndex).Cells("IDPedido").Value
+        Dim frmPedido As New FormularioPedido
+        frmPedido.LLenarFormulario(ID)
+        frmPedido.Disesabletext()
+        frmPedido.ShowDialog()
     End Sub
 
     Private Sub btnEliminarPedido_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEliminarPedido.Click
-
+        ID = DGPedido.Rows(DGPedido.CurrentCell.RowIndex).Cells("IDPedido").Value
+        oCNPedido.EliminarPedido(ID)
+        CargarGridPedidos()
     End Sub
 
     Private Sub btnBuscarPedido_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscarPedido.Click
+        Dim dt As DataTable
+        dt = oCNPedido.BuscarPedido(txtBuscarServicio.Text, cboBuscarServicio.Text)
+        DGPedido.DataSource = dt
+    End Sub
 
+    Private Sub DGPedido_MouseDoubleClick(ByVal sender As Object, ByVal e As MouseEventArgs) Handles DGPedido.MouseDoubleClick
+        ID = DGPedido.Rows(DGPedido.CurrentCell.RowIndex).Cells("IDPedido").Value
+        Dim frmPedido As New FormularioPedido
+        frmPedido.LLenarFormulario(ID)
+        frmPedido.ShowDialog()
+        CargarGridServicios()
     End Sub
 
 
