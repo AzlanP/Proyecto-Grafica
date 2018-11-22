@@ -191,11 +191,18 @@ Public Class frmMenuPrincipal
     '--------------------------------------------------------------------------------------------------------------
     '--------------------------------------------------------------------------------------------------------------
     '---------------------------------------- PEDIDOS -----------------------------------------------------------
+    Dim oCNPedido As New CNPedido
     Private Sub TabPedido_Enter(ByVal sender As Object, ByVal e As System.EventArgs) Handles TabPedido.Enter
-
+        CargarGridPedidos()
+    End Sub
+    Public Sub CargarGridPedidos()
+        DGPedido.DataSource = oCNPedido.MostrarPedido
     End Sub
     Private Sub btnNuevoPedido_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNuevoPedido.Click
-
+        Dim frmPedido As New FormularioPedido
+        'frmPedido.lblID.Text = oCNPedido.ConsultarUltimoID()
+        frmPedido.ShowDialog()
+        CargarGridProducto()
     End Sub
 
     Private Sub btnModificarPedido_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnModificarPedido.Click
@@ -269,27 +276,18 @@ Public Class frmMenuPrincipal
             Next
         End If
     End Sub
-    '---------------------------------------- EVENTOS ESTADISTICAS --------------------------------------------
-    '--------------------------------------------------------------------------------------------------------------
-
-
     Private Sub btnGraficoPedidos_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGraficoPedidos.Click
         GraficoPedidosMensuales()
     End Sub
-
     Private Sub btnGraficoMedios_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGraficoMedios.Click
         GraficarMedios()
     End Sub
-
     Private Sub btnGraficoServicios_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGraficoServicios.Click
         GraficarServiciosMensuales()
     End Sub
-
     Private Sub btnGraficosProducto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGraficosProducto.Click
         GraficarProductosMensual()
     End Sub
-
-
 
 
 

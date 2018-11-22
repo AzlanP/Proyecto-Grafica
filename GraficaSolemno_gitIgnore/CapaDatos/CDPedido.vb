@@ -17,7 +17,7 @@ Public Class CDPedidos
                 .Add("@Descripcion", SqlDbType.VarChar).Value = oCEPedido.Descripcion
                 .Add("Cliente", SqlDbType.VarChar).Value = oCEPedido.Cliente
                 .Add("@Fecha", SqlDbType.VarChar).Value = oCEPedido.Fecha
-                .Add("@Tipo_de_Envio", SqlDbType.VarChar).Value = oCEPedido.Tipo_de_Envio
+                .Add("@Tipo_de_Envio", SqlDbType.VarChar).Value = oCEPedido.TipoDeEnvio
             End With
             comando.ExecuteNonQuery()
             MsgBox("Pedido agregado")
@@ -36,7 +36,7 @@ Public Class CDPedidos
                 .Add("@IDPedido", SqlDbType.Int).Value = oCEPedido.IDPedido
                 .Add("@Descripcion", SqlDbType.VarChar).Value = oCEPedido.Descripcion
                 .Add("@Cliente", SqlDbType.VarChar).Value = oCEPedido.Cliente
-                .Add("@Tipo_de_Envio", SqlDbType.VarChar).Value = oCEPedido.Tipo_de_Envio
+                .Add("@Tipo_de_Envio", SqlDbType.VarChar).Value = oCEPedido.TipoDeEnvio
             End With
             comando.ExecuteNonQuery()
             MsgBox("La modificacion se realizo con exito")
@@ -60,4 +60,32 @@ Public Class CDPedidos
             oCDConexion.Desconectar()
         End Try
     End Sub
+    Function ConsultarUltimoID() As Integer
+        Return oCDConexion.ConsultarUltimoID("Pedidos")
+    End Function
+    Function BuscarPedido(ByVal pbuscar As String, ByVal campo As String) As DataTable
+        oCDConexion.Conectar()
+        Dim da As New SQLiteDataAdapter
+        Dim dt As New DataTable
+        Try
+            Dim instruccionsql As String = "SELECT * FROM Pedido WHERE " & campo & " =@pbuscar"
+            Dim comando As New SQLiteCommand(instruccionsql, oCDConexion.con)
+
+            If IsNumeric(pbuscar) Then
+                comando.Parameters.Add("@pbuscar", SqlDbType.Int).Value = pbuscar
+            Else
+                comando.Parameters.Add("@pbuscar", SqlDbType.VarChar).Value = pbuscar
+            End If
+
+
+            da.SelectCommand = comando
+            da.Fill(dt)
+            Return dt
+        Catch ex As Exception
+            Throw New Exception("El tipo de servicio que busca no se encuentra disponible" & ex.Message)
+        Finally
+            oCDConexion.Desconectar()
+
+        End Try
+    End Function
 End Class
