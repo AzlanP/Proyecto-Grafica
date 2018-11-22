@@ -2,7 +2,10 @@
 Imports CapaEntidad
 
 Public Class frmMenuPrincipal
+    Private Sub FrmMenu_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
+
+    End Sub
     '--------------------------------------------------------------------------------------------------------------
     '--------------------------------------------------------------------------------------------------------------
     '---------------------------------------- CLIENTE  -----------------------------------------------------------
@@ -10,17 +13,11 @@ Public Class frmMenuPrincipal
     Dim oCECliente As CECliente
     Dim oCNCliente As New CNCliente
     Dim ID As String
-    Private Sub FrmMenu_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-
-
-    End Sub
-    '-----------------METODOS CLIENTE-----------------------------------
 
     Public Sub CargarGridCliente()
         'la funcion de listar cliente retornara un datatable que contendra la tabla del cliente, y esta sera mostrada en el datagrid
         DGCliente.DataSource = oCNCliente.MostrarCliente
     End Sub
-    ' -------------Eventos cliente-------------------------------------------------------------
     Private Sub TabCliente_Enter(ByVal sender As Object, ByVal e As System.EventArgs) Handles TabCliente.Enter
         CargarGridCliente()
     End Sub
@@ -88,7 +85,6 @@ Public Class frmMenuPrincipal
     Public Sub CargarGridProducto()
         DGProducto.DataSource = oCNProducto.MostrarProducto()
     End Sub
-    '---------------------------------- EVENTOS DE PRODUCTO---------------------------------------------------
     Private Sub TabProducto_Enter(ByVal sender As Object, ByVal e As System.EventArgs) Handles TabProducto.Enter
         CargarGridProducto()
     End Sub
@@ -142,7 +138,6 @@ Public Class frmMenuPrincipal
     Private Sub TabServicios_Enter(ByVal sender As Object, ByVal e As System.EventArgs) Handles TabServicios.Enter
         CargarGridServicios()
     End Sub
-
     Public Sub CargarGridServicios()
         DGServicios.DataSource = oCNServicio.MostrarServicios()
     End Sub
@@ -155,7 +150,6 @@ Public Class frmMenuPrincipal
 
         CargarGridServicios()
     End Sub
-
     Private Sub BtnModificarServicio_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnModificarServicio.Click
         ID = DGServicios.Rows(DGServicios.CurrentCell.RowIndex).Cells("IDServicio").Value
         Dim frmNuevoServicio As New frmRegistrarServicio
@@ -164,7 +158,6 @@ Public Class frmMenuPrincipal
         frmNuevoServicio.ShowDialog()
         CargarGridServicios()
     End Sub
-
     Private Sub btnVerServicio_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnVerServicio.Click
         ID = DGServicios.Rows(DGServicios.CurrentCell.RowIndex).Cells("IDServicio").Value
         Dim frmNuevoServicio As New frmRegistrarServicio
@@ -174,13 +167,11 @@ Public Class frmMenuPrincipal
         frmNuevoServicio.btnGuardarcambios.Visible = False
         frmNuevoServicio.ShowDialog()
     End Sub
-
     Private Sub btnEliminarServicio_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEliminarServicio.Click
         ID = DGServicios.Rows(DGServicios.CurrentCell.RowIndex).Cells("IDServicio").Value
         oCNServicio.EliminarServicio(ID)
         CargarGridServicios()
     End Sub
-
     Private Sub btnBuscarServicio_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscarServicio.Click
         Dim dt As DataTable
         dt = oCNServicio.BuscarServicio(txtBuscarServicio.Text, cboBuscarServicio.Text)
@@ -195,6 +186,8 @@ Public Class frmMenuPrincipal
         oNuevoServicio.ShowDialog()
         CargarGridServicios()
     End Sub
+
+
     '--------------------------------------------------------------------------------------------------------------
     '--------------------------------------------------------------------------------------------------------------
     '---------------------------------------- PEDIDOS -----------------------------------------------------------
@@ -225,12 +218,83 @@ Public Class frmMenuPrincipal
     '--------------------------------------------------------------------------------------------------------------
     '--------------------------------------------------------------------------------------------------------------
     '---------------------------------------- ESTADISTICAS -----------------------------------------------------------
+    Dim oCNGraficas As New CNGraficos
+    Dim Meses As String() = {"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"}
+    Public Sub GraficoPedidosMensuales()
+        GraficoSegunConsulta.Series("Cantidad").Points.Clear()
+        Dim i As Integer = 1
+        For i = 1 To 12
+            Dim cant As Integer = oCNgraficas.GraficaPedidosMensuales(i, 2018)
+            Me.GraficoSegunConsulta.Series("Cantidad").Points.AddXY((Meses(i - 1)), (cant))
+        Next
+    End Sub
+    Public Sub GraficarMedios()
+        GraficoSegunConsulta.Series("Cantidad").Points.Clear()
 
+        If (cboAño.Text = Nothing) Or (cboMeses.Text = Nothing) Then
+            MsgBox("Debe ingresar un valor para los campos mes y año.")
+        Else
+            Dim dt As DataTable = oCNgraficas.GraficarCantidadPedidosPorMedio(cboMeses.SelectedIndex + 1, cboAño.Text)
+            Dim dv As DataView = New DataView(dt)
+            For x = 0 To dv.Count - 1
 
+                GraficoSegunConsulta.Series("Cantidad").Points.AddXY(dv(x)("Nombre"), dv(x)("Cantidad"))
+            Next
+        End If
+    End Sub
+    Public Sub GraficarProductosMensual()
+        GraficoSegunConsulta.Series("Cantidad").Points.Clear()
+
+        If (cboAño.Text = Nothing) Or (cboMeses.Text = Nothing) Then
+            MsgBox("Debe ingresar un valor para los campos mes y año.")
+        Else
+            Dim dt As DataTable = oCNgraficas.GraficarProductosMensuales(cboMeses.SelectedIndex + 1, cboAño.Text)
+            Dim dv As DataView = New DataView(dt)
+            For x = 0 To dv.Count - 1
+    GraficoSegunConsulta.Series("Cantidad").Points.AddXY(dv(x)("Nombre"), dv(x)("Cantidad"))
+            Next
+        End If
+    End Sub
+    Public Sub GraficarServiciosMensuales()
+        GraficoSegunConsulta.Series("Cantidad").Points.Clear()
+
+        If (cboAño.Text = Nothing) Or (cboMeses.Text = Nothing) Then
+            MsgBox("Debe ingresar un valor para los campos mes y año.")
+        Else
+            Dim dt As DataTable = oCNgraficas.GraficarServiciosMensuales(cboMeses.SelectedIndex + 1, cboAño.Text)
+            Dim dv As DataView = New DataView(dt)
+            For x = 0 To dv.Count - 1
+
+                GraficoSegunConsulta.Series("Cantidad").Points.AddXY(dv(x)("Nombre"), dv(x)("Cantidad"))
+            Next
+        End If
+    End Sub
+    '---------------------------------------- EVENTOS ESTADISTICAS --------------------------------------------
     '--------------------------------------------------------------------------------------------------------------
+
+
+    Private Sub btnGraficoPedidos_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGraficoPedidos.Click
+        GraficoPedidosMensuales()
+    End Sub
+
+    Private Sub btnGraficoMedios_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGraficoMedios.Click
+        GraficarMedios()
+    End Sub
+
+    Private Sub btnGraficoServicios_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGraficoServicios.Click
+        GraficarServiciosMensuales()
+    End Sub
+
+    Private Sub btnGraficosProducto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGraficosProducto.Click
+        GraficarProductosMensual()
+    End Sub
+
+
+
+
+
     '--------------------------------------------------------------------------------------------------------------
     '----------------------------------------   POSTICKS         -----------------------------------------------
    
    
-    
 End Class

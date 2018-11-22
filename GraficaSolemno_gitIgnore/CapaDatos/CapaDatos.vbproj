@@ -70,6 +70,7 @@
   <ItemGroup>
     <Compile Include="CDCliente.vb" />
     <Compile Include="CDConexion.vb" />
+    <Compile Include="CDGraficos.vb" />
     <Compile Include="CDPedido.vb" />
     <Compile Include="CDProducto.vb" />
     <Compile Include="CDServicios.vb" />
