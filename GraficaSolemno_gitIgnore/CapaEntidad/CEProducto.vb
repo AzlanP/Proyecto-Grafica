@@ -5,8 +5,16 @@
     Private _Descripcion As String
     Private _Cantidad As Integer
     Private _Precio As Double
+    Private _Tipo As String
 
-
+    Public Property Tipo As String
+        Get
+            Return _Tipo
+        End Get
+        Set(ByVal value As String)
+            _Tipo = value
+        End Set
+    End Property
     Public Property Nombre() As String
         Get
             Return _Nombre

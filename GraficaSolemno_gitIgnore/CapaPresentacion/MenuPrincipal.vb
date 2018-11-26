@@ -133,63 +133,6 @@ Public Class frmMenuPrincipal
 
     '--------------------------------------------------------------------------------------------------------------
     '--------------------------------------------------------------------------------------------------------------
-    '---------------------------------------- SERVICIOS -----------------------------------------------------------
-    Dim oCNServicio As New CNServicios
-    Private Sub TabServicios_Enter(ByVal sender As Object, ByVal e As System.EventArgs) Handles TabServicios.Enter
-        CargarGridServicios()
-    End Sub
-    Public Sub CargarGridServicios()
-        DGServicios.DataSource = oCNServicio.MostrarServicios()
-    End Sub
-    Private Sub btnNuevoServicio_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNuevoServicio.Click
-        Dim frmNuevoServicio As New frmRegistrarServicio
-        frmNuevoServicio.lblID.Text = oCNServicio.ConsultarUltimoID
-        frmNuevoServicio.btnGuardarCambiosRegServ.Visible = False
-        frmNuevoServicio.btnGuardarNuevoRegServ.Visible = True
-        frmNuevoServicio.ShowDialog()
-
-        CargarGridServicios()
-    End Sub
-    Private Sub BtnModificarServicio_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnModificarServicio.Click
-        ID = DGServicios.Rows(DGServicios.CurrentCell.RowIndex).Cells("IDServicio").Value
-        Dim frmNuevoServicio As New frmRegistrarServicio
-        frmNuevoServicio.LLenarFormulario(ID)
-        frmNuevoServicio.btnGuardarNuevoRegServ.Visible = False
-        frmNuevoServicio.ShowDialog()
-        CargarGridServicios()
-    End Sub
-    Private Sub btnVerServicio_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnVerServicio.Click
-        ID = DGServicios.Rows(DGServicios.CurrentCell.RowIndex).Cells("IDServicio").Value
-        Dim frmNuevoServicio As New frmRegistrarServicio
-        frmNuevoServicio.LLenarFormulario(ID)
-        frmNuevoServicio.Disesabletext()
-        frmNuevoServicio.btnGuardarNuevoRegServ.Visible = False
-        frmNuevoServicio.btnGuardarCambiosRegServ.Visible = False
-        frmNuevoServicio.ShowDialog()
-    End Sub
-    Private Sub btnEliminarServicio_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEliminarServicio.Click
-        ID = DGServicios.Rows(DGServicios.CurrentCell.RowIndex).Cells("IDServicio").Value
-        oCNServicio.EliminarServicio(ID)
-        CargarGridServicios()
-    End Sub
-    Private Sub btnBuscarServicio_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscarServicio.Click
-        Dim dt As DataTable
-        dt = oCNServicio.BuscarServicio(txtBuscarServicio.Text, cboBuscarServicio.Text)
-        DGServicios.DataSource = dt
-
-    End Sub
-    Private Sub DGServicios_CellMouseDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellMouseEventArgs) Handles DGServicios.CellMouseDoubleClick
-        ID = DGServicios.Rows(DGServicios.CurrentCell.RowIndex).Cells("IDServicio").Value
-        Dim oNuevoServicio As New frmRegistrarServicio
-        oNuevoServicio.LLenarFormulario(ID)
-        oNuevoServicio.btnGuardarNuevoRegServ.Visible = False
-        oNuevoServicio.ShowDialog()
-        CargarGridServicios()
-    End Sub
-
-
-    '--------------------------------------------------------------------------------------------------------------
-    '--------------------------------------------------------------------------------------------------------------
     '---------------------------------------- PEDIDOS -----------------------------------------------------------
     Dim oCNPedido As New CNPedido
     Private Sub TabPedido_Enter(ByVal sender As Object, ByVal e As System.EventArgs) Handles TabPedido.Enter
@@ -210,7 +153,8 @@ Public Class frmMenuPrincipal
         Dim frmPedido As New FormularioPedido
         frmPedido.LLenarFormulario(ID)
         frmPedido.ShowDialog()
-        CargarGridServicios()
+        CargarGridPedidos()
+
     End Sub
 
     Private Sub btnVerPedido_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnVerPedido.Click
@@ -229,7 +173,7 @@ Public Class frmMenuPrincipal
 
     Private Sub btnBuscarPedido_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscarPedido.Click
         Dim dt As DataTable
-        dt = oCNPedido.BuscarPedido(txtBuscarServicio.Text, cboBuscarServicio.Text)
+        dt = oCNPedido.BuscarPedido(txtBuscarPedido.Text, cboBuscarPedido.Text)
         DGPedido.DataSource = dt
     End Sub
 
@@ -238,7 +182,7 @@ Public Class frmMenuPrincipal
         Dim frmPedido As New FormularioPedido
         frmPedido.LLenarFormulario(ID)
         frmPedido.ShowDialog()
-        CargarGridServicios()
+        CargarGridPedidos()
     End Sub
 
 

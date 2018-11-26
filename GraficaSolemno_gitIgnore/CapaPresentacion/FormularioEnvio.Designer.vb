@@ -51,21 +51,25 @@ Partial Class FormularioEnvio
         '
         'btnCancelarFormEnvio
         '
+        Me.btnCancelarFormEnvio.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnCancelarFormEnvio.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCancelarFormEnvio.Location = New System.Drawing.Point(199, 394)
         Me.btnCancelarFormEnvio.Name = "btnCancelarFormEnvio"
         Me.btnCancelarFormEnvio.Size = New System.Drawing.Size(84, 27)
         Me.btnCancelarFormEnvio.TabIndex = 21
         Me.btnCancelarFormEnvio.Text = "Cancelar"
-        Me.btnCancelarFormEnvio.UseVisualStyleBackColor = True
+        Me.btnCancelarFormEnvio.UseVisualStyleBackColor = False
         '
         'btnGuardarFormEnvio
         '
+        Me.btnGuardarFormEnvio.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnGuardarFormEnvio.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnGuardarFormEnvio.Location = New System.Drawing.Point(98, 394)
         Me.btnGuardarFormEnvio.Name = "btnGuardarFormEnvio"
         Me.btnGuardarFormEnvio.Size = New System.Drawing.Size(84, 27)
         Me.btnGuardarFormEnvio.TabIndex = 20
         Me.btnGuardarFormEnvio.Text = "Guardar"
-        Me.btnGuardarFormEnvio.UseVisualStyleBackColor = True
+        Me.btnGuardarFormEnvio.UseVisualStyleBackColor = False
         '
         'txtboxPrecio
         '
@@ -263,6 +267,7 @@ Partial Class FormularioEnvio
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(413, 431)
         Me.Controls.Add(Me.TextBox3)
         Me.Controls.Add(Me.lblDpto)

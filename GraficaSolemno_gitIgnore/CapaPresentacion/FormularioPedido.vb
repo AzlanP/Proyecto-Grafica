@@ -4,7 +4,7 @@ Public Class FormularioPedido
     Dim oPedido As New CEPedido
     Dim oCECliente As New CECliente
     Dim ListProductos() As CEProducto
-    Dim ListServicios() As CEServicios
+
     Dim listGeneral()() As String
    
     Public Sub LLenarFormulario(ByVal id As Integer)
@@ -31,10 +31,10 @@ Public Class FormularioPedido
         oPedido.Estado = cboEstado.Text
         oPedido.Medio = cboMedio.Text
         oPedido.Productos = ListProductos
-        oPedido.Servicios = ListServicios
+
     End Sub
     Public Sub AgregarArrayDG()
-        ReDim Preserve listGeneral(ListProductos.Length + ListServicios.Length - 2)
+        ReDim Preserve listGeneral(ListProductos.Length)
         Dim i = 0
         For Each producto In ListProductos
             listGeneral(0)(i) = i
@@ -45,13 +45,7 @@ Public Class FormularioPedido
             i = i + 1
         Next
         i = ListProductos.Length - 1
-        For Each servicio In ListServicios
-            listGeneral(0)(i) = i
-            listGeneral(1)(i) = servicio.Nombre
-            listGeneral(3)(i) = servicio.Cantidad
-            listGeneral(4)(i) = servicio.Descripcion
-            i = i + 1
-        Next
+        
     End Sub
     Private Sub btnQuitar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnQuitar.Click
         Dim ID As Integer = DGListaDePedido.Rows(DGListaDePedido.CurrentCell.RowIndex).Cells("ID").Value

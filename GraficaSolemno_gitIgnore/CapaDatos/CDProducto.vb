@@ -15,7 +15,7 @@ Public Class CDProducto
         oCDConexion.Conectar()
 
         Try
-            Dim instruccionSQL = "INSERT INTO Productos (IDProducto, Nombre, Cantidad, Precio, Descripcion,Codigo) VALUES (@IDProducto, @Nombre, @Cantidad, @Precio, @Descripcion, @Codigo)"
+            Dim instruccionSQL = "INSERT INTO Productos (IDProducto, Nombre, Cantidad, Precio, Descripcion, Codigo, Tipo) VALUES (@IDProducto, @Nombre, @Cantidad, @Precio, @Descripcion, @Codigo,@Tipo)"
 
             Dim comando As New SQLiteCommand(instruccionSQL, oCDConexion.con)
             With comando.Parameters
@@ -25,6 +25,7 @@ Public Class CDProducto
                 .Add("@Precio", SqlDbType.Real).Value = oCEProducto.Precio
                 .Add("@Descripcion", SqlDbType.VarChar).Value = oCEProducto.Descripcion
                 .Add("@Codigo", SqlDbType.VarChar).Value = oCEProducto.Codigo
+                .Add("@Tipo", SqlDbType.VarChar).Value = oCEProducto.Tipo
             End With
             MsgBox(instruccionSQL)
             comando.ExecuteNonQuery()
@@ -56,7 +57,7 @@ Public Class CDProducto
     Public Sub ModificarProducto(ByVal oCEProducto As CEProducto)
         oCDConexion.Conectar()
         Try
-            Dim instruccionsql = " UPDATE Productos SET Nombre=@Nombre,Cantidad=@Cantidad, Precio=@Precio, Descripcion=@Descripcion, Codigo=@Codigo where IDProducto=@IDProducto"
+            Dim instruccionsql = " UPDATE Productos SET Nombre=@Nombre,Cantidad=@Cantidad, Precio=@Precio, Descripcion=@Descripcion, Codigo=@Codigo, Tipo=@Tipo where IDProducto=@IDProducto"
             Dim comando As New SQLiteCommand(instruccionsql, oCDConexion.con)
             With comando.Parameters
                 .Add("@IDProducto", SqlDbType.Int).Value = oCEProducto.IDProducto
@@ -65,7 +66,7 @@ Public Class CDProducto
                 .Add("@Descripcion", SqlDbType.VarChar).Value = oCEProducto.Descripcion
                 .Add("@Cantidad", SqlDbType.Int).Value = oCEProducto.Cantidad
                 .Add("@Precio", SqlDbType.Real).Value = oCEProducto.Precio
-
+                .Add("@Tipo", SqlDbType.VarChar).Value = oCEProducto.Tipo
             End With
             comando.ExecuteNonQuery()
         Catch ex As Exception

@@ -6,14 +6,23 @@ Public Class RegistrarProducto
 
 
     Public Function TomarDatos() As CEProducto
-        oCEProducto.IDProducto = CInt(lblID.Text)
-        oCEProducto.Nombre = txtNombre.Text
-        oCEProducto.Cantidad = CInt(txtCantidad.Text)
-        oCEProducto.Precio = CDbl(txtPrecio.Text)
-        oCEProducto.Descripcion = txtDescripcion.Text
-        oCEProducto.Codigo = CInt(txtCodigo.Text)
-        Return oCEProducto
+        If cboTipo.Text = "Producto" And txtNombre.Text <> "" Then
+            oCEProducto.Tipo = cboTipo.Text
+            oCEProducto.IDProducto = CInt(lblID.Text)
+            oCEProducto.Nombre = txtNombre.Text
+            oCEProducto.Cantidad = CInt(txtCantidad.Text)
+            oCEProducto.Precio = CDbl(txtPrecio.Text)
+            oCEProducto.Descripcion = txtDescripcion.Text
+            oCEProducto.Codigo = CInt(txtCodigo.Text)
+            Return oCEProducto
+        ElseIf cboTipo.Text = "Servicio" Then
+            oCEProducto.Tipo = cboTipo.Text
+            oCEProducto.IDProducto = CInt(lblID.Text)
+            oCEProducto.Nombre = txtNombre.Text
+            oCEProducto.Descripcion = txtDescripcion.Text
 
+            Return oCEProducto
+        End If
     End Function
     Public Sub LlenarFormulario(ByVal ID As Integer)
         Dim dt As New DataTable
@@ -24,10 +33,9 @@ Public Class RegistrarProducto
         txtNombre.Text = dr("Nombre").ToString
         txtCantidad.Text = dr("Cantidad").ToString
         txtPrecio.Text = dr("Precio").ToString
-
         txtDescripcion.Text = dr("Descripcion").ToString
         txtCodigo.Text = dr("Codigo").ToString
-
+        cboTipo.Text = dr("Tipo").ToString
         btnRegistrarProducto.Visible = False
         btnGuardarProducto.Visible = True
 
@@ -65,5 +73,23 @@ Public Class RegistrarProducto
 
     Private Sub RegistrarProducto_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
+    End Sub
+
+    Private Sub cboTipo_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles cboTipo.SelectedIndexChanged
+        If cboTipo.Text = "Producto" Then
+            lblCantidad.Visible = True
+            lblCodigo.Visible = True
+            lblPrecio.Visible = True
+            txtCantidad.Visible = True
+            txtCodigo.Visible = True
+            txtPrecio.Visible = True
+        ElseIf cboTipo.Text = "Servicio" Then
+            lblCantidad.Visible = False
+            lblCodigo.Visible = False
+            lblPrecio.Visible = False
+            txtCantidad.Visible = False
+            txtCodigo.Visible = False
+            txtPrecio.Visible = False
+        End If
     End Sub
 End Class

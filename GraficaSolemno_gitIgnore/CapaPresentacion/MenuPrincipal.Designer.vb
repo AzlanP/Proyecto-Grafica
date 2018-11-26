@@ -22,11 +22,12 @@ Partial Class frmMenuPrincipal
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim ChartArea4 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend4 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series4 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.TabGeneral = New System.Windows.Forms.TabControl()
         Me.TabTareas = New System.Windows.Forms.TabPage()
+        Me.panelTareas = New System.Windows.Forms.Panel()
         Me.TabCliente = New System.Windows.Forms.TabPage()
         Me.PanelCentralCliente = New System.Windows.Forms.Panel()
         Me.txtBuscarCliente = New System.Windows.Forms.TextBox()
@@ -69,20 +70,6 @@ Partial Class frmMenuPrincipal
         Me.btnEliminarProducto = New System.Windows.Forms.Button()
         Me.btnAgregarProducto = New System.Windows.Forms.Button()
         Me.IconoProducto = New System.Windows.Forms.PictureBox()
-        Me.TabServicios = New System.Windows.Forms.TabPage()
-        Me.panelCentralServicio = New System.Windows.Forms.Panel()
-        Me.DGServicios = New System.Windows.Forms.DataGridView()
-        Me.btnBuscarServicio = New System.Windows.Forms.Button()
-        Me.cboBuscarServicio = New System.Windows.Forms.ComboBox()
-        Me.txtBuscarServicio = New System.Windows.Forms.TextBox()
-        Me.panelSuperiorServicio = New System.Windows.Forms.Panel()
-        Me.lblTituloServicio = New System.Windows.Forms.Label()
-        Me.panelLateralServicio = New System.Windows.Forms.Panel()
-        Me.btnEliminarServicio = New System.Windows.Forms.Button()
-        Me.BtnModificarServicio = New System.Windows.Forms.Button()
-        Me.btnVerServicio = New System.Windows.Forms.Button()
-        Me.btnNuevoServicio = New System.Windows.Forms.Button()
-        Me.iconoServicio = New System.Windows.Forms.PictureBox()
         Me.TabEstadistica = New System.Windows.Forms.TabPage()
         Me.Panel7 = New System.Windows.Forms.Panel()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -106,7 +93,6 @@ Partial Class frmMenuPrincipal
         Me.PanelLateralAyuda = New System.Windows.Forms.Panel()
         Me.lblIndice = New System.Windows.Forms.Label()
         Me.IconoAyuda = New System.Windows.Forms.PictureBox()
-        Me.panelTareas = New System.Windows.Forms.Panel()
         Me.TabGeneral.SuspendLayout()
         Me.TabTareas.SuspendLayout()
         Me.TabCliente.SuspendLayout()
@@ -127,12 +113,6 @@ Partial Class frmMenuPrincipal
         Me.panelSuperiorProducto.SuspendLayout()
         Me.panelLateralProducto.SuspendLayout()
         CType(Me.IconoProducto, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.TabServicios.SuspendLayout()
-        Me.panelCentralServicio.SuspendLayout()
-        CType(Me.DGServicios, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.panelSuperiorServicio.SuspendLayout()
-        Me.panelLateralServicio.SuspendLayout()
-        CType(Me.iconoServicio, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabEstadistica.SuspendLayout()
         Me.Panel7.SuspendLayout()
         CType(Me.GraficoSegunConsulta, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -151,7 +131,6 @@ Partial Class frmMenuPrincipal
         Me.TabGeneral.Controls.Add(Me.TabCliente)
         Me.TabGeneral.Controls.Add(Me.TabPedido)
         Me.TabGeneral.Controls.Add(Me.TabProducto)
-        Me.TabGeneral.Controls.Add(Me.TabServicios)
         Me.TabGeneral.Controls.Add(Me.TabEstadistica)
         Me.TabGeneral.Controls.Add(Me.TabAyuda)
         Me.TabGeneral.Location = New System.Drawing.Point(12, 12)
@@ -172,6 +151,13 @@ Partial Class frmMenuPrincipal
         Me.TabTareas.TabIndex = 6
         Me.TabTareas.Text = "Tareas"
         '
+        'panelTareas
+        '
+        Me.panelTareas.Location = New System.Drawing.Point(3, 3)
+        Me.panelTareas.Name = "panelTareas"
+        Me.panelTareas.Size = New System.Drawing.Size(1115, 626)
+        Me.panelTareas.TabIndex = 0
+        '
         'TabCliente
         '
         Me.TabCliente.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
@@ -186,6 +172,7 @@ Partial Class frmMenuPrincipal
         '
         'PanelCentralCliente
         '
+        Me.PanelCentralCliente.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.PanelCentralCliente.Controls.Add(Me.txtBuscarCliente)
         Me.PanelCentralCliente.Controls.Add(Me.btnBuscarCliente)
         Me.PanelCentralCliente.Controls.Add(Me.cboBuscarCliente)
@@ -352,6 +339,7 @@ Partial Class frmMenuPrincipal
         '
         'PanelCentralPedido
         '
+        Me.PanelCentralPedido.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.PanelCentralPedido.Controls.Add(Me.txtBuscarPedido)
         Me.PanelCentralPedido.Controls.Add(Me.btnBuscarPedido)
         Me.PanelCentralPedido.Controls.Add(Me.DGPedido)
@@ -512,6 +500,7 @@ Partial Class frmMenuPrincipal
         '
         'panelCentralProducto
         '
+        Me.panelCentralProducto.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.panelCentralProducto.Controls.Add(Me.txtBuscarProducto)
         Me.panelCentralProducto.Controls.Add(Me.DGProducto)
         Me.panelCentralProducto.Controls.Add(Me.btnBuscarProducto)
@@ -657,173 +646,6 @@ Partial Class frmMenuPrincipal
         Me.IconoProducto.TabIndex = 18
         Me.IconoProducto.TabStop = False
         '
-        'TabServicios
-        '
-        Me.TabServicios.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.TabServicios.Controls.Add(Me.panelCentralServicio)
-        Me.TabServicios.Controls.Add(Me.panelSuperiorServicio)
-        Me.TabServicios.Controls.Add(Me.panelLateralServicio)
-        Me.TabServicios.Location = New System.Drawing.Point(4, 24)
-        Me.TabServicios.Name = "TabServicios"
-        Me.TabServicios.Size = New System.Drawing.Size(1121, 632)
-        Me.TabServicios.TabIndex = 5
-        Me.TabServicios.Text = "Servicios"
-        '
-        'panelCentralServicio
-        '
-        Me.panelCentralServicio.Controls.Add(Me.DGServicios)
-        Me.panelCentralServicio.Controls.Add(Me.btnBuscarServicio)
-        Me.panelCentralServicio.Controls.Add(Me.cboBuscarServicio)
-        Me.panelCentralServicio.Controls.Add(Me.txtBuscarServicio)
-        Me.panelCentralServicio.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.panelCentralServicio.Location = New System.Drawing.Point(184, 89)
-        Me.panelCentralServicio.Name = "panelCentralServicio"
-        Me.panelCentralServicio.Size = New System.Drawing.Size(937, 543)
-        Me.panelCentralServicio.TabIndex = 18
-        '
-        'DGServicios
-        '
-        Me.DGServicios.AllowUserToAddRows = False
-        Me.DGServicios.AllowUserToDeleteRows = False
-        Me.DGServicios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.DGServicios.BackgroundColor = System.Drawing.Color.White
-        Me.DGServicios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGServicios.Location = New System.Drawing.Point(20, 74)
-        Me.DGServicios.MultiSelect = False
-        Me.DGServicios.Name = "DGServicios"
-        Me.DGServicios.ReadOnly = True
-        Me.DGServicios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DGServicios.Size = New System.Drawing.Size(630, 310)
-        Me.DGServicios.TabIndex = 15
-        '
-        'btnBuscarServicio
-        '
-        Me.btnBuscarServicio.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
-        Me.btnBuscarServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnBuscarServicio.Location = New System.Drawing.Point(535, 33)
-        Me.btnBuscarServicio.Name = "btnBuscarServicio"
-        Me.btnBuscarServicio.Size = New System.Drawing.Size(115, 24)
-        Me.btnBuscarServicio.TabIndex = 13
-        Me.btnBuscarServicio.Text = "Buscar"
-        Me.btnBuscarServicio.UseVisualStyleBackColor = False
-        '
-        'cboBuscarServicio
-        '
-        Me.cboBuscarServicio.BackColor = System.Drawing.SystemColors.MenuHighlight
-        Me.cboBuscarServicio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cboBuscarServicio.FormattingEnabled = True
-        Me.cboBuscarServicio.Items.AddRange(New Object() {"Nombre", "Apellido", "DNI", "CUIT"})
-        Me.cboBuscarServicio.Location = New System.Drawing.Point(415, 35)
-        Me.cboBuscarServicio.Name = "cboBuscarServicio"
-        Me.cboBuscarServicio.Size = New System.Drawing.Size(114, 21)
-        Me.cboBuscarServicio.TabIndex = 14
-        '
-        'txtBuscarServicio
-        '
-        Me.txtBuscarServicio.Location = New System.Drawing.Point(20, 36)
-        Me.txtBuscarServicio.Name = "txtBuscarServicio"
-        Me.txtBuscarServicio.Size = New System.Drawing.Size(389, 20)
-        Me.txtBuscarServicio.TabIndex = 8
-        '
-        'panelSuperiorServicio
-        '
-        Me.panelSuperiorServicio.BackColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(166, Byte), Integer), CType(CType(63, Byte), Integer))
-        Me.panelSuperiorServicio.Controls.Add(Me.lblTituloServicio)
-        Me.panelSuperiorServicio.Dock = System.Windows.Forms.DockStyle.Top
-        Me.panelSuperiorServicio.Location = New System.Drawing.Point(184, 0)
-        Me.panelSuperiorServicio.Name = "panelSuperiorServicio"
-        Me.panelSuperiorServicio.Size = New System.Drawing.Size(937, 89)
-        Me.panelSuperiorServicio.TabIndex = 17
-        '
-        'lblTituloServicio
-        '
-        Me.lblTituloServicio.AutoSize = True
-        Me.lblTituloServicio.Font = New System.Drawing.Font("WarHeliosCondCBold", 36.0!, System.Drawing.FontStyle.Bold)
-        Me.lblTituloServicio.Location = New System.Drawing.Point(236, 14)
-        Me.lblTituloServicio.Name = "lblTituloServicio"
-        Me.lblTituloServicio.Size = New System.Drawing.Size(195, 59)
-        Me.lblTituloServicio.TabIndex = 0
-        Me.lblTituloServicio.Text = "Servicios"
-        '
-        'panelLateralServicio
-        '
-        Me.panelLateralServicio.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(134, Byte), Integer), CType(CType(67, Byte), Integer))
-        Me.panelLateralServicio.Controls.Add(Me.btnEliminarServicio)
-        Me.panelLateralServicio.Controls.Add(Me.BtnModificarServicio)
-        Me.panelLateralServicio.Controls.Add(Me.btnVerServicio)
-        Me.panelLateralServicio.Controls.Add(Me.btnNuevoServicio)
-        Me.panelLateralServicio.Controls.Add(Me.iconoServicio)
-        Me.panelLateralServicio.Dock = System.Windows.Forms.DockStyle.Left
-        Me.panelLateralServicio.Location = New System.Drawing.Point(0, 0)
-        Me.panelLateralServicio.Name = "panelLateralServicio"
-        Me.panelLateralServicio.Size = New System.Drawing.Size(184, 632)
-        Me.panelLateralServicio.TabIndex = 16
-        '
-        'btnEliminarServicio
-        '
-        Me.btnEliminarServicio.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
-        Me.btnEliminarServicio.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
-        Me.btnEliminarServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnEliminarServicio.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnEliminarServicio.ForeColor = System.Drawing.Color.White
-        Me.btnEliminarServicio.Location = New System.Drawing.Point(0, 386)
-        Me.btnEliminarServicio.Name = "btnEliminarServicio"
-        Me.btnEliminarServicio.Size = New System.Drawing.Size(184, 50)
-        Me.btnEliminarServicio.TabIndex = 17
-        Me.btnEliminarServicio.Text = "Eliminar"
-        Me.btnEliminarServicio.UseVisualStyleBackColor = False
-        '
-        'BtnModificarServicio
-        '
-        Me.BtnModificarServicio.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
-        Me.BtnModificarServicio.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
-        Me.BtnModificarServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnModificarServicio.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnModificarServicio.ForeColor = System.Drawing.Color.White
-        Me.BtnModificarServicio.Location = New System.Drawing.Point(0, 274)
-        Me.BtnModificarServicio.Name = "BtnModificarServicio"
-        Me.BtnModificarServicio.Size = New System.Drawing.Size(184, 50)
-        Me.BtnModificarServicio.TabIndex = 16
-        Me.BtnModificarServicio.Text = "Modificar"
-        Me.BtnModificarServicio.UseVisualStyleBackColor = False
-        '
-        'btnVerServicio
-        '
-        Me.btnVerServicio.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
-        Me.btnVerServicio.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
-        Me.btnVerServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnVerServicio.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnVerServicio.ForeColor = System.Drawing.Color.White
-        Me.btnVerServicio.Location = New System.Drawing.Point(0, 330)
-        Me.btnVerServicio.Name = "btnVerServicio"
-        Me.btnVerServicio.Size = New System.Drawing.Size(184, 50)
-        Me.btnVerServicio.TabIndex = 15
-        Me.btnVerServicio.Text = "Ver Servicio"
-        Me.btnVerServicio.UseVisualStyleBackColor = False
-        '
-        'btnNuevoServicio
-        '
-        Me.btnNuevoServicio.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
-        Me.btnNuevoServicio.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
-        Me.btnNuevoServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnNuevoServicio.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnNuevoServicio.ForeColor = System.Drawing.Color.White
-        Me.btnNuevoServicio.Location = New System.Drawing.Point(0, 218)
-        Me.btnNuevoServicio.Name = "btnNuevoServicio"
-        Me.btnNuevoServicio.Size = New System.Drawing.Size(184, 50)
-        Me.btnNuevoServicio.TabIndex = 14
-        Me.btnNuevoServicio.Text = "Nuevo Servicio"
-        Me.btnNuevoServicio.UseVisualStyleBackColor = False
-        '
-        'iconoServicio
-        '
-        Me.iconoServicio.Location = New System.Drawing.Point(7, 14)
-        Me.iconoServicio.Name = "iconoServicio"
-        Me.iconoServicio.Size = New System.Drawing.Size(170, 150)
-        Me.iconoServicio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.iconoServicio.TabIndex = 13
-        Me.iconoServicio.TabStop = False
-        '
         'TabEstadistica
         '
         Me.TabEstadistica.Controls.Add(Me.Panel7)
@@ -831,7 +653,7 @@ Partial Class frmMenuPrincipal
         Me.TabEstadistica.Controls.Add(Me.PnlLateralEstadistica)
         Me.TabEstadistica.Location = New System.Drawing.Point(4, 24)
         Me.TabEstadistica.Name = "TabEstadistica"
-        Me.TabEstadistica.Size = New System.Drawing.Size(1075, 632)
+        Me.TabEstadistica.Size = New System.Drawing.Size(1121, 632)
         Me.TabEstadistica.TabIndex = 3
         Me.TabEstadistica.Text = "Estadistica"
         '
@@ -846,7 +668,7 @@ Partial Class frmMenuPrincipal
         Me.Panel7.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel7.Location = New System.Drawing.Point(184, 89)
         Me.Panel7.Name = "Panel7"
-        Me.Panel7.Size = New System.Drawing.Size(891, 543)
+        Me.Panel7.Size = New System.Drawing.Size(937, 543)
         Me.Panel7.TabIndex = 6
         '
         'Label5
@@ -892,21 +714,21 @@ Partial Class frmMenuPrincipal
         '
         Me.GraficoSegunConsulta.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.GraficoSegunConsulta.BackSecondaryColor = System.Drawing.Color.White
-        ChartArea4.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        ChartArea4.BackHatchStyle = System.Windows.Forms.DataVisualization.Charting.ChartHatchStyle.DarkDownwardDiagonal
-        ChartArea4.Name = "ChartArea1"
-        Me.GraficoSegunConsulta.ChartAreas.Add(ChartArea4)
-        Legend4.ForeColor = System.Drawing.Color.Maroon
-        Legend4.ItemColumnSpacing = 0
-        Legend4.Name = "Legend1"
-        Me.GraficoSegunConsulta.Legends.Add(Legend4)
+        ChartArea1.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        ChartArea1.BackHatchStyle = System.Windows.Forms.DataVisualization.Charting.ChartHatchStyle.DarkDownwardDiagonal
+        ChartArea1.Name = "ChartArea1"
+        Me.GraficoSegunConsulta.ChartAreas.Add(ChartArea1)
+        Legend1.ForeColor = System.Drawing.Color.Maroon
+        Legend1.ItemColumnSpacing = 0
+        Legend1.Name = "Legend1"
+        Me.GraficoSegunConsulta.Legends.Add(Legend1)
         Me.GraficoSegunConsulta.Location = New System.Drawing.Point(18, 21)
         Me.GraficoSegunConsulta.Name = "GraficoSegunConsulta"
         Me.GraficoSegunConsulta.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen
-        Series4.ChartArea = "ChartArea1"
-        Series4.Legend = "Legend1"
-        Series4.Name = "Cantidad"
-        Me.GraficoSegunConsulta.Series.Add(Series4)
+        Series1.ChartArea = "ChartArea1"
+        Series1.Legend = "Legend1"
+        Series1.Name = "Cantidad"
+        Me.GraficoSegunConsulta.Series.Add(Series1)
         Me.GraficoSegunConsulta.Size = New System.Drawing.Size(805, 300)
         Me.GraficoSegunConsulta.TabIndex = 0
         Me.GraficoSegunConsulta.Text = "Chart1"
@@ -918,7 +740,7 @@ Partial Class frmMenuPrincipal
         Me.PanelSupEstadistica.Dock = System.Windows.Forms.DockStyle.Top
         Me.PanelSupEstadistica.Location = New System.Drawing.Point(184, 0)
         Me.PanelSupEstadistica.Name = "PanelSupEstadistica"
-        Me.PanelSupEstadistica.Size = New System.Drawing.Size(891, 89)
+        Me.PanelSupEstadistica.Size = New System.Drawing.Size(937, 89)
         Me.PanelSupEstadistica.TabIndex = 5
         '
         'lblTituloEstadistica
@@ -1037,7 +859,7 @@ Partial Class frmMenuPrincipal
         '
         'PanelCentralAyuda
         '
-        Me.PanelCentralAyuda.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.PanelCentralAyuda.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.PanelCentralAyuda.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelCentralAyuda.Location = New System.Drawing.Point(184, 89)
         Me.PanelCentralAyuda.Name = "PanelCentralAyuda"
@@ -1094,13 +916,6 @@ Partial Class frmMenuPrincipal
         Me.IconoAyuda.TabIndex = 13
         Me.IconoAyuda.TabStop = False
         '
-        'panelTareas
-        '
-        Me.panelTareas.Location = New System.Drawing.Point(3, 3)
-        Me.panelTareas.Name = "panelTareas"
-        Me.panelTareas.Size = New System.Drawing.Size(1115, 626)
-        Me.panelTareas.TabIndex = 0
-        '
         'frmMenuPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1136,14 +951,6 @@ Partial Class frmMenuPrincipal
         Me.panelSuperiorProducto.PerformLayout()
         Me.panelLateralProducto.ResumeLayout(False)
         CType(Me.IconoProducto, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.TabServicios.ResumeLayout(False)
-        Me.panelCentralServicio.ResumeLayout(False)
-        Me.panelCentralServicio.PerformLayout()
-        CType(Me.DGServicios, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.panelSuperiorServicio.ResumeLayout(False)
-        Me.panelSuperiorServicio.PerformLayout()
-        Me.panelLateralServicio.ResumeLayout(False)
-        CType(Me.iconoServicio, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabEstadistica.ResumeLayout(False)
         Me.Panel7.ResumeLayout(False)
         Me.Panel7.PerformLayout()
@@ -1175,22 +982,8 @@ Partial Class frmMenuPrincipal
     Friend WithEvents btnBuscarPedido As System.Windows.Forms.Button
     Friend WithEvents DGPedido As System.Windows.Forms.DataGridView
     Friend WithEvents TabTareas As System.Windows.Forms.TabPage
-    Friend WithEvents TabServicios As System.Windows.Forms.TabPage
     Friend WithEvents cboBuscarPedido As System.Windows.Forms.ComboBox
     Friend WithEvents txtBuscarPedido As System.Windows.Forms.TextBox
-    Friend WithEvents DGServicios As System.Windows.Forms.DataGridView
-    Friend WithEvents cboBuscarServicio As System.Windows.Forms.ComboBox
-    Friend WithEvents btnBuscarServicio As System.Windows.Forms.Button
-    Friend WithEvents txtBuscarServicio As System.Windows.Forms.TextBox
-    Friend WithEvents panelCentralServicio As System.Windows.Forms.Panel
-    Friend WithEvents panelSuperiorServicio As System.Windows.Forms.Panel
-    Friend WithEvents lblTituloServicio As System.Windows.Forms.Label
-    Friend WithEvents panelLateralServicio As System.Windows.Forms.Panel
-    Friend WithEvents btnNuevoServicio As System.Windows.Forms.Button
-    Friend WithEvents iconoServicio As System.Windows.Forms.PictureBox
-    Friend WithEvents btnEliminarServicio As System.Windows.Forms.Button
-    Friend WithEvents BtnModificarServicio As System.Windows.Forms.Button
-    Friend WithEvents btnVerServicio As System.Windows.Forms.Button
     Friend WithEvents panelCentralProducto As System.Windows.Forms.Panel
     Friend WithEvents panelSuperiorProducto As System.Windows.Forms.Panel
     Friend WithEvents panelLateralProducto As System.Windows.Forms.Panel

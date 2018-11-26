@@ -92,13 +92,15 @@ Partial Class RegistrarCliente
         '
         'btnGuardar
         '
+        Me.btnGuardar.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnGuardar.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnGuardar.Location = New System.Drawing.Point(182, 371)
+        Me.btnGuardar.Location = New System.Drawing.Point(206, 386)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(137, 33)
         Me.btnGuardar.TabIndex = 115
         Me.btnGuardar.Text = "Guardar cambios"
-        Me.btnGuardar.UseVisualStyleBackColor = True
+        Me.btnGuardar.UseVisualStyleBackColor = False
         Me.btnGuardar.Visible = False
         '
         'lblID
@@ -122,13 +124,15 @@ Partial Class RegistrarCliente
         '
         'btnCancelar
         '
+        Me.btnCancelar.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCancelar.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCancelar.Location = New System.Drawing.Point(386, 410)
+        Me.btnCancelar.Location = New System.Drawing.Point(386, 386)
         Me.btnCancelar.Name = "btnCancelar"
         Me.btnCancelar.Size = New System.Drawing.Size(182, 33)
         Me.btnCancelar.TabIndex = 112
         Me.btnCancelar.Text = "Cancelar"
-        Me.btnCancelar.UseVisualStyleBackColor = True
+        Me.btnCancelar.UseVisualStyleBackColor = False
         '
         'dpFecha
         '
@@ -142,6 +146,7 @@ Partial Class RegistrarCliente
         'cbIVA
         '
         Me.cbIVA.FormattingEnabled = True
+        Me.cbIVA.Items.AddRange(New Object() {"Consumidor Final", "No Responsable", "Excento", "Responsable Inscripto", "Responsable Monotributo", "Monotributista Social", "Peq. Cont. Eventual"})
         Me.cbIVA.Location = New System.Drawing.Point(140, 228)
         Me.cbIVA.Name = "cbIVA"
         Me.cbIVA.Size = New System.Drawing.Size(205, 23)
@@ -226,7 +231,7 @@ Partial Class RegistrarCliente
         '
         Me.Label18.AutoSize = True
         Me.Label18.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label18.Location = New System.Drawing.Point(435, 18)
+        Me.Label18.Location = New System.Drawing.Point(435, 12)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(47, 15)
         Me.Label18.TabIndex = 98
@@ -266,7 +271,7 @@ Partial Class RegistrarCliente
         '
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(383, 97)
+        Me.Label10.Location = New System.Drawing.Point(383, 95)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(38, 15)
         Me.Label10.TabIndex = 94
@@ -386,13 +391,15 @@ Partial Class RegistrarCliente
         '
         'btnRegistrar
         '
+        Me.btnRegistrar.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnRegistrar.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnRegistrar.Location = New System.Drawing.Point(206, 410)
+        Me.btnRegistrar.Location = New System.Drawing.Point(206, 386)
         Me.btnRegistrar.Name = "btnRegistrar"
         Me.btnRegistrar.Size = New System.Drawing.Size(137, 33)
         Me.btnRegistrar.TabIndex = 80
         Me.btnRegistrar.Text = "Registrar Cliente"
-        Me.btnRegistrar.UseVisualStyleBackColor = True
+        Me.btnRegistrar.UseVisualStyleBackColor = False
         '
         'TextBox3
         '
@@ -415,8 +422,8 @@ Partial Class RegistrarCliente
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(749, 483)
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
+        Me.ClientSize = New System.Drawing.Size(712, 453)
         Me.Controls.Add(Me.TextBox3)
         Me.Controls.Add(Me.Label14)
         Me.Controls.Add(Me.Label9)

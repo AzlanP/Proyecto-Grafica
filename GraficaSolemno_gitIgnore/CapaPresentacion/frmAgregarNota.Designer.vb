@@ -88,21 +88,25 @@ Partial Class frmAgregarNota
         '
         'btnGuardarNota
         '
+        Me.btnGuardarNota.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnGuardarNota.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnGuardarNota.Location = New System.Drawing.Point(113, 243)
         Me.btnGuardarNota.Name = "btnGuardarNota"
         Me.btnGuardarNota.Size = New System.Drawing.Size(75, 23)
         Me.btnGuardarNota.TabIndex = 6
         Me.btnGuardarNota.Text = "Guardar"
-        Me.btnGuardarNota.UseVisualStyleBackColor = True
+        Me.btnGuardarNota.UseVisualStyleBackColor = False
         '
         'btnCancelar
         '
+        Me.btnCancelar.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCancelar.Location = New System.Drawing.Point(209, 243)
         Me.btnCancelar.Name = "btnCancelar"
         Me.btnCancelar.Size = New System.Drawing.Size(75, 23)
         Me.btnCancelar.TabIndex = 7
         Me.btnCancelar.Text = "Cancelar"
-        Me.btnCancelar.UseVisualStyleBackColor = True
+        Me.btnCancelar.UseVisualStyleBackColor = False
         '
         'NroPostick
         '
@@ -115,12 +119,14 @@ Partial Class frmAgregarNota
         '
         'btnEliminar
         '
+        Me.btnEliminar.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnEliminar.Location = New System.Drawing.Point(23, 243)
         Me.btnEliminar.Name = "btnEliminar"
         Me.btnEliminar.Size = New System.Drawing.Size(75, 23)
         Me.btnEliminar.TabIndex = 9
         Me.btnEliminar.Text = "Eliminar"
-        Me.btnEliminar.UseVisualStyleBackColor = True
+        Me.btnEliminar.UseVisualStyleBackColor = False
         '
         'lblidpostick
         '
