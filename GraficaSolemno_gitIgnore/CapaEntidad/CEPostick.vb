@@ -3,7 +3,7 @@
     Private _IDPostick As Integer
     Private _Titulo As String
     Private _Descripcion As String
-    Private _Fecha As Date
+    Private _Fecha As String
     Private _Prioridad As String
 
     Public Property IDPostick As Integer
@@ -32,11 +32,11 @@
             _Descripcion = value
         End Set
     End Property
-    Public Property Fecha As Date
+    Public Property Fecha As String
         Get
             Return _Fecha
         End Get
-        Set(ByVal value As Date)
+        Set(ByVal value As String)
             _Fecha = value
         End Set
     End Property

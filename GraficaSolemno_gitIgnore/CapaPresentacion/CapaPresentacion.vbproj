@@ -91,6 +91,18 @@
     <Compile Include="FormularioPedido.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmAgregarNota.Designer.vb">
+      <DependentUpon>frmAgregarNota.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmAgregarNota.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPestañaTareas.Designer.vb">
+      <DependentUpon>frmPestañaTareas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmPestañaTareas.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmRegistrarServicio.Designer.vb">
       <DependentUpon>frmRegistrarServicio.vb</DependentUpon>
     </Compile>
@@ -140,6 +152,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormularioPedido.resx">
       <DependentUpon>FormularioPedido.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAgregarNota.resx">
+      <DependentUpon>frmAgregarNota.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPestañaTareas.resx">
+      <DependentUpon>frmPestañaTareas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmRegistrarServicio.resx">
       <DependentUpon>frmRegistrarServicio.vb</DependentUpon>

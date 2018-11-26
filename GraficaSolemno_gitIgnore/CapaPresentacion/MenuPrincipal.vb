@@ -4,7 +4,7 @@ Imports CapaEntidad
 Public Class frmMenuPrincipal
     Private Sub FrmMenu_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
-
+        AbrirFormInPanel(frmPestañaTareas)
     End Sub
     '--------------------------------------------------------------------------------------------------------------
     '--------------------------------------------------------------------------------------------------------------
@@ -315,4 +315,24 @@ Public Class frmMenuPrincipal
     '----------------------------------------   POSTICKS         -----------------------------------------------
    
    
+    Private Sub TabTareas_Enter(ByVal sender As Object, ByVal e As System.EventArgs) Handles TabTareas.Enter
+        AbrirFormInPanel(frmPestañaTareas)
+    End Sub
+
+    Public Sub AbrirFormInPanel(ByVal formHijo As Object)
+
+        If (Me.TabTareas.Controls.Count > 0) Then
+
+            TabTareas.Controls.RemoveAt(0)
+            Dim fh As Form = formHijo
+            fh.TopLevel = False
+            fh.FormBorderStyle = FormBorderStyle.None
+            fh.Dock = DockStyle.Fill
+            TabTareas.Controls.Add(fh)
+            TabTareas.Tag = fh
+            fh.Show()
+
+        End If
+
+    End Sub
 End Class

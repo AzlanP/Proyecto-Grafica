@@ -22,9 +22,9 @@ Partial Class frmMenuPrincipal
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea3 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend3 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series3 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.TabGeneral = New System.Windows.Forms.TabControl()
         Me.TabTareas = New System.Windows.Forms.TabPage()
         Me.TabCliente = New System.Windows.Forms.TabPage()
@@ -106,7 +106,9 @@ Partial Class frmMenuPrincipal
         Me.PanelLateralAyuda = New System.Windows.Forms.Panel()
         Me.lblIndice = New System.Windows.Forms.Label()
         Me.IconoAyuda = New System.Windows.Forms.PictureBox()
+        Me.panelTareas = New System.Windows.Forms.Panel()
         Me.TabGeneral.SuspendLayout()
+        Me.TabTareas.SuspendLayout()
         Me.TabCliente.SuspendLayout()
         Me.PanelCentralCliente.SuspendLayout()
         CType(Me.DGCliente, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -156,16 +158,17 @@ Partial Class frmMenuPrincipal
         Me.TabGeneral.Name = "TabGeneral"
         Me.TabGeneral.Padding = New System.Drawing.Point(6, 4)
         Me.TabGeneral.SelectedIndex = 0
-        Me.TabGeneral.Size = New System.Drawing.Size(1083, 660)
+        Me.TabGeneral.Size = New System.Drawing.Size(1129, 660)
         Me.TabGeneral.SizeMode = System.Windows.Forms.TabSizeMode.Fixed
         Me.TabGeneral.TabIndex = 0
         '
         'TabTareas
         '
         Me.TabTareas.BackColor = System.Drawing.SystemColors.Control
+        Me.TabTareas.Controls.Add(Me.panelTareas)
         Me.TabTareas.Location = New System.Drawing.Point(4, 24)
         Me.TabTareas.Name = "TabTareas"
-        Me.TabTareas.Size = New System.Drawing.Size(1075, 632)
+        Me.TabTareas.Size = New System.Drawing.Size(1121, 632)
         Me.TabTareas.TabIndex = 6
         Me.TabTareas.Text = "Tareas"
         '
@@ -177,7 +180,7 @@ Partial Class frmMenuPrincipal
         Me.TabCliente.Controls.Add(Me.PanelLateralCliente)
         Me.TabCliente.Location = New System.Drawing.Point(4, 24)
         Me.TabCliente.Name = "TabCliente"
-        Me.TabCliente.Size = New System.Drawing.Size(881, 562)
+        Me.TabCliente.Size = New System.Drawing.Size(1075, 632)
         Me.TabCliente.TabIndex = 0
         Me.TabCliente.Text = "Cliente"
         '
@@ -190,7 +193,7 @@ Partial Class frmMenuPrincipal
         Me.PanelCentralCliente.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelCentralCliente.Location = New System.Drawing.Point(184, 89)
         Me.PanelCentralCliente.Name = "PanelCentralCliente"
-        Me.PanelCentralCliente.Size = New System.Drawing.Size(697, 473)
+        Me.PanelCentralCliente.Size = New System.Drawing.Size(891, 543)
         Me.PanelCentralCliente.TabIndex = 13
         '
         'txtBuscarCliente
@@ -243,7 +246,7 @@ Partial Class frmMenuPrincipal
         Me.PanelSuperiorCliente.Dock = System.Windows.Forms.DockStyle.Top
         Me.PanelSuperiorCliente.Location = New System.Drawing.Point(184, 0)
         Me.PanelSuperiorCliente.Name = "PanelSuperiorCliente"
-        Me.PanelSuperiorCliente.Size = New System.Drawing.Size(697, 89)
+        Me.PanelSuperiorCliente.Size = New System.Drawing.Size(891, 89)
         Me.PanelSuperiorCliente.TabIndex = 12
         '
         'lbltituloCliente
@@ -267,7 +270,7 @@ Partial Class frmMenuPrincipal
         Me.PanelLateralCliente.Dock = System.Windows.Forms.DockStyle.Left
         Me.PanelLateralCliente.Location = New System.Drawing.Point(0, 0)
         Me.PanelLateralCliente.Name = "PanelLateralCliente"
-        Me.PanelLateralCliente.Size = New System.Drawing.Size(184, 562)
+        Me.PanelLateralCliente.Size = New System.Drawing.Size(184, 632)
         Me.PanelLateralCliente.TabIndex = 11
         '
         'PictureBoxCliente
@@ -343,7 +346,7 @@ Partial Class frmMenuPrincipal
         Me.TabPedido.Controls.Add(Me.PanelLateralPedido)
         Me.TabPedido.Location = New System.Drawing.Point(4, 24)
         Me.TabPedido.Name = "TabPedido"
-        Me.TabPedido.Size = New System.Drawing.Size(881, 562)
+        Me.TabPedido.Size = New System.Drawing.Size(1075, 632)
         Me.TabPedido.TabIndex = 2
         Me.TabPedido.Text = "Pedido"
         '
@@ -356,7 +359,7 @@ Partial Class frmMenuPrincipal
         Me.PanelCentralPedido.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelCentralPedido.Location = New System.Drawing.Point(184, 89)
         Me.PanelCentralPedido.Name = "PanelCentralPedido"
-        Me.PanelCentralPedido.Size = New System.Drawing.Size(697, 473)
+        Me.PanelCentralPedido.Size = New System.Drawing.Size(891, 543)
         Me.PanelCentralPedido.TabIndex = 16
         '
         'txtBuscarPedido
@@ -403,7 +406,7 @@ Partial Class frmMenuPrincipal
         Me.PanelSuperiorPedido.Dock = System.Windows.Forms.DockStyle.Top
         Me.PanelSuperiorPedido.Location = New System.Drawing.Point(184, 0)
         Me.PanelSuperiorPedido.Name = "PanelSuperiorPedido"
-        Me.PanelSuperiorPedido.Size = New System.Drawing.Size(697, 89)
+        Me.PanelSuperiorPedido.Size = New System.Drawing.Size(891, 89)
         Me.PanelSuperiorPedido.TabIndex = 15
         '
         'lblTituloPedidos
@@ -427,7 +430,7 @@ Partial Class frmMenuPrincipal
         Me.PanelLateralPedido.Dock = System.Windows.Forms.DockStyle.Left
         Me.PanelLateralPedido.Location = New System.Drawing.Point(0, 0)
         Me.PanelLateralPedido.Name = "PanelLateralPedido"
-        Me.PanelLateralPedido.Size = New System.Drawing.Size(184, 562)
+        Me.PanelLateralPedido.Size = New System.Drawing.Size(184, 632)
         Me.PanelLateralPedido.TabIndex = 14
         '
         'btnEliminarPedido
@@ -503,7 +506,7 @@ Partial Class frmMenuPrincipal
         Me.TabProducto.Controls.Add(Me.panelLateralProducto)
         Me.TabProducto.Location = New System.Drawing.Point(4, 24)
         Me.TabProducto.Name = "TabProducto"
-        Me.TabProducto.Size = New System.Drawing.Size(881, 562)
+        Me.TabProducto.Size = New System.Drawing.Size(1075, 632)
         Me.TabProducto.TabIndex = 1
         Me.TabProducto.Text = "Producto"
         '
@@ -516,7 +519,7 @@ Partial Class frmMenuPrincipal
         Me.panelCentralProducto.Dock = System.Windows.Forms.DockStyle.Fill
         Me.panelCentralProducto.Location = New System.Drawing.Point(184, 89)
         Me.panelCentralProducto.Name = "panelCentralProducto"
-        Me.panelCentralProducto.Size = New System.Drawing.Size(697, 473)
+        Me.panelCentralProducto.Size = New System.Drawing.Size(891, 543)
         Me.panelCentralProducto.TabIndex = 17
         '
         'txtBuscarProducto
@@ -562,7 +565,7 @@ Partial Class frmMenuPrincipal
         Me.panelSuperiorProducto.Dock = System.Windows.Forms.DockStyle.Top
         Me.panelSuperiorProducto.Location = New System.Drawing.Point(184, 0)
         Me.panelSuperiorProducto.Name = "panelSuperiorProducto"
-        Me.panelSuperiorProducto.Size = New System.Drawing.Size(697, 89)
+        Me.panelSuperiorProducto.Size = New System.Drawing.Size(891, 89)
         Me.panelSuperiorProducto.TabIndex = 17
         '
         'lblTituloProducto
@@ -586,7 +589,7 @@ Partial Class frmMenuPrincipal
         Me.panelLateralProducto.Dock = System.Windows.Forms.DockStyle.Left
         Me.panelLateralProducto.Location = New System.Drawing.Point(0, 0)
         Me.panelLateralProducto.Name = "panelLateralProducto"
-        Me.panelLateralProducto.Size = New System.Drawing.Size(184, 562)
+        Me.panelLateralProducto.Size = New System.Drawing.Size(184, 632)
         Me.panelLateralProducto.TabIndex = 16
         '
         'btnVerProducto
@@ -662,7 +665,7 @@ Partial Class frmMenuPrincipal
         Me.TabServicios.Controls.Add(Me.panelLateralServicio)
         Me.TabServicios.Location = New System.Drawing.Point(4, 24)
         Me.TabServicios.Name = "TabServicios"
-        Me.TabServicios.Size = New System.Drawing.Size(881, 562)
+        Me.TabServicios.Size = New System.Drawing.Size(1075, 632)
         Me.TabServicios.TabIndex = 5
         Me.TabServicios.Text = "Servicios"
         '
@@ -675,7 +678,7 @@ Partial Class frmMenuPrincipal
         Me.panelCentralServicio.Dock = System.Windows.Forms.DockStyle.Fill
         Me.panelCentralServicio.Location = New System.Drawing.Point(184, 89)
         Me.panelCentralServicio.Name = "panelCentralServicio"
-        Me.panelCentralServicio.Size = New System.Drawing.Size(697, 473)
+        Me.panelCentralServicio.Size = New System.Drawing.Size(891, 543)
         Me.panelCentralServicio.TabIndex = 18
         '
         'DGServicios
@@ -729,7 +732,7 @@ Partial Class frmMenuPrincipal
         Me.panelSuperiorServicio.Dock = System.Windows.Forms.DockStyle.Top
         Me.panelSuperiorServicio.Location = New System.Drawing.Point(184, 0)
         Me.panelSuperiorServicio.Name = "panelSuperiorServicio"
-        Me.panelSuperiorServicio.Size = New System.Drawing.Size(697, 89)
+        Me.panelSuperiorServicio.Size = New System.Drawing.Size(891, 89)
         Me.panelSuperiorServicio.TabIndex = 17
         '
         'lblTituloServicio
@@ -753,7 +756,7 @@ Partial Class frmMenuPrincipal
         Me.panelLateralServicio.Dock = System.Windows.Forms.DockStyle.Left
         Me.panelLateralServicio.Location = New System.Drawing.Point(0, 0)
         Me.panelLateralServicio.Name = "panelLateralServicio"
-        Me.panelLateralServicio.Size = New System.Drawing.Size(184, 562)
+        Me.panelLateralServicio.Size = New System.Drawing.Size(184, 632)
         Me.panelLateralServicio.TabIndex = 16
         '
         'btnEliminarServicio
@@ -828,7 +831,7 @@ Partial Class frmMenuPrincipal
         Me.TabEstadistica.Controls.Add(Me.PnlLateralEstadistica)
         Me.TabEstadistica.Location = New System.Drawing.Point(4, 24)
         Me.TabEstadistica.Name = "TabEstadistica"
-        Me.TabEstadistica.Size = New System.Drawing.Size(881, 562)
+        Me.TabEstadistica.Size = New System.Drawing.Size(1075, 632)
         Me.TabEstadistica.TabIndex = 3
         Me.TabEstadistica.Text = "Estadistica"
         '
@@ -843,7 +846,7 @@ Partial Class frmMenuPrincipal
         Me.Panel7.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel7.Location = New System.Drawing.Point(184, 89)
         Me.Panel7.Name = "Panel7"
-        Me.Panel7.Size = New System.Drawing.Size(697, 473)
+        Me.Panel7.Size = New System.Drawing.Size(891, 543)
         Me.Panel7.TabIndex = 6
         '
         'Label5
@@ -889,21 +892,21 @@ Partial Class frmMenuPrincipal
         '
         Me.GraficoSegunConsulta.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.GraficoSegunConsulta.BackSecondaryColor = System.Drawing.Color.White
-        ChartArea2.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        ChartArea2.BackHatchStyle = System.Windows.Forms.DataVisualization.Charting.ChartHatchStyle.DarkDownwardDiagonal
-        ChartArea2.Name = "ChartArea1"
-        Me.GraficoSegunConsulta.ChartAreas.Add(ChartArea2)
-        Legend2.ForeColor = System.Drawing.Color.Maroon
-        Legend2.ItemColumnSpacing = 0
-        Legend2.Name = "Legend1"
-        Me.GraficoSegunConsulta.Legends.Add(Legend2)
+        ChartArea3.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        ChartArea3.BackHatchStyle = System.Windows.Forms.DataVisualization.Charting.ChartHatchStyle.DarkDownwardDiagonal
+        ChartArea3.Name = "ChartArea1"
+        Me.GraficoSegunConsulta.ChartAreas.Add(ChartArea3)
+        Legend3.ForeColor = System.Drawing.Color.Maroon
+        Legend3.ItemColumnSpacing = 0
+        Legend3.Name = "Legend1"
+        Me.GraficoSegunConsulta.Legends.Add(Legend3)
         Me.GraficoSegunConsulta.Location = New System.Drawing.Point(18, 21)
         Me.GraficoSegunConsulta.Name = "GraficoSegunConsulta"
         Me.GraficoSegunConsulta.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen
-        Series2.ChartArea = "ChartArea1"
-        Series2.Legend = "Legend1"
-        Series2.Name = "Cantidad"
-        Me.GraficoSegunConsulta.Series.Add(Series2)
+        Series3.ChartArea = "ChartArea1"
+        Series3.Legend = "Legend1"
+        Series3.Name = "Cantidad"
+        Me.GraficoSegunConsulta.Series.Add(Series3)
         Me.GraficoSegunConsulta.Size = New System.Drawing.Size(805, 300)
         Me.GraficoSegunConsulta.TabIndex = 0
         Me.GraficoSegunConsulta.Text = "Chart1"
@@ -915,7 +918,7 @@ Partial Class frmMenuPrincipal
         Me.PanelSupEstadistica.Dock = System.Windows.Forms.DockStyle.Top
         Me.PanelSupEstadistica.Location = New System.Drawing.Point(184, 0)
         Me.PanelSupEstadistica.Name = "PanelSupEstadistica"
-        Me.PanelSupEstadistica.Size = New System.Drawing.Size(697, 89)
+        Me.PanelSupEstadistica.Size = New System.Drawing.Size(891, 89)
         Me.PanelSupEstadistica.TabIndex = 5
         '
         'lblTituloEstadistica
@@ -941,7 +944,7 @@ Partial Class frmMenuPrincipal
         Me.PnlLateralEstadistica.Dock = System.Windows.Forms.DockStyle.Left
         Me.PnlLateralEstadistica.Location = New System.Drawing.Point(0, 0)
         Me.PnlLateralEstadistica.Name = "PnlLateralEstadistica"
-        Me.PnlLateralEstadistica.Size = New System.Drawing.Size(184, 562)
+        Me.PnlLateralEstadistica.Size = New System.Drawing.Size(184, 632)
         Me.PnlLateralEstadistica.TabIndex = 4
         '
         'lblSubtituloEstadisticas
@@ -1028,7 +1031,7 @@ Partial Class frmMenuPrincipal
         Me.TabAyuda.Controls.Add(Me.PanelLateralAyuda)
         Me.TabAyuda.Location = New System.Drawing.Point(4, 24)
         Me.TabAyuda.Name = "TabAyuda"
-        Me.TabAyuda.Size = New System.Drawing.Size(881, 562)
+        Me.TabAyuda.Size = New System.Drawing.Size(1075, 632)
         Me.TabAyuda.TabIndex = 4
         Me.TabAyuda.Text = "Ayuda"
         '
@@ -1038,7 +1041,7 @@ Partial Class frmMenuPrincipal
         Me.PanelCentralAyuda.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelCentralAyuda.Location = New System.Drawing.Point(184, 89)
         Me.PanelCentralAyuda.Name = "PanelCentralAyuda"
-        Me.PanelCentralAyuda.Size = New System.Drawing.Size(697, 473)
+        Me.PanelCentralAyuda.Size = New System.Drawing.Size(891, 543)
         Me.PanelCentralAyuda.TabIndex = 19
         '
         'PanelSuperiorAyuda
@@ -1048,7 +1051,7 @@ Partial Class frmMenuPrincipal
         Me.PanelSuperiorAyuda.Dock = System.Windows.Forms.DockStyle.Top
         Me.PanelSuperiorAyuda.Location = New System.Drawing.Point(184, 0)
         Me.PanelSuperiorAyuda.Name = "PanelSuperiorAyuda"
-        Me.PanelSuperiorAyuda.Size = New System.Drawing.Size(697, 89)
+        Me.PanelSuperiorAyuda.Size = New System.Drawing.Size(891, 89)
         Me.PanelSuperiorAyuda.TabIndex = 18
         '
         'lblTituloAyuda
@@ -1069,7 +1072,7 @@ Partial Class frmMenuPrincipal
         Me.PanelLateralAyuda.Dock = System.Windows.Forms.DockStyle.Left
         Me.PanelLateralAyuda.Location = New System.Drawing.Point(0, 0)
         Me.PanelLateralAyuda.Name = "PanelLateralAyuda"
-        Me.PanelLateralAyuda.Size = New System.Drawing.Size(184, 562)
+        Me.PanelLateralAyuda.Size = New System.Drawing.Size(184, 632)
         Me.PanelLateralAyuda.TabIndex = 17
         '
         'lblIndice
@@ -1091,16 +1094,24 @@ Partial Class frmMenuPrincipal
         Me.IconoAyuda.TabIndex = 13
         Me.IconoAyuda.TabStop = False
         '
+        'panelTareas
+        '
+        Me.panelTareas.Location = New System.Drawing.Point(3, 3)
+        Me.panelTareas.Name = "panelTareas"
+        Me.panelTareas.Size = New System.Drawing.Size(1115, 626)
+        Me.panelTareas.TabIndex = 0
+        '
         'frmMenuPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1123, 701)
+        Me.ClientSize = New System.Drawing.Size(1153, 701)
         Me.Controls.Add(Me.TabGeneral)
         Me.Name = "frmMenuPrincipal"
         Me.Text = "MenuPrincipal"
         Me.TabGeneral.ResumeLayout(False)
+        Me.TabTareas.ResumeLayout(False)
         Me.TabCliente.ResumeLayout(False)
         Me.PanelCentralCliente.ResumeLayout(False)
         Me.PanelCentralCliente.PerformLayout()
@@ -1232,4 +1243,5 @@ Partial Class frmMenuPrincipal
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents cboAño As System.Windows.Forms.ComboBox
     Friend WithEvents cboMeses As System.Windows.Forms.ComboBox
+    Friend WithEvents panelTareas As System.Windows.Forms.Panel
 End Class
