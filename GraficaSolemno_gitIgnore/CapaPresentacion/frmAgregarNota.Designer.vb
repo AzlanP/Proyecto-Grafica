@@ -31,18 +31,20 @@ Partial Class frmAgregarNota
         Me.btnGuardarNota = New System.Windows.Forms.Button()
         Me.btnCancelar = New System.Windows.Forms.Button()
         Me.NroPostick = New System.Windows.Forms.Label()
+        Me.btnEliminar = New System.Windows.Forms.Button()
+        Me.lblidpostick = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'txtTitulo
         '
-        Me.txtTitulo.Location = New System.Drawing.Point(77, 39)
+        Me.txtTitulo.Location = New System.Drawing.Point(81, 39)
         Me.txtTitulo.Name = "txtTitulo"
         Me.txtTitulo.Size = New System.Drawing.Size(200, 20)
         Me.txtTitulo.TabIndex = 0
         '
         'txtDescripcion
         '
-        Me.txtDescripcion.Location = New System.Drawing.Point(77, 85)
+        Me.txtDescripcion.Location = New System.Drawing.Point(81, 82)
         Me.txtDescripcion.Multiline = True
         Me.txtDescripcion.Name = "txtDescripcion"
         Me.txtDescripcion.Size = New System.Drawing.Size(200, 110)
@@ -51,29 +53,29 @@ Partial Class frmAgregarNota
         'lblTitulo
         '
         Me.lblTitulo.AutoSize = True
-        Me.lblTitulo.Location = New System.Drawing.Point(8, 39)
+        Me.lblTitulo.Location = New System.Drawing.Point(12, 39)
         Me.lblTitulo.Name = "lblTitulo"
-        Me.lblTitulo.Size = New System.Drawing.Size(33, 13)
+        Me.lblTitulo.Size = New System.Drawing.Size(39, 13)
         Me.lblTitulo.TabIndex = 2
-        Me.lblTitulo.Text = "Titulo"
+        Me.lblTitulo.Text = "Titulo :"
         '
         'lblDescripcion
         '
         Me.lblDescripcion.AutoSize = True
-        Me.lblDescripcion.Location = New System.Drawing.Point(8, 85)
+        Me.lblDescripcion.Location = New System.Drawing.Point(12, 85)
         Me.lblDescripcion.Name = "lblDescripcion"
-        Me.lblDescripcion.Size = New System.Drawing.Size(63, 13)
+        Me.lblDescripcion.Size = New System.Drawing.Size(69, 13)
         Me.lblDescripcion.TabIndex = 3
-        Me.lblDescripcion.Text = "Descripcion"
+        Me.lblDescripcion.Text = "Descripcion :"
         '
         'lblFecha
         '
         Me.lblFecha.AutoSize = True
-        Me.lblFecha.Location = New System.Drawing.Point(4, 205)
+        Me.lblFecha.Location = New System.Drawing.Point(12, 205)
         Me.lblFecha.Name = "lblFecha"
-        Me.lblFecha.Size = New System.Drawing.Size(37, 13)
+        Me.lblFecha.Size = New System.Drawing.Size(43, 13)
         Me.lblFecha.TabIndex = 4
-        Me.lblFecha.Text = "Fecha"
+        Me.lblFecha.Text = "Fecha :"
         '
         'dtpFecha
         '
@@ -86,7 +88,7 @@ Partial Class frmAgregarNota
         '
         'btnGuardarNota
         '
-        Me.btnGuardarNota.Location = New System.Drawing.Point(77, 243)
+        Me.btnGuardarNota.Location = New System.Drawing.Point(113, 243)
         Me.btnGuardarNota.Name = "btnGuardarNota"
         Me.btnGuardarNota.Size = New System.Drawing.Size(75, 23)
         Me.btnGuardarNota.TabIndex = 6
@@ -95,7 +97,7 @@ Partial Class frmAgregarNota
         '
         'btnCancelar
         '
-        Me.btnCancelar.Location = New System.Drawing.Point(170, 242)
+        Me.btnCancelar.Location = New System.Drawing.Point(209, 243)
         Me.btnCancelar.Name = "btnCancelar"
         Me.btnCancelar.Size = New System.Drawing.Size(75, 23)
         Me.btnCancelar.TabIndex = 7
@@ -105,11 +107,29 @@ Partial Class frmAgregarNota
         'NroPostick
         '
         Me.NroPostick.AutoSize = True
-        Me.NroPostick.Location = New System.Drawing.Point(74, 9)
+        Me.NroPostick.Location = New System.Drawing.Point(81, 9)
         Me.NroPostick.Name = "NroPostick"
         Me.NroPostick.Size = New System.Drawing.Size(59, 13)
         Me.NroPostick.TabIndex = 8
         Me.NroPostick.Text = "NroPostick"
+        '
+        'btnEliminar
+        '
+        Me.btnEliminar.Location = New System.Drawing.Point(23, 243)
+        Me.btnEliminar.Name = "btnEliminar"
+        Me.btnEliminar.Size = New System.Drawing.Size(75, 23)
+        Me.btnEliminar.TabIndex = 9
+        Me.btnEliminar.Text = "Eliminar"
+        Me.btnEliminar.UseVisualStyleBackColor = True
+        '
+        'lblidpostick
+        '
+        Me.lblidpostick.AutoSize = True
+        Me.lblidpostick.Location = New System.Drawing.Point(12, 9)
+        Me.lblidpostick.Name = "lblidpostick"
+        Me.lblidpostick.Size = New System.Drawing.Size(62, 13)
+        Me.lblidpostick.TabIndex = 10
+        Me.lblidpostick.Text = "ID Postick :"
         '
         'frmAgregarNota
         '
@@ -117,6 +137,8 @@ Partial Class frmAgregarNota
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(296, 278)
+        Me.Controls.Add(Me.lblidpostick)
+        Me.Controls.Add(Me.btnEliminar)
         Me.Controls.Add(Me.NroPostick)
         Me.Controls.Add(Me.btnCancelar)
         Me.Controls.Add(Me.btnGuardarNota)
@@ -141,4 +163,6 @@ Partial Class frmAgregarNota
     Friend WithEvents btnCancelar As System.Windows.Forms.Button
     Friend WithEvents NroPostick As System.Windows.Forms.Label
     Protected WithEvents dtpFecha As System.Windows.Forms.DateTimePicker
+    Friend WithEvents btnEliminar As System.Windows.Forms.Button
+    Friend WithEvents lblidpostick As System.Windows.Forms.Label
 End Class

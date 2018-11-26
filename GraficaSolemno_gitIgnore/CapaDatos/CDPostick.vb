@@ -68,4 +68,41 @@ Public Class CDPostick
         Return arraypostick
 
     End Function
+    Public Function BuscarPostick(ByVal id As Integer) As CEPostick
+        oCDConexion.Conectar()
+        Dim sql As String = "select * from Postick where (IDPostick= '" & id & "')"
+        Dim comando As New SQLiteCommand(sql, oCDConexion.con)
+        Dim da As New SQLiteDataAdapter
+        Dim dt As New DataTable
+        da.SelectCommand = comando
+        da.Fill(dt)
+
+        Dim oPostick As New CEPostick
+        oPostick.IDPostick = dt.Rows(0)(0)
+        oPostick.Titulo = dt.Rows(0)(1)
+
+        oPostick.Descripcion = dt.Rows(0)(2)
+
+        oPostick.Fecha = dt.Rows(0)(3)
+        oCDConexion.Desconectar()
+
+
+        Return oPostick
+    End Function
+    Public Sub EliminarPostick(ByVal id As Integer)
+        oCDConexion.Conectar()
+        Try
+            Dim instruccionsql = "DELETE FROM Postick WHERE (IDPostick=@IDPostick)"
+            Dim comando As New SQLiteCommand(instruccionsql, oCDConexion.con)
+            comando.Parameters.Add("@IDPostick", SqlDbType.Int).Value = id
+            comando.ExecuteNonQuery()
+
+            MsgBox("Registro eliminado")
+        Catch ex As Exception
+            Throw New Exception("No se ah podido eliminar el registro:" & ex.Message)
+        Finally
+            oCDConexion.Desconectar()
+        End Try
+
+    End Sub
 End Class

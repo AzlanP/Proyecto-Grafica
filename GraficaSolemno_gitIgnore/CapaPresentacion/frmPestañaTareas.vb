@@ -147,6 +147,7 @@ Public Class frmPestañaTareas
             opostick = parrayposticks(i)
             Postick(i).Items.Add("Titulo:" & opostick.Titulo)
             Postick(i).Items.Add("Descripcion:" & opostick.Descripcion)
+            Postick(i).Tag = opostick.IDPostick
             PosY = 0
             AddHandler Postick(i).Click, AddressOf list_click
 
@@ -178,14 +179,18 @@ Public Class frmPestañaTareas
 
 
     Private Sub list_click(ByVal sender As Object, ByVal e As EventArgs)
-        'metodo para poder usar el evento click en todo el array
-        'este metodo se debe cambiar para que pueda abrir las modificaciones
+        Dim olistbox As ListBox
+        olistbox = sender
         Dim OpenPostick As New frmAgregarNota
+        OpenPostick.AbrirPostick(olistbox.Tag)
         OpenPostick.Show()
+        LimpiarPosticksEnPanels()
+
+        AcomodarPostickEnPanels()
     End Sub
 
 
-
+   
 
 
 

@@ -14,7 +14,7 @@ Public Class frmAgregarNota
         Me.Close()
     End Sub
 
-    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancelar.Click
+    Private Sub btnCancelar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancelar.Click
         Me.Close()
     End Sub
     Public Function FormatISO8601(ByVal pfecha As Date) As String
@@ -32,5 +32,18 @@ Public Class frmAgregarNota
         fecha = fechaString
         Return fecha
     End Function
+    Public Sub AbrirPostick(ByVal id As Integer)
+        Dim oPostick As New CEPostick
+        oPostick = oCNPostick.BuscarPostick(id)
+        NroPostick.Text = oPostick.IDPostick
+        txtTitulo.Text = oPostick.Titulo
+        dtpFecha.Text = oPostick.Fecha
+        txtDescripcion.Text = oPostick.Descripcion
+    End Sub
 
+    Private Sub btnEliminar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEliminar.Click
+        oCNPostick.EliminarPostick(CInt(NroPostick.Text))
+        Me.Close()
+
+    End Sub
 End Class

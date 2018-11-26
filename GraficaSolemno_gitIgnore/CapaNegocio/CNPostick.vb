@@ -16,4 +16,10 @@ Public Class CNPostick
     Public Function TraerPosticksDelDia(ByVal pfecha As Date) As Array
         Return ocdpostick.TraerPosticksDelDia(pfecha)
     End Function
+    Public Function BuscarPostick(ByVal id As Integer) As CEPostick
+        Return oCDPostick.BuscarPostick(id)
+    End Function
+    Public Sub EliminarPostick(ByVal id As Integer)
+        oCDPostick.EliminarPostick(id)
+    End Sub
 End Class
