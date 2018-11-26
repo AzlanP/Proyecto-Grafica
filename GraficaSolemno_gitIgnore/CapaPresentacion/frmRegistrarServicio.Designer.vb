@@ -32,7 +32,7 @@ Partial Class frmRegistrarServicio
         '
         'btnGuardarCambiosRegServ
         '
-        Me.btnGuardarCambiosRegServ.Location = New System.Drawing.Point(89, 200)
+        Me.btnGuardarCambiosRegServ.Location = New System.Drawing.Point(89, 87)
         Me.btnGuardarCambiosRegServ.Name = "btnGuardarCambiosRegServ"
         Me.btnGuardarCambiosRegServ.Size = New System.Drawing.Size(102, 23)
         Me.btnGuardarCambiosRegServ.TabIndex = 13
@@ -41,7 +41,7 @@ Partial Class frmRegistrarServicio
         '
         'btnCancelarRegServ
         '
-        Me.btnCancelarRegServ.Location = New System.Drawing.Point(197, 200)
+        Me.btnCancelarRegServ.Location = New System.Drawing.Point(197, 87)
         Me.btnCancelarRegServ.Name = "btnCancelarRegServ"
         Me.btnCancelarRegServ.Size = New System.Drawing.Size(75, 23)
         Me.btnCancelarRegServ.TabIndex = 12
@@ -50,7 +50,7 @@ Partial Class frmRegistrarServicio
         '
         'btnGuardarNuevoRegServ
         '
-        Me.btnGuardarNuevoRegServ.Location = New System.Drawing.Point(8, 200)
+        Me.btnGuardarNuevoRegServ.Location = New System.Drawing.Point(8, 87)
         Me.btnGuardarNuevoRegServ.Name = "btnGuardarNuevoRegServ"
         Me.btnGuardarNuevoRegServ.Size = New System.Drawing.Size(75, 23)
         Me.btnGuardarNuevoRegServ.TabIndex = 11
@@ -59,7 +59,7 @@ Partial Class frmRegistrarServicio
         '
         'txtNombreServicio
         '
-        Me.txtNombreServicio.Location = New System.Drawing.Point(92, 80)
+        Me.txtNombreServicio.Location = New System.Drawing.Point(100, 38)
         Me.txtNombreServicio.Name = "txtNombreServicio"
         Me.txtNombreServicio.Size = New System.Drawing.Size(148, 20)
         Me.txtNombreServicio.TabIndex = 10
@@ -67,7 +67,7 @@ Partial Class frmRegistrarServicio
         'lblNombre
         '
         Me.lblNombre.AutoSize = True
-        Me.lblNombre.Location = New System.Drawing.Point(31, 80)
+        Me.lblNombre.Location = New System.Drawing.Point(39, 38)
         Me.lblNombre.Name = "lblNombre"
         Me.lblNombre.Size = New System.Drawing.Size(44, 13)
         Me.lblNombre.TabIndex = 9
@@ -76,7 +76,7 @@ Partial Class frmRegistrarServicio
         'lblID
         '
         Me.lblID.AutoSize = True
-        Me.lblID.Location = New System.Drawing.Point(57, 42)
+        Me.lblID.Location = New System.Drawing.Point(56, 113)
         Me.lblID.Name = "lblID"
         Me.lblID.Size = New System.Drawing.Size(0, 13)
         Me.lblID.TabIndex = 7
@@ -85,7 +85,7 @@ Partial Class frmRegistrarServicio
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(284, 261)
+        Me.ClientSize = New System.Drawing.Size(306, 132)
         Me.Controls.Add(Me.btnGuardarCambiosRegServ)
         Me.Controls.Add(Me.btnCancelarRegServ)
         Me.Controls.Add(Me.btnGuardarNuevoRegServ)

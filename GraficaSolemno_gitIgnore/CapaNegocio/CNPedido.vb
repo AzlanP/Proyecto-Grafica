@@ -6,10 +6,10 @@ Public Class CNPedido
     Function MostrarPedido() As DataTable
         Return oCDPedido.MostrarPedido
     End Function
-    Public Sub AgregarPedido(ByVal oCEPedido As CEPedidos)
+    Public Sub AgregarPedido(ByVal oCEPedido As CEPedido)
         oCDPedido.AgregarPedido(oCEPedido)
     End Sub
-    Public Sub ModificarPedido(ByVal oCEPedido As CEPedidos)
+    Public Sub ModificarPedido(ByVal oCEPedido As CEPedido)
         oCDPedido.ModificarPedido(oCEPedido)
     End Sub
     Public Sub EliminarPedido(ByVal IDPedido As Integer)

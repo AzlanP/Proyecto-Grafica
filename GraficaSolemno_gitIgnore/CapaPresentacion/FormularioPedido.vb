@@ -2,26 +2,23 @@
 Imports CapaEntidad
 Public Class FormularioPedido
     Dim oPedido As New CEPedido
+    Dim oCECliente As New CECliente
     Dim ListProductos() As CEProducto
-    Dim ListServicios() As CEServicio
+    Dim ListServicios() As CEServicios
+    Dim listGeneral()() As String
+   
     Public Sub LLenarFormulario(ByVal id As Integer)
         cboCliente.Text = oPedido.Cliente
         dtpFecha.Text = oPedido.Fecha
         txtDescripcion.Text = oPedido.Descripcion
         cboTipoEnvio.Text = oPedido.TipoDeEnvio
-    
         cboEstado.Text = oPedido.Estado
         cboMedio.Text = oPedido.Medio
         CargarGridListaPedido(id)
 
     End Sub
     Public Sub CargarGridListaPedido(ByVal id As Integer)
-        For Each producto In oPedido.Productos
-            DGListaDePedido.Controls.Add(producto)
-        Next
-        For Each servicio In oPedido.Servicios
-            DGListaDePedido.Controls.Add(servicio)
-        Next
+        DGListaDePedido.DataSource = listGeneral
     End Sub
     Public Sub SeleccionarCliente()
 
@@ -31,19 +28,41 @@ Public Class FormularioPedido
         oPedido.Fecha = dtpFecha.Text
         oPedido.Descripcion = txtDescripcion.Text
         oPedido.TipoDeEnvio = cboTipoEnvio.Text
-
         oPedido.Estado = cboEstado.Text
         oPedido.Medio = cboMedio.Text
         oPedido.Productos = ListProductos
         oPedido.Servicios = ListServicios
     End Sub
-
+    Public Sub AgregarArrayDG()
+        ReDim Preserve listGeneral(ListProductos.Length + ListServicios.Length - 2)
+        Dim i = 0
+        For Each producto In ListProductos
+            listGeneral(0)(i) = i
+            listGeneral(1)(i) = producto.Nombre
+            listGeneral(2)(i) = producto.Precio
+            listGeneral(3)(i) = producto.Cantidad
+            listGeneral(4)(i) = producto.Descripcion
+            i = i + 1
+        Next
+        i = ListProductos.Length - 1
+        For Each servicio In ListServicios
+            listGeneral(0)(i) = i
+            listGeneral(1)(i) = servicio.Nombre
+            listGeneral(3)(i) = servicio.Cantidad
+            listGeneral(4)(i) = servicio.Descripcion
+            i = i + 1
+        Next
+    End Sub
     Private Sub btnQuitar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnQuitar.Click
+        Dim ID As Integer = DGListaDePedido.Rows(DGListaDePedido.CurrentCell.RowIndex).Cells("ID").Value
+        listGeneral(ID)(0).Remove(0, ID)
+
 
     End Sub
 
     Private Sub btnModificarPedido_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnModificarPedido.Click
-
+        Dim ID As Integer = DGListaDePedido.Rows(DGListaDePedido.CurrentCell.RowIndex).Cells("ID").Value
+        'crear un formulario de edision
     End Sub
 
     Private Sub btnTipoEnvio_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnTipoEnvio.Click
@@ -56,6 +75,6 @@ Public Class FormularioPedido
     End Sub
 
     Private Sub btnCancelarPedido_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancelarPedido.Click
-
+        Me.Close()
     End Sub
 End Class

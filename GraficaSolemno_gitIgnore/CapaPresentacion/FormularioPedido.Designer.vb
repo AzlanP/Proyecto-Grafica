@@ -43,6 +43,12 @@ Partial Class FormularioPedido
         Me.cboEstado = New System.Windows.Forms.ComboBox()
         Me.lblMedio = New System.Windows.Forms.Label()
         Me.cboMedio = New System.Windows.Forms.ComboBox()
+        Me.btnAgregarServicio = New System.Windows.Forms.Button()
+        Me.ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Precio = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.DGListaDePedido, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -132,12 +138,14 @@ Partial Class FormularioPedido
         '
         'DGListaDePedido
         '
+        Me.DGListaDePedido.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DGListaDePedido.BackgroundColor = System.Drawing.Color.White
         Me.DGListaDePedido.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DGListaDePedido.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ID, Me.Nombre, Me.Precio, Me.Cantidad, Me.Descripcion})
         Me.DGListaDePedido.Location = New System.Drawing.Point(22, 120)
         Me.DGListaDePedido.Name = "DGListaDePedido"
         Me.DGListaDePedido.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DGListaDePedido.Size = New System.Drawing.Size(406, 174)
+        Me.DGListaDePedido.Size = New System.Drawing.Size(441, 174)
         Me.DGListaDePedido.TabIndex = 22
         '
         'lblDetalles
@@ -170,7 +178,7 @@ Partial Class FormularioPedido
         'lblFecha
         '
         Me.lblFecha.AutoSize = True
-        Me.lblFecha.Location = New System.Drawing.Point(20, 78)
+        Me.lblFecha.Location = New System.Drawing.Point(19, 71)
         Me.lblFecha.Name = "lblFecha"
         Me.lblFecha.Size = New System.Drawing.Size(37, 13)
         Me.lblFecha.TabIndex = 18
@@ -228,11 +236,46 @@ Partial Class FormularioPedido
         Me.cboMedio.Size = New System.Drawing.Size(156, 21)
         Me.cboMedio.TabIndex = 37
         '
+        'btnAgregarServicio
+        '
+        Me.btnAgregarServicio.Location = New System.Drawing.Point(465, 78)
+        Me.btnAgregarServicio.Name = "btnAgregarServicio"
+        Me.btnAgregarServicio.Size = New System.Drawing.Size(81, 34)
+        Me.btnAgregarServicio.TabIndex = 39
+        Me.btnAgregarServicio.Text = "Agregar Servicio"
+        Me.btnAgregarServicio.UseVisualStyleBackColor = True
+        '
+        'ID
+        '
+        Me.ID.HeaderText = "ID"
+        Me.ID.Name = "ID"
+        '
+        'Nombre
+        '
+        Me.Nombre.HeaderText = "Nombre"
+        Me.Nombre.Name = "Nombre"
+        '
+        'Precio
+        '
+        Me.Precio.HeaderText = "Precio"
+        Me.Precio.Name = "Precio"
+        '
+        'Cantidad
+        '
+        Me.Cantidad.HeaderText = "Cantidad"
+        Me.Cantidad.Name = "Cantidad"
+        '
+        'Descripcion
+        '
+        Me.Descripcion.HeaderText = "Descripcion"
+        Me.Descripcion.Name = "Descripcion"
+        '
         'FormularioPedido
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(571, 420)
+        Me.Controls.Add(Me.btnAgregarServicio)
         Me.Controls.Add(Me.lblMedio)
         Me.Controls.Add(Me.cboMedio)
         Me.Controls.Add(Me.lblEstado)
@@ -282,4 +325,10 @@ Partial Class FormularioPedido
     Friend WithEvents cboEstado As System.Windows.Forms.ComboBox
     Friend WithEvents lblMedio As System.Windows.Forms.Label
     Friend WithEvents cboMedio As System.Windows.Forms.ComboBox
+    Friend WithEvents btnAgregarServicio As System.Windows.Forms.Button
+    Friend WithEvents ID As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Nombre As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Precio As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Cantidad As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Descripcion As System.Windows.Forms.DataGridViewTextBoxColumn
 End Class

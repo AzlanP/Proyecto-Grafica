@@ -1,4 +1,4 @@
-﻿Public Class CEPedidos
+﻿Public Class CEPedido
     Private _IDPedido As Integer
 
     Private _Cliente As Integer
@@ -51,7 +51,7 @@
             _Estado = value
         End Set
     End Property
-    
+
     Public Property Cliente() As Integer
         Get
             Return _Cliente
@@ -60,7 +60,7 @@
             _Cliente = value
         End Set
     End Property
-   
+
     Public Property Fecha() As String
         Get
             Return _Fecha

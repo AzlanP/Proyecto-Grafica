@@ -7,7 +7,7 @@ Public Class CDPedidos
     Function MostrarPedido() As DataTable
         Return oCDConexion.MostrarTabla("Pedidos")
     End Function
-    Public Sub AgregarPedido(ByVal oCEPedido As CEPedidos)
+    Public Sub AgregarPedido(ByVal oCEPedido As CEPedido)
         oCDConexion.Conectar()
         Try
             Dim instruccionsql = "INSERT INTO Pedidos (ID, Descripcion, Cliente, Fecha, Tipo_de_Envio) VALUE (@ID, @Descripcion, @Cliente, @Fecha, @Tipo_de_Envio)"
@@ -27,7 +27,7 @@ Public Class CDPedidos
             oCDConexion.Desconectar()
         End Try
     End Sub
-    Public Sub ModificarPedido(ByVal oCEPedido As CEPedidos)
+    Public Sub ModificarPedido(ByVal oCEPedido As CEPedido)
         oCDConexion.Conectar()
         Try
             Dim instruccionsql = "UPDATE Pedidos SET IDPedido=@IDPedido,Descripcion=@Descripcion, Cliente=@Cliente, Fecha=@Fecha, Tipo_de_Envio=@Tipo_de_Envio"

@@ -143,7 +143,7 @@ Public Class frmMenuPrincipal
     End Sub
     Private Sub btnNuevoServicio_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNuevoServicio.Click
         Dim frmNuevoServicio As New frmRegistrarServicio
-        frmNuevoServicio.txtIDServicio.Text = oCNServicio.ConsultarUltimoID
+        frmNuevoServicio.lblID.Text = oCNServicio.ConsultarUltimoID
         frmNuevoServicio.btnGuardarCambiosRegServ.Visible = False
         frmNuevoServicio.btnGuardarNuevoRegServ.Visible = True
         frmNuevoServicio.ShowDialog()
@@ -214,11 +214,11 @@ Public Class frmMenuPrincipal
     End Sub
 
     Private Sub btnVerPedido_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnVerPedido.Click
-        ID = DGPedido.Rows(DGPedido.CurrentCell.RowIndex).Cells("IDPedido").Value
-        Dim frmPedido As New FormularioPedido
-        frmPedido.LLenarFormulario(ID)
-        frmPedido.Disesabletext()
-        frmPedido.ShowDialog()
+        'ID = DGPedido.Rows(DGPedido.CurrentCell.RowIndex).Cells("IDPedido").Value
+        'Dim frmPedido As New FormularioPedido
+        'frmPedido.LLenarFormulario(ID)
+        'frmPedido.Disesabletext()
+        'frmPedido.ShowDialog()
     End Sub
 
     Private Sub btnEliminarPedido_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEliminarPedido.Click
@@ -250,8 +250,8 @@ Public Class frmMenuPrincipal
     Public Sub GraficoPedidosMensuales()
         GraficoSegunConsulta.Series("Cantidad").Points.Clear()
         Dim i As Integer = 1
-        For i = 1 To 12
-            Dim cant As Integer = oCNgraficas.GraficaPedidosMensuales(i, 2018)
+        For i = 6 To 12
+            Dim cant As Integer = oCNGraficas.GraficaPedidosMensuales(i, 2018)
             Me.GraficoSegunConsulta.Series("Cantidad").Points.AddXY((Meses(i - 1)), (cant))
         Next
     End Sub
