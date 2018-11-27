@@ -138,7 +138,7 @@ Public Class frmPestañaTareas
             PosY = i * 101
             Postick(i).Location = New Point(3, PosY)
             'MsgBox(Postick(i).Location.X & " , " & Postick(i).Location.Y)
-            Postick(i).BackColor = Color.FromArgb(127, 200, 225)
+            Postick(i).BackColor = Color.FromArgb(249, 237, 117)
             If PosY > pcont.Size.Height Then
                 pcont.Size = New Point(135, PosY)
             End If

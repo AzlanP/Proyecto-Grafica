@@ -110,9 +110,9 @@ Partial Class AgregarProductoPedido
         Me.lblProductoAgrProd.AutoSize = True
         Me.lblProductoAgrProd.Location = New System.Drawing.Point(24, 22)
         Me.lblProductoAgrProd.Name = "lblProductoAgrProd"
-        Me.lblProductoAgrProd.Size = New System.Drawing.Size(50, 13)
+        Me.lblProductoAgrProd.Size = New System.Drawing.Size(100, 13)
         Me.lblProductoAgrProd.TabIndex = 12
-        Me.lblProductoAgrProd.Text = "Producto"
+        Me.lblProductoAgrProd.Text = "Producto o Servicio"
         '
         'CboProducto
         '
@@ -139,7 +139,7 @@ Partial Class AgregarProductoPedido
         Me.Controls.Add(Me.lblProductoAgrProd)
         Me.Controls.Add(Me.CboProducto)
         Me.Name = "AgregarProductoPedido"
-        Me.Text = "AgregarProductoPedido"
+        Me.Text = "Agregar Al Pedido"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

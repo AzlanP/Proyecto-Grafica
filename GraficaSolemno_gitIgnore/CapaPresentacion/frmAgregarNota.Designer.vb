@@ -155,7 +155,7 @@ Partial Class frmAgregarNota
         Me.Controls.Add(Me.txtDescripcion)
         Me.Controls.Add(Me.txtTitulo)
         Me.Name = "frmAgregarNota"
-        Me.Text = "Form3"
+        Me.Text = "Posticks"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

@@ -51,7 +51,7 @@ Partial Class frmPestañaTareas
         '
         Me.btnNuevaTarea.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnNuevaTarea.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnNuevaTarea.Location = New System.Drawing.Point(86, 590)
+        Me.btnNuevaTarea.Location = New System.Drawing.Point(43, 525)
         Me.btnNuevaTarea.Name = "btnNuevaTarea"
         Me.btnNuevaTarea.Size = New System.Drawing.Size(117, 23)
         Me.btnNuevaTarea.TabIndex = 25
@@ -72,7 +72,7 @@ Partial Class frmPestañaTareas
         Me.panelPostick.Controls.Add(Me.Panel1)
         Me.panelPostick.Location = New System.Drawing.Point(12, 144)
         Me.panelPostick.Name = "panelPostick"
-        Me.panelPostick.Size = New System.Drawing.Size(1068, 440)
+        Me.panelPostick.Size = New System.Drawing.Size(1068, 375)
         Me.panelPostick.TabIndex = 24
         '
         'Panel7
@@ -80,7 +80,7 @@ Partial Class frmPestañaTareas
         Me.Panel7.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.Panel7.Location = New System.Drawing.Point(914, 12)
         Me.Panel7.Name = "Panel7"
-        Me.Panel7.Size = New System.Drawing.Size(140, 415)
+        Me.Panel7.Size = New System.Drawing.Size(140, 350)
         Me.Panel7.TabIndex = 6
         '
         'Panel6
@@ -88,7 +88,7 @@ Partial Class frmPestañaTareas
         Me.Panel6.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.Panel6.Location = New System.Drawing.Point(763, 12)
         Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(140, 415)
+        Me.Panel6.Size = New System.Drawing.Size(140, 350)
         Me.Panel6.TabIndex = 5
         '
         'Panel5
@@ -96,7 +96,7 @@ Partial Class frmPestañaTareas
         Me.Panel5.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.Panel5.Location = New System.Drawing.Point(612, 12)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(140, 415)
+        Me.Panel5.Size = New System.Drawing.Size(140, 350)
         Me.Panel5.TabIndex = 4
         '
         'Panel4
@@ -104,7 +104,7 @@ Partial Class frmPestañaTareas
         Me.Panel4.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.Panel4.Location = New System.Drawing.Point(461, 12)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(140, 415)
+        Me.Panel4.Size = New System.Drawing.Size(140, 350)
         Me.Panel4.TabIndex = 3
         '
         'Panel3
@@ -112,7 +112,7 @@ Partial Class frmPestañaTareas
         Me.Panel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.Panel3.Location = New System.Drawing.Point(310, 12)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(140, 415)
+        Me.Panel3.Size = New System.Drawing.Size(140, 350)
         Me.Panel3.TabIndex = 2
         '
         'Panel2
@@ -120,7 +120,7 @@ Partial Class frmPestañaTareas
         Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.Panel2.Location = New System.Drawing.Point(159, 12)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(140, 415)
+        Me.Panel2.Size = New System.Drawing.Size(140, 350)
         Me.Panel2.TabIndex = 1
         '
         'Panel1
@@ -128,14 +128,14 @@ Partial Class frmPestañaTareas
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.Panel1.Location = New System.Drawing.Point(8, 12)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(140, 415)
+        Me.Panel1.Size = New System.Drawing.Size(140, 350)
         Me.Panel1.TabIndex = 0
         '
         'btnEliminarTarea
         '
         Me.btnEliminarTarea.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnEliminarTarea.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnEliminarTarea.Location = New System.Drawing.Point(209, 590)
+        Me.btnEliminarTarea.Location = New System.Drawing.Point(171, 525)
         Me.btnEliminarTarea.Name = "btnEliminarTarea"
         Me.btnEliminarTarea.Size = New System.Drawing.Size(117, 23)
         Me.btnEliminarTarea.TabIndex = 26
@@ -260,12 +260,12 @@ Partial Class frmPestañaTareas
         Me.Label8.TabIndex = 0
         Me.Label8.Text = "Label8"
         '
-        'Form2
+        'frmPestañaTareas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1125, 640)
+        Me.ClientSize = New System.Drawing.Size(1125, 560)
         Me.Controls.Add(Me.MesesCalendario)
         Me.Controls.Add(Me.btnPosteriorSemana)
         Me.Controls.Add(Me.btnAnteriorSemana)
@@ -273,7 +273,7 @@ Partial Class frmPestañaTareas
         Me.Controls.Add(Me.btnEliminarTarea)
         Me.Controls.Add(Me.btnNuevaTarea)
         Me.Controls.Add(Me.panelPostick)
-        Me.Name = "Form2"
+        Me.Name = "frmPestañaTareas"
         Me.Text = "Form2"
         Me.panelPostick.ResumeLayout(False)
         Me.SemanaDias.ResumeLayout(False)

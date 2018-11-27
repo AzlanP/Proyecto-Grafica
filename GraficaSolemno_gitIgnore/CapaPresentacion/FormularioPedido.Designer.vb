@@ -48,7 +48,6 @@ Partial Class FormularioPedido
         Me.cboEstado = New System.Windows.Forms.ComboBox()
         Me.lblMedio = New System.Windows.Forms.Label()
         Me.cboMedio = New System.Windows.Forms.ComboBox()
-        Me.btnAgregarServicio = New System.Windows.Forms.Button()
         CType(Me.DGListaDePedido, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -73,7 +72,7 @@ Partial Class FormularioPedido
         '
         Me.btnCancelarPedido.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnCancelarPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnCancelarPedido.Location = New System.Drawing.Point(482, 383)
+        Me.btnCancelarPedido.Location = New System.Drawing.Point(469, 383)
         Me.btnCancelarPedido.Name = "btnCancelarPedido"
         Me.btnCancelarPedido.Size = New System.Drawing.Size(81, 34)
         Me.btnCancelarPedido.TabIndex = 31
@@ -100,9 +99,10 @@ Partial Class FormularioPedido
         '
         'dtpFecha
         '
+        Me.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtpFecha.Location = New System.Drawing.Point(75, 71)
         Me.dtpFecha.Name = "dtpFecha"
-        Me.dtpFecha.Size = New System.Drawing.Size(200, 20)
+        Me.dtpFecha.Size = New System.Drawing.Size(121, 20)
         Me.dtpFecha.TabIndex = 28
         '
         'cboCliente
@@ -117,7 +117,7 @@ Partial Class FormularioPedido
         '
         Me.btnModificarPedido.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnModificarPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnModificarPedido.Location = New System.Drawing.Point(469, 241)
+        Me.btnModificarPedido.Location = New System.Drawing.Point(469, 200)
         Me.btnModificarPedido.Name = "btnModificarPedido"
         Me.btnModificarPedido.Size = New System.Drawing.Size(81, 34)
         Me.btnModificarPedido.TabIndex = 25
@@ -128,7 +128,7 @@ Partial Class FormularioPedido
         '
         Me.btnQuitar.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnQuitar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnQuitar.Location = New System.Drawing.Point(469, 201)
+        Me.btnQuitar.Location = New System.Drawing.Point(469, 160)
         Me.btnQuitar.Name = "btnQuitar"
         Me.btnQuitar.Size = New System.Drawing.Size(81, 34)
         Me.btnQuitar.TabIndex = 24
@@ -139,7 +139,7 @@ Partial Class FormularioPedido
         '
         Me.btnAgregarProducto.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnAgregarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAgregarProducto.Location = New System.Drawing.Point(469, 161)
+        Me.btnAgregarProducto.Location = New System.Drawing.Point(469, 120)
         Me.btnAgregarProducto.Name = "btnAgregarProducto"
         Me.btnAgregarProducto.Size = New System.Drawing.Size(81, 34)
         Me.btnAgregarProducto.TabIndex = 23
@@ -213,7 +213,7 @@ Partial Class FormularioPedido
         'lblFecha
         '
         Me.lblFecha.AutoSize = True
-        Me.lblFecha.Location = New System.Drawing.Point(19, 71)
+        Me.lblFecha.Location = New System.Drawing.Point(20, 77)
         Me.lblFecha.Name = "lblFecha"
         Me.lblFecha.Size = New System.Drawing.Size(37, 13)
         Me.lblFecha.TabIndex = 18
@@ -222,7 +222,7 @@ Partial Class FormularioPedido
         'lblCliente
         '
         Me.lblCliente.AutoSize = True
-        Me.lblCliente.Location = New System.Drawing.Point(20, 38)
+        Me.lblCliente.Location = New System.Drawing.Point(24, 38)
         Me.lblCliente.Name = "lblCliente"
         Me.lblCliente.Size = New System.Drawing.Size(39, 13)
         Me.lblCliente.TabIndex = 17
@@ -259,7 +259,7 @@ Partial Class FormularioPedido
         'lblMedio
         '
         Me.lblMedio.AutoSize = True
-        Me.lblMedio.Location = New System.Drawing.Point(253, 315)
+        Me.lblMedio.Location = New System.Drawing.Point(227, 38)
         Me.lblMedio.Name = "lblMedio"
         Me.lblMedio.Size = New System.Drawing.Size(123, 13)
         Me.lblMedio.TabIndex = 38
@@ -268,29 +268,17 @@ Partial Class FormularioPedido
         'cboMedio
         '
         Me.cboMedio.FormattingEnabled = True
-        Me.cboMedio.Location = New System.Drawing.Point(382, 309)
+        Me.cboMedio.Location = New System.Drawing.Point(356, 35)
         Me.cboMedio.Name = "cboMedio"
-        Me.cboMedio.Size = New System.Drawing.Size(156, 21)
+        Me.cboMedio.Size = New System.Drawing.Size(107, 21)
         Me.cboMedio.TabIndex = 37
-        '
-        'btnAgregarServicio
-        '
-        Me.btnAgregarServicio.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
-        Me.btnAgregarServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAgregarServicio.Location = New System.Drawing.Point(469, 120)
-        Me.btnAgregarServicio.Name = "btnAgregarServicio"
-        Me.btnAgregarServicio.Size = New System.Drawing.Size(81, 34)
-        Me.btnAgregarServicio.TabIndex = 39
-        Me.btnAgregarServicio.Text = "Agregar Servicio"
-        Me.btnAgregarServicio.UseVisualStyleBackColor = False
         '
         'FormularioPedido
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(571, 420)
-        Me.Controls.Add(Me.btnAgregarServicio)
+        Me.ClientSize = New System.Drawing.Size(562, 420)
         Me.Controls.Add(Me.lblMedio)
         Me.Controls.Add(Me.cboMedio)
         Me.Controls.Add(Me.lblEstado)
@@ -340,7 +328,6 @@ Partial Class FormularioPedido
     Friend WithEvents cboEstado As System.Windows.Forms.ComboBox
     Friend WithEvents lblMedio As System.Windows.Forms.Label
     Friend WithEvents cboMedio As System.Windows.Forms.ComboBox
-    Friend WithEvents btnAgregarServicio As System.Windows.Forms.Button
     Friend WithEvents ID As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Nombre As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Precio As System.Windows.Forms.DataGridViewTextBoxColumn
