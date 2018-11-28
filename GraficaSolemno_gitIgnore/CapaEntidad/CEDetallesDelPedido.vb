@@ -4,6 +4,7 @@
     Private _Nombre As String
     Private _Descripcion As String
     Private _Cantidad As Integer
+    Private _Precio As Double
     Public Property IDItems() As Integer
         Get
             Return _IDItems
@@ -44,6 +45,14 @@
             _Nombre = value
         End Set
     End Property
-    
+
+    Public Property Precio() As Double
+        Get
+            Return _Precio
+        End Get
+        Set(ByVal value As Double)
+            _Precio = value
+        End Set
+    End Property
 
 End Class

@@ -144,6 +144,8 @@ Public Class frmMenuPrincipal
     Private Sub btnNuevoPedido_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNuevoPedido.Click
         Dim frmPedido As New FormularioPedido
         frmPedido.lblID.Text = oCNPedido.ConsultarUltimoID()
+        frmPedido.Detalles()
+
         frmPedido.ShowDialog()
         CargarGridProducto()
     End Sub

@@ -31,7 +31,7 @@ Partial Class FormularioPedido
         Me.cboCliente = New System.Windows.Forms.ComboBox()
         Me.btnModificarPedido = New System.Windows.Forms.Button()
         Me.btnQuitar = New System.Windows.Forms.Button()
-        Me.btnAgregarProducto = New System.Windows.Forms.Button()
+        Me.btnAgregarPedidoNuevo = New System.Windows.Forms.Button()
         Me.DGListaDePedido = New System.Windows.Forms.DataGridView()
         Me.lblDetalles = New System.Windows.Forms.Label()
         Me.lblID = New System.Windows.Forms.Label()
@@ -43,6 +43,9 @@ Partial Class FormularioPedido
         Me.cboEstado = New System.Windows.Forms.ComboBox()
         Me.lblMedio = New System.Windows.Forms.Label()
         Me.cboMedio = New System.Windows.Forms.ComboBox()
+        Me.txtSeña = New System.Windows.Forms.TextBox()
+        Me.lblSeña = New System.Windows.Forms.Label()
+        Me.btnAgregarPedidoExistente = New System.Windows.Forms.Button()
         CType(Me.DGListaDePedido, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -67,9 +70,9 @@ Partial Class FormularioPedido
         '
         Me.btnCancelarPedido.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnCancelarPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnCancelarPedido.Location = New System.Drawing.Point(469, 383)
+        Me.btnCancelarPedido.Location = New System.Drawing.Point(469, 391)
         Me.btnCancelarPedido.Name = "btnCancelarPedido"
-        Me.btnCancelarPedido.Size = New System.Drawing.Size(81, 34)
+        Me.btnCancelarPedido.Size = New System.Drawing.Size(81, 26)
         Me.btnCancelarPedido.TabIndex = 31
         Me.btnCancelarPedido.Text = "Cancelar"
         Me.btnCancelarPedido.UseVisualStyleBackColor = False
@@ -78,16 +81,16 @@ Partial Class FormularioPedido
         '
         Me.btnGuardarPedido.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnGuardarPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnGuardarPedido.Location = New System.Drawing.Point(382, 383)
+        Me.btnGuardarPedido.Location = New System.Drawing.Point(382, 391)
         Me.btnGuardarPedido.Name = "btnGuardarPedido"
-        Me.btnGuardarPedido.Size = New System.Drawing.Size(81, 34)
+        Me.btnGuardarPedido.Size = New System.Drawing.Size(81, 26)
         Me.btnGuardarPedido.TabIndex = 30
         Me.btnGuardarPedido.Text = "Cargar Pedido"
         Me.btnGuardarPedido.UseVisualStyleBackColor = False
         '
         'txtDescripcion
         '
-        Me.txtDescripcion.Location = New System.Drawing.Point(98, 312)
+        Me.txtDescripcion.Location = New System.Drawing.Point(98, 308)
         Me.txtDescripcion.Name = "txtDescripcion"
         Me.txtDescripcion.Size = New System.Drawing.Size(108, 20)
         Me.txtDescripcion.TabIndex = 29
@@ -112,9 +115,9 @@ Partial Class FormularioPedido
         '
         Me.btnModificarPedido.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnModificarPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnModificarPedido.Location = New System.Drawing.Point(469, 200)
+        Me.btnModificarPedido.Location = New System.Drawing.Point(480, 302)
         Me.btnModificarPedido.Name = "btnModificarPedido"
-        Me.btnModificarPedido.Size = New System.Drawing.Size(81, 34)
+        Me.btnModificarPedido.Size = New System.Drawing.Size(81, 22)
         Me.btnModificarPedido.TabIndex = 25
         Me.btnModificarPedido.Text = "Modificar"
         Me.btnModificarPedido.UseVisualStyleBackColor = False
@@ -123,31 +126,34 @@ Partial Class FormularioPedido
         '
         Me.btnQuitar.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnQuitar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnQuitar.Location = New System.Drawing.Point(469, 160)
+        Me.btnQuitar.Location = New System.Drawing.Point(480, 272)
         Me.btnQuitar.Name = "btnQuitar"
-        Me.btnQuitar.Size = New System.Drawing.Size(81, 34)
+        Me.btnQuitar.Size = New System.Drawing.Size(81, 22)
         Me.btnQuitar.TabIndex = 24
         Me.btnQuitar.Text = "Quitar"
         Me.btnQuitar.UseVisualStyleBackColor = False
         '
-        'btnAgregarProducto
+        'btnAgregarPedidoNuevo
         '
-        Me.btnAgregarProducto.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
-        Me.btnAgregarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAgregarProducto.Location = New System.Drawing.Point(469, 120)
-        Me.btnAgregarProducto.Name = "btnAgregarProducto"
-        Me.btnAgregarProducto.Size = New System.Drawing.Size(81, 34)
-        Me.btnAgregarProducto.TabIndex = 23
-        Me.btnAgregarProducto.Text = "Agregar Producto"
-        Me.btnAgregarProducto.UseVisualStyleBackColor = False
+        Me.btnAgregarPedidoNuevo.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnAgregarPedidoNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAgregarPedidoNuevo.Location = New System.Drawing.Point(469, 164)
+        Me.btnAgregarPedidoNuevo.Name = "btnAgregarPedidoNuevo"
+        Me.btnAgregarPedidoNuevo.Size = New System.Drawing.Size(81, 60)
+        Me.btnAgregarPedidoNuevo.TabIndex = 23
+        Me.btnAgregarPedidoNuevo.Text = "Agregar a pedido nuevo"
+        Me.btnAgregarPedidoNuevo.UseVisualStyleBackColor = False
         '
         'DGListaDePedido
         '
         Me.DGListaDePedido.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DGListaDePedido.BackgroundColor = System.Drawing.Color.White
         Me.DGListaDePedido.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DGListaDePedido.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
         Me.DGListaDePedido.Location = New System.Drawing.Point(22, 120)
+        Me.DGListaDePedido.MultiSelect = False
         Me.DGListaDePedido.Name = "DGListaDePedido"
+        Me.DGListaDePedido.ReadOnly = True
         Me.DGListaDePedido.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DGListaDePedido.Size = New System.Drawing.Size(441, 174)
         Me.DGListaDePedido.TabIndex = 22
@@ -173,7 +179,7 @@ Partial Class FormularioPedido
         'lblDescripcion
         '
         Me.lblDescripcion.AutoSize = True
-        Me.lblDescripcion.Location = New System.Drawing.Point(17, 312)
+        Me.lblDescripcion.Location = New System.Drawing.Point(17, 311)
         Me.lblDescripcion.Name = "lblDescripcion"
         Me.lblDescripcion.Size = New System.Drawing.Size(63, 13)
         Me.lblDescripcion.TabIndex = 19
@@ -242,12 +248,42 @@ Partial Class FormularioPedido
         Me.cboMedio.Size = New System.Drawing.Size(107, 21)
         Me.cboMedio.TabIndex = 37
         '
+        'txtSeña
+        '
+        Me.txtSeña.Location = New System.Drawing.Point(355, 308)
+        Me.txtSeña.Name = "txtSeña"
+        Me.txtSeña.Size = New System.Drawing.Size(108, 20)
+        Me.txtSeña.TabIndex = 40
+        '
+        'lblSeña
+        '
+        Me.lblSeña.AutoSize = True
+        Me.lblSeña.Location = New System.Drawing.Point(308, 311)
+        Me.lblSeña.Name = "lblSeña"
+        Me.lblSeña.Size = New System.Drawing.Size(41, 13)
+        Me.lblSeña.TabIndex = 39
+        Me.lblSeña.Text = "Seña : "
+        '
+        'btnAgregarPedidoExistente
+        '
+        Me.btnAgregarPedidoExistente.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnAgregarPedidoExistente.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAgregarPedidoExistente.Location = New System.Drawing.Point(469, 93)
+        Me.btnAgregarPedidoExistente.Name = "btnAgregarPedidoExistente"
+        Me.btnAgregarPedidoExistente.Size = New System.Drawing.Size(81, 65)
+        Me.btnAgregarPedidoExistente.TabIndex = 41
+        Me.btnAgregarPedidoExistente.Text = "Añadir  a Pedido existente"
+        Me.btnAgregarPedidoExistente.UseVisualStyleBackColor = False
+        '
         'FormularioPedido
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(562, 427)
+        Me.Controls.Add(Me.btnAgregarPedidoExistente)
+        Me.Controls.Add(Me.txtSeña)
+        Me.Controls.Add(Me.lblSeña)
         Me.Controls.Add(Me.lblMedio)
         Me.Controls.Add(Me.cboMedio)
         Me.Controls.Add(Me.lblEstado)
@@ -262,7 +298,7 @@ Partial Class FormularioPedido
         Me.Controls.Add(Me.cboCliente)
         Me.Controls.Add(Me.btnModificarPedido)
         Me.Controls.Add(Me.btnQuitar)
-        Me.Controls.Add(Me.btnAgregarProducto)
+        Me.Controls.Add(Me.btnAgregarPedidoNuevo)
         Me.Controls.Add(Me.DGListaDePedido)
         Me.Controls.Add(Me.lblDetalles)
         Me.Controls.Add(Me.lblID)
@@ -285,7 +321,7 @@ Partial Class FormularioPedido
     Friend WithEvents cboCliente As System.Windows.Forms.ComboBox
     Friend WithEvents btnModificarPedido As System.Windows.Forms.Button
     Friend WithEvents btnQuitar As System.Windows.Forms.Button
-    Friend WithEvents btnAgregarProducto As System.Windows.Forms.Button
+    Friend WithEvents btnAgregarPedidoNuevo As System.Windows.Forms.Button
     Friend WithEvents DGListaDePedido As System.Windows.Forms.DataGridView
     Friend WithEvents lblDetalles As System.Windows.Forms.Label
     Friend WithEvents lblID As System.Windows.Forms.Label
@@ -297,4 +333,7 @@ Partial Class FormularioPedido
     Friend WithEvents cboEstado As System.Windows.Forms.ComboBox
     Friend WithEvents lblMedio As System.Windows.Forms.Label
     Friend WithEvents cboMedio As System.Windows.Forms.ComboBox
+    Friend WithEvents txtSeña As System.Windows.Forms.TextBox
+    Friend WithEvents lblSeña As System.Windows.Forms.Label
+    Friend WithEvents btnAgregarPedidoExistente As System.Windows.Forms.Button
 End Class

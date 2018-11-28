@@ -130,8 +130,11 @@ Partial Class AgregarProductoPedido
         '
         Me.DGBuscar.BackgroundColor = System.Drawing.Color.White
         Me.DGBuscar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DGBuscar.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
         Me.DGBuscar.Location = New System.Drawing.Point(294, 64)
+        Me.DGBuscar.MultiSelect = False
         Me.DGBuscar.Name = "DGBuscar"
+        Me.DGBuscar.ReadOnly = True
         Me.DGBuscar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DGBuscar.Size = New System.Drawing.Size(259, 244)
         Me.DGBuscar.TabIndex = 22
@@ -159,9 +162,8 @@ Partial Class AgregarProductoPedido
         Me.lblID.AutoSize = True
         Me.lblID.Location = New System.Drawing.Point(38, 24)
         Me.lblID.Name = "lblID"
-        Me.lblID.Size = New System.Drawing.Size(49, 13)
+        Me.lblID.Size = New System.Drawing.Size(0, 13)
         Me.lblID.TabIndex = 25
-        Me.lblID.Text = "Cantidad"
         '
         'AgregarProductoPedido
         '

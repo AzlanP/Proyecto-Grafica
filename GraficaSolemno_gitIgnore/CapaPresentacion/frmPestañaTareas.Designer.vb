@@ -273,6 +273,7 @@ Partial Class frmPestañaTareas
         Me.Controls.Add(Me.btnEliminarTarea)
         Me.Controls.Add(Me.btnNuevaTarea)
         Me.Controls.Add(Me.panelPostick)
+        Me.DoubleBuffered = True
         Me.Name = "frmPestañaTareas"
         Me.Text = "Form2"
         Me.panelPostick.ResumeLayout(False)

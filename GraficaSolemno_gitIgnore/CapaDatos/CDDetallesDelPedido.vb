@@ -14,7 +14,7 @@ Public Class CDDetallesDelPedido
 
             Dim da As New SQLiteDataAdapter
 
-            Dim InstruccionSQL As String = "Select itemsporpedido.IDItems , Productos.Nombre , itemsporpedido.cantidad ,itemsporpedido.Descripcion from pedidos join itemsporpedido on pedidos.idpedido=itemsporpedido.IDPedido join productos on  itemsporpedido.IDProducto= productos.IDProducto where  pedidos.IDPedido= " & id
+            Dim InstruccionSQL As String = "Select itemsporpedido.IDItems , Productos.Nombre , itemsporpedido.cantidad ,itemsporpedido.Descripcion,Productos.Precio from pedidos join itemsporpedido on pedidos.idpedido=itemsporpedido.IDPedido join productos on  itemsporpedido.IDProducto= productos.IDProducto where  pedidos.IDPedido= " & id
 
             Dim comando As New SQLiteCommand(InstruccionSQL, oCDConexion.con)
             da.SelectCommand = comando
