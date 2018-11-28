@@ -24,8 +24,7 @@ Public Class CDConexion
             If con.State = ConnectionState.Closed Then
                 con = New SQLiteConnection(CadenaDeConexion)
                 con.Open() 'abro la coneccion de la base de datos
-            Else
-                MsgBox("La base de datos ya se encuentra activa.")
+
             End If
         Catch ex As Exception
             Throw New Exception("Error: No pudo inciarse la conexcion con la base de datos.")

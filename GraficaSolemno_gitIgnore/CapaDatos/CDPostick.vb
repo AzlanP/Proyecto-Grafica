@@ -12,15 +12,15 @@ Public Class CDPostick
     End Function
     Public Sub NuevoPostick(ByVal obj As CEPostick)
         oCDConexion.Conectar()
-        Dim sql As String = "insert into Postick (IDPostick, Titulo, Descripcion, Fecha) values (@IDPostick, @Titulo, @Descripcion, @Fecha)"
+        Dim sql As String = "insert into Postick (IDPostick, Titulo, Descripcion, Fecha, Prioridad) values (@IDPostick, @Titulo, @Descripcion, @Fecha, @Prioridad)"
 
         Dim comando As New SQLiteCommand(sql, oCDConexion.con)
         With comando.Parameters
-            .Add("@IDPostick", SqlDbType.Int).Value = ConsultarUltimoID()
+            .Add("@IDPostick", SqlDbType.Int).Value = obj.IDPostick
             .Add("@Titulo", SqlDbType.VarChar).Value = obj.Titulo
             .Add("@Descripcion", SqlDbType.VarChar).Value = obj.Descripcion
             .Add("@Fecha", SqlDbType.VarChar).Value = obj.Fecha
-
+            .Add("@Prioridad", SqlDbType.VarChar).Value = obj.Prioridad
         End With
         comando.ExecuteNonQuery()
         MsgBox("El Registro se ah guardado con exito.")
@@ -62,6 +62,7 @@ Public Class CDPostick
             oPostick.Titulo = dt.Rows(i)(1)
             oPostick.Descripcion = dt.Rows(i)(2)
             oPostick.Fecha = dt.Rows(i)(3)
+            oPostick.Prioridad = dt.Rows(i)(4)
             arraypostick(i) = oPostick
         Next
         oCDConexion.Desconectar()
@@ -103,6 +104,23 @@ Public Class CDPostick
         Finally
             oCDConexion.Desconectar()
         End Try
+
+    End Sub
+    Public Sub ModificarPostick(ByVal obj As CEPostick)
+        oCDConexion.Conectar()
+        Dim sql As String = "update Postick set Titulo=@Titulo, Descripcion=@Descripcion, Fecha=@Fecha, Prioridad=@Prioridad where IDPostick=@IDPostick"
+
+        Dim comando As New SQLiteCommand(sql, oCDConexion.con)
+        With comando.Parameters
+            .Add("@IDPostick", SqlDbType.Int).Value = obj.IDPostick
+            .Add("@Titulo", SqlDbType.VarChar).Value = obj.Titulo
+            .Add("@Descripcion", SqlDbType.VarChar).Value = obj.Descripcion
+            .Add("@Fecha", SqlDbType.VarChar).Value = obj.Fecha
+            .Add("@Prioridad", SqlDbType.VarChar).Value = obj.Prioridad
+        End With
+        comando.ExecuteNonQuery()
+        MsgBox("El Registro se ah guardado con exito.")
+        oCDConexion.Desconectar()
 
     End Sub
 End Class

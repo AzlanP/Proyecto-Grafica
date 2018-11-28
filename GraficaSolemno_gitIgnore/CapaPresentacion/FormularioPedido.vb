@@ -4,53 +4,50 @@ Public Class FormularioPedido
     Dim oPedido As New CEPedido
     Dim oCECliente As New CECliente
     Dim ListProductos() As CEProducto
+    Dim oCNDetallesDePedido As New CNDetallesDelPedido
 
-    Dim listGeneral()() As String
-   
+    Dim DTDetalles As New DataTable("Detalles")
     Public Sub LLenarFormulario(ByVal id As Integer)
+
         cboCliente.Text = oPedido.Cliente
         dtpFecha.Text = oPedido.Fecha
         txtDescripcion.Text = oPedido.Descripcion
         cboTipoEnvio.Text = oPedido.TipoDeEnvio
         cboEstado.Text = oPedido.Estado
         cboMedio.Text = oPedido.Medio
-        CargarGridListaPedido(id)
-
+        CargarGridListaPedido()
     End Sub
-    Public Sub CargarGridListaPedido(ByVal id As Integer)
-        DGListaDePedido.DataSource = listGeneral
+    Public Sub CargarGridListaPedido()
+        DGListaDePedido.DataSource = DTDetalles
+    End Sub
+    Public Sub CargarGridDetalles(ByVal id As Integer)
+        DGListaDePedido.DataSource = oCNDetallesDePedido.MostrarDetalles(id)
     End Sub
     Public Sub SeleccionarCliente()
 
     End Sub
     Private Sub btnAgregar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAgregarProducto.Click
-        oPedido.Cliente = cboCliente.Text
-        oPedido.Fecha = dtpFecha.Text
-        oPedido.Descripcion = txtDescripcion.Text
-        oPedido.TipoDeEnvio = cboTipoEnvio.Text
-        oPedido.Estado = cboEstado.Text
-        oPedido.Medio = cboMedio.Text
-        oPedido.Productos = ListProductos
+        Dim AñadirProducto As New AgregarProductoPedido
+        AñadirProducto.ShowDialog()
+
+        AgregarDatosADetalles(AñadirProducto.oceproducto)
+
 
     End Sub
-    Public Sub AgregarArrayDG()
-        ReDim Preserve listGeneral(ListProductos.Length)
-        Dim i = 0
-        For Each producto In ListProductos
-            listGeneral(0)(i) = i
-            listGeneral(1)(i) = producto.Nombre
-            listGeneral(2)(i) = producto.Precio
-            listGeneral(3)(i) = producto.Cantidad
-            listGeneral(4)(i) = producto.Descripcion
-            i = i + 1
-        Next
-        i = ListProductos.Length - 1
-        
+    Public Sub AgregarDatosADetalles(ByVal pProducto As CEProducto)
+        Dim NuevaFilaDetalles As DataRow = DTDetalles.NewRow()
+        NuevaFilaDetalles(0) = pProducto.IDProducto
+        NuevaFilaDetalles(1) = pProducto.Nombre
+        NuevaFilaDetalles(2) = pProducto.Cantidad
+        NuevaFilaDetalles(3) = pProducto.Precio
+        NuevaFilaDetalles(4) = pProducto.Descripcion
+        DTDetalles.Rows.Add(NuevaFilaDetalles)
+        CargarGridListaPedido()
+
     End Sub
     Private Sub btnQuitar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnQuitar.Click
         Dim ID As Integer = DGListaDePedido.Rows(DGListaDePedido.CurrentCell.RowIndex).Cells("ID").Value
-        listGeneral(ID)(0).Remove(0, ID)
-
+        DTDetalles.Rows.RemoveAt(ID)
 
     End Sub
 
@@ -70,5 +67,16 @@ Public Class FormularioPedido
 
     Private Sub btnCancelarPedido_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancelarPedido.Click
         Me.Close()
+    End Sub
+
+    Private Sub FormularioPedido_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Detalles()
+    End Sub
+    Public Sub Detalles()
+        DTDetalles.Columns.Add("ID")
+        DTDetalles.Columns.Add("Nombre")
+        DTDetalles.Columns.Add("Cantidad")
+        DTDetalles.Columns.Add("Precio")
+        DTDetalles.Columns.Add("Descripcion")
     End Sub
 End Class

@@ -151,9 +151,9 @@ Public Class frmMenuPrincipal
     Private Sub btnModificarPedido_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnModificarPedido.Click
         ID = DGPedido.Rows(DGPedido.CurrentCell.RowIndex).Cells("IDPedido").Value
         Dim frmPedido As New FormularioPedido
-        frmPedido.LLenarFormulario(ID)
+        frmPedido.CargarGridDetalles(ID)
+        frmPedido.lblID.Text = ID
         frmPedido.ShowDialog()
-        CargarGridPedidos()
 
     End Sub
 
@@ -180,9 +180,10 @@ Public Class frmMenuPrincipal
     Private Sub DGPedido_MouseDoubleClick(ByVal sender As Object, ByVal e As MouseEventArgs) Handles DGPedido.MouseDoubleClick
         ID = DGPedido.Rows(DGPedido.CurrentCell.RowIndex).Cells("IDPedido").Value
         Dim frmPedido As New FormularioPedido
-        frmPedido.LLenarFormulario(ID)
+        frmPedido.lblID.Text = ID
+        frmPedido.CargarGridDetalles(ID)
         frmPedido.ShowDialog()
-        CargarGridPedidos()
+
     End Sub
 
 

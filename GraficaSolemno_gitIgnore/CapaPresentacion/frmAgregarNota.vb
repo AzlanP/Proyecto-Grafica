@@ -6,11 +6,8 @@ Public Class frmAgregarNota
     Dim oCNPostick As New CNPostick
 
     Private Sub btnGuardarNota_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGuardarNota.Click
-        Dim oCEPostick As New CEPostick
-        oCEPostick.Titulo = txtTitulo.Text
-        oCEPostick.Descripcion = txtDescripcion.Text
-        oCEPostick.Fecha = FormatISO8601(dtpFecha.Text)
-        oCNPostick.NuevoPostick(oCEPostick)
+        
+        oCNPostick.NuevoPostick(TomarDatos)
         Me.Close()
     End Sub
 
@@ -35,14 +32,64 @@ Public Class frmAgregarNota
     Public Sub AbrirPostick(ByVal id As Integer)
         Dim oPostick As New CEPostick
         oPostick = oCNPostick.BuscarPostick(id)
+        NroPostick.Text = id
         NroPostick.Text = oPostick.IDPostick
         txtTitulo.Text = oPostick.Titulo
         dtpFecha.Text = oPostick.Fecha
         txtDescripcion.Text = oPostick.Descripcion
     End Sub
-
+    Public Function TomarDatos() As CEPostick
+        Dim oCEPostick As New CEPostick
+        oCEPostick.IDPostick = NroPostick.Text
+        oCEPostick.Titulo = txtTitulo.Text
+        oCEPostick.Descripcion = txtDescripcion.Text
+        oCEPostick.Fecha = FormatISO8601(dtpFecha.Text)
+        oCEPostick.Prioridad = cboPrioridad.Text
+        Return oCEPostick
+    End Function
     Private Sub btnEliminar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEliminar.Click
         oCNPostick.EliminarPostick(CInt(NroPostick.Text))
+        Me.Close()
+
+    End Sub
+    ' estp es para el combobox tenga colores
+    Private Sub cboPrioridad_DrawItem(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DrawItemEventArgs) Handles cboPrioridad.DrawItem
+        Dim ColorBajaPrioridad As Brush
+        ColorBajaPrioridad = New Drawing.SolidBrush(Color.FromArgb(153, 196, 231))
+        Dim ColorMediaPrioridad As Brush
+        ColorMediaPrioridad = New Drawing.SolidBrush(Color.FromArgb(249, 237, 117))
+        Dim ColorAltaPrioridad As Brush
+        ColorAltaPrioridad = New Drawing.SolidBrush(Color.FromArgb(235, 134, 82))
+        Dim ColorUrgentePrioridad As Brush
+        ColorUrgentePrioridad = New Drawing.SolidBrush(Color.FromArgb(221, 83, 71))
+        Select Case e.Index
+
+            Case 0
+                e.Graphics.FillRectangle(ColorBajaPrioridad, e.Bounds.X, e.Bounds.Y, e.Bounds.Width, e.Bounds.Height)
+                e.Graphics.DrawString(cboPrioridad.Items(e.Index).ToString(), e.Font, New SolidBrush(e.ForeColor), e.Bounds)
+                Exit Select
+            Case 1
+                e.Graphics.FillRectangle(ColorMediaPrioridad, e.Bounds.X, e.Bounds.Y, e.Bounds.Width, e.Bounds.Height)
+                e.Graphics.DrawString(cboPrioridad.Items(e.Index).ToString(), e.Font, New SolidBrush(e.ForeColor), e.Bounds)
+                Exit Select
+            Case 2
+                e.Graphics.FillRectangle(ColorAltaPrioridad, e.Bounds.X, e.Bounds.Y, e.Bounds.Width, e.Bounds.Height)
+                e.Graphics.DrawString(cboPrioridad.Items(e.Index).ToString(), e.Font, New SolidBrush(e.ForeColor), e.Bounds)
+                Exit Select
+            Case 3
+                e.Graphics.FillRectangle(ColorUrgentePrioridad, e.Bounds.X, e.Bounds.Y, e.Bounds.Width, e.Bounds.Height)
+                e.Graphics.DrawString(cboPrioridad.Items(e.Index).ToString(), e.Font, New SolidBrush(e.ForeColor), e.Bounds)
+                Exit Select
+
+        End Select
+    End Sub
+    
+    Private Sub frmAgregarNota_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
+    End Sub
+
+    Private Sub btnGuardarCambios_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGuardarCambios.Click
+        oCNPostick.ModificarPostick(TomarDatos)
         Me.Close()
 
     End Sub

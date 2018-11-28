@@ -33,6 +33,9 @@ Partial Class frmAgregarNota
         Me.NroPostick = New System.Windows.Forms.Label()
         Me.btnEliminar = New System.Windows.Forms.Button()
         Me.lblidpostick = New System.Windows.Forms.Label()
+        Me.lblPrioridad = New System.Windows.Forms.Label()
+        Me.cboPrioridad = New System.Windows.Forms.ComboBox()
+        Me.btnGuardarCambios = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'txtTitulo
@@ -90,7 +93,7 @@ Partial Class frmAgregarNota
         '
         Me.btnGuardarNota.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnGuardarNota.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnGuardarNota.Location = New System.Drawing.Point(113, 243)
+        Me.btnGuardarNota.Location = New System.Drawing.Point(65, 307)
         Me.btnGuardarNota.Name = "btnGuardarNota"
         Me.btnGuardarNota.Size = New System.Drawing.Size(75, 23)
         Me.btnGuardarNota.TabIndex = 6
@@ -101,7 +104,7 @@ Partial Class frmAgregarNota
         '
         Me.btnCancelar.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnCancelar.Location = New System.Drawing.Point(209, 243)
+        Me.btnCancelar.Location = New System.Drawing.Point(156, 307)
         Me.btnCancelar.Name = "btnCancelar"
         Me.btnCancelar.Size = New System.Drawing.Size(75, 23)
         Me.btnCancelar.TabIndex = 7
@@ -121,7 +124,7 @@ Partial Class frmAgregarNota
         '
         Me.btnEliminar.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnEliminar.Location = New System.Drawing.Point(23, 243)
+        Me.btnEliminar.Location = New System.Drawing.Point(255, 307)
         Me.btnEliminar.Name = "btnEliminar"
         Me.btnEliminar.Size = New System.Drawing.Size(75, 23)
         Me.btnEliminar.TabIndex = 9
@@ -137,12 +140,46 @@ Partial Class frmAgregarNota
         Me.lblidpostick.TabIndex = 10
         Me.lblidpostick.Text = "ID Postick :"
         '
+        'lblPrioridad
+        '
+        Me.lblPrioridad.AutoSize = True
+        Me.lblPrioridad.Location = New System.Drawing.Point(16, 259)
+        Me.lblPrioridad.Name = "lblPrioridad"
+        Me.lblPrioridad.Size = New System.Drawing.Size(54, 13)
+        Me.lblPrioridad.TabIndex = 11
+        Me.lblPrioridad.Text = "Prioridad :"
+        '
+        'cboPrioridad
+        '
+        Me.cboPrioridad.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable
+        Me.cboPrioridad.FormattingEnabled = True
+        Me.cboPrioridad.Items.AddRange(New Object() {"BAJA", "MEDIA", "ALTA", "URGENTE"})
+        Me.cboPrioridad.Location = New System.Drawing.Point(76, 256)
+        Me.cboPrioridad.Name = "cboPrioridad"
+        Me.cboPrioridad.Size = New System.Drawing.Size(141, 21)
+        Me.cboPrioridad.TabIndex = 12
+        Me.cboPrioridad.Text = "BAJA"
+        '
+        'btnGuardarCambios
+        '
+        Me.btnGuardarCambios.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnGuardarCambios.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnGuardarCambios.Location = New System.Drawing.Point(36, 307)
+        Me.btnGuardarCambios.Name = "btnGuardarCambios"
+        Me.btnGuardarCambios.Size = New System.Drawing.Size(104, 23)
+        Me.btnGuardarCambios.TabIndex = 13
+        Me.btnGuardarCambios.Text = "Guardar Cambios"
+        Me.btnGuardarCambios.UseVisualStyleBackColor = False
+        '
         'frmAgregarNota
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(296, 278)
+        Me.ClientSize = New System.Drawing.Size(352, 357)
+        Me.Controls.Add(Me.btnGuardarCambios)
+        Me.Controls.Add(Me.cboPrioridad)
+        Me.Controls.Add(Me.lblPrioridad)
         Me.Controls.Add(Me.lblidpostick)
         Me.Controls.Add(Me.btnEliminar)
         Me.Controls.Add(Me.NroPostick)
@@ -171,4 +208,7 @@ Partial Class frmAgregarNota
     Protected WithEvents dtpFecha As System.Windows.Forms.DateTimePicker
     Friend WithEvents btnEliminar As System.Windows.Forms.Button
     Friend WithEvents lblidpostick As System.Windows.Forms.Label
+    Friend WithEvents lblPrioridad As System.Windows.Forms.Label
+    Friend WithEvents cboPrioridad As System.Windows.Forms.ComboBox
+    Friend WithEvents btnGuardarCambios As System.Windows.Forms.Button
 End Class

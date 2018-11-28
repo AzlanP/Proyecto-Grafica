@@ -138,13 +138,24 @@ Public Class frmPestañaTareas
             PosY = i * 101
             Postick(i).Location = New Point(3, PosY)
             'MsgBox(Postick(i).Location.X & " , " & Postick(i).Location.Y)
-            Postick(i).BackColor = Color.FromArgb(249, 237, 117)
+            Dim opostick As New CEPostick
+            opostick = parrayposticks(i)
+            Select Case opostick.Prioridad
+                Case "BAJA" : Postick(i).BackColor = Color.FromArgb(153, 196, 231)
+                    Exit Select
+                Case "MEDIA" : Postick(i).BackColor = Color.FromArgb(249, 237, 117)
+                    Exit Select
+                Case "ALTA" : Postick(i).BackColor = Color.FromArgb(235, 134, 82)
+                    Exit Select
+                Case "URGENTE" : Postick(i).BackColor = Color.FromArgb(221, 83, 71)
+                    Exit Select
+            End Select
             If PosY > pcont.Size.Height Then
                 pcont.Size = New Point(135, PosY)
             End If
             pcont.Controls.Add(Postick(i))
-            Dim opostick As New CEPostick
-            opostick = parrayposticks(i)
+          
+           
             Postick(i).Items.Add("Titulo:" & opostick.Titulo)
             Postick(i).Items.Add("Descripcion:" & opostick.Descripcion)
             Postick(i).Tag = opostick.IDPostick
@@ -183,9 +194,10 @@ Public Class frmPestañaTareas
         olistbox = sender
         Dim OpenPostick As New frmAgregarNota
         OpenPostick.AbrirPostick(olistbox.Tag)
-        OpenPostick.Show()
+        OpenPostick.btnGuardarNota.Visible = False
+        OpenPostick.btnGuardarCambios.Visible = True
+        OpenPostick.ShowDialog()
         LimpiarPosticksEnPanels()
-
         AcomodarPostickEnPanels()
     End Sub
 
@@ -196,12 +208,11 @@ Public Class frmPestañaTareas
 
     Private Sub btnNuevaTarea_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNuevaTarea.Click
         Dim frmPostick As New frmAgregarNota
+        frmPostick.btnGuardarCambios.Visible = False
+        frmPostick.btnGuardarNota.Visible = True
+        frmPostick.NroPostick.Text = oCNPostick.ConsultarUltimoID()
         frmPostick.ShowDialog()
-        ' tengo un error para actualizar los posticks luego de que se ah creado uno nuevo
-
-
         LimpiarPosticksEnPanels()
-
         AcomodarPostickEnPanels()
 
     End Sub

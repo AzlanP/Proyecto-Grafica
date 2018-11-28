@@ -22,4 +22,7 @@ Public Class CNPostick
     Public Sub EliminarPostick(ByVal id As Integer)
         oCDPostick.EliminarPostick(id)
     End Sub
+    Public Sub ModificarPostick(ByVal oCEPostick As CEPostick)
+        oCDPostick.ModificarPostick(oCEPostick)
+    End Sub
 End Class
