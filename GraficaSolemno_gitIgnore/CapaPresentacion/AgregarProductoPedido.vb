@@ -4,8 +4,8 @@ Imports CapaNegocio
 Public Class AgregarProductoPedido
     Public oCEproducto As New CEProducto
     Dim oCNProducto As New CNProducto
-    Dim oCEDetallesDelPedido As New CEDetallesDelPedido
-    Dim oCNDetallesDelPedido As New CNDetallesDelPedido
+    'Dim oCEDetallesDelPedido As New CEDetallesDelPedido
+    'Dim oCNDetallesDelPedido As New CNDetallesDelPedido
 
     Private Sub btnAceptar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAceptar.Click
 
@@ -14,6 +14,7 @@ Public Class AgregarProductoPedido
         oCEproducto.Cantidad = txtCantidad.Text
         oCEproducto.Precio = txtboxPrecio.Text
         oCEproducto.Descripcion = TextboxDescripcion.Text
+        oCEproducto.IDProducto = lblID.Text
         Me.Close()
     End Sub
     Public Sub CargarGridBuscar()
@@ -39,7 +40,7 @@ Public Class AgregarProductoPedido
         Dim dr As DataRow
         dt = oCNProducto.BuscarProducto("IDProducto", id)
         dr = dt.Rows(0)
-        'lblID.Text = oCNDetallesDelPedido.ConsultarUltimoID
+        lblID.Text = dr("IDProducto")
         CboProducto.Text = dr("Nombre").ToString
         txtCantidad.Text = CInt("1")
         txtboxPrecio.Text = dr("Precio").ToString

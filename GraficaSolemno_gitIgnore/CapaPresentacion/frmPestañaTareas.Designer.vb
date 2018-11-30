@@ -43,6 +43,7 @@ Partial Class frmPestañaTareas
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
+        Me.BarraInferior = New System.Windows.Forms.Panel()
         Me.panelPostick.SuspendLayout()
         Me.SemanaDias.SuspendLayout()
         Me.SuspendLayout()
@@ -70,9 +71,9 @@ Partial Class frmPestañaTareas
         Me.panelPostick.Controls.Add(Me.Panel3)
         Me.panelPostick.Controls.Add(Me.Panel2)
         Me.panelPostick.Controls.Add(Me.Panel1)
-        Me.panelPostick.Location = New System.Drawing.Point(12, 144)
+        Me.panelPostick.Location = New System.Drawing.Point(11, 108)
         Me.panelPostick.Name = "panelPostick"
-        Me.panelPostick.Size = New System.Drawing.Size(1068, 375)
+        Me.panelPostick.Size = New System.Drawing.Size(1074, 375)
         Me.panelPostick.TabIndex = 24
         '
         'Panel7
@@ -80,7 +81,7 @@ Partial Class frmPestañaTareas
         Me.Panel7.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.Panel7.Location = New System.Drawing.Point(914, 12)
         Me.Panel7.Name = "Panel7"
-        Me.Panel7.Size = New System.Drawing.Size(140, 350)
+        Me.Panel7.Size = New System.Drawing.Size(140, 365)
         Me.Panel7.TabIndex = 6
         '
         'Panel6
@@ -88,7 +89,7 @@ Partial Class frmPestañaTareas
         Me.Panel6.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.Panel6.Location = New System.Drawing.Point(763, 12)
         Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(140, 350)
+        Me.Panel6.Size = New System.Drawing.Size(140, 363)
         Me.Panel6.TabIndex = 5
         '
         'Panel5
@@ -96,7 +97,7 @@ Partial Class frmPestañaTareas
         Me.Panel5.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.Panel5.Location = New System.Drawing.Point(612, 12)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(140, 350)
+        Me.Panel5.Size = New System.Drawing.Size(140, 363)
         Me.Panel5.TabIndex = 4
         '
         'Panel4
@@ -104,7 +105,7 @@ Partial Class frmPestañaTareas
         Me.Panel4.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.Panel4.Location = New System.Drawing.Point(461, 12)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(140, 350)
+        Me.Panel4.Size = New System.Drawing.Size(140, 365)
         Me.Panel4.TabIndex = 3
         '
         'Panel3
@@ -112,7 +113,7 @@ Partial Class frmPestañaTareas
         Me.Panel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.Panel3.Location = New System.Drawing.Point(310, 12)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(140, 350)
+        Me.Panel3.Size = New System.Drawing.Size(140, 363)
         Me.Panel3.TabIndex = 2
         '
         'Panel2
@@ -120,7 +121,7 @@ Partial Class frmPestañaTareas
         Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.Panel2.Location = New System.Drawing.Point(159, 12)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(140, 350)
+        Me.Panel2.Size = New System.Drawing.Size(140, 354)
         Me.Panel2.TabIndex = 1
         '
         'Panel1
@@ -128,7 +129,7 @@ Partial Class frmPestañaTareas
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.Panel1.Location = New System.Drawing.Point(8, 12)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(140, 350)
+        Me.Panel1.Size = New System.Drawing.Size(140, 354)
         Me.Panel1.TabIndex = 0
         '
         'btnEliminarTarea
@@ -147,7 +148,7 @@ Partial Class frmPestañaTareas
         Me.MesesCalendario.AutoSize = True
         Me.MesesCalendario.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.MesesCalendario.Font = New System.Drawing.Font("Cambria", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MesesCalendario.Location = New System.Drawing.Point(492, 62)
+        Me.MesesCalendario.Location = New System.Drawing.Point(491, 26)
         Me.MesesCalendario.Name = "MesesCalendario"
         Me.MesesCalendario.Size = New System.Drawing.Size(68, 22)
         Me.MesesCalendario.TabIndex = 30
@@ -157,7 +158,7 @@ Partial Class frmPestañaTareas
         '
         Me.btnPosteriorSemana.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnPosteriorSemana.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnPosteriorSemana.Location = New System.Drawing.Point(1048, 87)
+        Me.btnPosteriorSemana.Location = New System.Drawing.Point(1053, 54)
         Me.btnPosteriorSemana.Name = "btnPosteriorSemana"
         Me.btnPosteriorSemana.Size = New System.Drawing.Size(32, 53)
         Me.btnPosteriorSemana.TabIndex = 29
@@ -168,7 +169,7 @@ Partial Class frmPestañaTareas
         '
         Me.btnAnteriorSemana.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnAnteriorSemana.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAnteriorSemana.Location = New System.Drawing.Point(12, 87)
+        Me.btnAnteriorSemana.Location = New System.Drawing.Point(12, 54)
         Me.btnAnteriorSemana.Name = "btnAnteriorSemana"
         Me.btnAnteriorSemana.Size = New System.Drawing.Size(29, 53)
         Me.btnAnteriorSemana.TabIndex = 28
@@ -185,7 +186,7 @@ Partial Class frmPestañaTareas
         Me.SemanaDias.Controls.Add(Me.Label10)
         Me.SemanaDias.Controls.Add(Me.Label9)
         Me.SemanaDias.Controls.Add(Me.Label8)
-        Me.SemanaDias.Location = New System.Drawing.Point(38, 87)
+        Me.SemanaDias.Location = New System.Drawing.Point(43, 54)
         Me.SemanaDias.Name = "SemanaDias"
         Me.SemanaDias.Size = New System.Drawing.Size(1020, 53)
         Me.SemanaDias.TabIndex = 27
@@ -260,12 +261,21 @@ Partial Class frmPestañaTareas
         Me.Label8.TabIndex = 0
         Me.Label8.Text = "Label8"
         '
+        'BarraInferior
+        '
+        Me.BarraInferior.BackColor = System.Drawing.Color.Black
+        Me.BarraInferior.Location = New System.Drawing.Point(11, 480)
+        Me.BarraInferior.Name = "BarraInferior"
+        Me.BarraInferior.Size = New System.Drawing.Size(1074, 14)
+        Me.BarraInferior.TabIndex = 31
+        '
         'frmPestañaTareas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1125, 560)
+        Me.Controls.Add(Me.BarraInferior)
         Me.Controls.Add(Me.MesesCalendario)
         Me.Controls.Add(Me.btnPosteriorSemana)
         Me.Controls.Add(Me.btnAnteriorSemana)
@@ -304,4 +314,5 @@ Partial Class frmPestañaTareas
     Friend WithEvents Panel3 As System.Windows.Forms.Panel
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
+    Friend WithEvents BarraInferior As System.Windows.Forms.Panel
 End Class

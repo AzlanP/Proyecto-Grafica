@@ -11,11 +11,8 @@ Public Class CDDetallesDelPedido
         oCDConexion.Conectar()
         Try
             Dim dt As New DataTable
-
             Dim da As New SQLiteDataAdapter
-
-            Dim InstruccionSQL As String = "Select itemsporpedido.IDItems , Productos.Nombre , itemsporpedido.cantidad ,itemsporpedido.Descripcion,Productos.Precio from pedidos join itemsporpedido on pedidos.idpedido=itemsporpedido.IDPedido join productos on  itemsporpedido.IDProducto= productos.IDProducto where  pedidos.IDPedido= " & id
-
+            Dim InstruccionSQL As String = "Select itemsporpedido.IDItems , Productos.Nombre , itemsporpedido.cantidad ,itemsporpedido.Descripcion, itemsporpedido.Precio, pedidos.IDPedido from pedidos join itemsporpedido on pedidos.idpedido=itemsporpedido.IDPedido join productos on  itemsporpedido.IDProducto= productos.IDProducto where  pedidos.IDPedido= " & id
             Dim comando As New SQLiteCommand(InstruccionSQL, oCDConexion.con)
             da.SelectCommand = comando
             da.Fill(dt)
@@ -27,30 +24,30 @@ Public Class CDDetallesDelPedido
         End Try
         oCDConexion.Desconectar()
     End Function
-    Public Sub AgregarItemAlPedido(ByVal pItem As Object, ByVal tipo As String)
+    Public Sub AgregarItemAlPedido(ByVal pItem As CEDetallesDelPedido)
 
 
-        'oCDConexion.Conectar()
+        oCDConexion.Conectar()
 
-        'Try
-        '    Dim instruccionsql As String = "INSERT INTO ItemsPorPedido(IDItems, IDProducto, IDServicio, IDPedido, Cantidad, Descripcion) VALUES (@IDItems, @IDProducto, @IDServicio, @IDPedido, @Cantidad, @Descripcion)"
-        '    Dim comando As New SQLiteCommand(instruccionsql, oCDConexion.con)
-        '    With comando.Parameters
-        '        .Add("@IDItems", SqlDbType.Int).Value = pListado.IDItems
-        '        .Add("@IDPedido", SqlDbType.Int).Value = pListado.IDPedido
-        '        .Add("@IDServicio", SqlDbType.Int).Value = oCEServicio.IDServicio
-        '        .Add("@IDProducto", SqlDbType.Int).Value = oCEServicio.IDServicio
-        '        .Add("@Cantidad", SqlDbType.Int).Value = pListado.Cantidad
-        '        .Add("@Descripcion", SqlDbType.VarChar).Value = pListado.Descripcion
-        '    End With
+        Try
+            Dim instruccionsql As String = "INSERT INTO ItemsPorPedido (IDItems, IDProducto, IDPedido, Cantidad, Descripcion, Precio) VALUES (@IDItems, @IDProducto, @IDPedido, @Cantidad, @Descripcion, @Precio)"
+            Dim comando As New SQLiteCommand(instruccionsql, oCDConexion.con)
+            With comando.Parameters
+                .Add("@IDItems", SqlDbType.Int).Value = pItem.IDItems
+                .Add("@IDProducto", SqlDbType.Int).Value = pItem.IDProducto
+                .Add("@IDPedido", SqlDbType.Int).Value = pItem.IDPedido
+                .Add("@Cantidad", SqlDbType.Real).Value = pItem.Cantidad
+                .Add("@Descripcion", SqlDbType.VarChar).Value = pItem.Descripcion
+                .Add("@Precio", SqlDbType.Real).Value = pItem.Precio
+            End With
 
-        '    comando.ExecuteNonQuery()
+            comando.ExecuteNonQuery()
 
-        'Catch ex As Exception
-        '    Throw New Exception("Error al agregar el item al pedido." & ex.Message)
-        'Finally
-        '    oCDConexion.Desconectar()
-        'End Try
+        Catch ex As Exception
+            Throw New Exception("Error al agregar el item al pedido." & ex.Message)
+        Finally
+            oCDConexion.Desconectar()
+        End Try
     End Sub
     Public Sub EliminarItemDelListado(ByVal id As Integer)
         oCDConexion.Conectar()
@@ -60,37 +57,32 @@ Public Class CDDetallesDelPedido
         comando.ExecuteNonQuery()
         oCDConexion.Desconectar()
     End Sub
-    Public Sub ModificarServicio(ByVal oCEProducto As CEProducto)
-        oCDConexion.Conectar()
-        Try
-
-
-
-            Dim instruccionsql As String = "UPDATE Servicios SET  Nombre=@Nombre where IDServicio=@IDServicio"
-            Dim comando As New SQLiteCommand(instruccionsql, oCDConexion.con)
-            With comando.Parameters
-                .Add("@IDServicio", SqlDbType.Int).Value = oCEProducto.IDProducto
-
-                '.Add("@IDItems", SqlDbType.Int).Value = pListado.IDItems
-                '.Add("@IDPedido", SqlDbType.Int).Value = .IDPedido
-                '.Add("@Nombre", SqlDbType.VarChar).Value = oCEProducto.Nombre
-                '.Add("@Cantidad", SqlDbType.Int).Value = pListado.Cantidad
-                '.Add("@Descripcion", SqlDbType.VarChar).Value = pListado.Descripcion
-            End With
-            comando.ExecuteNonQuery()
-            MsgBox("El servicio se ha modificado con exito", vbInformation, "Modificado")
-
-        Catch ex As Exception
-            Throw New Exception("No se ah podido modificar el registro seleccionado:" & ex.Message)
-        Finally
-            oCDConexion.Desconectar()
-
-        End Try
-    End Sub
-
     Function ConsultarUltimoID() As Integer
         Return oCDConexion.ConsultarUltimoID("ItemsPorPedido")
     End Function
+    Public Sub ModificarItem(ByVal oDetalles As CEDetallesDelPedido)
+        oCDConexion.Conectar()
+        Try
+            Dim instruccionsql As String = "UPDATE ItemsPorPedido SET  IDProducto=@IDProducto, Descripcion=@Descripcion, Cantidad=@Cantidad, Precio=@Precio where IDItems=@IDItems and IDPedido=@IDPedido "
+            Dim comando As New SQLiteCommand(instruccionsql, oCDConexion.con)
+            With comando.Parameters
+                .Add("@IDPedido", SqlDbType.Int).Value = oDetalles.IDPedido
+                .Add("@IDItems", SqlDbType.Int).Value = oDetalles.IDItems
+                .Add("@IDProducto", SqlDbType.Int).Value = oDetalles.IDProducto
+                .Add("@Descripcion", SqlDbType.VarChar).Value = oDetalles.Descripcion
+                .Add("@Cantidad", SqlDbType.Real).Value = oDetalles.Cantidad
+                .Add("@Precio", SqlDbType.Real).Value = oDetalles.Precio
+            End With
+
+            comando.ExecuteNonQuery()
+
+        Catch ex As Exception
+            Throw New Exception("Error al modificar el producto o servicio del pedido." & ex.Message)
+        Finally
+            oCDConexion.Desconectar()
+        End Try
+    End Sub
+
 End Class
 
 

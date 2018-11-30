@@ -9,7 +9,7 @@ Public Class CNDetallesDelPedido
     End Function
     Public Sub AgregarItemAlPedido(ByVal pItem As CEDetallesDelPedido)
 
-        'oCDListadoPedido.AgregarItemAlPedido(pListado)
+        oCDDetallesDelPedido.AgregarItemAlPedido(pItem)
     End Sub
     Public Sub Eliminaritemdelistado(ByVal id As Integer)
         oCDDetallesDelPedido.EliminarItemDelListado(id)

@@ -120,16 +120,15 @@ Public Class frmMenuPrincipal
         dt = oCNProducto.BuscarProducto(cboBuscarProducto.Text, txtBuscarProducto.Text)
         DGProducto.DataSource = dt
     End Sub
-    Private Sub DGProducto_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DGProducto.CellClick
-        DGProducto.CurrentRow.Selected = True
+   
+    Private Sub DGProducto_CellMouseDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellMouseEventArgs) Handles DGProducto.CellMouseDoubleClick
         ID = DGProducto.Rows(e.RowIndex).Cells("IDProducto").Value
-    End Sub
-    Private Sub DGProducto_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles DGProducto.DoubleClick
         Dim frmRegistrar As New RegistrarProducto
         frmRegistrar.LlenarFormulario(ID)
         frmRegistrar.ShowDialog()
         CargarGridProducto()
     End Sub
+    
 
     '--------------------------------------------------------------------------------------------------------------
     '--------------------------------------------------------------------------------------------------------------
@@ -143,20 +142,28 @@ Public Class frmMenuPrincipal
     End Sub
     Private Sub btnNuevoPedido_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNuevoPedido.Click
         Dim frmPedido As New FormularioPedido
+        frmPedido.btnAgregarPedidoExistente.Visible = False
+        frmPedido.btnAgregarPedidoNuevo.Visible = True
+        frmPedido.btnGuardarPedido.Visible = True
+        frmPedido.btnGuardarCambios.Visible = False
         frmPedido.lblID.Text = oCNPedido.ConsultarUltimoID()
         frmPedido.Detalles()
-
         frmPedido.ShowDialog()
-        CargarGridProducto()
+        CargarGridPedidos()
     End Sub
 
     Private Sub btnModificarPedido_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnModificarPedido.Click
         ID = DGPedido.Rows(DGPedido.CurrentCell.RowIndex).Cells("IDPedido").Value
         Dim frmPedido As New FormularioPedido
+        frmPedido.btnAgregarPedidoNuevo.Visible = False
+        frmPedido.btnAgregarPedidoExistente.Visible = True
+        frmPedido.btnGuardarPedido.Visible = False
+        frmPedido.btnGuardarCambios.Visible = True
         frmPedido.CargarGridDetalles(ID)
+        frmPedido.LLenarFormulario(ID)
         frmPedido.lblID.Text = ID
         frmPedido.ShowDialog()
-
+        CargarGridPedidos()
     End Sub
 
     Private Sub btnVerPedido_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnVerPedido.Click
@@ -182,10 +189,15 @@ Public Class frmMenuPrincipal
     Private Sub DGPedido_MouseDoubleClick(ByVal sender As Object, ByVal e As MouseEventArgs) Handles DGPedido.MouseDoubleClick
         ID = DGPedido.Rows(DGPedido.CurrentCell.RowIndex).Cells("IDPedido").Value
         Dim frmPedido As New FormularioPedido
-        frmPedido.lblID.Text = ID
+        frmPedido.btnAgregarPedidoNuevo.Visible = False
+        frmPedido.btnAgregarPedidoExistente.Visible = True
+        frmPedido.btnGuardarPedido.Visible = False
+        frmPedido.btnGuardarCambios.Visible = True
         frmPedido.CargarGridDetalles(ID)
+        frmPedido.LLenarFormulario(ID)
+        frmPedido.lblID.Text = ID
         frmPedido.ShowDialog()
-
+        CargarGridPedidos()
     End Sub
 
 

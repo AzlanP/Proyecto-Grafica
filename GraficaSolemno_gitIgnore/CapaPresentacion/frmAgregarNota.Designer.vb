@@ -176,7 +176,7 @@ Partial Class frmAgregarNota
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(352, 357)
+        Me.ClientSize = New System.Drawing.Size(343, 357)
         Me.Controls.Add(Me.btnGuardarCambios)
         Me.Controls.Add(Me.cboPrioridad)
         Me.Controls.Add(Me.lblPrioridad)

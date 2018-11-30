@@ -46,6 +46,7 @@ Partial Class FormularioPedido
         Me.txtSeña = New System.Windows.Forms.TextBox()
         Me.lblSeña = New System.Windows.Forms.Label()
         Me.btnAgregarPedidoExistente = New System.Windows.Forms.Button()
+        Me.btnGuardarCambios = New System.Windows.Forms.Button()
         CType(Me.DGListaDePedido, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -81,11 +82,11 @@ Partial Class FormularioPedido
         '
         Me.btnGuardarPedido.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnGuardarPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnGuardarPedido.Location = New System.Drawing.Point(382, 391)
+        Me.btnGuardarPedido.Location = New System.Drawing.Point(338, 389)
         Me.btnGuardarPedido.Name = "btnGuardarPedido"
-        Me.btnGuardarPedido.Size = New System.Drawing.Size(81, 26)
+        Me.btnGuardarPedido.Size = New System.Drawing.Size(125, 26)
         Me.btnGuardarPedido.TabIndex = 30
-        Me.btnGuardarPedido.Text = "Cargar Pedido"
+        Me.btnGuardarPedido.Text = "Cargar Nuevo"
         Me.btnGuardarPedido.UseVisualStyleBackColor = False
         '
         'txtDescripcion
@@ -137,7 +138,7 @@ Partial Class FormularioPedido
         '
         Me.btnAgregarPedidoNuevo.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnAgregarPedidoNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAgregarPedidoNuevo.Location = New System.Drawing.Point(469, 164)
+        Me.btnAgregarPedidoNuevo.Location = New System.Drawing.Point(469, 191)
         Me.btnAgregarPedidoNuevo.Name = "btnAgregarPedidoNuevo"
         Me.btnAgregarPedidoNuevo.Size = New System.Drawing.Size(81, 60)
         Me.btnAgregarPedidoNuevo.TabIndex = 23
@@ -268,12 +269,23 @@ Partial Class FormularioPedido
         '
         Me.btnAgregarPedidoExistente.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnAgregarPedidoExistente.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAgregarPedidoExistente.Location = New System.Drawing.Point(469, 93)
+        Me.btnAgregarPedidoExistente.Location = New System.Drawing.Point(469, 120)
         Me.btnAgregarPedidoExistente.Name = "btnAgregarPedidoExistente"
         Me.btnAgregarPedidoExistente.Size = New System.Drawing.Size(81, 65)
         Me.btnAgregarPedidoExistente.TabIndex = 41
         Me.btnAgregarPedidoExistente.Text = "Añadir  a Pedido existente"
         Me.btnAgregarPedidoExistente.UseVisualStyleBackColor = False
+        '
+        'btnGuardarCambios
+        '
+        Me.btnGuardarCambios.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnGuardarCambios.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnGuardarCambios.Location = New System.Drawing.Point(338, 353)
+        Me.btnGuardarCambios.Name = "btnGuardarCambios"
+        Me.btnGuardarCambios.Size = New System.Drawing.Size(123, 26)
+        Me.btnGuardarCambios.TabIndex = 42
+        Me.btnGuardarCambios.Text = "Cargar Cambios"
+        Me.btnGuardarCambios.UseVisualStyleBackColor = False
         '
         'FormularioPedido
         '
@@ -281,6 +293,7 @@ Partial Class FormularioPedido
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(562, 427)
+        Me.Controls.Add(Me.btnGuardarCambios)
         Me.Controls.Add(Me.btnAgregarPedidoExistente)
         Me.Controls.Add(Me.txtSeña)
         Me.Controls.Add(Me.lblSeña)
@@ -336,4 +349,5 @@ Partial Class FormularioPedido
     Friend WithEvents txtSeña As System.Windows.Forms.TextBox
     Friend WithEvents lblSeña As System.Windows.Forms.Label
     Friend WithEvents btnAgregarPedidoExistente As System.Windows.Forms.Button
+    Friend WithEvents btnGuardarCambios As System.Windows.Forms.Button
 End Class

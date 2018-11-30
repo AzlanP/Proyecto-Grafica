@@ -6,19 +6,21 @@ Public Class CNPedido
     Function MostrarPedido() As DataTable
         Return oCDPedido.MostrarPedido
     End Function
-    Public Sub AgregarPedido(ByVal oCEPedido As CEPedido)
-        oCDPedido.AgregarPedido(oCEPedido)
+    'Public Sub AgregarPedido(ByVal oCEPedido As CEPedido)
+    '    oCDPedido.AgregarPedido(oCEPedido)
+    'End Sub
+    Public Sub GenerarElPedido(ByVal pPedido As CEPedido, ByVal TablaDetalles As DataTable)
+        oCDPedido.GenerarElPedido(pPedido, TablaDetalles)
     End Sub
-    Public Sub ModificarPedido(ByVal oCEPedido As CEPedido)
-        oCDPedido.ModificarPedido(oCEPedido)
+    Public Sub ModificarPedido(ByVal oCEPedido As CEPedido, ByVal TablaDetalles As DataTable)
+        oCDPedido.ModificarPedido(oCEPedido, TablaDetalles)
     End Sub
     Public Sub EliminarPedido(ByVal IDPedido As Integer)
         oCDPedido.EliminarPedido(IDPedido)
     End Sub
     Function BuscarPedido(ByVal pcampo As String, ByVal pbuscar As String) As DataTable
-        Dim dt As New DataTable
-        dt = oCDPedido.BuscarPedido(pcampo, pbuscar)
-        Return dt
+
+        Return oCDPedido.BuscarPedido(pcampo, pbuscar)
     End Function
     Function ConsultarUltimoID() As Integer
         Return oCDPedido.ConsultarUltimoID()

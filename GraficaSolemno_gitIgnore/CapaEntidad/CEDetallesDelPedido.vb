@@ -1,6 +1,7 @@
 ﻿Public Class CEDetallesDelPedido
     Private _IDPedido As Integer
     Private _IDItems As Integer
+    Private _IDProducto As Integer
     Private _Nombre As String
     Private _Descripcion As String
     Private _Cantidad As Integer
@@ -11,6 +12,14 @@
         End Get
         Set(ByVal value As Integer)
             _IDItems = value
+        End Set
+    End Property
+    Public Property IDProducto() As Integer
+        Get
+            Return _IDProducto
+        End Get
+        Set(ByVal value As Integer)
+            _IDProducto = value
         End Set
     End Property
     Public Property IDPedido() As Integer

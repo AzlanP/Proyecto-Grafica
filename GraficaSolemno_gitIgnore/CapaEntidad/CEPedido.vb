@@ -1,14 +1,12 @@
 ﻿Public Class CEPedido
     Private _IDPedido As Integer
-
-    Private _Cliente As Integer
-    Private _Productos() As Array
-    Private _Servicios() As Array
-    Private _Fecha As String
-    Private _TipoDeEnvio As Integer
-    Private _Descripcion As String
     Private _Medio As Integer
+    Private _Cliente As Integer
+    Private _Fecha As String
+    Private _TipoDeEnvio As String
+    Private _Descripcion As String
     Private _Estado As String
+    Private _Seña As Double
     Public Property IDPedido() As Integer
         Get
             Return _IDPedido
@@ -17,24 +15,7 @@
             _IDPedido = value
         End Set
     End Property
-    Public Property Productos() As Array
-        Get
-            Return _Productos
-        End Get
-        Set(ByVal value As Array)
-            _Productos = value
-        End Set
-    End Property
-    Public Property Servicios() As Array
-        Get
-            Return _Servicios
-        End Get
-        Set(ByVal value As Array)
-            _Servicios = value
-
-        End Set
-    End Property
-
+   
     Public Property Medio() As Integer
         Get
             Return _Medio
@@ -69,11 +50,11 @@
             _Fecha = value
         End Set
     End Property
-    Public Property TipoDeEnvio() As Integer
+    Public Property TipoDeEnvio() As String
         Get
             Return _TipoDeEnvio
         End Get
-        Set(ByVal value As Integer)
+        Set(ByVal value As String)
             _TipoDeEnvio = value
         End Set
     End Property
@@ -83,6 +64,14 @@
         End Get
         Set(ByVal value As String)
             _Descripcion = value
+        End Set
+    End Property
+    Public Property Seña() As Double
+        Get
+            Return _Seña
+        End Get
+        Set(ByVal value As Double)
+            _Seña = value
         End Set
     End Property
 End Class
