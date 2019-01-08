@@ -241,20 +241,20 @@ Public Class frmMenuPrincipal
             Next
         End If
     End Sub
-    Public Sub GraficarServiciosMensuales()
-        GraficoSegunConsulta.Series("Cantidad").Points.Clear()
+    'Public Sub GraficarServiciosMensuales()
+    '    GraficoSegunConsulta.Series("Cantidad").Points.Clear()
 
-        If (cboAño.Text = Nothing) Or (cboMeses.Text = Nothing) Then
-            MsgBox("Debe ingresar un valor para los campos mes y año.")
-        Else
-            Dim dt As DataTable = oCNgraficas.GraficarServiciosMensuales(cboMeses.SelectedIndex + 1, cboAño.Text)
-            Dim dv As DataView = New DataView(dt)
-            For x = 0 To dv.Count - 1
+    '    If (cboAño.Text = Nothing) Or (cboMeses.Text = Nothing) Then
+    '        MsgBox("Debe ingresar un valor para los campos mes y año.")
+    '    Else
+    '        Dim dt As DataTable = oCNgraficas.GraficarServiciosMensuales(cboMeses.SelectedIndex + 1, cboAño.Text)
+    '        Dim dv As DataView = New DataView(dt)
+    '        For x = 0 To dv.Count - 1
 
-                GraficoSegunConsulta.Series("Cantidad").Points.AddXY(dv(x)("Nombre"), dv(x)("Cantidad"))
-            Next
-        End If
-    End Sub
+    '            GraficoSegunConsulta.Series("Cantidad").Points.AddXY(dv(x)("Nombre"), dv(x)("Cantidad"))
+    '        Next
+    '    End If
+    'End Sub
     Private Sub btnGraficoPedidos_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGraficoPedidos.Click
         GraficoPedidosMensuales()
     End Sub
@@ -262,7 +262,7 @@ Public Class frmMenuPrincipal
         GraficarMedios()
     End Sub
     Private Sub btnGraficoServicios_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGraficoServicios.Click
-        GraficarServiciosMensuales()
+        'GraficarServiciosMensuales()
     End Sub
     Private Sub btnGraficosProducto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGraficosProducto.Click
         GraficarProductosMensual()
@@ -294,4 +294,6 @@ Public Class frmMenuPrincipal
         End If
 
     End Sub
+
+    
 End Class

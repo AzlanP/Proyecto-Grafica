@@ -46,7 +46,7 @@ Public Class AgregarProductoPedido
         txtboxPrecio.Text = dr("Precio").ToString
         TextboxDescripcion.Text = ""
     End Sub
-
+    'fijarme si no combine mas poner solo cellclick ya que el doble click aveces funciona mal
     Private Sub DGBuscar_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DGBuscar.CellDoubleClick
         Dim ID As Integer = DGBuscar.Rows(e.RowIndex).Cells("IDProducto").Value
         CargarDatos(ID)

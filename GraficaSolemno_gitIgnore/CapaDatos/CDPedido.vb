@@ -13,48 +13,44 @@ Public Class CDPedidos
 
         oCDConexion.Conectar()
         Try
-            Dim instruccionsql As String = "Select * from pedidos  where pedidos.IDPedido= " & pPedido.IDPedido
-            Dim comando As New SQLiteCommand(instruccionsql, oCDConexion.con)
-            Dim FilasAfectadas As Integer = comando.ExecuteScalar()
-            If FilasAfectadas = 1 Then
-                'significa que el pedido ya existe por lo que 
-                '*se le agregarian mas productos
-                '*se le reducirian productos
-                '*se le modificarian las cantidades
-                MsgBox("el pedido ya existe")
+            'Dim instruccionsql As String = "Select * from pedidos  where pedidos.IDPedido= " & pPedido.IDPedido
+            'Dim comando As New SQLiteCommand(instruccionsql, oCDConexion.con)
+            'Dim FilasAfectadas As Integer = comando.ExecuteScalar()
+            'If FilasAfectadas = 1 Then
+            '    'significa que el pedido ya existe por lo que 
+            '    '*se le agregarian mas productos
+            '    '*se le reducirian productos
+            '    '*se le modificarian las cantidades
+            '    MsgBox("el pedido ya existe")
 
-            ElseIf FilasAfectadas = 0 Then
-                '*significa que el pedido no fue encontrado por lo tanto no existe
-                '*debemos crear el pedido, y luego asignarle a ese pedido todos los elementos de la lista
-                instruccionsql = "Insert into Pedidos (IDPedido, Descripcion ,Fecha , IDCliente, TipoEnvio, IDMedio, Estado, Seña) values (@IDPedido, @Descripcion ,@Fecha , @IDCliente, @TipoEnvio, @IDMedio, @Estado, @Seña)"
-                Dim cmd As New SQLiteCommand(instruccionsql, oCDConexion.con)
-                With cmd.Parameters
-                    .Add("@IDPedido", SqlDbType.Int).Value = pPedido.IDPedido
-                    .Add("@Descripcion", SqlDbType.VarChar).Value = pPedido.Descripcion
-                    .Add("@Fecha", SqlDbType.VarChar).Value = pPedido.Fecha
-                    .Add("@IDCliente", SqlDbType.Int).Value = pPedido.Cliente
-                    .Add("@TipoEnvio", SqlDbType.Int).Value = pPedido.TipoDeEnvio
-                    .Add("@IDMedio", SqlDbType.Int).Value = pPedido.Medio
-                    .Add("@Estado", SqlDbType.VarChar).Value = pPedido.Estado
-                    .Add("@Seña", SqlDbType.Real).Value = pPedido.Seña
-                End With
-                cmd.ExecuteNonQuery()
-                For Each row As DataRow In TablaDetalles.Rows
-                    oCEDetallesDelPedido.IDPedido = pPedido.IDPedido
-                    oCEDetallesDelPedido.IDItems = row(0)
-                    oCEDetallesDelPedido.Nombre = row(1)
-                    oCEDetallesDelPedido.Cantidad = row(2)
-                    oCEDetallesDelPedido.Descripcion = row(3)
-                    oCEDetallesDelPedido.Precio = row(4)
-                    oCEDetallesDelPedido.IDProducto = row(5)
-                    oCDDetallesDelPedido.AgregarItemAlPedido(oCEDetallesDelPedido)
-                Next
+            'ElseIf FilasAfectadas = 0 Then
+            '    '*significa que el pedido no fue encontrado por lo tanto no existe
+            '    '*debemos crear el pedido, y luego asignarle a ese pedido todos los elementos de la lista
+            Dim instruccionsql As String = "Insert into Pedidos (IDPedido, Descripcion ,Fecha , IDCliente, TipoEnvio, IDMedio, Estado, Seña) values (@IDPedido, @Descripcion ,@Fecha , @IDCliente, @TipoEnvio, @IDMedio, @Estado, @Seña)"
+            Dim cmd As New SQLiteCommand(instruccionsql, oCDConexion.con)
+            With cmd.Parameters
+                .Add("@IDPedido", SqlDbType.Int).Value = pPedido.IDPedido
+                .Add("@Descripcion", SqlDbType.VarChar).Value = pPedido.Descripcion
+                .Add("@Fecha", SqlDbType.VarChar).Value = pPedido.Fecha
+                .Add("@IDCliente", SqlDbType.Int).Value = pPedido.Cliente
+                .Add("@TipoEnvio", SqlDbType.Int).Value = pPedido.TipoDeEnvio
+                .Add("@IDMedio", SqlDbType.Int).Value = pPedido.Medio
+                .Add("@Estado", SqlDbType.VarChar).Value = pPedido.Estado
+                .Add("@Seña", SqlDbType.Real).Value = pPedido.Seña
+            End With
+            cmd.ExecuteNonQuery()
+            For Each row As DataRow In TablaDetalles.Rows
+                oCEDetallesDelPedido.IDPedido = pPedido.IDPedido
+                oCEDetallesDelPedido.IDItems = row(0)
+                oCEDetallesDelPedido.Nombre = row(1)
+                oCEDetallesDelPedido.Cantidad = row(2)
+                oCEDetallesDelPedido.Descripcion = row(3)
+                oCEDetallesDelPedido.Precio = row(4)
+                'considerar mostrar solo id de producto para la tabla de items el nombre es irrelevante
+                oCEDetallesDelPedido.IDProducto = row(5)
+                oCDDetallesDelPedido.AgregarItemAlPedido(oCEDetallesDelPedido)
+            Next
 
-
-
-            Else
-                Throw New Exception("Error no puede haber 2 pedidos con el mismo ID")
-            End If
         Catch ex As Exception
             Throw New Exception("Error al Cargar el pedido." & ex.Message)
         Finally
@@ -82,24 +78,46 @@ Public Class CDPedidos
             TablaBD = oCDDetallesDelPedido.MostrarDetalles(oCEPedido.IDPedido)
             Dim i As Integer = 0
             Dim validado As Boolean = False
+
+
+            Dim TablaMerge As New DataTable
+            Dim TablaCopyDetalles As DataTable
+            TablaCopyDetalles = TablaDetalles.Copy
+            TablaCopyDetalles.Merge(TablaBD)
+            TablaMerge = TablaDetalles.GetChanges
             For Each row As DataRow In TablaDetalles.Rows
-
-                For Each rowBD As DataRow In TablaBD.Rows
-                    validado = False
-                    If row.Item(0) = rowBD.Item(0) Then
-                        MsgBox("Este elemento existe por lo tanto sera modificado" & row.Item("Nombre"))
-                        'se modificara
-                        validado = True
-                    ElseIf i = TablaBD.Rows.Count And validado = False Then
-                        MsgBox("Este elemento no existe por lo tanto sera Agregado" & row.Item("Nombre"))
-                        'se agrega
-                        validado = True
-                    End If
-
-                Next
-             
-                i += 1
+                MsgBox(row(0) & " , " & row(1) & " , " & row(2) & " , " & row(3) & " , " & row(4) & " , " & row(5))
+                'oCEDetallesDelPedido.IDPedido = oCEPedido.IDPedido
+                'oCEDetallesDelPedido.IDItems = row(0)
+                'oCEDetallesDelPedido.Nombre = row(1)
+                'oCEDetallesDelPedido.Cantidad = row(2)
+                'oCEDetallesDelPedido.Descripcion = row(3)
+                'oCEDetallesDelPedido.Precio = row(4)
+                ''considerar mostrar solo id de producto para la tabla de items el nombre es irrelevante
+                'oCEDetallesDelPedido.IDProducto = row(5)
+                'oCDDetallesDelPedido.AgregarItemAlPedido(oCEDetallesDelPedido)
             Next
+
+
+            'For Each row As DataRow In TablaDetalles.
+
+            '    For Each rowBD As DataRow In TablaBD.Rows
+            '        validado = False
+            '        If row.Item(0) = rowBD.Item(0) Then
+            '            MsgBox("Este elemento existe por lo tanto sera modificado" & row.Item("Nombre"))
+
+            '            'se modificara
+            '            validado = True
+            '        ElseIf i = TablaBD.Rows.Count And validado = False Then
+            '            MsgBox("Este elemento no existe por lo tanto sera Agregado" & row.Item("Nombre"))
+            '            'se agrega
+            '            validado = True
+            '        End If
+
+            '    Next
+
+            '    i += 1
+            'Next
 
 
         Catch ex As Exception

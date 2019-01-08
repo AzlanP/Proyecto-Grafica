@@ -116,7 +116,7 @@ Partial Class FormularioPedido
         '
         Me.btnModificarPedido.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnModificarPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnModificarPedido.Location = New System.Drawing.Point(480, 302)
+        Me.btnModificarPedido.Location = New System.Drawing.Point(469, 285)
         Me.btnModificarPedido.Name = "btnModificarPedido"
         Me.btnModificarPedido.Size = New System.Drawing.Size(81, 22)
         Me.btnModificarPedido.TabIndex = 25
@@ -127,7 +127,7 @@ Partial Class FormularioPedido
         '
         Me.btnQuitar.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnQuitar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnQuitar.Location = New System.Drawing.Point(480, 272)
+        Me.btnQuitar.Location = New System.Drawing.Point(469, 257)
         Me.btnQuitar.Name = "btnQuitar"
         Me.btnQuitar.Size = New System.Drawing.Size(81, 22)
         Me.btnQuitar.TabIndex = 24

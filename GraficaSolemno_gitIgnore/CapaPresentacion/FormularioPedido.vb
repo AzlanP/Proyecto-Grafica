@@ -24,7 +24,8 @@ Public Class FormularioPedido
 
     End Sub
     Public Sub CargarGridListaPedido(ByVal tabla As DataTable)
-        DGListaDePedido.DataSource = tabla
+        DGListaDePedido.DataSource = tabla.DefaultView.ToTable(True, "IDItems", "Nombre", "Cantidad", "Descripcion", "Precio")
+        ' esta tabla luego de remover un producto de la lista imprime IDpedido pero por error da el id de producto. niuno deveria mostrarse
     End Sub
     Public Sub CargarGridDetalles(ByVal id As Integer)
         TablaItems = oCNDetallesDePedido.MostrarDetalles(id)
@@ -41,6 +42,8 @@ Public Class FormularioPedido
     End Sub
     Public Sub AgregarDatosADetalles(ByVal pProducto As CEProducto, ByVal tabla As DataTable)
         Dim NuevaFilaDetalles As DataRow = tabla.NewRow()
+        'esto genera un error, si borras uno de arriba, el de abajo tomara el mismo valor de id que el de arriba.
+        'enves de tabla.rows.count capas sirva hacerlo con rows.index retornara el valor que ocupa en su posicion y no se salteara nuevos luego de borrar
         NuevaFilaDetalles(0) = oCNDetallesDePedido.ConsultarUltimoID + tabla.Rows.Count
         NuevaFilaDetalles(1) = pProducto.Nombre
         NuevaFilaDetalles(2) = pProducto.Cantidad
@@ -48,12 +51,63 @@ Public Class FormularioPedido
         NuevaFilaDetalles(4) = pProducto.Precio
         NuevaFilaDetalles(5) = pProducto.IDProducto
         tabla.Rows.Add(NuevaFilaDetalles)
-        CargarGridListaPedido(tabla.DefaultView.ToTable(True, "IDItems", "Nombre", "Cantidad", "Descripcion", "Precio"))
+        CargarGridListaPedido(tabla)
 
     End Sub
     Private Sub btnQuitar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnQuitar.Click
         Dim ID As Integer = DGListaDePedido.Rows(DGListaDePedido.CurrentCell.RowIndex).Cells("IDItems").Value
-        DTDetalles.Rows.RemoveAt(ID)
+        ' en esta funcion hay un problema, si 2 articulos son iguales tomara el mismo iditem y borrara las 2 celdas
+        If DTDetalles.Rows.Count > 0 Then
+
+            Dim i As Integer = DTDetalles.Rows.Count - 1
+            Dim posborrado As Integer
+
+            For x As Integer = 0 To DTDetalles.Rows.Count - 1
+                Dim iditem As Integer = DTDetalles.Rows(x).Item("IDItems")
+                If (iditem = ID) Then
+                    posborrado = x
+                    DTDetalles.Rows.RemoveAt(x)
+                End If
+                'If posborrado < x Then
+                '    DTDetalles.Rows(x + 1).Item("IDItems")
+                'End If
+
+            Next
+            'For Each row As DataRow In DTDetalles.Rows
+            '    row.
+            '    MsgBox("Index De tabla: " &  & " , " & row(0) & " , " & row(1) & " , " & row(2) & " , " & row(3) & " , " & row(4) & " , " & row(5))
+
+            'Next
+
+
+
+            'For x As Int32 = DTDetalles.Rows.Count - 1 To 0 Step -1
+            '    Dim iditem As Integer = DTDetalles.Rows(x).Item("IDItems")
+            '    If (iditem = ID) Then
+            '        posborrado = x
+            '        DTDetalles.Rows.RemoveAt(x)
+            '    End If
+            '    'If posborrado < x Then
+            '    '    DTDetalles.Rows(x + 1).Item("IDItems")
+            '    'End If
+
+            'Next
+            CargarGridListaPedido(DTDetalles)
+        ElseIf TablaItems.Rows.Count > 0 Then
+
+
+            Dim i As Integer = TablaItems.Rows.Count - 1
+
+            For x As Int32 = TablaItems.Rows.Count - 1 To 0 Step -1
+                Dim iditem As Integer = TablaItems.Rows(x).Item("IDItems")
+                If (iditem = ID) Then
+                    TablaItems.Rows.RemoveAt(x)
+                End If
+
+            Next
+            CargarGridListaPedido(TablaItems)
+        End If
+
 
     End Sub
 

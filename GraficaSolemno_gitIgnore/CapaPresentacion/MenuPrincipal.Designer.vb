@@ -1023,12 +1023,12 @@ Partial Class frmMenuPrincipal
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 48.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Impact", 48.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(291, 5)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(525, 73)
+        Me.Label1.Size = New System.Drawing.Size(491, 80)
         Me.Label1.TabIndex = 1
-        Me.Label1.Text = "Grafica Solemno"
+        Me.Label1.Text = "SOLEMNO GRAFICA"
         '
         'PictureBox1
         '
