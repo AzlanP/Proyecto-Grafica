@@ -67,7 +67,8 @@ Public Class CDConexion
         End Try
 
     End Sub
-    Public Function MostrarTabla(ByVal pNombreTabla) As DataTable
+    Public Function MostrarTabla(ByVal pNombreTabla As String) As DataTable
+        ' se modificara para que se le ingrese la sententencia
         dt = New DataTable
         Conectar()
         da = New SQLiteDataAdapter
@@ -83,8 +84,28 @@ Public Class CDConexion
         Finally
             Desconectar()
         End Try
-        
+
     End Function
+    Public Function MostrarTablaModificada(ByVal Sentencia As String) As DataTable
+        ' se modificara para que se le ingrese la sententencia
+        dt = New DataTable
+        Conectar()
+        da = New SQLiteDataAdapter
+        Try
+            InstruccionSQL = Sentencia
+
+            comando = New SQLiteCommand(InstruccionSQL, con)
+            da.SelectCommand = comando
+            da.Fill(dt)
+            Return dt
+        Catch ex As Exception
+            Throw New Exception("ERROR: La tabla no pudo ser mostrada.")
+        Finally
+            Desconectar()
+        End Try
+
+    End Function
+
     Function ConsultarUltimoID(ByVal tabla As String) As Integer
         'Se le ingresa como parametro el nombre de la tabla 
         Conectar()

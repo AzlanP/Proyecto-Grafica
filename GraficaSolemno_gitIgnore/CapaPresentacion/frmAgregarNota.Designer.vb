@@ -82,8 +82,8 @@ Partial Class frmAgregarNota
         '
         'dtpFecha
         '
-        Me.dtpFecha.CustomFormat = ""
-        Me.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpFecha.CustomFormat = "dd/MM/yyyy"
+        Me.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dtpFecha.Location = New System.Drawing.Point(77, 205)
         Me.dtpFecha.Name = "dtpFecha"
         Me.dtpFecha.Size = New System.Drawing.Size(200, 20)

@@ -32,7 +32,7 @@ Public Class CDPostick
     End Function
 
     Public Function TraerPosticksDelDia(ByVal pfecha As Date) As Array
-        Dim format As String = "yyyy/MM/d"
+        Dim format As String = "yyyy/MM/dd"
 
         Dim FechaString As String = pfecha.ToString(format)
 

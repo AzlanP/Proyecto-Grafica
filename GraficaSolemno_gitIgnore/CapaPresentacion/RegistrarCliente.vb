@@ -28,7 +28,7 @@ Public Class RegistrarCliente
         txtDNI.Text = dr("CUIT").ToString
         cboPais.Text = dr("IDPais").ToString
         cboProvincia.Text = dr("IDProvincia").ToString
-        txtCiudad.Text = dr("IDCiudad").ToString
+        txtCiudad.Text = dr("IDLocalidad").ToString
         txtBarrio.Text = dr("Barrio").ToString
         txtCalle.Text = dr("Domicilio").ToString
         txtNumeracion.Text = dr("NroCalle").ToString

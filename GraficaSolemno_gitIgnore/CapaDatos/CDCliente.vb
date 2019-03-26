@@ -6,7 +6,9 @@ Public Class CDCliente
     Dim da As SQLiteDataAdapter
     'esta funcion retorna un dataset con la tabla de cliente
     Function MostrarCliente() As DataTable
-        Return oCDConexion.MostrarTabla("Clientes")
+        Dim sentencia As String
+        sentencia = "select clientes.IDCliente, clientes.Nombre, Clientes.Apellido, Clientes.DNI, Clientes.Telefono, pais.nombre as 'pais', Provincias.Nombre as 'provincia' , Localidades.Nombre as 'Localidad', CondIVA.Nombre as 'Condicion de IVA' from Clientes, Pais, Provincias, Localidades, CondIVA where Clientes.IDPais=Pais.IDPais and Clientes.IDProvincia=Provincias.IDProvincia and Clientes.IDLocalidad=Localidades.IDLocalidad and Clientes.IDCondIVA=CondIVA.IDIVA "
+        Return oCDConexion.MostrarTablaModificada(sentencia)
     End Function
     Public Sub RegistrarCliente(ByVal oCECliente As CECliente)
         oCDConexion.Conectar()

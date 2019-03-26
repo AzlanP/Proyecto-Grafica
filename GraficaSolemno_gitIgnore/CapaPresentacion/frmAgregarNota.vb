@@ -17,8 +17,19 @@ Public Class frmAgregarNota
     Public Function FormatISO8601(ByVal pfecha As Date) As String
 
         Dim SoloFecha As String
-        SoloFecha = pfecha.Year & "/" & pfecha.Month & "/" & pfecha.Day
+        Dim dia, mes As String
 
+        If pfecha.Month < 10 Then
+            mes = "0" & pfecha.Month
+        Else
+            mes = pfecha.Month
+        End If
+        If pfecha.Day < 10 Then
+            dia = "0" & pfecha.Day
+        Else
+            dia = pfecha.Day
+        End If
+        SoloFecha = pfecha.Year & "/" & mes & "/" & dia
 
         Return SoloFecha
     End Function
