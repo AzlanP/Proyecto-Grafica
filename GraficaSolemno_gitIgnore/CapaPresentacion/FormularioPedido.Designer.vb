@@ -22,6 +22,7 @@ Partial Class FormularioPedido
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.lblTipoEnvio = New System.Windows.Forms.Label()
         Me.cboTipoEnvio = New System.Windows.Forms.ComboBox()
         Me.btnCancelarPedido = New System.Windows.Forms.Button()
@@ -47,7 +48,18 @@ Partial Class FormularioPedido
         Me.lblSeña = New System.Windows.Forms.Label()
         Me.btnAgregarPedidoExistente = New System.Windows.Forms.Button()
         Me.btnGuardarCambios = New System.Windows.Forms.Button()
+        Me.SolemnoDataSet = New CapaPresentacion.SolemnoDataSet()
+        Me.ClientesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ClientesTableAdapter = New CapaPresentacion.SolemnoDataSetTableAdapters.ClientesTableAdapter()
+        Me.MediosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.MediosTableAdapter = New CapaPresentacion.SolemnoDataSetTableAdapters.MediosTableAdapter()
+        Me.TipoEnvioBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.TipoEnvioTableAdapter = New CapaPresentacion.SolemnoDataSetTableAdapters.TipoEnvioTableAdapter()
         CType(Me.DGListaDePedido, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SolemnoDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.MediosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TipoEnvioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'lblTipoEnvio
@@ -61,11 +73,14 @@ Partial Class FormularioPedido
         '
         'cboTipoEnvio
         '
+        Me.cboTipoEnvio.DataSource = Me.TipoEnvioBindingSource
+        Me.cboTipoEnvio.DisplayMember = "Nombre"
         Me.cboTipoEnvio.FormattingEnabled = True
         Me.cboTipoEnvio.Location = New System.Drawing.Point(98, 353)
         Me.cboTipoEnvio.Name = "cboTipoEnvio"
         Me.cboTipoEnvio.Size = New System.Drawing.Size(156, 21)
         Me.cboTipoEnvio.TabIndex = 32
+        Me.cboTipoEnvio.ValueMember = "IDTipoEnvio"
         '
         'btnCancelarPedido
         '
@@ -106,11 +121,14 @@ Partial Class FormularioPedido
         '
         'cboCliente
         '
+        Me.cboCliente.DataSource = Me.ClientesBindingSource
+        Me.cboCliente.DisplayMember = "Nombre"
         Me.cboCliente.FormattingEnabled = True
         Me.cboCliente.Location = New System.Drawing.Point(75, 38)
         Me.cboCliente.Name = "cboCliente"
         Me.cboCliente.Size = New System.Drawing.Size(121, 21)
         Me.cboCliente.TabIndex = 27
+        Me.cboCliente.ValueMember = "IDCliente"
         '
         'btnModificarPedido
         '
@@ -227,6 +245,7 @@ Partial Class FormularioPedido
         'cboEstado
         '
         Me.cboEstado.FormattingEnabled = True
+        Me.cboEstado.Items.AddRange(New Object() {"Pendiente", "Completado"})
         Me.cboEstado.Location = New System.Drawing.Point(98, 391)
         Me.cboEstado.Name = "cboEstado"
         Me.cboEstado.Size = New System.Drawing.Size(156, 21)
@@ -243,11 +262,14 @@ Partial Class FormularioPedido
         '
         'cboMedio
         '
+        Me.cboMedio.DataSource = Me.MediosBindingSource
+        Me.cboMedio.DisplayMember = "Nombre"
         Me.cboMedio.FormattingEnabled = True
         Me.cboMedio.Location = New System.Drawing.Point(356, 35)
         Me.cboMedio.Name = "cboMedio"
         Me.cboMedio.Size = New System.Drawing.Size(107, 21)
         Me.cboMedio.TabIndex = 37
+        Me.cboMedio.ValueMember = "IDMedio"
         '
         'txtSeña
         '
@@ -287,6 +309,38 @@ Partial Class FormularioPedido
         Me.btnGuardarCambios.Text = "Cargar Cambios"
         Me.btnGuardarCambios.UseVisualStyleBackColor = False
         '
+        'SolemnoDataSet
+        '
+        Me.SolemnoDataSet.DataSetName = "SolemnoDataSet"
+        Me.SolemnoDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'ClientesBindingSource
+        '
+        Me.ClientesBindingSource.DataMember = "Clientes"
+        Me.ClientesBindingSource.DataSource = Me.SolemnoDataSet
+        '
+        'ClientesTableAdapter
+        '
+        Me.ClientesTableAdapter.ClearBeforeFill = True
+        '
+        'MediosBindingSource
+        '
+        Me.MediosBindingSource.DataMember = "Medios"
+        Me.MediosBindingSource.DataSource = Me.SolemnoDataSet
+        '
+        'MediosTableAdapter
+        '
+        Me.MediosTableAdapter.ClearBeforeFill = True
+        '
+        'TipoEnvioBindingSource
+        '
+        Me.TipoEnvioBindingSource.DataMember = "TipoEnvio"
+        Me.TipoEnvioBindingSource.DataSource = Me.SolemnoDataSet
+        '
+        'TipoEnvioTableAdapter
+        '
+        Me.TipoEnvioTableAdapter.ClearBeforeFill = True
+        '
         'FormularioPedido
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -321,6 +375,10 @@ Partial Class FormularioPedido
         Me.Name = "FormularioPedido"
         Me.Text = "Detalles del Pedido"
         CType(Me.DGListaDePedido, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SolemnoDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.MediosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TipoEnvioBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -350,4 +408,11 @@ Partial Class FormularioPedido
     Friend WithEvents lblSeña As System.Windows.Forms.Label
     Friend WithEvents btnAgregarPedidoExistente As System.Windows.Forms.Button
     Friend WithEvents btnGuardarCambios As System.Windows.Forms.Button
+    Friend WithEvents SolemnoDataSet As CapaPresentacion.SolemnoDataSet
+    Friend WithEvents ClientesBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents ClientesTableAdapter As CapaPresentacion.SolemnoDataSetTableAdapters.ClientesTableAdapter
+    Friend WithEvents MediosBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents MediosTableAdapter As CapaPresentacion.SolemnoDataSetTableAdapters.MediosTableAdapter
+    Friend WithEvents TipoEnvioBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents TipoEnvioTableAdapter As CapaPresentacion.SolemnoDataSetTableAdapters.TipoEnvioTableAdapter
 End Class

@@ -10,15 +10,15 @@ Public Class FormularioPedido
     Dim DTDetalles As New DataTable("ItemsPorPedido")
     Dim TablaItems As New DataTable
     Public Sub LLenarFormulario(ByVal id As Integer)
+        PrecargarCombobox()
         Dim DTPedidoID As New DataTable
         DTPedidoID = oCNPedido.BuscarPedido("IDPedido", id)
-
         Dim DTProw As DataRow = DTPedidoID.Rows(0)
         txtDescripcion.Text = DTProw(1)
-        dtpFecha.Text = Now
-        cboCliente.Text = DTProw(3)
-        cboTipoEnvio.Text = DTProw(4)
-        cboMedio.Text = DTProw(5)
+        dtpFecha.Text = CDate(DTProw(2))
+        AsignarTextCbo(DTProw(3), cboCliente)
+        AsignarTextCbo(DTProw(4), cboTipoEnvio)
+        AsignarTextCbo(DTProw(5), cboMedio)
         cboEstado.Text = DTProw(6)
         txtSeña.Text = CDbl(DTProw(7))
 
@@ -30,9 +30,6 @@ Public Class FormularioPedido
     Public Sub CargarGridDetalles(ByVal id As Integer)
         TablaItems = oCNDetallesDePedido.MostrarDetalles(id)
         DGListaDePedido.DataSource = TablaItems.DefaultView.ToTable(True, "IDItems", "Nombre", "Cantidad", "Descripcion", "Precio")
-    End Sub
-    Public Sub SeleccionarCliente()
-
     End Sub
     Private Sub btnAgregarPedidoNuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAgregarPedidoNuevo.Click
 
@@ -126,9 +123,17 @@ Public Class FormularioPedido
     Private Sub btnCancelarPedido_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancelarPedido.Click
         Me.Close()
     End Sub
+    Public Sub PrecargarCombobox()
+        'TODO: esta línea de código carga datos en la tabla 'SolemnoDataSet.TipoEnvio' Puede moverla o quitarla según sea necesario.
+        Me.TipoEnvioTableAdapter.Fill(Me.SolemnoDataSet.TipoEnvio)
+        'TODO: esta línea de código carga datos en la tabla 'SolemnoDataSet.Medios' Puede moverla o quitarla según sea necesario.
+        Me.MediosTableAdapter.Fill(Me.SolemnoDataSet.Medios)
+        'TODO: esta línea de código carga datos en la tabla 'SolemnoDataSet.Clientes' Puede moverla o quitarla según sea necesario.
+        Me.ClientesTableAdapter.Fill(Me.SolemnoDataSet.Clientes)
 
+    End Sub
     Private Sub FormularioPedido_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-
+       
     End Sub
     Public Sub Detalles()
         DTDetalles.Columns.Add("IDItems")
@@ -149,14 +154,17 @@ Public Class FormularioPedido
     Public Function CargarPedido() As CEPedido
         Dim oCEPedido As New CEPedido
         oCEPedido.IDPedido = lblID.Text
-        oCEPedido.Cliente = cboCliente.Text
+        oCEPedido.Cliente = cboCliente.SelectedValue
         oCEPedido.Fecha = dtpFecha.Text
-        oCEPedido.Descripcion = txtDescripcion.Text
-        oCEPedido.Medio = cboMedio.Text
+        oCEPedido.Descripcion = Trim(txtDescripcion.Text)
+        oCEPedido.Medio = cboMedio.SelectedValue
         oCEPedido.Estado = cboEstado.Text
-        oCEPedido.Seña = txtSeña.Text
-        oCEPedido.TipoDeEnvio = cboTipoEnvio.Text
-
+        If txtSeña.Text = "" Then
+            oCEPedido.Seña = 0.0
+        Else
+            oCEPedido.Seña = CDbl(txtSeña.Text)
+        End If
+        oCEPedido.TipoDeEnvio = cboTipoEnvio.SelectedValue
         Return oCEPedido
     End Function
     Private Sub btnGuardarPedido_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGuardarPedido.Click
@@ -168,4 +176,12 @@ Public Class FormularioPedido
         oCNPedido.ModificarPedido(CargarPedido, TablaItems)
         Me.Close()
     End Sub
+
+    Public Sub AsignarTextCbo(ByVal text As String, ByVal cbo As System.Object)
+
+        Dim int As Integer
+        int = cbo.FindString(text)
+        cbo.SelectedIndex = int
+    End Sub
+
 End Class

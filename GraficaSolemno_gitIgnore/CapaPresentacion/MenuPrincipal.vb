@@ -148,6 +148,8 @@ Public Class frmMenuPrincipal
         frmPedido.btnGuardarCambios.Visible = False
         frmPedido.lblID.Text = oCNPedido.ConsultarUltimoID()
         frmPedido.Detalles()
+        'precargar combobox
+        frmPedido.PrecargarCombobox()
         frmPedido.ShowDialog()
         CargarGridPedidos()
     End Sub

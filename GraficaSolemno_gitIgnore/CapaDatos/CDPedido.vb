@@ -26,14 +26,14 @@ Public Class CDPedidos
             'ElseIf FilasAfectadas = 0 Then
             '    '*significa que el pedido no fue encontrado por lo tanto no existe
             '    '*debemos crear el pedido, y luego asignarle a ese pedido todos los elementos de la lista
-            Dim instruccionsql As String = "Insert into Pedidos (IDPedido, Descripcion ,Fecha , IDCliente, TipoEnvio, IDMedio, Estado, Seña) values (@IDPedido, @Descripcion ,@Fecha , @IDCliente, @TipoEnvio, @IDMedio, @Estado, @Seña)"
+            Dim instruccionsql As String = "Insert into Pedidos (IDPedido, Descripcion ,Fecha , IDCliente, IDTipoEnvio, IDMedio, Estado, Seña) values (@IDPedido, @Descripcion ,@Fecha , @IDCliente, @IDTipoEnvio, @IDMedio, @Estado, @Seña)"
             Dim cmd As New SQLiteCommand(instruccionsql, oCDConexion.con)
             With cmd.Parameters
                 .Add("@IDPedido", SqlDbType.Int).Value = pPedido.IDPedido
                 .Add("@Descripcion", SqlDbType.VarChar).Value = pPedido.Descripcion
                 .Add("@Fecha", SqlDbType.VarChar).Value = pPedido.Fecha
                 .Add("@IDCliente", SqlDbType.Int).Value = pPedido.Cliente
-                .Add("@TipoEnvio", SqlDbType.Int).Value = pPedido.TipoDeEnvio
+                .Add("@IDTipoEnvio", SqlDbType.Int).Value = pPedido.TipoDeEnvio
                 .Add("@IDMedio", SqlDbType.Int).Value = pPedido.Medio
                 .Add("@Estado", SqlDbType.VarChar).Value = pPedido.Estado
                 .Add("@Seña", SqlDbType.Real).Value = pPedido.Seña
@@ -60,14 +60,14 @@ Public Class CDPedidos
     Public Sub ModificarPedido(ByVal oCEPedido As CEPedido, ByVal TablaDetalles As DataTable)
         oCDConexion.Conectar()
         Try
-            Dim instruccionsql = "UPDATE Pedidos SET Descripcion=@Descripcion, Fecha=@Fecha, IDCliente=@IDCliente, TipoEnvio=@TipoEnvio, IDMedio=@IDMedio, Estado=@Estado, Seña=@Seña where  IDPedido=@IDPedido"
+            Dim instruccionsql = "UPDATE Pedidos SET Descripcion=@Descripcion, Fecha=@Fecha, IDCliente=@IDCliente, IDTipoEnvio=@IDTipoEnvio, IDMedio=@IDMedio, Estado=@Estado, Seña=@Seña where  IDPedido=@IDPedido"
             Dim comando As New SQLiteCommand(instruccionsql, oCDConexion.con)
             With comando.Parameters
                 .Add("@IDPedido", SqlDbType.Int).Value = oCEPedido.IDPedido
                 .Add("@Descripcion", SqlDbType.VarChar).Value = oCEPedido.Descripcion
                 .Add("@Fecha", SqlDbType.VarChar).Value = oCEPedido.Fecha
                 .Add("@IDCliente", SqlDbType.Int).Value = oCEPedido.Cliente
-                .Add("@TipoEnvio", SqlDbType.VarChar).Value = oCEPedido.TipoDeEnvio
+                .Add("@IDTipoEnvio", SqlDbType.VarChar).Value = oCEPedido.TipoDeEnvio
                 .Add("@IDMedio", SqlDbType.Int).Value = oCEPedido.Medio
                 .Add("@Estado", SqlDbType.VarChar).Value = oCEPedido.Estado
                 .Add("@Seña", SqlDbType.Real).Value = oCEPedido.Seña
@@ -148,7 +148,7 @@ Public Class CDPedidos
         Dim da As New SQLiteDataAdapter
         Dim dt As New DataTable
         Try
-            Dim instruccionsql As String = "SELECT * FROM Pedidos WHERE " & campo & " =@pbuscar"
+            Dim instruccionsql As String = "SELECT Pedidos.IDPedido, pedidos.Descripcion, pedidos.Fecha, Clientes.nombre as 'Cliente', tipoenvio.Nombre as 'TipoEnvio', medios.nombre as 'Medio', pedidos.Estado, pedidos.seña FROM Pedidos, Clientes, medios, tipoenvio WHERE " & campo & " =@pbuscar  and (pedidos.IDCliente=clientes.IDCliente and pedidos.IDMedio= medios.IDMedio and pedidos.IDTipoEnvio = TipoEnvio.IDTipoEnvio )"
             Dim comando As New SQLiteCommand(instruccionsql, oCDConexion.con)
 
             If IsNumeric(pbuscar) Then
