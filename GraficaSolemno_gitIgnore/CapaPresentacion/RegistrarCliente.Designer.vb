@@ -89,6 +89,7 @@ Partial Class RegistrarCliente
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(203, 21)
         Me.TextBox1.TabIndex = 116
+        Me.TextBox1.Tag = "2"
         '
         'btnGuardar
         '
@@ -188,6 +189,7 @@ Partial Class RegistrarCliente
         Me.txtCP.Name = "txtCP"
         Me.txtCP.Size = New System.Drawing.Size(203, 21)
         Me.txtCP.TabIndex = 104
+        Me.txtCP.Tag = "2"
         '
         'txtNumeracion
         '
@@ -195,6 +197,7 @@ Partial Class RegistrarCliente
         Me.txtNumeracion.Name = "txtNumeracion"
         Me.txtNumeracion.Size = New System.Drawing.Size(203, 21)
         Me.txtNumeracion.TabIndex = 103
+        Me.txtNumeracion.Tag = "3"
         '
         'txtCalle
         '
@@ -202,6 +205,7 @@ Partial Class RegistrarCliente
         Me.txtCalle.Name = "txtCalle"
         Me.txtCalle.Size = New System.Drawing.Size(58, 21)
         Me.txtCalle.TabIndex = 102
+        Me.txtCalle.Tag = "2"
         '
         'Label19
         '
@@ -219,6 +223,7 @@ Partial Class RegistrarCliente
         Me.txtBarrio.Name = "txtBarrio"
         Me.txtBarrio.Size = New System.Drawing.Size(203, 21)
         Me.txtBarrio.TabIndex = 100
+        Me.txtBarrio.Tag = "3"
         '
         'txtCiudad
         '
@@ -303,6 +308,7 @@ Partial Class RegistrarCliente
         Me.txtNombre.Name = "txtNombre"
         Me.txtNombre.Size = New System.Drawing.Size(203, 21)
         Me.txtNombre.TabIndex = 91
+        Me.txtNombre.Tag = "3"
         '
         'txtDNI
         '
@@ -310,6 +316,7 @@ Partial Class RegistrarCliente
         Me.txtDNI.Name = "txtDNI"
         Me.txtDNI.Size = New System.Drawing.Size(203, 21)
         Me.txtDNI.TabIndex = 90
+        Me.txtDNI.Tag = "2"
         '
         'txtEmail
         '
@@ -317,6 +324,7 @@ Partial Class RegistrarCliente
         Me.txtEmail.Name = "txtEmail"
         Me.txtEmail.Size = New System.Drawing.Size(203, 21)
         Me.txtEmail.TabIndex = 89
+        Me.txtEmail.Tag = "4"
         '
         'txtCel
         '
@@ -324,6 +332,7 @@ Partial Class RegistrarCliente
         Me.txtCel.Name = "txtCel"
         Me.txtCel.Size = New System.Drawing.Size(203, 21)
         Me.txtCel.TabIndex = 88
+        Me.txtCel.Tag = "2"
         '
         'txtTel
         '
@@ -331,6 +340,7 @@ Partial Class RegistrarCliente
         Me.txtTel.Name = "txtTel"
         Me.txtTel.Size = New System.Drawing.Size(203, 21)
         Me.txtTel.TabIndex = 87
+        Me.txtTel.Tag = "2"
         '
         'txtApellido
         '
@@ -338,6 +348,7 @@ Partial Class RegistrarCliente
         Me.txtApellido.Name = "txtApellido"
         Me.txtApellido.Size = New System.Drawing.Size(203, 21)
         Me.txtApellido.TabIndex = 86
+        Me.txtApellido.Tag = "1"
         '
         'Label6
         '
@@ -407,6 +418,7 @@ Partial Class RegistrarCliente
         Me.TextBox3.Name = "TextBox3"
         Me.TextBox3.Size = New System.Drawing.Size(45, 21)
         Me.TextBox3.TabIndex = 122
+        Me.TextBox3.Tag = "2"
         '
         'Label14
         '

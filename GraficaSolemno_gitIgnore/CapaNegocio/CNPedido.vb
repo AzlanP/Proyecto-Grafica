@@ -25,4 +25,7 @@ Public Class CNPedido
     Function ConsultarUltimoID() As Integer
         Return oCDPedido.ConsultarUltimoID()
     End Function
+    Public Function ValidarEliminarPedido(ByVal ID As Integer) As Boolean
+        Return oCDPedido.ValidarEliminarPedido(ID)
+    End Function
 End Class

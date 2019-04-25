@@ -133,6 +133,7 @@ Partial Class RegistrarProducto
         Me.txtCantidad.Name = "txtCantidad"
         Me.txtCantidad.Size = New System.Drawing.Size(100, 24)
         Me.txtCantidad.TabIndex = 23
+        Me.txtCantidad.Tag = "5"
         '
         'lblNombre
         '

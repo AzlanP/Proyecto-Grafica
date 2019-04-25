@@ -143,6 +143,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SolemnoDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Validaciones.vb" />
+    <Compile Include="ValidacionMoneda.Designer.vb">
+      <DependentUpon>ValidacionMoneda.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ValidacionMoneda.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AgregarProductoPedido.resx">
@@ -174,6 +181,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RegistrarProducto.resx">
       <DependentUpon>RegistrarProducto.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ValidacionMoneda.resx">
+      <DependentUpon>ValidacionMoneda.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -229,6 +239,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Screenshot_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

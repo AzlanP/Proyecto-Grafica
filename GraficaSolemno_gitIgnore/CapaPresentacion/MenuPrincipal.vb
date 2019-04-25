@@ -3,7 +3,8 @@ Imports CapaEntidad
 
 Public Class frmMenuPrincipal
     Private Sub FrmMenu_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-
+        Dim validacion As New Validaciones
+        validacion.Validar(Me)
         AbrirFormInPanel(frmPestañaTareas)
     End Sub
     '--------------------------------------------------------------------------------------------------------------
@@ -13,7 +14,9 @@ Public Class frmMenuPrincipal
     Dim oCECliente As CECliente
     Dim oCNCliente As New CNCliente
     Dim ID As String
-
+    Private Sub btnRefresh_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRefresh.Click
+        CargarGridCliente()
+    End Sub
     Public Sub CargarGridCliente()
         'la funcion de listar cliente retornara un datatable que contendra la tabla del cliente, y esta sera mostrada en el datagrid
         DGCliente.DataSource = oCNCliente.MostrarCliente
@@ -64,13 +67,16 @@ Public Class frmMenuPrincipal
     End Sub
     Private Sub btnEliminarCliente_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEliminarCliente.Click
         ID = DGCliente.Rows(DGCliente.CurrentCell.RowIndex).Cells("IDCliente").Value
-        oCNCliente.EliminarCliente(ID)
-        CargarGridCliente()
+        If oCNPedido.ValidarEliminarPedido(ID) Then
+            oCNCliente.EliminarCliente(ID)
+            CargarGridCliente()
+        End If
+       
     End Sub
     Private Sub btnBuscar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscarCliente.Click
         Dim dt As DataTable
-        dt = oCNCliente.Buscar(cboBuscarCliente.Text, txtBuscarCliente.Text)
-        DGCliente.DataSource = dt
+        dt = oCNCliente.BuscarCliente(cboBuscarCliente.Text, Trim(txtBuscarCliente.Text))
+        DGCliente.DataSource = dt.DefaultView.ToTable(True, "IDCliente", "Nombre", "Apellido", "DNI", "CUIT", "Telefono", "Provincia", "Localidad", "Condicion de IVA")
         'para que el combobox no permita escribir, se cambio el dropdownstyle =DropDownList
     End Sub
 
@@ -297,5 +303,6 @@ Public Class frmMenuPrincipal
 
     End Sub
 
+    
     
 End Class

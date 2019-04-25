@@ -125,6 +125,7 @@ Partial Class AgregarProductoPedido
         Me.txtCantidad.Name = "txtCantidad"
         Me.txtCantidad.Size = New System.Drawing.Size(70, 20)
         Me.txtCantidad.TabIndex = 21
+        Me.txtCantidad.Tag = "5"
         '
         'DGBuscar
         '

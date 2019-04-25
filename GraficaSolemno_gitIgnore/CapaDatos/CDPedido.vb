@@ -168,4 +168,21 @@ Public Class CDPedidos
 
         End Try
     End Function
+    Public Function ValidarEliminarPedido(ByVal ID As Integer) As Boolean
+        oCDConexion.Conectar()
+        Dim da As New SQLiteDataAdapter
+        Dim dt As New DataTable
+        Dim InstruccionSQL As String = " SELECT Pedidos.IDPedido,Clientes.nombre as 'Nombre Cliente' ,Clientes.apellido as 'Apellido Cliente', pedidos.Descripcion, pedidos.Fecha,  pedidos.Estado FROM(Pedidos, Clientes, medios, tipoenvio) WHERE  (pedidos.IDCliente=clientes.IDCliente and pedidos.IDMedio= medios.IDMedio and pedidos.IDTipoEnvio = TipoEnvio.IDTipoEnvio ) and clientes.IDCliente=" & ID & " and pedidos.estado='Pendiente'"
+        Dim comando As New SQLiteCommand(InstruccionSQL, oCDConexion.con)
+        da.SelectCommand = comando
+        da.Fill(dt)
+        If dt.Rows.Count > 0 Then
+            MsgBox("fallo El eliminar el cliente tiene " & dt.Rows.Count & " pendientes.")
+            Return False
+        Else
+            MsgBox("Funciono, eliminar")
+            Return True
+        End If
+        oCDConexion.Desconectar()
+    End Function
 End Class

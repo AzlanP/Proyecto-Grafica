@@ -27,6 +27,8 @@ Public Class AgregarProductoPedido
 
     Private Sub AgregarProductoPedido_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         CargarGridBuscar()
+        Dim validacion As New Validaciones
+        validacion.Validar(Me)
 
     End Sub
 

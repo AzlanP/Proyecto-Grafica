@@ -7,7 +7,7 @@ Public Class CDCliente
     'esta funcion retorna un dataset con la tabla de cliente
     Function MostrarCliente() As DataTable
         Dim sentencia As String
-        sentencia = "select clientes.IDCliente, clientes.Nombre, Clientes.Apellido, Clientes.DNI, Clientes.Telefono, pais.nombre as 'pais', Provincias.Nombre as 'provincia' , Localidades.Nombre as 'Localidad', CondIVA.Nombre as 'Condicion de IVA' from Clientes, Pais, Provincias, Localidades, CondIVA where Clientes.IDPais=Pais.IDPais and Clientes.IDProvincia=Provincias.IDProvincia and Clientes.IDLocalidad=Localidades.IDLocalidad and Clientes.IDCondIVA=CondIVA.IDIVA "
+        sentencia = "select clientes.IDCliente, clientes.Nombre, Clientes.Apellido, Clientes.DNI, Clientes.Telefono,Clientes.cuit, Provincias.Nombre as 'provincia' , Localidad.Nombre as 'Localidad', CondIVA.Nombre as 'Condicion de IVA' from Clientes, Pais, Provincias, Localidad, CondIVA where Clientes.IDPais=Pais.IDPais and Clientes.IDProvincia=Provincias.IDProvincia and clientes.IDLocalidad=Localidad.IDLocalidad and Clientes.IDCondIVA=CondIVA.IDIVA "
         Return oCDConexion.MostrarTablaModificada(sentencia)
     End Function
     Public Sub RegistrarCliente(ByVal oCECliente As CECliente)
@@ -113,6 +113,31 @@ Public Class CDCliente
             oCDConexion.Desconectar()
         End Try
        
+    End Function
+    Function BuscarCliente(ByVal pcampo As String, ByVal pbuscar As String) As DataTable
+        oCDConexion.Conectar()
+        Dim da As New SQLiteDataAdapter
+        Dim dt As New DataTable
+        Try
+
+            'Dim instruccionSQL = "Select * FROM Clientes where " & pcampo & "=@buscar "
+            Dim instruccionSQL As String = "Select Clientes.IDCliente, clientes.nombre, clientes.Apellido, clientes.Telefono, clientes.Telefono2, clientes.DNI, Clientes.CUIT ,  provincias.nombre as 'Provincia' , localidad.nombre as 'Localidad', clientes.barrio, clientes.domicilio, clientes.NroCalle, clientes.Dpto, clientes.CP ,clientes.EMAIL, CondIVA.Nombre as 'Condicion de IVA' ,clientes.Fecha from(clientes, provincias, localidad, CondIVA) where (Clientes.idprovincia = provincias.IDProvincia and clientes.IDLocalidad=Localidad.IDLocalidad and  clientes.IDCondIVA = condiva.IDIVA ) and clientes." & pcampo & "  like  '" + pbuscar + "%'"
+            Dim comando As New SQLiteCommand(instruccionSQL, oCDConexion.con)
+            If IsNumeric(pbuscar) Then
+                comando.Parameters.Add("@pbuscar", SqlDbType.Int).Value = pbuscar
+            Else
+                comando.Parameters.Add("@pbuscar", SqlDbType.VarChar).Value = pbuscar
+            End If
+            da.SelectCommand = comando
+            da.Fill(dt)
+            Return dt
+
+        Catch ex As Exception
+            Throw New Exception("ERROR la busqueda ah fallado. Descripcion:" & ex.Message)
+        Finally
+            oCDConexion.Desconectar()
+        End Try
+
     End Function
     Function ConsultarUltimoID() As Integer
         Return oCDConexion.ConsultarUltimoID("Clientes")

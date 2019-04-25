@@ -22,6 +22,8 @@ Public Class RegistrarProducto
             oCEProducto.Descripcion = txtDescripcion.Text
 
             Return oCEProducto
+        Else
+            Return Nothing
         End If
     End Function
     Public Sub LlenarFormulario(ByVal ID As Integer)
@@ -92,4 +94,6 @@ Public Class RegistrarProducto
             txtPrecio.Visible = False
         End If
     End Sub
+
+  
 End Class

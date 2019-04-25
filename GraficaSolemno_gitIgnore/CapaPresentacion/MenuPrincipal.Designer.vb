@@ -37,7 +37,6 @@ Partial Class frmMenuPrincipal
         Me.PanelSuperiorCliente = New System.Windows.Forms.Panel()
         Me.lbltituloCliente = New System.Windows.Forms.Label()
         Me.PanelLateralCliente = New System.Windows.Forms.Panel()
-        Me.PictureBoxCliente = New System.Windows.Forms.PictureBox()
         Me.btnEliminarCliente = New System.Windows.Forms.Button()
         Me.btnVerCliente = New System.Windows.Forms.Button()
         Me.btnModificarCliente = New System.Windows.Forms.Button()
@@ -55,7 +54,6 @@ Partial Class frmMenuPrincipal
         Me.btnModificarPedido = New System.Windows.Forms.Button()
         Me.btnVerPedido = New System.Windows.Forms.Button()
         Me.btnNuevoPedido = New System.Windows.Forms.Button()
-        Me.IconoPedido = New System.Windows.Forms.PictureBox()
         Me.TabProducto = New System.Windows.Forms.TabPage()
         Me.panelCentralProducto = New System.Windows.Forms.Panel()
         Me.txtBuscarProducto = New System.Windows.Forms.TextBox()
@@ -69,7 +67,6 @@ Partial Class frmMenuPrincipal
         Me.btnModificarProducto = New System.Windows.Forms.Button()
         Me.btnEliminarProducto = New System.Windows.Forms.Button()
         Me.btnAgregarProducto = New System.Windows.Forms.Button()
-        Me.IconoProducto = New System.Windows.Forms.PictureBox()
         Me.TabEstadistica = New System.Windows.Forms.TabPage()
         Me.Panel7 = New System.Windows.Forms.Panel()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -85,11 +82,9 @@ Partial Class frmMenuPrincipal
         Me.btnGraficoServicios = New System.Windows.Forms.Button()
         Me.btnGraficoMedios = New System.Windows.Forms.Button()
         Me.btnGraficoPedidos = New System.Windows.Forms.Button()
-        Me.PictureBoxEstadistic = New System.Windows.Forms.PictureBox()
         Me.TabAyuda = New System.Windows.Forms.TabPage()
         Me.PanelCentralAyuda = New System.Windows.Forms.Panel()
         Me.ListBox3 = New System.Windows.Forms.ListBox()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.ListBox2 = New System.Windows.Forms.ListBox()
@@ -98,10 +93,16 @@ Partial Class frmMenuPrincipal
         Me.PanelLateralAyuda = New System.Windows.Forms.Panel()
         Me.ListBox1 = New System.Windows.Forms.ListBox()
         Me.lblIndice = New System.Windows.Forms.Label()
-        Me.IconoAyuda = New System.Windows.Forms.PictureBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.btnRefresh = New System.Windows.Forms.Button()
+        Me.PictureBoxCliente = New System.Windows.Forms.PictureBox()
+        Me.IconoPedido = New System.Windows.Forms.PictureBox()
+        Me.IconoProducto = New System.Windows.Forms.PictureBox()
+        Me.PictureBoxEstadistic = New System.Windows.Forms.PictureBox()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.IconoAyuda = New System.Windows.Forms.PictureBox()
         Me.TabGeneral.SuspendLayout()
         Me.TabTareas.SuspendLayout()
         Me.TabCliente.SuspendLayout()
@@ -109,33 +110,33 @@ Partial Class frmMenuPrincipal
         CType(Me.DGCliente, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelSuperiorCliente.SuspendLayout()
         Me.PanelLateralCliente.SuspendLayout()
-        CType(Me.PictureBoxCliente, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPedido.SuspendLayout()
         Me.PanelCentralPedido.SuspendLayout()
         CType(Me.DGPedido, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelSuperiorPedido.SuspendLayout()
         Me.PanelLateralPedido.SuspendLayout()
-        CType(Me.IconoPedido, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabProducto.SuspendLayout()
         Me.panelCentralProducto.SuspendLayout()
         CType(Me.DGProducto, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.panelSuperiorProducto.SuspendLayout()
         Me.panelLateralProducto.SuspendLayout()
-        CType(Me.IconoProducto, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabEstadistica.SuspendLayout()
         Me.Panel7.SuspendLayout()
         CType(Me.GraficoSegunConsulta, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelSupEstadistica.SuspendLayout()
         Me.PnlLateralEstadistica.SuspendLayout()
-        CType(Me.PictureBoxEstadistic, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabAyuda.SuspendLayout()
         Me.PanelCentralAyuda.SuspendLayout()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelSuperiorAyuda.SuspendLayout()
         Me.PanelLateralAyuda.SuspendLayout()
-        CType(Me.IconoAyuda, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBoxCliente, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.IconoPedido, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.IconoProducto, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBoxEstadistic, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.IconoAyuda, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TabGeneral
@@ -186,6 +187,7 @@ Partial Class frmMenuPrincipal
         'PanelCentralCliente
         '
         Me.PanelCentralCliente.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
+        Me.PanelCentralCliente.Controls.Add(Me.btnRefresh)
         Me.PanelCentralCliente.Controls.Add(Me.txtBuscarCliente)
         Me.PanelCentralCliente.Controls.Add(Me.btnBuscarCliente)
         Me.PanelCentralCliente.Controls.Add(Me.cboBuscarCliente)
@@ -198,7 +200,7 @@ Partial Class frmMenuPrincipal
         '
         'txtBuscarCliente
         '
-        Me.txtBuscarCliente.Location = New System.Drawing.Point(20, 36)
+        Me.txtBuscarCliente.Location = New System.Drawing.Point(70, 32)
         Me.txtBuscarCliente.Name = "txtBuscarCliente"
         Me.txtBuscarCliente.Size = New System.Drawing.Size(389, 20)
         Me.txtBuscarCliente.TabIndex = 0
@@ -207,9 +209,9 @@ Partial Class frmMenuPrincipal
         '
         Me.btnBuscarCliente.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnBuscarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnBuscarCliente.Location = New System.Drawing.Point(535, 33)
+        Me.btnBuscarCliente.Location = New System.Drawing.Point(567, 32)
         Me.btnBuscarCliente.Name = "btnBuscarCliente"
-        Me.btnBuscarCliente.Size = New System.Drawing.Size(115, 24)
+        Me.btnBuscarCliente.Size = New System.Drawing.Size(83, 24)
         Me.btnBuscarCliente.TabIndex = 5
         Me.btnBuscarCliente.Text = "Buscar"
         Me.btnBuscarCliente.UseVisualStyleBackColor = False
@@ -220,9 +222,9 @@ Partial Class frmMenuPrincipal
         Me.cboBuscarCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboBuscarCliente.FormattingEnabled = True
         Me.cboBuscarCliente.Items.AddRange(New Object() {"Nombre", "Apellido", "DNI", "CUIT"})
-        Me.cboBuscarCliente.Location = New System.Drawing.Point(415, 35)
+        Me.cboBuscarCliente.Location = New System.Drawing.Point(465, 32)
         Me.cboBuscarCliente.Name = "cboBuscarCliente"
-        Me.cboBuscarCliente.Size = New System.Drawing.Size(114, 21)
+        Me.cboBuscarCliente.Size = New System.Drawing.Size(96, 21)
         Me.cboBuscarCliente.TabIndex = 6
         '
         'DGCliente
@@ -273,16 +275,6 @@ Partial Class frmMenuPrincipal
         Me.PanelLateralCliente.Name = "PanelLateralCliente"
         Me.PanelLateralCliente.Size = New System.Drawing.Size(184, 579)
         Me.PanelLateralCliente.TabIndex = 11
-        '
-        'PictureBoxCliente
-        '
-        Me.PictureBoxCliente.Image = Global.CapaPresentacion.My.Resources.Resources.clientes
-        Me.PictureBoxCliente.Location = New System.Drawing.Point(7, 14)
-        Me.PictureBoxCliente.Name = "PictureBoxCliente"
-        Me.PictureBoxCliente.Size = New System.Drawing.Size(170, 150)
-        Me.PictureBoxCliente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBoxCliente.TabIndex = 10
-        Me.PictureBoxCliente.TabStop = False
         '
         'btnEliminarCliente
         '
@@ -495,16 +487,6 @@ Partial Class frmMenuPrincipal
         Me.btnNuevoPedido.Text = "Nuevo Pedido"
         Me.btnNuevoPedido.UseVisualStyleBackColor = False
         '
-        'IconoPedido
-        '
-        Me.IconoPedido.Image = Global.CapaPresentacion.My.Resources.Resources.pedidos
-        Me.IconoPedido.Location = New System.Drawing.Point(7, 14)
-        Me.IconoPedido.Name = "IconoPedido"
-        Me.IconoPedido.Size = New System.Drawing.Size(170, 150)
-        Me.IconoPedido.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.IconoPedido.TabIndex = 23
-        Me.IconoPedido.TabStop = False
-        '
         'TabProducto
         '
         Me.TabProducto.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
@@ -655,16 +637,6 @@ Partial Class frmMenuPrincipal
         Me.btnAgregarProducto.TabIndex = 19
         Me.btnAgregarProducto.Text = "Nuevo Producto"
         Me.btnAgregarProducto.UseVisualStyleBackColor = False
-        '
-        'IconoProducto
-        '
-        Me.IconoProducto.Image = Global.CapaPresentacion.My.Resources.Resources.articulos
-        Me.IconoProducto.Location = New System.Drawing.Point(7, 14)
-        Me.IconoProducto.Name = "IconoProducto"
-        Me.IconoProducto.Size = New System.Drawing.Size(170, 150)
-        Me.IconoProducto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.IconoProducto.TabIndex = 18
-        Me.IconoProducto.TabStop = False
         '
         'TabEstadistica
         '
@@ -856,16 +828,6 @@ Partial Class frmMenuPrincipal
         Me.btnGraficoPedidos.Text = "Pedidos Mensuales"
         Me.btnGraficoPedidos.UseVisualStyleBackColor = False
         '
-        'PictureBoxEstadistic
-        '
-        Me.PictureBoxEstadistic.Image = Global.CapaPresentacion.My.Resources.Resources.barchart1_78007
-        Me.PictureBoxEstadistic.Location = New System.Drawing.Point(7, 14)
-        Me.PictureBoxEstadistic.Name = "PictureBoxEstadistic"
-        Me.PictureBoxEstadistic.Size = New System.Drawing.Size(170, 150)
-        Me.PictureBoxEstadistic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBoxEstadistic.TabIndex = 0
-        Me.PictureBoxEstadistic.TabStop = False
-        '
         'TabAyuda
         '
         Me.TabAyuda.Controls.Add(Me.PanelCentralAyuda)
@@ -904,15 +866,6 @@ Partial Class frmMenuPrincipal
         Me.ListBox3.Name = "ListBox3"
         Me.ListBox3.Size = New System.Drawing.Size(589, 300)
         Me.ListBox3.TabIndex = 21
-        '
-        'PictureBox2
-        '
-        Me.PictureBox2.Image = Global.CapaPresentacion.My.Resources.Resources.Screenshot_2
-        Me.PictureBox2.Location = New System.Drawing.Point(37, 145)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(288, 311)
-        Me.PictureBox2.TabIndex = 19
-        Me.PictureBox2.TabStop = False
         '
         'Label4
         '
@@ -1002,16 +955,6 @@ Partial Class frmMenuPrincipal
         Me.lblIndice.TabIndex = 14
         Me.lblIndice.Text = "Indice"
         '
-        'IconoAyuda
-        '
-        Me.IconoAyuda.Image = Global.CapaPresentacion.My.Resources.Resources.ayuda
-        Me.IconoAyuda.Location = New System.Drawing.Point(7, 14)
-        Me.IconoAyuda.Name = "IconoAyuda"
-        Me.IconoAyuda.Size = New System.Drawing.Size(170, 150)
-        Me.IconoAyuda.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.IconoAyuda.TabIndex = 13
-        Me.IconoAyuda.TabStop = False
-        '
         'Panel1
         '
         Me.Panel1.Controls.Add(Me.Label1)
@@ -1041,6 +984,77 @@ Partial Class frmMenuPrincipal
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '
+        'btnRefresh
+        '
+        Me.btnRefresh.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnRefresh.BackgroundImage = Global.CapaPresentacion.My.Resources.Resources.home
+        Me.btnRefresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnRefresh.Location = New System.Drawing.Point(20, 29)
+        Me.btnRefresh.Name = "btnRefresh"
+        Me.btnRefresh.Size = New System.Drawing.Size(36, 30)
+        Me.btnRefresh.TabIndex = 9
+        Me.btnRefresh.UseVisualStyleBackColor = False
+        '
+        'PictureBoxCliente
+        '
+        Me.PictureBoxCliente.Image = Global.CapaPresentacion.My.Resources.Resources.clientes
+        Me.PictureBoxCliente.Location = New System.Drawing.Point(7, 14)
+        Me.PictureBoxCliente.Name = "PictureBoxCliente"
+        Me.PictureBoxCliente.Size = New System.Drawing.Size(170, 150)
+        Me.PictureBoxCliente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBoxCliente.TabIndex = 10
+        Me.PictureBoxCliente.TabStop = False
+        '
+        'IconoPedido
+        '
+        Me.IconoPedido.Image = Global.CapaPresentacion.My.Resources.Resources.pedidos
+        Me.IconoPedido.Location = New System.Drawing.Point(7, 14)
+        Me.IconoPedido.Name = "IconoPedido"
+        Me.IconoPedido.Size = New System.Drawing.Size(170, 150)
+        Me.IconoPedido.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.IconoPedido.TabIndex = 23
+        Me.IconoPedido.TabStop = False
+        '
+        'IconoProducto
+        '
+        Me.IconoProducto.Image = Global.CapaPresentacion.My.Resources.Resources.articulos
+        Me.IconoProducto.Location = New System.Drawing.Point(7, 14)
+        Me.IconoProducto.Name = "IconoProducto"
+        Me.IconoProducto.Size = New System.Drawing.Size(170, 150)
+        Me.IconoProducto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.IconoProducto.TabIndex = 18
+        Me.IconoProducto.TabStop = False
+        '
+        'PictureBoxEstadistic
+        '
+        Me.PictureBoxEstadistic.Image = Global.CapaPresentacion.My.Resources.Resources.barchart1_78007
+        Me.PictureBoxEstadistic.Location = New System.Drawing.Point(7, 14)
+        Me.PictureBoxEstadistic.Name = "PictureBoxEstadistic"
+        Me.PictureBoxEstadistic.Size = New System.Drawing.Size(170, 150)
+        Me.PictureBoxEstadistic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBoxEstadistic.TabIndex = 0
+        Me.PictureBoxEstadistic.TabStop = False
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.Image = Global.CapaPresentacion.My.Resources.Resources.Screenshot_2
+        Me.PictureBox2.Location = New System.Drawing.Point(37, 145)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(288, 311)
+        Me.PictureBox2.TabIndex = 19
+        Me.PictureBox2.TabStop = False
+        '
+        'IconoAyuda
+        '
+        Me.IconoAyuda.Image = Global.CapaPresentacion.My.Resources.Resources.ayuda
+        Me.IconoAyuda.Location = New System.Drawing.Point(7, 14)
+        Me.IconoAyuda.Name = "IconoAyuda"
+        Me.IconoAyuda.Size = New System.Drawing.Size(170, 150)
+        Me.IconoAyuda.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.IconoAyuda.TabIndex = 13
+        Me.IconoAyuda.TabStop = False
+        '
         'frmMenuPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1061,7 +1075,6 @@ Partial Class frmMenuPrincipal
         Me.PanelSuperiorCliente.ResumeLayout(False)
         Me.PanelSuperiorCliente.PerformLayout()
         Me.PanelLateralCliente.ResumeLayout(False)
-        CType(Me.PictureBoxCliente, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPedido.ResumeLayout(False)
         Me.PanelCentralPedido.ResumeLayout(False)
         Me.PanelCentralPedido.PerformLayout()
@@ -1069,7 +1082,6 @@ Partial Class frmMenuPrincipal
         Me.PanelSuperiorPedido.ResumeLayout(False)
         Me.PanelSuperiorPedido.PerformLayout()
         Me.PanelLateralPedido.ResumeLayout(False)
-        CType(Me.IconoPedido, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabProducto.ResumeLayout(False)
         Me.panelCentralProducto.ResumeLayout(False)
         Me.panelCentralProducto.PerformLayout()
@@ -1077,7 +1089,6 @@ Partial Class frmMenuPrincipal
         Me.panelSuperiorProducto.ResumeLayout(False)
         Me.panelSuperiorProducto.PerformLayout()
         Me.panelLateralProducto.ResumeLayout(False)
-        CType(Me.IconoProducto, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabEstadistica.ResumeLayout(False)
         Me.Panel7.ResumeLayout(False)
         Me.Panel7.PerformLayout()
@@ -1086,19 +1097,22 @@ Partial Class frmMenuPrincipal
         Me.PanelSupEstadistica.PerformLayout()
         Me.PnlLateralEstadistica.ResumeLayout(False)
         Me.PnlLateralEstadistica.PerformLayout()
-        CType(Me.PictureBoxEstadistic, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabAyuda.ResumeLayout(False)
         Me.PanelCentralAyuda.ResumeLayout(False)
         Me.PanelCentralAyuda.PerformLayout()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelSuperiorAyuda.ResumeLayout(False)
         Me.PanelSuperiorAyuda.PerformLayout()
         Me.PanelLateralAyuda.ResumeLayout(False)
         Me.PanelLateralAyuda.PerformLayout()
-        CType(Me.IconoAyuda, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBoxCliente, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.IconoPedido, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.IconoProducto, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBoxEstadistic, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.IconoAyuda, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1179,4 +1193,5 @@ Partial Class frmMenuPrincipal
     Friend WithEvents ListBox2 As System.Windows.Forms.ListBox
     Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
     Friend WithEvents ListBox3 As System.Windows.Forms.ListBox
+    Friend WithEvents btnRefresh As System.Windows.Forms.Button
 End Class

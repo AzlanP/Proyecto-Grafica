@@ -21,6 +21,9 @@ Public Class CNCliente
         dt = oCDCliente.Buscar(pcampo, pbuscar)
         Return dt
     End Function
+    Function BuscarCliente(ByVal pcampo As String, ByVal pbuscar As String) As DataTable
+        Return oCDCliente.BuscarCliente(pcampo, pbuscar)
+    End Function
     Function ConsultarUltimoID() As Integer
         Return oCDCliente.ConsultarUltimoID()
     End Function

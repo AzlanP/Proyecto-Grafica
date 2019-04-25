@@ -20,7 +20,7 @@ Public Class FormularioPedido
         AsignarTextCbo(DTProw(4), cboTipoEnvio)
         AsignarTextCbo(DTProw(5), cboMedio)
         cboEstado.Text = DTProw(6)
-        txtSeña.Text = CDbl(DTProw(7))
+        ValidacionMoneda1.TextBox1.Text = CDbl(DTProw(7))
 
     End Sub
     Public Sub CargarGridListaPedido(ByVal tabla As DataTable)
@@ -133,7 +133,8 @@ Public Class FormularioPedido
 
     End Sub
     Private Sub FormularioPedido_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-       
+        Dim validacion As New Validaciones
+        validacion.Validar(Me)
     End Sub
     Public Sub Detalles()
         DTDetalles.Columns.Add("IDItems")
@@ -159,13 +160,9 @@ Public Class FormularioPedido
         oCEPedido.Descripcion = Trim(txtDescripcion.Text)
         oCEPedido.Medio = cboMedio.SelectedValue
         oCEPedido.Estado = cboEstado.Text
-        If txtSeña.Text = "" Then
-            oCEPedido.Seña = 0.0
-        Else
-            oCEPedido.Seña = CDbl(txtSeña.Text)
-        End If
+       oCEPedido.Seña = CDbl(ValidacionMoneda1.TextBox1.Text)
         oCEPedido.TipoDeEnvio = cboTipoEnvio.SelectedValue
-        Return oCEPedido
+            Return oCEPedido
     End Function
     Private Sub btnGuardarPedido_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGuardarPedido.Click
         oCNPedido.GenerarElPedido(CargarPedido, DTDetalles)
