@@ -27,4 +27,12 @@ Public Class CNCliente
     Function ConsultarUltimoID() As Integer
         Return oCDCliente.ConsultarUltimoID()
     End Function
+
+    '---- metodos combobox
+    Public Function TraerCP(ByVal IDProvincia As Integer, ByVal IDLocalidad As Integer) As Integer
+        Return oCDCliente.TraerCP(IDProvincia, IDLocalidad)
+    End Function
+    Public Function LocalidadesPorProvincia(ByVal idprovincia As Integer) As DataTable
+        Return oCDCliente.LocalidadesPorProvincia(idprovincia)
+    End Function
 End Class

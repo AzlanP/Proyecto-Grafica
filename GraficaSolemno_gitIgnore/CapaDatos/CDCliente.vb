@@ -14,7 +14,7 @@ Public Class CDCliente
         oCDConexion.Conectar()
         Try
             'ya la sentencia quedo bien...NO TOCAR!!!
-            Dim instruccionSQL = "INSERT INTO Clientes  (IDCliente, Nombre ,Apellido ,Telefono, Telefono2, DNI, CUIT, IDPais, IDProvincia, IDCiudad, Barrio, Domicilio, NroCalle, Dpto, CP, EMAIL, IDCondIVA, Fecha) VALUES (@IDCliente, @Nombre ,@Apellido ,@Telefono, @Telefono2, @DNI, @CUIT, @IDPais, @IDProvincia, @IDCiudad, @Barrio, @Domicilio, @NroCalle, @Dpto, @CP, @EMAIL, @IDCondIVA, @Fecha)"
+            Dim instruccionSQL = "INSERT INTO Clientes  (IDCliente, Nombre ,Apellido ,Telefono, Telefono2, DNI, CUIT, IDPais, IDProvincia, IDLocalidad, Barrio, Domicilio, NroCalle, Dpto, CP, EMAIL, IDCondIVA, Fecha) VALUES (@IDCliente, @Nombre ,@Apellido ,@Telefono, @Telefono2, @DNI, @CUIT, @IDPais, @IDProvincia, @IDLocalidad, @Barrio, @Domicilio, @NroCalle, @Dpto, @CP, @EMAIL, @IDCondIVA, @Fecha)"
             Dim comando As New SQLiteCommand(instruccionSQL, oCDConexion.con)
             With comando.Parameters
                 .Add("@IDCliente", SqlDbType.Int).Value = oCECliente.IDCliente
@@ -26,7 +26,7 @@ Public Class CDCliente
                 .Add("@CUIT", SqlDbType.Int).Value = oCECliente.CUIT
                 .Add("@IDPais", SqlDbType.Int).Value = oCECliente.Pais
                 .Add("@IDProvincia", SqlDbType.Int).Value = oCECliente.Provincia
-                .Add("@IDCiudad", SqlDbType.Int).Value = oCECliente.Ciudad
+                .Add("@IDLocalidad", SqlDbType.Int).Value = oCECliente.Localidad
                 .Add("@Barrio", SqlDbType.VarChar).Value = oCECliente.Barrio
                 .Add("@Domicilio", SqlDbType.VarChar).Value = oCECliente.Domicilio
                 .Add("@NroCalle", SqlDbType.Int).Value = oCECliente.NroCalle
@@ -62,7 +62,7 @@ Public Class CDCliente
     Public Sub ModificarCliente(ByVal oCECliente As CECliente)
         oCDConexion.Conectar()
         Try
-            Dim instruccionSQL = "UPDATE Clientes  SET Nombre=@Nombre ,Apellido=@Apellido ,Telefono=@Telefono, Telefono2=@Telefono2, DNI=@DNI, CUIT= @CUIT, IDPais=@IDPais, IDProvincia=@IDProvincia, IDCiudad=@IDCiudad, Barrio=@Barrio, Domicilio=@Domicilio, NroCalle=@NroCalle, Dpto=@Dpto, CP=@CP, EMAIL=@EMAIL, IDCondIVA=@IDCondIVA, Fecha=@Fecha WHERE IDCliente=@IDCliente"
+            Dim instruccionSQL = "UPDATE Clientes  SET Nombre=@Nombre ,Apellido=@Apellido ,Telefono=@Telefono, Telefono2=@Telefono2, DNI=@DNI, CUIT= @CUIT, IDPais=@IDPais, IDProvincia=@IDProvincia, IDLocalidad=@IDLocalidad, Barrio=@Barrio, Domicilio=@Domicilio, NroCalle=@NroCalle, Dpto=@Dpto, CP=@CP, EMAIL=@EMAIL, IDCondIVA=@IDCondIVA, Fecha=@Fecha WHERE IDCliente=@IDCliente"
             Dim comando As New SQLiteCommand(instruccionSQL, oCDConexion.con)
             With comando.Parameters
                 .Add("@IDCliente", SqlDbType.Int).Value = oCECliente.IDCliente
@@ -74,10 +74,10 @@ Public Class CDCliente
                 .Add("@CUIT", SqlDbType.Int).Value = oCECliente.CUIT
                 .Add("@IDPais", SqlDbType.Int).Value = oCECliente.Pais
                 .Add("@IDProvincia", SqlDbType.Int).Value = oCECliente.Provincia
-                .Add("@IDCiudad", SqlDbType.Int).Value = oCECliente.Ciudad
+                .Add("@IDLocalidad", SqlDbType.Int).Value = oCECliente.Localidad
                 .Add("@Barrio", SqlDbType.VarChar).Value = oCECliente.Barrio
                 .Add("@Domicilio", SqlDbType.VarChar).Value = oCECliente.Domicilio
-                .Add("@Nro_Calle", SqlDbType.Int).Value = oCECliente.NroCalle
+                .Add("@NroCalle", SqlDbType.Int).Value = oCECliente.NroCalle
                 .Add("@Dpto", SqlDbType.Int).Value = oCECliente.Dpto
                 .Add("@CP", SqlDbType.Int).Value = oCECliente.CP
                 .Add("@EMAIL", SqlDbType.VarChar).Value = oCECliente.Email
@@ -88,7 +88,7 @@ Public Class CDCliente
         Catch ex As Exception
             Throw New Exception("ERROR  el registro no ah podido ser modificado. Descripcion:" & ex.Message)
         End Try
-       
+
     End Sub
     Function Buscar(ByVal pcampo As String, ByVal pbuscar As String) As DataTable
         oCDConexion.Conectar()
@@ -143,7 +143,31 @@ Public Class CDCliente
         Return oCDConexion.ConsultarUltimoID("Clientes")
     End Function
 
+    '---------- 
+    'metodos para los combobox, traer el codigo postal y el filtrado de localidades segun la provincia
+    Public Function TraerCP(ByVal IDProvincia As Integer, ByVal IDLocalidad As Integer) As Integer
+        Dim dt As New DataTable
+        Dim cp As Integer
+        oCDConexion.Conectar()
+        da = New SQLiteDataAdapter
+        Dim InstruccionSQL As String = "Select  localidad.cp  from (localidad, Provincias) where (provincias.IDProvincia = localidad.IDProvincia And provincias.IDProvincia =" & IDProvincia & " ) and Localidad.IDLocalidad=" & IDLocalidad
+        Dim comando As New SQLiteCommand(InstruccionSQL, oCDConexion.con)
+        cp = CInt(comando.ExecuteScalar())
+        Return cp
+        oCDConexion.Desconectar()
+    End Function
+    Public Function LocalidadesPorProvincia(ByVal idprovincia As Integer) As DataTable
+        Dim dt As New DataTable
+        oCDConexion.Conectar()
+        da = New SQLiteDataAdapter
 
+        Dim InstruccionSQL As String = "Select localidad.IDLocalidad, Localidad.Nombre   from(localidad, Provincias) where (provincias.IDProvincia = localidad.IDProvincia) And (provincias.IDProvincia =" & idprovincia & ") "
 
+        Dim comando As New SQLiteCommand(InstruccionSQL, oCDConexion.con)
+        da.SelectCommand = comando
+        da.Fill(dt)
+        Return dt
+        oCDConexion.Desconectar()
+    End Function
 
 End Class

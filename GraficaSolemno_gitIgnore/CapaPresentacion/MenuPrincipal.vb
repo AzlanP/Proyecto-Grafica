@@ -27,6 +27,7 @@ Public Class frmMenuPrincipal
     Private Sub btnNuevoCliente_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNuevoCliente.Click
         Dim frmRegistrar As New RegistrarCliente
         frmRegistrar.lblID.Text = oCNCliente.ConsultarUltimoID
+        frmRegistrar.PrecargarCombobox()
         frmRegistrar.ShowDialog()
         CargarGridCliente()
     End Sub

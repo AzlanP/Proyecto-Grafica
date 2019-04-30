@@ -12,10 +12,12 @@ Public Class RegistrarCliente
     End Sub
 
     Public Sub LlenarFormulario(ByVal ID As Integer)
+        PrecargarCombobox()
         Dim dt As New DataTable
         Dim dr As DataRow
+
         'realizo la busqueda del cliente segun su ID
-        dt = oCNCliente.Buscar("IDCliente", ID)
+        dt = oCNCliente.BuscarCliente("IDCliente", ID)
         'guardo el registro del cliente en el datarow para mostrarlo
         dr = dt.Rows(0)
         'para mostrar los datos precargados de el registro
@@ -26,16 +28,16 @@ Public Class RegistrarCliente
         txtCel.Text = dr("Telefono2").ToString
         txtDNI.Text = dr("DNI").ToString
         txtDNI.Text = dr("CUIT").ToString
-        cboPais.Text = dr("IDPais").ToString
-        cboProvincia.Text = dr("IDProvincia").ToString
-        txtCiudad.Text = dr("IDLocalidad").ToString
+        'cboPais.Text = dr("IDPais").ToString
+        AsignarTextCbo(dr("Provincia").ToString, cboProvincia)
+        AsignarTextCbo(dr("Localidad").ToString, cboLocalidad)
         txtBarrio.Text = dr("Barrio").ToString
         txtCalle.Text = dr("Domicilio").ToString
         txtNumeracion.Text = dr("NroCalle").ToString
         txtNumeracion.Text = dr("Dpto").ToString
         txtCP.Text = dr("CP").ToString
         txtEmail.Text = dr("EMAIL").ToString
-        cbIVA.Text = dr("IDCondIVA").ToString
+        AsignarTextCbo(dr("Condicion de IVA").ToString, cbIVA)
         dpFecha.Text = dr("Fecha").ToString
         'la modificacion no fallo  pero ya se encotraba abierta la base de datos. revisar
 
@@ -48,7 +50,7 @@ Public Class RegistrarCliente
     '
     Public Function TomarDatos() As CECliente
         'en este metodo debo guardar los datos de los textbox indiferente si es para registrar o para modificar
-   
+
 
         oCECliente.IDCliente = CInt(lblID.Text)
         oCECliente.Nombre = txtNombre.Text
@@ -57,16 +59,16 @@ Public Class RegistrarCliente
         oCECliente.Telefono2 = CInt(txtCel.Text)
         oCECliente.DNI = CInt(txtDNI.Text)
         oCECliente.CUIT = CInt(txtDNI.Text)
-        oCECliente.Pais = CInt(cboPais.ValueMember)
-        oCECliente.Provincia = CInt(cboProvincia.Text)
-        oCECliente.Ciudad = CInt(txtCiudad.Text)
+        oCECliente.Pais = 1
+        oCECliente.Provincia = CInt(cboProvincia.SelectedValue)
+        oCECliente.Localidad = CInt(cboLocalidad.SelectedValue)
         oCECliente.Barrio = txtBarrio.Text
         oCECliente.Domicilio = txtCalle.Text
         oCECliente.NroCalle = CInt(txtNumeracion.Text)
         oCECliente.Dpto = CInt(txtNumeracion.Text)
         oCECliente.CP = CInt(txtCP.Text)
         oCECliente.Email = txtEmail.Text
-        oCECliente.CondIVA = CInt(cbIVA.Text)
+        oCECliente.CondIVA = CInt(cbIVA.SelectedValue)
         oCECliente.Fecha = CDate(dpFecha.Value.ToShortDateString)
         Return oCECliente
 
@@ -103,7 +105,66 @@ Public Class RegistrarCliente
  
     
     Private Sub RegistrarCliente_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+       
         Dim validacion As New Validaciones
         validacion.Validar(Me)
     End Sub
+    Public Sub PrecargarCombobox()
+        'TODO: esta línea de código carga datos en la tabla 'SolemnoDataSet.CondIVA' Puede moverla o quitarla según sea necesario.
+        Me.CondIVATableAdapter.Fill(Me.SolemnoDataSet.CondIVA)
+        'TODO: esta línea de código carga datos en la tabla 'SolemnoDataSet.Provincias' Puede moverla o quitarla según sea necesario.
+        Me.ProvinciasTableAdapter.Fill(Me.SolemnoDataSet.Provincias)
+    End Sub
+
+    '------------------------------------------------------------------------------------------------------------
+    ' los siguientes metodos son utilizados para el rellenado del combobox localidad, como asi tambien el autocompletado 
+    ' y el dropdown y codigo postal.
+   
+    Private Sub cboProvincia_SelectedValueChanged1(ByVal sender As Object, ByVal e As System.EventArgs) Handles cboProvincia.SelectedValueChanged
+        Dim dt As DataTable = oCNCliente.LocalidadesPorProvincia(cboProvincia.SelectedValue)
+        cboLocalidad.DataSource = dt
+        cboLocalidad.DisplayMember = "Nombre"
+        cboLocalidad.ValueMember = "IDLocalidad"
+
+    End Sub
+
+    Private Sub cboLoca_Enter(ByVal sender As Object, ByVal e As System.EventArgs) Handles cboLocalidad.Enter
+        If cboProvincia.Text = "" Or cboProvincia.Text = " " Then
+            MsgBox("debe ingresar una provincia primero.")
+            cboProvincia.Focus()
+
+        ElseIf cboProvincia.SelectedValue = Nothing Then
+            MsgBox("Debe ingresar una provincia valida")
+            cboProvincia.Text = ""
+            cboLocalidad.Text = ""
+        End If
+    End Sub
+
+    Private Sub cboLoca_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles cboLocalidad.LostFocus
+        If cboLocalidad.SelectedValue = Nothing Then
+            MsgBox("Debe ingresar una Localidad valida")
+            cboLocalidad.Text = ""
+            txtCP.Text = ""
+        End If
+    End Sub
+
+    Private Sub cboLoca_SelectedValueChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles cboLocalidad.SelectedValueChanged
+        Dim idprovincia As Integer = CInt(cboProvincia.SelectedValue)
+        Dim idlocalidad As Integer = CInt(cboLocalidad.SelectedValue)
+        txtCP.Text = oCNCliente.TraerCP(idprovincia, idlocalidad)
+
+    End Sub
+    Private Sub cboLoca_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles cboLocalidad.KeyPress
+        cboLocalidad.DroppedDown = False
+
+    End Sub
+    'para rellenar formularios.
+    'compara el nombre obtenido de la base de datos con los nombres de la lista del combobox, y lo selecciona.
+    Public Sub AsignarTextCbo(ByVal text As String, ByVal cbo As System.Object)
+
+        Dim int As Integer
+        int = cbo.FindString(text)
+        cbo.SelectedIndex = int
+    End Sub
+
 End Class

@@ -22,6 +22,7 @@ Partial Class RegistrarCliente
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
@@ -31,15 +32,17 @@ Partial Class RegistrarCliente
         Me.btnCancelar = New System.Windows.Forms.Button()
         Me.dpFecha = New System.Windows.Forms.DateTimePicker()
         Me.cbIVA = New System.Windows.Forms.ComboBox()
+        Me.CondIVABindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.SolemnoDataSet = New CapaPresentacion.SolemnoDataSet()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.cboProvincia = New System.Windows.Forms.ComboBox()
+        Me.ProvinciasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.cboPais = New System.Windows.Forms.ComboBox()
         Me.txtCP = New System.Windows.Forms.TextBox()
         Me.txtNumeracion = New System.Windows.Forms.TextBox()
         Me.txtCalle = New System.Windows.Forms.TextBox()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.txtBarrio = New System.Windows.Forms.TextBox()
-        Me.txtCiudad = New System.Windows.Forms.TextBox()
         Me.Label18 = New System.Windows.Forms.Label()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.Label16 = New System.Windows.Forms.Label()
@@ -61,6 +64,12 @@ Partial Class RegistrarCliente
         Me.btnRegistrar = New System.Windows.Forms.Button()
         Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.Label14 = New System.Windows.Forms.Label()
+        Me.ProvinciasTableAdapter = New CapaPresentacion.SolemnoDataSetTableAdapters.ProvinciasTableAdapter()
+        Me.cboLocalidad = New System.Windows.Forms.ComboBox()
+        Me.CondIVATableAdapter = New CapaPresentacion.SolemnoDataSetTableAdapters.CondIVATableAdapter()
+        CType(Me.CondIVABindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SolemnoDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ProvinciasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label9
@@ -146,13 +155,27 @@ Partial Class RegistrarCliente
         '
         'cbIVA
         '
+        Me.cbIVA.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append
+        Me.cbIVA.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.cbIVA.DataSource = Me.CondIVABindingSource
+        Me.cbIVA.DisplayMember = "Nombre"
+        Me.cbIVA.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbIVA.FormattingEnabled = True
-        Me.cbIVA.Items.AddRange(New Object() {"Consumidor Final", "No Responsable", "Excento", "Responsable Inscripto", "Responsable Monotributo", "Monotributista Social", "Peq. Cont. Eventual"})
         Me.cbIVA.Location = New System.Drawing.Point(140, 228)
         Me.cbIVA.Name = "cbIVA"
         Me.cbIVA.Size = New System.Drawing.Size(205, 23)
         Me.cbIVA.TabIndex = 110
-        Me.cbIVA.Text = "Consumidor Final"
+        Me.cbIVA.ValueMember = "IDIVA"
+        '
+        'CondIVABindingSource
+        '
+        Me.CondIVABindingSource.DataMember = "CondIVA"
+        Me.CondIVABindingSource.DataSource = Me.SolemnoDataSet
+        '
+        'SolemnoDataSet
+        '
+        Me.SolemnoDataSet.DataSetName = "SolemnoDataSet"
+        Me.SolemnoDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'Label1
         '
@@ -166,11 +189,22 @@ Partial Class RegistrarCliente
         '
         'cboProvincia
         '
+        Me.cboProvincia.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append
+        Me.cboProvincia.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.cboProvincia.DataSource = Me.ProvinciasBindingSource
+        Me.cboProvincia.DisplayMember = "Nombre"
+        Me.cboProvincia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboProvincia.FormattingEnabled = True
         Me.cboProvincia.Location = New System.Drawing.Point(489, 130)
         Me.cboProvincia.Name = "cboProvincia"
         Me.cboProvincia.Size = New System.Drawing.Size(205, 23)
         Me.cboProvincia.TabIndex = 106
+        Me.cboProvincia.ValueMember = "IDProvincia"
+        '
+        'ProvinciasBindingSource
+        '
+        Me.ProvinciasBindingSource.DataMember = "Provincias"
+        Me.ProvinciasBindingSource.DataSource = Me.SolemnoDataSet
         '
         'cboPais
         '
@@ -193,19 +227,19 @@ Partial Class RegistrarCliente
         '
         'txtNumeracion
         '
-        Me.txtNumeracion.Location = New System.Drawing.Point(489, 265)
+        Me.txtNumeracion.Location = New System.Drawing.Point(553, 298)
         Me.txtNumeracion.Name = "txtNumeracion"
-        Me.txtNumeracion.Size = New System.Drawing.Size(203, 21)
+        Me.txtNumeracion.Size = New System.Drawing.Size(38, 21)
         Me.txtNumeracion.TabIndex = 103
-        Me.txtNumeracion.Tag = "3"
+        Me.txtNumeracion.Tag = "2"
         '
         'txtCalle
         '
-        Me.txtCalle.Location = New System.Drawing.Point(543, 298)
+        Me.txtCalle.Location = New System.Drawing.Point(488, 264)
         Me.txtCalle.Name = "txtCalle"
-        Me.txtCalle.Size = New System.Drawing.Size(58, 21)
+        Me.txtCalle.Size = New System.Drawing.Size(205, 21)
         Me.txtCalle.TabIndex = 102
-        Me.txtCalle.Tag = "2"
+        Me.txtCalle.Tag = "3"
         '
         'Label19
         '
@@ -224,13 +258,6 @@ Partial Class RegistrarCliente
         Me.txtBarrio.Size = New System.Drawing.Size(203, 21)
         Me.txtBarrio.TabIndex = 100
         Me.txtBarrio.Tag = "3"
-        '
-        'txtCiudad
-        '
-        Me.txtCiudad.Location = New System.Drawing.Point(489, 168)
-        Me.txtCiudad.Name = "txtCiudad"
-        Me.txtCiudad.Size = New System.Drawing.Size(203, 21)
-        Me.txtCiudad.TabIndex = 99
         '
         'Label18
         '
@@ -430,12 +457,31 @@ Partial Class RegistrarCliente
         Me.Label14.TabIndex = 121
         Me.Label14.Text = "Dpto :"
         '
+        'ProvinciasTableAdapter
+        '
+        Me.ProvinciasTableAdapter.ClearBeforeFill = True
+        '
+        'cboLocalidad
+        '
+        Me.cboLocalidad.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.cboLocalidad.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.cboLocalidad.FormattingEnabled = True
+        Me.cboLocalidad.Location = New System.Drawing.Point(488, 165)
+        Me.cboLocalidad.Name = "cboLocalidad"
+        Me.cboLocalidad.Size = New System.Drawing.Size(205, 23)
+        Me.cboLocalidad.TabIndex = 123
+        '
+        'CondIVATableAdapter
+        '
+        Me.CondIVATableAdapter.ClearBeforeFill = True
+        '
         'RegistrarCliente
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(712, 453)
+        Me.Controls.Add(Me.cboLocalidad)
         Me.Controls.Add(Me.TextBox3)
         Me.Controls.Add(Me.Label14)
         Me.Controls.Add(Me.Label9)
@@ -455,7 +501,6 @@ Partial Class RegistrarCliente
         Me.Controls.Add(Me.txtCalle)
         Me.Controls.Add(Me.Label19)
         Me.Controls.Add(Me.txtBarrio)
-        Me.Controls.Add(Me.txtCiudad)
         Me.Controls.Add(Me.Label18)
         Me.Controls.Add(Me.Label17)
         Me.Controls.Add(Me.Label16)
@@ -478,6 +523,9 @@ Partial Class RegistrarCliente
         Me.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Name = "RegistrarCliente"
         Me.Text = "Registrar Nuevo Cliente"
+        CType(Me.CondIVABindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SolemnoDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ProvinciasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -499,7 +547,6 @@ Partial Class RegistrarCliente
     Friend WithEvents txtCalle As System.Windows.Forms.TextBox
     Friend WithEvents Label19 As System.Windows.Forms.Label
     Friend WithEvents txtBarrio As System.Windows.Forms.TextBox
-    Friend WithEvents txtCiudad As System.Windows.Forms.TextBox
     Friend WithEvents Label18 As System.Windows.Forms.Label
     Friend WithEvents Label17 As System.Windows.Forms.Label
     Friend WithEvents Label16 As System.Windows.Forms.Label
@@ -521,4 +568,10 @@ Partial Class RegistrarCliente
     Friend WithEvents btnRegistrar As System.Windows.Forms.Button
     Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
     Friend WithEvents Label14 As System.Windows.Forms.Label
+    Friend WithEvents SolemnoDataSet As CapaPresentacion.SolemnoDataSet
+    Friend WithEvents ProvinciasBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents ProvinciasTableAdapter As CapaPresentacion.SolemnoDataSetTableAdapters.ProvinciasTableAdapter
+    Friend WithEvents cboLocalidad As System.Windows.Forms.ComboBox
+    Friend WithEvents CondIVABindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents CondIVATableAdapter As CapaPresentacion.SolemnoDataSetTableAdapters.CondIVATableAdapter
 End Class

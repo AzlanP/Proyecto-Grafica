@@ -1,10 +1,10 @@
 ﻿Public Class CECliente
-    'tendria que ver si es mejor referirse como ciudad o localidad
+    'tendria que ver si es mejor referirse como Localidad o localidad
     Dim oCECliente As CECliente
 
     Private _IDCliente, _Nombre, _Apellido, _Email, _Barrio, _Domicilio As String
     Private _Telefono, _Telefono2, _CUIT, _DNI, _NroCalle, _Dpto, _CP As Integer
-    Private _Pais, _Provincia, _Ciudad, _CondIVA As Integer
+    Private _Pais, _Provincia, _Localidad, _CondIVA As Integer
     Private _Fecha As Date
 
     'SET and GET de las variables
@@ -48,12 +48,12 @@
             _Provincia = value
         End Set
     End Property
-    Public Property Ciudad() As Integer
+    Public Property Localidad() As Integer
         Get
-            Return _Ciudad
+            Return _Localidad
         End Get
         Set(ByVal value As Integer)
-            _Ciudad = value
+            _Localidad = value
         End Set
     End Property
     Public Property Barrio() As String
