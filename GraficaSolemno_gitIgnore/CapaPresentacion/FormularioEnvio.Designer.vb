@@ -94,6 +94,7 @@ Partial Class FormularioEnvio
         Me.txtbxNseguimiento.Name = "txtbxNseguimiento"
         Me.txtbxNseguimiento.Size = New System.Drawing.Size(170, 20)
         Me.txtbxNseguimiento.TabIndex = 17
+        Me.txtbxNseguimiento.Tag = "3"
         '
         'lblNseguimiento
         '

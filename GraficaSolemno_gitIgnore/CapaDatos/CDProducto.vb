@@ -81,7 +81,7 @@ Public Class CDProducto
         Dim dt As New DataTable
         Try
 
-            Dim instruccionSQL = "Select * FROM Productos where " & camp & "=@buscar "
+            Dim instruccionSQL = "Select * FROM Productos where " & camp & "  like  '" + pbuscar + "%'"
             Dim comando As New SQLiteCommand(instruccionSQL, oCDConexion.con)
             If IsNumeric(pbuscar) Then
                 comando.Parameters.Add("@buscar", SqlDbType.Int).Value = pbuscar

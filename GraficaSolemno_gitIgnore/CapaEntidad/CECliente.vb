@@ -2,8 +2,8 @@
     'tendria que ver si es mejor referirse como Localidad o localidad
     Dim oCECliente As CECliente
 
-    Private _IDCliente, _Nombre, _Apellido, _Email, _Barrio, _Domicilio As String
-    Private _Telefono, _Telefono2, _CUIT, _DNI, _NroCalle, _Dpto, _CP As Integer
+    Private _Telefono, _Telefono2, _CUIT, _DNI, _IDCliente, _Nombre, _Apellido, _Email, _Barrio, _Domicilio As String
+    Private _NroCalle, _Dpto, _CP As Integer
     Private _Pais, _Provincia, _Localidad, _CondIVA As Integer
     Private _Fecha As Date
 
@@ -80,35 +80,35 @@
             _CondIVA = value
         End Set
     End Property
-    Public Property Telefono() As Integer
+    Public Property Telefono() As String
         Get
             Return _Telefono
         End Get
-        Set(ByVal value As Integer)
+        Set(ByVal value As String)
             _Telefono = value
         End Set
     End Property
-    Public Property Telefono2() As Integer
+    Public Property Telefono2() As String
         Get
             Return _Telefono2
         End Get
-        Set(ByVal value As Integer)
+        Set(ByVal value As String)
             _Telefono2 = value
         End Set
     End Property
-    Public Property CUIT() As Integer
+    Public Property CUIT() As String
         Get
             Return _CUIT
         End Get
-        Set(ByVal value As Integer)
+        Set(ByVal value As String)
             _CUIT = value
         End Set
     End Property
-    Public Property DNI() As Integer
+    Public Property DNI() As String
         Get
             Return _DNI
         End Get
-        Set(ByVal value As Integer)
+        Set(ByVal value As String)
             _DNI = value
         End Set
     End Property

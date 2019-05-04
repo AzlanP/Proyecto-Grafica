@@ -44,6 +44,7 @@ Partial Class frmAgregarNota
         Me.txtTitulo.Name = "txtTitulo"
         Me.txtTitulo.Size = New System.Drawing.Size(200, 20)
         Me.txtTitulo.TabIndex = 0
+        Me.txtTitulo.Tag = "3"
         '
         'txtDescripcion
         '
@@ -52,6 +53,7 @@ Partial Class frmAgregarNota
         Me.txtDescripcion.Name = "txtDescripcion"
         Me.txtDescripcion.Size = New System.Drawing.Size(200, 110)
         Me.txtDescripcion.TabIndex = 1
+        Me.txtDescripcion.Tag = "3"
         '
         'lblTitulo
         '
@@ -152,13 +154,13 @@ Partial Class frmAgregarNota
         'cboPrioridad
         '
         Me.cboPrioridad.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable
+        Me.cboPrioridad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboPrioridad.FormattingEnabled = True
         Me.cboPrioridad.Items.AddRange(New Object() {"BAJA", "MEDIA", "ALTA", "URGENTE"})
         Me.cboPrioridad.Location = New System.Drawing.Point(76, 256)
         Me.cboPrioridad.Name = "cboPrioridad"
         Me.cboPrioridad.Size = New System.Drawing.Size(141, 21)
         Me.cboPrioridad.TabIndex = 12
-        Me.cboPrioridad.Text = "BAJA"
         '
         'btnGuardarCambios
         '

@@ -27,7 +27,7 @@ Public Class RegistrarCliente
         txtTel.Text = dr("Telefono").ToString
         txtCel.Text = dr("Telefono2").ToString
         txtDNI.Text = dr("DNI").ToString
-        txtDNI.Text = dr("CUIT").ToString
+        txtCuit.Text = dr("CUIT").ToString
         'cboPais.Text = dr("IDPais").ToString
         AsignarTextCbo(dr("Provincia").ToString, cboProvincia)
         AsignarTextCbo(dr("Localidad").ToString, cboLocalidad)
@@ -55,10 +55,10 @@ Public Class RegistrarCliente
         oCECliente.IDCliente = CInt(lblID.Text)
         oCECliente.Nombre = txtNombre.Text
         oCECliente.Apellido = txtApellido.Text
-        oCECliente.Telefono = CInt(txtTel.Text)
-        oCECliente.Telefono2 = CInt(txtCel.Text)
-        oCECliente.DNI = CInt(txtDNI.Text)
-        oCECliente.CUIT = CInt(txtDNI.Text)
+        oCECliente.Telefono = txtTel.Text
+        oCECliente.Telefono2 = txtCel.Text
+        oCECliente.DNI = txtDNI.Text
+        oCECliente.CUIT = txtCuit.Text
         oCECliente.Pais = 1
         oCECliente.Provincia = CInt(cboProvincia.SelectedValue)
         oCECliente.Localidad = CInt(cboLocalidad.SelectedValue)

@@ -67,6 +67,7 @@ Partial Class AgregarProductoPedido
         Me.TextboxDescripcion.Name = "TextboxDescripcion"
         Me.TextboxDescripcion.Size = New System.Drawing.Size(211, 20)
         Me.TextboxDescripcion.TabIndex = 18
+        Me.TextboxDescripcion.Tag = "3"
         '
         'lblDescripcionAgrProd
         '
@@ -146,6 +147,7 @@ Partial Class AgregarProductoPedido
         Me.txtBuscar.Name = "txtBuscar"
         Me.txtBuscar.Size = New System.Drawing.Size(191, 20)
         Me.txtBuscar.TabIndex = 23
+        Me.txtBuscar.Tag = "3"
         '
         'btnBuscar
         '

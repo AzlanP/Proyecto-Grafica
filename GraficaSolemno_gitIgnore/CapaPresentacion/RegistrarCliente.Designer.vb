@@ -25,7 +25,7 @@ Partial Class RegistrarCliente
         Me.components = New System.ComponentModel.Container()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.txtCuit = New System.Windows.Forms.TextBox()
         Me.btnGuardar = New System.Windows.Forms.Button()
         Me.lblID = New System.Windows.Forms.Label()
         Me.lblIDinfo = New System.Windows.Forms.Label()
@@ -92,13 +92,13 @@ Partial Class RegistrarCliente
         Me.Label8.TabIndex = 117
         Me.Label8.Text = "CUIT :"
         '
-        'TextBox1
+        'txtCuit
         '
-        Me.TextBox1.Location = New System.Drawing.Point(140, 194)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(203, 21)
-        Me.TextBox1.TabIndex = 116
-        Me.TextBox1.Tag = "2"
+        Me.txtCuit.Location = New System.Drawing.Point(140, 167)
+        Me.txtCuit.Name = "txtCuit"
+        Me.txtCuit.Size = New System.Drawing.Size(203, 21)
+        Me.txtCuit.TabIndex = 116
+        Me.txtCuit.Tag = "2"
         '
         'btnGuardar
         '
@@ -339,7 +339,7 @@ Partial Class RegistrarCliente
         '
         'txtDNI
         '
-        Me.txtDNI.Location = New System.Drawing.Point(140, 160)
+        Me.txtDNI.Location = New System.Drawing.Point(140, 200)
         Me.txtDNI.Name = "txtDNI"
         Me.txtDNI.Size = New System.Drawing.Size(203, 21)
         Me.txtDNI.TabIndex = 90
@@ -486,7 +486,7 @@ Partial Class RegistrarCliente
         Me.Controls.Add(Me.Label14)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.Label8)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.txtCuit)
         Me.Controls.Add(Me.btnGuardar)
         Me.Controls.Add(Me.lblID)
         Me.Controls.Add(Me.lblIDinfo)
@@ -532,7 +532,7 @@ Partial Class RegistrarCliente
     End Sub
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents Label8 As System.Windows.Forms.Label
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents txtCuit As System.Windows.Forms.TextBox
     Friend WithEvents btnGuardar As System.Windows.Forms.Button
     Friend WithEvents lblID As System.Windows.Forms.Label
     Friend WithEvents lblIDinfo As System.Windows.Forms.Label
