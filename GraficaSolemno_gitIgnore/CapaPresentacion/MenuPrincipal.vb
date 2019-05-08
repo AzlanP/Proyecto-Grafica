@@ -176,11 +176,22 @@ Public Class frmMenuPrincipal
     End Sub
 
     Private Sub btnVerPedido_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnVerPedido.Click
-        'ID = DGPedido.Rows(DGPedido.CurrentCell.RowIndex).Cells("IDPedido").Value
-        'Dim frmPedido As New FormularioPedido
-        'frmPedido.LLenarFormulario(ID)
-        'frmPedido.Disesabletext()
-        'frmPedido.ShowDialog()
+        ID = DGPedido.Rows(DGPedido.CurrentCell.RowIndex).Cells("IDPedido").Value
+        Dim frmPedido As New FormularioPedido
+        frmPedido.btnAgregarPedidoNuevo.Visible = False
+        frmPedido.btnAgregarPedidoExistente.Visible = True
+        frmPedido.btnAgregarPedidoNuevo.Enabled = False
+        frmPedido.btnAgregarPedidoExistente.Enabled = False
+        frmPedido.btnModificarPedido.Enabled = False
+        frmPedido.btnQuitar.Enabled = False
+        frmPedido.btnGuardarPedido.Visible = False
+        frmPedido.btnGuardarCambios.Visible = False
+        frmPedido.btnCancelarPedido.Text = "Aceptar"
+        frmPedido.CargarGridDetalles(ID)
+        frmPedido.LLenarFormulario(ID)
+        frmPedido.Disesabletext()
+        frmPedido.ShowDialog()
+        CargarGridPedidos()
     End Sub
 
     Private Sub btnEliminarPedido_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEliminarPedido.Click

@@ -20,18 +20,18 @@ Public Class CDCliente
                 .Add("@IDCliente", SqlDbType.Int).Value = oCECliente.IDCliente
                 .Add("@Nombre", SqlDbType.VarChar).Value = oCECliente.Nombre
                 .Add("@Apellido", SqlDbType.VarChar).Value = oCECliente.Apellido
-                .Add("@Telefono", SqlDbType.Int).Value = oCECliente.Telefono
-                .Add("@Telefono2", SqlDbType.Int).Value = oCECliente.Telefono2
-                .Add("@DNI", SqlDbType.Int).Value = oCECliente.DNI
-                .Add("@CUIT", SqlDbType.Int).Value = oCECliente.CUIT
+                .Add("@Telefono", SqlDbType.Int).Value = SetNullValues(oCECliente.Telefono)
+                .Add("@Telefono2", SqlDbType.Int).Value = SetNullValues(oCECliente.Telefono2)
+                .Add("@DNI", SqlDbType.Int).Value = SetNullValues(oCECliente.DNI)
+                .Add("@CUIT", SqlDbType.Int).Value = SetNullValues(oCECliente.CUIT)
                 .Add("@IDPais", SqlDbType.Int).Value = oCECliente.Pais
                 .Add("@IDProvincia", SqlDbType.Int).Value = oCECliente.Provincia
                 .Add("@IDLocalidad", SqlDbType.Int).Value = oCECliente.Localidad
                 .Add("@Barrio", SqlDbType.VarChar).Value = oCECliente.Barrio
                 .Add("@Domicilio", SqlDbType.VarChar).Value = oCECliente.Domicilio
-                .Add("@NroCalle", SqlDbType.Int).Value = oCECliente.NroCalle
-                .Add("@Dpto", SqlDbType.Int).Value = oCECliente.Dpto
-                .Add("@CP", SqlDbType.VarChar).Value = oCECliente.CP
+                .Add("@NroCalle", SqlDbType.Int).Value = SetNullValues(oCECliente.NroCalle)
+                .Add("@Dpto", SqlDbType.VarChar).Value = SetNullValues(oCECliente.Dpto)
+                .Add("@CP", SqlDbType.VarChar).Value = SetNullValues(oCECliente.CP)
                 .Add("@EMAIL", SqlDbType.VarChar).Value = oCECliente.Email
                 .Add("@IDCondIVA", SqlDbType.Int).Value = oCECliente.CondIVA
                 .Add("@Fecha", SqlDbType.VarChar).Value = oCECliente.Fecha
@@ -45,6 +45,23 @@ Public Class CDCliente
             oCDConexion.Desconectar()
         End Try
     End Sub
+    Public Function SetNullValues(ByVal value As Object) As Object
+        If IsNumeric(value) Then
+            If value = 0 Then
+                Return DBNull.Value
+            Else
+                Return CInt(value)
+            End If
+
+        Else
+            If value = Nothing Or value = "" Then
+                Return DBNull.Value
+            Else
+                Return CInt(value)
+            End If
+        End If
+
+    End Function
     Public Sub EliminarCliente(ByVal id As Integer)
         oCDConexion.Conectar()
         Try
@@ -78,7 +95,7 @@ Public Class CDCliente
                 .Add("@Barrio", SqlDbType.VarChar).Value = oCECliente.Barrio
                 .Add("@Domicilio", SqlDbType.VarChar).Value = oCECliente.Domicilio
                 .Add("@NroCalle", SqlDbType.Int).Value = oCECliente.NroCalle
-                .Add("@Dpto", SqlDbType.Int).Value = oCECliente.Dpto
+                .Add("@Dpto", SqlDbType.VarChar).Value = oCECliente.Dpto
                 .Add("@CP", SqlDbType.VarChar).Value = oCECliente.CP
                 .Add("@EMAIL", SqlDbType.VarChar).Value = oCECliente.Email
                 .Add("@IDCondIVA", SqlDbType.Int).Value = oCECliente.CondIVA
@@ -95,7 +112,7 @@ Public Class CDCliente
         da = New SQLiteDataAdapter
         Dim dt As New DataTable
         Try
-            
+
             Dim instruccionSQL = "Select * FROM Clientes where " & pcampo & "=@buscar "
             Dim comando As New SQLiteCommand(instruccionSQL, oCDConexion.con)
             If IsNumeric(pbuscar) Then
@@ -112,7 +129,7 @@ Public Class CDCliente
         Finally
             oCDConexion.Desconectar()
         End Try
-       
+
     End Function
     Function BuscarCliente(ByVal pcampo As String, ByVal pbuscar As String) As DataTable
         oCDConexion.Conectar()

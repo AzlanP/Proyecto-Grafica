@@ -64,16 +64,24 @@ Public Class RegistrarCliente
         oCECliente.Localidad = CInt(cboLocalidad.SelectedValue)
         oCECliente.Barrio = txtBarrio.Text
         oCECliente.Domicilio = txtCalle.Text
-        oCECliente.NroCalle = CInt(txtNumeracion.Text)
-        oCECliente.Dpto = CInt(txtNumeracion.Text)
-        oCECliente.CP = CInt(txtCP.Text)
+        oCECliente.NroCalle = CasteoNulo(txtNumeracion.Text)
+        oCECliente.Dpto = txtDpto.Text
+        oCECliente.CP = CasteoNulo(txtCP.Text)
         oCECliente.Email = txtEmail.Text
         oCECliente.CondIVA = CInt(cbIVA.SelectedValue)
         oCECliente.Fecha = CDate(dpFecha.Value.ToShortDateString)
         Return oCECliente
 
     End Function
+    Public Function CasteoNulo(ByVal value As String) As Integer
+        value = Trim(value)
+        If value = "" Then
+            Return Nothing
+        Else
+            Return value
+        End If
 
+    End Function
     Public Sub Disesabletext()
         'este codigo es para desabilitar la edicion de todos los campos
         Dim ctrl As Control

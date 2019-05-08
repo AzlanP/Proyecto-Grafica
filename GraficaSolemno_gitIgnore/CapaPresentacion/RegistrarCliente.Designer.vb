@@ -62,7 +62,7 @@ Partial Class RegistrarCliente
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.btnRegistrar = New System.Windows.Forms.Button()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.txtDpto = New System.Windows.Forms.TextBox()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.ProvinciasTableAdapter = New CapaPresentacion.SolemnoDataSetTableAdapters.ProvinciasTableAdapter()
         Me.cboLocalidad = New System.Windows.Forms.ComboBox()
@@ -439,13 +439,13 @@ Partial Class RegistrarCliente
         Me.btnRegistrar.Text = "Registrar Cliente"
         Me.btnRegistrar.UseVisualStyleBackColor = False
         '
-        'TextBox3
+        'txtDpto
         '
-        Me.TextBox3.Location = New System.Drawing.Point(646, 298)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(45, 21)
-        Me.TextBox3.TabIndex = 122
-        Me.TextBox3.Tag = "2"
+        Me.txtDpto.Location = New System.Drawing.Point(646, 298)
+        Me.txtDpto.Name = "txtDpto"
+        Me.txtDpto.Size = New System.Drawing.Size(45, 21)
+        Me.txtDpto.TabIndex = 122
+        Me.txtDpto.Tag = "2"
         '
         'Label14
         '
@@ -482,7 +482,7 @@ Partial Class RegistrarCliente
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(712, 453)
         Me.Controls.Add(Me.cboLocalidad)
-        Me.Controls.Add(Me.TextBox3)
+        Me.Controls.Add(Me.txtDpto)
         Me.Controls.Add(Me.Label14)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.Label8)
@@ -566,7 +566,7 @@ Partial Class RegistrarCliente
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents btnRegistrar As System.Windows.Forms.Button
-    Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
+    Friend WithEvents txtDpto As System.Windows.Forms.TextBox
     Friend WithEvents Label14 As System.Windows.Forms.Label
     Friend WithEvents SolemnoDataSet As CapaPresentacion.SolemnoDataSet
     Friend WithEvents ProvinciasBindingSource As System.Windows.Forms.BindingSource
