@@ -20,9 +20,11 @@ Public Class frmMenuPrincipal
     Public Sub CargarGridCliente()
         'la funcion de listar cliente retornara un datatable que contendra la tabla del cliente, y esta sera mostrada en el datagrid
         DGCliente.DataSource = oCNCliente.MostrarCliente
+
     End Sub
     Private Sub TabCliente_Enter(ByVal sender As Object, ByVal e As System.EventArgs) Handles TabCliente.Enter
         CargarGridCliente()
+        cboBuscarCliente.SelectedIndex = 0
     End Sub
     Private Sub btnNuevoCliente_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNuevoCliente.Click
         Dim frmRegistrar As New RegistrarCliente

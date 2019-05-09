@@ -151,7 +151,7 @@ Partial Class RegistrarCliente
         Me.dpFecha.Name = "dpFecha"
         Me.dpFecha.Size = New System.Drawing.Size(203, 21)
         Me.dpFecha.TabIndex = 111
-        Me.dpFecha.Value = New Date(2018, 5, 7, 22, 44, 48, 0)
+        Me.dpFecha.Value = New Date(1999, 1, 1, 0, 0, 0, 0)
         '
         'cbIVA
         '

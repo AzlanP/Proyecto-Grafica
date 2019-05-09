@@ -85,21 +85,22 @@ Public Class CDCliente
                 .Add("@IDCliente", SqlDbType.Int).Value = oCECliente.IDCliente
                 .Add("@Nombre", SqlDbType.VarChar).Value = oCECliente.Nombre
                 .Add("@Apellido", SqlDbType.VarChar).Value = oCECliente.Apellido
-                .Add("@Telefono", SqlDbType.VarChar).Value = oCECliente.Telefono
-                .Add("@Telefono2", SqlDbType.VarChar).Value = oCECliente.Telefono2
-                .Add("@DNI", SqlDbType.VarChar).Value = oCECliente.DNI
-                .Add("@CUIT", SqlDbType.VarChar).Value = oCECliente.CUIT
+                .Add("@Telefono", SqlDbType.Int).Value = SetNullValues(oCECliente.Telefono)
+                .Add("@Telefono2", SqlDbType.Int).Value = SetNullValues(oCECliente.Telefono2)
+                .Add("@DNI", SqlDbType.Int).Value = SetNullValues(oCECliente.DNI)
+                .Add("@CUIT", SqlDbType.Int).Value = SetNullValues(oCECliente.CUIT)
                 .Add("@IDPais", SqlDbType.Int).Value = oCECliente.Pais
                 .Add("@IDProvincia", SqlDbType.Int).Value = oCECliente.Provincia
                 .Add("@IDLocalidad", SqlDbType.Int).Value = oCECliente.Localidad
                 .Add("@Barrio", SqlDbType.VarChar).Value = oCECliente.Barrio
                 .Add("@Domicilio", SqlDbType.VarChar).Value = oCECliente.Domicilio
-                .Add("@NroCalle", SqlDbType.Int).Value = oCECliente.NroCalle
-                .Add("@Dpto", SqlDbType.VarChar).Value = oCECliente.Dpto
-                .Add("@CP", SqlDbType.VarChar).Value = oCECliente.CP
+                .Add("@NroCalle", SqlDbType.Int).Value = SetNullValues(oCECliente.NroCalle)
+                .Add("@Dpto", SqlDbType.VarChar).Value = SetNullValues(oCECliente.Dpto)
+                .Add("@CP", SqlDbType.VarChar).Value = SetNullValues(oCECliente.CP)
                 .Add("@EMAIL", SqlDbType.VarChar).Value = oCECliente.Email
                 .Add("@IDCondIVA", SqlDbType.Int).Value = oCECliente.CondIVA
                 .Add("@Fecha", SqlDbType.VarChar).Value = oCECliente.Fecha
+
             End With
             comando.ExecuteNonQuery()
         Catch ex As Exception

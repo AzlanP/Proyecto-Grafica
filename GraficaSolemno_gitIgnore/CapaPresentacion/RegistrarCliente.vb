@@ -34,7 +34,7 @@ Public Class RegistrarCliente
         txtBarrio.Text = dr("Barrio").ToString
         txtCalle.Text = dr("Domicilio").ToString
         txtNumeracion.Text = dr("NroCalle").ToString
-        txtNumeracion.Text = dr("Dpto").ToString
+        txtDpto.Text = dr("Dpto").ToString
         txtCP.Text = dr("CP").ToString
         txtEmail.Text = dr("EMAIL").ToString
         AsignarTextCbo(dr("Condicion de IVA").ToString, cbIVA)
@@ -116,12 +116,19 @@ Public Class RegistrarCliente
        
         Dim validacion As New Validaciones
         validacion.Validar(Me)
+        If dpFecha.Value = CDate("1/1/1999") Then
+            dpFecha.Value = Now
+        End If
+
+
     End Sub
     Public Sub PrecargarCombobox()
         'TODO: esta línea de código carga datos en la tabla 'SolemnoDataSet.CondIVA' Puede moverla o quitarla según sea necesario.
         Me.CondIVATableAdapter.Fill(Me.SolemnoDataSet.CondIVA)
         'TODO: esta línea de código carga datos en la tabla 'SolemnoDataSet.Provincias' Puede moverla o quitarla según sea necesario.
         Me.ProvinciasTableAdapter.Fill(Me.SolemnoDataSet.Provincias)
+        cboProvincia.SelectedIndex = 0
+
     End Sub
 
     '------------------------------------------------------------------------------------------------------------
@@ -140,7 +147,6 @@ Public Class RegistrarCliente
         If cboProvincia.Text = "" Or cboProvincia.Text = " " Then
             MsgBox("debe ingresar una provincia primero.")
             cboProvincia.Focus()
-
         ElseIf cboProvincia.SelectedValue = Nothing Then
             MsgBox("Debe ingresar una provincia valida")
             cboProvincia.Text = ""
