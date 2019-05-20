@@ -10,7 +10,42 @@ Public Class RegistrarCliente
         MsgBox("Los Datos fueron guardados con exito.")
         Close()
     End Sub
+    Public Sub LlenarFormularioInactivo(ByVal ID As Integer)
+        PrecargarCombobox()
+        Dim dt As New DataTable
+        Dim dr As DataRow
 
+        'realizo la busqueda del cliente segun su ID
+        dt = oCNCliente.BuscarInactivo("IDCliente", ID)
+        'guardo el registro del cliente en el datarow para mostrarlo
+        dr = dt.Rows(0)
+        'para mostrar los datos precargados de el registro
+        lblID.Text = dr("IDCliente").ToString
+        txtNombre.Text = dr("Nombre").ToString
+        txtApellido.Text = dr("Apellido").ToString
+        txtTel.Text = dr("Telefono").ToString
+        txtCel.Text = dr("Telefono2").ToString
+        txtDNI.Text = dr("DNI").ToString
+        txtCuit.Text = dr("CUIT").ToString
+        'cboPais.Text = dr("IDPais").ToString
+        AsignarTextCbo(dr("Provincia").ToString, cboProvincia)
+        AsignarTextCbo(dr("Localidad").ToString, cboLocalidad)
+        txtBarrio.Text = dr("Barrio").ToString
+        txtCalle.Text = dr("Domicilio").ToString
+        txtNumeracion.Text = dr("NroCalle").ToString
+        txtDpto.Text = dr("Dpto").ToString
+        txtCP.Text = dr("CP").ToString
+        txtEmail.Text = dr("EMAIL").ToString
+        AsignarTextCbo(dr("Condicion de IVA").ToString, cbIVA)
+        dpFecha.Text = dr("Fecha").ToString
+        'la modificacion no fallo  pero ya se encotraba abierta la base de datos. revisar
+
+        'Esto es para cambiar segun si se esta modificando aparasca el boton de guardar, o el boton de registro
+        btnRegistrar.Visible = False
+        btnGuardar.Visible = True
+        'Esto es para que segun sea el caso el texto del formulario cambie.
+        Me.Text = "Modificar Cliente"
+    End Sub
     Public Sub LlenarFormulario(ByVal ID As Integer)
         PrecargarCombobox()
         Dim dt As New DataTable

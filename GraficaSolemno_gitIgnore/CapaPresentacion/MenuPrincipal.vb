@@ -71,7 +71,7 @@ Public Class frmMenuPrincipal
     Private Sub btnEliminarCliente_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEliminarCliente.Click
         ID = DGCliente.Rows(DGCliente.CurrentCell.RowIndex).Cells("IDCliente").Value
         If oCNPedido.ValidarEliminarPedido(ID) Then
-            oCNCliente.EliminarCliente(ID)
+            oCNCliente.EliminarCliente(ID, "Inactivo")
             CargarGridCliente()
         End If
        
@@ -82,9 +82,75 @@ Public Class frmMenuPrincipal
         DGCliente.DataSource = dt.DefaultView.ToTable(True, "IDCliente", "Nombre", "Apellido", "DNI", "CUIT", "Telefono", "Provincia", "Localidad", "Condicion de IVA")
         'para que el combobox no permita escribir, se cambio el dropdownstyle =DropDownList
     End Sub
+    '---------- Para el estado eliminar
+    Private Sub btnListadoClientesInactivos_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnListadoClientesInactivos.Click
+        DGClienteInactivos.DataSource = oCNCliente.MostrarClienteIncativo()
+        ControlesRecuperar()
 
+    End Sub
+    Public Sub ControlesRecuperar()
+        DGClienteInactivos.Visible = True
+        DGCliente.Visible = False
+        btnNuevoCliente.Enabled = False
+        btnModificarCliente.Enabled = False
+        btnVerCliente.Visible = False
+        btnVerInactivo.Visible = True
+        btnBuscarCliente.Visible = False
+        btnEliminarCliente.Visible = False
+        btnBuscarInactivos.Visible = True
+        btnRestaurar.Visible = True
+    End Sub
+    Private Sub DGClienteInactivos_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DGClienteInactivos.CellClick
+        DGClienteInactivos.CurrentRow.Selected = True
 
+        ID = DGClienteInactivos.Rows(e.RowIndex).Cells("IDCliente").Value
 
+     
+    End Sub
+    Private Sub DGClienteInactivos_CellDoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles DGClienteInactivos.CellDoubleClick
+
+        Dim frmRegistrar As New RegistrarCliente
+        MsgBox("Restaurar id" & ID)
+        ' agregarle una confirmacion para restaurar
+        oCNCliente.EliminarCliente(ID, "Activo")
+        CargarGridCliente()
+        DGClienteInactivos.DataSource = oCNCliente.MostrarClienteIncativo()
+        VolverAlInicio()
+    End Sub
+    Private Sub btnBuscarInactivos_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnBuscarInactivos.Click
+        Dim dt As DataTable
+        dt = oCNCliente.BuscarInactivo(cboBuscarCliente.Text, Trim(txtBuscarCliente.Text))
+        DGClienteInactivos.DataSource = dt.DefaultView.ToTable(True, "IDCliente", "Nombre", "Apellido", "DNI", "CUIT", "Telefono", "Provincia", "Localidad", "Condicion de IVA")
+
+    End Sub
+    Private Sub btnVerInactivo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnVerInactivo.Click
+        ID = DGClienteInactivos.Rows(DGClienteInactivos.CurrentCell.RowIndex).Cells("IDCliente").Value
+        Dim frmRegistrar As New RegistrarCliente
+        frmRegistrar.LlenarFormularioInactivo(ID)
+        frmRegistrar.Disesabletext()
+        frmRegistrar.ShowDialog()
+    End Sub
+    Private Sub btnRestaurar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRestaurar.Click
+        ID = DGClienteInactivos.Rows(DGClienteInactivos.CurrentCell.RowIndex).Cells("IDCliente").Value
+
+        oCNCliente.EliminarCliente(ID, "Activo")
+        CargarGridCliente()
+        DGClienteInactivos.DataSource = oCNCliente.MostrarClienteIncativo()
+        VolverAlInicio()
+    End Sub
+    Public Sub VolverAlInicio()
+        DGCliente.Visible = True
+        btnNuevoCliente.Enabled = True
+        btnModificarCliente.Enabled = True
+        btnVerCliente.Visible = True
+        btnBuscarCliente.Visible = True
+        btnEliminarCliente.Visible = True
+
+        btnVerInactivo.Visible = False
+        btnRestaurar.Visible = False
+        DGClienteInactivos.Visible = False
+        btnBuscarInactivos.Visible = False
+    End Sub
 
     '--------------------------------------------------------------------------------------------------------------
     '--------------------------------------------------------------------------------------------------------------
@@ -319,4 +385,8 @@ Public Class frmMenuPrincipal
 
     
     
+   
+
+    
+
 End Class

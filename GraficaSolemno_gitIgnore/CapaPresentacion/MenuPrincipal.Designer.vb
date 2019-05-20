@@ -22,14 +22,16 @@ Partial Class frmMenuPrincipal
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.TabGeneral = New System.Windows.Forms.TabControl()
         Me.TabTareas = New System.Windows.Forms.TabPage()
         Me.panelTareas = New System.Windows.Forms.Panel()
         Me.TabCliente = New System.Windows.Forms.TabPage()
         Me.PanelCentralCliente = New System.Windows.Forms.Panel()
+        Me.btnBuscarInactivos = New System.Windows.Forms.Button()
+        Me.DGClienteInactivos = New System.Windows.Forms.DataGridView()
         Me.btnRefresh = New System.Windows.Forms.Button()
         Me.txtBuscarCliente = New System.Windows.Forms.TextBox()
         Me.btnBuscarCliente = New System.Windows.Forms.Button()
@@ -38,6 +40,9 @@ Partial Class frmMenuPrincipal
         Me.PanelSuperiorCliente = New System.Windows.Forms.Panel()
         Me.lbltituloCliente = New System.Windows.Forms.Label()
         Me.PanelLateralCliente = New System.Windows.Forms.Panel()
+        Me.btnRestaurar = New System.Windows.Forms.Button()
+        Me.btnVerInactivo = New System.Windows.Forms.Button()
+        Me.btnListadoClientesInactivos = New System.Windows.Forms.Button()
         Me.PictureBoxCliente = New System.Windows.Forms.PictureBox()
         Me.btnEliminarCliente = New System.Windows.Forms.Button()
         Me.btnVerCliente = New System.Windows.Forms.Button()
@@ -45,6 +50,7 @@ Partial Class frmMenuPrincipal
         Me.btnNuevoCliente = New System.Windows.Forms.Button()
         Me.TabPedido = New System.Windows.Forms.TabPage()
         Me.PanelCentralPedido = New System.Windows.Forms.Panel()
+        Me.btnRefreshPedido = New System.Windows.Forms.Button()
         Me.txtBuscarPedido = New System.Windows.Forms.TextBox()
         Me.btnBuscarPedido = New System.Windows.Forms.Button()
         Me.DGPedido = New System.Windows.Forms.DataGridView()
@@ -59,6 +65,7 @@ Partial Class frmMenuPrincipal
         Me.IconoPedido = New System.Windows.Forms.PictureBox()
         Me.TabProducto = New System.Windows.Forms.TabPage()
         Me.panelCentralProducto = New System.Windows.Forms.Panel()
+        Me.btnRefreshProduct = New System.Windows.Forms.Button()
         Me.txtBuscarProducto = New System.Windows.Forms.TextBox()
         Me.DGProducto = New System.Windows.Forms.DataGridView()
         Me.btnBuscarProducto = New System.Windows.Forms.Button()
@@ -107,6 +114,7 @@ Partial Class frmMenuPrincipal
         Me.TabTareas.SuspendLayout()
         Me.TabCliente.SuspendLayout()
         Me.PanelCentralCliente.SuspendLayout()
+        CType(Me.DGClienteInactivos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DGCliente, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelSuperiorCliente.SuspendLayout()
         Me.PanelLateralCliente.SuspendLayout()
@@ -187,6 +195,8 @@ Partial Class frmMenuPrincipal
         'PanelCentralCliente
         '
         Me.PanelCentralCliente.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
+        Me.PanelCentralCliente.Controls.Add(Me.btnBuscarInactivos)
+        Me.PanelCentralCliente.Controls.Add(Me.DGClienteInactivos)
         Me.PanelCentralCliente.Controls.Add(Me.btnRefresh)
         Me.PanelCentralCliente.Controls.Add(Me.txtBuscarCliente)
         Me.PanelCentralCliente.Controls.Add(Me.btnBuscarCliente)
@@ -197,6 +207,34 @@ Partial Class frmMenuPrincipal
         Me.PanelCentralCliente.Name = "PanelCentralCliente"
         Me.PanelCentralCliente.Size = New System.Drawing.Size(937, 490)
         Me.PanelCentralCliente.TabIndex = 13
+        '
+        'btnBuscarInactivos
+        '
+        Me.btnBuscarInactivos.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnBuscarInactivos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnBuscarInactivos.Location = New System.Drawing.Point(567, 28)
+        Me.btnBuscarInactivos.Name = "btnBuscarInactivos"
+        Me.btnBuscarInactivos.Size = New System.Drawing.Size(122, 24)
+        Me.btnBuscarInactivos.TabIndex = 11
+        Me.btnBuscarInactivos.Text = "Buscar Inactivos"
+        Me.btnBuscarInactivos.UseVisualStyleBackColor = False
+        Me.btnBuscarInactivos.Visible = False
+        '
+        'DGClienteInactivos
+        '
+        Me.DGClienteInactivos.AllowUserToAddRows = False
+        Me.DGClienteInactivos.AllowUserToDeleteRows = False
+        Me.DGClienteInactivos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.DGClienteInactivos.BackgroundColor = System.Drawing.Color.White
+        Me.DGClienteInactivos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DGClienteInactivos.Location = New System.Drawing.Point(36, 74)
+        Me.DGClienteInactivos.MultiSelect = False
+        Me.DGClienteInactivos.Name = "DGClienteInactivos"
+        Me.DGClienteInactivos.ReadOnly = True
+        Me.DGClienteInactivos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DGClienteInactivos.Size = New System.Drawing.Size(614, 310)
+        Me.DGClienteInactivos.TabIndex = 10
+        Me.DGClienteInactivos.Visible = False
         '
         'btnRefresh
         '
@@ -221,7 +259,7 @@ Partial Class frmMenuPrincipal
         '
         Me.btnBuscarCliente.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnBuscarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnBuscarCliente.Location = New System.Drawing.Point(567, 32)
+        Me.btnBuscarCliente.Location = New System.Drawing.Point(567, 28)
         Me.btnBuscarCliente.Name = "btnBuscarCliente"
         Me.btnBuscarCliente.Size = New System.Drawing.Size(83, 24)
         Me.btnBuscarCliente.TabIndex = 5
@@ -246,12 +284,12 @@ Partial Class frmMenuPrincipal
         Me.DGCliente.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DGCliente.BackgroundColor = System.Drawing.Color.White
         Me.DGCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGCliente.Location = New System.Drawing.Point(20, 74)
+        Me.DGCliente.Location = New System.Drawing.Point(36, 74)
         Me.DGCliente.MultiSelect = False
         Me.DGCliente.Name = "DGCliente"
         Me.DGCliente.ReadOnly = True
         Me.DGCliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DGCliente.Size = New System.Drawing.Size(630, 310)
+        Me.DGCliente.Size = New System.Drawing.Size(614, 310)
         Me.DGCliente.TabIndex = 7
         '
         'PanelSuperiorCliente
@@ -277,6 +315,9 @@ Partial Class frmMenuPrincipal
         'PanelLateralCliente
         '
         Me.PanelLateralCliente.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(134, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.PanelLateralCliente.Controls.Add(Me.btnRestaurar)
+        Me.PanelLateralCliente.Controls.Add(Me.btnVerInactivo)
+        Me.PanelLateralCliente.Controls.Add(Me.btnListadoClientesInactivos)
         Me.PanelLateralCliente.Controls.Add(Me.PictureBoxCliente)
         Me.PanelLateralCliente.Controls.Add(Me.btnEliminarCliente)
         Me.PanelLateralCliente.Controls.Add(Me.btnVerCliente)
@@ -287,6 +328,50 @@ Partial Class frmMenuPrincipal
         Me.PanelLateralCliente.Name = "PanelLateralCliente"
         Me.PanelLateralCliente.Size = New System.Drawing.Size(184, 579)
         Me.PanelLateralCliente.TabIndex = 11
+        '
+        'btnRestaurar
+        '
+        Me.btnRestaurar.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnRestaurar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnRestaurar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnRestaurar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnRestaurar.ForeColor = System.Drawing.Color.White
+        Me.btnRestaurar.Location = New System.Drawing.Point(0, 386)
+        Me.btnRestaurar.Name = "btnRestaurar"
+        Me.btnRestaurar.Size = New System.Drawing.Size(184, 50)
+        Me.btnRestaurar.TabIndex = 13
+        Me.btnRestaurar.Text = "Restaurar Cliente"
+        Me.btnRestaurar.UseVisualStyleBackColor = False
+        Me.btnRestaurar.Visible = False
+        '
+        'btnVerInactivo
+        '
+        Me.btnVerInactivo.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnVerInactivo.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnVerInactivo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnVerInactivo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnVerInactivo.ForeColor = System.Drawing.Color.White
+        Me.btnVerInactivo.Location = New System.Drawing.Point(0, 330)
+        Me.btnVerInactivo.Name = "btnVerInactivo"
+        Me.btnVerInactivo.Size = New System.Drawing.Size(184, 50)
+        Me.btnVerInactivo.TabIndex = 12
+        Me.btnVerInactivo.Text = "Ver Detalles Cliente Inactivo"
+        Me.btnVerInactivo.UseVisualStyleBackColor = False
+        Me.btnVerInactivo.Visible = False
+        '
+        'btnListadoClientesInactivos
+        '
+        Me.btnListadoClientesInactivos.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnListadoClientesInactivos.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnListadoClientesInactivos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnListadoClientesInactivos.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnListadoClientesInactivos.ForeColor = System.Drawing.Color.White
+        Me.btnListadoClientesInactivos.Location = New System.Drawing.Point(0, 442)
+        Me.btnListadoClientesInactivos.Name = "btnListadoClientesInactivos"
+        Me.btnListadoClientesInactivos.Size = New System.Drawing.Size(184, 50)
+        Me.btnListadoClientesInactivos.TabIndex = 11
+        Me.btnListadoClientesInactivos.Text = "Listado de Clientes Eliminados"
+        Me.btnListadoClientesInactivos.UseVisualStyleBackColor = False
         '
         'PictureBoxCliente
         '
@@ -369,6 +454,7 @@ Partial Class frmMenuPrincipal
         'PanelCentralPedido
         '
         Me.PanelCentralPedido.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
+        Me.PanelCentralPedido.Controls.Add(Me.btnRefreshPedido)
         Me.PanelCentralPedido.Controls.Add(Me.txtBuscarPedido)
         Me.PanelCentralPedido.Controls.Add(Me.btnBuscarPedido)
         Me.PanelCentralPedido.Controls.Add(Me.DGPedido)
@@ -379,11 +465,23 @@ Partial Class frmMenuPrincipal
         Me.PanelCentralPedido.Size = New System.Drawing.Size(937, 490)
         Me.PanelCentralPedido.TabIndex = 16
         '
+        'btnRefreshPedido
+        '
+        Me.btnRefreshPedido.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnRefreshPedido.BackgroundImage = Global.CapaPresentacion.My.Resources.Resources.home
+        Me.btnRefreshPedido.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnRefreshPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnRefreshPedido.Location = New System.Drawing.Point(20, 27)
+        Me.btnRefreshPedido.Name = "btnRefreshPedido"
+        Me.btnRefreshPedido.Size = New System.Drawing.Size(36, 30)
+        Me.btnRefreshPedido.TabIndex = 14
+        Me.btnRefreshPedido.UseVisualStyleBackColor = False
+        '
         'txtBuscarPedido
         '
-        Me.txtBuscarPedido.Location = New System.Drawing.Point(20, 36)
+        Me.txtBuscarPedido.Location = New System.Drawing.Point(67, 36)
         Me.txtBuscarPedido.Name = "txtBuscarPedido"
-        Me.txtBuscarPedido.Size = New System.Drawing.Size(389, 20)
+        Me.txtBuscarPedido.Size = New System.Drawing.Size(342, 20)
         Me.txtBuscarPedido.TabIndex = 12
         '
         'btnBuscarPedido
@@ -534,6 +632,7 @@ Partial Class frmMenuPrincipal
         'panelCentralProducto
         '
         Me.panelCentralProducto.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
+        Me.panelCentralProducto.Controls.Add(Me.btnRefreshProduct)
         Me.panelCentralProducto.Controls.Add(Me.txtBuscarProducto)
         Me.panelCentralProducto.Controls.Add(Me.DGProducto)
         Me.panelCentralProducto.Controls.Add(Me.btnBuscarProducto)
@@ -544,11 +643,23 @@ Partial Class frmMenuPrincipal
         Me.panelCentralProducto.Size = New System.Drawing.Size(937, 490)
         Me.panelCentralProducto.TabIndex = 17
         '
+        'btnRefreshProduct
+        '
+        Me.btnRefreshProduct.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnRefreshProduct.BackgroundImage = Global.CapaPresentacion.My.Resources.Resources.home
+        Me.btnRefreshProduct.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnRefreshProduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnRefreshProduct.Location = New System.Drawing.Point(20, 29)
+        Me.btnRefreshProduct.Name = "btnRefreshProduct"
+        Me.btnRefreshProduct.Size = New System.Drawing.Size(36, 30)
+        Me.btnRefreshProduct.TabIndex = 16
+        Me.btnRefreshProduct.UseVisualStyleBackColor = False
+        '
         'txtBuscarProducto
         '
-        Me.txtBuscarProducto.Location = New System.Drawing.Point(20, 36)
+        Me.txtBuscarProducto.Location = New System.Drawing.Point(70, 36)
         Me.txtBuscarProducto.Name = "txtBuscarProducto"
-        Me.txtBuscarProducto.Size = New System.Drawing.Size(389, 20)
+        Me.txtBuscarProducto.Size = New System.Drawing.Size(339, 20)
         Me.txtBuscarProducto.TabIndex = 14
         '
         'DGProducto
@@ -748,21 +859,21 @@ Partial Class frmMenuPrincipal
         '
         Me.GraficoSegunConsulta.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.GraficoSegunConsulta.BackSecondaryColor = System.Drawing.Color.White
-        ChartArea1.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        ChartArea1.BackHatchStyle = System.Windows.Forms.DataVisualization.Charting.ChartHatchStyle.DarkDownwardDiagonal
-        ChartArea1.Name = "ChartArea1"
-        Me.GraficoSegunConsulta.ChartAreas.Add(ChartArea1)
-        Legend1.ForeColor = System.Drawing.Color.Maroon
-        Legend1.ItemColumnSpacing = 0
-        Legend1.Name = "Legend1"
-        Me.GraficoSegunConsulta.Legends.Add(Legend1)
+        ChartArea2.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        ChartArea2.BackHatchStyle = System.Windows.Forms.DataVisualization.Charting.ChartHatchStyle.DarkDownwardDiagonal
+        ChartArea2.Name = "ChartArea1"
+        Me.GraficoSegunConsulta.ChartAreas.Add(ChartArea2)
+        Legend2.ForeColor = System.Drawing.Color.Maroon
+        Legend2.ItemColumnSpacing = 0
+        Legend2.Name = "Legend1"
+        Me.GraficoSegunConsulta.Legends.Add(Legend2)
         Me.GraficoSegunConsulta.Location = New System.Drawing.Point(18, 21)
         Me.GraficoSegunConsulta.Name = "GraficoSegunConsulta"
         Me.GraficoSegunConsulta.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen
-        Series1.ChartArea = "ChartArea1"
-        Series1.Legend = "Legend1"
-        Series1.Name = "Cantidad"
-        Me.GraficoSegunConsulta.Series.Add(Series1)
+        Series2.ChartArea = "ChartArea1"
+        Series2.Legend = "Legend1"
+        Series2.Name = "Cantidad"
+        Me.GraficoSegunConsulta.Series.Add(Series2)
         Me.GraficoSegunConsulta.Size = New System.Drawing.Size(805, 300)
         Me.GraficoSegunConsulta.TabIndex = 0
         Me.GraficoSegunConsulta.Text = "Chart1"
@@ -1071,6 +1182,7 @@ Partial Class frmMenuPrincipal
         Me.TabCliente.ResumeLayout(False)
         Me.PanelCentralCliente.ResumeLayout(False)
         Me.PanelCentralCliente.PerformLayout()
+        CType(Me.DGClienteInactivos, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DGCliente, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelSuperiorCliente.ResumeLayout(False)
         Me.PanelSuperiorCliente.PerformLayout()
@@ -1194,4 +1306,11 @@ Partial Class frmMenuPrincipal
     Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
     Friend WithEvents ListBox3 As System.Windows.Forms.ListBox
     Friend WithEvents btnRefresh As System.Windows.Forms.Button
+    Friend WithEvents btnRefreshPedido As System.Windows.Forms.Button
+    Friend WithEvents btnRefreshProduct As System.Windows.Forms.Button
+    Friend WithEvents btnListadoClientesInactivos As System.Windows.Forms.Button
+    Friend WithEvents DGClienteInactivos As System.Windows.Forms.DataGridView
+    Friend WithEvents btnBuscarInactivos As System.Windows.Forms.Button
+    Friend WithEvents btnVerInactivo As System.Windows.Forms.Button
+    Friend WithEvents btnRestaurar As System.Windows.Forms.Button
 End Class

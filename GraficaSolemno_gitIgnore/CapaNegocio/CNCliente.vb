@@ -10,15 +10,15 @@ Public Class CNCliente
     Public Sub RegistrarCliente(ByVal oCECliente As CECliente)
         oCDCliente.RegistrarCliente(oCECliente)
     End Sub
-    Public Sub EliminarCliente(ByVal id As Integer)
-        oCDCliente.EliminarCliente(id)
+    Public Sub EliminarCliente(ByVal id As Integer, ByVal estado As String)
+        oCDCliente.EliminarCliente(id, estado)
     End Sub
     Public Sub ModificarCliente(ByVal oCECliente As CECliente)
         oCDCliente.ModificarCliente(oCECliente)
     End Sub
-    Function Buscar(ByVal pcampo As String, ByVal pbuscar As String) As DataTable
+    Function BuscarInactivo(ByVal pcampo As String, ByVal pbuscar As String) As DataTable
         Dim dt As New DataTable
-        dt = oCDCliente.Buscar(pcampo, pbuscar)
+        dt = oCDCliente.BuscarInactivo(pcampo, pbuscar)
         Return dt
     End Function
     Function BuscarCliente(ByVal pcampo As String, ByVal pbuscar As String) As DataTable
@@ -34,5 +34,9 @@ Public Class CNCliente
     End Function
     Public Function LocalidadesPorProvincia(ByVal idprovincia As Integer) As DataTable
         Return oCDCliente.LocalidadesPorProvincia(idprovincia)
+    End Function
+    '-----------Para restaurar el cliente "eliminado"
+    Function MostrarClienteIncativo() As DataTable
+        Return oCDCliente.MostrarClienteIncativo()
     End Function
 End Class
