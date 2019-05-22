@@ -169,11 +169,7 @@ Public Class frmMenuPrincipal
         frmRegistrar.ShowDialog()
         CargarGridProducto()
     End Sub
-    Private Sub btnEliminarProducto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEliminarProducto.Click
-        ID = DGProducto.Rows(DGProducto.CurrentCell.RowIndex).Cells("IDProducto").Value
-        oCNProducto.EliminarProducto(ID)
-        CargarGridProducto()
-    End Sub
+   
     Private Sub btnModificarProducto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnModificarProducto.Click
         ID = DGProducto.Rows(DGProducto.CurrentCell.RowIndex).Cells("IDProducto").Value
         Dim frmRegistrar As New RegistrarProducto
@@ -203,7 +199,91 @@ Public Class frmMenuPrincipal
         frmRegistrar.ShowDialog()
         CargarGridProducto()
     End Sub
-    
+    '------------------------para la papelera------ 
+    Private Sub btnEliminarProducto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEliminarProducto.Click
+        ID = DGProducto.Rows(DGProducto.CurrentCell.RowIndex).Cells("IDProducto").Value
+        oCNProducto.EliminarProducto(ID, "Inactivo")
+        CargarGridProducto()
+    End Sub
+    Private Sub btnRestaurarProducto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRestaurarProducto.Click
+        Dim ID As Integer = DGProductoInactivo.Rows(DGProductoInactivo.CurrentCell.RowIndex).Cells("IDProducto").Value
+
+        oCNProducto.EliminarProducto(ID, "Activo")
+        CargarGridProducto()
+        DGProductoInactivo.DataSource = oCNProducto.MostrarProductoInactivo()
+
+        MostrarProductosModoActivo()
+
+    End Sub
+
+    Private Sub btnDetalleProductoInactivo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnDetalleProductoInactivo.Click
+        ID = DGProductoInactivo.Rows(DGProductoInactivo.CurrentCell.RowIndex).Cells("IDProducto").Value
+        Dim frmProducto As New RegistrarProducto
+        frmProducto.LlenarFormularioInactivo(ID)
+        frmProducto.Disesabletext()
+        frmProducto.ShowDialog()
+    End Sub
+
+    Private Sub btnPapeleraProducto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnPapeleraProducto.Click
+        DGProductoInactivo.DataSource = oCNProducto.MostrarProductoInactivo()
+        If btnPapeleraProducto.Text = "Papelera Producto" Then
+            MostrarProductosModoInactivo()
+        ElseIf btnPapeleraProducto.Text = "Volver" Then
+            MostrarProductosModoActivo()
+        End If
+    End Sub
+
+    Private Sub btnBuscarProductoInactivo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscarProductoInactivo.Click
+        Dim dt As DataTable
+        dt = oCNProducto.BuscarProductoInactivo(cboBuscarProducto.Text, Trim(txtBuscarProducto.Text))
+        DGProductoInactivo.DataSource = dt
+
+    End Sub
+
+    Private Sub DGProductoInactivo_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DGProductoInactivo.CellClick
+        DGProductoInactivo.CurrentRow.Selected = True
+        ID = DGProductoInactivo.Rows(e.RowIndex).Cells("IDProducto").Value
+    End Sub
+
+    Private Sub DGProductoInactivo_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DGProductoInactivo.CellDoubleClick
+        Dim frmRegistrar As New RegistrarProducto
+        MsgBox("Restaurar id" & ID)
+        ' agregarle una confirmacion para restaurar
+        oCNProducto.EliminarProducto(ID, "Activo")
+        CargarGridProducto()
+        DGProductoInactivo.DataSource = oCNProducto.MostrarProductoInactivo()
+        MostrarProductosModoActivo()
+    End Sub
+    Public Sub MostrarProductosModoInactivo()
+        btnPapeleraProducto.Text = "Volver"
+        btnBuscarProductoInactivo.Visible = True
+        btnRestaurarProducto.Visible = True
+        btnDetalleProductoInactivo.Visible = True
+        DGProductoInactivo.Visible = True
+
+
+        btnEliminarProducto.Visible = False
+        btnVerProducto.Visible = False
+        DGProducto.Visible = False
+        btnBuscarProducto.Visible = False
+
+        btnAgregarProducto.Enabled = False
+        btnModificarProducto.Enabled = False
+    End Sub
+    Public Sub MostrarProductosModoActivo()
+        btnPapeleraProducto.Text = "Papelera Producto"
+        btnBuscarProductoInactivo.Visible = False
+        btnRestaurarProducto.Visible = False
+        btnDetalleProductoInactivo.Visible = False
+        DGProductoInactivo.Visible = False
+
+        btnBuscarProducto.Visible = True
+        btnEliminarProducto.Visible = True
+        btnVerProducto.Visible = True
+        DGProducto.Visible = True
+        btnAgregarProducto.Enabled = True
+        btnModificarProducto.Enabled = True
+    End Sub
 
     '--------------------------------------------------------------------------------------------------------------
     '--------------------------------------------------------------------------------------------------------------
@@ -389,4 +469,5 @@ Public Class frmMenuPrincipal
 
     
 
+    
 End Class

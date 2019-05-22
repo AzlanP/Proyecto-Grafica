@@ -10,8 +10,8 @@ Public Class CNProducto
         oCDProducto.RegistrarProducto(oCEProducto)
     End Sub
 
-    Public Sub EliminarProducto(ByVal id As Integer)
-        oCDProducto.EliminarProducto(id)
+    Public Sub EliminarProducto(ByVal id As Integer, ByVal estado As String)
+        oCDProducto.EliminarProducto(id, estado)
     End Sub
     Public Sub ModificarProducto(ByVal oCEProducto As CEProducto)
         oCDProducto.ModificarProducto(oCEProducto)
@@ -21,7 +21,15 @@ Public Class CNProducto
         dt = oCDProducto.BuscarProducto(pcampo, pbuscar)
         Return dt
     End Function
+    Function BuscarProductoInactivo(ByVal pcampo As String, ByVal pbuscar As String) As DataTable
+        Dim dt As New DataTable
+        dt = oCDProducto.BuscarProductoInactivo(pcampo, pbuscar)
+        Return dt
+    End Function
     Function ConsultarUltimoID() As Integer
         Return oCDProducto.ConsultarUltimoID()
+    End Function
+    Function MostrarProductoInactivo() As DataTable
+        Return oCDProducto.MostrarProductoIncativo()
     End Function
 End Class

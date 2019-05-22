@@ -6,7 +6,9 @@ Public Class CDProducto
     Dim oCEProducto As New CEProducto
 
     Public Function MostrarProducto() As DataTable
-        Return oCDConexion.MostrarTabla("Productos")
+        Dim sentencia As String
+        sentencia = "select * from Productos where productos.Estado='Activo'"
+        Return oCDConexion.MostrarTablaModificada(sentencia)
     End Function
 
 
@@ -38,21 +40,19 @@ Public Class CDProducto
             oCDConexion.Desconectar()
         End Try
     End Sub
-    Public Sub EliminarProducto(ByVal id As Integer)
+    Public Sub EliminarProducto(ByVal id As Integer, ByVal estado As String)
         oCDConexion.Conectar()
         Try
-            Dim instruccionsql = "DELETE FROM Productos WHERE (IDProducto=@IDProducto)"
-            Dim comando As New SQLiteCommand(instruccionsql, oCDConexion.con)
+            Dim instruccionSQL = "Update Productos set Estado=@esta WHERE (IDProducto = @IDProducto)"
+            Dim comando As New SQLiteCommand(instruccionSQL, oCDConexion.con)
             comando.Parameters.Add("@IDProducto", SqlDbType.Int).Value = id
+            comando.Parameters.Add("@esta", SqlDbType.VarChar).Value = estado
             comando.ExecuteNonQuery()
-
-            MsgBox("Registro eliminado")
         Catch ex As Exception
-            Throw New Exception("No se ah podido eliminar el registro:" & ex.Message)
+            Throw New Exception("ERROR al eliminar el registro. Descripcion:" & ex.Message)
         Finally
             oCDConexion.Desconectar()
         End Try
-
     End Sub
     Public Sub ModificarProducto(ByVal oCEProducto As CEProducto)
         oCDConexion.Conectar()
@@ -81,7 +81,30 @@ Public Class CDProducto
         Dim dt As New DataTable
         Try
 
-            Dim instruccionSQL = "Select * FROM Productos where " & camp & "  like  '" + pbuscar + "%'"
+            Dim instruccionSQL = "Select * FROM Productos where " & camp & "  like  '" + pbuscar + "%' and Estado='Activo'"
+            Dim comando As New SQLiteCommand(instruccionSQL, oCDConexion.con)
+            If IsNumeric(pbuscar) Then
+                comando.Parameters.Add("@buscar", SqlDbType.Int).Value = pbuscar
+            Else
+                comando.Parameters.Add("@buscar", SqlDbType.VarChar).Value = pbuscar
+            End If
+            da.SelectCommand = comando
+            da.Fill(dt)
+            Return dt
+
+        Catch ex As Exception
+            Throw New Exception("ERROR la busqueda ah fallado. Descripcion:" & ex.Message)
+        Finally
+            oCDConexion.Desconectar()
+        End Try
+    End Function
+    Function BuscarProductoInactivo(ByVal camp As String, ByVal pbuscar As String) As DataTable
+        oCDConexion.Conectar()
+        Dim da As New SQLiteDataAdapter
+        Dim dt As New DataTable
+        Try
+
+            Dim instruccionSQL = "Select * FROM Productos where " & camp & "  like  '" + pbuscar + "%' and Estado='Inactivo'"
             Dim comando As New SQLiteCommand(instruccionSQL, oCDConexion.con)
             If IsNumeric(pbuscar) Then
                 comando.Parameters.Add("@buscar", SqlDbType.Int).Value = pbuscar
@@ -104,4 +127,14 @@ Public Class CDProducto
         
     End Function
 
+
+    '--------------producto papelera-----------------
+    Function MostrarProductoIncativo() As DataTable
+        Dim sentencia As String
+        sentencia = "select * from Productos where productos.Estado='Inactivo'"
+        Return oCDConexion.MostrarTablaModificada(sentencia)
+    End Function
+    'Function BuscarProductoInactivo(ByVal pcampo As String, ByVal pbuscar As String) As DataTable
+
+    'End Function
 End Class

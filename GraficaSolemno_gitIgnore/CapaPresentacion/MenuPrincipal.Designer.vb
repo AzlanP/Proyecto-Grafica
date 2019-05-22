@@ -22,9 +22,9 @@ Partial Class frmMenuPrincipal
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.TabGeneral = New System.Windows.Forms.TabControl()
         Me.TabTareas = New System.Windows.Forms.TabPage()
         Me.panelTareas = New System.Windows.Forms.Panel()
@@ -64,7 +64,9 @@ Partial Class frmMenuPrincipal
         Me.btnNuevoPedido = New System.Windows.Forms.Button()
         Me.IconoPedido = New System.Windows.Forms.PictureBox()
         Me.TabProducto = New System.Windows.Forms.TabPage()
-        Me.panelCentralProducto = New System.Windows.Forms.Panel()
+        Me.PanelProductos = New System.Windows.Forms.Panel()
+        Me.DGProductoInactivo = New System.Windows.Forms.DataGridView()
+        Me.btnBuscarProductoInactivo = New System.Windows.Forms.Button()
         Me.btnRefreshProduct = New System.Windows.Forms.Button()
         Me.txtBuscarProducto = New System.Windows.Forms.TextBox()
         Me.DGProducto = New System.Windows.Forms.DataGridView()
@@ -73,6 +75,9 @@ Partial Class frmMenuPrincipal
         Me.panelSuperiorProducto = New System.Windows.Forms.Panel()
         Me.lblTituloProducto = New System.Windows.Forms.Label()
         Me.panelLateralProducto = New System.Windows.Forms.Panel()
+        Me.btnDetalleProductoInactivo = New System.Windows.Forms.Button()
+        Me.btnRestaurarProducto = New System.Windows.Forms.Button()
+        Me.btnPapeleraProducto = New System.Windows.Forms.Button()
         Me.btnVerProducto = New System.Windows.Forms.Button()
         Me.btnModificarProducto = New System.Windows.Forms.Button()
         Me.btnEliminarProducto = New System.Windows.Forms.Button()
@@ -126,7 +131,8 @@ Partial Class frmMenuPrincipal
         Me.PanelLateralPedido.SuspendLayout()
         CType(Me.IconoPedido, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabProducto.SuspendLayout()
-        Me.panelCentralProducto.SuspendLayout()
+        Me.PanelProductos.SuspendLayout()
+        CType(Me.DGProductoInactivo, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DGProducto, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.panelSuperiorProducto.SuspendLayout()
         Me.panelLateralProducto.SuspendLayout()
@@ -620,7 +626,7 @@ Partial Class frmMenuPrincipal
         'TabProducto
         '
         Me.TabProducto.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.TabProducto.Controls.Add(Me.panelCentralProducto)
+        Me.TabProducto.Controls.Add(Me.PanelProductos)
         Me.TabProducto.Controls.Add(Me.panelSuperiorProducto)
         Me.TabProducto.Controls.Add(Me.panelLateralProducto)
         Me.TabProducto.Location = New System.Drawing.Point(4, 24)
@@ -629,19 +635,48 @@ Partial Class frmMenuPrincipal
         Me.TabProducto.TabIndex = 1
         Me.TabProducto.Text = "Producto"
         '
-        'panelCentralProducto
+        'PanelProductos
         '
-        Me.panelCentralProducto.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
-        Me.panelCentralProducto.Controls.Add(Me.btnRefreshProduct)
-        Me.panelCentralProducto.Controls.Add(Me.txtBuscarProducto)
-        Me.panelCentralProducto.Controls.Add(Me.DGProducto)
-        Me.panelCentralProducto.Controls.Add(Me.btnBuscarProducto)
-        Me.panelCentralProducto.Controls.Add(Me.cboBuscarProducto)
-        Me.panelCentralProducto.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.panelCentralProducto.Location = New System.Drawing.Point(184, 89)
-        Me.panelCentralProducto.Name = "panelCentralProducto"
-        Me.panelCentralProducto.Size = New System.Drawing.Size(937, 490)
-        Me.panelCentralProducto.TabIndex = 17
+        Me.PanelProductos.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
+        Me.PanelProductos.Controls.Add(Me.DGProductoInactivo)
+        Me.PanelProductos.Controls.Add(Me.btnBuscarProductoInactivo)
+        Me.PanelProductos.Controls.Add(Me.btnRefreshProduct)
+        Me.PanelProductos.Controls.Add(Me.txtBuscarProducto)
+        Me.PanelProductos.Controls.Add(Me.DGProducto)
+        Me.PanelProductos.Controls.Add(Me.btnBuscarProducto)
+        Me.PanelProductos.Controls.Add(Me.cboBuscarProducto)
+        Me.PanelProductos.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PanelProductos.Location = New System.Drawing.Point(184, 89)
+        Me.PanelProductos.Name = "PanelProductos"
+        Me.PanelProductos.Size = New System.Drawing.Size(937, 490)
+        Me.PanelProductos.TabIndex = 17
+        '
+        'DGProductoInactivo
+        '
+        Me.DGProductoInactivo.AllowUserToAddRows = False
+        Me.DGProductoInactivo.AllowUserToDeleteRows = False
+        Me.DGProductoInactivo.AllowUserToResizeRows = False
+        Me.DGProductoInactivo.BackgroundColor = System.Drawing.SystemColors.Window
+        Me.DGProductoInactivo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DGProductoInactivo.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
+        Me.DGProductoInactivo.Location = New System.Drawing.Point(20, 74)
+        Me.DGProductoInactivo.MultiSelect = False
+        Me.DGProductoInactivo.Name = "DGProductoInactivo"
+        Me.DGProductoInactivo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DGProductoInactivo.Size = New System.Drawing.Size(600, 291)
+        Me.DGProductoInactivo.TabIndex = 18
+        '
+        'btnBuscarProductoInactivo
+        '
+        Me.btnBuscarProductoInactivo.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnBuscarProductoInactivo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnBuscarProductoInactivo.Location = New System.Drawing.Point(535, 33)
+        Me.btnBuscarProductoInactivo.Name = "btnBuscarProductoInactivo"
+        Me.btnBuscarProductoInactivo.Size = New System.Drawing.Size(115, 24)
+        Me.btnBuscarProductoInactivo.TabIndex = 17
+        Me.btnBuscarProductoInactivo.Text = "Buscar Inactivo"
+        Me.btnBuscarProductoInactivo.UseVisualStyleBackColor = False
+        Me.btnBuscarProductoInactivo.Visible = False
         '
         'btnRefreshProduct
         '
@@ -664,11 +699,18 @@ Partial Class frmMenuPrincipal
         '
         'DGProducto
         '
+        Me.DGProducto.AllowUserToAddRows = False
+        Me.DGProducto.AllowUserToDeleteRows = False
+        Me.DGProducto.AllowUserToResizeRows = False
         Me.DGProducto.BackgroundColor = System.Drawing.SystemColors.Window
         Me.DGProducto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DGProducto.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
         Me.DGProducto.Location = New System.Drawing.Point(20, 74)
+        Me.DGProducto.MultiSelect = False
         Me.DGProducto.Name = "DGProducto"
-        Me.DGProducto.Size = New System.Drawing.Size(630, 291)
+        Me.DGProducto.RowHeadersVisible = False
+        Me.DGProducto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DGProducto.Size = New System.Drawing.Size(600, 291)
         Me.DGProducto.TabIndex = 8
         '
         'btnBuscarProducto
@@ -714,6 +756,9 @@ Partial Class frmMenuPrincipal
         'panelLateralProducto
         '
         Me.panelLateralProducto.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(134, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.panelLateralProducto.Controls.Add(Me.btnDetalleProductoInactivo)
+        Me.panelLateralProducto.Controls.Add(Me.btnRestaurarProducto)
+        Me.panelLateralProducto.Controls.Add(Me.btnPapeleraProducto)
         Me.panelLateralProducto.Controls.Add(Me.btnVerProducto)
         Me.panelLateralProducto.Controls.Add(Me.btnModificarProducto)
         Me.panelLateralProducto.Controls.Add(Me.btnEliminarProducto)
@@ -725,6 +770,50 @@ Partial Class frmMenuPrincipal
         Me.panelLateralProducto.Size = New System.Drawing.Size(184, 579)
         Me.panelLateralProducto.TabIndex = 16
         '
+        'btnDetalleProductoInactivo
+        '
+        Me.btnDetalleProductoInactivo.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnDetalleProductoInactivo.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnDetalleProductoInactivo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnDetalleProductoInactivo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDetalleProductoInactivo.ForeColor = System.Drawing.Color.White
+        Me.btnDetalleProductoInactivo.Location = New System.Drawing.Point(0, 282)
+        Me.btnDetalleProductoInactivo.Name = "btnDetalleProductoInactivo"
+        Me.btnDetalleProductoInactivo.Size = New System.Drawing.Size(184, 50)
+        Me.btnDetalleProductoInactivo.TabIndex = 25
+        Me.btnDetalleProductoInactivo.Text = "Detalles Inactivo"
+        Me.btnDetalleProductoInactivo.UseVisualStyleBackColor = False
+        Me.btnDetalleProductoInactivo.Visible = False
+        '
+        'btnRestaurarProducto
+        '
+        Me.btnRestaurarProducto.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnRestaurarProducto.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnRestaurarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnRestaurarProducto.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnRestaurarProducto.ForeColor = System.Drawing.Color.White
+        Me.btnRestaurarProducto.Location = New System.Drawing.Point(0, 338)
+        Me.btnRestaurarProducto.Name = "btnRestaurarProducto"
+        Me.btnRestaurarProducto.Size = New System.Drawing.Size(184, 50)
+        Me.btnRestaurarProducto.TabIndex = 24
+        Me.btnRestaurarProducto.Text = "Restaurar Producto"
+        Me.btnRestaurarProducto.UseVisualStyleBackColor = False
+        Me.btnRestaurarProducto.Visible = False
+        '
+        'btnPapeleraProducto
+        '
+        Me.btnPapeleraProducto.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnPapeleraProducto.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnPapeleraProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnPapeleraProducto.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPapeleraProducto.ForeColor = System.Drawing.Color.White
+        Me.btnPapeleraProducto.Location = New System.Drawing.Point(0, 394)
+        Me.btnPapeleraProducto.Name = "btnPapeleraProducto"
+        Me.btnPapeleraProducto.Size = New System.Drawing.Size(184, 50)
+        Me.btnPapeleraProducto.TabIndex = 23
+        Me.btnPapeleraProducto.Text = "Papelera Producto"
+        Me.btnPapeleraProducto.UseVisualStyleBackColor = False
+        '
         'btnVerProducto
         '
         Me.btnVerProducto.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
@@ -732,7 +821,7 @@ Partial Class frmMenuPrincipal
         Me.btnVerProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnVerProducto.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnVerProducto.ForeColor = System.Drawing.Color.White
-        Me.btnVerProducto.Location = New System.Drawing.Point(0, 330)
+        Me.btnVerProducto.Location = New System.Drawing.Point(0, 282)
         Me.btnVerProducto.Name = "btnVerProducto"
         Me.btnVerProducto.Size = New System.Drawing.Size(184, 50)
         Me.btnVerProducto.TabIndex = 22
@@ -746,7 +835,7 @@ Partial Class frmMenuPrincipal
         Me.btnModificarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnModificarProducto.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnModificarProducto.ForeColor = System.Drawing.Color.White
-        Me.btnModificarProducto.Location = New System.Drawing.Point(0, 274)
+        Me.btnModificarProducto.Location = New System.Drawing.Point(0, 226)
         Me.btnModificarProducto.Name = "btnModificarProducto"
         Me.btnModificarProducto.Size = New System.Drawing.Size(184, 50)
         Me.btnModificarProducto.TabIndex = 21
@@ -760,7 +849,7 @@ Partial Class frmMenuPrincipal
         Me.btnEliminarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnEliminarProducto.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnEliminarProducto.ForeColor = System.Drawing.Color.White
-        Me.btnEliminarProducto.Location = New System.Drawing.Point(0, 386)
+        Me.btnEliminarProducto.Location = New System.Drawing.Point(0, 338)
         Me.btnEliminarProducto.Name = "btnEliminarProducto"
         Me.btnEliminarProducto.Size = New System.Drawing.Size(184, 50)
         Me.btnEliminarProducto.TabIndex = 20
@@ -774,7 +863,7 @@ Partial Class frmMenuPrincipal
         Me.btnAgregarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAgregarProducto.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAgregarProducto.ForeColor = System.Drawing.Color.White
-        Me.btnAgregarProducto.Location = New System.Drawing.Point(0, 218)
+        Me.btnAgregarProducto.Location = New System.Drawing.Point(0, 170)
         Me.btnAgregarProducto.Name = "btnAgregarProducto"
         Me.btnAgregarProducto.Size = New System.Drawing.Size(184, 50)
         Me.btnAgregarProducto.TabIndex = 19
@@ -859,21 +948,21 @@ Partial Class frmMenuPrincipal
         '
         Me.GraficoSegunConsulta.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.GraficoSegunConsulta.BackSecondaryColor = System.Drawing.Color.White
-        ChartArea2.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        ChartArea2.BackHatchStyle = System.Windows.Forms.DataVisualization.Charting.ChartHatchStyle.DarkDownwardDiagonal
-        ChartArea2.Name = "ChartArea1"
-        Me.GraficoSegunConsulta.ChartAreas.Add(ChartArea2)
-        Legend2.ForeColor = System.Drawing.Color.Maroon
-        Legend2.ItemColumnSpacing = 0
-        Legend2.Name = "Legend1"
-        Me.GraficoSegunConsulta.Legends.Add(Legend2)
+        ChartArea1.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        ChartArea1.BackHatchStyle = System.Windows.Forms.DataVisualization.Charting.ChartHatchStyle.DarkDownwardDiagonal
+        ChartArea1.Name = "ChartArea1"
+        Me.GraficoSegunConsulta.ChartAreas.Add(ChartArea1)
+        Legend1.ForeColor = System.Drawing.Color.Maroon
+        Legend1.ItemColumnSpacing = 0
+        Legend1.Name = "Legend1"
+        Me.GraficoSegunConsulta.Legends.Add(Legend1)
         Me.GraficoSegunConsulta.Location = New System.Drawing.Point(18, 21)
         Me.GraficoSegunConsulta.Name = "GraficoSegunConsulta"
         Me.GraficoSegunConsulta.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen
-        Series2.ChartArea = "ChartArea1"
-        Series2.Legend = "Legend1"
-        Series2.Name = "Cantidad"
-        Me.GraficoSegunConsulta.Series.Add(Series2)
+        Series1.ChartArea = "ChartArea1"
+        Series1.Legend = "Legend1"
+        Series1.Name = "Cantidad"
+        Me.GraficoSegunConsulta.Series.Add(Series1)
         Me.GraficoSegunConsulta.Size = New System.Drawing.Size(805, 300)
         Me.GraficoSegunConsulta.TabIndex = 0
         Me.GraficoSegunConsulta.Text = "Chart1"
@@ -1197,8 +1286,9 @@ Partial Class frmMenuPrincipal
         Me.PanelLateralPedido.ResumeLayout(False)
         CType(Me.IconoPedido, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabProducto.ResumeLayout(False)
-        Me.panelCentralProducto.ResumeLayout(False)
-        Me.panelCentralProducto.PerformLayout()
+        Me.PanelProductos.ResumeLayout(False)
+        Me.PanelProductos.PerformLayout()
+        CType(Me.DGProductoInactivo, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DGProducto, System.ComponentModel.ISupportInitialize).EndInit()
         Me.panelSuperiorProducto.ResumeLayout(False)
         Me.panelSuperiorProducto.PerformLayout()
@@ -1243,7 +1333,7 @@ Partial Class frmMenuPrincipal
     Friend WithEvents TabTareas As System.Windows.Forms.TabPage
     Friend WithEvents cboBuscarPedido As System.Windows.Forms.ComboBox
     Friend WithEvents txtBuscarPedido As System.Windows.Forms.TextBox
-    Friend WithEvents panelCentralProducto As System.Windows.Forms.Panel
+    Friend WithEvents PanelProductos As System.Windows.Forms.Panel
     Friend WithEvents panelSuperiorProducto As System.Windows.Forms.Panel
     Friend WithEvents panelLateralProducto As System.Windows.Forms.Panel
     Friend WithEvents btnVerProducto As System.Windows.Forms.Button
@@ -1313,4 +1403,9 @@ Partial Class frmMenuPrincipal
     Friend WithEvents btnBuscarInactivos As System.Windows.Forms.Button
     Friend WithEvents btnVerInactivo As System.Windows.Forms.Button
     Friend WithEvents btnRestaurar As System.Windows.Forms.Button
+    Friend WithEvents btnDetalleProductoInactivo As System.Windows.Forms.Button
+    Friend WithEvents btnRestaurarProducto As System.Windows.Forms.Button
+    Friend WithEvents btnPapeleraProducto As System.Windows.Forms.Button
+    Friend WithEvents btnBuscarProductoInactivo As System.Windows.Forms.Button
+    Friend WithEvents DGProductoInactivo As System.Windows.Forms.DataGridView
 End Class

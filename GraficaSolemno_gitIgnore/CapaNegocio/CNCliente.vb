@@ -18,7 +18,7 @@ Public Class CNCliente
     End Sub
     Function BuscarInactivo(ByVal pcampo As String, ByVal pbuscar As String) As DataTable
         Dim dt As New DataTable
-        dt = oCDCliente.BuscarInactivo(pcampo, pbuscar)
+        dt = oCDCliente.BuscarCliente(pcampo, pbuscar)
         Return dt
     End Function
     Function BuscarCliente(ByVal pcampo As String, ByVal pbuscar As String) As DataTable

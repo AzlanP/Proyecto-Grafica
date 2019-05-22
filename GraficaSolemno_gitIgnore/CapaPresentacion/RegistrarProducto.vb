@@ -43,6 +43,23 @@ Public Class RegistrarProducto
 
         Me.Text = "Modificar Producto"
     End Sub
+    Public Sub LlenarFormularioInactivo(ByVal ID As Integer)
+        Dim dt As New DataTable
+        Dim dr As DataRow
+        dt = oCNProducto.BuscarProductoInactivo("IDProducto", ID)
+        dr = dt.Rows(0)
+        lblID.Text = dr("IDProducto").ToString
+        txtNombre.Text = dr("Nombre").ToString
+        txtCantidad.Text = dr("Cantidad").ToString
+        txtPrecio.Text = dr("Precio").ToString
+        txtDescripcion.Text = dr("Descripcion").ToString
+        txtCodigo.Text = dr("Codigo").ToString
+        cboTipo.Text = dr("Tipo").ToString
+        btnRegistrarProducto.Visible = False
+        btnGuardarProducto.Visible = True
+
+        Me.Text = "Modificar Producto"
+    End Sub
     Private Sub btnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGuardarProducto.Click
         oCNProducto.ModificarProducto(TomarDatos())
         MsgBox("Los Datos fueron modificados con exito.")
