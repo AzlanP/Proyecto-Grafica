@@ -55,6 +55,8 @@ Partial Class FormularioPedido
         Me.MediosTableAdapter = New CapaPresentacion.SolemnoDataSetTableAdapters.MediosTableAdapter()
         Me.TipoEnvioTableAdapter = New CapaPresentacion.SolemnoDataSetTableAdapters.TipoEnvioTableAdapter()
         Me.ValidacionMoneda1 = New CapaPresentacion.ValidacionMoneda()
+        Me.txtTotal = New CapaPresentacion.ValidacionMoneda()
+        Me.lblTotal = New System.Windows.Forms.Label()
         CType(Me.TipoEnvioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SolemnoDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -75,10 +77,11 @@ Partial Class FormularioPedido
         '
         Me.cboTipoEnvio.DataSource = Me.TipoEnvioBindingSource
         Me.cboTipoEnvio.DisplayMember = "Nombre"
+        Me.cboTipoEnvio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboTipoEnvio.FormattingEnabled = True
         Me.cboTipoEnvio.Location = New System.Drawing.Point(98, 353)
         Me.cboTipoEnvio.Name = "cboTipoEnvio"
-        Me.cboTipoEnvio.Size = New System.Drawing.Size(156, 21)
+        Me.cboTipoEnvio.Size = New System.Drawing.Size(124, 21)
         Me.cboTipoEnvio.TabIndex = 32
         Me.cboTipoEnvio.ValueMember = "IDTipoEnvio"
         '
@@ -118,7 +121,7 @@ Partial Class FormularioPedido
         '
         Me.txtDescripcion.Location = New System.Drawing.Point(98, 308)
         Me.txtDescripcion.Name = "txtDescripcion"
-        Me.txtDescripcion.Size = New System.Drawing.Size(108, 20)
+        Me.txtDescripcion.Size = New System.Drawing.Size(77, 20)
         Me.txtDescripcion.TabIndex = 29
         Me.txtDescripcion.Tag = "3"
         '
@@ -134,6 +137,7 @@ Partial Class FormularioPedido
         '
         Me.cboCliente.DataSource = Me.ClientesBindingSource
         Me.cboCliente.DisplayMember = "Nombre"
+        Me.cboCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboCliente.FormattingEnabled = True
         Me.cboCliente.Location = New System.Drawing.Point(75, 38)
         Me.cboCliente.Name = "cboCliente"
@@ -181,6 +185,10 @@ Partial Class FormularioPedido
         '
         'DGListaDePedido
         '
+        Me.DGListaDePedido.AllowUserToAddRows = False
+        Me.DGListaDePedido.AllowUserToDeleteRows = False
+        Me.DGListaDePedido.AllowUserToOrderColumns = True
+        Me.DGListaDePedido.AllowUserToResizeRows = False
         Me.DGListaDePedido.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DGListaDePedido.BackgroundColor = System.Drawing.Color.White
         Me.DGListaDePedido.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
@@ -189,6 +197,7 @@ Partial Class FormularioPedido
         Me.DGListaDePedido.MultiSelect = False
         Me.DGListaDePedido.Name = "DGListaDePedido"
         Me.DGListaDePedido.ReadOnly = True
+        Me.DGListaDePedido.RowHeadersVisible = False
         Me.DGListaDePedido.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DGListaDePedido.Size = New System.Drawing.Size(441, 174)
         Me.DGListaDePedido.TabIndex = 22
@@ -242,9 +251,9 @@ Partial Class FormularioPedido
         '
         Me.btnTipoEnvio.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnTipoEnvio.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnTipoEnvio.Location = New System.Drawing.Point(260, 353)
+        Me.btnTipoEnvio.Location = New System.Drawing.Point(228, 350)
         Me.btnTipoEnvio.Name = "btnTipoEnvio"
-        Me.btnTipoEnvio.Size = New System.Drawing.Size(75, 26)
+        Me.btnTipoEnvio.Size = New System.Drawing.Size(75, 25)
         Me.btnTipoEnvio.TabIndex = 34
         Me.btnTipoEnvio.Text = "envio"
         Me.btnTipoEnvio.UseVisualStyleBackColor = False
@@ -264,7 +273,7 @@ Partial Class FormularioPedido
         Me.cboEstado.Items.AddRange(New Object() {"Pendiente", "Completado"})
         Me.cboEstado.Location = New System.Drawing.Point(98, 391)
         Me.cboEstado.Name = "cboEstado"
-        Me.cboEstado.Size = New System.Drawing.Size(156, 21)
+        Me.cboEstado.Size = New System.Drawing.Size(124, 21)
         Me.cboEstado.TabIndex = 35
         '
         'lblMedio
@@ -280,6 +289,7 @@ Partial Class FormularioPedido
         '
         Me.cboMedio.DataSource = Me.MediosBindingSource
         Me.cboMedio.DisplayMember = "Nombre"
+        Me.cboMedio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboMedio.FormattingEnabled = True
         Me.cboMedio.Location = New System.Drawing.Point(356, 35)
         Me.cboMedio.Name = "cboMedio"
@@ -295,7 +305,7 @@ Partial Class FormularioPedido
         'lblSeña
         '
         Me.lblSeña.AutoSize = True
-        Me.lblSeña.Location = New System.Drawing.Point(309, 308)
+        Me.lblSeña.Location = New System.Drawing.Point(181, 311)
         Me.lblSeña.Name = "lblSeña"
         Me.lblSeña.Size = New System.Drawing.Size(41, 13)
         Me.lblSeña.TabIndex = 39
@@ -338,11 +348,29 @@ Partial Class FormularioPedido
         'ValidacionMoneda1
         '
         Me.ValidacionMoneda1.labeltext = Nothing
-        Me.ValidacionMoneda1.Location = New System.Drawing.Point(341, 301)
+        Me.ValidacionMoneda1.Location = New System.Drawing.Point(211, 301)
         Me.ValidacionMoneda1.Name = "ValidacionMoneda1"
         Me.ValidacionMoneda1.Size = New System.Drawing.Size(123, 27)
         Me.ValidacionMoneda1.TabIndex = 43
         Me.ValidacionMoneda1.valor = 0.0R
+        '
+        'txtTotal
+        '
+        Me.txtTotal.labeltext = Nothing
+        Me.txtTotal.Location = New System.Drawing.Point(340, 317)
+        Me.txtTotal.Name = "txtTotal"
+        Me.txtTotal.Size = New System.Drawing.Size(123, 27)
+        Me.txtTotal.TabIndex = 45
+        Me.txtTotal.valor = 0.0R
+        '
+        'lblTotal
+        '
+        Me.lblTotal.AutoSize = True
+        Me.lblTotal.Location = New System.Drawing.Point(379, 301)
+        Me.lblTotal.Name = "lblTotal"
+        Me.lblTotal.Size = New System.Drawing.Size(34, 13)
+        Me.lblTotal.TabIndex = 44
+        Me.lblTotal.Text = "Total:"
         '
         'FormularioPedido
         '
@@ -350,6 +378,8 @@ Partial Class FormularioPedido
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(562, 427)
+        Me.Controls.Add(Me.txtTotal)
+        Me.Controls.Add(Me.lblTotal)
         Me.Controls.Add(Me.ValidacionMoneda1)
         Me.Controls.Add(Me.btnGuardarCambios)
         Me.Controls.Add(Me.btnAgregarPedidoExistente)
@@ -418,4 +448,6 @@ Partial Class FormularioPedido
     Friend WithEvents TipoEnvioBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents TipoEnvioTableAdapter As CapaPresentacion.SolemnoDataSetTableAdapters.TipoEnvioTableAdapter
     Friend WithEvents ValidacionMoneda1 As CapaPresentacion.ValidacionMoneda
+    Friend WithEvents txtTotal As CapaPresentacion.ValidacionMoneda
+    Friend WithEvents lblTotal As System.Windows.Forms.Label
 End Class

@@ -85,10 +85,15 @@ Public Class frmMenuPrincipal
     '---------- Para el estado eliminar
     Private Sub btnListadoClientesInactivos_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnListadoClientesInactivos.Click
         DGClienteInactivos.DataSource = oCNCliente.MostrarClienteIncativo()
-        ControlesRecuperar()
 
+        If btnListadoClientesInactivos.Text = "Papelera Clientes" Then
+            ControlesRecuperar()
+        ElseIf btnListadoClientesInactivos.Text = "Volver" Then
+            VolverAlInicio()
+        End If
     End Sub
     Public Sub ControlesRecuperar()
+        btnListadoClientesInactivos.Text = "Volver"
         DGClienteInactivos.Visible = True
         DGCliente.Visible = False
         btnNuevoCliente.Enabled = False
@@ -139,6 +144,7 @@ Public Class frmMenuPrincipal
         VolverAlInicio()
     End Sub
     Public Sub VolverAlInicio()
+        btnListadoClientesInactivos.Text = "Papelera Clientes"
         DGCliente.Visible = True
         btnNuevoCliente.Enabled = True
         btnModificarCliente.Enabled = True

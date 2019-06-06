@@ -22,9 +22,9 @@ Partial Class frmMenuPrincipal
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.TabGeneral = New System.Windows.Forms.TabControl()
         Me.TabTareas = New System.Windows.Forms.TabPage()
         Me.panelTareas = New System.Windows.Forms.Panel()
@@ -230,13 +230,15 @@ Partial Class frmMenuPrincipal
         '
         Me.DGClienteInactivos.AllowUserToAddRows = False
         Me.DGClienteInactivos.AllowUserToDeleteRows = False
+        Me.DGClienteInactivos.AllowUserToResizeRows = False
         Me.DGClienteInactivos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DGClienteInactivos.BackgroundColor = System.Drawing.Color.White
         Me.DGClienteInactivos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGClienteInactivos.Location = New System.Drawing.Point(36, 74)
+        Me.DGClienteInactivos.Location = New System.Drawing.Point(24, 65)
         Me.DGClienteInactivos.MultiSelect = False
         Me.DGClienteInactivos.Name = "DGClienteInactivos"
         Me.DGClienteInactivos.ReadOnly = True
+        Me.DGClienteInactivos.RowHeadersVisible = False
         Me.DGClienteInactivos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DGClienteInactivos.Size = New System.Drawing.Size(614, 310)
         Me.DGClienteInactivos.TabIndex = 10
@@ -287,13 +289,15 @@ Partial Class frmMenuPrincipal
         '
         Me.DGCliente.AllowUserToAddRows = False
         Me.DGCliente.AllowUserToDeleteRows = False
+        Me.DGCliente.AllowUserToResizeRows = False
         Me.DGCliente.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DGCliente.BackgroundColor = System.Drawing.Color.White
         Me.DGCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGCliente.Location = New System.Drawing.Point(36, 74)
+        Me.DGCliente.Location = New System.Drawing.Point(24, 65)
         Me.DGCliente.MultiSelect = False
         Me.DGCliente.Name = "DGCliente"
         Me.DGCliente.ReadOnly = True
+        Me.DGCliente.RowHeadersVisible = False
         Me.DGCliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DGCliente.Size = New System.Drawing.Size(614, 310)
         Me.DGCliente.TabIndex = 7
@@ -376,7 +380,7 @@ Partial Class frmMenuPrincipal
         Me.btnListadoClientesInactivos.Name = "btnListadoClientesInactivos"
         Me.btnListadoClientesInactivos.Size = New System.Drawing.Size(184, 50)
         Me.btnListadoClientesInactivos.TabIndex = 11
-        Me.btnListadoClientesInactivos.Text = "Listado de Clientes Eliminados"
+        Me.btnListadoClientesInactivos.Text = "Papelera Clientes"
         Me.btnListadoClientesInactivos.UseVisualStyleBackColor = False
         '
         'PictureBoxCliente
@@ -503,12 +507,16 @@ Partial Class frmMenuPrincipal
         '
         'DGPedido
         '
+        Me.DGPedido.AllowUserToAddRows = False
+        Me.DGPedido.AllowUserToDeleteRows = False
+        Me.DGPedido.AllowUserToResizeRows = False
         Me.DGPedido.BackgroundColor = System.Drawing.SystemColors.ControlLightLight
         Me.DGPedido.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DGPedido.Location = New System.Drawing.Point(20, 74)
         Me.DGPedido.MultiSelect = False
         Me.DGPedido.Name = "DGPedido"
         Me.DGPedido.ReadOnly = True
+        Me.DGPedido.RowHeadersVisible = False
         Me.DGPedido.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DGPedido.Size = New System.Drawing.Size(630, 289)
         Me.DGPedido.TabIndex = 6
@@ -662,9 +670,11 @@ Partial Class frmMenuPrincipal
         Me.DGProductoInactivo.Location = New System.Drawing.Point(20, 74)
         Me.DGProductoInactivo.MultiSelect = False
         Me.DGProductoInactivo.Name = "DGProductoInactivo"
+        Me.DGProductoInactivo.RowHeadersVisible = False
         Me.DGProductoInactivo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DGProductoInactivo.Size = New System.Drawing.Size(600, 291)
         Me.DGProductoInactivo.TabIndex = 18
+        Me.DGProductoInactivo.Visible = False
         '
         'btnBuscarProductoInactivo
         '
@@ -726,6 +736,8 @@ Partial Class frmMenuPrincipal
         '
         'cboBuscarProducto
         '
+        Me.cboBuscarProducto.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.cboBuscarProducto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboBuscarProducto.FormattingEnabled = True
         Me.cboBuscarProducto.Items.AddRange(New Object() {"Nombre", "Codigo", "Tipo"})
         Me.cboBuscarProducto.Location = New System.Drawing.Point(415, 35)
@@ -948,21 +960,21 @@ Partial Class frmMenuPrincipal
         '
         Me.GraficoSegunConsulta.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.GraficoSegunConsulta.BackSecondaryColor = System.Drawing.Color.White
-        ChartArea1.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        ChartArea1.BackHatchStyle = System.Windows.Forms.DataVisualization.Charting.ChartHatchStyle.DarkDownwardDiagonal
-        ChartArea1.Name = "ChartArea1"
-        Me.GraficoSegunConsulta.ChartAreas.Add(ChartArea1)
-        Legend1.ForeColor = System.Drawing.Color.Maroon
-        Legend1.ItemColumnSpacing = 0
-        Legend1.Name = "Legend1"
-        Me.GraficoSegunConsulta.Legends.Add(Legend1)
+        ChartArea2.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        ChartArea2.BackHatchStyle = System.Windows.Forms.DataVisualization.Charting.ChartHatchStyle.DarkDownwardDiagonal
+        ChartArea2.Name = "ChartArea1"
+        Me.GraficoSegunConsulta.ChartAreas.Add(ChartArea2)
+        Legend2.ForeColor = System.Drawing.Color.Maroon
+        Legend2.ItemColumnSpacing = 0
+        Legend2.Name = "Legend1"
+        Me.GraficoSegunConsulta.Legends.Add(Legend2)
         Me.GraficoSegunConsulta.Location = New System.Drawing.Point(18, 21)
         Me.GraficoSegunConsulta.Name = "GraficoSegunConsulta"
         Me.GraficoSegunConsulta.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen
-        Series1.ChartArea = "ChartArea1"
-        Series1.Legend = "Legend1"
-        Series1.Name = "Cantidad"
-        Me.GraficoSegunConsulta.Series.Add(Series1)
+        Series2.ChartArea = "ChartArea1"
+        Series2.Legend = "Legend1"
+        Series2.Name = "Cantidad"
+        Me.GraficoSegunConsulta.Series.Add(Series2)
         Me.GraficoSegunConsulta.Size = New System.Drawing.Size(805, 300)
         Me.GraficoSegunConsulta.TabIndex = 0
         Me.GraficoSegunConsulta.Text = "Chart1"

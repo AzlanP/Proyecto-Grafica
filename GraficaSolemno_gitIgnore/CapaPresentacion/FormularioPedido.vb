@@ -41,6 +41,7 @@ Public Class FormularioPedido
         Dim NuevaFilaDetalles As DataRow = tabla.NewRow()
         'esto genera un error, si borras uno de arriba, el de abajo tomara el mismo valor de id que el de arriba.
         'enves de tabla.rows.count capas sirva hacerlo con rows.index retornara el valor que ocupa en su posicion y no se salteara nuevos luego de borrar
+        'el error de quitar debe estar aca
         NuevaFilaDetalles(0) = oCNDetallesDePedido.ConsultarUltimoID + tabla.Rows.Count
         NuevaFilaDetalles(1) = pProducto.Nombre
         NuevaFilaDetalles(2) = pProducto.Cantidad
@@ -170,6 +171,8 @@ Public Class FormularioPedido
     End Sub
 
     Private Sub btnGuardarCambios_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGuardarCambios.Click
+
+      
         oCNPedido.ModificarPedido(CargarPedido, TablaItems)
         Me.Close()
     End Sub

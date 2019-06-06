@@ -10,9 +10,9 @@ Public Class AgregarProductoPedido
     Private Sub btnAceptar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAceptar.Click
 
 
-        oCEproducto.Nombre = CboProducto.Text
+        oCEproducto.Nombre = txtNombreProducto.Text
         oCEproducto.Cantidad = txtCantidad.Text
-        oCEproducto.Precio = txtboxPrecio.Text
+        oCEproducto.Precio = txtboxPrecio.TextBox1.Text
         oCEproducto.Descripcion = TextboxDescripcion.Text
         oCEproducto.IDProducto = lblID.Text
         Me.Close()
@@ -43,9 +43,9 @@ Public Class AgregarProductoPedido
         dt = oCNProducto.BuscarProducto("IDProducto", id)
         dr = dt.Rows(0)
         lblID.Text = dr("IDProducto")
-        CboProducto.Text = dr("Nombre").ToString
+        txtNombreProducto.Text = dr("Nombre").ToString
         txtCantidad.Text = CInt("1")
-        txtboxPrecio.Text = dr("Precio").ToString
+        txtboxPrecio.TextBox1.Text = dr("Precio").ToString
         TextboxDescripcion.Text = ""
     End Sub
     'fijarme si no combine mas poner solo cellclick ya que el doble click aveces funciona mal

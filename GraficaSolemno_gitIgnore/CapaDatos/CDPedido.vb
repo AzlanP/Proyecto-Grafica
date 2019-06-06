@@ -58,6 +58,7 @@ Public Class CDPedidos
         End Try
     End Sub
     Public Sub ModificarPedido(ByVal oCEPedido As CEPedido, ByVal TablaDetalles As DataTable)
+       
         oCDConexion.Conectar()
         Try
             Dim instruccionsql = "UPDATE Pedidos SET Descripcion=@Descripcion, Fecha=@Fecha, IDCliente=@IDCliente, IDTipoEnvio=@IDTipoEnvio, IDMedio=@IDMedio, Estado=@Estado, Seña=@Seña where  IDPedido=@IDPedido"
@@ -74,50 +75,29 @@ Public Class CDPedidos
             End With
             comando.ExecuteNonQuery()
             MsgBox("La modificacion se realizo con exito")
-            Dim TablaBD As New DataTable
-            TablaBD = oCDDetallesDelPedido.MostrarDetalles(oCEPedido.IDPedido)
-            Dim i As Integer = 0
-            Dim validado As Boolean = False
 
+            'eliminar tabla detalles de la base de datos 
 
-            Dim TablaMerge As New DataTable
-            Dim TablaCopyDetalles As DataTable
-            TablaCopyDetalles = TablaDetalles.Copy
-            TablaCopyDetalles.Merge(TablaBD)
-            TablaMerge = TablaDetalles.GetChanges
+            instruccionsql = "DELETE FROM ItemsPorPedido WHERE (IDPedido=@IDPedido)"
+            comando = New SQLiteCommand(instruccionsql, oCDConexion.con)
+            comando.Parameters.Add("@IDPedido", SqlDbType.Int).Value = oCEPedido.IDPedido
+
+            comando.ExecuteNonQuery()
+
+            ' volver a insertar todas los registros a la tabla de pedido
+
             For Each row As DataRow In TablaDetalles.Rows
-                MsgBox(row(0) & " , " & row(1) & " , " & row(2) & " , " & row(3) & " , " & row(4) & " , " & row(5))
-                'oCEDetallesDelPedido.IDPedido = oCEPedido.IDPedido
-                'oCEDetallesDelPedido.IDItems = row(0)
-                'oCEDetallesDelPedido.Nombre = row(1)
-                'oCEDetallesDelPedido.Cantidad = row(2)
-                'oCEDetallesDelPedido.Descripcion = row(3)
-                'oCEDetallesDelPedido.Precio = row(4)
-                ''considerar mostrar solo id de producto para la tabla de items el nombre es irrelevante
-                'oCEDetallesDelPedido.IDProducto = row(5)
-                'oCDDetallesDelPedido.AgregarItemAlPedido(oCEDetallesDelPedido)
+
+                oCEDetallesDelPedido.IDPedido = oCEPedido.IDPedido
+                oCEDetallesDelPedido.IDItems = row(0)
+                oCEDetallesDelPedido.Nombre = row(1)
+                oCEDetallesDelPedido.Cantidad = row(2)
+                oCEDetallesDelPedido.Descripcion = row(3)
+                oCEDetallesDelPedido.Precio = row(4)
+                oCEDetallesDelPedido.IDProducto = row(5)
+                oCDDetallesDelPedido.AgregarItemAlPedido(oCEDetallesDelPedido)
             Next
 
-
-            'For Each row As DataRow In TablaDetalles.
-
-            '    For Each rowBD As DataRow In TablaBD.Rows
-            '        validado = False
-            '        If row.Item(0) = rowBD.Item(0) Then
-            '            MsgBox("Este elemento existe por lo tanto sera modificado" & row.Item("Nombre"))
-
-            '            'se modificara
-            '            validado = True
-            '        ElseIf i = TablaBD.Rows.Count And validado = False Then
-            '            MsgBox("Este elemento no existe por lo tanto sera Agregado" & row.Item("Nombre"))
-            '            'se agrega
-            '            validado = True
-            '        End If
-
-            '    Next
-
-            '    i += 1
-            'Next
 
 
         Catch ex As Exception

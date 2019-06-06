@@ -46,7 +46,7 @@
             SendKeys.Send("{TAB}")
         End If
     End Sub
-
+    'verificar esto problema!
     Private Sub TextBox1_MouseClick(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles TextBox1.MouseClick
         If TextBox1.Text = 0.0 Then
             TextBox1.Text = ""
