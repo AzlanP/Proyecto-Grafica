@@ -21,6 +21,7 @@ Public Class CNProducto
         dt = oCDProducto.BuscarProducto(pcampo, pbuscar)
         Return dt
     End Function
+
     Function BuscarProductoInactivo(ByVal pcampo As String, ByVal pbuscar As String) As DataTable
         Dim dt As New DataTable
         dt = oCDProducto.BuscarProductoInactivo(pcampo, pbuscar)

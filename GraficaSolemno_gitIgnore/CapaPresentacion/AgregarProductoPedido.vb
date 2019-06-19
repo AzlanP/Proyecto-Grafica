@@ -4,8 +4,8 @@ Imports CapaNegocio
 Public Class AgregarProductoPedido
     Public oCEproducto As New CEProducto
     Dim oCNProducto As New CNProducto
-    'Dim oCEDetallesDelPedido As New CEDetallesDelPedido
-    'Dim oCNDetallesDelPedido As New CNDetallesDelPedido
+    Dim oCEDetallesDelPedido As New CEDetallesDelPedido
+    Dim oCNDetallesDelPedido As New CNDetallesDelPedido
 
     Private Sub btnAceptar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAceptar.Click
 
@@ -40,6 +40,7 @@ Public Class AgregarProductoPedido
     Public Sub CargarDatos(ByVal id As Integer)
         Dim dt As New DataTable
         Dim dr As DataRow
+
         dt = oCNProducto.BuscarProducto("IDProducto", id)
         dr = dt.Rows(0)
         lblID.Text = dr("IDProducto")
@@ -48,9 +49,21 @@ Public Class AgregarProductoPedido
         txtboxPrecio.TextBox1.Text = dr("Precio").ToString
         TextboxDescripcion.Text = ""
     End Sub
+    Public Sub CargarDatosModificar(ByVal id As Integer, ByVal dr As DataRow)
+        Dim dt As New DataTable
+        lblID.Text = id
+        txtNombreProducto.Text = dr("Nombre").ToString
+        txtCantidad.Text = dr("Cantidad")
+        txtboxPrecio.TextBox1.Text = dr("Precio").ToString
+        TextboxDescripcion.Text = dr("Descripcion")
+    End Sub
     'fijarme si no combine mas poner solo cellclick ya que el doble click aveces funciona mal
     Private Sub DGBuscar_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DGBuscar.CellDoubleClick
         Dim ID As Integer = DGBuscar.Rows(e.RowIndex).Cells("IDProducto").Value
         CargarDatos(ID)
+    End Sub
+
+    Private Sub btnGuardarCambio_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGuardarCambio.Click
+
     End Sub
 End Class

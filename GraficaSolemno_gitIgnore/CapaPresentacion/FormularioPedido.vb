@@ -38,20 +38,24 @@ Public Class FormularioPedido
         AgregarDatosADetalles(AñadirProducto.oCEproducto, DTDetalles)
     End Sub
     Public Sub AgregarDatosADetalles(ByVal pProducto As CEProducto, ByVal tabla As DataTable)
-        Dim NuevaFilaDetalles As DataRow = tabla.NewRow()
-        'esto genera un error, si borras uno de arriba, el de abajo tomara el mismo valor de id que el de arriba.
-        'enves de tabla.rows.count capas sirva hacerlo con rows.index retornara el valor que ocupa en su posicion y no se salteara nuevos luego de borrar
-        'el error de quitar debe estar aca
-        NuevaFilaDetalles(0) = oCNDetallesDePedido.ConsultarUltimoID + tabla.Rows.Count
-        NuevaFilaDetalles(1) = pProducto.Nombre
-        NuevaFilaDetalles(2) = pProducto.Cantidad
-        NuevaFilaDetalles(3) = pProducto.Descripcion
-        NuevaFilaDetalles(4) = pProducto.Precio
-        NuevaFilaDetalles(5) = pProducto.IDProducto
-        tabla.Rows.Add(NuevaFilaDetalles)
+        'Dim NuevaFilaDetalles As DataRow = tabla.NewRow()
+        'NuevaFilaDetalles(0) = 0
+        'NuevaFilaDetalles(1) = pProducto.Nombre
+        'NuevaFilaDetalles(2) = pProducto.Cantidad
+        'NuevaFilaDetalles(3) = pProducto.Descripcion
+        'NuevaFilaDetalles(4) = pProducto.Precio
+        'NuevaFilaDetalles(5) = pProducto.IDProducto
+        'tabla.Rows.Add(NuevaFilaDetalles)
+
+        tabla.Columns("IDItems").AutoIncrement = True
+        tabla.Columns("IDItems").AutoIncrementSeed = oCNDetallesDePedido.ConsultarUltimoID
+        tabla.Columns("IDItems").AutoIncrementStep = 1
+        tabla.Rows.Add(Nothing, pProducto.Nombre, pProducto.Cantidad, pProducto.Descripcion, pProducto.Precio, pProducto.IDProducto)
+
         CargarGridListaPedido(tabla)
 
     End Sub
+  
     Private Sub btnQuitar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnQuitar.Click
         Dim ID As Integer = DGListaDePedido.Rows(DGListaDePedido.CurrentCell.RowIndex).Cells("IDItems").Value
         ' en esta funcion hay un problema, si 2 articulos son iguales tomara el mismo iditem y borrara las 2 celdas
@@ -65,6 +69,7 @@ Public Class FormularioPedido
                 If (iditem = ID) Then
                     posborrado = x
                     DTDetalles.Rows.RemoveAt(x)
+                    Exit For
                 End If
                 'If posborrado < x Then
                 '    DTDetalles.Rows(x + 1).Item("IDItems")
@@ -110,17 +115,66 @@ Public Class FormularioPedido
     End Sub
 
     Private Sub btnModificarPedido_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnModificarPedido.Click
-        Dim ID As Integer = DGListaDePedido.Rows(DGListaDePedido.CurrentCell.RowIndex).Cells("ID").Value
-        'crear un formulario de edision
+        Dim ID As Integer = DGListaDePedido.Rows(DGListaDePedido.CurrentCell.RowIndex).Cells("IDItems").Value
+        Dim ProductoID As Integer
+        Dim dtrow As DataRow
+        Dim ValorIndex As Integer
+        If DTDetalles.Rows.Count > 0 Then
+            Dim i As Integer = DTDetalles.Rows.Count - 1
+            For x As Integer = 0 To DTDetalles.Rows.Count - 1
+                Dim iditem As Integer = DTDetalles.Rows(x).Item("IDItems")
+                If (iditem = ID) Then
+
+                    ProductoID = DTDetalles.Rows(x).Item("IDProducto")
+                    ValorIndex = x
+                    Exit For
+                End If
+                
+            Next
+        ElseIf TablaItems.Rows.Count > 0 Then
+            Dim i As Integer = TablaItems.Rows.Count - 1
+            For x As Integer = 0 To TablaItems.Rows.Count - 1
+                Dim iditem As Integer = TablaItems.Rows(x).Item("IDItems")
+                If (iditem = ID) Then
+
+                    ProductoID = TablaItems.Rows(x).Item("IDProducto")
+
+                    dtrow = (DGListaDePedido.Rows(x).DataBoundItem).Row
+                    ValorIndex = x
+
+                    Exit For
+        End If
+
+            Next
+        End If
+        Dim frmModProducto As New AgregarProductoPedido
+        If dtrow Is Nothing Then
+        Else
+            frmModProducto.CargarDatosModificar(ProductoID, dtrow)
+            frmModProducto.ShowDialog()
+            TablaItems.Rows.RemoveAt(ValorIndex)
+            AgregarDatosADetalles(frmModProducto.oCEproducto, TablaItems)
+
+            '    If DTDetalles Is Nothing Then
+            '        If TablaItems Is Nothing Then
+            '            MsgBox("Error")
+            '        Else
+
+            '        End If
+            '    Else
+            '        AgregarDatosADetalles(frmModProducto.oCEproducto, DTDetalles)
+            '    End If
+
+        End If
+
+
+
     End Sub
 
     Private Sub btnTipoEnvio_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnTipoEnvio.Click
         Dim frmEnvio As New FormularioEnvio
         frmEnvio.ShowDialog()
     End Sub
-
-    
-
     Private Sub btnCancelarPedido_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancelarPedido.Click
         Me.Close()
     End Sub
@@ -136,23 +190,29 @@ Public Class FormularioPedido
     Private Sub FormularioPedido_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Dim validacion As New Validaciones
         validacion.Validar(Me)
+        'DGListaDePedido.AutoGenerateColumns = False
     End Sub
     Public Sub Detalles()
-        DTDetalles.Columns.Add("IDItems")
-        DTDetalles.Columns.Add("Nombre")
-        DTDetalles.Columns.Add("Cantidad")
-        DTDetalles.Columns.Add("Descripcion")
-        DTDetalles.Columns.Add("Precio")
-        DTDetalles.Columns.Add("IDProducto")
+      
+        DTDetalles.Columns.AddRange(New DataColumn(5) {New DataColumn("IDItems"), _
+                                                       New DataColumn("Nombre"), _
+                                                       New DataColumn("Cantidad"), _
+                                                       New DataColumn("Descripcion"), _
+                                                       New DataColumn("Precio"), _
+                                                       New DataColumn("IDProducto")})
+        'DTDetalles.Columns.Add("IDItems")
+        'DTDetalles.Columns.Add("Nombre")
+        'DTDetalles.Columns.Add("Cantidad")
+        'DTDetalles.Columns.Add("Descripcion")
+        'DTDetalles.Columns.Add("Precio")
+        'DTDetalles.Columns.Add("IDProducto")
     End Sub
-
     Private Sub btnAgregarPedidoExistente_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAgregarPedidoExistente.Click
 
         Dim AñadirProducto As New AgregarProductoPedido
         AñadirProducto.ShowDialog()
         AgregarDatosADetalles(AñadirProducto.oCEproducto, TablaItems)
     End Sub
-
     Public Function CargarPedido() As CEPedido
         Dim oCEPedido As New CEPedido
         oCEPedido.IDPedido = lblID.Text
@@ -169,14 +229,12 @@ Public Class FormularioPedido
         oCNPedido.GenerarElPedido(CargarPedido, DTDetalles)
         Me.Close()
     End Sub
-
     Private Sub btnGuardarCambios_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGuardarCambios.Click
 
       
         oCNPedido.ModificarPedido(CargarPedido, TablaItems)
         Me.Close()
     End Sub
-
     Public Sub AsignarTextCbo(ByVal text As String, ByVal cbo As System.Object)
 
         Dim int As Integer
@@ -194,4 +252,6 @@ Public Class FormularioPedido
         Next
 
     End Sub
+
+
 End Class

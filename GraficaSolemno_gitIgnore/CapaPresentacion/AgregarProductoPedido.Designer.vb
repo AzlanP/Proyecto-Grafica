@@ -37,6 +37,7 @@ Partial Class AgregarProductoPedido
         Me.lblID = New System.Windows.Forms.Label()
         Me.txtboxPrecio = New CapaPresentacion.ValidacionMoneda()
         Me.txtNombreProducto = New System.Windows.Forms.TextBox()
+        Me.btnGuardarCambio = New System.Windows.Forms.Button()
         CType(Me.DGBuscar, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -186,12 +187,24 @@ Partial Class AgregarProductoPedido
         Me.txtNombreProducto.TabIndex = 27
         Me.txtNombreProducto.Tag = "3"
         '
+        'btnGuardarCambio
+        '
+        Me.btnGuardarCambio.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnGuardarCambio.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnGuardarCambio.Location = New System.Drawing.Point(49, 324)
+        Me.btnGuardarCambio.Name = "btnGuardarCambio"
+        Me.btnGuardarCambio.Size = New System.Drawing.Size(89, 29)
+        Me.btnGuardarCambio.TabIndex = 28
+        Me.btnGuardarCambio.Text = "Guardar"
+        Me.btnGuardarCambio.UseVisualStyleBackColor = False
+        '
         'AgregarProductoPedido
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(582, 323)
+        Me.ClientSize = New System.Drawing.Size(576, 365)
+        Me.Controls.Add(Me.btnGuardarCambio)
         Me.Controls.Add(Me.txtNombreProducto)
         Me.Controls.Add(Me.txtboxPrecio)
         Me.Controls.Add(Me.lblID)
@@ -229,4 +242,5 @@ Partial Class AgregarProductoPedido
     Friend WithEvents lblID As System.Windows.Forms.Label
     Friend WithEvents txtboxPrecio As CapaPresentacion.ValidacionMoneda
     Friend WithEvents txtNombreProducto As System.Windows.Forms.TextBox
+    Friend WithEvents btnGuardarCambio As System.Windows.Forms.Button
 End Class

@@ -193,7 +193,7 @@ Partial Class FormularioPedido
         Me.DGListaDePedido.BackgroundColor = System.Drawing.Color.White
         Me.DGListaDePedido.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DGListaDePedido.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
-        Me.DGListaDePedido.Location = New System.Drawing.Point(22, 120)
+        Me.DGListaDePedido.Location = New System.Drawing.Point(12, 120)
         Me.DGListaDePedido.MultiSelect = False
         Me.DGListaDePedido.Name = "DGListaDePedido"
         Me.DGListaDePedido.ReadOnly = True
@@ -326,7 +326,7 @@ Partial Class FormularioPedido
         '
         Me.btnGuardarCambios.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnGuardarCambios.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnGuardarCambios.Location = New System.Drawing.Point(338, 353)
+        Me.btnGuardarCambios.Location = New System.Drawing.Point(338, 357)
         Me.btnGuardarCambios.Name = "btnGuardarCambios"
         Me.btnGuardarCambios.Size = New System.Drawing.Size(123, 26)
         Me.btnGuardarCambios.TabIndex = 42

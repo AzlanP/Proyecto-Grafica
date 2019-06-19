@@ -75,6 +75,7 @@ Public Class CDProducto
         End Try
 
     End Sub
+   
     Function BuscarProducto(ByVal camp As String, ByVal pbuscar As String) As DataTable
         oCDConexion.Conectar()
         Dim da As New SQLiteDataAdapter
