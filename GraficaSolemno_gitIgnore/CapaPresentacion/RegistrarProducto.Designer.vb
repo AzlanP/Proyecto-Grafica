@@ -29,7 +29,6 @@ Partial Class RegistrarProducto
         Me.lblDescripcion = New System.Windows.Forms.Label()
         Me.txtDescripcion = New System.Windows.Forms.TextBox()
         Me.lblPrecio = New System.Windows.Forms.Label()
-        Me.txtPrecio = New System.Windows.Forms.TextBox()
         Me.lblCantidad = New System.Windows.Forms.Label()
         Me.txtCantidad = New System.Windows.Forms.TextBox()
         Me.lblNombre = New System.Windows.Forms.Label()
@@ -39,6 +38,7 @@ Partial Class RegistrarProducto
         Me.btnGuardarProducto = New System.Windows.Forms.Button()
         Me.lblTipo = New System.Windows.Forms.Label()
         Me.cboTipo = New System.Windows.Forms.ComboBox()
+        Me.controlPrecio = New CapaPresentacion.ValidacionMoneda()
         Me.SuspendLayout()
         '
         'Label1
@@ -79,6 +79,7 @@ Partial Class RegistrarProducto
         Me.txtCodigo.Name = "txtCodigo"
         Me.txtCodigo.Size = New System.Drawing.Size(100, 24)
         Me.txtCodigo.TabIndex = 31
+        Me.txtCodigo.Tag = "2"
         '
         'lblDescripcion
         '
@@ -97,6 +98,7 @@ Partial Class RegistrarProducto
         Me.txtDescripcion.Name = "txtDescripcion"
         Me.txtDescripcion.Size = New System.Drawing.Size(100, 24)
         Me.txtDescripcion.TabIndex = 29
+        Me.txtDescripcion.Tag = ""
         '
         'lblPrecio
         '
@@ -107,14 +109,6 @@ Partial Class RegistrarProducto
         Me.lblPrecio.Size = New System.Drawing.Size(59, 18)
         Me.lblPrecio.TabIndex = 26
         Me.lblPrecio.Text = "Precio :"
-        '
-        'txtPrecio
-        '
-        Me.txtPrecio.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPrecio.Location = New System.Drawing.Point(186, 163)
-        Me.txtPrecio.Name = "txtPrecio"
-        Me.txtPrecio.Size = New System.Drawing.Size(100, 24)
-        Me.txtPrecio.TabIndex = 25
         '
         'lblCantidad
         '
@@ -152,6 +146,7 @@ Partial Class RegistrarProducto
         Me.txtNombre.Name = "txtNombre"
         Me.txtNombre.Size = New System.Drawing.Size(100, 24)
         Me.txtNombre.TabIndex = 21
+        Me.txtNombre.Tag = "3"
         '
         'lblID
         '
@@ -206,12 +201,22 @@ Partial Class RegistrarProducto
         Me.cboTipo.TabIndex = 36
         Me.cboTipo.Text = "Producto"
         '
+        'controlPrecio
+        '
+        Me.controlPrecio.labeltext = Nothing
+        Me.controlPrecio.Location = New System.Drawing.Point(167, 166)
+        Me.controlPrecio.Name = "controlPrecio"
+        Me.controlPrecio.Size = New System.Drawing.Size(132, 27)
+        Me.controlPrecio.TabIndex = 37
+        Me.controlPrecio.valor = 0.0R
+        '
         'RegistrarProducto
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(332, 309)
+        Me.ClientSize = New System.Drawing.Size(321, 309)
+        Me.Controls.Add(Me.controlPrecio)
         Me.Controls.Add(Me.cboTipo)
         Me.Controls.Add(Me.lblTipo)
         Me.Controls.Add(Me.Label1)
@@ -221,7 +226,6 @@ Partial Class RegistrarProducto
         Me.Controls.Add(Me.lblDescripcion)
         Me.Controls.Add(Me.txtDescripcion)
         Me.Controls.Add(Me.lblPrecio)
-        Me.Controls.Add(Me.txtPrecio)
         Me.Controls.Add(Me.lblCantidad)
         Me.Controls.Add(Me.txtCantidad)
         Me.Controls.Add(Me.lblNombre)
@@ -242,7 +246,6 @@ Partial Class RegistrarProducto
     Friend WithEvents lblDescripcion As System.Windows.Forms.Label
     Friend WithEvents txtDescripcion As System.Windows.Forms.TextBox
     Friend WithEvents lblPrecio As System.Windows.Forms.Label
-    Friend WithEvents txtPrecio As System.Windows.Forms.TextBox
     Friend WithEvents lblCantidad As System.Windows.Forms.Label
     Friend WithEvents txtCantidad As System.Windows.Forms.TextBox
     Friend WithEvents lblNombre As System.Windows.Forms.Label
@@ -252,4 +255,5 @@ Partial Class RegistrarProducto
     Friend WithEvents btnGuardarProducto As System.Windows.Forms.Button
     Friend WithEvents lblTipo As System.Windows.Forms.Label
     Friend WithEvents cboTipo As System.Windows.Forms.ComboBox
+    Friend WithEvents controlPrecio As CapaPresentacion.ValidacionMoneda
 End Class

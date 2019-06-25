@@ -1,7 +1,7 @@
 ﻿Public Class ValidacionMoneda
     Private _labeltext As String
     Private _valor As Double
-    Private _simbolo As String
+    Private _simbolo As String = "$"
 
     Public Property labeltext As String
         Get
@@ -20,7 +20,7 @@
         End Get
         Set(ByVal value As Double)
             _valor = value
-            TextBox1.Text = _simbolo & FormatNumber(valor)
+            mostrarValor()
 
         End Set
     End Property
@@ -47,10 +47,15 @@
         End If
     End Sub
     'verificar esto problema!
-    Private Sub TextBox1_MouseClick(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles TextBox1.MouseClick
-        If TextBox1.Text = 0.0 Then
-            TextBox1.Text = ""
-        End If
+    'Private Sub TextBox1_MouseClick(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles TextBox1.MouseClick
+    '    If TextBox1.Text = 0.0 Then
+    '        TextBox1.Text = ""
+    '    End If
+    'End Sub
+
+
+    Private Sub mostrarValor()
+        TextBox1.Text = _simbolo & " " & FormatNumber(_valor)
     End Sub
 
     Private Sub TextBox1_Validating(ByVal sender As Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles TextBox1.Validating
@@ -60,6 +65,5 @@
             valor = 0
         End Try
     End Sub
-
     
 End Class

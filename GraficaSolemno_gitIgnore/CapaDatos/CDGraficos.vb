@@ -6,7 +6,8 @@ Public Class CDGraficos
         Dim MaxDiasMes As Integer = Date.DaysInMonth(paño, pmes)
         Dim FechaInicial As String = paño & "/" & pmes & "/" & 1
         Dim FechaFinal As String = paño & "/" & pmes & "/" & MaxDiasMes
-        Dim sql As String = "select count(*) from Pedidos where pedidos.fecha between '" & FechaInicial & "' AND '" & FechaFinal & "'"
+
+        Dim sql As String = "select count(*) from Pedidos where pedidos.fecha between '" & FormatISO8601(FechaInicial) & "' AND '" & FormatISO8601(FechaFinal) & "'"
         Dim cmd As New SQLiteCommand(sql, oCDConexion.con)
         Dim cantidad As Integer = CInt(cmd.ExecuteScalar())
         oCDConexion.Desconectar()
@@ -15,6 +16,9 @@ Public Class CDGraficos
     Public Function GraficarCantidadPedidosPorMedio(ByVal pmes As Integer, ByVal paño As Integer) As DataTable
         oCDConexion.Conectar()
         Dim MaxDiasMes As Integer = Date.DaysInMonth(paño, pmes)
+       
+
+
         Dim FechaInicial As String = paño & "/" & pmes & "/" & 1
         Dim FechaFinal As String = paño & "/" & pmes & "/" & MaxDiasMes
         Dim sql As String = " SELECT COUNT(IDPedido)  as Cantidad, Medios.Nombre FROM(medios, pedidos) where (pedidos.IDMedio = medios.IDMedio )and (  pedidos.fecha between '" & FechaInicial & "' AND '" & FechaFinal & "'" & ") GROUP BY medios.nombre"
@@ -32,9 +36,11 @@ Public Class CDGraficos
     Public Function GraficarProductosMensuales(ByVal pmes As Integer, ByVal paño As Integer) As DataTable
         oCDConexion.Conectar()
         Dim MaxDiasMes As Integer = Date.DaysInMonth(paño, pmes)
+      
+
         Dim FechaInicial As String = paño & "/" & pmes & "/" & 1
         Dim FechaFinal As String = paño & "/" & pmes & "/" & MaxDiasMes
-        Dim sql As String = "SELECT COUNT(*) as Cantidad , Productos.Nombre FROM(Productos, ItemsPorPedido, pedidos) where (ItemsPorPedido.IDProducto= Productos.IDProducto) and (  pedidos.fecha between '" & FechaInicial & "' AND '" & FechaFinal & "'" & ") and ( pedidos.IDPedido=ItemsPorPedido.IDPedido) GROUP BY Productos.nombre"
+        Dim sql As String = "SELECT COUNT(*) as Cantidad , Productos.Nombre FROM(Productos, ItemsPorPedido, pedidos) where (ItemsPorPedido.IDProducto= Productos.IDProducto) and (  pedidos.fecha between '" & FormatISO8601(FechaInicial) & "' AND '" & FormatISO8601(FechaFinal) & "'" & ") and ( pedidos.IDPedido=ItemsPorPedido.IDPedido) GROUP BY Productos.nombre"
         Dim cmd As New SQLiteCommand(sql, oCDConexion.con)
         Dim dt As New DataTable
         Dim da As New SQLiteDataAdapter
@@ -42,6 +48,32 @@ Public Class CDGraficos
         da.Fill(dt)
         oCDConexion.Desconectar()
         Return dt
+    End Function
+    Public Function FormatISO8601(ByVal pfecha As Date) As String
+
+        Dim SoloFecha As String
+        Dim dia, mes As String
+
+        If pfecha.Month < 10 Then
+            mes = "0" & pfecha.Month
+        Else
+            mes = pfecha.Month
+        End If
+        If pfecha.Day < 10 Then
+            dia = "0" & pfecha.Day
+        Else
+            dia = pfecha.Day
+        End If
+        SoloFecha = pfecha.Year & "/" & mes & "/" & dia
+
+        Return SoloFecha
+    End Function
+    Public Function FormatoFechaNormal(ByVal pfecha As String) As Date
+        Dim fecha As Date
+        Dim OrdenarFecha() As String = pfecha.Split("/")
+        Dim fechaString As String = OrdenarFecha(2) & "/" & OrdenarFecha(1) & "/" & OrdenarFecha(0)
+        fecha = fechaString
+        Return fecha
     End Function
     'Public Function GraficarServiciosMensuales(ByVal pmes As Integer, ByVal paño As Integer) As DataTable
     '    oCDConexion.Conectar()

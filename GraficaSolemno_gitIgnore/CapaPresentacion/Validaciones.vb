@@ -6,7 +6,9 @@ Public Class Validaciones
             If TypeOf obj Is TextBox Then
 
                 Dim txt As TextBox = obj
-                If txt.Tag = 1 Then
+                If txt.Tag = "" Then
+
+                ElseIf txt.Tag = 1 Then
                     AddHandler txt.KeyPress, AddressOf keypressValidacionLetras
                 ElseIf txt.Tag = 2 Then
                     AddHandler txt.KeyPress, AddressOf keypressValidacionNumeros
@@ -17,6 +19,8 @@ Public Class Validaciones
                     AddHandler txt.LostFocus, AddressOf EmailLostFocus
                 ElseIf txt.Tag = 5 Then
                     AddHandler txt.KeyPress, AddressOf KeypressValidarCantidad
+
+
                 End If
 
             End If
@@ -98,10 +102,5 @@ Public Class Validaciones
         Else
             e.Handled = True
         End If
-
-
-
-
     End Sub
-
 End Class

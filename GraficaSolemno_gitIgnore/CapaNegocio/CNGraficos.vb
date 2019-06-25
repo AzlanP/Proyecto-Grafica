@@ -14,5 +14,5 @@ Public Class CNGraficos
     'Public Function GraficarServiciosMensuales(ByVal pmes As Integer, ByVal paño As Integer) As DataTable
     '    Return oCDGraficos.GraficarServiciosMensuales(pmes, paño)
     'End Function
-
+   
 End Class

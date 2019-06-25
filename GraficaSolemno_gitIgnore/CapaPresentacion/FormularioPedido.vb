@@ -210,6 +210,7 @@ Public Class FormularioPedido
     Private Sub btnAgregarPedidoExistente_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAgregarPedidoExistente.Click
 
         Dim AñadirProducto As New AgregarProductoPedido
+        AñadirProducto.Size = New Point(597, 425)
         AñadirProducto.ShowDialog()
         AgregarDatosADetalles(AñadirProducto.oCEproducto, TablaItems)
     End Sub
@@ -217,7 +218,7 @@ Public Class FormularioPedido
         Dim oCEPedido As New CEPedido
         oCEPedido.IDPedido = lblID.Text
         oCEPedido.Cliente = cboCliente.SelectedValue
-        oCEPedido.Fecha = dtpFecha.Text
+        oCEPedido.Fecha = FormatISO8601(dtpFecha.Text)
         oCEPedido.Descripcion = Trim(txtDescripcion.Text)
         oCEPedido.Medio = cboMedio.SelectedValue
         oCEPedido.Estado = cboEstado.Text
@@ -253,5 +254,30 @@ Public Class FormularioPedido
 
     End Sub
 
+    Public Function FormatISO8601(ByVal pfecha As Date) As String
 
+        Dim SoloFecha As String
+        Dim dia, mes As String
+
+        If pfecha.Month < 10 Then
+            mes = "0" & pfecha.Month
+        Else
+            mes = pfecha.Month
+        End If
+        If pfecha.Day < 10 Then
+            dia = "0" & pfecha.Day
+        Else
+            dia = pfecha.Day
+        End If
+        SoloFecha = pfecha.Year & "/" & mes & "/" & dia
+
+        Return SoloFecha
+    End Function
+    Public Function FormatoFechaNormal(ByVal pfecha As String) As Date
+        Dim fecha As Date
+        Dim OrdenarFecha() As String = pfecha.Split("/")
+        Dim fechaString As String = OrdenarFecha(2) & "/" & OrdenarFecha(1) & "/" & OrdenarFecha(0)
+        fecha = fechaString
+        Return fecha
+    End Function
 End Class

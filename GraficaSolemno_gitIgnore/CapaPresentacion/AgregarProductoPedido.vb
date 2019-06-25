@@ -12,7 +12,7 @@ Public Class AgregarProductoPedido
 
         oCEproducto.Nombre = txtNombreProducto.Text
         oCEproducto.Cantidad = txtCantidad.Text
-        oCEproducto.Precio = txtboxPrecio.TextBox1.Text
+        oCEproducto.Precio = txtboxPrecio.valor
         oCEproducto.Descripcion = TextboxDescripcion.Text
         oCEproducto.IDProducto = lblID.Text
         Me.Close()
@@ -45,16 +45,38 @@ Public Class AgregarProductoPedido
         dr = dt.Rows(0)
         lblID.Text = dr("IDProducto")
         txtNombreProducto.Text = dr("Nombre").ToString
-        txtCantidad.Text = CInt("1")
-        txtboxPrecio.TextBox1.Text = dr("Precio").ToString
+        txtCantidad.Text = nullearInteger(dr("Cantidad").ToString)
+        txtboxPrecio.valor = nullearDouble(dr("Precio").ToString)
         TextboxDescripcion.Text = ""
     End Sub
+    Public Function nullearInteger(ByVal ob As Object) As Integer
+        Dim value As Integer
+        Try
+            value = ob
+            Return value
+        Catch ex As Exception
+            value = 0
+            Return 0
+        End Try
+    End Function
+    Public Function nullearDouble(ByVal ob As Object) As Double
+        Dim value As Double
+        Try
+            value = ob
+            Return value
+        Catch ex As Exception
+            value = 0
+            Return 0
+        End Try
+    End Function
     Public Sub CargarDatosModificar(ByVal id As Integer, ByVal dr As DataRow)
+
         Dim dt As New DataTable
+        Me.Size = New Point(292, 370)
         lblID.Text = id
         txtNombreProducto.Text = dr("Nombre").ToString
         txtCantidad.Text = dr("Cantidad")
-        txtboxPrecio.TextBox1.Text = dr("Precio").ToString
+        txtboxPrecio.valor = dr("Precio").ToString
         TextboxDescripcion.Text = dr("Descripcion")
     End Sub
     'fijarme si no combine mas poner solo cellclick ya que el doble click aveces funciona mal
@@ -63,7 +85,7 @@ Public Class AgregarProductoPedido
         CargarDatos(ID)
     End Sub
 
-    Private Sub btnGuardarCambio_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGuardarCambio.Click
+    Private Sub btnGuardarCambio_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
 
     End Sub
 End Class

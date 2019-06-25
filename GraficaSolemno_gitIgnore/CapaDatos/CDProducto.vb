@@ -17,7 +17,7 @@ Public Class CDProducto
         oCDConexion.Conectar()
 
         Try
-            Dim instruccionSQL = "INSERT INTO Productos (IDProducto, Nombre, Cantidad, Precio, Descripcion, Codigo, Tipo) VALUES (@IDProducto, @Nombre, @Cantidad, @Precio, @Descripcion, @Codigo,@Tipo)"
+            Dim instruccionSQL = "INSERT INTO Productos (IDProducto, Nombre, Cantidad, Precio, Descripcion, Codigo, Tipo, Estado) VALUES (@IDProducto, @Nombre, @Cantidad, @Precio, @Descripcion, @Codigo,@Tipo, @Estado)"
 
             Dim comando As New SQLiteCommand(instruccionSQL, oCDConexion.con)
             With comando.Parameters
@@ -28,6 +28,7 @@ Public Class CDProducto
                 .Add("@Descripcion", SqlDbType.VarChar).Value = oCEProducto.Descripcion
                 .Add("@Codigo", SqlDbType.VarChar).Value = oCEProducto.Codigo
                 .Add("@Tipo", SqlDbType.VarChar).Value = oCEProducto.Tipo
+                .Add("@Estado", SqlDbType.VarChar).Value = "Activo"
             End With
             MsgBox(instruccionSQL)
             comando.ExecuteNonQuery()

@@ -7,7 +7,9 @@ Public Class CDPedidos
     Dim oCDDetallesDelPedido As New CDDetallesDelPedido
     Dim da As SQLiteDataAdapter
     Function MostrarPedido() As DataTable
-        Return oCDConexion.MostrarTabla("Pedidos")
+        'Return oCDConexion.MostrarTabla("Pedidos")
+        Dim consulta As String = "SELECT Pedidos.IDPedido, Clientes.nombre as 'Cliente', pedidos.Fecha, pedidos.Estado, pedidos.seña, pedidos.Descripcion FROM(Pedidos, Clientes, medios, tipoenvio) WHERE(pedidos.IDCliente = clientes.IDCliente And pedidos.IDMedio = medios.IDMedio And pedidos.IDTipoEnvio = TipoEnvio.IDTipoEnvio)"
+        Return oCDConexion.MostrarTablaModificada(consulta)
     End Function
     Public Sub GenerarElPedido(ByVal pPedido As CEPedido, ByVal TablaDetalles As DataTable)
 

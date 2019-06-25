@@ -290,7 +290,9 @@ Public Class frmMenuPrincipal
         btnAgregarProducto.Enabled = True
         btnModificarProducto.Enabled = True
     End Sub
-
+    Private Sub btnRefreshProduct_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRefreshProduct.Click
+        CargarGridProducto()
+    End Sub
     '--------------------------------------------------------------------------------------------------------------
     '--------------------------------------------------------------------------------------------------------------
     '---------------------------------------- PEDIDOS -----------------------------------------------------------
@@ -476,4 +478,5 @@ Public Class frmMenuPrincipal
     
 
     
+ 
 End Class

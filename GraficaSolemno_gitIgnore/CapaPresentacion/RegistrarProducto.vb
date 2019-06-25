@@ -11,7 +11,7 @@ Public Class RegistrarProducto
             oCEProducto.IDProducto = CInt(lblID.Text)
             oCEProducto.Nombre = txtNombre.Text
             oCEProducto.Cantidad = CInt(txtCantidad.Text)
-            oCEProducto.Precio = CDbl(txtPrecio.Text)
+            oCEProducto.Precio = CDbl(controlPrecio.valor)
             oCEProducto.Descripcion = txtDescripcion.Text
             oCEProducto.Codigo = CInt(txtCodigo.Text)
             Return oCEProducto
@@ -34,7 +34,7 @@ Public Class RegistrarProducto
         lblID.Text = dr("IDProducto").ToString
         txtNombre.Text = dr("Nombre").ToString
         txtCantidad.Text = dr("Cantidad").ToString
-        txtPrecio.Text = dr("Precio").ToString
+        controlPrecio.valor = dr("Precio").ToString
         txtDescripcion.Text = dr("Descripcion").ToString
         txtCodigo.Text = dr("Codigo").ToString
         cboTipo.Text = dr("Tipo").ToString
@@ -51,7 +51,7 @@ Public Class RegistrarProducto
         lblID.Text = dr("IDProducto").ToString
         txtNombre.Text = dr("Nombre").ToString
         txtCantidad.Text = dr("Cantidad").ToString
-        txtPrecio.Text = dr("Precio").ToString
+        controlPrecio.valor = dr("Precio").ToString
         txtDescripcion.Text = dr("Descripcion").ToString
         txtCodigo.Text = dr("Codigo").ToString
         cboTipo.Text = dr("Tipo").ToString
@@ -91,7 +91,8 @@ Public Class RegistrarProducto
     End Sub
 
     Private Sub RegistrarProducto_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-
+        Dim validacion As New Validaciones
+        validacion.Validar(Me)
     End Sub
 
     Private Sub cboTipo_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles cboTipo.SelectedIndexChanged
@@ -101,14 +102,14 @@ Public Class RegistrarProducto
             lblPrecio.Visible = True
             txtCantidad.Visible = True
             txtCodigo.Visible = True
-            txtPrecio.Visible = True
+            controlPrecio.Visible = True
         ElseIf cboTipo.Text = "Servicio" Then
             lblCantidad.Visible = False
             lblCodigo.Visible = False
             lblPrecio.Visible = False
             txtCantidad.Visible = False
             txtCodigo.Visible = False
-            txtPrecio.Visible = False
+            controlPrecio.Visible = False
         End If
     End Sub
 
