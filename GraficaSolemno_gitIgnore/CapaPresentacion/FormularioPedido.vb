@@ -173,6 +173,8 @@ Public Class FormularioPedido
 
     Private Sub btnTipoEnvio_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnTipoEnvio.Click
         Dim frmEnvio As New FormularioEnvio
+
+        frmEnvio.DatosCliente(cboCliente.SelectedValue)
         frmEnvio.ShowDialog()
     End Sub
     Private Sub btnCancelarPedido_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancelarPedido.Click
@@ -224,6 +226,7 @@ Public Class FormularioPedido
         oCEPedido.Estado = cboEstado.Text
        oCEPedido.Seña = CDbl(ValidacionMoneda1.TextBox1.Text)
         oCEPedido.TipoDeEnvio = cboTipoEnvio.SelectedValue
+
             Return oCEPedido
     End Function
     Private Sub btnGuardarPedido_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGuardarPedido.Click

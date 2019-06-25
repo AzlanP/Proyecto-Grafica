@@ -357,7 +357,7 @@ Partial Class FormularioPedido
         'txtTotal
         '
         Me.txtTotal.labeltext = Nothing
-        Me.txtTotal.Location = New System.Drawing.Point(340, 317)
+        Me.txtTotal.Location = New System.Drawing.Point(356, 317)
         Me.txtTotal.Name = "txtTotal"
         Me.txtTotal.Size = New System.Drawing.Size(123, 27)
         Me.txtTotal.TabIndex = 45

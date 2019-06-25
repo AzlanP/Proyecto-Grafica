@@ -95,7 +95,6 @@ Partial Class frmMenuPrincipal
         Me.PnlLateralEstadistica = New System.Windows.Forms.Panel()
         Me.lblSubtituloEstadisticas = New System.Windows.Forms.Label()
         Me.btnGraficosProducto = New System.Windows.Forms.Button()
-        Me.btnGraficoServicios = New System.Windows.Forms.Button()
         Me.btnGraficoMedios = New System.Windows.Forms.Button()
         Me.btnGraficoPedidos = New System.Windows.Forms.Button()
         Me.PictureBoxEstadistic = New System.Windows.Forms.PictureBox()
@@ -1005,7 +1004,6 @@ Partial Class frmMenuPrincipal
         Me.PnlLateralEstadistica.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(134, Byte), Integer), CType(CType(67, Byte), Integer))
         Me.PnlLateralEstadistica.Controls.Add(Me.lblSubtituloEstadisticas)
         Me.PnlLateralEstadistica.Controls.Add(Me.btnGraficosProducto)
-        Me.PnlLateralEstadistica.Controls.Add(Me.btnGraficoServicios)
         Me.PnlLateralEstadistica.Controls.Add(Me.btnGraficoMedios)
         Me.PnlLateralEstadistica.Controls.Add(Me.btnGraficoPedidos)
         Me.PnlLateralEstadistica.Controls.Add(Me.PictureBoxEstadistic)
@@ -1033,26 +1031,12 @@ Partial Class frmMenuPrincipal
         Me.btnGraficosProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnGraficosProducto.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnGraficosProducto.ForeColor = System.Drawing.Color.White
-        Me.btnGraficosProducto.Location = New System.Drawing.Point(0, 386)
+        Me.btnGraficosProducto.Location = New System.Drawing.Point(0, 341)
         Me.btnGraficosProducto.Name = "btnGraficosProducto"
         Me.btnGraficosProducto.Size = New System.Drawing.Size(184, 50)
         Me.btnGraficosProducto.TabIndex = 4
         Me.btnGraficosProducto.Text = "Productos Solicitados"
         Me.btnGraficosProducto.UseVisualStyleBackColor = False
-        '
-        'btnGraficoServicios
-        '
-        Me.btnGraficoServicios.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
-        Me.btnGraficoServicios.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
-        Me.btnGraficoServicios.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnGraficoServicios.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnGraficoServicios.ForeColor = System.Drawing.Color.White
-        Me.btnGraficoServicios.Location = New System.Drawing.Point(0, 330)
-        Me.btnGraficoServicios.Name = "btnGraficoServicios"
-        Me.btnGraficoServicios.Size = New System.Drawing.Size(184, 50)
-        Me.btnGraficoServicios.TabIndex = 3
-        Me.btnGraficoServicios.Text = "Servicios Solicitados"
-        Me.btnGraficoServicios.UseVisualStyleBackColor = False
         '
         'btnGraficoMedios
         '
@@ -1381,7 +1365,6 @@ Partial Class frmMenuPrincipal
     Friend WithEvents PnlLateralEstadistica As System.Windows.Forms.Panel
     Friend WithEvents lblSubtituloEstadisticas As System.Windows.Forms.Label
     Friend WithEvents btnGraficosProducto As System.Windows.Forms.Button
-    Friend WithEvents btnGraficoServicios As System.Windows.Forms.Button
     Friend WithEvents btnGraficoMedios As System.Windows.Forms.Button
     Friend WithEvents btnGraficoPedidos As System.Windows.Forms.Button
     Friend WithEvents PictureBoxEstadistic As System.Windows.Forms.PictureBox
