@@ -71,6 +71,7 @@
     <Compile Include="CDCliente.vb" />
     <Compile Include="CDConexion.vb" />
     <Compile Include="CDDetallesDelPedido.vb" />
+    <Compile Include="CDDetallesEnvio.vb" />
     <Compile Include="CDGraficos.vb" />
     <Compile Include="CDPedido.vb" />
     <Compile Include="CDProducto.vb" />

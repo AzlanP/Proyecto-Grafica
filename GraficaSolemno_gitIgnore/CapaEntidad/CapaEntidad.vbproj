@@ -66,6 +66,7 @@
   <ItemGroup>
     <Compile Include="CECliente.vb" />
     <Compile Include="CEDetallesDelPedido.vb" />
+    <Compile Include="CEDetallesEnvio.vb" />
     <Compile Include="CEPedido.vb" />
     <Compile Include="CEPostick.vb" />
     <Compile Include="CEProducto.vb" />

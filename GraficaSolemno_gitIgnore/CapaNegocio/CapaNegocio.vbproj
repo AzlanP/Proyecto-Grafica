@@ -66,6 +66,7 @@
   <ItemGroup>
     <Compile Include="CNCliente.vb" />
     <Compile Include="CNDetallesDelPedido.vb" />
+    <Compile Include="CNDetallesEnvio.vb" />
     <Compile Include="CNGraficos.vb" />
     <Compile Include="CNPedido.vb" />
     <Compile Include="CNPostick.vb" />
