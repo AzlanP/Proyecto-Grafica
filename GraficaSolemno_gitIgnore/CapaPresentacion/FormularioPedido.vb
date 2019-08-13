@@ -149,6 +149,7 @@ Public Class FormularioPedido
         End If
         Dim frmModProducto As New AgregarProductoPedido
         If dtrow Is Nothing Then
+            MsgBox("dtrow vacia")
         Else
             frmModProducto.CargarDatosModificar(ProductoID, dtrow)
             frmModProducto.ShowDialog()
@@ -171,11 +172,20 @@ Public Class FormularioPedido
 
     End Sub
 
-    Private Sub btnTipoEnvio_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnTipoEnvio.Click
-        Dim frmEnvio As New FormularioEnvio
+    Private Sub btnTipoEnvioNuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnTipoEnvioNuevo.Click
+        Dim frmEnvioNuevo As New FormularioEnvio
+        'precargado pero con los datos traidos desde la tabla de cliente 
+        frmEnvioNuevo.DatosCliente(cboCliente.SelectedValue)
+        frmEnvioNuevo.Tag = lblID.Text
+        frmEnvioNuevo.ShowDialog()
+    End Sub
 
-        frmEnvio.DatosCliente(cboCliente.SelectedValue)
-        frmEnvio.ShowDialog()
+    Private Sub btnEnvioGuardado_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEnvioGuardado.Click
+        Dim frmEnvioNuevo As New FormularioEnvio
+        'precargado pero con los datos traidos desde la tabla envio
+        frmEnvioNuevo.llenarFormularioInfoEnvio(Me.lblID.Text)
+        frmEnvioNuevo.Tag = lblID.Text
+        frmEnvioNuevo.ShowDialog()
     End Sub
     Private Sub btnCancelarPedido_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancelarPedido.Click
         Me.Close()
@@ -283,4 +293,5 @@ Public Class FormularioPedido
         fecha = fechaString
         Return fecha
     End Function
+
 End Class

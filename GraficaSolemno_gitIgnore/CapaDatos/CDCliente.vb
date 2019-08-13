@@ -57,7 +57,12 @@ Public Class CDCliente
             If value = 0 Then
                 Return DBNull.Value
             Else
-                Return CInt(value)
+                Try
+                    Return CInt(value)
+                Catch ex As Exception
+                    Return Str(value)
+                End Try
+
             End If
 
         Else

@@ -175,7 +175,7 @@ Public Class RegistrarCliente
         cboLocalidad.DataSource = dt
         cboLocalidad.DisplayMember = "Nombre"
         cboLocalidad.ValueMember = "IDLocalidad"
-
+        'este cboprovincia dice 1... porque
     End Sub
 
     Private Sub cboLoca_Enter(ByVal sender As Object, ByVal e As System.EventArgs) Handles cboLocalidad.Enter

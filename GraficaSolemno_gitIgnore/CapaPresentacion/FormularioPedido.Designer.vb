@@ -42,7 +42,7 @@ Partial Class FormularioPedido
         Me.lblDescripcion = New System.Windows.Forms.Label()
         Me.lblFecha = New System.Windows.Forms.Label()
         Me.lblCliente = New System.Windows.Forms.Label()
-        Me.btnTipoEnvio = New System.Windows.Forms.Button()
+        Me.btnTipoEnvioNuevo = New System.Windows.Forms.Button()
         Me.lblEstado = New System.Windows.Forms.Label()
         Me.cboEstado = New System.Windows.Forms.ComboBox()
         Me.lblMedio = New System.Windows.Forms.Label()
@@ -57,6 +57,7 @@ Partial Class FormularioPedido
         Me.ValidacionMoneda1 = New CapaPresentacion.ValidacionMoneda()
         Me.txtTotal = New CapaPresentacion.ValidacionMoneda()
         Me.lblTotal = New System.Windows.Forms.Label()
+        Me.btnEnvioGuardado = New System.Windows.Forms.Button()
         CType(Me.TipoEnvioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SolemnoDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -247,16 +248,16 @@ Partial Class FormularioPedido
         Me.lblCliente.TabIndex = 17
         Me.lblCliente.Text = "Cliente"
         '
-        'btnTipoEnvio
+        'btnTipoEnvioNuevo
         '
-        Me.btnTipoEnvio.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
-        Me.btnTipoEnvio.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnTipoEnvio.Location = New System.Drawing.Point(228, 350)
-        Me.btnTipoEnvio.Name = "btnTipoEnvio"
-        Me.btnTipoEnvio.Size = New System.Drawing.Size(75, 25)
-        Me.btnTipoEnvio.TabIndex = 34
-        Me.btnTipoEnvio.Text = "envio"
-        Me.btnTipoEnvio.UseVisualStyleBackColor = False
+        Me.btnTipoEnvioNuevo.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnTipoEnvioNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnTipoEnvioNuevo.Location = New System.Drawing.Point(228, 350)
+        Me.btnTipoEnvioNuevo.Name = "btnTipoEnvioNuevo"
+        Me.btnTipoEnvioNuevo.Size = New System.Drawing.Size(104, 25)
+        Me.btnTipoEnvioNuevo.TabIndex = 34
+        Me.btnTipoEnvioNuevo.Text = "envio Nuevo"
+        Me.btnTipoEnvioNuevo.UseVisualStyleBackColor = False
         '
         'lblEstado
         '
@@ -372,12 +373,24 @@ Partial Class FormularioPedido
         Me.lblTotal.TabIndex = 44
         Me.lblTotal.Text = "Total:"
         '
+        'btnEnvioGuardado
+        '
+        Me.btnEnvioGuardado.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnEnvioGuardado.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnEnvioGuardado.Location = New System.Drawing.Point(228, 382)
+        Me.btnEnvioGuardado.Name = "btnEnvioGuardado"
+        Me.btnEnvioGuardado.Size = New System.Drawing.Size(104, 25)
+        Me.btnEnvioGuardado.TabIndex = 46
+        Me.btnEnvioGuardado.Text = "envio guardado"
+        Me.btnEnvioGuardado.UseVisualStyleBackColor = False
+        '
         'FormularioPedido
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(562, 427)
+        Me.Controls.Add(Me.btnEnvioGuardado)
         Me.Controls.Add(Me.txtTotal)
         Me.Controls.Add(Me.lblTotal)
         Me.Controls.Add(Me.ValidacionMoneda1)
@@ -388,7 +401,7 @@ Partial Class FormularioPedido
         Me.Controls.Add(Me.cboMedio)
         Me.Controls.Add(Me.lblEstado)
         Me.Controls.Add(Me.cboEstado)
-        Me.Controls.Add(Me.btnTipoEnvio)
+        Me.Controls.Add(Me.btnTipoEnvioNuevo)
         Me.Controls.Add(Me.lblTipoEnvio)
         Me.Controls.Add(Me.cboTipoEnvio)
         Me.Controls.Add(Me.btnCancelarPedido)
@@ -432,7 +445,7 @@ Partial Class FormularioPedido
     Friend WithEvents lblDescripcion As System.Windows.Forms.Label
     Friend WithEvents lblFecha As System.Windows.Forms.Label
     Friend WithEvents lblCliente As System.Windows.Forms.Label
-    Friend WithEvents btnTipoEnvio As System.Windows.Forms.Button
+    Friend WithEvents btnTipoEnvioNuevo As System.Windows.Forms.Button
     Friend WithEvents lblEstado As System.Windows.Forms.Label
     Friend WithEvents cboEstado As System.Windows.Forms.ComboBox
     Friend WithEvents lblMedio As System.Windows.Forms.Label
@@ -450,4 +463,5 @@ Partial Class FormularioPedido
     Friend WithEvents ValidacionMoneda1 As CapaPresentacion.ValidacionMoneda
     Friend WithEvents txtTotal As CapaPresentacion.ValidacionMoneda
     Friend WithEvents lblTotal As System.Windows.Forms.Label
+    Friend WithEvents btnEnvioGuardado As System.Windows.Forms.Button
 End Class
