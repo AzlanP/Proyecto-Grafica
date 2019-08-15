@@ -328,3 +328,5 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
+GraficaSolemno_gitIgnore/CapaDatos/app.config
+GraficaSolemno_gitIgnore/CapaPresentacion/App.config
