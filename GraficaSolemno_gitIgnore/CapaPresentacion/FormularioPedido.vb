@@ -240,13 +240,29 @@ Public Class FormularioPedido
             Return oCEPedido
     End Function
     Private Sub btnGuardarPedido_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGuardarPedido.Click
+        'en este evento deberan iniciarse los procesos para registrar
+        'en este todo debe ser insert en efecto cascada
+        'oCEPedido
+        'oTablaDetalles (listado de productos)
         oCNPedido.GenerarElPedido(CargarPedido, DTDetalles)
+
+
+        'oCEDetallesEnvio
+        Dim oCEDetallesEnvio As New CEDetallesEnvio
+
+
+
         Me.Close()
     End Sub
     Private Sub btnGuardarCambios_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGuardarCambios.Click
-
+        'en este evento se iniciaran los procesos para modificar 
+        'el oCEpedido recibira un update
+        'oCEDetallesEnvio si existe alguno con el idpedido recibira update, si no existe recibira un insert.
       
-        oCNPedido.ModificarPedido(CargarPedido, TablaItems)
+        oCNPedido.ModificarPedido(CargarPedido, TablaItems) 'este recibe el update
+        'el proximo a ingresar es el dato de envio como un insert o como update
+        ' si existe --->Update
+        ' Si no existe --->Insert
         Me.Close()
     End Sub
     Public Sub AsignarTextCbo(ByVal text As String, ByVal cbo As System.Object)
@@ -293,5 +309,17 @@ Public Class FormularioPedido
         fecha = fechaString
         Return fecha
     End Function
+
+    Private Sub cboTipoEnvio_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cboTipoEnvio.SelectedIndexChanged
+        Dim oCNDetallesEnvio As New CNDetallesEnvio
+
+        If cboTipoEnvio.Text = "NULO" Then
+
+            oCNDetallesEnvio.EliminarInformacionEnvio(lblID.Text)
+
+
+        End If
+
+    End Sub
 
 End Class

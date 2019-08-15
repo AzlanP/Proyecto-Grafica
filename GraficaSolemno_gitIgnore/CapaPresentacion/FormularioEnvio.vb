@@ -133,8 +133,7 @@ Public Class FormularioEnvio
 
     Private Sub GuardarCambio_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GuardarCambio.Click
         TomarInformacion()
-        oCNDetallesEnvio.EliminarInformacionEnvio(Me.Tag)
-        oCNDetallesEnvio.RegistrarEnvio(oCEDetallesEnvio)
+        oCNDetallesEnvio.ModificarDetallesEnvio(oCEDetallesEnvio)
         Me.Close()
     End Sub
 
@@ -146,16 +145,26 @@ Public Class FormularioEnvio
         'cuando se realize la Carga del Nuevo Pedido, este recien sera registrado.
         Dim oCNPedido As New CNPedido
         Dim dt As New DataTable
+        IDDelPedido = Me.Tag
         dt = oCNPedido.BuscarPedido("IDPedido", IDDelPedido)
         Dim i As Integer
         i = dt.Rows.Count
         If i > 0 Then
-
+            Dim dt2 As New DataTable
+            dt2 = oCNDetallesEnvio.InformacionDeEnvio(IDDelPedido)
+            Dim CantFilas As Integer = dt2.Rows.Count
+            If CantFilas = 0 Then
+                oCNDetallesEnvio.RegistrarEnvio(oCEDetallesEnvio)
+            End If
         Else
-            oCNDetallesEnvio.EliminarInformacionEnvio(IDDelPedido)
-            oCNDetallesEnvio.ModificarDetallesEnvio(oCEDetallesEnvio)
+            oCNDetallesEnvio.RegistrarEnvio(oCEDetallesEnvio)
+       
         End If
         
         Me.Close()
+    End Sub
+
+    Private Sub FormularioEnvio_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+
     End Sub
 End Class

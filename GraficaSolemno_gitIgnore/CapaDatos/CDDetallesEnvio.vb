@@ -36,7 +36,7 @@ Public Class CDDetallesEnvio
    
     Public Sub ModificarDetallesEnvio(ByVal datos As CEDetallesEnvio)
         oCDConexion.Conectar()
-        consulta = "UPDATE  DetallesEnvio SET IDPedido=@IDPedido,IDCliente=@IDCliente,IDProvincia=@IDProvincia,IDLocalidad=@IDLocalidad,Domicilio=@Domicilio,NroCalle=@NroCalle,Dpto=@Dpto,CP=@CP,Barrio=@Barrio,Transporte=@Transporte,NroSeguimiento=@NroSeguimiento,PrecioEnvio=@PrecioEnvio,FechaDespacho=@FechaDespacho where IDEnvio=@IDEnvio "
+        consulta = "UPDATE  DetallesEnvio SET IDCliente=@IDCliente,IDProvincia=@IDProvincia,IDLocalidad=@IDLocalidad,Domicilio=@Domicilio,NroCalle=@NroCalle,Dpto=@Dpto,CP=@CP,Barrio=@Barrio,Transporte=@Transporte,NroSeguimiento=@NroSeguimiento,PrecioEnvio=@PrecioEnvio,FechaDespacho=@FechaDespacho where IDPedido=@IDPedido "
         Dim cmd As New SQLiteCommand(consulta, oCDConexion.con)
         With cmd.Parameters
             .Add("@IDEnvio", SqlDbType.Int).Value = datos.IDEnvio
@@ -58,9 +58,10 @@ Public Class CDDetallesEnvio
         oCDConexion.Desconectar()
     End Sub
     Public Sub EliminarInformacionEnvio(ByVal id As Integer)
-        oCDConexion.Conectar()
+
         Dim dt As New DataTable
         dt = InformacionDeEnvio(id)
+        oCDConexion.Conectar()
         If dt.Rows.Count > 0 Then
             consulta = "delete from DetallesEnvio where IDPedido= @IDPedido"
 
