@@ -310,12 +310,15 @@ Public Class FormularioPedido
         Return fecha
     End Function
 
-    Private Sub cboTipoEnvio_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cboTipoEnvio.SelectedIndexChanged
+    Private Sub cboTipoEnvio_SelectedvaluesChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cboTipoEnvio.SelectedValueChanged
         Dim oCNDetallesEnvio As New CNDetallesEnvio
 
         If cboTipoEnvio.Text = "NULO" Then
+            'revisar porque cuando se hace doble click para abrir el pedido 4 que tiene por envio "nulo" 
+            'pero el lblid.text tiene ":ID" dentro del label.
+            'este metodo no deberia de ejecutarse al momento de abrir el formulario, solo cuando se selecciona manualmente el combobox.
 
-            oCNDetallesEnvio.EliminarInformacionEnvio(lblID.Text)
+            'oCNDetallesEnvio.EliminarInformacionEnvio(lblID.Text)
 
 
         End If

@@ -139,7 +139,7 @@ Public Class FormularioEnvio
 
     Private Sub btnGuardarNuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGuardarNuevo.Click
         TomarInformacion()
-        'para pedidos-nuevo pedido-nuevo envio esto no debe valer, ya que debera mantenerse como temporal hasta que den guardar cambios.
+        'para pedidos-nuevo  envio esto no debe valer, ya que debera mantenerse como temporal hasta que den guardar cambios.
         ' aca se podria verificar si existe el pedido ya (en este caso continuara el curso normal
         'de ejecucion, en caso contrario dara a pasar el ocedetallesenvio a la capa de formulario de pedido
         'cuando se realize la Carga del Nuevo Pedido, este recien sera registrado.
