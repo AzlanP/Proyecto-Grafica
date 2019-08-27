@@ -15,7 +15,7 @@ Public Class FormularioEnvio
         dt = oCNCliente.BuscarCliente("IDCliente", Cliente)
         dr = dt.Rows(0)
         oCECliente.IDCliente = dr("IDCliente").ToString
-        'oCECliente.Pais = dr("IDPais").ToString
+
         AsignarTextCbo(dr("Provincia").ToString, cboProvincia)
         AsignarTextCbo(dr("Localidad").ToString, cboLocalidad)
         'oCECliente.Provincia = dr("Provincia").ToString
@@ -40,7 +40,7 @@ Public Class FormularioEnvio
         dtpFechaDespacho.Text = CDate(dr("FechaDespacho").ToString)
         txtNroSeguimiento.Text = dr("NroSeguimiento").ToString
         ValidacionPrecio.valor = dr("PrecioEnvio").ToString
-        'cboPais.SelectedText = dr("Barrio").ToString
+
         AsignarTextCbo(dr("Provincia").ToString, cboProvincia)
         AsignarTextCbo(dr("Localidad").ToString, cboLocalidad)
         txtBarrio.Text = dr("Barrio").ToString
@@ -52,8 +52,7 @@ Public Class FormularioEnvio
 
     End Sub
     Public Sub AsignarDatosCBO()
-        cboPais.Text = oCECliente.Pais
-
+     
         AsignarTextCbo(oCECliente.Provincia, cboProvincia)
         AsignarTextCbo(oCECliente.Localidad, cboLocalidad)
     End Sub

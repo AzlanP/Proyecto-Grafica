@@ -7,20 +7,20 @@ Public Class CDCliente
     'esta funcion retorna un dataset con la tabla de cliente
     Function MostrarCliente() As DataTable
         Dim sentencia As String
-        sentencia = "select clientes.IDCliente, clientes.Nombre, Clientes.Apellido, Clientes.DNI, Clientes.Telefono,Clientes.cuit, Provincias.Nombre as 'provincia' , Localidad.Nombre as 'Localidad', CondIVA.Nombre as 'Condicion de IVA' from Clientes, Pais, Provincias, Localidad, CondIVA where Clientes.IDPais=Pais.IDPais and Clientes.IDProvincia=Provincias.IDProvincia and clientes.IDLocalidad=Localidad.IDLocalidad and Clientes.IDCondIVA=CondIVA.IDIVA and Clientes.Estado='Activo'"
+        sentencia = "select clientes.IDCliente, clientes.Nombre, Clientes.Apellido, Clientes.DNI, Clientes.Telefono,Clientes.cuit, Provincias.Nombre as 'provincia' , Localidad.Nombre as 'Localidad', CondIVA.Nombre as 'Condicion de IVA' from Clientes, Provincias, Localidad, CondIVA where  Clientes.IDProvincia=Provincias.IDProvincia and clientes.IDLocalidad=Localidad.IDLocalidad and Clientes.IDCondIVA=CondIVA.IDIVA and Clientes.Estado='Activo'"
         Return oCDConexion.MostrarTablaModificada(sentencia)
     End Function
     Function MostrarClienteIncativo() As DataTable
         Dim sentencia As String
-        sentencia = "select clientes.IDCliente, clientes.Nombre, Clientes.Apellido, Clientes.DNI, Clientes.Telefono,Clientes.cuit, Provincias.Nombre as 'provincia' , Localidad.Nombre as 'Localidad', CondIVA.Nombre as 'Condicion de IVA' from Clientes, Pais, Provincias, Localidad, CondIVA where Clientes.IDPais=Pais.IDPais and Clientes.IDProvincia=Provincias.IDProvincia and clientes.IDLocalidad=Localidad.IDLocalidad and Clientes.IDCondIVA=CondIVA.IDIVA and Clientes.Estado='Inactivo'"
+        sentencia = "select clientes.IDCliente, clientes.Nombre, Clientes.Apellido, Clientes.DNI, Clientes.Telefono,Clientes.cuit, Provincias.Nombre as 'provincia' , Localidad.Nombre as 'Localidad', CondIVA.Nombre as 'Condicion de IVA' from Clientes, Provincias, Localidad, CondIVA where  Clientes.IDProvincia=Provincias.IDProvincia and clientes.IDLocalidad=Localidad.IDLocalidad and Clientes.IDCondIVA=CondIVA.IDIVA and Clientes.Estado='Inactivo'"
         Return oCDConexion.MostrarTablaModificada(sentencia)
     End Function
 
     Public Sub RegistrarCliente(ByVal oCECliente As CECliente)
         oCDConexion.Conectar()
         Try
-            'ya la sentencia quedo bien...NO TOCAR!!!
-            Dim instruccionSQL = "INSERT INTO Clientes  (IDCliente, Nombre ,Apellido ,Telefono, Telefono2, DNI, CUIT, IDPais, IDProvincia, IDLocalidad, Barrio, Domicilio, NroCalle, Dpto, CP, EMAIL, IDCondIVA, Fecha,Estado) VALUES (@IDCliente, @Nombre ,@Apellido ,@Telefono, @Telefono2, @DNI, @CUIT, @IDPais, @IDProvincia, @IDLocalidad, @Barrio, @Domicilio, @NroCalle, @Dpto, @CP, @EMAIL, @IDCondIVA, @Fecha, @Estado)"
+
+            Dim instruccionSQL = "INSERT INTO Clientes  (IDCliente, Nombre ,Apellido ,Telefono, Telefono2, DNI, CUIT, IDProvincia, IDLocalidad, Barrio, Domicilio, NroCalle, Dpto, CP, EMAIL, IDCondIVA, Fecha,Estado) VALUES (@IDCliente, @Nombre ,@Apellido ,@Telefono, @Telefono2, @DNI, @CUIT, @IDProvincia, @IDLocalidad, @Barrio, @Domicilio, @NroCalle, @Dpto, @CP, @EMAIL, @IDCondIVA, @Fecha, @Estado)"
             Dim comando As New SQLiteCommand(instruccionSQL, oCDConexion.con)
             With comando.Parameters
                 .Add("@IDCliente", SqlDbType.Int).Value = oCECliente.IDCliente
@@ -30,7 +30,6 @@ Public Class CDCliente
                 .Add("@Telefono2", SqlDbType.Int).Value = SetNullValues(oCECliente.Telefono2)
                 .Add("@DNI", SqlDbType.Int).Value = SetNullValues(oCECliente.DNI)
                 .Add("@CUIT", SqlDbType.Int).Value = SetNullValues(oCECliente.CUIT)
-                .Add("@IDPais", SqlDbType.Int).Value = oCECliente.Pais
                 .Add("@IDProvincia", SqlDbType.Int).Value = oCECliente.Provincia
                 .Add("@IDLocalidad", SqlDbType.Int).Value = oCECliente.Localidad
                 .Add("@Barrio", SqlDbType.VarChar).Value = oCECliente.Barrio
@@ -45,9 +44,17 @@ Public Class CDCliente
                 .Add("@Estado", SqlDbType.VarChar).Value = "Activo"
             End With
             comando.ExecuteNonQuery()
-            MsgBox("Se ah hecho el registro con exito")
+            MsgBox("El Nuevo Cliente fue registrado con exito.", , "Registro de Cliente")
         Catch ex As Exception
-            Throw New Exception("ERROR al registrar cliente. Descripcion:" & ex.Message)
+            Dim errorCuiT As String = "CUIT"
+            Dim errorDNI As String = "DNI"
+            'esto es para cuando ingresas un dni o cuit que ya existe en la base de datos.
+            If 0 < ex.Message.IndexOf(errorCuiT) Then
+                MsgBox("El Cuit ingresado ya pertenece a un usuario registrado.", MsgBoxStyle.Exclamation, "Error al registrar")
+            End If
+            If 0 < ex.Message.IndexOf(errorDNI) Then
+                MsgBox("El DNI ingresado ya pertenece a un usuario registrado.", MsgBoxStyle.Exclamation, "Error al registrar")
+            End If
         Finally
             oCDConexion.Desconectar()
         End Try
@@ -83,7 +90,7 @@ Public Class CDCliente
             comando.Parameters.Add("@esta", SqlDbType.VarChar).Value = estado
             comando.ExecuteNonQuery()
         Catch ex As Exception
-            Throw New Exception("ERROR al eliminar el registro. Descripcion:" & ex.Message)
+            Throw New Exception("ERROR al eliminar el registro.")
         Finally
             oCDConexion.Desconectar()
         End Try
@@ -92,7 +99,7 @@ Public Class CDCliente
     Public Sub ModificarCliente(ByVal oCECliente As CECliente)
         oCDConexion.Conectar()
         Try
-            Dim instruccionSQL = "UPDATE Clientes  SET Nombre=@Nombre ,Apellido=@Apellido ,Telefono=@Telefono, Telefono2=@Telefono2, DNI=@DNI, CUIT= @CUIT, IDPais=@IDPais, IDProvincia=@IDProvincia, IDLocalidad=@IDLocalidad, Barrio=@Barrio, Domicilio=@Domicilio, NroCalle=@NroCalle, Dpto=@Dpto, CP=@CP, EMAIL=@EMAIL, IDCondIVA=@IDCondIVA, Fecha=@Fecha, Estado=@Estado WHERE IDCliente=@IDCliente"
+            Dim instruccionSQL = "UPDATE Clientes  SET Nombre=@Nombre ,Apellido=@Apellido ,Telefono=@Telefono, Telefono2=@Telefono2, DNI=@DNI, CUIT= @CUIT, IDProvincia=@IDProvincia, IDLocalidad=@IDLocalidad, Barrio=@Barrio, Domicilio=@Domicilio, NroCalle=@NroCalle, Dpto=@Dpto, CP=@CP, EMAIL=@EMAIL, IDCondIVA=@IDCondIVA, Fecha=@Fecha, Estado=@Estado WHERE IDCliente=@IDCliente"
             Dim comando As New SQLiteCommand(instruccionSQL, oCDConexion.con)
             With comando.Parameters
                 .Add("@IDCliente", SqlDbType.Int).Value = oCECliente.IDCliente
@@ -102,7 +109,6 @@ Public Class CDCliente
                 .Add("@Telefono2", SqlDbType.Int).Value = SetNullValues(oCECliente.Telefono2)
                 .Add("@DNI", SqlDbType.Int).Value = SetNullValues(oCECliente.DNI)
                 .Add("@CUIT", SqlDbType.Int).Value = SetNullValues(oCECliente.CUIT)
-                .Add("@IDPais", SqlDbType.Int).Value = oCECliente.Pais
                 .Add("@IDProvincia", SqlDbType.Int).Value = oCECliente.Provincia
                 .Add("@IDLocalidad", SqlDbType.Int).Value = oCECliente.Localidad
                 .Add("@Barrio", SqlDbType.VarChar).Value = oCECliente.Barrio

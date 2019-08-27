@@ -4,7 +4,7 @@
 
     Private _Telefono, _Telefono2, _CUIT, _DNI, _IDCliente, _Nombre, _Apellido, _Email, _Barrio, _Domicilio, _Dpto As String
     Private _NroCalle, _CP As Integer
-    Private _Pais, _Provincia, _Localidad, _CondIVA As Integer
+    Private _Provincia, _Localidad, _CondIVA As Integer
     Private _Fecha As Date
 
     'SET and GET de las variables
@@ -32,14 +32,7 @@
             _Email = value
         End Set
     End Property
-    Public Property Pais() As Integer
-        Get
-            Return _Pais
-        End Get
-        Set(ByVal value As Integer)
-            _Pais = value
-        End Set
-    End Property
+    
     Public Property Provincia() As Integer
         Get
             Return _Provincia

@@ -103,4 +103,44 @@ Public Class Validaciones
             e.Handled = True
         End If
     End Sub
+    Public Function ValidarDNIoCUIT(ByVal dni As String, ByVal cuit As String) As Boolean
+        If dni = "" And cuit = "" Then
+            MsgBox("falta un dni o cuit")
+            Return False
+        Else
+           
+            If (dni.Length > 8 And dni.Length < 14) Or dni.Length = 0 Then
+                If dni.Length = 0 Then
+
+                Else
+                    If (cuit.Length > 8 And cuit.Length < 14) Then
+                        Return True
+                    End If
+
+                End If
+
+            Else
+                MsgBox("la cantidad de digitos del dni debe ser mayor a 8 cifras y menor a 14")
+                Return False
+            End If
+            If (cuit.Length > 8 And cuit.Length < 14) Or cuit.Length = 0 Then
+                If cuit.Length = 0 Then
+
+                Else
+
+                    Return True
+
+
+                End If
+            Else
+                MsgBox("la cantidad de digitos del cuit debe ser mayor a 8 cifras y menor a 14")
+                Return False
+            End If
+        End If
+    End Function
+
+
+    Public Sub MaximoCaracteres(ByVal sender As Object, ByVal e As KeyPressEventArgs)
+      
+    End Sub
 End Class

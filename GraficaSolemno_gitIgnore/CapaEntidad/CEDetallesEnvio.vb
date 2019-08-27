@@ -2,7 +2,7 @@
     Private _IDEnvio, _IDPedido, _IDCliente, _Barrio, _Domicilio, _Dpto, _Transporte, _NroSeguimiento As String
     Private _NroCalle, _CP As Integer
     Private _PrecioEnvio As Double
-    Private _Pais, _Provincia, _Localidad As Integer
+    Private _Provincia, _Localidad As Integer
     Private _FechaDespacho As Date
     Public Property IDEnvio() As Integer
         Get

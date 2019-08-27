@@ -116,12 +116,12 @@ Public Class frmMenuPrincipal
     Private Sub DGClienteInactivos_CellDoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles DGClienteInactivos.CellDoubleClick
 
         Dim frmRegistrar As New RegistrarCliente
-        MsgBox("Restaurar id" & ID)
-        ' agregarle una confirmacion para restaurar
-        oCNCliente.EliminarCliente(ID, "Activo")
-        CargarGridCliente()
-        DGClienteInactivos.DataSource = oCNCliente.MostrarClienteIncativo()
-        VolverAlInicio()
+        If MessageBox.Show("Esta seguro de Restaurar el Cliente? ", "Confirmacion de restaurar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
+            oCNCliente.EliminarCliente(ID, "Activo")
+            CargarGridCliente()
+            DGClienteInactivos.DataSource = oCNCliente.MostrarClienteIncativo()
+            VolverAlInicio()
+        End If
     End Sub
     Private Sub btnBuscarInactivos_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnBuscarInactivos.Click
         Dim dt As DataTable
@@ -254,9 +254,13 @@ Public Class frmMenuPrincipal
 
     Private Sub DGProductoInactivo_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DGProductoInactivo.CellDoubleClick
         Dim frmRegistrar As New RegistrarProducto
-        MsgBox("Restaurar id" & ID)
+        'MsgBox("Esta seguro de Restaurar al Cliente? ", MsgBoxStyle.OkCancel, "Confirmacion restaurar")
+        If MessageBox.Show("Esta seguro de Restaurar el Producto? ", "Confirmacion de restaurar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
+            oCNProducto.EliminarProducto(ID, "Activo")
+
+        End If
         ' agregarle una confirmacion para restaurar
-        oCNProducto.EliminarProducto(ID, "Activo")
+
         CargarGridProducto()
         DGProductoInactivo.DataSource = oCNProducto.MostrarProductoInactivo()
         MostrarProductosModoActivo()

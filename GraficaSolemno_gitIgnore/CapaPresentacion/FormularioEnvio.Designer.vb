@@ -38,13 +38,11 @@ Partial Class FormularioEnvio
         Me.cboProvincia = New System.Windows.Forms.ComboBox()
         Me.ProvinciasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.SolemnoDataSet = New CapaPresentacion.SolemnoDataSet()
-        Me.cboPais = New System.Windows.Forms.ComboBox()
         Me.txtDomicilio = New System.Windows.Forms.TextBox()
         Me.txtNroCalle = New System.Windows.Forms.TextBox()
         Me.lblNumeroCalle = New System.Windows.Forms.Label()
         Me.txtBarrio = New System.Windows.Forms.TextBox()
         Me.lblBarrio = New System.Windows.Forms.Label()
-        Me.lblPais = New System.Windows.Forms.Label()
         Me.lblProvincia = New System.Windows.Forms.Label()
         Me.lblLocalidad = New System.Windows.Forms.Label()
         Me.ProvinciasTableAdapter = New CapaPresentacion.SolemnoDataSetTableAdapters.ProvinciasTableAdapter()
@@ -186,16 +184,6 @@ Partial Class FormularioEnvio
         Me.SolemnoDataSet.DataSetName = "SolemnoDataSet"
         Me.SolemnoDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
-        'cboPais
-        '
-        Me.cboPais.AutoCompleteCustomSource.AddRange(New String() {"Argentina", "Chile", "Bolivia", "Uruguay", "Paraguay"})
-        Me.cboPais.FormattingEnabled = True
-        Me.cboPais.Location = New System.Drawing.Point(154, 155)
-        Me.cboPais.Name = "cboPais"
-        Me.cboPais.Size = New System.Drawing.Size(205, 21)
-        Me.cboPais.TabIndex = 132
-        Me.cboPais.Text = "Argentina"
-        '
         'txtDomicilio
         '
         Me.txtDomicilio.Location = New System.Drawing.Point(154, 303)
@@ -239,16 +227,6 @@ Partial Class FormularioEnvio
         Me.lblBarrio.Size = New System.Drawing.Size(40, 13)
         Me.lblBarrio.TabIndex = 126
         Me.lblBarrio.Text = "Barrio :"
-        '
-        'lblPais
-        '
-        Me.lblPais.AutoSize = True
-        Me.lblPais.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPais.Location = New System.Drawing.Point(48, 161)
-        Me.lblPais.Name = "lblPais"
-        Me.lblPais.Size = New System.Drawing.Size(33, 13)
-        Me.lblPais.TabIndex = 125
-        Me.lblPais.Text = "Pais :"
         '
         'lblProvincia
         '
@@ -344,13 +322,11 @@ Partial Class FormularioEnvio
         Me.Controls.Add(Me.lblDpto)
         Me.Controls.Add(Me.lblDomicilio)
         Me.Controls.Add(Me.cboProvincia)
-        Me.Controls.Add(Me.cboPais)
         Me.Controls.Add(Me.txtDomicilio)
         Me.Controls.Add(Me.txtNroCalle)
         Me.Controls.Add(Me.lblNumeroCalle)
         Me.Controls.Add(Me.txtBarrio)
         Me.Controls.Add(Me.lblBarrio)
-        Me.Controls.Add(Me.lblPais)
         Me.Controls.Add(Me.lblProvincia)
         Me.Controls.Add(Me.lblLocalidad)
         Me.Controls.Add(Me.btnCancelarFormEnvio)
@@ -382,13 +358,11 @@ Partial Class FormularioEnvio
     Friend WithEvents lblDpto As System.Windows.Forms.Label
     Friend WithEvents lblDomicilio As System.Windows.Forms.Label
     Friend WithEvents cboProvincia As System.Windows.Forms.ComboBox
-    Friend WithEvents cboPais As System.Windows.Forms.ComboBox
     Friend WithEvents txtDomicilio As System.Windows.Forms.TextBox
     Friend WithEvents txtNroCalle As System.Windows.Forms.TextBox
     Friend WithEvents lblNumeroCalle As System.Windows.Forms.Label
     Friend WithEvents txtBarrio As System.Windows.Forms.TextBox
     Friend WithEvents lblBarrio As System.Windows.Forms.Label
-    Friend WithEvents lblPais As System.Windows.Forms.Label
     Friend WithEvents lblProvincia As System.Windows.Forms.Label
     Friend WithEvents lblLocalidad As System.Windows.Forms.Label
     Friend WithEvents SolemnoDataSet As CapaPresentacion.SolemnoDataSet

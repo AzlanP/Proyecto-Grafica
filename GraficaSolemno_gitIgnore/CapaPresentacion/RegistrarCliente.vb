@@ -5,10 +5,14 @@ Public Class RegistrarCliente
     Dim oCECliente As New CECliente
 
     Private Sub btnRegistrar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRegistrar.Click
+        Dim oValidacion As New Validaciones
+        If oValidacion.ValidarDNIoCUIT(txtDNI.Text, txtCuit.Text) Then
+            oCNCliente.RegistrarCliente(TomarDatos())
+            Close()
+        End If
 
-        oCNCliente.RegistrarCliente(TomarDatos())
-        MsgBox("Los Datos fueron guardados con exito.")
-        Close()
+
+
     End Sub
     Public Sub LlenarFormularioInactivo(ByVal ID As Integer)
         PrecargarCombobox()
@@ -27,7 +31,6 @@ Public Class RegistrarCliente
         txtCel.Text = dr("Telefono2").ToString
         txtDNI.Text = dr("DNI").ToString
         txtCuit.Text = dr("CUIT").ToString
-        'cboPais.Text = dr("IDPais").ToString
         AsignarTextCbo(dr("Provincia").ToString, cboProvincia)
         AsignarTextCbo(dr("Localidad").ToString, cboLocalidad)
         txtBarrio.Text = dr("Barrio").ToString
@@ -63,7 +66,6 @@ Public Class RegistrarCliente
         txtCel.Text = dr("Telefono2").ToString
         txtDNI.Text = dr("DNI").ToString
         txtCuit.Text = dr("CUIT").ToString
-        'cboPais.Text = dr("IDPais").ToString
         AsignarTextCbo(dr("Provincia").ToString, cboProvincia)
         AsignarTextCbo(dr("Localidad").ToString, cboLocalidad)
         txtBarrio.Text = dr("Barrio").ToString
@@ -94,7 +96,7 @@ Public Class RegistrarCliente
         oCECliente.Telefono2 = txtCel.Text
         oCECliente.DNI = txtDNI.Text
         oCECliente.CUIT = txtCuit.Text
-        oCECliente.Pais = 1
+
         oCECliente.Provincia = CInt(cboProvincia.SelectedValue)
         oCECliente.Localidad = CInt(cboLocalidad.SelectedValue)
         oCECliente.Barrio = txtBarrio.Text
@@ -175,7 +177,6 @@ Public Class RegistrarCliente
         cboLocalidad.DataSource = dt
         cboLocalidad.DisplayMember = "Nombre"
         cboLocalidad.ValueMember = "IDLocalidad"
-        'este cboprovincia dice 1... porque
     End Sub
 
     Private Sub cboLoca_Enter(ByVal sender As Object, ByVal e As System.EventArgs) Handles cboLocalidad.Enter

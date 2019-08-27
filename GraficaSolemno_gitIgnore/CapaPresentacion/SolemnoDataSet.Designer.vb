@@ -472,8 +472,6 @@ Partial Public Class SolemnoDataSet
         
         Private columnCUIT As Global.System.Data.DataColumn
         
-        Private columnIDPais As Global.System.Data.DataColumn
-        
         Private columnIDProvincia As Global.System.Data.DataColumn
         
         Private columnIDLocalidad As Global.System.Data.DataColumn
@@ -582,14 +580,6 @@ Partial Public Class SolemnoDataSet
         Public ReadOnly Property CUITColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnCUIT
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property IDPaisColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnIDPais
             End Get
         End Property
         
@@ -717,7 +707,6 @@ Partial Public Class SolemnoDataSet
                     ByVal Telefono2 As Long,  _
                     ByVal DNI As Long,  _
                     ByVal CUIT As Long,  _
-                    ByVal IDPais As Long,  _
                     ByVal IDProvincia As Long,  _
                     ByVal IDLocalidad As Long,  _
                     ByVal Barrio As String,  _
@@ -729,7 +718,7 @@ Partial Public Class SolemnoDataSet
                     ByVal IDCondIVA As Long,  _
                     ByVal Fecha As String) As ClientesRow
             Dim rowClientesRow As ClientesRow = CType(Me.NewRow,ClientesRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, Nombre, Apellido, Telefono, Telefono2, DNI, CUIT, IDPais, IDProvincia, IDLocalidad, Barrio, Domicilio, NroCalle, Dpto, CP, EMAIL, IDCondIVA, Fecha}
+            Dim columnValuesArray() As Object = New Object() {Nothing, Nombre, Apellido, Telefono, Telefono2, DNI, CUIT, IDProvincia, IDLocalidad, Barrio, Domicilio, NroCalle, Dpto, CP, EMAIL, IDCondIVA, Fecha}
             rowClientesRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowClientesRow)
             Return rowClientesRow
@@ -765,7 +754,6 @@ Partial Public Class SolemnoDataSet
             Me.columnTelefono2 = MyBase.Columns("Telefono2")
             Me.columnDNI = MyBase.Columns("DNI")
             Me.columnCUIT = MyBase.Columns("CUIT")
-            Me.columnIDPais = MyBase.Columns("IDPais")
             Me.columnIDProvincia = MyBase.Columns("IDProvincia")
             Me.columnIDLocalidad = MyBase.Columns("IDLocalidad")
             Me.columnBarrio = MyBase.Columns("Barrio")
@@ -795,8 +783,6 @@ Partial Public Class SolemnoDataSet
             MyBase.Columns.Add(Me.columnDNI)
             Me.columnCUIT = New Global.System.Data.DataColumn("CUIT", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCUIT)
-            Me.columnIDPais = New Global.System.Data.DataColumn("IDPais", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnIDPais)
             Me.columnIDProvincia = New Global.System.Data.DataColumn("IDProvincia", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnIDProvincia)
             Me.columnIDLocalidad = New Global.System.Data.DataColumn("IDLocalidad", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
@@ -2117,8 +2103,6 @@ Partial Public Class SolemnoDataSet
         
         Private columnIDProvincia As Global.System.Data.DataColumn
         
-        Private columnIDPais As Global.System.Data.DataColumn
-        
         Private columnNombre As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2161,14 +2145,6 @@ Partial Public Class SolemnoDataSet
         Public ReadOnly Property IDProvinciaColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnIDProvincia
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property IDPaisColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnIDPais
             End Get
         End Property
         
@@ -2217,9 +2193,9 @@ Partial Public Class SolemnoDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddProvinciasRow(ByVal IDPais As Long, ByVal Nombre As String) As ProvinciasRow
+        Public Overloads Function AddProvinciasRow(ByVal Nombre As String) As ProvinciasRow
             Dim rowProvinciasRow As ProvinciasRow = CType(Me.NewRow,ProvinciasRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, IDPais, Nombre}
+            Dim columnValuesArray() As Object = New Object() {Nothing, Nombre}
             rowProvinciasRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowProvinciasRow)
             Return rowProvinciasRow
@@ -2249,7 +2225,6 @@ Partial Public Class SolemnoDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Sub InitVars()
             Me.columnIDProvincia = MyBase.Columns("IDProvincia")
-            Me.columnIDPais = MyBase.Columns("IDPais")
             Me.columnNombre = MyBase.Columns("Nombre")
         End Sub
         
@@ -2258,8 +2233,6 @@ Partial Public Class SolemnoDataSet
         Private Sub InitClass()
             Me.columnIDProvincia = New Global.System.Data.DataColumn("IDProvincia", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnIDProvincia)
-            Me.columnIDPais = New Global.System.Data.DataColumn("IDPais", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnIDPais)
             Me.columnNombre = New Global.System.Data.DataColumn("Nombre", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnNombre)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnIDProvincia}, true))
@@ -2516,21 +2489,6 @@ Partial Public Class SolemnoDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property IDPais() As Long
-            Get
-                Try 
-                    Return CType(Me(Me.tableClientes.IDPaisColumn),Long)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'IDPais' de la tabla 'Clientes' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableClientes.IDPaisColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property IDProvincia() As Long
             Get
                 Try 
@@ -2749,18 +2707,6 @@ Partial Public Class SolemnoDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetCUITNull()
             Me(Me.tableClientes.CUITColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsIDPaisNull() As Boolean
-            Return Me.IsNull(Me.tableClientes.IDPaisColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetIDPaisNull()
-            Me(Me.tableClientes.IDPaisColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3209,21 +3155,6 @@ Partial Public Class SolemnoDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property IDPais() As Long
-            Get
-                Try 
-                    Return CType(Me(Me.tableProvincias.IDPaisColumn),Long)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'IDPais' de la tabla 'Provincias' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableProvincias.IDPaisColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property Nombre() As String
             Get
                 Try 
@@ -3236,18 +3167,6 @@ Partial Public Class SolemnoDataSet
                 Me(Me.tableProvincias.NombreColumn) = value
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsIDPaisNull() As Boolean
-            Return Me.IsNull(Me.tableProvincias.IDPaisColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetIDPaisNull()
-            Me(Me.tableProvincias.IDPaisColumn) = Global.System.Convert.DBNull
-        End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
@@ -3615,7 +3534,6 @@ Namespace SolemnoDataSetTableAdapters
             tableMapping.ColumnMappings.Add("Telefono2", "Telefono2")
             tableMapping.ColumnMappings.Add("DNI", "DNI")
             tableMapping.ColumnMappings.Add("CUIT", "CUIT")
-            tableMapping.ColumnMappings.Add("IDPais", "IDPais")
             tableMapping.ColumnMappings.Add("IDProvincia", "IDProvincia")
             tableMapping.ColumnMappings.Add("IDLocalidad", "IDLocalidad")
             tableMapping.ColumnMappings.Add("Barrio", "Barrio")
@@ -3636,19 +3554,18 @@ Namespace SolemnoDataSetTableAdapters
                 "([Telefono] = @Original_Telefono)) AND ((@IsNull_Telefono2 = 1 AND [Telefono2] I"& _ 
                 "S NULL) OR ([Telefono2] = @Original_Telefono2)) AND ((@IsNull_DNI = 1 AND [DNI] "& _ 
                 "IS NULL) OR ([DNI] = @Original_DNI)) AND ((@IsNull_CUIT = 1 AND [CUIT] IS NULL) "& _ 
-                "OR ([CUIT] = @Original_CUIT)) AND ((@IsNull_IDPais = 1 AND [IDPais] IS NULL) OR "& _ 
-                "([IDPais] = @Original_IDPais)) AND ((@IsNull_IDProvincia = 1 AND [IDProvincia] I"& _ 
-                "S NULL) OR ([IDProvincia] = @Original_IDProvincia)) AND ((@IsNull_IDLocalidad = "& _ 
-                "1 AND [IDLocalidad] IS NULL) OR ([IDLocalidad] = @Original_IDLocalidad)) AND ((@"& _ 
-                "IsNull_Barrio = 1 AND [Barrio] IS NULL) OR ([Barrio] = @Original_Barrio)) AND (("& _ 
-                "@IsNull_Domicilio = 1 AND [Domicilio] IS NULL) OR ([Domicilio] = @Original_Domic"& _ 
-                "ilio)) AND ((@IsNull_NroCalle = 1 AND [NroCalle] IS NULL) OR ([NroCalle] = @Orig"& _ 
-                "inal_NroCalle)) AND ((@IsNull_Dpto = 1 AND [Dpto] IS NULL) OR ([Dpto] = @Origina"& _ 
-                "l_Dpto)) AND ((@IsNull_CP = 1 AND [CP] IS NULL) OR ([CP] = @Original_CP)) AND (("& _ 
-                "@IsNull_EMAIL = 1 AND [EMAIL] IS NULL) OR ([EMAIL] = @Original_EMAIL)) AND ((@Is"& _ 
-                "Null_IDCondIVA = 1 AND [IDCondIVA] IS NULL) OR ([IDCondIVA] = @Original_IDCondIV"& _ 
-                "A)) AND ((@IsNull_Fecha = 1 AND [Fecha] IS NULL) OR ([Fecha] = @Original_Fecha))"& _ 
-                ")"
+                "OR ([CUIT] = @Original_CUIT)) AND ((@IsNull_IDProvincia = 1 AND [IDProvincia] IS"& _ 
+                " NULL) OR ([IDProvincia] = @Original_IDProvincia)) AND ((@IsNull_IDLocalidad = 1"& _ 
+                " AND [IDLocalidad] IS NULL) OR ([IDLocalidad] = @Original_IDLocalidad)) AND ((@I"& _ 
+                "sNull_Barrio = 1 AND [Barrio] IS NULL) OR ([Barrio] = @Original_Barrio)) AND ((@"& _ 
+                "IsNull_Domicilio = 1 AND [Domicilio] IS NULL) OR ([Domicilio] = @Original_Domici"& _ 
+                "lio)) AND ((@IsNull_NroCalle = 1 AND [NroCalle] IS NULL) OR ([NroCalle] = @Origi"& _ 
+                "nal_NroCalle)) AND ((@IsNull_Dpto = 1 AND [Dpto] IS NULL) OR ([Dpto] = @Original"& _ 
+                "_Dpto)) AND ((@IsNull_CP = 1 AND [CP] IS NULL) OR ([CP] = @Original_CP)) AND ((@"& _ 
+                "IsNull_EMAIL = 1 AND [EMAIL] IS NULL) OR ([EMAIL] = @Original_EMAIL)) AND ((@IsN"& _ 
+                "ull_IDCondIVA = 1 AND [IDCondIVA] IS NULL) OR ([IDCondIVA] = @Original_IDCondIVA"& _ 
+                ")) AND ((@IsNull_Fecha = 1 AND [Fecha] IS NULL) OR ([Fecha] = @Original_Fecha)))"& _ 
+                ""
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Dim param As Global.System.Data.SQLite.SQLiteParameter = New Global.System.Data.SQLite.SQLiteParameter()
             param.ParameterName = "@Original_IDCliente"
@@ -3743,21 +3660,6 @@ Namespace SolemnoDataSetTableAdapters
             param.DbType = Global.System.Data.DbType.Int64
             param.DbType = Global.System.Data.DbType.Int64
             param.SourceColumn = "CUIT"
-            param.SourceVersion = Global.System.Data.DataRowVersion.Original
-            Me._adapter.DeleteCommand.Parameters.Add(param)
-            param = New Global.System.Data.SQLite.SQLiteParameter()
-            param.ParameterName = "@IsNull_IDPais"
-            param.DbType = Global.System.Data.DbType.Int32
-            param.DbType = Global.System.Data.DbType.Int32
-            param.SourceColumn = "IDPais"
-            param.SourceVersion = Global.System.Data.DataRowVersion.Original
-            param.SourceColumnNullMapping = true
-            Me._adapter.DeleteCommand.Parameters.Add(param)
-            param = New Global.System.Data.SQLite.SQLiteParameter()
-            param.ParameterName = "@Original_IDPais"
-            param.DbType = Global.System.Data.DbType.Int64
-            param.DbType = Global.System.Data.DbType.Int64
-            param.SourceColumn = "IDPais"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.DeleteCommand.Parameters.Add(param)
             param = New Global.System.Data.SQLite.SQLiteParameter()
@@ -3907,11 +3809,10 @@ Namespace SolemnoDataSetTableAdapters
             Me._adapter.InsertCommand = New Global.System.Data.SQLite.SQLiteCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO [main].[sqlite_default_schema].[Clientes] ([Nombre], [Apellido], [Tel"& _ 
-                "efono], [Telefono2], [DNI], [CUIT], [IDPais], [IDProvincia], [IDLocalidad], [Bar"& _ 
-                "rio], [Domicilio], [NroCalle], [Dpto], [CP], [EMAIL], [IDCondIVA], [Fecha]) VALU"& _ 
-                "ES (@Nombre, @Apellido, @Telefono, @Telefono2, @DNI, @CUIT, @IDPais, @IDProvinci"& _ 
-                "a, @IDLocalidad, @Barrio, @Domicilio, @NroCalle, @Dpto, @CP, @EMAIL, @IDCondIVA,"& _ 
-                " @Fecha)"
+                "efono], [Telefono2], [DNI], [CUIT], [IDProvincia], [IDLocalidad], [Barrio], [Dom"& _ 
+                "icilio], [NroCalle], [Dpto], [CP], [EMAIL], [IDCondIVA], [Fecha]) VALUES (@Nombr"& _ 
+                "e, @Apellido, @Telefono, @Telefono2, @DNI, @CUIT, @IDProvincia, @IDLocalidad, @B"& _ 
+                "arrio, @Domicilio, @NroCalle, @Dpto, @CP, @EMAIL, @IDCondIVA, @Fecha)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             param = New Global.System.Data.SQLite.SQLiteParameter()
             param.ParameterName = "@Nombre"
@@ -3946,12 +3847,6 @@ Namespace SolemnoDataSetTableAdapters
             param.DbType = Global.System.Data.DbType.Int64
             param.DbType = Global.System.Data.DbType.Int64
             param.SourceColumn = "CUIT"
-            Me._adapter.InsertCommand.Parameters.Add(param)
-            param = New Global.System.Data.SQLite.SQLiteParameter()
-            param.ParameterName = "@IDPais"
-            param.DbType = Global.System.Data.DbType.Int64
-            param.DbType = Global.System.Data.DbType.Int64
-            param.SourceColumn = "IDPais"
             Me._adapter.InsertCommand.Parameters.Add(param)
             param = New Global.System.Data.SQLite.SQLiteParameter()
             param.ParameterName = "@IDProvincia"
@@ -4011,28 +3906,27 @@ Namespace SolemnoDataSetTableAdapters
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE [main].[sqlite_default_schema].[Clientes] SET [Nombre] = @Nombre, [Apellid"& _ 
                 "o] = @Apellido, [Telefono] = @Telefono, [Telefono2] = @Telefono2, [DNI] = @DNI, "& _ 
-                "[CUIT] = @CUIT, [IDPais] = @IDPais, [IDProvincia] = @IDProvincia, [IDLocalidad] "& _ 
-                "= @IDLocalidad, [Barrio] = @Barrio, [Domicilio] = @Domicilio, [NroCalle] = @NroC"& _ 
-                "alle, [Dpto] = @Dpto, [CP] = @CP, [EMAIL] = @EMAIL, [IDCondIVA] = @IDCondIVA, [F"& _ 
-                "echa] = @Fecha WHERE (([IDCliente] = @Original_IDCliente) AND ((@IsNull_Nombre ="& _ 
-                " 1 AND [Nombre] IS NULL) OR ([Nombre] = @Original_Nombre)) AND ((@IsNull_Apellid"& _ 
-                "o = 1 AND [Apellido] IS NULL) OR ([Apellido] = @Original_Apellido)) AND ((@IsNul"& _ 
-                "l_Telefono = 1 AND [Telefono] IS NULL) OR ([Telefono] = @Original_Telefono)) AND"& _ 
-                " ((@IsNull_Telefono2 = 1 AND [Telefono2] IS NULL) OR ([Telefono2] = @Original_Te"& _ 
-                "lefono2)) AND ((@IsNull_DNI = 1 AND [DNI] IS NULL) OR ([DNI] = @Original_DNI)) A"& _ 
-                "ND ((@IsNull_CUIT = 1 AND [CUIT] IS NULL) OR ([CUIT] = @Original_CUIT)) AND ((@I"& _ 
-                "sNull_IDPais = 1 AND [IDPais] IS NULL) OR ([IDPais] = @Original_IDPais)) AND ((@"& _ 
-                "IsNull_IDProvincia = 1 AND [IDProvincia] IS NULL) OR ([IDProvincia] = @Original_"& _ 
-                "IDProvincia)) AND ((@IsNull_IDLocalidad = 1 AND [IDLocalidad] IS NULL) OR ([IDLo"& _ 
-                "calidad] = @Original_IDLocalidad)) AND ((@IsNull_Barrio = 1 AND [Barrio] IS NULL"& _ 
-                ") OR ([Barrio] = @Original_Barrio)) AND ((@IsNull_Domicilio = 1 AND [Domicilio] "& _ 
-                "IS NULL) OR ([Domicilio] = @Original_Domicilio)) AND ((@IsNull_NroCalle = 1 AND "& _ 
-                "[NroCalle] IS NULL) OR ([NroCalle] = @Original_NroCalle)) AND ((@IsNull_Dpto = 1"& _ 
-                " AND [Dpto] IS NULL) OR ([Dpto] = @Original_Dpto)) AND ((@IsNull_CP = 1 AND [CP]"& _ 
-                " IS NULL) OR ([CP] = @Original_CP)) AND ((@IsNull_EMAIL = 1 AND [EMAIL] IS NULL)"& _ 
-                " OR ([EMAIL] = @Original_EMAIL)) AND ((@IsNull_IDCondIVA = 1 AND [IDCondIVA] IS "& _ 
-                "NULL) OR ([IDCondIVA] = @Original_IDCondIVA)) AND ((@IsNull_Fecha = 1 AND [Fecha"& _ 
-                "] IS NULL) OR ([Fecha] = @Original_Fecha)))"
+                "[CUIT] = @CUIT, [IDProvincia] = @IDProvincia, [IDLocalidad] = @IDLocalidad, [Bar"& _ 
+                "rio] = @Barrio, [Domicilio] = @Domicilio, [NroCalle] = @NroCalle, [Dpto] = @Dpto"& _ 
+                ", [CP] = @CP, [EMAIL] = @EMAIL, [IDCondIVA] = @IDCondIVA, [Fecha] = @Fecha WHERE"& _ 
+                " (([IDCliente] = @Original_IDCliente) AND ((@IsNull_Nombre = 1 AND [Nombre] IS N"& _ 
+                "ULL) OR ([Nombre] = @Original_Nombre)) AND ((@IsNull_Apellido = 1 AND [Apellido]"& _ 
+                " IS NULL) OR ([Apellido] = @Original_Apellido)) AND ((@IsNull_Telefono = 1 AND ["& _ 
+                "Telefono] IS NULL) OR ([Telefono] = @Original_Telefono)) AND ((@IsNull_Telefono2"& _ 
+                " = 1 AND [Telefono2] IS NULL) OR ([Telefono2] = @Original_Telefono2)) AND ((@IsN"& _ 
+                "ull_DNI = 1 AND [DNI] IS NULL) OR ([DNI] = @Original_DNI)) AND ((@IsNull_CUIT = "& _ 
+                "1 AND [CUIT] IS NULL) OR ([CUIT] = @Original_CUIT)) AND ((@IsNull_IDProvincia = "& _ 
+                "1 AND [IDProvincia] IS NULL) OR ([IDProvincia] = @Original_IDProvincia)) AND ((@"& _ 
+                "IsNull_IDLocalidad = 1 AND [IDLocalidad] IS NULL) OR ([IDLocalidad] = @Original_"& _ 
+                "IDLocalidad)) AND ((@IsNull_Barrio = 1 AND [Barrio] IS NULL) OR ([Barrio] = @Ori"& _ 
+                "ginal_Barrio)) AND ((@IsNull_Domicilio = 1 AND [Domicilio] IS NULL) OR ([Domicil"& _ 
+                "io] = @Original_Domicilio)) AND ((@IsNull_NroCalle = 1 AND [NroCalle] IS NULL) O"& _ 
+                "R ([NroCalle] = @Original_NroCalle)) AND ((@IsNull_Dpto = 1 AND [Dpto] IS NULL) "& _ 
+                "OR ([Dpto] = @Original_Dpto)) AND ((@IsNull_CP = 1 AND [CP] IS NULL) OR ([CP] = "& _ 
+                "@Original_CP)) AND ((@IsNull_EMAIL = 1 AND [EMAIL] IS NULL) OR ([EMAIL] = @Origi"& _ 
+                "nal_EMAIL)) AND ((@IsNull_IDCondIVA = 1 AND [IDCondIVA] IS NULL) OR ([IDCondIVA]"& _ 
+                " = @Original_IDCondIVA)) AND ((@IsNull_Fecha = 1 AND [Fecha] IS NULL) OR ([Fecha"& _ 
+                "] = @Original_Fecha)))"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             param = New Global.System.Data.SQLite.SQLiteParameter()
             param.ParameterName = "@Nombre"
@@ -4067,12 +3961,6 @@ Namespace SolemnoDataSetTableAdapters
             param.DbType = Global.System.Data.DbType.Int64
             param.DbType = Global.System.Data.DbType.Int64
             param.SourceColumn = "CUIT"
-            Me._adapter.UpdateCommand.Parameters.Add(param)
-            param = New Global.System.Data.SQLite.SQLiteParameter()
-            param.ParameterName = "@IDPais"
-            param.DbType = Global.System.Data.DbType.Int64
-            param.DbType = Global.System.Data.DbType.Int64
-            param.SourceColumn = "IDPais"
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.System.Data.SQLite.SQLiteParameter()
             param.ParameterName = "@IDProvincia"
@@ -4221,21 +4109,6 @@ Namespace SolemnoDataSetTableAdapters
             param.DbType = Global.System.Data.DbType.Int64
             param.DbType = Global.System.Data.DbType.Int64
             param.SourceColumn = "CUIT"
-            param.SourceVersion = Global.System.Data.DataRowVersion.Original
-            Me._adapter.UpdateCommand.Parameters.Add(param)
-            param = New Global.System.Data.SQLite.SQLiteParameter()
-            param.ParameterName = "@IsNull_IDPais"
-            param.DbType = Global.System.Data.DbType.Int32
-            param.DbType = Global.System.Data.DbType.Int32
-            param.SourceColumn = "IDPais"
-            param.SourceVersion = Global.System.Data.DataRowVersion.Original
-            param.SourceColumnNullMapping = true
-            Me._adapter.UpdateCommand.Parameters.Add(param)
-            param = New Global.System.Data.SQLite.SQLiteParameter()
-            param.ParameterName = "@Original_IDPais"
-            param.DbType = Global.System.Data.DbType.Int64
-            param.DbType = Global.System.Data.DbType.Int64
-            param.SourceColumn = "IDPais"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.System.Data.SQLite.SQLiteParameter()
@@ -4397,9 +4270,9 @@ Namespace SolemnoDataSetTableAdapters
             Me._commandCollection = New Global.System.Data.SQLite.SQLiteCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SQLite.SQLiteCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT [IDCliente], [Nombre], [Apellido], [Telefono], [Telefono2], [DNI], [CUIT],"& _ 
-                " [IDPais], [IDProvincia], [IDLocalidad], [Barrio], [Domicilio], [NroCalle], [Dpt"& _ 
-                "o], [CP], [EMAIL], [IDCondIVA], [Fecha] FROM [Clientes]"
+            Me._commandCollection(0).CommandText = "SELECT IDCliente, Nombre, Apellido, Telefono, Telefono2, DNI, CUIT, IDProvincia, "& _ 
+                "IDLocalidad, Barrio, Domicilio, NroCalle, Dpto, CP, EMAIL, IDCondIVA, Fecha FROM"& _ 
+                " Clientes"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -4467,7 +4340,6 @@ Namespace SolemnoDataSetTableAdapters
                     ByVal Original_Telefono2 As Global.System.Nullable(Of Long),  _
                     ByVal Original_DNI As Global.System.Nullable(Of Long),  _
                     ByVal Original_CUIT As Global.System.Nullable(Of Long),  _
-                    ByVal Original_IDPais As Global.System.Nullable(Of Long),  _
                     ByVal Original_IDProvincia As Global.System.Nullable(Of Long),  _
                     ByVal Original_IDLocalidad As Global.System.Nullable(Of Long),  _
                     ByVal Original_Barrio As String,  _
@@ -4521,82 +4393,75 @@ Namespace SolemnoDataSetTableAdapters
                 Me.Adapter.DeleteCommand.Parameters(11).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(12).Value = Global.System.DBNull.Value
             End If
-            If (Original_IDPais.HasValue = true) Then
+            If (Original_IDProvincia.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(13).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(Original_IDPais.Value,Long)
+                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(Original_IDProvincia.Value,Long)
             Else
                 Me.Adapter.DeleteCommand.Parameters(13).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(14).Value = Global.System.DBNull.Value
             End If
-            If (Original_IDProvincia.HasValue = true) Then
+            If (Original_IDLocalidad.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(15).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(16).Value = CType(Original_IDProvincia.Value,Long)
+                Me.Adapter.DeleteCommand.Parameters(16).Value = CType(Original_IDLocalidad.Value,Long)
             Else
                 Me.Adapter.DeleteCommand.Parameters(15).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(16).Value = Global.System.DBNull.Value
             End If
-            If (Original_IDLocalidad.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(18).Value = CType(Original_IDLocalidad.Value,Long)
-            Else
+            If (Original_Barrio Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(17).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(18).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(18).Value = CType(Original_Barrio,String)
             End If
-            If (Original_Barrio Is Nothing) Then
+            If (Original_Domicilio Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(19).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(20).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(19).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(20).Value = CType(Original_Barrio,String)
-            End If
-            If (Original_Domicilio Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(21).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(22).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(21).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(22).Value = CType(Original_Domicilio,String)
+                Me.Adapter.DeleteCommand.Parameters(20).Value = CType(Original_Domicilio,String)
             End If
             If (Original_NroCalle.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(23).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(24).Value = CType(Original_NroCalle.Value,Long)
+                Me.Adapter.DeleteCommand.Parameters(21).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(22).Value = CType(Original_NroCalle.Value,Long)
             Else
-                Me.Adapter.DeleteCommand.Parameters(23).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(24).Value = Global.System.DBNull.Value
+                Me.Adapter.DeleteCommand.Parameters(21).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(22).Value = Global.System.DBNull.Value
             End If
             If (Original_Dpto Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(23).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(24).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(23).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(24).Value = CType(Original_Dpto,String)
+            End If
+            If (Original_CP Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(25).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(26).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(25).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(26).Value = CType(Original_Dpto,String)
+                Me.Adapter.DeleteCommand.Parameters(26).Value = CType(Original_CP,String)
             End If
-            If (Original_CP Is Nothing) Then
+            If (Original_EMAIL Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(27).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(28).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(27).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(28).Value = CType(Original_CP,String)
-            End If
-            If (Original_EMAIL Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(29).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(30).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(29).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(30).Value = CType(Original_EMAIL,String)
+                Me.Adapter.DeleteCommand.Parameters(28).Value = CType(Original_EMAIL,String)
             End If
             If (Original_IDCondIVA.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(31).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(32).Value = CType(Original_IDCondIVA.Value,Long)
+                Me.Adapter.DeleteCommand.Parameters(29).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(30).Value = CType(Original_IDCondIVA.Value,Long)
             Else
-                Me.Adapter.DeleteCommand.Parameters(31).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(32).Value = Global.System.DBNull.Value
+                Me.Adapter.DeleteCommand.Parameters(29).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(30).Value = Global.System.DBNull.Value
             End If
             If (Original_Fecha Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(33).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(34).Value = Global.System.DBNull.Value
+                Me.Adapter.DeleteCommand.Parameters(31).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(32).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(33).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(34).Value = CType(Original_Fecha,String)
+                Me.Adapter.DeleteCommand.Parameters(31).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(32).Value = CType(Original_Fecha,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -4624,7 +4489,6 @@ Namespace SolemnoDataSetTableAdapters
                     ByVal Telefono2 As Global.System.Nullable(Of Long),  _
                     ByVal DNI As Global.System.Nullable(Of Long),  _
                     ByVal CUIT As Global.System.Nullable(Of Long),  _
-                    ByVal IDPais As Global.System.Nullable(Of Long),  _
                     ByVal IDProvincia As Global.System.Nullable(Of Long),  _
                     ByVal IDLocalidad As Global.System.Nullable(Of Long),  _
                     ByVal Barrio As String,  _
@@ -4665,60 +4529,55 @@ Namespace SolemnoDataSetTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(5).Value = Global.System.DBNull.Value
             End If
-            If (IDPais.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(6).Value = CType(IDPais.Value,Long)
+            If (IDProvincia.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(6).Value = CType(IDProvincia.Value,Long)
             Else
                 Me.Adapter.InsertCommand.Parameters(6).Value = Global.System.DBNull.Value
             End If
-            If (IDProvincia.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(7).Value = CType(IDProvincia.Value,Long)
+            If (IDLocalidad.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(7).Value = CType(IDLocalidad.Value,Long)
             Else
                 Me.Adapter.InsertCommand.Parameters(7).Value = Global.System.DBNull.Value
             End If
-            If (IDLocalidad.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(8).Value = CType(IDLocalidad.Value,Long)
-            Else
-                Me.Adapter.InsertCommand.Parameters(8).Value = Global.System.DBNull.Value
-            End If
             If (Barrio Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(9).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(8).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(9).Value = CType(Barrio,String)
+                Me.Adapter.InsertCommand.Parameters(8).Value = CType(Barrio,String)
             End If
             If (Domicilio Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(10).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(9).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(10).Value = CType(Domicilio,String)
+                Me.Adapter.InsertCommand.Parameters(9).Value = CType(Domicilio,String)
             End If
             If (NroCalle.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(11).Value = CType(NroCalle.Value,Long)
+                Me.Adapter.InsertCommand.Parameters(10).Value = CType(NroCalle.Value,Long)
             Else
-                Me.Adapter.InsertCommand.Parameters(11).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(10).Value = Global.System.DBNull.Value
             End If
             If (Dpto Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(12).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(11).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(12).Value = CType(Dpto,String)
+                Me.Adapter.InsertCommand.Parameters(11).Value = CType(Dpto,String)
             End If
             If (CP Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(13).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(12).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(13).Value = CType(CP,String)
+                Me.Adapter.InsertCommand.Parameters(12).Value = CType(CP,String)
             End If
             If (EMAIL Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(14).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(13).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(14).Value = CType(EMAIL,String)
+                Me.Adapter.InsertCommand.Parameters(13).Value = CType(EMAIL,String)
             End If
             If (IDCondIVA.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(15).Value = CType(IDCondIVA.Value,Long)
+                Me.Adapter.InsertCommand.Parameters(14).Value = CType(IDCondIVA.Value,Long)
             Else
-                Me.Adapter.InsertCommand.Parameters(15).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(14).Value = Global.System.DBNull.Value
             End If
             If (Fecha Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(16).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(15).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(16).Value = CType(Fecha,String)
+                Me.Adapter.InsertCommand.Parameters(15).Value = CType(Fecha,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -4746,7 +4605,6 @@ Namespace SolemnoDataSetTableAdapters
                     ByVal Telefono2 As Global.System.Nullable(Of Long),  _
                     ByVal DNI As Global.System.Nullable(Of Long),  _
                     ByVal CUIT As Global.System.Nullable(Of Long),  _
-                    ByVal IDPais As Global.System.Nullable(Of Long),  _
                     ByVal IDProvincia As Global.System.Nullable(Of Long),  _
                     ByVal IDLocalidad As Global.System.Nullable(Of Long),  _
                     ByVal Barrio As String,  _
@@ -4764,7 +4622,6 @@ Namespace SolemnoDataSetTableAdapters
                     ByVal Original_Telefono2 As Global.System.Nullable(Of Long),  _
                     ByVal Original_DNI As Global.System.Nullable(Of Long),  _
                     ByVal Original_CUIT As Global.System.Nullable(Of Long),  _
-                    ByVal Original_IDPais As Global.System.Nullable(Of Long),  _
                     ByVal Original_IDProvincia As Global.System.Nullable(Of Long),  _
                     ByVal Original_IDLocalidad As Global.System.Nullable(Of Long),  _
                     ByVal Original_Barrio As String,  _
@@ -4805,180 +4662,168 @@ Namespace SolemnoDataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
             End If
-            If (IDPais.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(IDPais.Value,Long)
+            If (IDProvincia.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(IDProvincia.Value,Long)
             Else
                 Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
             End If
-            If (IDProvincia.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(IDProvincia.Value,Long)
+            If (IDLocalidad.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(IDLocalidad.Value,Long)
             Else
                 Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
             End If
-            If (IDLocalidad.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(IDLocalidad.Value,Long)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
-            End If
             If (Barrio Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Barrio,String)
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Barrio,String)
             End If
             If (Domicilio Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Domicilio,String)
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Domicilio,String)
             End If
             If (NroCalle.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(NroCalle.Value,Long)
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(NroCalle.Value,Long)
             Else
-                Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
             End If
             If (Dpto Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Dpto,String)
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Dpto,String)
             End If
             If (CP Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(CP,String)
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(CP,String)
             End If
             If (EMAIL Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(14).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(EMAIL,String)
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(EMAIL,String)
             End If
             If (IDCondIVA.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(IDCondIVA.Value,Long)
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(IDCondIVA.Value,Long)
             Else
-                Me.Adapter.UpdateCommand.Parameters(15).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(14).Value = Global.System.DBNull.Value
             End If
             If (Fecha Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(16).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(15).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(Fecha,String)
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(Fecha,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(17).Value = CType(Original_IDCliente,Long)
+            Me.Adapter.UpdateCommand.Parameters(16).Value = CType(Original_IDCliente,Long)
             If (Original_Nombre Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(19).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(18).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(Original_Nombre,String)
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(Original_Nombre,String)
             End If
             If (Original_Apellido Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(21).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(20).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(Original_Apellido,String)
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(Original_Apellido,String)
             End If
             If (Original_Telefono.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(Original_Telefono.Value,Long)
+                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(Original_Telefono.Value,Long)
             Else
-                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(23).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(22).Value = Global.System.DBNull.Value
             End If
             If (Original_Telefono2.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(Original_Telefono2.Value,Long)
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(Original_Telefono2.Value,Long)
             Else
-                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(25).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(24).Value = Global.System.DBNull.Value
             End If
             If (Original_DNI.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(Original_DNI.Value,Long)
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(Original_DNI.Value,Long)
             Else
-                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(27).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(26).Value = Global.System.DBNull.Value
             End If
             If (Original_CUIT.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(Original_CUIT.Value,Long)
+                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(Original_CUIT.Value,Long)
             Else
-                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(29).Value = Global.System.DBNull.Value
-            End If
-            If (Original_IDPais.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(Original_IDPais.Value,Long)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(31).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(28).Value = Global.System.DBNull.Value
             End If
             If (Original_IDProvincia.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(Original_IDProvincia.Value,Long)
+                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(Original_IDProvincia.Value,Long)
             Else
-                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(33).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(30).Value = Global.System.DBNull.Value
             End If
             If (Original_IDLocalidad.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(Original_IDLocalidad.Value,Long)
+                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(Original_IDLocalidad.Value,Long)
             Else
-                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(35).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(32).Value = Global.System.DBNull.Value
             End If
             If (Original_Barrio Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(37).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(34).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(37).Value = CType(Original_Barrio,String)
+                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(Original_Barrio,String)
             End If
             If (Original_Domicilio Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(38).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(39).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(36).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(38).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(39).Value = CType(Original_Domicilio,String)
+                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(Original_Domicilio,String)
             End If
             If (Original_NroCalle.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(41).Value = CType(Original_NroCalle.Value,Long)
+                Me.Adapter.UpdateCommand.Parameters(37).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(38).Value = CType(Original_NroCalle.Value,Long)
             Else
-                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(41).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(37).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(38).Value = Global.System.DBNull.Value
             End If
             If (Original_Dpto Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(43).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(39).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(40).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(43).Value = CType(Original_Dpto,String)
+                Me.Adapter.UpdateCommand.Parameters(39).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(Original_Dpto,String)
             End If
             If (Original_CP Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(45).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(41).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(42).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(45).Value = CType(Original_CP,String)
+                Me.Adapter.UpdateCommand.Parameters(41).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(Original_CP,String)
             End If
             If (Original_EMAIL Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(46).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(47).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(43).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(44).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(46).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(47).Value = CType(Original_EMAIL,String)
+                Me.Adapter.UpdateCommand.Parameters(43).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(Original_EMAIL,String)
             End If
             If (Original_IDCondIVA.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(48).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(49).Value = CType(Original_IDCondIVA.Value,Long)
+                Me.Adapter.UpdateCommand.Parameters(45).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(46).Value = CType(Original_IDCondIVA.Value,Long)
             Else
-                Me.Adapter.UpdateCommand.Parameters(48).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(49).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(45).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(46).Value = Global.System.DBNull.Value
             End If
             If (Original_Fecha Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(50).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(51).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(47).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(48).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(50).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(51).Value = CType(Original_Fecha,String)
+                Me.Adapter.UpdateCommand.Parameters(47).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(48).Value = CType(Original_Fecha,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -6800,36 +6645,19 @@ Namespace SolemnoDataSetTableAdapters
             tableMapping.SourceTable = "Table"
             tableMapping.DataSetTable = "Provincias"
             tableMapping.ColumnMappings.Add("IDProvincia", "IDProvincia")
-            tableMapping.ColumnMappings.Add("IDPais", "IDPais")
             tableMapping.ColumnMappings.Add("Nombre", "Nombre")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SQLite.SQLiteCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
             Me._adapter.DeleteCommand.CommandText = "DELETE FROM [main].[sqlite_default_schema].[Provincias] WHERE (([IDProvincia] = @"& _ 
-                "Original_IDProvincia) AND ((@IsNull_IDPais = 1 AND [IDPais] IS NULL) OR ([IDPais"& _ 
-                "] = @Original_IDPais)) AND ((@IsNull_Nombre = 1 AND [Nombre] IS NULL) OR ([Nombr"& _ 
-                "e] = @Original_Nombre)))"
+                "Original_IDProvincia) AND ((@IsNull_Nombre = 1 AND [Nombre] IS NULL) OR ([Nombre"& _ 
+                "] = @Original_Nombre)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Dim param As Global.System.Data.SQLite.SQLiteParameter = New Global.System.Data.SQLite.SQLiteParameter()
             param.ParameterName = "@Original_IDProvincia"
             param.DbType = Global.System.Data.DbType.Int64
             param.DbType = Global.System.Data.DbType.Int64
             param.SourceColumn = "IDProvincia"
-            param.SourceVersion = Global.System.Data.DataRowVersion.Original
-            Me._adapter.DeleteCommand.Parameters.Add(param)
-            param = New Global.System.Data.SQLite.SQLiteParameter()
-            param.ParameterName = "@IsNull_IDPais"
-            param.DbType = Global.System.Data.DbType.Int32
-            param.DbType = Global.System.Data.DbType.Int32
-            param.SourceColumn = "IDPais"
-            param.SourceVersion = Global.System.Data.DataRowVersion.Original
-            param.SourceColumnNullMapping = true
-            Me._adapter.DeleteCommand.Parameters.Add(param)
-            param = New Global.System.Data.SQLite.SQLiteParameter()
-            param.ParameterName = "@Original_IDPais"
-            param.DbType = Global.System.Data.DbType.Int64
-            param.DbType = Global.System.Data.DbType.Int64
-            param.SourceColumn = "IDPais"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.DeleteCommand.Parameters.Add(param)
             param = New Global.System.Data.SQLite.SQLiteParameter()
@@ -6848,15 +6676,9 @@ Namespace SolemnoDataSetTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(param)
             Me._adapter.InsertCommand = New Global.System.Data.SQLite.SQLiteCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [main].[sqlite_default_schema].[Provincias] ([IDPais], [Nombre]) VALU"& _ 
-                "ES (@IDPais, @Nombre)"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [main].[sqlite_default_schema].[Provincias] ([Nombre]) VALUES (@Nombr"& _ 
+                "e)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
-            param = New Global.System.Data.SQLite.SQLiteParameter()
-            param.ParameterName = "@IDPais"
-            param.DbType = Global.System.Data.DbType.Int64
-            param.DbType = Global.System.Data.DbType.Int64
-            param.SourceColumn = "IDPais"
-            Me._adapter.InsertCommand.Parameters.Add(param)
             param = New Global.System.Data.SQLite.SQLiteParameter()
             param.ParameterName = "@Nombre"
             param.DbType = Global.System.Data.DbType.[String]
@@ -6864,17 +6686,10 @@ Namespace SolemnoDataSetTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(param)
             Me._adapter.UpdateCommand = New Global.System.Data.SQLite.SQLiteCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [main].[sqlite_default_schema].[Provincias] SET [IDPais] = @IDPais, [Nombr"& _ 
-                "e] = @Nombre WHERE (([IDProvincia] = @Original_IDProvincia) AND ((@IsNull_IDPais"& _ 
-                " = 1 AND [IDPais] IS NULL) OR ([IDPais] = @Original_IDPais)) AND ((@IsNull_Nombr"& _ 
-                "e = 1 AND [Nombre] IS NULL) OR ([Nombre] = @Original_Nombre)))"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [main].[sqlite_default_schema].[Provincias] SET [Nombre] = @Nombre WHERE ("& _ 
+                "([IDProvincia] = @Original_IDProvincia) AND ((@IsNull_Nombre = 1 AND [Nombre] IS"& _ 
+                " NULL) OR ([Nombre] = @Original_Nombre)))"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
-            param = New Global.System.Data.SQLite.SQLiteParameter()
-            param.ParameterName = "@IDPais"
-            param.DbType = Global.System.Data.DbType.Int64
-            param.DbType = Global.System.Data.DbType.Int64
-            param.SourceColumn = "IDPais"
-            Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.System.Data.SQLite.SQLiteParameter()
             param.ParameterName = "@Nombre"
             param.DbType = Global.System.Data.DbType.[String]
@@ -6885,21 +6700,6 @@ Namespace SolemnoDataSetTableAdapters
             param.DbType = Global.System.Data.DbType.Int64
             param.DbType = Global.System.Data.DbType.Int64
             param.SourceColumn = "IDProvincia"
-            param.SourceVersion = Global.System.Data.DataRowVersion.Original
-            Me._adapter.UpdateCommand.Parameters.Add(param)
-            param = New Global.System.Data.SQLite.SQLiteParameter()
-            param.ParameterName = "@IsNull_IDPais"
-            param.DbType = Global.System.Data.DbType.Int32
-            param.DbType = Global.System.Data.DbType.Int32
-            param.SourceColumn = "IDPais"
-            param.SourceVersion = Global.System.Data.DataRowVersion.Original
-            param.SourceColumnNullMapping = true
-            Me._adapter.UpdateCommand.Parameters.Add(param)
-            param = New Global.System.Data.SQLite.SQLiteParameter()
-            param.ParameterName = "@Original_IDPais"
-            param.DbType = Global.System.Data.DbType.Int64
-            param.DbType = Global.System.Data.DbType.Int64
-            param.SourceColumn = "IDPais"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.System.Data.SQLite.SQLiteParameter()
@@ -6931,7 +6731,7 @@ Namespace SolemnoDataSetTableAdapters
             Me._commandCollection = New Global.System.Data.SQLite.SQLiteCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SQLite.SQLiteCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT [IDProvincia], [IDPais], [Nombre] FROM [Provincias]"
+            Me._commandCollection(0).CommandText = "SELECT IDProvincia, Nombre FROM Provincias"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -6991,21 +6791,14 @@ Namespace SolemnoDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_IDProvincia As Long, ByVal Original_IDPais As Global.System.Nullable(Of Long), ByVal Original_Nombre As String) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_IDProvincia As Long, ByVal Original_Nombre As String) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_IDProvincia,Long)
-            If (Original_IDPais.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_IDPais.Value,Long)
-            Else
+            If (Original_Nombre Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Nombre Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(4).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_Nombre,String)
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_Nombre,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -7026,16 +6819,11 @@ Namespace SolemnoDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal IDPais As Global.System.Nullable(Of Long), ByVal Nombre As String) As Integer
-            If (IDPais.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(0).Value = CType(IDPais.Value,Long)
-            Else
-                Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
-            End If
+        Public Overloads Overridable Function Insert(ByVal Nombre As String) As Integer
             If (Nombre Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(1).Value = CType(Nombre,String)
+                Me.Adapter.InsertCommand.Parameters(0).Value = CType(Nombre,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -7056,31 +6844,19 @@ Namespace SolemnoDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal IDPais As Global.System.Nullable(Of Long), ByVal Nombre As String, ByVal Original_IDProvincia As Long, ByVal Original_IDPais As Global.System.Nullable(Of Long), ByVal Original_Nombre As String) As Integer
-            If (IDPais.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(IDPais.Value,Long)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
-            End If
+        Public Overloads Overridable Function Update(ByVal Nombre As String, ByVal Original_IDProvincia As Long, ByVal Original_Nombre As String) As Integer
             If (Nombre Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(Nombre,String)
+                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(Nombre,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Original_IDProvincia,Long)
-            If (Original_IDPais.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Original_IDPais.Value,Long)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
-            End If
+            Me.Adapter.UpdateCommand.Parameters(1).Value = CType(Original_IDProvincia,Long)
             If (Original_Nombre Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_Nombre,String)
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Original_Nombre,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
