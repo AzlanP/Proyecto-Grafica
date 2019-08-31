@@ -8,8 +8,6 @@ Public Class AgregarProductoPedido
     Dim oCNDetallesDelPedido As New CNDetallesDelPedido
 
     Private Sub btnAceptar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAceptar.Click
-
-
         oCEproducto.Nombre = txtNombreProducto.Text
         oCEproducto.Cantidad = txtCantidad.Text
         oCEproducto.Precio = txtboxPrecio.valor

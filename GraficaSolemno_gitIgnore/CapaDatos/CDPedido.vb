@@ -159,10 +159,15 @@ Public Class CDPedidos
         da.SelectCommand = comando
         da.Fill(dt)
         If dt.Rows.Count > 0 Then
-            MsgBox("fallo El eliminar el cliente tiene " & dt.Rows.Count & " pendientes.")
+            Dim NombreCliente As String = ""
+            For Each row As DataRow In dt.Rows
+                NombreCliente = row(1) + " " + row(2) ' hago esto para guardar en cliente se guardara nombre y apellido
+            Next
+
+            'en un futuro hacer una descripcion mas detallada de los pedidos del cliente.
+            MsgBox("Fallo mover a la pepelera. El cliente " & NombreCliente & " tiene " & dt.Rows.Count & " pedido/s pendiente/s.", , "Mover a la papelera")
             Return False
         Else
-            MsgBox("Funciono, eliminar")
             Return True
         End If
         oCDConexion.Desconectar()

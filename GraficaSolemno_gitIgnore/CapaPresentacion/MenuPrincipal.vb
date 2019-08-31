@@ -72,8 +72,13 @@ Public Class frmMenuPrincipal
     Private Sub btnEliminarCliente_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEliminarCliente.Click
         ID = DGCliente.Rows(DGCliente.CurrentCell.RowIndex).Cells("IDCliente").Value
         If oCNPedido.ValidarEliminarPedido(ID) Then
-            oCNCliente.EliminarCliente(ID, "Inactivo")
-            CargarGridCliente()
+            '--
+            If MessageBox.Show("Esta seguro de mandar a la papelera el cliente? ", "Confirmacion de eliminar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
+                oCNCliente.EliminarCliente(ID, "Inactivo")
+                CargarGridCliente()
+            End If
+
+            '--
         End If
        
     End Sub
@@ -138,11 +143,14 @@ Public Class frmMenuPrincipal
     End Sub
     Private Sub btnRestaurar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRestaurar.Click
         ID = DGClienteInactivos.Rows(DGClienteInactivos.CurrentCell.RowIndex).Cells("IDCliente").Value
+        If MessageBox.Show("Esta seguro de restaurar el cliente? ", "Confirmacion de restaurar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
+            oCNCliente.EliminarCliente(ID, "Activo")
+            CargarGridCliente()
+            DGClienteInactivos.DataSource = oCNCliente.MostrarClienteIncativo()
+            VolverAlInicio()
+        End If
 
-        oCNCliente.EliminarCliente(ID, "Activo")
-        CargarGridCliente()
-        DGClienteInactivos.DataSource = oCNCliente.MostrarClienteIncativo()
-        VolverAlInicio()
+       
     End Sub
     Public Sub VolverAlInicio()
         btnListadoClientesInactivos.Text = "Papelera Clientes"
@@ -181,6 +189,7 @@ Public Class frmMenuPrincipal
         ID = DGProducto.Rows(DGProducto.CurrentCell.RowIndex).Cells("IDProducto").Value
         Dim frmRegistrar As New RegistrarProducto
         frmRegistrar.LlenarFormulario(ID)
+        frmRegistrar.Text = "Modificar Producto"
         frmRegistrar.ShowDialog()
         CargarGridProducto()
     End Sub
@@ -188,9 +197,12 @@ Public Class frmMenuPrincipal
         ID = DGProducto.Rows(DGProducto.CurrentCell.RowIndex).Cells("IDProducto").Value
         Dim frmRegistrar As New RegistrarProducto
         frmRegistrar.LlenarFormulario(ID)
-
+        frmRegistrar.Text = "Detalles de productos"
         frmRegistrar.Disesabletext()
-
+        frmRegistrar.btnCancelar.Visible = False
+        frmRegistrar.btnGuardarProducto.Visible = False
+        frmRegistrar.btnRegistrarProducto.Visible = False
+        frmRegistrar.btnAceptar.Visible = True
         frmRegistrar.ShowDialog()
     End Sub
     Private Sub btnBuscarProducto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscarProducto.Click
@@ -203,31 +215,41 @@ Public Class frmMenuPrincipal
         ID = DGProducto.Rows(e.RowIndex).Cells("IDProducto").Value
         Dim frmRegistrar As New RegistrarProducto
         frmRegistrar.LlenarFormulario(ID)
+        frmRegistrar.Text = "Modificar Producto"
         frmRegistrar.ShowDialog()
         CargarGridProducto()
     End Sub
     '------------------------para la papelera------ 
     Private Sub btnEliminarProducto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEliminarProducto.Click
         ID = DGProducto.Rows(DGProducto.CurrentCell.RowIndex).Cells("IDProducto").Value
-        oCNProducto.EliminarProducto(ID, "Inactivo")
-        CargarGridProducto()
+        If MessageBox.Show("Esta seguro de mandar a la papelera el Producto? ", "Confirmacion de eliminar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
+            oCNProducto.EliminarProducto(ID, "Inactivo")
+            CargarGridProducto()
+        End If
+
+        
+       
     End Sub
     Private Sub btnRestaurarProducto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRestaurarProducto.Click
         Dim ID As Integer = DGProductoInactivo.Rows(DGProductoInactivo.CurrentCell.RowIndex).Cells("IDProducto").Value
-
-        oCNProducto.EliminarProducto(ID, "Activo")
-        CargarGridProducto()
-        DGProductoInactivo.DataSource = oCNProducto.MostrarProductoInactivo()
-
-        MostrarProductosModoActivo()
-
+        If MessageBox.Show("Esta seguro de restaurar el producto? ", "Restaurar el producto", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
+            oCNProducto.EliminarProducto(ID, "Activo")
+            CargarGridProducto()
+            DGProductoInactivo.DataSource = oCNProducto.MostrarProductoInactivo()
+            MostrarProductosModoActivo()
+        End If
     End Sub
 
     Private Sub btnDetalleProductoInactivo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnDetalleProductoInactivo.Click
         ID = DGProductoInactivo.Rows(DGProductoInactivo.CurrentCell.RowIndex).Cells("IDProducto").Value
         Dim frmProducto As New RegistrarProducto
+        frmProducto.Text = "Detalles de productos"
         frmProducto.LlenarFormularioInactivo(ID)
         frmProducto.Disesabletext()
+        frmProducto.btnCancelar.Visible = False
+        frmProducto.btnGuardarProducto.Visible = False
+        frmProducto.btnRegistrarProducto.Visible = False
+        frmProducto.btnAceptar.Visible = True
         frmProducto.ShowDialog()
     End Sub
 
@@ -254,16 +276,14 @@ Public Class frmMenuPrincipal
 
     Private Sub DGProductoInactivo_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DGProductoInactivo.CellDoubleClick
         Dim frmRegistrar As New RegistrarProducto
-        'MsgBox("Esta seguro de Restaurar al Cliente? ", MsgBoxStyle.OkCancel, "Confirmacion restaurar")
+        Dim ID As Integer = DGProductoInactivo.Rows(DGProductoInactivo.CurrentCell.RowIndex).Cells("IDProducto").Value
         If MessageBox.Show("Esta seguro de Restaurar el Producto? ", "Confirmacion de restaurar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
             oCNProducto.EliminarProducto(ID, "Activo")
-
+            CargarGridProducto()
+            DGProductoInactivo.DataSource = oCNProducto.MostrarProductoInactivo()
+            MostrarProductosModoActivo()
         End If
-        ' agregarle una confirmacion para restaurar
-
-        CargarGridProducto()
-        DGProductoInactivo.DataSource = oCNProducto.MostrarProductoInactivo()
-        MostrarProductosModoActivo()
+        
     End Sub
     Public Sub MostrarProductosModoInactivo()
         btnPapeleraProducto.Text = "Volver"
@@ -460,13 +480,4 @@ Public Class frmMenuPrincipal
         End If
 
     End Sub
-
-    
-    
-   
-
-    
-
-    
- 
 End Class

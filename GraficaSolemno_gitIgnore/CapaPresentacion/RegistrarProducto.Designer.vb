@@ -36,8 +36,7 @@ Partial Class RegistrarProducto
         Me.lblID = New System.Windows.Forms.Label()
         Me.btnCancelar = New System.Windows.Forms.Button()
         Me.btnGuardarProducto = New System.Windows.Forms.Button()
-        Me.lblTipo = New System.Windows.Forms.Label()
-        Me.cboTipo = New System.Windows.Forms.ComboBox()
+        Me.btnAceptar = New System.Windows.Forms.Button()
         Me.controlPrecio = New CapaPresentacion.ValidacionMoneda()
         Me.SuspendLayout()
         '
@@ -79,7 +78,7 @@ Partial Class RegistrarProducto
         Me.txtCodigo.Name = "txtCodigo"
         Me.txtCodigo.Size = New System.Drawing.Size(100, 24)
         Me.txtCodigo.TabIndex = 31
-        Me.txtCodigo.Tag = "2"
+        Me.txtCodigo.Tag = "3"
         '
         'lblDescripcion
         '
@@ -94,11 +93,11 @@ Partial Class RegistrarProducto
         'txtDescripcion
         '
         Me.txtDescripcion.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDescripcion.Location = New System.Drawing.Point(186, 100)
+        Me.txtDescripcion.Location = New System.Drawing.Point(186, 104)
         Me.txtDescripcion.Name = "txtDescripcion"
         Me.txtDescripcion.Size = New System.Drawing.Size(100, 24)
         Me.txtDescripcion.TabIndex = 29
-        Me.txtDescripcion.Tag = ""
+        Me.txtDescripcion.Tag = "3"
         '
         'lblPrecio
         '
@@ -123,11 +122,11 @@ Partial Class RegistrarProducto
         'txtCantidad
         '
         Me.txtCantidad.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCantidad.Location = New System.Drawing.Point(186, 130)
+        Me.txtCantidad.Location = New System.Drawing.Point(186, 134)
         Me.txtCantidad.Name = "txtCantidad"
         Me.txtCantidad.Size = New System.Drawing.Size(100, 24)
         Me.txtCantidad.TabIndex = 23
-        Me.txtCantidad.Tag = "5"
+        Me.txtCantidad.Tag = "2"
         '
         'lblNombre
         '
@@ -142,7 +141,7 @@ Partial Class RegistrarProducto
         'txtNombre
         '
         Me.txtNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtNombre.Location = New System.Drawing.Point(186, 69)
+        Me.txtNombre.Location = New System.Drawing.Point(186, 73)
         Me.txtNombre.Name = "txtNombre"
         Me.txtNombre.Size = New System.Drawing.Size(100, 24)
         Me.txtNombre.TabIndex = 21
@@ -180,31 +179,22 @@ Partial Class RegistrarProducto
         Me.btnGuardarProducto.Text = "Guardar"
         Me.btnGuardarProducto.UseVisualStyleBackColor = False
         '
-        'lblTipo
+        'btnAceptar
         '
-        Me.lblTipo.AutoSize = True
-        Me.lblTipo.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTipo.Location = New System.Drawing.Point(47, 38)
-        Me.lblTipo.Name = "lblTipo"
-        Me.lblTipo.Size = New System.Drawing.Size(133, 18)
-        Me.lblTipo.TabIndex = 35
-        Me.lblTipo.Text = "Tipo de Categoria :"
-        '
-        'cboTipo
-        '
-        Me.cboTipo.BackColor = System.Drawing.Color.White
-        Me.cboTipo.FormattingEnabled = True
-        Me.cboTipo.Items.AddRange(New Object() {"Producto", "Servicio"})
-        Me.cboTipo.Location = New System.Drawing.Point(186, 39)
-        Me.cboTipo.Name = "cboTipo"
-        Me.cboTipo.Size = New System.Drawing.Size(100, 21)
-        Me.cboTipo.TabIndex = 36
-        Me.cboTipo.Text = "Producto"
+        Me.btnAceptar.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAceptar.Location = New System.Drawing.Point(136, 238)
+        Me.btnAceptar.Name = "btnAceptar"
+        Me.btnAceptar.Size = New System.Drawing.Size(75, 23)
+        Me.btnAceptar.TabIndex = 38
+        Me.btnAceptar.Text = "Aceptar"
+        Me.btnAceptar.UseVisualStyleBackColor = False
+        Me.btnAceptar.Visible = False
         '
         'controlPrecio
         '
         Me.controlPrecio.labeltext = Nothing
-        Me.controlPrecio.Location = New System.Drawing.Point(167, 166)
+        Me.controlPrecio.Location = New System.Drawing.Point(177, 169)
         Me.controlPrecio.Name = "controlPrecio"
         Me.controlPrecio.Size = New System.Drawing.Size(132, 27)
         Me.controlPrecio.TabIndex = 37
@@ -215,10 +205,9 @@ Partial Class RegistrarProducto
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(321, 309)
+        Me.ClientSize = New System.Drawing.Size(321, 282)
+        Me.Controls.Add(Me.btnAceptar)
         Me.Controls.Add(Me.controlPrecio)
-        Me.Controls.Add(Me.cboTipo)
-        Me.Controls.Add(Me.lblTipo)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnRegistrarProducto)
         Me.Controls.Add(Me.lblCodigo)
@@ -253,7 +242,6 @@ Partial Class RegistrarProducto
     Friend WithEvents lblID As System.Windows.Forms.Label
     Friend WithEvents btnCancelar As System.Windows.Forms.Button
     Friend WithEvents btnGuardarProducto As System.Windows.Forms.Button
-    Friend WithEvents lblTipo As System.Windows.Forms.Label
-    Friend WithEvents cboTipo As System.Windows.Forms.ComboBox
     Friend WithEvents controlPrecio As CapaPresentacion.ValidacionMoneda
+    Friend WithEvents btnAceptar As System.Windows.Forms.Button
 End Class

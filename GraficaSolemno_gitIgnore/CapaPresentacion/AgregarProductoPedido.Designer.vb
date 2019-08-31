@@ -29,7 +29,6 @@ Partial Class AgregarProductoPedido
         Me.lblPrecioAgrProd = New System.Windows.Forms.Label()
         Me.lblCantidadAgrProd = New System.Windows.Forms.Label()
         Me.lblNombre = New System.Windows.Forms.Label()
-        Me.CboProducto = New System.Windows.Forms.ComboBox()
         Me.txtCantidad = New System.Windows.Forms.TextBox()
         Me.DGBuscar = New System.Windows.Forms.DataGridView()
         Me.txtBuscar = New System.Windows.Forms.TextBox()
@@ -107,15 +106,6 @@ Partial Class AgregarProductoPedido
         Me.lblNombre.TabIndex = 12
         Me.lblNombre.Text = "Nombre"
         '
-        'CboProducto
-        '
-        Me.CboProducto.FormattingEnabled = True
-        Me.CboProducto.Items.AddRange(New Object() {"Producto", "Servicio"})
-        Me.CboProducto.Location = New System.Drawing.Point(294, 66)
-        Me.CboProducto.Name = "CboProducto"
-        Me.CboProducto.Size = New System.Drawing.Size(259, 21)
-        Me.CboProducto.TabIndex = 11
-        '
         'txtCantidad
         '
         Me.txtCantidad.Location = New System.Drawing.Point(39, 93)
@@ -133,7 +123,7 @@ Partial Class AgregarProductoPedido
         Me.DGBuscar.BackgroundColor = System.Drawing.Color.White
         Me.DGBuscar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DGBuscar.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
-        Me.DGBuscar.Location = New System.Drawing.Point(294, 93)
+        Me.DGBuscar.Location = New System.Drawing.Point(309, 88)
         Me.DGBuscar.MultiSelect = False
         Me.DGBuscar.Name = "DGBuscar"
         Me.DGBuscar.ReadOnly = True
@@ -144,7 +134,7 @@ Partial Class AgregarProductoPedido
         '
         'txtBuscar
         '
-        Me.txtBuscar.Location = New System.Drawing.Point(294, 29)
+        Me.txtBuscar.Location = New System.Drawing.Point(309, 54)
         Me.txtBuscar.Name = "txtBuscar"
         Me.txtBuscar.Size = New System.Drawing.Size(191, 20)
         Me.txtBuscar.TabIndex = 23
@@ -154,7 +144,7 @@ Partial Class AgregarProductoPedido
         '
         Me.btnBuscar.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnBuscar.Location = New System.Drawing.Point(491, 24)
+        Me.btnBuscar.Location = New System.Drawing.Point(506, 49)
         Me.btnBuscar.Name = "btnBuscar"
         Me.btnBuscar.Size = New System.Drawing.Size(62, 29)
         Me.btnBuscar.TabIndex = 24
@@ -206,7 +196,6 @@ Partial Class AgregarProductoPedido
         Me.Controls.Add(Me.lblPrecioAgrProd)
         Me.Controls.Add(Me.lblCantidadAgrProd)
         Me.Controls.Add(Me.lblNombre)
-        Me.Controls.Add(Me.CboProducto)
         Me.MinimumSize = New System.Drawing.Size(292, 370)
         Me.Name = "AgregarProductoPedido"
         Me.Text = "Agregar Al Pedido"
@@ -222,7 +211,6 @@ Partial Class AgregarProductoPedido
     Friend WithEvents lblPrecioAgrProd As System.Windows.Forms.Label
     Friend WithEvents lblCantidadAgrProd As System.Windows.Forms.Label
     Friend WithEvents lblNombre As System.Windows.Forms.Label
-    Friend WithEvents CboProducto As System.Windows.Forms.ComboBox
     Friend WithEvents txtCantidad As System.Windows.Forms.TextBox
     Friend WithEvents DGBuscar As System.Windows.Forms.DataGridView
     Friend WithEvents txtBuscar As System.Windows.Forms.TextBox

@@ -17,26 +17,22 @@ Public Class CDProducto
         oCDConexion.Conectar()
 
         Try
-            Dim instruccionSQL = "INSERT INTO Productos (IDProducto, Nombre, Cantidad, Precio, Descripcion, Codigo, Tipo, Estado) VALUES (@IDProducto, @Nombre, @Cantidad, @Precio, @Descripcion, @Codigo,@Tipo, @Estado)"
+            Dim instruccionSQL = "INSERT INTO Productos (IDProducto, Nombre, Cantidad, Precio, Descripcion, Codigo, Estado) VALUES (@IDProducto, @Nombre, @Cantidad, @Precio, @Descripcion, @Codigo, @Estado)"
 
             Dim comando As New SQLiteCommand(instruccionSQL, oCDConexion.con)
             With comando.Parameters
                 .Add("@IDProducto", SqlDbType.Int).Value = oCEProducto.IDProducto
                 .Add("@Nombre", SqlDbType.VarChar).Value = oCEProducto.Nombre
-                .Add("@Cantidad", SqlDbType.Int).Value = oCEProducto.Cantidad
+                .Add("@Cantidad", SqlDbType.Int).Value = SetNullValues(oCEProducto.Cantidad)
                 .Add("@Precio", SqlDbType.Real).Value = oCEProducto.Precio
                 .Add("@Descripcion", SqlDbType.VarChar).Value = oCEProducto.Descripcion
                 .Add("@Codigo", SqlDbType.VarChar).Value = oCEProducto.Codigo
-                .Add("@Tipo", SqlDbType.VarChar).Value = oCEProducto.Tipo
                 .Add("@Estado", SqlDbType.VarChar).Value = "Activo"
             End With
-            MsgBox(instruccionSQL)
             comando.ExecuteNonQuery()
-            MsgBox("El Producto se ah Registrado con Exito")
+            MsgBox("El nuevo producto se fue registrado con exito.", , "Registro de producto")
         Catch ex As Exception
-
-
-            Throw New Exception("ERROR al registrar " & ex.Message)
+            MsgBox("Error al registrar el producto. Por favor vuelva a intentarlo.", MsgBoxStyle.Exclamation, "Error al registrar producto")
         Finally
             oCDConexion.Desconectar()
         End Try
@@ -49,16 +45,21 @@ Public Class CDProducto
             comando.Parameters.Add("@IDProducto", SqlDbType.Int).Value = id
             comando.Parameters.Add("@esta", SqlDbType.VarChar).Value = estado
             comando.ExecuteNonQuery()
+
         Catch ex As Exception
-            Throw New Exception("ERROR al eliminar el registro. Descripcion:" & ex.Message)
-        Finally
+            If estado = "Activo" Then
+                MsgBox("Error al mover a la papelera el producto. Por favor vuelva a intentarlo.", MsgBoxStyle.Exclamation, "Error al eliminar el producto")
+            Else
+                MsgBox("Error al restaurar el producto. Por favor vuelva a intentarlo.", MsgBoxStyle.Exclamation, "Error al restaurar el producto")
+            End If
+         Finally
             oCDConexion.Desconectar()
         End Try
     End Sub
     Public Sub ModificarProducto(ByVal oCEProducto As CEProducto)
         oCDConexion.Conectar()
         Try
-            Dim instruccionsql = " UPDATE Productos SET Nombre=@Nombre,Cantidad=@Cantidad, Precio=@Precio, Descripcion=@Descripcion, Codigo=@Codigo, Tipo=@Tipo where IDProducto=@IDProducto"
+            Dim instruccionsql = " UPDATE Productos SET Nombre=@Nombre,Cantidad=@Cantidad, Precio=@Precio, Descripcion=@Descripcion, Codigo=@Codigo where IDProducto=@IDProducto"
             Dim comando As New SQLiteCommand(instruccionsql, oCDConexion.con)
             With comando.Parameters
                 .Add("@IDProducto", SqlDbType.Int).Value = oCEProducto.IDProducto
@@ -67,11 +68,11 @@ Public Class CDProducto
                 .Add("@Descripcion", SqlDbType.VarChar).Value = oCEProducto.Descripcion
                 .Add("@Cantidad", SqlDbType.Int).Value = oCEProducto.Cantidad
                 .Add("@Precio", SqlDbType.Real).Value = oCEProducto.Precio
-                .Add("@Tipo", SqlDbType.VarChar).Value = oCEProducto.Tipo
             End With
             comando.ExecuteNonQuery()
+            MsgBox("El producto se modifico con exito.", , "Modificar producto")
         Catch ex As Exception
-            Throw New Exception("No se ah podido modificar el registro seleccionado:" & ex.Message)
+            MsgBox("Error al modificar el producto. Por favor vuelva a intentarlo.", MsgBoxStyle.Exclamation, "Modificar producto")
 
         End Try
 
@@ -95,7 +96,8 @@ Public Class CDProducto
             Return dt
 
         Catch ex As Exception
-            Throw New Exception("ERROR la busqueda ah fallado. Descripcion:" & ex.Message)
+            MsgBox("Error la busqueda ah fallado.", , "Busqueda de producto")
+            Return Nothing
         Finally
             oCDConexion.Desconectar()
         End Try
@@ -118,7 +120,8 @@ Public Class CDProducto
             Return dt
 
         Catch ex As Exception
-            Throw New Exception("ERROR la busqueda ah fallado. Descripcion:" & ex.Message)
+            MsgBox("Error la busqueda ah fallado.", , "Busqueda de producto")
+            Return Nothing
         Finally
             oCDConexion.Desconectar()
         End Try
@@ -136,7 +139,26 @@ Public Class CDProducto
         sentencia = "select * from Productos where productos.Estado='Inactivo'"
         Return oCDConexion.MostrarTablaModificada(sentencia)
     End Function
-    'Function BuscarProductoInactivo(ByVal pcampo As String, ByVal pbuscar As String) As DataTable
+    Public Function SetNullValues(ByVal value As Object) As Object
+        If IsNumeric(value) Then
+            If value = 0 Then
+                Return DBNull.Value
+            Else
+                Try
+                    Return CInt(value)
+                Catch ex As Exception
+                    Return Str(value)
+                End Try
 
-    'End Function
+            End If
+
+        Else
+            If value = Nothing Or value = "" Then
+                Return DBNull.Value
+            Else
+                Return CInt(value)
+            End If
+        End If
+
+    End Function
 End Class

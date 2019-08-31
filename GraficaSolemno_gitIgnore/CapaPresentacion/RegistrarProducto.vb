@@ -6,24 +6,20 @@ Public Class RegistrarProducto
 
 
     Public Function TomarDatos() As CEProducto
-        If cboTipo.Text = "Producto" And txtNombre.Text <> "" Then
-            oCEProducto.Tipo = cboTipo.Text
-            oCEProducto.IDProducto = CInt(lblID.Text)
-            oCEProducto.Nombre = txtNombre.Text
-            oCEProducto.Cantidad = CInt(txtCantidad.Text)
-            oCEProducto.Precio = CDbl(controlPrecio.valor)
-            oCEProducto.Descripcion = txtDescripcion.Text
-            oCEProducto.Codigo = CInt(txtCodigo.Text)
-            Return oCEProducto
-        ElseIf cboTipo.Text = "Servicio" Then
-            oCEProducto.Tipo = cboTipo.Text
-            oCEProducto.IDProducto = CInt(lblID.Text)
-            oCEProducto.Nombre = txtNombre.Text
-            oCEProducto.Descripcion = txtDescripcion.Text
-
-            Return oCEProducto
-        Else
+        oCEProducto.IDProducto = CInt(lblID.Text)
+        oCEProducto.Nombre = txtNombre.Text
+        oCEProducto.Cantidad = CasteoNulo(txtCantidad.Text)
+        oCEProducto.Precio = CDbl(controlPrecio.valor)
+        oCEProducto.Descripcion = txtDescripcion.Text
+        oCEProducto.Codigo = txtCodigo.Text
+        Return oCEProducto
+    End Function
+        Public Function CasteoNulo(ByVal value As String) As Integer
+        value = Trim(value)
+        If value = "" Then
             Return Nothing
+        Else
+            Return value
         End If
     End Function
     Public Sub LlenarFormulario(ByVal ID As Integer)
@@ -37,11 +33,10 @@ Public Class RegistrarProducto
         controlPrecio.valor = dr("Precio").ToString
         txtDescripcion.Text = dr("Descripcion").ToString
         txtCodigo.Text = dr("Codigo").ToString
-        cboTipo.Text = dr("Tipo").ToString
         btnRegistrarProducto.Visible = False
         btnGuardarProducto.Visible = True
 
-        Me.Text = "Modificar Producto"
+
     End Sub
     Public Sub LlenarFormularioInactivo(ByVal ID As Integer)
         Dim dt As New DataTable
@@ -54,15 +49,13 @@ Public Class RegistrarProducto
         controlPrecio.valor = dr("Precio").ToString
         txtDescripcion.Text = dr("Descripcion").ToString
         txtCodigo.Text = dr("Codigo").ToString
-        cboTipo.Text = dr("Tipo").ToString
         btnRegistrarProducto.Visible = False
         btnGuardarProducto.Visible = True
 
-        Me.Text = "Modificar Producto"
+
     End Sub
     Private Sub btnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGuardarProducto.Click
         oCNProducto.ModificarProducto(TomarDatos())
-        MsgBox("Los Datos fueron modificados con exito.")
         Close()
     End Sub
 
@@ -81,12 +74,13 @@ Public Class RegistrarProducto
                 ctrl.Enabled = False 'Creo que el error es aqui
             End If
         Next
+        controlPrecio.TextBox1.Enabled = False
+
 
     End Sub
 
     Private Sub btnRegistrarProducto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRegistrarProducto.Click
         oCNProducto.RegistrarProducto(TomarDatos())
-        MsgBox("Los Datos fueron guardados con exito.")
         Close()
     End Sub
 
@@ -94,24 +88,8 @@ Public Class RegistrarProducto
         Dim validacion As New Validaciones
         validacion.Validar(Me)
     End Sub
-
-    Private Sub cboTipo_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles cboTipo.SelectedIndexChanged
-        If cboTipo.Text = "Producto" Then
-            lblCantidad.Visible = True
-            lblCodigo.Visible = True
-            lblPrecio.Visible = True
-            txtCantidad.Visible = True
-            txtCodigo.Visible = True
-            controlPrecio.Visible = True
-        ElseIf cboTipo.Text = "Servicio" Then
-            lblCantidad.Visible = False
-            lblCodigo.Visible = False
-            lblPrecio.Visible = False
-            txtCantidad.Visible = False
-            txtCodigo.Visible = False
-            controlPrecio.Visible = False
-        End If
-    End Sub
-
   
+    Private Sub btnAceptar_Click(sender As System.Object, e As System.EventArgs) Handles btnAceptar.Click
+        Me.Close()
+    End Sub
 End Class

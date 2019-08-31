@@ -15,7 +15,6 @@ Public Class CDCliente
         sentencia = "select clientes.IDCliente, clientes.Nombre, Clientes.Apellido, Clientes.DNI, Clientes.Telefono,Clientes.cuit, Provincias.Nombre as 'provincia' , Localidad.Nombre as 'Localidad', CondIVA.Nombre as 'Condicion de IVA' from Clientes, Provincias, Localidad, CondIVA where  Clientes.IDProvincia=Provincias.IDProvincia and clientes.IDLocalidad=Localidad.IDLocalidad and Clientes.IDCondIVA=CondIVA.IDIVA and Clientes.Estado='Inactivo'"
         Return oCDConexion.MostrarTablaModificada(sentencia)
     End Function
-
     Public Sub RegistrarCliente(ByVal oCECliente As CECliente)
         oCDConexion.Conectar()
         Try
@@ -44,13 +43,13 @@ Public Class CDCliente
                 .Add("@Estado", SqlDbType.VarChar).Value = "Activo"
             End With
             comando.ExecuteNonQuery()
-            MsgBox("El Nuevo Cliente fue registrado con exito.", , "Registro de Cliente")
+            MsgBox("El nuevo cliente fue registrado con exito.", , "Registro de Cliente")
         Catch ex As Exception
             Dim errorCuiT As String = "CUIT"
             Dim errorDNI As String = "DNI"
             'esto es para cuando ingresas un dni o cuit que ya existe en la base de datos.
             If 0 < ex.Message.IndexOf(errorCuiT) Then
-                MsgBox("El Cuit ingresado ya pertenece a un usuario registrado.", MsgBoxStyle.Exclamation, "Error al registrar")
+                MsgBox("El CUIT ingresado ya pertenece a un usuario registrado.", MsgBoxStyle.Exclamation, "Error al registrar")
             End If
             If 0 < ex.Message.IndexOf(errorDNI) Then
                 MsgBox("El DNI ingresado ya pertenece a un usuario registrado.", MsgBoxStyle.Exclamation, "Error al registrar")
@@ -89,13 +88,13 @@ Public Class CDCliente
             comando.Parameters.Add("@IDCliente", SqlDbType.Int).Value = id
             comando.Parameters.Add("@esta", SqlDbType.VarChar).Value = estado
             comando.ExecuteNonQuery()
+
         Catch ex As Exception
-            Throw New Exception("ERROR al eliminar el registro.")
+            MsgBox("Error al mover a la papelera el cliente. Por favor vuelva a intentarlo.", MsgBoxStyle.Exclamation, "Error al registrar producto")
         Finally
             oCDConexion.Desconectar()
         End Try
     End Sub
-
     Public Sub ModificarCliente(ByVal oCECliente As CECliente)
         oCDConexion.Conectar()
         Try
@@ -122,8 +121,11 @@ Public Class CDCliente
                 .Add("@Estado", SqlDbType.VarChar).Value = "Activo"
             End With
             comando.ExecuteNonQuery()
+            MsgBox("El cliente se modifico con exito.", , "Registro de producto")
         Catch ex As Exception
-            Throw New Exception("ERROR  el registro no ah podido ser modificado. Descripcion:" & ex.Message)
+            MsgBox("Error al modificar el cliente. Por favor vuelva a intentarlo.", MsgBoxStyle.Exclamation, "Error al registrar producto")
+        Finally
+            oCDConexion.Desconectar()
         End Try
 
     End Sub
@@ -145,7 +147,8 @@ Public Class CDCliente
             Return dt
 
         Catch ex As Exception
-            Throw New Exception("ERROR la busqueda ah fallado. Descripcion:" & ex.Message)
+            MsgBox("Error la busqueda ah fallado.", , "Busqueda de cliente")
+            Return Nothing
         Finally
             oCDConexion.Desconectar()
         End Try
@@ -170,7 +173,8 @@ Public Class CDCliente
             Return dt
 
         Catch ex As Exception
-            Throw New Exception("ERROR la busqueda ah fallado. Descripcion:" & ex.Message)
+            MsgBox("Error la busqueda ah fallado.", , "Busqueda de cliente")
+            Return Nothing
         Finally
             oCDConexion.Desconectar()
         End Try

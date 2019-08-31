@@ -149,7 +149,7 @@ Public Class FormularioPedido
         End If
         Dim frmModProducto As New AgregarProductoPedido
         If dtrow Is Nothing Then
-            MsgBox("dtrow vacia")
+
         Else
             frmModProducto.CargarDatosModificar(ProductoID, dtrow)
             frmModProducto.ShowDialog()
