@@ -217,4 +217,7 @@ Public Class RegistrarCliente
         cbo.SelectedIndex = int
     End Sub
 
+    Private Sub txtCalle_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtCalle.TextChanged
+
+    End Sub
 End Class

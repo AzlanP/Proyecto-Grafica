@@ -75,6 +75,7 @@ Partial Class RegistrarProducto
         '
         Me.txtCodigo.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCodigo.Location = New System.Drawing.Point(186, 202)
+        Me.txtCodigo.MaxLength = 20
         Me.txtCodigo.Name = "txtCodigo"
         Me.txtCodigo.Size = New System.Drawing.Size(100, 24)
         Me.txtCodigo.TabIndex = 31
@@ -94,6 +95,7 @@ Partial Class RegistrarProducto
         '
         Me.txtDescripcion.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtDescripcion.Location = New System.Drawing.Point(186, 104)
+        Me.txtDescripcion.MaxLength = 20
         Me.txtDescripcion.Name = "txtDescripcion"
         Me.txtDescripcion.Size = New System.Drawing.Size(100, 24)
         Me.txtDescripcion.TabIndex = 29
@@ -142,6 +144,7 @@ Partial Class RegistrarProducto
         '
         Me.txtNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtNombre.Location = New System.Drawing.Point(186, 73)
+        Me.txtNombre.MaxLength = 20
         Me.txtNombre.Name = "txtNombre"
         Me.txtNombre.Size = New System.Drawing.Size(100, 24)
         Me.txtNombre.TabIndex = 21

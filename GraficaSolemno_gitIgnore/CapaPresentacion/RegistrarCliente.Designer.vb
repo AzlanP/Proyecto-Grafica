@@ -225,7 +225,7 @@ Partial Class RegistrarCliente
         'txtCalle
         '
         Me.txtCalle.Location = New System.Drawing.Point(488, 264)
-        Me.txtCalle.MaxLength = 20
+        Me.txtCalle.MaxLength = 25
         Me.txtCalle.Name = "txtCalle"
         Me.txtCalle.Size = New System.Drawing.Size(205, 21)
         Me.txtCalle.TabIndex = 102
@@ -244,7 +244,7 @@ Partial Class RegistrarCliente
         'txtBarrio
         '
         Me.txtBarrio.Location = New System.Drawing.Point(489, 233)
-        Me.txtBarrio.MaxLength = 20
+        Me.txtBarrio.MaxLength = 25
         Me.txtBarrio.Name = "txtBarrio"
         Me.txtBarrio.Size = New System.Drawing.Size(203, 21)
         Me.txtBarrio.TabIndex = 100

@@ -9,12 +9,20 @@ Public Class AgregarProductoPedido
 
     Private Sub btnAceptar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAceptar.Click
         oCEproducto.Nombre = txtNombreProducto.Text
-        oCEproducto.Cantidad = txtCantidad.Text
+        oCEproducto.Cantidad = CasteoNulo(txtCantidad.Text)
         oCEproducto.Precio = txtboxPrecio.valor
         oCEproducto.Descripcion = TextboxDescripcion.Text
         oCEproducto.IDProducto = lblID.Text
         Me.Close()
     End Sub
+    Public Function CasteoNulo(ByVal value As String) As Integer
+        value = Trim(value)
+        If value = "" Then
+            Return Nothing
+        Else
+            Return value
+        End If
+    End Function
     Public Sub CargarGridBuscar()
         Dim dt As New DataTable
         dt = oCNProducto.MostrarProducto()
@@ -86,4 +94,6 @@ Public Class AgregarProductoPedido
     Private Sub btnGuardarCambio_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
 
     End Sub
+
+
 End Class

@@ -135,6 +135,7 @@ Partial Class AgregarProductoPedido
         'txtBuscar
         '
         Me.txtBuscar.Location = New System.Drawing.Point(309, 54)
+        Me.txtBuscar.MaxLength = 20
         Me.txtBuscar.Name = "txtBuscar"
         Me.txtBuscar.Size = New System.Drawing.Size(191, 20)
         Me.txtBuscar.TabIndex = 23
@@ -170,7 +171,9 @@ Partial Class AgregarProductoPedido
         '
         'txtNombreProducto
         '
+        Me.txtNombreProducto.Enabled = False
         Me.txtNombreProducto.Location = New System.Drawing.Point(38, 54)
+        Me.txtNombreProducto.MaxLength = 20
         Me.txtNombreProducto.Name = "txtNombreProducto"
         Me.txtNombreProducto.Size = New System.Drawing.Size(165, 20)
         Me.txtNombreProducto.TabIndex = 27

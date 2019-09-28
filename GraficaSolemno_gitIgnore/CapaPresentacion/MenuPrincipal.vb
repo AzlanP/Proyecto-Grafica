@@ -16,6 +16,7 @@ Public Class frmMenuPrincipal
     Dim ID As String
     Private Sub btnRefresh_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRefresh.Click
         CargarGridCliente()
+        DGClienteInactivos.DataSource = oCNCliente.MostrarClienteIncativo()
 
     End Sub
     Public Sub CargarGridCliente()
@@ -173,10 +174,11 @@ Public Class frmMenuPrincipal
 
     Dim oCNProducto As New CNProducto
     Public Sub CargarGridProducto()
-        DGProducto.DataSource = oCNProducto.MostrarProducto()
+        DGProducto.DataSource = oCNProducto.MostrarProducto().DefaultView.ToTable(True, "IDProducto", "Nombre", "Precio", "Codigo")
     End Sub
     Private Sub TabProducto_Enter(ByVal sender As Object, ByVal e As System.EventArgs) Handles TabProducto.Enter
         CargarGridProducto()
+        cboBuscarProducto.SelectedIndex = 0
     End Sub
     Private Sub btnAgregarProducto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAgregarProducto.Click
         Dim frmRegistrar As New RegistrarProducto
@@ -317,6 +319,7 @@ Public Class frmMenuPrincipal
     End Sub
     Private Sub btnRefreshProduct_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRefreshProduct.Click
         CargarGridProducto()
+        DGProductoInactivo.DataSource = oCNProducto.MostrarProductoInactivo()
     End Sub
     '--------------------------------------------------------------------------------------------------------------
     '--------------------------------------------------------------------------------------------------------------
@@ -324,6 +327,7 @@ Public Class frmMenuPrincipal
     Dim oCNPedido As New CNPedido
     Private Sub TabPedido_Enter(ByVal sender As Object, ByVal e As System.EventArgs) Handles TabPedido.Enter
         CargarGridPedidos()
+        cboBuscarPedido.SelectedIndex = 0
     End Sub
     Public Sub CargarGridPedidos()
         DGPedido.DataSource = oCNPedido.MostrarPedido
@@ -401,7 +405,10 @@ Public Class frmMenuPrincipal
         CargarGridPedidos()
     End Sub
 
+    Private Sub btnRefreshPedido_Click(sender As System.Object, e As System.EventArgs) Handles btnRefreshPedido.Click
+        CargarGridPedidos()
 
+    End Sub
     '--------------------------------------------------------------------------------------------------------------
     '--------------------------------------------------------------------------------------------------------------
     '---------------------------------------- ESTADISTICAS -----------------------------------------------------------
@@ -480,4 +487,8 @@ Public Class frmMenuPrincipal
         End If
 
     End Sub
+
+   
+    
+
 End Class

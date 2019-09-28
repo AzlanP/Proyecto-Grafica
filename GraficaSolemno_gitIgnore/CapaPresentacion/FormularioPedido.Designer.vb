@@ -128,6 +128,7 @@ Partial Class FormularioPedido
         '
         'dtpFecha
         '
+        Me.dtpFecha.Enabled = False
         Me.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtpFecha.Location = New System.Drawing.Point(75, 71)
         Me.dtpFecha.Name = "dtpFecha"

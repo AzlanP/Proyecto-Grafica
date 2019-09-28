@@ -158,7 +158,7 @@ Public Class FormularioPedido
 
             '    If DTDetalles Is Nothing Then
             '        If TablaItems Is Nothing Then
-            '            MsgBox("Error")
+            '            MsgBox("Error")-
             '        Else
 
             '        End If
