@@ -94,6 +94,21 @@ Public Class AgregarProductoPedido
     Private Sub btnGuardarCambio_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
 
     End Sub
+    Public Sub calcularPrecioXCantidad()
+        If (txtCantidad.Text = "") Then
+            txtCantidad.Text = 0
+        End If
+        If (txtDesc.Text = "") Then
+            txtDesc.Text = 0
+        End If
+        Dim total = txtboxPrecio.valor * txtCantidad.Text
+        total = total - total * (txtDesc.Text / 100)
+        txtPrecioTotal.valor = total
+    End Sub
 
 
+
+    Private Sub txtCantidad_TextChanged(sender As Object, e As System.EventArgs) Handles txtCantidad.TextChanged
+        calcularPrecioXCantidad()
+    End Sub
 End Class

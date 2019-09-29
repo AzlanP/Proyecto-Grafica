@@ -34,8 +34,12 @@ Partial Class AgregarProductoPedido
         Me.txtBuscar = New System.Windows.Forms.TextBox()
         Me.btnBuscar = New System.Windows.Forms.Button()
         Me.lblID = New System.Windows.Forms.Label()
-        Me.txtboxPrecio = New CapaPresentacion.ValidacionMoneda()
         Me.txtNombreProducto = New System.Windows.Forms.TextBox()
+        Me.txtboxPrecio = New CapaPresentacion.ValidacionMoneda()
+        Me.txtPrecioTotal = New CapaPresentacion.ValidacionMoneda()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.txtDesc = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
         CType(Me.DGBuscar, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -43,9 +47,9 @@ Partial Class AgregarProductoPedido
         '
         Me.btnCancelar.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnCancelar.Location = New System.Drawing.Point(163, 279)
+        Me.btnCancelar.Location = New System.Drawing.Point(145, 324)
         Me.btnCancelar.Name = "btnCancelar"
-        Me.btnCancelar.Size = New System.Drawing.Size(89, 29)
+        Me.btnCancelar.Size = New System.Drawing.Size(103, 29)
         Me.btnCancelar.TabIndex = 20
         Me.btnCancelar.Text = "Cancelar"
         Me.btnCancelar.UseVisualStyleBackColor = False
@@ -54,16 +58,16 @@ Partial Class AgregarProductoPedido
         '
         Me.btnAceptar.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAceptar.Location = New System.Drawing.Point(49, 279)
+        Me.btnAceptar.Location = New System.Drawing.Point(37, 324)
         Me.btnAceptar.Name = "btnAceptar"
-        Me.btnAceptar.Size = New System.Drawing.Size(89, 29)
+        Me.btnAceptar.Size = New System.Drawing.Size(102, 29)
         Me.btnAceptar.TabIndex = 19
         Me.btnAceptar.Text = "Aceptar"
         Me.btnAceptar.UseVisualStyleBackColor = False
         '
         'TextboxDescripcion
         '
-        Me.TextboxDescripcion.Location = New System.Drawing.Point(38, 184)
+        Me.TextboxDescripcion.Location = New System.Drawing.Point(37, 237)
         Me.TextboxDescripcion.Multiline = True
         Me.TextboxDescripcion.Name = "TextboxDescripcion"
         Me.TextboxDescripcion.Size = New System.Drawing.Size(211, 81)
@@ -73,7 +77,7 @@ Partial Class AgregarProductoPedido
         'lblDescripcionAgrProd
         '
         Me.lblDescripcionAgrProd.AutoSize = True
-        Me.lblDescripcionAgrProd.Location = New System.Drawing.Point(35, 168)
+        Me.lblDescripcionAgrProd.Location = New System.Drawing.Point(41, 221)
         Me.lblDescripcionAgrProd.Name = "lblDescripcionAgrProd"
         Me.lblDescripcionAgrProd.Size = New System.Drawing.Size(63, 13)
         Me.lblDescripcionAgrProd.TabIndex = 17
@@ -84,9 +88,9 @@ Partial Class AgregarProductoPedido
         Me.lblPrecioAgrProd.AutoSize = True
         Me.lblPrecioAgrProd.Location = New System.Drawing.Point(36, 116)
         Me.lblPrecioAgrProd.Name = "lblPrecioAgrProd"
-        Me.lblPrecioAgrProd.Size = New System.Drawing.Size(37, 13)
+        Me.lblPrecioAgrProd.Size = New System.Drawing.Size(79, 13)
         Me.lblPrecioAgrProd.TabIndex = 15
-        Me.lblPrecioAgrProd.Text = "Precio"
+        Me.lblPrecioAgrProd.Text = "Precio Unitario "
         '
         'lblCantidadAgrProd
         '
@@ -112,7 +116,8 @@ Partial Class AgregarProductoPedido
         Me.txtCantidad.Name = "txtCantidad"
         Me.txtCantidad.Size = New System.Drawing.Size(70, 20)
         Me.txtCantidad.TabIndex = 21
-        Me.txtCantidad.Tag = "5"
+        Me.txtCantidad.Tag = "2"
+        Me.txtCantidad.Text = "0"
         '
         'DGBuscar
         '
@@ -129,7 +134,7 @@ Partial Class AgregarProductoPedido
         Me.DGBuscar.ReadOnly = True
         Me.DGBuscar.RowHeadersVisible = False
         Me.DGBuscar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DGBuscar.Size = New System.Drawing.Size(259, 215)
+        Me.DGBuscar.Size = New System.Drawing.Size(259, 267)
         Me.DGBuscar.TabIndex = 22
         '
         'txtBuscar
@@ -160,15 +165,6 @@ Partial Class AgregarProductoPedido
         Me.lblID.Size = New System.Drawing.Size(0, 13)
         Me.lblID.TabIndex = 25
         '
-        'txtboxPrecio
-        '
-        Me.txtboxPrecio.labeltext = Nothing
-        Me.txtboxPrecio.Location = New System.Drawing.Point(38, 131)
-        Me.txtboxPrecio.Name = "txtboxPrecio"
-        Me.txtboxPrecio.Size = New System.Drawing.Size(128, 34)
-        Me.txtboxPrecio.TabIndex = 26
-        Me.txtboxPrecio.valor = 0.0R
-        '
         'txtNombreProducto
         '
         Me.txtNombreProducto.Enabled = False
@@ -179,12 +175,61 @@ Partial Class AgregarProductoPedido
         Me.txtNombreProducto.TabIndex = 27
         Me.txtNombreProducto.Tag = "3"
         '
+        'txtboxPrecio
+        '
+        Me.txtboxPrecio.labeltext = Nothing
+        Me.txtboxPrecio.Location = New System.Drawing.Point(38, 131)
+        Me.txtboxPrecio.Name = "txtboxPrecio"
+        Me.txtboxPrecio.Size = New System.Drawing.Size(128, 34)
+        Me.txtboxPrecio.TabIndex = 26
+        Me.txtboxPrecio.valor = 0.0R
+        '
+        'txtPrecioTotal
+        '
+        Me.txtPrecioTotal.labeltext = Nothing
+        Me.txtPrecioTotal.Location = New System.Drawing.Point(37, 184)
+        Me.txtPrecioTotal.Name = "txtPrecioTotal"
+        Me.txtPrecioTotal.Size = New System.Drawing.Size(128, 34)
+        Me.txtPrecioTotal.TabIndex = 29
+        Me.txtPrecioTotal.valor = 0.0R
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(37, 168)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(73, 13)
+        Me.Label1.TabIndex = 28
+        Me.Label1.Text = "Precio Total   "
+        '
+        'txtDesc
+        '
+        Me.txtDesc.Location = New System.Drawing.Point(132, 93)
+        Me.txtDesc.Name = "txtDesc"
+        Me.txtDesc.Size = New System.Drawing.Size(70, 20)
+        Me.txtDesc.TabIndex = 31
+        Me.txtDesc.Tag = "2"
+        Me.txtDesc.Text = "0"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(208, 96)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(46, 13)
+        Me.Label2.TabIndex = 30
+        Me.Label2.Text = "% Desc."
+        '
         'AgregarProductoPedido
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(581, 331)
+        Me.ClientSize = New System.Drawing.Size(581, 367)
+        Me.Controls.Add(Me.txtDesc)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.txtPrecioTotal)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.txtNombreProducto)
         Me.Controls.Add(Me.txtboxPrecio)
         Me.Controls.Add(Me.lblID)
@@ -221,4 +266,8 @@ Partial Class AgregarProductoPedido
     Friend WithEvents lblID As System.Windows.Forms.Label
     Friend WithEvents txtboxPrecio As CapaPresentacion.ValidacionMoneda
     Friend WithEvents txtNombreProducto As System.Windows.Forms.TextBox
+    Friend WithEvents txtPrecioTotal As CapaPresentacion.ValidacionMoneda
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents txtDesc As System.Windows.Forms.TextBox
+    Friend WithEvents Label2 As System.Windows.Forms.Label
 End Class
