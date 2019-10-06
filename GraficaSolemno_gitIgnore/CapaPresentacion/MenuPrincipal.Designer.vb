@@ -22,9 +22,9 @@ Partial Class frmMenuPrincipal
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea6 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend6 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series6 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.TabGeneral = New System.Windows.Forms.TabControl()
         Me.TabTareas = New System.Windows.Forms.TabPage()
         Me.panelTareas = New System.Windows.Forms.Panel()
@@ -111,9 +111,26 @@ Partial Class frmMenuPrincipal
         Me.ListBox1 = New System.Windows.Forms.ListBox()
         Me.lblIndice = New System.Windows.Forms.Label()
         Me.IconoAyuda = New System.Windows.Forms.PictureBox()
+        Me.TabPresupuesto = New System.Windows.Forms.TabPage()
+        Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.btnRefreshPresupuesto = New System.Windows.Forms.Button()
+        Me.txtBuscarPresupuesto = New System.Windows.Forms.TextBox()
+        Me.btnBuscarPresupuesto = New System.Windows.Forms.Button()
+        Me.DGPresupuesto = New System.Windows.Forms.DataGridView()
+        Me.cboBuscarPresupuesto = New System.Windows.Forms.ComboBox()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.btnEliminarPresupuesto = New System.Windows.Forms.Button()
+        Me.btnModificarPresupuesto = New System.Windows.Forms.Button()
+        Me.btnVerPresupuesto = New System.Windows.Forms.Button()
+        Me.btnNuevoPresupuesto = New System.Windows.Forms.Button()
+        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.btnDeslogear = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.lblNombreUsuario = New System.Windows.Forms.Label()
         Me.TabGeneral.SuspendLayout()
         Me.TabTareas.SuspendLayout()
         Me.TabCliente.SuspendLayout()
@@ -148,6 +165,12 @@ Partial Class frmMenuPrincipal
         Me.PanelSuperiorAyuda.SuspendLayout()
         Me.PanelLateralAyuda.SuspendLayout()
         CType(Me.IconoAyuda, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabPresupuesto.SuspendLayout()
+        Me.Panel4.SuspendLayout()
+        CType(Me.DGPresupuesto, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel2.SuspendLayout()
+        Me.Panel3.SuspendLayout()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -160,11 +183,12 @@ Partial Class frmMenuPrincipal
         Me.TabGeneral.Controls.Add(Me.TabProducto)
         Me.TabGeneral.Controls.Add(Me.TabEstadistica)
         Me.TabGeneral.Controls.Add(Me.TabAyuda)
-        Me.TabGeneral.Location = New System.Drawing.Point(12, 103)
+        Me.TabGeneral.Controls.Add(Me.TabPresupuesto)
+        Me.TabGeneral.Location = New System.Drawing.Point(8, 103)
         Me.TabGeneral.Name = "TabGeneral"
         Me.TabGeneral.Padding = New System.Drawing.Point(6, 4)
         Me.TabGeneral.SelectedIndex = 0
-        Me.TabGeneral.Size = New System.Drawing.Size(1129, 607)
+        Me.TabGeneral.Size = New System.Drawing.Size(1129, 514)
         Me.TabGeneral.SizeMode = System.Windows.Forms.TabSizeMode.Fixed
         Me.TabGeneral.TabIndex = 0
         '
@@ -174,7 +198,7 @@ Partial Class frmMenuPrincipal
         Me.TabTareas.Controls.Add(Me.panelTareas)
         Me.TabTareas.Location = New System.Drawing.Point(4, 24)
         Me.TabTareas.Name = "TabTareas"
-        Me.TabTareas.Size = New System.Drawing.Size(1121, 579)
+        Me.TabTareas.Size = New System.Drawing.Size(1121, 486)
         Me.TabTareas.TabIndex = 6
         Me.TabTareas.Text = "Tareas"
         '
@@ -193,7 +217,7 @@ Partial Class frmMenuPrincipal
         Me.TabCliente.Controls.Add(Me.PanelLateralCliente)
         Me.TabCliente.Location = New System.Drawing.Point(4, 24)
         Me.TabCliente.Name = "TabCliente"
-        Me.TabCliente.Size = New System.Drawing.Size(1121, 579)
+        Me.TabCliente.Size = New System.Drawing.Size(1121, 486)
         Me.TabCliente.TabIndex = 0
         Me.TabCliente.Text = "Cliente"
         '
@@ -210,7 +234,7 @@ Partial Class frmMenuPrincipal
         Me.PanelCentralCliente.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelCentralCliente.Location = New System.Drawing.Point(184, 89)
         Me.PanelCentralCliente.Name = "PanelCentralCliente"
-        Me.PanelCentralCliente.Size = New System.Drawing.Size(937, 490)
+        Me.PanelCentralCliente.Size = New System.Drawing.Size(937, 397)
         Me.PanelCentralCliente.TabIndex = 13
         '
         'btnBuscarInactivos
@@ -314,10 +338,10 @@ Partial Class frmMenuPrincipal
         'lbltituloCliente
         '
         Me.lbltituloCliente.AutoSize = True
-        Me.lbltituloCliente.Font = New System.Drawing.Font("WarHeliosCondCBold", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbltituloCliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbltituloCliente.Location = New System.Drawing.Point(241, 14)
         Me.lbltituloCliente.Name = "lbltituloCliente"
-        Me.lbltituloCliente.Size = New System.Drawing.Size(151, 59)
+        Me.lbltituloCliente.Size = New System.Drawing.Size(180, 55)
         Me.lbltituloCliente.TabIndex = 1
         Me.lbltituloCliente.Text = "Cliente"
         '
@@ -335,7 +359,7 @@ Partial Class frmMenuPrincipal
         Me.PanelLateralCliente.Dock = System.Windows.Forms.DockStyle.Left
         Me.PanelLateralCliente.Location = New System.Drawing.Point(0, 0)
         Me.PanelLateralCliente.Name = "PanelLateralCliente"
-        Me.PanelLateralCliente.Size = New System.Drawing.Size(184, 579)
+        Me.PanelLateralCliente.Size = New System.Drawing.Size(184, 486)
         Me.PanelLateralCliente.TabIndex = 11
         '
         'btnRestaurar
@@ -456,7 +480,7 @@ Partial Class frmMenuPrincipal
         Me.TabPedido.Controls.Add(Me.PanelLateralPedido)
         Me.TabPedido.Location = New System.Drawing.Point(4, 24)
         Me.TabPedido.Name = "TabPedido"
-        Me.TabPedido.Size = New System.Drawing.Size(1121, 579)
+        Me.TabPedido.Size = New System.Drawing.Size(1121, 486)
         Me.TabPedido.TabIndex = 2
         Me.TabPedido.Text = "Pedido"
         '
@@ -471,7 +495,7 @@ Partial Class frmMenuPrincipal
         Me.PanelCentralPedido.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelCentralPedido.Location = New System.Drawing.Point(184, 89)
         Me.PanelCentralPedido.Name = "PanelCentralPedido"
-        Me.PanelCentralPedido.Size = New System.Drawing.Size(937, 490)
+        Me.PanelCentralPedido.Size = New System.Drawing.Size(937, 397)
         Me.PanelCentralPedido.TabIndex = 16
         '
         'btnRefreshPedido
@@ -543,10 +567,10 @@ Partial Class frmMenuPrincipal
         'lblTituloPedidos
         '
         Me.lblTituloPedidos.AutoSize = True
-        Me.lblTituloPedidos.Font = New System.Drawing.Font("WarHeliosCondCBold", 36.0!, System.Drawing.FontStyle.Bold)
+        Me.lblTituloPedidos.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, System.Drawing.FontStyle.Bold)
         Me.lblTituloPedidos.Location = New System.Drawing.Point(241, 14)
         Me.lblTituloPedidos.Name = "lblTituloPedidos"
-        Me.lblTituloPedidos.Size = New System.Drawing.Size(172, 59)
+        Me.lblTituloPedidos.Size = New System.Drawing.Size(205, 55)
         Me.lblTituloPedidos.TabIndex = 2
         Me.lblTituloPedidos.Text = "Pedidos"
         '
@@ -561,7 +585,7 @@ Partial Class frmMenuPrincipal
         Me.PanelLateralPedido.Dock = System.Windows.Forms.DockStyle.Left
         Me.PanelLateralPedido.Location = New System.Drawing.Point(0, 0)
         Me.PanelLateralPedido.Name = "PanelLateralPedido"
-        Me.PanelLateralPedido.Size = New System.Drawing.Size(184, 579)
+        Me.PanelLateralPedido.Size = New System.Drawing.Size(184, 486)
         Me.PanelLateralPedido.TabIndex = 14
         '
         'btnEliminarPedido
@@ -638,7 +662,7 @@ Partial Class frmMenuPrincipal
         Me.TabProducto.Controls.Add(Me.panelLateralProducto)
         Me.TabProducto.Location = New System.Drawing.Point(4, 24)
         Me.TabProducto.Name = "TabProducto"
-        Me.TabProducto.Size = New System.Drawing.Size(1121, 579)
+        Me.TabProducto.Size = New System.Drawing.Size(1121, 486)
         Me.TabProducto.TabIndex = 1
         Me.TabProducto.Text = "Producto"
         '
@@ -655,7 +679,7 @@ Partial Class frmMenuPrincipal
         Me.PanelProductos.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelProductos.Location = New System.Drawing.Point(184, 89)
         Me.PanelProductos.Name = "PanelProductos"
-        Me.PanelProductos.Size = New System.Drawing.Size(937, 490)
+        Me.PanelProductos.Size = New System.Drawing.Size(937, 397)
         Me.PanelProductos.TabIndex = 17
         '
         'DGProductoInactivo
@@ -757,10 +781,10 @@ Partial Class frmMenuPrincipal
         'lblTituloProducto
         '
         Me.lblTituloProducto.AutoSize = True
-        Me.lblTituloProducto.Font = New System.Drawing.Font("WarHeliosCondCBold", 36.0!, System.Drawing.FontStyle.Bold)
+        Me.lblTituloProducto.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, System.Drawing.FontStyle.Bold)
         Me.lblTituloProducto.Location = New System.Drawing.Point(207, 14)
         Me.lblTituloProducto.Name = "lblTituloProducto"
-        Me.lblTituloProducto.Size = New System.Drawing.Size(211, 59)
+        Me.lblTituloProducto.Size = New System.Drawing.Size(250, 55)
         Me.lblTituloProducto.TabIndex = 1
         Me.lblTituloProducto.Text = "Productos"
         '
@@ -778,7 +802,7 @@ Partial Class frmMenuPrincipal
         Me.panelLateralProducto.Dock = System.Windows.Forms.DockStyle.Left
         Me.panelLateralProducto.Location = New System.Drawing.Point(0, 0)
         Me.panelLateralProducto.Name = "panelLateralProducto"
-        Me.panelLateralProducto.Size = New System.Drawing.Size(184, 579)
+        Me.panelLateralProducto.Size = New System.Drawing.Size(184, 486)
         Me.panelLateralProducto.TabIndex = 16
         '
         'btnDetalleProductoInactivo
@@ -898,7 +922,7 @@ Partial Class frmMenuPrincipal
         Me.TabEstadistica.Controls.Add(Me.PnlLateralEstadistica)
         Me.TabEstadistica.Location = New System.Drawing.Point(4, 24)
         Me.TabEstadistica.Name = "TabEstadistica"
-        Me.TabEstadistica.Size = New System.Drawing.Size(1121, 579)
+        Me.TabEstadistica.Size = New System.Drawing.Size(1121, 486)
         Me.TabEstadistica.TabIndex = 3
         Me.TabEstadistica.Text = "Estadistica"
         '
@@ -913,7 +937,7 @@ Partial Class frmMenuPrincipal
         Me.Panel7.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel7.Location = New System.Drawing.Point(184, 89)
         Me.Panel7.Name = "Panel7"
-        Me.Panel7.Size = New System.Drawing.Size(937, 490)
+        Me.Panel7.Size = New System.Drawing.Size(937, 397)
         Me.Panel7.TabIndex = 6
         '
         'Label5
@@ -959,21 +983,21 @@ Partial Class frmMenuPrincipal
         '
         Me.GraficoSegunConsulta.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.GraficoSegunConsulta.BackSecondaryColor = System.Drawing.Color.White
-        ChartArea1.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        ChartArea1.BackHatchStyle = System.Windows.Forms.DataVisualization.Charting.ChartHatchStyle.DarkDownwardDiagonal
-        ChartArea1.Name = "ChartArea1"
-        Me.GraficoSegunConsulta.ChartAreas.Add(ChartArea1)
-        Legend1.ForeColor = System.Drawing.Color.Maroon
-        Legend1.ItemColumnSpacing = 0
-        Legend1.Name = "Legend1"
-        Me.GraficoSegunConsulta.Legends.Add(Legend1)
+        ChartArea6.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        ChartArea6.BackHatchStyle = System.Windows.Forms.DataVisualization.Charting.ChartHatchStyle.DarkDownwardDiagonal
+        ChartArea6.Name = "ChartArea1"
+        Me.GraficoSegunConsulta.ChartAreas.Add(ChartArea6)
+        Legend6.ForeColor = System.Drawing.Color.Maroon
+        Legend6.ItemColumnSpacing = 0
+        Legend6.Name = "Legend1"
+        Me.GraficoSegunConsulta.Legends.Add(Legend6)
         Me.GraficoSegunConsulta.Location = New System.Drawing.Point(18, 21)
         Me.GraficoSegunConsulta.Name = "GraficoSegunConsulta"
         Me.GraficoSegunConsulta.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen
-        Series1.ChartArea = "ChartArea1"
-        Series1.Legend = "Legend1"
-        Series1.Name = "Cantidad"
-        Me.GraficoSegunConsulta.Series.Add(Series1)
+        Series6.ChartArea = "ChartArea1"
+        Series6.Legend = "Legend1"
+        Series6.Name = "Cantidad"
+        Me.GraficoSegunConsulta.Series.Add(Series6)
         Me.GraficoSegunConsulta.Size = New System.Drawing.Size(805, 300)
         Me.GraficoSegunConsulta.TabIndex = 0
         Me.GraficoSegunConsulta.Text = "Chart1"
@@ -991,11 +1015,11 @@ Partial Class frmMenuPrincipal
         'lblTituloEstadistica
         '
         Me.lblTituloEstadistica.AutoSize = True
-        Me.lblTituloEstadistica.Font = New System.Drawing.Font("WarHeliosCondCBold", 36.0!, System.Drawing.FontStyle.Bold)
+        Me.lblTituloEstadistica.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, System.Drawing.FontStyle.Bold)
         Me.lblTituloEstadistica.ForeColor = System.Drawing.Color.Black
         Me.lblTituloEstadistica.Location = New System.Drawing.Point(136, 14)
         Me.lblTituloEstadistica.Name = "lblTituloEstadistica"
-        Me.lblTituloEstadistica.Size = New System.Drawing.Size(381, 59)
+        Me.lblTituloEstadistica.Size = New System.Drawing.Size(461, 55)
         Me.lblTituloEstadistica.TabIndex = 0
         Me.lblTituloEstadistica.Text = "Pedidos mensuales"
         '
@@ -1010,7 +1034,7 @@ Partial Class frmMenuPrincipal
         Me.PnlLateralEstadistica.Dock = System.Windows.Forms.DockStyle.Left
         Me.PnlLateralEstadistica.Location = New System.Drawing.Point(0, 0)
         Me.PnlLateralEstadistica.Name = "PnlLateralEstadistica"
-        Me.PnlLateralEstadistica.Size = New System.Drawing.Size(184, 579)
+        Me.PnlLateralEstadistica.Size = New System.Drawing.Size(184, 486)
         Me.PnlLateralEstadistica.TabIndex = 4
         '
         'lblSubtituloEstadisticas
@@ -1083,7 +1107,7 @@ Partial Class frmMenuPrincipal
         Me.TabAyuda.Controls.Add(Me.PanelLateralAyuda)
         Me.TabAyuda.Location = New System.Drawing.Point(4, 24)
         Me.TabAyuda.Name = "TabAyuda"
-        Me.TabAyuda.Size = New System.Drawing.Size(1121, 579)
+        Me.TabAyuda.Size = New System.Drawing.Size(1121, 486)
         Me.TabAyuda.TabIndex = 4
         Me.TabAyuda.Text = "Ayuda"
         '
@@ -1098,7 +1122,7 @@ Partial Class frmMenuPrincipal
         Me.PanelCentralAyuda.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelCentralAyuda.Location = New System.Drawing.Point(184, 89)
         Me.PanelCentralAyuda.Name = "PanelCentralAyuda"
-        Me.PanelCentralAyuda.Size = New System.Drawing.Size(937, 490)
+        Me.PanelCentralAyuda.Size = New System.Drawing.Size(937, 397)
         Me.PanelCentralAyuda.TabIndex = 19
         '
         'ListBox3
@@ -1109,7 +1133,7 @@ Partial Class frmMenuPrincipal
         Me.ListBox3.FormattingEnabled = True
         Me.ListBox3.ItemHeight = 20
         Me.ListBox3.Items.AddRange(New Object() {"3)Agrege un titulo deceado a su postick para un posterior reconomiento del mismo." & _
-                "", "4)Describa detalladamente el motivo del postick.", "5)Agrege la Fecha del postick en el cual quiere que sea mostrado.", "6)seleccione ""Guardar""."})
+                        "", "4)Describa detalladamente el motivo del postick.", "5)Agrege la Fecha del postick en el cual quiere que sea mostrado.", "6)seleccione ""Guardar""."})
         Me.ListBox3.Location = New System.Drawing.Point(352, 145)
         Me.ListBox3.Name = "ListBox3"
         Me.ListBox3.Size = New System.Drawing.Size(589, 300)
@@ -1170,10 +1194,10 @@ Partial Class frmMenuPrincipal
         'lblTituloAyuda
         '
         Me.lblTituloAyuda.AutoSize = True
-        Me.lblTituloAyuda.Font = New System.Drawing.Font("WarHeliosCondCBold", 36.0!, System.Drawing.FontStyle.Bold)
+        Me.lblTituloAyuda.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, System.Drawing.FontStyle.Bold)
         Me.lblTituloAyuda.Location = New System.Drawing.Point(137, 14)
         Me.lblTituloAyuda.Name = "lblTituloAyuda"
-        Me.lblTituloAyuda.Size = New System.Drawing.Size(394, 59)
+        Me.lblTituloAyuda.Size = New System.Drawing.Size(476, 55)
         Me.lblTituloAyuda.TabIndex = 0
         Me.lblTituloAyuda.Text = "Ayuda del programa"
         '
@@ -1186,7 +1210,7 @@ Partial Class frmMenuPrincipal
         Me.PanelLateralAyuda.Dock = System.Windows.Forms.DockStyle.Left
         Me.PanelLateralAyuda.Location = New System.Drawing.Point(0, 0)
         Me.PanelLateralAyuda.Name = "PanelLateralAyuda"
-        Me.PanelLateralAyuda.Size = New System.Drawing.Size(184, 579)
+        Me.PanelLateralAyuda.Size = New System.Drawing.Size(184, 486)
         Me.PanelLateralAyuda.TabIndex = 17
         '
         'ListBox1
@@ -1205,10 +1229,10 @@ Partial Class frmMenuPrincipal
         'lblIndice
         '
         Me.lblIndice.AutoSize = True
-        Me.lblIndice.Font = New System.Drawing.Font("WarHeliosCondCBold", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblIndice.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblIndice.Location = New System.Drawing.Point(57, 176)
         Me.lblIndice.Name = "lblIndice"
-        Me.lblIndice.Size = New System.Drawing.Size(78, 33)
+        Me.lblIndice.Size = New System.Drawing.Size(93, 31)
         Me.lblIndice.TabIndex = 14
         Me.lblIndice.Text = "Indice"
         '
@@ -1222,14 +1246,207 @@ Partial Class frmMenuPrincipal
         Me.IconoAyuda.TabIndex = 13
         Me.IconoAyuda.TabStop = False
         '
+        'TabPresupuesto
+        '
+        Me.TabPresupuesto.Controls.Add(Me.Panel4)
+        Me.TabPresupuesto.Controls.Add(Me.Panel2)
+        Me.TabPresupuesto.Controls.Add(Me.Panel3)
+        Me.TabPresupuesto.Location = New System.Drawing.Point(4, 24)
+        Me.TabPresupuesto.Name = "TabPresupuesto"
+        Me.TabPresupuesto.Size = New System.Drawing.Size(1121, 486)
+        Me.TabPresupuesto.TabIndex = 7
+        Me.TabPresupuesto.Text = "Presupuesto"
+        Me.TabPresupuesto.UseVisualStyleBackColor = True
+        '
+        'Panel4
+        '
+        Me.Panel4.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
+        Me.Panel4.Controls.Add(Me.btnRefreshPresupuesto)
+        Me.Panel4.Controls.Add(Me.txtBuscarPresupuesto)
+        Me.Panel4.Controls.Add(Me.btnBuscarPresupuesto)
+        Me.Panel4.Controls.Add(Me.DGPresupuesto)
+        Me.Panel4.Controls.Add(Me.cboBuscarPresupuesto)
+        Me.Panel4.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel4.Location = New System.Drawing.Point(184, 89)
+        Me.Panel4.Name = "Panel4"
+        Me.Panel4.Size = New System.Drawing.Size(937, 397)
+        Me.Panel4.TabIndex = 18
+        '
+        'btnRefreshPresupuesto
+        '
+        Me.btnRefreshPresupuesto.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnRefreshPresupuesto.BackgroundImage = Global.CapaPresentacion.My.Resources.Resources.home
+        Me.btnRefreshPresupuesto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnRefreshPresupuesto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnRefreshPresupuesto.Location = New System.Drawing.Point(20, 27)
+        Me.btnRefreshPresupuesto.Name = "btnRefreshPresupuesto"
+        Me.btnRefreshPresupuesto.Size = New System.Drawing.Size(36, 30)
+        Me.btnRefreshPresupuesto.TabIndex = 14
+        Me.btnRefreshPresupuesto.UseVisualStyleBackColor = False
+        '
+        'txtBuscarPresupuesto
+        '
+        Me.txtBuscarPresupuesto.Location = New System.Drawing.Point(67, 36)
+        Me.txtBuscarPresupuesto.Name = "txtBuscarPresupuesto"
+        Me.txtBuscarPresupuesto.Size = New System.Drawing.Size(342, 20)
+        Me.txtBuscarPresupuesto.TabIndex = 12
+        '
+        'btnBuscarPresupuesto
+        '
+        Me.btnBuscarPresupuesto.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnBuscarPresupuesto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnBuscarPresupuesto.Location = New System.Drawing.Point(535, 33)
+        Me.btnBuscarPresupuesto.Name = "btnBuscarPresupuesto"
+        Me.btnBuscarPresupuesto.Size = New System.Drawing.Size(115, 24)
+        Me.btnBuscarPresupuesto.TabIndex = 11
+        Me.btnBuscarPresupuesto.Text = "Buscar"
+        Me.btnBuscarPresupuesto.UseVisualStyleBackColor = False
+        '
+        'DGPresupuesto
+        '
+        Me.DGPresupuesto.AllowUserToAddRows = False
+        Me.DGPresupuesto.AllowUserToDeleteRows = False
+        Me.DGPresupuesto.AllowUserToResizeRows = False
+        Me.DGPresupuesto.BackgroundColor = System.Drawing.SystemColors.ControlLightLight
+        Me.DGPresupuesto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DGPresupuesto.Location = New System.Drawing.Point(20, 74)
+        Me.DGPresupuesto.MultiSelect = False
+        Me.DGPresupuesto.Name = "DGPresupuesto"
+        Me.DGPresupuesto.ReadOnly = True
+        Me.DGPresupuesto.RowHeadersVisible = False
+        Me.DGPresupuesto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DGPresupuesto.Size = New System.Drawing.Size(630, 289)
+        Me.DGPresupuesto.TabIndex = 6
+        '
+        'cboBuscarPresupuesto
+        '
+        Me.cboBuscarPresupuesto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboBuscarPresupuesto.FormattingEnabled = True
+        Me.cboBuscarPresupuesto.Items.AddRange(New Object() {"Nombre", "Apellido", "DNI", "CUIT"})
+        Me.cboBuscarPresupuesto.Location = New System.Drawing.Point(415, 35)
+        Me.cboBuscarPresupuesto.Name = "cboBuscarPresupuesto"
+        Me.cboBuscarPresupuesto.Size = New System.Drawing.Size(114, 21)
+        Me.cboBuscarPresupuesto.TabIndex = 13
+        '
+        'Panel2
+        '
+        Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(166, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.Panel2.Controls.Add(Me.Label6)
+        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel2.Location = New System.Drawing.Point(184, 0)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(937, 89)
+        Me.Panel2.TabIndex = 17
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, System.Drawing.FontStyle.Bold)
+        Me.Label6.Location = New System.Drawing.Point(241, 14)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(306, 55)
+        Me.Label6.TabIndex = 2
+        Me.Label6.Text = "Presupuesto"
+        '
+        'Panel3
+        '
+        Me.Panel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(134, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.Panel3.Controls.Add(Me.btnEliminarPresupuesto)
+        Me.Panel3.Controls.Add(Me.btnModificarPresupuesto)
+        Me.Panel3.Controls.Add(Me.btnVerPresupuesto)
+        Me.Panel3.Controls.Add(Me.btnNuevoPresupuesto)
+        Me.Panel3.Controls.Add(Me.PictureBox3)
+        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Panel3.Location = New System.Drawing.Point(0, 0)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(184, 486)
+        Me.Panel3.TabIndex = 16
+        '
+        'btnEliminarPresupuesto
+        '
+        Me.btnEliminarPresupuesto.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnEliminarPresupuesto.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnEliminarPresupuesto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnEliminarPresupuesto.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEliminarPresupuesto.ForeColor = System.Drawing.Color.White
+        Me.btnEliminarPresupuesto.Location = New System.Drawing.Point(0, 386)
+        Me.btnEliminarPresupuesto.Name = "btnEliminarPresupuesto"
+        Me.btnEliminarPresupuesto.Size = New System.Drawing.Size(184, 50)
+        Me.btnEliminarPresupuesto.TabIndex = 27
+        Me.btnEliminarPresupuesto.Text = "Eliminar Pedido"
+        Me.btnEliminarPresupuesto.UseVisualStyleBackColor = False
+        '
+        'btnModificarPresupuesto
+        '
+        Me.btnModificarPresupuesto.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnModificarPresupuesto.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnModificarPresupuesto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnModificarPresupuesto.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnModificarPresupuesto.ForeColor = System.Drawing.Color.White
+        Me.btnModificarPresupuesto.Location = New System.Drawing.Point(0, 274)
+        Me.btnModificarPresupuesto.Name = "btnModificarPresupuesto"
+        Me.btnModificarPresupuesto.Size = New System.Drawing.Size(184, 50)
+        Me.btnModificarPresupuesto.TabIndex = 26
+        Me.btnModificarPresupuesto.Text = "Modificar Pedido"
+        Me.btnModificarPresupuesto.UseVisualStyleBackColor = False
+        '
+        'btnVerPresupuesto
+        '
+        Me.btnVerPresupuesto.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnVerPresupuesto.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnVerPresupuesto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnVerPresupuesto.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnVerPresupuesto.ForeColor = System.Drawing.Color.White
+        Me.btnVerPresupuesto.Location = New System.Drawing.Point(0, 330)
+        Me.btnVerPresupuesto.Name = "btnVerPresupuesto"
+        Me.btnVerPresupuesto.Size = New System.Drawing.Size(184, 50)
+        Me.btnVerPresupuesto.TabIndex = 25
+        Me.btnVerPresupuesto.Text = "Ver Detalles Pedido"
+        Me.btnVerPresupuesto.UseVisualStyleBackColor = False
+        '
+        'btnNuevoPresupuesto
+        '
+        Me.btnNuevoPresupuesto.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnNuevoPresupuesto.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnNuevoPresupuesto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnNuevoPresupuesto.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnNuevoPresupuesto.ForeColor = System.Drawing.Color.White
+        Me.btnNuevoPresupuesto.Location = New System.Drawing.Point(0, 218)
+        Me.btnNuevoPresupuesto.Name = "btnNuevoPresupuesto"
+        Me.btnNuevoPresupuesto.Size = New System.Drawing.Size(184, 50)
+        Me.btnNuevoPresupuesto.TabIndex = 24
+        Me.btnNuevoPresupuesto.Text = "Nuevo Pedido"
+        Me.btnNuevoPresupuesto.UseVisualStyleBackColor = False
+        '
+        'PictureBox3
+        '
+        Me.PictureBox3.Image = Global.CapaPresentacion.My.Resources.Resources.pedidos
+        Me.PictureBox3.Location = New System.Drawing.Point(7, 14)
+        Me.PictureBox3.Name = "PictureBox3"
+        Me.PictureBox3.Size = New System.Drawing.Size(170, 150)
+        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox3.TabIndex = 23
+        Me.PictureBox3.TabStop = False
+        '
         'Panel1
         '
+        Me.Panel1.Controls.Add(Me.lblNombreUsuario)
+        Me.Panel1.Controls.Add(Me.btnDeslogear)
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Controls.Add(Me.PictureBox1)
         Me.Panel1.Location = New System.Drawing.Point(12, 4)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1125, 93)
         Me.Panel1.TabIndex = 1
+        '
+        'btnDeslogear
+        '
+        Me.btnDeslogear.Location = New System.Drawing.Point(1050, 0)
+        Me.btnDeslogear.Name = "btnDeslogear"
+        Me.btnDeslogear.Size = New System.Drawing.Size(75, 23)
+        Me.btnDeslogear.TabIndex = 2
+        Me.btnDeslogear.Text = "Deslogear"
+        Me.btnDeslogear.UseVisualStyleBackColor = True
         '
         'Label1
         '
@@ -1244,12 +1461,22 @@ Partial Class frmMenuPrincipal
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.CapaPresentacion.My.Resources.Resources.slmn
-        Me.PictureBox1.Location = New System.Drawing.Point(822, 0)
+        Me.PictureBox1.Location = New System.Drawing.Point(169, 0)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(116, 93)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
+        '
+        'lblNombreUsuario
+        '
+        Me.lblNombreUsuario.AutoSize = True
+        Me.lblNombreUsuario.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblNombreUsuario.Location = New System.Drawing.Point(954, 5)
+        Me.lblNombreUsuario.Name = "lblNombreUsuario"
+        Me.lblNombreUsuario.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.lblNombreUsuario.Size = New System.Drawing.Size(0, 18)
+        Me.lblNombreUsuario.TabIndex = 3
         '
         'frmMenuPrincipal
         '
@@ -1308,6 +1535,14 @@ Partial Class frmMenuPrincipal
         Me.PanelLateralAyuda.ResumeLayout(False)
         Me.PanelLateralAyuda.PerformLayout()
         CType(Me.IconoAyuda, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabPresupuesto.ResumeLayout(False)
+        Me.Panel4.ResumeLayout(False)
+        Me.Panel4.PerformLayout()
+        CType(Me.DGPresupuesto, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel2.ResumeLayout(False)
+        Me.Panel2.PerformLayout()
+        Me.Panel3.ResumeLayout(False)
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1403,4 +1638,21 @@ Partial Class frmMenuPrincipal
     Friend WithEvents btnPapeleraProducto As System.Windows.Forms.Button
     Friend WithEvents btnBuscarProductoInactivo As System.Windows.Forms.Button
     Friend WithEvents DGProductoInactivo As System.Windows.Forms.DataGridView
+    Friend WithEvents TabPresupuesto As TabPage
+    Friend WithEvents Panel4 As Panel
+    Friend WithEvents btnRefreshPresupuesto As Button
+    Friend WithEvents txtBuscarPresupuesto As TextBox
+    Friend WithEvents btnBuscarPresupuesto As Button
+    Friend WithEvents DGPresupuesto As DataGridView
+    Friend WithEvents cboBuscarPresupuesto As ComboBox
+    Friend WithEvents Panel2 As Panel
+    Friend WithEvents Label6 As Label
+    Friend WithEvents Panel3 As Panel
+    Friend WithEvents btnEliminarPresupuesto As Button
+    Friend WithEvents btnModificarPresupuesto As Button
+    Friend WithEvents btnVerPresupuesto As Button
+    Friend WithEvents btnNuevoPresupuesto As Button
+    Friend WithEvents PictureBox3 As PictureBox
+    Friend WithEvents btnDeslogear As System.Windows.Forms.Button
+    Friend WithEvents lblNombreUsuario As System.Windows.Forms.Label
 End Class

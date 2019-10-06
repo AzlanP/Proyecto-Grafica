@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class FormularioPedido
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
+Partial Class FormularioPresupuesto
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,10 +20,9 @@ Partial Class FormularioPedido
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormularioPedido))
         Me.lblTipoEnvio = New System.Windows.Forms.Label()
         Me.cboTipoEnvio = New System.Windows.Forms.ComboBox()
         Me.TipoEnvioBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -59,8 +58,6 @@ Partial Class FormularioPedido
         Me.txtTotal = New CapaPresentacion.ValidacionMoneda()
         Me.lblTotal = New System.Windows.Forms.Label()
         Me.btnEnvioGuardado = New System.Windows.Forms.Button()
-        Me.btnSearch = New System.Windows.Forms.Button()
-        Me.btnAdd = New System.Windows.Forms.Button()
         CType(Me.TipoEnvioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SolemnoDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -284,7 +281,7 @@ Partial Class FormularioPedido
         'lblMedio
         '
         Me.lblMedio.AutoSize = True
-        Me.lblMedio.Location = New System.Drawing.Point(302, 77)
+        Me.lblMedio.Location = New System.Drawing.Point(227, 38)
         Me.lblMedio.Name = "lblMedio"
         Me.lblMedio.Size = New System.Drawing.Size(123, 13)
         Me.lblMedio.TabIndex = 38
@@ -296,7 +293,7 @@ Partial Class FormularioPedido
         Me.cboMedio.DisplayMember = "Nombre"
         Me.cboMedio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboMedio.FormattingEnabled = True
-        Me.cboMedio.Location = New System.Drawing.Point(443, 69)
+        Me.cboMedio.Location = New System.Drawing.Point(356, 35)
         Me.cboMedio.Name = "cboMedio"
         Me.cboMedio.Size = New System.Drawing.Size(107, 21)
         Me.cboMedio.TabIndex = 37
@@ -388,39 +385,12 @@ Partial Class FormularioPedido
         Me.btnEnvioGuardado.Text = "envio guardado"
         Me.btnEnvioGuardado.UseVisualStyleBackColor = False
         '
-        'btnSearch
-        '
-        Me.btnSearch.BackgroundImage = CType(resources.GetObject("btnSearch.BackgroundImage"), System.Drawing.Image)
-        Me.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnSearch.FlatAppearance.BorderSize = 0
-        Me.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSearch.Location = New System.Drawing.Point(211, 35)
-        Me.btnSearch.Name = "btnSearch"
-        Me.btnSearch.Size = New System.Drawing.Size(38, 40)
-        Me.btnSearch.TabIndex = 47
-        Me.btnSearch.UseVisualStyleBackColor = True
-        '
-        'btnAdd
-        '
-        Me.btnAdd.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
-        Me.btnAdd.BackgroundImage = CType(resources.GetObject("btnAdd.BackgroundImage"), System.Drawing.Image)
-        Me.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnAdd.FlatAppearance.BorderSize = 0
-        Me.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAdd.Location = New System.Drawing.Point(255, 35)
-        Me.btnAdd.Name = "btnAdd"
-        Me.btnAdd.Size = New System.Drawing.Size(30, 30)
-        Me.btnAdd.TabIndex = 48
-        Me.btnAdd.UseVisualStyleBackColor = False
-        '
         'FormularioPedido
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(562, 427)
-        Me.Controls.Add(Me.btnAdd)
-        Me.Controls.Add(Me.btnSearch)
         Me.Controls.Add(Me.btnEnvioGuardado)
         Me.Controls.Add(Me.txtTotal)
         Me.Controls.Add(Me.lblTotal)
@@ -495,6 +465,4 @@ Partial Class FormularioPedido
     Friend WithEvents txtTotal As CapaPresentacion.ValidacionMoneda
     Friend WithEvents lblTotal As System.Windows.Forms.Label
     Friend WithEvents btnEnvioGuardado As System.Windows.Forms.Button
-    Friend WithEvents btnSearch As System.Windows.Forms.Button
-    Friend WithEvents btnAdd As System.Windows.Forms.Button
 End Class

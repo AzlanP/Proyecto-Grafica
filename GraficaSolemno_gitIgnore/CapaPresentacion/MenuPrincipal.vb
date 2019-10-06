@@ -488,7 +488,108 @@ Public Class frmMenuPrincipal
 
     End Sub
 
-   
-    
+    '--------------------------------------------------------------------------------------------
+    '-------------------------------presupuesto---------------------------------
+    Dim oCNPresupuesto As New CNPedido
+    Private Sub TabPresupuesto_Enter(ByVal sender As Object, ByVal e As System.EventArgs) Handles TabPresupuesto.Enter
+        CargarGridPresupuestos()
+        cboBuscarPresupuesto.SelectedIndex = 0
+    End Sub
+    Public Sub CargarGridPresupuestos()
+        DGPresupuesto.DataSource = oCNPresupuesto.MostrarPedido
+    End Sub
+    Private Sub btnNuevoPresupuesto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNuevoPresupuesto.Click
+        Dim frmPresupuesto As New FormularioPresupuesto
+        frmPresupuesto.btnAgregarPedidoExistente.Visible = False
+        frmPresupuesto.btnAgregarPedidoNuevo.Visible = True
+        frmPresupuesto.btnGuardarPedido.Visible = True
+        frmPresupuesto.btnGuardarCambios.Visible = False
+        frmPresupuesto.lblID.Text = oCNPresupuesto.ConsultarUltimoID()
+        frmPresupuesto.Detalles()
+        'precargar combobox
+        frmPresupuesto.PrecargarCombobox()
+        frmPresupuesto.ShowDialog()
+        CargarGridPresupuestos()
+    End Sub
 
+    Private Sub btnModificarPresupuesto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnModificarPresupuesto.Click
+        ID = DGPresupuesto.Rows(DGPresupuesto.CurrentCell.RowIndex).Cells("IDPedido").Value
+        Dim frmPresupuesto As New FormularioPresupuesto
+        frmPresupuesto.btnAgregarPedidoNuevo.Visible = False
+        frmPresupuesto.btnAgregarPedidoExistente.Visible = True
+        frmPresupuesto.btnGuardarPedido.Visible = False
+        frmPresupuesto.btnGuardarCambios.Visible = True
+        frmPresupuesto.CargarGridDetalles(ID)
+        frmPresupuesto.LLenarFormulario(ID)
+        frmPresupuesto.lblID.Text = ID
+        frmPresupuesto.ShowDialog()
+        CargarGridPresupuestos()
+    End Sub
+
+    Private Sub btnVerPresupuesto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnVerPresupuesto.Click
+        ID = DGPresupuesto.Rows(DGPresupuesto.CurrentCell.RowIndex).Cells("IDPedido").Value
+        Dim frmPresupuesto As New FormularioPresupuesto
+        frmPresupuesto.btnAgregarPedidoNuevo.Visible = False
+        frmPresupuesto.btnAgregarPedidoExistente.Visible = True
+        frmPresupuesto.btnAgregarPedidoNuevo.Enabled = False
+        frmPresupuesto.btnAgregarPedidoExistente.Enabled = False
+        frmPresupuesto.btnModificarPedido.Enabled = False
+        frmPresupuesto.btnQuitar.Enabled = False
+        frmPresupuesto.btnGuardarPedido.Visible = False
+        frmPresupuesto.btnGuardarCambios.Visible = False
+        frmPresupuesto.btnCancelarPedido.Text = "Aceptar"
+        frmPresupuesto.CargarGridDetalles(ID)
+        frmPresupuesto.LLenarFormulario(ID)
+        frmPresupuesto.Disesabletext()
+        frmPresupuesto.ShowDialog()
+        CargarGridPresupuestos()
+    End Sub
+
+    Private Sub btnEliminarPresupuesto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEliminarPresupuesto.Click
+        ID = DGPresupuesto.Rows(DGPresupuesto.CurrentCell.RowIndex).Cells("IDPedido").Value
+        oCNPresupuesto.EliminarPedido(ID)
+        CargarGridPresupuestos()
+    End Sub
+
+    Private Sub btnBuscarPresupuesto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscarPresupuesto.Click
+        Dim dt As DataTable
+        dt = oCNPresupuesto.BuscarPedido(txtBuscarPresupuesto.Text, cboBuscarPresupuesto.Text)
+        DGPresupuesto.DataSource = dt
+    End Sub
+
+    Private Sub DGPresupuesto_MouseDoubleClick(ByVal sender As Object, ByVal e As MouseEventArgs) Handles DGPresupuesto.MouseDoubleClick
+        ID = DGPresupuesto.Rows(DGPresupuesto.CurrentCell.RowIndex).Cells("IDPedido").Value
+        Dim frmPresupuesto As New FormularioPresupuesto
+        frmPresupuesto.btnAgregarPedidoNuevo.Visible = False
+        frmPresupuesto.btnAgregarPedidoExistente.Visible = True
+        frmPresupuesto.btnGuardarPedido.Visible = False
+        frmPresupuesto.btnGuardarCambios.Visible = True
+        frmPresupuesto.CargarGridDetalles(ID)
+        frmPresupuesto.LLenarFormulario(ID)
+        frmPresupuesto.lblID.Text = ID
+        frmPresupuesto.ShowDialog()
+        CargarGridPresupuestos()
+    End Sub
+
+    Private Sub btnRefreshPresupuesto_Click(sender As System.Object, e As System.EventArgs) Handles btnRefreshPresupuesto.Click
+        CargarGridPresupuestos()
+
+    End Sub
+
+    Public Sub enableAdminMode()
+
+        TabGeneral.TabPages.Add(TabPresupuesto)
+
+    End Sub
+    Public Sub enableEsclavoMode()
+        If (TabGeneral.TabPages.Contains(TabPresupuesto)) Then
+            TabGeneral.TabPages.Remove(TabPresupuesto)
+        End If
+    End Sub
+
+    Private Sub btnDeslogear_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnDeslogear.Click
+        Me.Hide()
+        Me.lblNombreUsuario.Text = ""
+        frmIngresaralSistema.Show()
+    End Sub
 End Class

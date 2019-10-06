@@ -88,6 +88,12 @@
     <Compile Include="FormularioEnvio.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormularioPresupuesto.Designer.vb">
+      <DependentUpon>FormularioPresupuesto.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormularioPresupuesto.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormularioPedido.Designer.vb">
       <DependentUpon>FormularioPedido.vb</DependentUpon>
     </Compile>
@@ -104,6 +110,12 @@
       <DependentUpon>frmPestañaTareas.vb</DependentUpon>
     </Compile>
     <Compile Include="frmPestañaTareas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.designer.vb">
+      <DependentUpon>Login.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Login.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MenuPrincipal.Designer.vb">
@@ -159,6 +171,9 @@
     <EmbeddedResource Include="FormularioEnvio.resx">
       <DependentUpon>FormularioEnvio.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormularioPresupuesto.resx">
+      <DependentUpon>FormularioPresupuesto.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormularioPedido.resx">
       <DependentUpon>FormularioPedido.vb</DependentUpon>
     </EmbeddedResource>
@@ -167,6 +182,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmPestañaTareas.resx">
       <DependentUpon>frmPestañaTareas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuPrincipal.resx">
       <DependentUpon>MenuPrincipal.vb</DependentUpon>
@@ -243,6 +261,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\add.png" />
+    <Content Include="Resources\search.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
