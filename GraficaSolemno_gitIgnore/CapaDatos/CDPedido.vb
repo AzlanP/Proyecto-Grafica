@@ -130,7 +130,7 @@ Public Class CDPedidos
         Dim da As New SQLiteDataAdapter
         Dim dt As New DataTable
         Try
-            Dim instruccionsql As String = "SELECT Pedidos.IDPedido, pedidos.Descripcion, pedidos.Fecha, Clientes.nombre as 'Cliente', tipoenvio.Nombre as 'TipoEnvio', medios.nombre as 'Medio', pedidos.Estado, pedidos.seña FROM Pedidos, Clientes, medios, tipoenvio WHERE " & campo & " =@pbuscar  and (pedidos.IDCliente=clientes.IDCliente and pedidos.IDMedio= medios.IDMedio and pedidos.IDTipoEnvio = TipoEnvio.IDTipoEnvio )"
+            Dim instruccionsql As String = "SELECT Pedidos.IDPedido, pedidos.Descripcion, pedidos.Fecha, Clientes.nombre || ' ' || Clientes.apellido as 'cliente' , tipoenvio.Nombre as 'TipoEnvio', medios.nombre as 'Medio', pedidos.Estado, pedidos.seña, Clientes.apellido as 'Apellido' FROM Pedidos, Clientes, medios, tipoenvio WHERE " & campo & " =@pbuscar  and (pedidos.IDCliente=clientes.IDCliente and pedidos.IDMedio= medios.IDMedio and pedidos.IDTipoEnvio = TipoEnvio.IDTipoEnvio )"
             Dim comando As New SQLiteCommand(instruccionsql, oCDConexion.con)
 
             If IsNumeric(pbuscar) Then

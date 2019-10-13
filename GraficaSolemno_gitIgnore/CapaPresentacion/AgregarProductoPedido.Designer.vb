@@ -38,8 +38,8 @@ Partial Class AgregarProductoPedido
         Me.txtboxPrecio = New CapaPresentacion.ValidacionMoneda()
         Me.txtPrecioTotal = New CapaPresentacion.ValidacionMoneda()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.txtDesc = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.cboDesc = New System.Windows.Forms.ComboBox()
         CType(Me.DGBuscar, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -202,15 +202,6 @@ Partial Class AgregarProductoPedido
         Me.Label1.TabIndex = 28
         Me.Label1.Text = "Precio Total   "
         '
-        'txtDesc
-        '
-        Me.txtDesc.Location = New System.Drawing.Point(132, 93)
-        Me.txtDesc.Name = "txtDesc"
-        Me.txtDesc.Size = New System.Drawing.Size(70, 20)
-        Me.txtDesc.TabIndex = 31
-        Me.txtDesc.Tag = "2"
-        Me.txtDesc.Text = "0"
-        '
         'Label2
         '
         Me.Label2.AutoSize = True
@@ -220,13 +211,23 @@ Partial Class AgregarProductoPedido
         Me.Label2.TabIndex = 30
         Me.Label2.Text = "% Desc."
         '
+        'cboDesc
+        '
+        Me.cboDesc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboDesc.FormattingEnabled = True
+        Me.cboDesc.Items.AddRange(New Object() {"0", "5", "10", "15", "20", "25", "30"})
+        Me.cboDesc.Location = New System.Drawing.Point(132, 93)
+        Me.cboDesc.Name = "cboDesc"
+        Me.cboDesc.Size = New System.Drawing.Size(70, 21)
+        Me.cboDesc.TabIndex = 32
+        '
         'AgregarProductoPedido
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(581, 367)
-        Me.Controls.Add(Me.txtDesc)
+        Me.Controls.Add(Me.cboDesc)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.txtPrecioTotal)
         Me.Controls.Add(Me.Label1)
@@ -268,6 +269,6 @@ Partial Class AgregarProductoPedido
     Friend WithEvents txtNombreProducto As System.Windows.Forms.TextBox
     Friend WithEvents txtPrecioTotal As CapaPresentacion.ValidacionMoneda
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents txtDesc As System.Windows.Forms.TextBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents cboDesc As System.Windows.Forms.ComboBox
 End Class

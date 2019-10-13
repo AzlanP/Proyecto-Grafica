@@ -98,11 +98,11 @@ Public Class AgregarProductoPedido
         If (txtCantidad.Text = "") Then
             txtCantidad.Text = 0
         End If
-        If (txtDesc.Text = "") Then
-            txtDesc.Text = 0
+        If (cboDesc.Text = "") Then
+            cboDesc.Text = 0
         End If
         Dim total = txtboxPrecio.valor * txtCantidad.Text
-        total = total - total * (txtDesc.Text / 100)
+        total = total - total * (cboDesc.Text / 100)
         txtPrecioTotal.valor = total
     End Sub
 

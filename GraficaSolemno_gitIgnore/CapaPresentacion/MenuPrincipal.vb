@@ -413,13 +413,17 @@ Public Class frmMenuPrincipal
     '--------------------------------------------------------------------------------------------------------------
     '---------------------------------------- ESTADISTICAS -----------------------------------------------------------
     Dim oCNGraficas As New CNGraficos
-    Dim Meses As String() = {"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"}
+
+    Dim Meses As String() = {"Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Agos", "Sep", "Oct", "Nov", "Dic"}
     Public Sub GraficoPedidosMensuales()
+
         GraficoSegunConsulta.Series("Cantidad").Points.Clear()
         Dim i As Integer = 1
-        For i = 6 To 12
-            Dim cant As Integer = oCNGraficas.GraficaPedidosMensuales(i, 2018)
-            Me.GraficoSegunConsulta.Series("Cantidad").Points.AddXY((Meses(i - 1)), (cant))
+        For i = 1 To 12
+            Dim cant2018 As Integer = oCNGraficas.GraficaPedidosMensuales(i, 2018)
+            Dim cant2019 As Integer = oCNGraficas.GraficaPedidosMensuales(i, cboAño2.SelectedItem)
+            Me.GraficoSegunConsulta.Series("Cantidad").Points.AddXY((Meses(i - 1)), (cant2018))
+            Me.GraficoSegunConsulta.Series("2019").Points.AddXY((Meses(i - 1)), (cant2019))
         Next
     End Sub
     Public Sub GraficarMedios()
@@ -592,4 +596,10 @@ Public Class frmMenuPrincipal
         Me.lblNombreUsuario.Text = ""
         frmIngresaralSistema.Show()
     End Sub
+
+    Private Sub Panel7_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles Panel7.Paint
+
+    End Sub
+
+ 
 End Class

@@ -57,8 +57,8 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("data source=C:\Users\Admin\Documents\GitHub\Proyecto_Solemno_nCapas\GraficaSolemn"& _ 
-            "o\CapaPresentacion\bin\Debug\Solemno.db")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("data source=C:\Users\Pablo\Documents\GitHub\Proyecto-Grafica\GraficaSolemno_gitIg"& _ 
+            "nore\CapaPresentacion\bin\Debug\Solemno.db")>  _
         Public ReadOnly Property SolemnoConnectionString() As String
             Get
                 Return CType(Me("SolemnoConnectionString"),String)

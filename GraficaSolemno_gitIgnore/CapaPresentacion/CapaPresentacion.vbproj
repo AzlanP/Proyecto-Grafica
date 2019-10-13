@@ -82,6 +82,12 @@
     <Compile Include="AgregarProductoPedido.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Busqueda.Designer.vb">
+      <DependentUpon>Busqueda.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Busqueda.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="FormularioEnvio.Designer.vb">
       <DependentUpon>FormularioEnvio.vb</DependentUpon>
     </Compile>
@@ -104,6 +110,12 @@
       <DependentUpon>frmAgregarNota.vb</DependentUpon>
     </Compile>
     <Compile Include="frmAgregarNota.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBusqueda.Designer.vb">
+      <DependentUpon>frmBusqueda.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmBusqueda.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmPestañaTareas.Designer.vb">
@@ -168,6 +180,9 @@
     <EmbeddedResource Include="AgregarProductoPedido.resx">
       <DependentUpon>AgregarProductoPedido.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Busqueda.resx">
+      <DependentUpon>Busqueda.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormularioEnvio.resx">
       <DependentUpon>FormularioEnvio.vb</DependentUpon>
     </EmbeddedResource>
@@ -179,6 +194,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAgregarNota.resx">
       <DependentUpon>frmAgregarNota.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBusqueda.resx">
+      <DependentUpon>frmBusqueda.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPestañaTareas.resx">
       <DependentUpon>frmPestañaTareas.vb</DependentUpon>

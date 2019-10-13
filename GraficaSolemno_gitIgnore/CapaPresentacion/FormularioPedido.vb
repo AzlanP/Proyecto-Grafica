@@ -325,4 +325,11 @@ Public Class FormularioPedido
 
     End Sub
 
+    Private Sub btnSearch_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSearch.Click
+        Dim busquedaControl As New frmBusqueda
+        busquedaControl.StartPosition = FormStartPosition.Manual
+        busquedaControl.Location = Me.PointToScreen(New Point(btnSearch.Left, btnSearch.Top + btnSearch.Height))
+        busquedaControl.ShowDialog()
+        AsignarTextCbo(busquedaControl.NombreCompleto, cboCliente)
+    End Sub
 End Class

@@ -229,4 +229,9 @@ Public Class frmPestañaTareas
         AcomodarPostickEnPanels()
     End Sub
 
+    Private Sub btnIrHoy_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnIrHoy.Click
+        Rellenar(DateTime.Now)
+        LimpiarPosticksEnPanels()
+        AcomodarPostickEnPanels()
+    End Sub
 End Class

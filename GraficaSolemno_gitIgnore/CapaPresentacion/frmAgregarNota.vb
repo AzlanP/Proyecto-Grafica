@@ -96,7 +96,7 @@ Public Class frmAgregarNota
     End Sub
     
     Private Sub frmAgregarNota_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-
+        Me.cboPrioridad.SelectedIndex = 0
     End Sub
 
     Private Sub btnGuardarCambios_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGuardarCambios.Click

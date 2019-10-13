@@ -44,6 +44,7 @@ Partial Class frmPestañaTareas
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.BarraInferior = New System.Windows.Forms.Panel()
+        Me.btnIrHoy = New System.Windows.Forms.Button()
         Me.panelPostick.SuspendLayout()
         Me.SemanaDias.SuspendLayout()
         Me.SuspendLayout()
@@ -269,12 +270,24 @@ Partial Class frmPestañaTareas
         Me.BarraInferior.Size = New System.Drawing.Size(1074, 14)
         Me.BarraInferior.TabIndex = 31
         '
+        'btnIrHoy
+        '
+        Me.btnIrHoy.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnIrHoy.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnIrHoy.Location = New System.Drawing.Point(702, 26)
+        Me.btnIrHoy.Name = "btnIrHoy"
+        Me.btnIrHoy.Size = New System.Drawing.Size(61, 22)
+        Me.btnIrHoy.TabIndex = 32
+        Me.btnIrHoy.Text = "Hoy"
+        Me.btnIrHoy.UseVisualStyleBackColor = False
+        '
         'frmPestañaTareas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1125, 560)
+        Me.Controls.Add(Me.btnIrHoy)
         Me.Controls.Add(Me.BarraInferior)
         Me.Controls.Add(Me.MesesCalendario)
         Me.Controls.Add(Me.btnPosteriorSemana)
@@ -315,4 +328,5 @@ Partial Class frmPestañaTareas
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents BarraInferior As System.Windows.Forms.Panel
+    Friend WithEvents btnIrHoy As System.Windows.Forms.Button
 End Class
