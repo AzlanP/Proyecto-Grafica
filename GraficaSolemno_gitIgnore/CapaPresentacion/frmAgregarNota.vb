@@ -41,6 +41,7 @@ Public Class frmAgregarNota
         Return fecha
     End Function
     Public Sub AbrirPostick(ByVal id As Integer)
+        PrecargarCombobox()
         Dim oPostick As New CEPostick
         oPostick = oCNPostick.BuscarPostick(id)
         NroPostick.Text = id
@@ -48,6 +49,10 @@ Public Class frmAgregarNota
         txtTitulo.Text = oPostick.Titulo
         dtpFecha.Text = oPostick.Fecha
         txtDescripcion.Text = oPostick.Descripcion
+        cboPrioridad.Text = oPostick.Prioridad
+        AsignarTextCbo(oPostick.Responsable, cboResponsable)
+
+        ckbCompletado.Checked = oPostick.Estado
     End Sub
     Public Function TomarDatos() As CEPostick
         Dim oCEPostick As New CEPostick
@@ -56,6 +61,9 @@ Public Class frmAgregarNota
         oCEPostick.Descripcion = txtDescripcion.Text
         oCEPostick.Fecha = FormatISO8601(dtpFecha.Text)
         oCEPostick.Prioridad = cboPrioridad.Text
+        oCEPostick.Estado = ckbCompletado.Checked
+        oCEPostick.Responsable = cboResponsable.SelectedValue
+
         Return oCEPostick
     End Function
     Private Sub btnEliminar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEliminar.Click
@@ -94,9 +102,16 @@ Public Class frmAgregarNota
 
         End Select
     End Sub
-    
+    Public Sub PrecargarCombobox()
+        'TODO: esta línea de código carga datos en la tabla 'SolemnoDataSet.Usuarios' Puede moverla o quitarla según sea necesario.
+        Me.UsuariosTableAdapter.Fill(Me.SolemnoDataSet.Usuarios)
+    End Sub
     Private Sub frmAgregarNota_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        Me.cboPrioridad.SelectedIndex = 0
+      
+        If (Me.cboPrioridad.Text = "") Then
+            Me.cboPrioridad.SelectedIndex = 0
+        End If
+
     End Sub
 
     Private Sub btnGuardarCambios_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGuardarCambios.Click
@@ -104,4 +119,13 @@ Public Class frmAgregarNota
         Me.Close()
 
     End Sub
+
+    Public Sub AsignarTextCbo(ByVal text As String, ByVal cbo As System.Object)
+
+        Dim int As Integer
+        int = cbo.FindString(text)
+        cbo.SelectedIndex = int
+    End Sub
+ 
+
 End Class

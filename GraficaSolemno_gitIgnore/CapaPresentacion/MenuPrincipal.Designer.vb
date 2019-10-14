@@ -22,10 +22,10 @@ Partial Class frmMenuPrincipal
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea5 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend5 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series9 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series10 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.TabGeneral = New System.Windows.Forms.TabControl()
         Me.TabTareas = New System.Windows.Forms.TabPage()
         Me.panelTareas = New System.Windows.Forms.Panel()
@@ -86,6 +86,8 @@ Partial Class frmMenuPrincipal
         Me.IconoProducto = New System.Windows.Forms.PictureBox()
         Me.TabEstadistica = New System.Windows.Forms.TabPage()
         Me.Panel7 = New System.Windows.Forms.Panel()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.cboAño2 = New System.Windows.Forms.ComboBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.cboAño = New System.Windows.Forms.ComboBox()
@@ -132,8 +134,8 @@ Partial Class frmMenuPrincipal
         Me.btnDeslogear = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.cboAño2 = New System.Windows.Forms.ComboBox()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.cboTipoEstadistica = New System.Windows.Forms.ComboBox()
         Me.TabGeneral.SuspendLayout()
         Me.TabTareas.SuspendLayout()
         Me.TabCliente.SuspendLayout()
@@ -932,6 +934,8 @@ Partial Class frmMenuPrincipal
         'Panel7
         '
         Me.Panel7.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
+        Me.Panel7.Controls.Add(Me.Label8)
+        Me.Panel7.Controls.Add(Me.cboTipoEstadistica)
         Me.Panel7.Controls.Add(Me.Label7)
         Me.Panel7.Controls.Add(Me.cboAño2)
         Me.Panel7.Controls.Add(Me.Label5)
@@ -945,10 +949,30 @@ Partial Class frmMenuPrincipal
         Me.Panel7.Size = New System.Drawing.Size(937, 484)
         Me.Panel7.TabIndex = 6
         '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(198, 382)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(29, 13)
+        Me.Label7.TabIndex = 11
+        Me.Label7.Text = "Año:"
+        '
+        'cboAño2
+        '
+        Me.cboAño2.BackColor = System.Drawing.SystemColors.Window
+        Me.cboAño2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboAño2.FormattingEnabled = True
+        Me.cboAño2.Items.AddRange(New Object() {"2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030"})
+        Me.cboAño2.Location = New System.Drawing.Point(198, 398)
+        Me.cboAño2.Name = "cboAño2"
+        Me.cboAño2.Size = New System.Drawing.Size(121, 21)
+        Me.cboAño2.TabIndex = 10
+        '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(239, 324)
+        Me.Label5.Location = New System.Drawing.Point(207, 326)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(29, 13)
         Me.Label5.TabIndex = 9
@@ -957,7 +981,7 @@ Partial Class frmMenuPrincipal
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(88, 324)
+        Me.Label2.Location = New System.Drawing.Point(343, 324)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(30, 13)
         Me.Label2.TabIndex = 8
@@ -965,21 +989,21 @@ Partial Class frmMenuPrincipal
         '
         'cboAño
         '
-        Me.cboAño.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.cboAño.BackColor = System.Drawing.SystemColors.Window
+        Me.cboAño.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboAño.FormattingEnabled = True
         Me.cboAño.Items.AddRange(New Object() {"2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030"})
-        Me.cboAño.Location = New System.Drawing.Point(239, 340)
+        Me.cboAño.Location = New System.Drawing.Point(201, 344)
         Me.cboAño.Name = "cboAño"
         Me.cboAño.Size = New System.Drawing.Size(121, 21)
         Me.cboAño.TabIndex = 7
         '
         'cboMeses
         '
-        Me.cboMeses.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
+        Me.cboMeses.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboMeses.FormattingEnabled = True
         Me.cboMeses.Items.AddRange(New Object() {"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"})
-        Me.cboMeses.Location = New System.Drawing.Point(88, 342)
+        Me.cboMeses.Location = New System.Drawing.Point(346, 344)
         Me.cboMeses.Name = "cboMeses"
         Me.cboMeses.Size = New System.Drawing.Size(121, 21)
         Me.cboMeses.TabIndex = 6
@@ -988,38 +1012,38 @@ Partial Class frmMenuPrincipal
         '
         Me.GraficoSegunConsulta.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.GraficoSegunConsulta.BackSecondaryColor = System.Drawing.Color.White
-        ChartArea1.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.[True]
-        ChartArea1.AxisX.Interval = 1.0R
-        ChartArea1.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount
-        ChartArea1.AxisX.LabelAutoFitMinFontSize = 5
-        ChartArea1.AxisX.MaximumAutoSize = 40.0!
-        ChartArea1.AxisX.ScaleBreakStyle.MaxNumberOfBreaks = 1
-        ChartArea1.AxisX.ScaleBreakStyle.Spacing = 1.0R
-        ChartArea1.AxisX.TextOrientation = System.Windows.Forms.DataVisualization.Charting.TextOrientation.Rotated90
-        ChartArea1.AxisX.TitleForeColor = System.Drawing.Color.Tomato
-        ChartArea1.AxisY.Interval = 1.0R
-        ChartArea1.AxisY.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount
-        ChartArea1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        ChartArea1.Name = "ChartArea1"
-        Me.GraficoSegunConsulta.ChartAreas.Add(ChartArea1)
-        Legend1.DockedToChartArea = "ChartArea1"
-        Legend1.ForeColor = System.Drawing.Color.Maroon
-        Legend1.ItemColumnSpacing = 0
-        Legend1.Name = "Legend1"
-        Me.GraficoSegunConsulta.Legends.Add(Legend1)
+        ChartArea5.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.[True]
+        ChartArea5.AxisX.Interval = 1.0R
+        ChartArea5.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount
+        ChartArea5.AxisX.LabelAutoFitMinFontSize = 5
+        ChartArea5.AxisX.MaximumAutoSize = 40.0!
+        ChartArea5.AxisX.ScaleBreakStyle.MaxNumberOfBreaks = 1
+        ChartArea5.AxisX.ScaleBreakStyle.Spacing = 1.0R
+        ChartArea5.AxisX.TextOrientation = System.Windows.Forms.DataVisualization.Charting.TextOrientation.Rotated90
+        ChartArea5.AxisX.TitleForeColor = System.Drawing.Color.Tomato
+        ChartArea5.AxisY.Interval = 1.0R
+        ChartArea5.AxisY.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount
+        ChartArea5.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        ChartArea5.Name = "ChartArea1"
+        Me.GraficoSegunConsulta.ChartAreas.Add(ChartArea5)
+        Legend5.DockedToChartArea = "ChartArea1"
+        Legend5.ForeColor = System.Drawing.Color.Maroon
+        Legend5.ItemColumnSpacing = 0
+        Legend5.Name = "Legend1"
+        Me.GraficoSegunConsulta.Legends.Add(Legend5)
         Me.GraficoSegunConsulta.Location = New System.Drawing.Point(18, 21)
         Me.GraficoSegunConsulta.Name = "GraficoSegunConsulta"
         Me.GraficoSegunConsulta.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Fire
-        Series1.ChartArea = "ChartArea1"
-        Series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
-        Series1.Legend = "Legend1"
-        Series1.Name = "Cantidad"
-        Series2.ChartArea = "ChartArea1"
-        Series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
-        Series2.Legend = "Legend1"
-        Series2.Name = "2019"
-        Me.GraficoSegunConsulta.Series.Add(Series1)
-        Me.GraficoSegunConsulta.Series.Add(Series2)
+        Series9.ChartArea = "ChartArea1"
+        Series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
+        Series9.Legend = "Legend1"
+        Series9.Name = "Cantidad"
+        Series10.ChartArea = "ChartArea1"
+        Series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
+        Series10.Legend = "Legend1"
+        Series10.Name = "2019"
+        Me.GraficoSegunConsulta.Series.Add(Series9)
+        Me.GraficoSegunConsulta.Series.Add(Series10)
         Me.GraficoSegunConsulta.Size = New System.Drawing.Size(805, 300)
         Me.GraficoSegunConsulta.TabIndex = 0
         Me.GraficoSegunConsulta.Text = "Chart1"
@@ -1500,25 +1524,25 @@ Partial Class frmMenuPrincipal
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '
-        'Label7
+        'Label8
         '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(242, 386)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(29, 13)
-        Me.Label7.TabIndex = 11
-        Me.Label7.Text = "Año:"
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(18, 326)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(78, 13)
+        Me.Label8.TabIndex = 13
+        Me.Label8.Text = "Tipo de grafico"
         '
-        'cboAño2
+        'cboTipoEstadistica
         '
-        Me.cboAño2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
-        Me.cboAño2.BackColor = System.Drawing.SystemColors.Window
-        Me.cboAño2.FormattingEnabled = True
-        Me.cboAño2.Items.AddRange(New Object() {"2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030"})
-        Me.cboAño2.Location = New System.Drawing.Point(242, 402)
-        Me.cboAño2.Name = "cboAño2"
-        Me.cboAño2.Size = New System.Drawing.Size(121, 21)
-        Me.cboAño2.TabIndex = 10
+        Me.cboTipoEstadistica.BackColor = System.Drawing.SystemColors.Window
+        Me.cboTipoEstadistica.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboTipoEstadistica.FormattingEnabled = True
+        Me.cboTipoEstadistica.Items.AddRange(New Object() {"Mensual", "Anual"})
+        Me.cboTipoEstadistica.Location = New System.Drawing.Point(18, 342)
+        Me.cboTipoEstadistica.Name = "cboTipoEstadistica"
+        Me.cboTipoEstadistica.Size = New System.Drawing.Size(121, 21)
+        Me.cboTipoEstadistica.TabIndex = 12
         '
         'frmMenuPrincipal
         '
@@ -1699,4 +1723,6 @@ Partial Class frmMenuPrincipal
     Friend WithEvents lblNombreUsuario As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents cboAño2 As System.Windows.Forms.ComboBox
+    Friend WithEvents Label8 As System.Windows.Forms.Label
+    Friend WithEvents cboTipoEstadistica As System.Windows.Forms.ComboBox
 End Class

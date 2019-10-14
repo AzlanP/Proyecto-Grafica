@@ -416,7 +416,7 @@ Public Class frmMenuPrincipal
 
     Dim Meses As String() = {"Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Agos", "Sep", "Oct", "Nov", "Dic"}
     Public Sub GraficoPedidosMensuales()
-
+        Me.GraficoSegunConsulta.Series("2019").Points.Clear()
         GraficoSegunConsulta.Series("Cantidad").Points.Clear()
         Dim i As Integer = 1
         For i = 1 To 12
@@ -427,12 +427,13 @@ Public Class frmMenuPrincipal
         Next
     End Sub
     Public Sub GraficarMedios()
+        Me.GraficoSegunConsulta.Series("2019").Points.Clear()
         GraficoSegunConsulta.Series("Cantidad").Points.Clear()
 
         If (cboAño.Text = Nothing) Or (cboMeses.Text = Nothing) Then
             MsgBox("Debe ingresar un valor para los campos mes y año.")
         Else
-            Dim dt As DataTable = oCNgraficas.GraficarCantidadPedidosPorMedio(cboMeses.SelectedIndex + 1, cboAño.Text)
+            Dim dt As DataTable = oCNGraficas.GraficarCantidadPedidosPorMedio(cboMeses.SelectedIndex + 1, cboAño.Text)
             Dim dv As DataView = New DataView(dt)
             For x = 0 To dv.Count - 1
 
@@ -441,15 +442,16 @@ Public Class frmMenuPrincipal
         End If
     End Sub
     Public Sub GraficarProductosMensual()
+        Me.GraficoSegunConsulta.Series("2019").Points.Clear()
         GraficoSegunConsulta.Series("Cantidad").Points.Clear()
 
         If (cboAño.Text = Nothing) Or (cboMeses.Text = Nothing) Then
             MsgBox("Debe ingresar un valor para los campos mes y año.")
         Else
-            Dim dt As DataTable = oCNgraficas.GraficarProductosMensuales(cboMeses.SelectedIndex + 1, cboAño.Text)
+            Dim dt As DataTable = oCNGraficas.GraficarProductosMensuales(cboMeses.SelectedIndex + 1, cboAño.Text)
             Dim dv As DataView = New DataView(dt)
             For x = 0 To dv.Count - 1
-    GraficoSegunConsulta.Series("Cantidad").Points.AddXY(dv(x)("Nombre"), dv(x)("Cantidad"))
+                GraficoSegunConsulta.Series("Cantidad").Points.AddXY(dv(x)("Nombre"), dv(x)("Cantidad"))
             Next
         End If
     End Sub
@@ -602,4 +604,8 @@ Public Class frmMenuPrincipal
     End Sub
 
  
+    Private Sub ComboBox1_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cboTipoEstadistica.SelectedIndexChanged
+        If (cbo) Then
+
+    End Sub
 End Class

@@ -5,6 +5,8 @@
     Private _Descripcion As String
     Private _Fecha As String
     Private _Prioridad As String
+    Private _Responsable As String
+    Private _Estado As String
 
     Public Property IDPostick As Integer
         Get
@@ -49,5 +51,21 @@
         End Set
     End Property
 
+    Public Property Responsable As String
+        Get
+            Return _Responsable
+        End Get
+        Set(ByVal value As String)
+            _Responsable = value
+        End Set
+    End Property
+    Public Property Estado As String
+        Get
+            Return _Estado
+        End Get
+        Set(ByVal value As String)
+            _Estado = value
+        End Set
+    End Property
 
 End Class

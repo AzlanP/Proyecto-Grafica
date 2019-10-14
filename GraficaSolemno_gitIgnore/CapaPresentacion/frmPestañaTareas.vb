@@ -134,28 +134,36 @@ Public Class frmPestañaTareas
             Postick(i) = New ListBox
 
             Postick(i).Size = New Point(135, 100)
-
+            Postick(i).Margin = New Padding(1, 1, 1, 1)
             PosY = i * 101
             Postick(i).Location = New Point(3, PosY)
             'MsgBox(Postick(i).Location.X & " , " & Postick(i).Location.Y)
             Dim opostick As New CEPostick
             opostick = parrayposticks(i)
-            Select Case opostick.Prioridad
-                Case "BAJA" : Postick(i).BackColor = Color.FromArgb(153, 196, 231)
-                    Exit Select
-                Case "MEDIA" : Postick(i).BackColor = Color.FromArgb(249, 237, 117)
-                    Exit Select
-                Case "ALTA" : Postick(i).BackColor = Color.FromArgb(235, 134, 82)
-                    Exit Select
-                Case "URGENTE" : Postick(i).BackColor = Color.FromArgb(221, 83, 71)
-                    Exit Select
-            End Select
-            If PosY > pcont.Size.Height Then
-                pcont.Size = New Point(135, PosY)
+            If (opostick.Estado.ToLower = "true") Then
+                Postick(i).BackColor = Color.FromArgb(214, 223, 218)
+            ElseIf (opostick.Estado.ToLower = "false") Then
+                Select Case opostick.Prioridad
+                    Case "BAJA" : Postick(i).BackColor = Color.FromArgb(153, 196, 231)
+                        Exit Select
+                    Case "MEDIA" : Postick(i).BackColor = Color.FromArgb(249, 237, 117)
+                        Exit Select
+                    Case "ALTA" : Postick(i).BackColor = Color.FromArgb(235, 134, 82)
+                        Exit Select
+                    Case "URGENTE" : Postick(i).BackColor = Color.FromArgb(221, 83, 71)
+                        Exit Select
+                End Select
+            End If
+      
+            If PosY + 100 > pcont.Size.Height Then
+                For Each p In arrayPanels
+                    p.Size = New Point(135, PosY + 100)
+                Next
             End If
             pcont.Controls.Add(Postick(i))
-          
-           
+
+
+
             Postick(i).Items.Add("Titulo:" & opostick.Titulo)
             Postick(i).Items.Add("Descripcion:" & opostick.Descripcion)
             Postick(i).Tag = opostick.IDPostick
@@ -211,6 +219,7 @@ Public Class frmPestañaTareas
         frmPostick.btnGuardarCambios.Visible = False
         frmPostick.btnGuardarNota.Visible = True
         frmPostick.NroPostick.Text = oCNPostick.ConsultarUltimoID()
+        frmPostick.PrecargarCombobox()
         frmPostick.ShowDialog()
         LimpiarPosticksEnPanels()
         AcomodarPostickEnPanels()

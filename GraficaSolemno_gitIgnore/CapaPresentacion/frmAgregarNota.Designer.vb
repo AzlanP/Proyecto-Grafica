@@ -22,6 +22,7 @@ Partial Class frmAgregarNota
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.txtTitulo = New System.Windows.Forms.TextBox()
         Me.txtDescripcion = New System.Windows.Forms.TextBox()
         Me.lblTitulo = New System.Windows.Forms.Label()
@@ -36,29 +37,39 @@ Partial Class frmAgregarNota
         Me.lblPrioridad = New System.Windows.Forms.Label()
         Me.cboPrioridad = New System.Windows.Forms.ComboBox()
         Me.btnGuardarCambios = New System.Windows.Forms.Button()
+        Me.ckbCompletado = New System.Windows.Forms.CheckBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.cboResponsable = New System.Windows.Forms.ComboBox()
+        Me.UsuariosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.SolemnoDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.SolemnoDataSet = New CapaPresentacion.SolemnoDataSet()
+        Me.UsuariosTableAdapter = New CapaPresentacion.SolemnoDataSetTableAdapters.UsuariosTableAdapter()
+        CType(Me.UsuariosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SolemnoDataSetBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SolemnoDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'txtTitulo
         '
-        Me.txtTitulo.Location = New System.Drawing.Point(81, 39)
+        Me.txtTitulo.Location = New System.Drawing.Point(84, 39)
         Me.txtTitulo.Name = "txtTitulo"
-        Me.txtTitulo.Size = New System.Drawing.Size(200, 20)
+        Me.txtTitulo.Size = New System.Drawing.Size(214, 20)
         Me.txtTitulo.TabIndex = 0
         Me.txtTitulo.Tag = "3"
         '
         'txtDescripcion
         '
-        Me.txtDescripcion.Location = New System.Drawing.Point(81, 82)
+        Me.txtDescripcion.Location = New System.Drawing.Point(84, 70)
         Me.txtDescripcion.Multiline = True
         Me.txtDescripcion.Name = "txtDescripcion"
-        Me.txtDescripcion.Size = New System.Drawing.Size(200, 110)
+        Me.txtDescripcion.Size = New System.Drawing.Size(214, 110)
         Me.txtDescripcion.TabIndex = 1
         Me.txtDescripcion.Tag = "3"
         '
         'lblTitulo
         '
         Me.lblTitulo.AutoSize = True
-        Me.lblTitulo.Location = New System.Drawing.Point(12, 39)
+        Me.lblTitulo.Location = New System.Drawing.Point(12, 42)
         Me.lblTitulo.Name = "lblTitulo"
         Me.lblTitulo.Size = New System.Drawing.Size(39, 13)
         Me.lblTitulo.TabIndex = 2
@@ -67,7 +78,7 @@ Partial Class frmAgregarNota
         'lblDescripcion
         '
         Me.lblDescripcion.AutoSize = True
-        Me.lblDescripcion.Location = New System.Drawing.Point(12, 85)
+        Me.lblDescripcion.Location = New System.Drawing.Point(12, 73)
         Me.lblDescripcion.Name = "lblDescripcion"
         Me.lblDescripcion.Size = New System.Drawing.Size(69, 13)
         Me.lblDescripcion.TabIndex = 3
@@ -76,7 +87,7 @@ Partial Class frmAgregarNota
         'lblFecha
         '
         Me.lblFecha.AutoSize = True
-        Me.lblFecha.Location = New System.Drawing.Point(12, 205)
+        Me.lblFecha.Location = New System.Drawing.Point(12, 196)
         Me.lblFecha.Name = "lblFecha"
         Me.lblFecha.Size = New System.Drawing.Size(43, 13)
         Me.lblFecha.TabIndex = 4
@@ -86,16 +97,16 @@ Partial Class frmAgregarNota
         '
         Me.dtpFecha.CustomFormat = "dd/MM/yyyy"
         Me.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpFecha.Location = New System.Drawing.Point(77, 205)
+        Me.dtpFecha.Location = New System.Drawing.Point(84, 190)
         Me.dtpFecha.Name = "dtpFecha"
-        Me.dtpFecha.Size = New System.Drawing.Size(200, 20)
+        Me.dtpFecha.Size = New System.Drawing.Size(214, 20)
         Me.dtpFecha.TabIndex = 5
         '
         'btnGuardarNota
         '
         Me.btnGuardarNota.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnGuardarNota.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnGuardarNota.Location = New System.Drawing.Point(65, 307)
+        Me.btnGuardarNota.Location = New System.Drawing.Point(65, 339)
         Me.btnGuardarNota.Name = "btnGuardarNota"
         Me.btnGuardarNota.Size = New System.Drawing.Size(75, 23)
         Me.btnGuardarNota.TabIndex = 6
@@ -106,7 +117,7 @@ Partial Class frmAgregarNota
         '
         Me.btnCancelar.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnCancelar.Location = New System.Drawing.Point(156, 307)
+        Me.btnCancelar.Location = New System.Drawing.Point(156, 339)
         Me.btnCancelar.Name = "btnCancelar"
         Me.btnCancelar.Size = New System.Drawing.Size(75, 23)
         Me.btnCancelar.TabIndex = 7
@@ -126,7 +137,7 @@ Partial Class frmAgregarNota
         '
         Me.btnEliminar.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnEliminar.Location = New System.Drawing.Point(255, 307)
+        Me.btnEliminar.Location = New System.Drawing.Point(255, 339)
         Me.btnEliminar.Name = "btnEliminar"
         Me.btnEliminar.Size = New System.Drawing.Size(75, 23)
         Me.btnEliminar.TabIndex = 9
@@ -145,7 +156,7 @@ Partial Class frmAgregarNota
         'lblPrioridad
         '
         Me.lblPrioridad.AutoSize = True
-        Me.lblPrioridad.Location = New System.Drawing.Point(16, 259)
+        Me.lblPrioridad.Location = New System.Drawing.Point(12, 239)
         Me.lblPrioridad.Name = "lblPrioridad"
         Me.lblPrioridad.Size = New System.Drawing.Size(54, 13)
         Me.lblPrioridad.TabIndex = 11
@@ -157,28 +168,81 @@ Partial Class frmAgregarNota
         Me.cboPrioridad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboPrioridad.FormattingEnabled = True
         Me.cboPrioridad.Items.AddRange(New Object() {"BAJA", "MEDIA", "ALTA", "URGENTE"})
-        Me.cboPrioridad.Location = New System.Drawing.Point(76, 256)
+        Me.cboPrioridad.Location = New System.Drawing.Point(100, 236)
         Me.cboPrioridad.Name = "cboPrioridad"
-        Me.cboPrioridad.Size = New System.Drawing.Size(141, 21)
+        Me.cboPrioridad.Size = New System.Drawing.Size(214, 21)
         Me.cboPrioridad.TabIndex = 12
         '
         'btnGuardarCambios
         '
         Me.btnGuardarCambios.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnGuardarCambios.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnGuardarCambios.Location = New System.Drawing.Point(36, 307)
+        Me.btnGuardarCambios.Location = New System.Drawing.Point(36, 339)
         Me.btnGuardarCambios.Name = "btnGuardarCambios"
         Me.btnGuardarCambios.Size = New System.Drawing.Size(104, 23)
         Me.btnGuardarCambios.TabIndex = 13
         Me.btnGuardarCambios.Text = "Guardar Cambios"
         Me.btnGuardarCambios.UseVisualStyleBackColor = False
         '
+        'ckbCompletado
+        '
+        Me.ckbCompletado.AutoSize = True
+        Me.ckbCompletado.Location = New System.Drawing.Point(12, 303)
+        Me.ckbCompletado.Name = "ckbCompletado"
+        Me.ckbCompletado.Size = New System.Drawing.Size(113, 17)
+        Me.ckbCompletado.TabIndex = 14
+        Me.ckbCompletado.Text = "Tarea Completada"
+        Me.ckbCompletado.UseVisualStyleBackColor = True
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(12, 266)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(72, 13)
+        Me.Label1.TabIndex = 15
+        Me.Label1.Text = "Responsable:"
+        '
+        'cboResponsable
+        '
+        Me.cboResponsable.DataSource = Me.UsuariosBindingSource
+        Me.cboResponsable.DisplayMember = "NombreCompleto"
+        Me.cboResponsable.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboResponsable.FormattingEnabled = True
+        Me.cboResponsable.Location = New System.Drawing.Point(100, 263)
+        Me.cboResponsable.Name = "cboResponsable"
+        Me.cboResponsable.Size = New System.Drawing.Size(214, 21)
+        Me.cboResponsable.TabIndex = 17
+        Me.cboResponsable.ValueMember = "NombreCompleto"
+        '
+        'UsuariosBindingSource
+        '
+        Me.UsuariosBindingSource.DataMember = "Usuarios"
+        Me.UsuariosBindingSource.DataSource = Me.SolemnoDataSetBindingSource
+        '
+        'SolemnoDataSetBindingSource
+        '
+        Me.SolemnoDataSetBindingSource.DataSource = Me.SolemnoDataSet
+        Me.SolemnoDataSetBindingSource.Position = 0
+        '
+        'SolemnoDataSet
+        '
+        Me.SolemnoDataSet.DataSetName = "SolemnoDataSet"
+        Me.SolemnoDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'UsuariosTableAdapter
+        '
+        Me.UsuariosTableAdapter.ClearBeforeFill = True
+        '
         'frmAgregarNota
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(343, 357)
+        Me.ClientSize = New System.Drawing.Size(348, 374)
+        Me.Controls.Add(Me.cboResponsable)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.ckbCompletado)
         Me.Controls.Add(Me.btnGuardarCambios)
         Me.Controls.Add(Me.cboPrioridad)
         Me.Controls.Add(Me.lblPrioridad)
@@ -195,6 +259,9 @@ Partial Class frmAgregarNota
         Me.Controls.Add(Me.txtTitulo)
         Me.Name = "frmAgregarNota"
         Me.Text = "Posticks"
+        CType(Me.UsuariosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SolemnoDataSetBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SolemnoDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -213,4 +280,11 @@ Partial Class frmAgregarNota
     Friend WithEvents lblPrioridad As System.Windows.Forms.Label
     Friend WithEvents cboPrioridad As System.Windows.Forms.ComboBox
     Friend WithEvents btnGuardarCambios As System.Windows.Forms.Button
+    Friend WithEvents ckbCompletado As System.Windows.Forms.CheckBox
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents cboResponsable As System.Windows.Forms.ComboBox
+    Friend WithEvents SolemnoDataSet As CapaPresentacion.SolemnoDataSet
+    Friend WithEvents SolemnoDataSetBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents UsuariosBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents UsuariosTableAdapter As CapaPresentacion.SolemnoDataSetTableAdapters.UsuariosTableAdapter
 End Class

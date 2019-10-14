@@ -35,7 +35,11 @@ Public Class FormularioPedido
 
         Dim AñadirProducto As New AgregarProductoPedido
         AñadirProducto.ShowDialog()
-        AgregarDatosADetalles(AñadirProducto.oCEproducto, DTDetalles)
+        If (AñadirProducto.oCEproducto.IDProducto <> 0) Then
+            AgregarDatosADetalles(AñadirProducto.oCEproducto, DTDetalles)
+        End If
+
+
     End Sub
     Public Sub AgregarDatosADetalles(ByVal pProducto As CEProducto, ByVal tabla As DataTable)
         'Dim NuevaFilaDetalles As DataRow = tabla.NewRow()
@@ -224,7 +228,11 @@ Public Class FormularioPedido
         Dim AñadirProducto As New AgregarProductoPedido
         AñadirProducto.Size = New Point(597, 425)
         AñadirProducto.ShowDialog()
-        AgregarDatosADetalles(AñadirProducto.oCEproducto, TablaItems)
+        If (AñadirProducto.oCEproducto.IDProducto <> 0) Then
+            AgregarDatosADetalles(AñadirProducto.oCEproducto, TablaItems)
+        End If
+
+
     End Sub
     Public Function CargarPedido() As CEPedido
         Dim oCEPedido As New CEPedido

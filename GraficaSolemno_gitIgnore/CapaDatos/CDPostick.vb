@@ -12,7 +12,7 @@ Public Class CDPostick
     End Function
     Public Sub NuevoPostick(ByVal obj As CEPostick)
         oCDConexion.Conectar()
-        Dim sql As String = "insert into Postick (IDPostick, Titulo, Descripcion, Fecha, Prioridad) values (@IDPostick, @Titulo, @Descripcion, @Fecha, @Prioridad)"
+        Dim sql As String = "insert into Postick (IDPostick, Titulo, Descripcion, Fecha, Prioridad, Responsable, Estado) values (@IDPostick, @Titulo, @Descripcion, @Fecha, @Prioridad, @Responsable, @Estado)"
 
         Dim comando As New SQLiteCommand(sql, oCDConexion.con)
         With comando.Parameters
@@ -21,6 +21,8 @@ Public Class CDPostick
             .Add("@Descripcion", SqlDbType.VarChar).Value = obj.Descripcion
             .Add("@Fecha", SqlDbType.VarChar).Value = obj.Fecha
             .Add("@Prioridad", SqlDbType.VarChar).Value = obj.Prioridad
+            .Add("@Responsable", SqlDbType.VarChar).Value = obj.Responsable
+            .Add("@Estado", SqlDbType.VarChar).Value = obj.Estado
         End With
         comando.ExecuteNonQuery()
         MsgBox("El Registro se ah guardado con exito.")
@@ -63,6 +65,8 @@ Public Class CDPostick
             oPostick.Descripcion = dt.Rows(i)(2)
             oPostick.Fecha = dt.Rows(i)(3)
             oPostick.Prioridad = dt.Rows(i)(4)
+            oPostick.Responsable = dt.Rows(i)(5)
+            oPostick.Estado = dt.Rows(i)(6)
             arraypostick(i) = oPostick
         Next
         oCDConexion.Desconectar()
@@ -81,10 +85,11 @@ Public Class CDPostick
         Dim oPostick As New CEPostick
         oPostick.IDPostick = dt.Rows(0)(0)
         oPostick.Titulo = dt.Rows(0)(1)
-
         oPostick.Descripcion = dt.Rows(0)(2)
-
         oPostick.Fecha = dt.Rows(0)(3)
+        oPostick.Prioridad = dt.Rows(0)(4)
+        oPostick.Responsable = dt.Rows(0)(5)
+        oPostick.Estado = dt.Rows(0)(6)
         oCDConexion.Desconectar()
 
 
@@ -108,7 +113,7 @@ Public Class CDPostick
     End Sub
     Public Sub ModificarPostick(ByVal obj As CEPostick)
         oCDConexion.Conectar()
-        Dim sql As String = "update Postick set Titulo=@Titulo, Descripcion=@Descripcion, Fecha=@Fecha, Prioridad=@Prioridad where IDPostick=@IDPostick"
+        Dim sql As String = "update Postick set Titulo=@Titulo, Descripcion=@Descripcion, Fecha=@Fecha, Prioridad=@Prioridad, Responsable=@Responsable, Estado=@Estado where IDPostick=@IDPostick"
 
         Dim comando As New SQLiteCommand(sql, oCDConexion.con)
         With comando.Parameters
@@ -117,6 +122,8 @@ Public Class CDPostick
             .Add("@Descripcion", SqlDbType.VarChar).Value = obj.Descripcion
             .Add("@Fecha", SqlDbType.VarChar).Value = obj.Fecha
             .Add("@Prioridad", SqlDbType.VarChar).Value = obj.Prioridad
+            .Add("@Responsable", SqlDbType.VarChar).Value = obj.Responsable
+            .Add("@Estado", SqlDbType.VarChar).Value = obj.Estado
         End With
         comando.ExecuteNonQuery()
         MsgBox("El Registro se ah guardado con exito.")

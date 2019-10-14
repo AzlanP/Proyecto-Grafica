@@ -55,8 +55,14 @@ Public Class RegistrarProducto
 
     End Sub
     Private Sub btnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGuardarProducto.Click
-        oCNProducto.ModificarProducto(TomarDatos())
-        Close()
+        If (oCEProducto.Nombre.Trim() = "") Then
+            MessageBox.Show("El nombre del producto no puede ser nulo")
+        Else
+            oCNProducto.ModificarProducto(TomarDatos())
+            Close()
+        End If
+
+
     End Sub
 
     Private Sub btnCancelar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancelar.Click
@@ -80,8 +86,14 @@ Public Class RegistrarProducto
     End Sub
 
     Private Sub btnRegistrarProducto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRegistrarProducto.Click
-        oCNProducto.RegistrarProducto(TomarDatos())
-        Close()
+        If (TomarDatos().Nombre = "") Then
+            MessageBox.Show("El nombre del producto no puede ser nulo")
+        Else
+            oCNProducto.RegistrarProducto(TomarDatos())
+            Close()
+        End If
+
+
     End Sub
 
     Private Sub RegistrarProducto_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
