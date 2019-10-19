@@ -13,6 +13,20 @@ Public Class CDGraficos
         oCDConexion.Desconectar()
         Return cantidad
     End Function
+    Public Function GraficaPedidosMensual(ByVal pmes As Integer, ByVal paño As Integer) As DataTable
+        oCDConexion.Conectar()
+        Dim MaxDiasMes As Integer = Date.DaysInMonth(paño, pmes)
+        Dim FechaInicial As String = paño & "/" & pmes & "/" & 1
+        Dim FechaFinal As String = paño & "/" & pmes & "/" & MaxDiasMes
+        Dim ConsultaSQL = "select pedidos.fecha, count(fecha) as 'pedidos' from Pedidos where pedidos.fecha between '" & FormatISO8601(FechaInicial) & "' AND '" & FormatISO8601(FechaFinal) & "' group by fecha"
+        Dim cmd As New SQLiteCommand(ConsultaSQL, oCDConexion.con)
+        Dim dt As New DataTable
+        Dim da As New SQLiteDataAdapter
+        da.SelectCommand = cmd
+        da.Fill(dt)
+        oCDConexion.Desconectar()
+        Return dt
+    End Function
     Public Function GraficarCantidadPedidosPorMedio(ByVal pmes As Integer, ByVal paño As Integer) As DataTable
         oCDConexion.Conectar()
         Dim MaxDiasMes As Integer = Date.DaysInMonth(paño, pmes)

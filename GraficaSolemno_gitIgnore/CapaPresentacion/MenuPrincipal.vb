@@ -426,6 +426,41 @@ Public Class frmMenuPrincipal
             Me.GraficoSegunConsulta.Series("2019").Points.AddXY((Meses(i - 1)), (cant2019))
         Next
     End Sub
+
+    Private Sub ComboBox1_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cboTipoEstadistica.SelectedIndexChanged
+        Me.GraficoSegunConsulta.Series("2019").Points.Clear()
+        Me.GraficoSegunConsulta.Series("Cantidad").Points.Clear()
+        Me.GraficoSegunConsulta.Series("Mensual").Points.Clear()
+        If (cboTipoEstadistica.Text = "Mensual") Then
+            cboAño2.Visible = False
+            Dim dt As DataTable = oCNGraficas.GraficaPedidosMensual(10, cboAño.SelectedItem)
+            For Each dr In dt.Rows
+
+                Dim fecha As Date = dr(0)
+                MsgBox(dr(0))
+                MsgBox(fecha)
+
+                For i = 1 To 30
+
+                    If (i = fecha.Day) Then
+                        Me.GraficoSegunConsulta.Series("Mensual").Points.AddXY(i, dr(1))
+                    Else
+                        Me.GraficoSegunConsulta.Series("Mensual").Points.AddXY(i, 0)
+                    End If
+
+
+
+                Next
+
+
+            Next
+
+
+        ElseIf (cboTipoEstadistica.Text = "Anual") Then
+
+        End If
+
+    End Sub
     Public Sub GraficarMedios()
         Me.GraficoSegunConsulta.Series("2019").Points.Clear()
         GraficoSegunConsulta.Series("Cantidad").Points.Clear()
@@ -603,9 +638,5 @@ Public Class frmMenuPrincipal
 
     End Sub
 
- 
-    Private Sub ComboBox1_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cboTipoEstadistica.SelectedIndexChanged
-        If (cbo) Then
 
-    End Sub
 End Class
