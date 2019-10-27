@@ -385,7 +385,7 @@ Partial Class FormularioPedido
         '
         Me.btnEnvioGuardado.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnEnvioGuardado.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnEnvioGuardado.Location = New System.Drawing.Point(346, 396)
+        Me.btnEnvioGuardado.Location = New System.Drawing.Point(346, 322)
         Me.btnEnvioGuardado.Name = "btnEnvioGuardado"
         Me.btnEnvioGuardado.Size = New System.Drawing.Size(104, 25)
         Me.btnEnvioGuardado.TabIndex = 46

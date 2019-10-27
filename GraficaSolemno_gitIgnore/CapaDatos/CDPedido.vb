@@ -111,11 +111,16 @@ Public Class CDPedidos
     Public Sub EliminarPedido(ByVal IDPedido As Integer)
         oCDConexion.Conectar()
         Try
-            Dim instruccionsql = "DELETE FROM Pedidos WHERE (IDPedido=@IDPedido)"
+            'Dim instruccionsql = "DELETE FROM Pedidos WHERE (IDPedido=@IDPedido)"
+
+            Dim InstruccionSQL = "DELETE FROM Pedidos WHERE (IDPedido=@IDPedido); DELETE FROM ItemsPorPedido where (IDPedido=@IDPedido); DELETE FROM DetallesEnvio where (IDPedido=@IDPedido);"
+
             Dim comando As New SQLiteCommand(instruccionsql, oCDConexion.con)
             comando.Parameters.Add("@IDPedido", SqlDbType.Int).Value = IDPedido
             comando.ExecuteNonQuery()
-            MsgBox("El pedido se acaba de eliminar")
+
+            MsgBox("El pedido ha sido eliminado con exito.", , "Eliminar")
+
         Catch ex As Exception
             Throw New Exception("No se pudo eliminar:" & ex.Message)
         Finally

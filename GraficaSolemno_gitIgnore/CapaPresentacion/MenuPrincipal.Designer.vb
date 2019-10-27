@@ -22,11 +22,11 @@ Partial Class frmMenuPrincipal
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Series3 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea4 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend4 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series10 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series11 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series12 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.TabGeneral = New System.Windows.Forms.TabControl()
         Me.TabTareas = New System.Windows.Forms.TabPage()
         Me.panelTareas = New System.Windows.Forms.Panel()
@@ -87,6 +87,8 @@ Partial Class frmMenuPrincipal
         Me.IconoProducto = New System.Windows.Forms.PictureBox()
         Me.TabEstadistica = New System.Windows.Forms.TabPage()
         Me.Panel7 = New System.Windows.Forms.Panel()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.cboTipoEstadistica = New System.Windows.Forms.ComboBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.cboAño2 = New System.Windows.Forms.ComboBox()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -130,13 +132,31 @@ Partial Class frmMenuPrincipal
         Me.btnVerPresupuesto = New System.Windows.Forms.Button()
         Me.btnNuevoPresupuesto = New System.Windows.Forms.Button()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
+        Me.TabUsuario = New System.Windows.Forms.TabPage()
+        Me.Panel8 = New System.Windows.Forms.Panel()
+        Me.btnBuscarUsuarioInactivos = New System.Windows.Forms.Button()
+        Me.DGUsuario = New System.Windows.Forms.DataGridView()
+        Me.btnRefreshUsuario = New System.Windows.Forms.Button()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.btnBuscarUsuario = New System.Windows.Forms.Button()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
+        Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.btnRestaurarUsuario = New System.Windows.Forms.Button()
+        Me.btnVerUsuarioInactivo = New System.Windows.Forms.Button()
+        Me.btnPapeleraUsuario = New System.Windows.Forms.Button()
+        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
+        Me.btnEliminarUsuario = New System.Windows.Forms.Button()
+        Me.btnVerUsuario = New System.Windows.Forms.Button()
+        Me.btnModificarUsuario = New System.Windows.Forms.Button()
+        Me.btnNuevoUsuario = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.lblNombreUsuario = New System.Windows.Forms.Label()
         Me.btnDeslogear = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.cboTipoEstadistica = New System.Windows.Forms.ComboBox()
         Me.TabGeneral.SuspendLayout()
         Me.TabTareas.SuspendLayout()
         Me.TabCliente.SuspendLayout()
@@ -177,6 +197,13 @@ Partial Class frmMenuPrincipal
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabUsuario.SuspendLayout()
+        Me.Panel8.SuspendLayout()
+        CType(Me.DGUsuario, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel5.SuspendLayout()
+        Me.Panel6.SuspendLayout()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -190,6 +217,7 @@ Partial Class frmMenuPrincipal
         Me.TabGeneral.Controls.Add(Me.TabEstadistica)
         Me.TabGeneral.Controls.Add(Me.TabAyuda)
         Me.TabGeneral.Controls.Add(Me.TabPresupuesto)
+        Me.TabGeneral.Controls.Add(Me.TabUsuario)
         Me.TabGeneral.Location = New System.Drawing.Point(8, 103)
         Me.TabGeneral.Name = "TabGeneral"
         Me.TabGeneral.Padding = New System.Drawing.Point(6, 4)
@@ -950,6 +978,26 @@ Partial Class frmMenuPrincipal
         Me.Panel7.Size = New System.Drawing.Size(937, 484)
         Me.Panel7.TabIndex = 6
         '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(18, 326)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(78, 13)
+        Me.Label8.TabIndex = 13
+        Me.Label8.Text = "Tipo de grafico"
+        '
+        'cboTipoEstadistica
+        '
+        Me.cboTipoEstadistica.BackColor = System.Drawing.SystemColors.Window
+        Me.cboTipoEstadistica.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboTipoEstadistica.FormattingEnabled = True
+        Me.cboTipoEstadistica.Items.AddRange(New Object() {"Mensual", "Anual"})
+        Me.cboTipoEstadistica.Location = New System.Drawing.Point(18, 342)
+        Me.cboTipoEstadistica.Name = "cboTipoEstadistica"
+        Me.cboTipoEstadistica.Size = New System.Drawing.Size(121, 21)
+        Me.cboTipoEstadistica.TabIndex = 12
+        '
         'Label7
         '
         Me.Label7.AutoSize = True
@@ -1013,43 +1061,43 @@ Partial Class frmMenuPrincipal
         '
         Me.GraficoSegunConsulta.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.GraficoSegunConsulta.BackSecondaryColor = System.Drawing.Color.White
-        ChartArea1.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.[True]
-        ChartArea1.AxisX.Interval = 1.0R
-        ChartArea1.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount
-        ChartArea1.AxisX.LabelAutoFitMinFontSize = 5
-        ChartArea1.AxisX.MaximumAutoSize = 40.0!
-        ChartArea1.AxisX.ScaleBreakStyle.MaxNumberOfBreaks = 1
-        ChartArea1.AxisX.ScaleBreakStyle.Spacing = 1.0R
-        ChartArea1.AxisX.TextOrientation = System.Windows.Forms.DataVisualization.Charting.TextOrientation.Rotated90
-        ChartArea1.AxisX.TitleForeColor = System.Drawing.Color.Tomato
-        ChartArea1.AxisY.Interval = 1.0R
-        ChartArea1.AxisY.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount
-        ChartArea1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        ChartArea1.Name = "ChartArea1"
-        Me.GraficoSegunConsulta.ChartAreas.Add(ChartArea1)
-        Legend1.DockedToChartArea = "ChartArea1"
-        Legend1.ForeColor = System.Drawing.Color.Maroon
-        Legend1.ItemColumnSpacing = 0
-        Legend1.Name = "Legend1"
-        Me.GraficoSegunConsulta.Legends.Add(Legend1)
+        ChartArea4.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.[True]
+        ChartArea4.AxisX.Interval = 1.0R
+        ChartArea4.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount
+        ChartArea4.AxisX.LabelAutoFitMinFontSize = 5
+        ChartArea4.AxisX.MaximumAutoSize = 40.0!
+        ChartArea4.AxisX.ScaleBreakStyle.MaxNumberOfBreaks = 1
+        ChartArea4.AxisX.ScaleBreakStyle.Spacing = 1.0R
+        ChartArea4.AxisX.TextOrientation = System.Windows.Forms.DataVisualization.Charting.TextOrientation.Rotated90
+        ChartArea4.AxisX.TitleForeColor = System.Drawing.Color.Tomato
+        ChartArea4.AxisY.Interval = 1.0R
+        ChartArea4.AxisY.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount
+        ChartArea4.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        ChartArea4.Name = "ChartArea1"
+        Me.GraficoSegunConsulta.ChartAreas.Add(ChartArea4)
+        Legend4.DockedToChartArea = "ChartArea1"
+        Legend4.ForeColor = System.Drawing.Color.Maroon
+        Legend4.ItemColumnSpacing = 0
+        Legend4.Name = "Legend1"
+        Me.GraficoSegunConsulta.Legends.Add(Legend4)
         Me.GraficoSegunConsulta.Location = New System.Drawing.Point(18, 21)
         Me.GraficoSegunConsulta.Name = "GraficoSegunConsulta"
         Me.GraficoSegunConsulta.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Fire
-        Series1.ChartArea = "ChartArea1"
-        Series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
-        Series1.Legend = "Legend1"
-        Series1.Name = "Cantidad"
-        Series2.ChartArea = "ChartArea1"
-        Series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
-        Series2.Legend = "Legend1"
-        Series2.Name = "2019"
-        Series3.ChartArea = "ChartArea1"
-        Series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
-        Series3.Legend = "Legend1"
-        Series3.Name = "Mensual"
-        Me.GraficoSegunConsulta.Series.Add(Series1)
-        Me.GraficoSegunConsulta.Series.Add(Series2)
-        Me.GraficoSegunConsulta.Series.Add(Series3)
+        Series10.ChartArea = "ChartArea1"
+        Series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
+        Series10.Legend = "Legend1"
+        Series10.Name = "Cantidad"
+        Series11.ChartArea = "ChartArea1"
+        Series11.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
+        Series11.Legend = "Legend1"
+        Series11.Name = "2019"
+        Series12.ChartArea = "ChartArea1"
+        Series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
+        Series12.Legend = "Legend1"
+        Series12.Name = "Mensual"
+        Me.GraficoSegunConsulta.Series.Add(Series10)
+        Me.GraficoSegunConsulta.Series.Add(Series11)
+        Me.GraficoSegunConsulta.Series.Add(Series12)
         Me.GraficoSegunConsulta.Size = New System.Drawing.Size(805, 300)
         Me.GraficoSegunConsulta.TabIndex = 0
         Me.GraficoSegunConsulta.Text = "Chart1"
@@ -1425,7 +1473,7 @@ Partial Class frmMenuPrincipal
         Me.btnEliminarPresupuesto.Name = "btnEliminarPresupuesto"
         Me.btnEliminarPresupuesto.Size = New System.Drawing.Size(184, 50)
         Me.btnEliminarPresupuesto.TabIndex = 27
-        Me.btnEliminarPresupuesto.Text = "Eliminar Pedido"
+        Me.btnEliminarPresupuesto.Text = "Eliminar presupuesto"
         Me.btnEliminarPresupuesto.UseVisualStyleBackColor = False
         '
         'btnModificarPresupuesto
@@ -1439,7 +1487,7 @@ Partial Class frmMenuPrincipal
         Me.btnModificarPresupuesto.Name = "btnModificarPresupuesto"
         Me.btnModificarPresupuesto.Size = New System.Drawing.Size(184, 50)
         Me.btnModificarPresupuesto.TabIndex = 26
-        Me.btnModificarPresupuesto.Text = "Modificar Pedido"
+        Me.btnModificarPresupuesto.Text = "Modificar presupuesto"
         Me.btnModificarPresupuesto.UseVisualStyleBackColor = False
         '
         'btnVerPresupuesto
@@ -1453,7 +1501,7 @@ Partial Class frmMenuPrincipal
         Me.btnVerPresupuesto.Name = "btnVerPresupuesto"
         Me.btnVerPresupuesto.Size = New System.Drawing.Size(184, 50)
         Me.btnVerPresupuesto.TabIndex = 25
-        Me.btnVerPresupuesto.Text = "Ver Detalles Pedido"
+        Me.btnVerPresupuesto.Text = "Ver Detalles presupuesto"
         Me.btnVerPresupuesto.UseVisualStyleBackColor = False
         '
         'btnNuevoPresupuesto
@@ -1467,7 +1515,7 @@ Partial Class frmMenuPrincipal
         Me.btnNuevoPresupuesto.Name = "btnNuevoPresupuesto"
         Me.btnNuevoPresupuesto.Size = New System.Drawing.Size(184, 50)
         Me.btnNuevoPresupuesto.TabIndex = 24
-        Me.btnNuevoPresupuesto.Text = "Nuevo Pedido"
+        Me.btnNuevoPresupuesto.Text = "Nuevo presupuesto"
         Me.btnNuevoPresupuesto.UseVisualStyleBackColor = False
         '
         'PictureBox3
@@ -1479,6 +1527,270 @@ Partial Class frmMenuPrincipal
         Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox3.TabIndex = 23
         Me.PictureBox3.TabStop = False
+        '
+        'TabUsuario
+        '
+        Me.TabUsuario.Controls.Add(Me.Panel8)
+        Me.TabUsuario.Controls.Add(Me.Panel5)
+        Me.TabUsuario.Controls.Add(Me.Panel6)
+        Me.TabUsuario.Location = New System.Drawing.Point(4, 24)
+        Me.TabUsuario.Name = "TabUsuario"
+        Me.TabUsuario.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabUsuario.Size = New System.Drawing.Size(1121, 573)
+        Me.TabUsuario.TabIndex = 8
+        Me.TabUsuario.Text = "Usuario"
+        Me.TabUsuario.UseVisualStyleBackColor = True
+        '
+        'Panel8
+        '
+        Me.Panel8.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
+        Me.Panel8.Controls.Add(Me.btnBuscarUsuarioInactivos)
+        Me.Panel8.Controls.Add(Me.DGUsuario)
+        Me.Panel8.Controls.Add(Me.btnRefreshUsuario)
+        Me.Panel8.Controls.Add(Me.TextBox1)
+        Me.Panel8.Controls.Add(Me.btnBuscarUsuario)
+        Me.Panel8.Controls.Add(Me.ComboBox1)
+        Me.Panel8.Controls.Add(Me.DataGridView2)
+        Me.Panel8.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel8.Location = New System.Drawing.Point(187, 92)
+        Me.Panel8.Name = "Panel8"
+        Me.Panel8.Size = New System.Drawing.Size(931, 478)
+        Me.Panel8.TabIndex = 15
+        '
+        'btnBuscarUsuarioInactivos
+        '
+        Me.btnBuscarUsuarioInactivos.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnBuscarUsuarioInactivos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnBuscarUsuarioInactivos.Location = New System.Drawing.Point(567, 28)
+        Me.btnBuscarUsuarioInactivos.Name = "btnBuscarUsuarioInactivos"
+        Me.btnBuscarUsuarioInactivos.Size = New System.Drawing.Size(122, 24)
+        Me.btnBuscarUsuarioInactivos.TabIndex = 11
+        Me.btnBuscarUsuarioInactivos.Text = "Buscar Inactivos"
+        Me.btnBuscarUsuarioInactivos.UseVisualStyleBackColor = False
+        Me.btnBuscarUsuarioInactivos.Visible = False
+        '
+        'DGUsuario
+        '
+        Me.DGUsuario.AllowUserToAddRows = False
+        Me.DGUsuario.AllowUserToDeleteRows = False
+        Me.DGUsuario.AllowUserToResizeRows = False
+        Me.DGUsuario.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.DGUsuario.BackgroundColor = System.Drawing.Color.White
+        Me.DGUsuario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DGUsuario.Location = New System.Drawing.Point(24, 65)
+        Me.DGUsuario.MultiSelect = False
+        Me.DGUsuario.Name = "DGUsuario"
+        Me.DGUsuario.ReadOnly = True
+        Me.DGUsuario.RowHeadersVisible = False
+        Me.DGUsuario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DGUsuario.Size = New System.Drawing.Size(614, 310)
+        Me.DGUsuario.TabIndex = 10
+        Me.DGUsuario.Visible = False
+        '
+        'btnRefreshUsuario
+        '
+        Me.btnRefreshUsuario.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnRefreshUsuario.BackgroundImage = Global.CapaPresentacion.My.Resources.Resources.home
+        Me.btnRefreshUsuario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnRefreshUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnRefreshUsuario.Location = New System.Drawing.Point(20, 29)
+        Me.btnRefreshUsuario.Name = "btnRefreshUsuario"
+        Me.btnRefreshUsuario.Size = New System.Drawing.Size(36, 30)
+        Me.btnRefreshUsuario.TabIndex = 9
+        Me.btnRefreshUsuario.UseVisualStyleBackColor = False
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(70, 32)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(389, 20)
+        Me.TextBox1.TabIndex = 0
+        '
+        'btnBuscarUsuario
+        '
+        Me.btnBuscarUsuario.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnBuscarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnBuscarUsuario.Location = New System.Drawing.Point(567, 28)
+        Me.btnBuscarUsuario.Name = "btnBuscarUsuario"
+        Me.btnBuscarUsuario.Size = New System.Drawing.Size(83, 24)
+        Me.btnBuscarUsuario.TabIndex = 5
+        Me.btnBuscarUsuario.Text = "Buscar"
+        Me.btnBuscarUsuario.UseVisualStyleBackColor = False
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Items.AddRange(New Object() {"Nombre", "Apellido", "DNI", "CUIT"})
+        Me.ComboBox1.Location = New System.Drawing.Point(465, 32)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(96, 21)
+        Me.ComboBox1.TabIndex = 6
+        '
+        'DataGridView2
+        '
+        Me.DataGridView2.AllowUserToAddRows = False
+        Me.DataGridView2.AllowUserToDeleteRows = False
+        Me.DataGridView2.AllowUserToResizeRows = False
+        Me.DataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.DataGridView2.BackgroundColor = System.Drawing.Color.White
+        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView2.Location = New System.Drawing.Point(24, 65)
+        Me.DataGridView2.MultiSelect = False
+        Me.DataGridView2.Name = "DataGridView2"
+        Me.DataGridView2.ReadOnly = True
+        Me.DataGridView2.RowHeadersVisible = False
+        Me.DataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DataGridView2.Size = New System.Drawing.Size(614, 310)
+        Me.DataGridView2.TabIndex = 7
+        '
+        'Panel5
+        '
+        Me.Panel5.BackColor = System.Drawing.Color.FromArgb(CType(CType(63, Byte), Integer), CType(CType(166, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.Panel5.Controls.Add(Me.Label9)
+        Me.Panel5.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel5.Location = New System.Drawing.Point(187, 3)
+        Me.Panel5.Name = "Panel5"
+        Me.Panel5.Size = New System.Drawing.Size(931, 89)
+        Me.Panel5.TabIndex = 14
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(241, 14)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(197, 55)
+        Me.Label9.TabIndex = 1
+        Me.Label9.Text = "Usuario"
+        '
+        'Panel6
+        '
+        Me.Panel6.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(134, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.Panel6.Controls.Add(Me.btnRestaurarUsuario)
+        Me.Panel6.Controls.Add(Me.btnVerUsuarioInactivo)
+        Me.Panel6.Controls.Add(Me.btnPapeleraUsuario)
+        Me.Panel6.Controls.Add(Me.PictureBox4)
+        Me.Panel6.Controls.Add(Me.btnEliminarUsuario)
+        Me.Panel6.Controls.Add(Me.btnVerUsuario)
+        Me.Panel6.Controls.Add(Me.btnModificarUsuario)
+        Me.Panel6.Controls.Add(Me.btnNuevoUsuario)
+        Me.Panel6.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Panel6.Location = New System.Drawing.Point(3, 3)
+        Me.Panel6.Name = "Panel6"
+        Me.Panel6.Size = New System.Drawing.Size(184, 567)
+        Me.Panel6.TabIndex = 13
+        '
+        'btnRestaurarUsuario
+        '
+        Me.btnRestaurarUsuario.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnRestaurarUsuario.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnRestaurarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnRestaurarUsuario.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnRestaurarUsuario.ForeColor = System.Drawing.Color.White
+        Me.btnRestaurarUsuario.Location = New System.Drawing.Point(0, 386)
+        Me.btnRestaurarUsuario.Name = "btnRestaurarUsuario"
+        Me.btnRestaurarUsuario.Size = New System.Drawing.Size(184, 50)
+        Me.btnRestaurarUsuario.TabIndex = 13
+        Me.btnRestaurarUsuario.Text = "Restaurar usuario"
+        Me.btnRestaurarUsuario.UseVisualStyleBackColor = False
+        Me.btnRestaurarUsuario.Visible = False
+        '
+        'btnVerUsuarioInactivo
+        '
+        Me.btnVerUsuarioInactivo.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnVerUsuarioInactivo.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnVerUsuarioInactivo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnVerUsuarioInactivo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnVerUsuarioInactivo.ForeColor = System.Drawing.Color.White
+        Me.btnVerUsuarioInactivo.Location = New System.Drawing.Point(3, 330)
+        Me.btnVerUsuarioInactivo.Name = "btnVerUsuarioInactivo"
+        Me.btnVerUsuarioInactivo.Size = New System.Drawing.Size(184, 50)
+        Me.btnVerUsuarioInactivo.TabIndex = 12
+        Me.btnVerUsuarioInactivo.Text = "Ver Detalles usuario Inactivo"
+        Me.btnVerUsuarioInactivo.UseVisualStyleBackColor = False
+        Me.btnVerUsuarioInactivo.Visible = False
+        '
+        'btnPapeleraUsuario
+        '
+        Me.btnPapeleraUsuario.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnPapeleraUsuario.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnPapeleraUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnPapeleraUsuario.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPapeleraUsuario.ForeColor = System.Drawing.Color.White
+        Me.btnPapeleraUsuario.Location = New System.Drawing.Point(-3, 442)
+        Me.btnPapeleraUsuario.Name = "btnPapeleraUsuario"
+        Me.btnPapeleraUsuario.Size = New System.Drawing.Size(184, 50)
+        Me.btnPapeleraUsuario.TabIndex = 11
+        Me.btnPapeleraUsuario.Text = "Papelera usuario"
+        Me.btnPapeleraUsuario.UseVisualStyleBackColor = False
+        '
+        'PictureBox4
+        '
+        Me.PictureBox4.Image = Global.CapaPresentacion.My.Resources.Resources.clientes
+        Me.PictureBox4.Location = New System.Drawing.Point(7, 14)
+        Me.PictureBox4.Name = "PictureBox4"
+        Me.PictureBox4.Size = New System.Drawing.Size(170, 150)
+        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox4.TabIndex = 10
+        Me.PictureBox4.TabStop = False
+        '
+        'btnEliminarUsuario
+        '
+        Me.btnEliminarUsuario.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnEliminarUsuario.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnEliminarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnEliminarUsuario.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEliminarUsuario.ForeColor = System.Drawing.Color.White
+        Me.btnEliminarUsuario.Location = New System.Drawing.Point(0, 386)
+        Me.btnEliminarUsuario.Name = "btnEliminarUsuario"
+        Me.btnEliminarUsuario.Size = New System.Drawing.Size(184, 50)
+        Me.btnEliminarUsuario.TabIndex = 9
+        Me.btnEliminarUsuario.Text = "Eliminar usuario"
+        Me.btnEliminarUsuario.UseVisualStyleBackColor = False
+        '
+        'btnVerUsuario
+        '
+        Me.btnVerUsuario.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnVerUsuario.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnVerUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnVerUsuario.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnVerUsuario.ForeColor = System.Drawing.Color.White
+        Me.btnVerUsuario.Location = New System.Drawing.Point(0, 330)
+        Me.btnVerUsuario.Name = "btnVerUsuario"
+        Me.btnVerUsuario.Size = New System.Drawing.Size(184, 50)
+        Me.btnVerUsuario.TabIndex = 8
+        Me.btnVerUsuario.Text = "Ver Detalles usuario"
+        Me.btnVerUsuario.UseVisualStyleBackColor = False
+        '
+        'btnModificarUsuario
+        '
+        Me.btnModificarUsuario.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnModificarUsuario.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnModificarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnModificarUsuario.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnModificarUsuario.ForeColor = System.Drawing.Color.White
+        Me.btnModificarUsuario.Location = New System.Drawing.Point(0, 274)
+        Me.btnModificarUsuario.Name = "btnModificarUsuario"
+        Me.btnModificarUsuario.Size = New System.Drawing.Size(184, 50)
+        Me.btnModificarUsuario.TabIndex = 7
+        Me.btnModificarUsuario.Text = "Modificar usuario"
+        Me.btnModificarUsuario.UseVisualStyleBackColor = False
+        '
+        'btnNuevoUsuario
+        '
+        Me.btnNuevoUsuario.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnNuevoUsuario.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnNuevoUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnNuevoUsuario.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnNuevoUsuario.ForeColor = System.Drawing.Color.White
+        Me.btnNuevoUsuario.Location = New System.Drawing.Point(0, 218)
+        Me.btnNuevoUsuario.Name = "btnNuevoUsuario"
+        Me.btnNuevoUsuario.Size = New System.Drawing.Size(184, 50)
+        Me.btnNuevoUsuario.TabIndex = 6
+        Me.btnNuevoUsuario.Text = "Nuevo usuario"
+        Me.btnNuevoUsuario.UseVisualStyleBackColor = False
         '
         'Panel1
         '
@@ -1529,26 +1841,6 @@ Partial Class frmMenuPrincipal
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(18, 326)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(78, 13)
-        Me.Label8.TabIndex = 13
-        Me.Label8.Text = "Tipo de grafico"
-        '
-        'cboTipoEstadistica
-        '
-        Me.cboTipoEstadistica.BackColor = System.Drawing.SystemColors.Window
-        Me.cboTipoEstadistica.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cboTipoEstadistica.FormattingEnabled = True
-        Me.cboTipoEstadistica.Items.AddRange(New Object() {"Mensual", "Anual"})
-        Me.cboTipoEstadistica.Location = New System.Drawing.Point(18, 342)
-        Me.cboTipoEstadistica.Name = "cboTipoEstadistica"
-        Me.cboTipoEstadistica.Size = New System.Drawing.Size(121, 21)
-        Me.cboTipoEstadistica.TabIndex = 12
         '
         'frmMenuPrincipal
         '
@@ -1615,6 +1907,15 @@ Partial Class frmMenuPrincipal
         Me.Panel2.PerformLayout()
         Me.Panel3.ResumeLayout(False)
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabUsuario.ResumeLayout(False)
+        Me.Panel8.ResumeLayout(False)
+        Me.Panel8.PerformLayout()
+        CType(Me.DGUsuario, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel5.ResumeLayout(False)
+        Me.Panel5.PerformLayout()
+        Me.Panel6.ResumeLayout(False)
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1731,4 +2032,24 @@ Partial Class frmMenuPrincipal
     Friend WithEvents cboAño2 As System.Windows.Forms.ComboBox
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents cboTipoEstadistica As System.Windows.Forms.ComboBox
+    Friend WithEvents TabUsuario As System.Windows.Forms.TabPage
+    Friend WithEvents Panel8 As System.Windows.Forms.Panel
+    Friend WithEvents btnBuscarUsuarioInactivos As System.Windows.Forms.Button
+    Friend WithEvents DGUsuario As System.Windows.Forms.DataGridView
+    Friend WithEvents btnRefreshUsuario As System.Windows.Forms.Button
+    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents btnBuscarUsuario As System.Windows.Forms.Button
+    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
+    Friend WithEvents DataGridView2 As System.Windows.Forms.DataGridView
+    Friend WithEvents Panel5 As System.Windows.Forms.Panel
+    Friend WithEvents Label9 As System.Windows.Forms.Label
+    Friend WithEvents Panel6 As System.Windows.Forms.Panel
+    Friend WithEvents btnRestaurarUsuario As System.Windows.Forms.Button
+    Friend WithEvents btnVerUsuarioInactivo As System.Windows.Forms.Button
+    Friend WithEvents btnPapeleraUsuario As System.Windows.Forms.Button
+    Friend WithEvents PictureBox4 As System.Windows.Forms.PictureBox
+    Friend WithEvents btnEliminarUsuario As System.Windows.Forms.Button
+    Friend WithEvents btnVerUsuario As System.Windows.Forms.Button
+    Friend WithEvents btnModificarUsuario As System.Windows.Forms.Button
+    Friend WithEvents btnNuevoUsuario As System.Windows.Forms.Button
 End Class

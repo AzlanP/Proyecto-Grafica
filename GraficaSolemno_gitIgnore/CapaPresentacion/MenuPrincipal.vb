@@ -37,22 +37,30 @@ Public Class frmMenuPrincipal
     End Sub
     Private Sub DGCliente_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DGCliente.CellClick
         'se usa esto para cuando hagan click en alguna celda del datagridview se seleccione la fila completa
-        DGCliente.CurrentRow.Selected = True
+        ' '' '' ''DGCliente.CurrentRow.Selected = True
         'esta siguiente parte es para cuando das click en el datagridview te de el ID de esa fila
-        ID = DGCliente.Rows(e.RowIndex).Cells("IDCliente").Value
+        If e.RowIndex >= 0 Then
+            ID = DGCliente.Rows(e.RowIndex).Cells("IDCliente").Value
+
+        End If
+
 
         '---------------------------importante-------------
         ' aca tenia el metodo LlenarFormulario para precargar los datos. pero en algun momento lo borre,
         ' y  funciono sin el, debido que al no tener posibilidad de modificar el
         'id se updateo con el.
     End Sub
-    Private Sub DGCliente_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles DGCliente.DoubleClick
-        'Dim dr As DataRow = DGCliente.SelectedRows(0).Index
-        'Dim ID As String = DGCliente.SelectedRows(0).Cells("IDCliente").Value.ToString()
-        Dim frmRegistrar As New RegistrarCliente
-        frmRegistrar.LlenarFormulario(ID)
-        frmRegistrar.ShowDialog()
-        CargarGridCliente()
+    Private Sub DGCliente_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DGCliente.CellDoubleClick
+        If e.RowIndex >= 0 Then
+
+            Dim frmRegistrar As New RegistrarCliente
+            frmRegistrar.LlenarFormulario(ID)
+            frmRegistrar.ShowDialog()
+            CargarGridCliente()
+
+            DGCliente.Rows(e.RowIndex).Selected = True
+        End If
+
     End Sub
     Private Sub btnVerCliente_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnVerCliente.Click
         ID = DGCliente.Rows(DGCliente.CurrentCell.RowIndex).Cells("IDCliente").Value
@@ -71,7 +79,7 @@ Public Class frmMenuPrincipal
         CargarGridCliente()
     End Sub
     Private Sub btnEliminarCliente_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEliminarCliente.Click
-        ID = DGCliente.Rows(DGCliente.CurrentCell.RowIndex).Cells("IDCliente").Value
+        'ID = DGCliente.Rows(DGCliente.CurrentCell.RowIndex).Cells("IDCliente").Value
         If oCNPedido.ValidarEliminarPedido(ID) Then
             '--
             If MessageBox.Show("Esta seguro de mandar a la papelera el cliente? ", "Confirmacion de eliminar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
@@ -81,7 +89,7 @@ Public Class frmMenuPrincipal
 
             '--
         End If
-       
+
     End Sub
     Private Sub btnBuscar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscarCliente.Click
         Dim dt As DataTable
@@ -112,23 +120,34 @@ Public Class frmMenuPrincipal
         btnBuscarInactivos.Visible = True
         btnRestaurar.Visible = True
     End Sub
+
     Private Sub DGClienteInactivos_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DGClienteInactivos.CellClick
-        DGClienteInactivos.CurrentRow.Selected = True
-
-        ID = DGClienteInactivos.Rows(e.RowIndex).Cells("IDCliente").Value
-
-     
-    End Sub
-    Private Sub DGClienteInactivos_CellDoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles DGClienteInactivos.CellDoubleClick
-
-        Dim frmRegistrar As New RegistrarCliente
-        If MessageBox.Show("Esta seguro de Restaurar el Cliente? ", "Confirmacion de restaurar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
-            oCNCliente.EliminarCliente(ID, "Activo")
-            CargarGridCliente()
-            DGClienteInactivos.DataSource = oCNCliente.MostrarClienteIncativo()
-            VolverAlInicio()
+        If e.RowIndex >= 0 Then
+            ID = DGClienteInactivos.Rows(e.RowIndex).Cells("IDCliente").Value
         End If
+
     End Sub
+
+    Private Sub DGClienteInactivos_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DGClienteInactivos.CellDoubleClick
+        If e.RowIndex >= 0 Then
+            ' '' ''ID = DGClienteInactivos.Rows(e.RowIndex).Cells("IDCliente").Value
+
+
+            Dim frmRegistrar As New RegistrarCliente
+            If MessageBox.Show("Esta seguro de Restaurar el Cliente? ", "Confirmacion de restaurar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
+                oCNCliente.EliminarCliente(ID, "Activo")
+                CargarGridCliente()
+                DGClienteInactivos.DataSource = oCNCliente.MostrarClienteIncativo()
+                VolverAlInicio()
+            End If
+
+
+            'DGClienteInactivos.Rows(e.RowIndex).Selected = True
+        End If
+        '  
+    End Sub
+
+
     Private Sub btnBuscarInactivos_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnBuscarInactivos.Click
         Dim dt As DataTable
         dt = oCNCliente.BuscarInactivo(cboBuscarCliente.Text, Trim(txtBuscarCliente.Text))
@@ -151,7 +170,7 @@ Public Class frmMenuPrincipal
             VolverAlInicio()
         End If
 
-       
+
     End Sub
     Public Sub VolverAlInicio()
         btnListadoClientesInactivos.Text = "Papelera Clientes"
@@ -186,7 +205,7 @@ Public Class frmMenuPrincipal
         frmRegistrar.ShowDialog()
         CargarGridProducto()
     End Sub
-   
+
     Private Sub btnModificarProducto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnModificarProducto.Click
         ID = DGProducto.Rows(DGProducto.CurrentCell.RowIndex).Cells("IDProducto").Value
         Dim frmRegistrar As New RegistrarProducto
@@ -212,15 +231,28 @@ Public Class frmMenuPrincipal
         dt = oCNProducto.BuscarProducto(cboBuscarProducto.Text, txtBuscarProducto.Text)
         DGProducto.DataSource = dt
     End Sub
-   
-    Private Sub DGProducto_CellMouseDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellMouseEventArgs) Handles DGProducto.CellMouseDoubleClick
-        ID = DGProducto.Rows(e.RowIndex).Cells("IDProducto").Value
-        Dim frmRegistrar As New RegistrarProducto
-        frmRegistrar.LlenarFormulario(ID)
-        frmRegistrar.Text = "Modificar Producto"
-        frmRegistrar.ShowDialog()
-        CargarGridProducto()
+
+    Private Sub DGProducto_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DGProducto.CellClick
+        If e.RowIndex >= 0 Then
+            ID = DGProducto.Rows(e.RowIndex).Cells("IDProducto").Value
+        End If
+
     End Sub
+
+    Private Sub DGProducto_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DGProducto.CellDoubleClick
+        If e.RowIndex >= 0 Then
+
+            Dim frmRegistrar As New RegistrarProducto
+            frmRegistrar.LlenarFormulario(ID)
+            frmRegistrar.Text = "Modificar Producto"
+            frmRegistrar.ShowDialog()
+            CargarGridProducto()
+            DGProducto.Rows(e.RowIndex).Selected = True
+        End If
+    End Sub
+
+   
+
     '------------------------para la papelera------ 
     Private Sub btnEliminarProducto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEliminarProducto.Click
         ID = DGProducto.Rows(DGProducto.CurrentCell.RowIndex).Cells("IDProducto").Value
@@ -229,8 +261,8 @@ Public Class frmMenuPrincipal
             CargarGridProducto()
         End If
 
-        
-       
+
+
     End Sub
     Private Sub btnRestaurarProducto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRestaurarProducto.Click
         Dim ID As Integer = DGProductoInactivo.Rows(DGProductoInactivo.CurrentCell.RowIndex).Cells("IDProducto").Value
@@ -272,20 +304,25 @@ Public Class frmMenuPrincipal
     End Sub
 
     Private Sub DGProductoInactivo_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DGProductoInactivo.CellClick
-        DGProductoInactivo.CurrentRow.Selected = True
-        ID = DGProductoInactivo.Rows(e.RowIndex).Cells("IDProducto").Value
+        If e.RowIndex >= 0 Then
+            ID = DGProductoInactivo.Rows(e.RowIndex).Cells("IDProducto").Value
+        End If
+
     End Sub
 
     Private Sub DGProductoInactivo_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DGProductoInactivo.CellDoubleClick
-        Dim frmRegistrar As New RegistrarProducto
-        Dim ID As Integer = DGProductoInactivo.Rows(DGProductoInactivo.CurrentCell.RowIndex).Cells("IDProducto").Value
-        If MessageBox.Show("Esta seguro de Restaurar el Producto? ", "Confirmacion de restaurar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
-            oCNProducto.EliminarProducto(ID, "Activo")
-            CargarGridProducto()
-            DGProductoInactivo.DataSource = oCNProducto.MostrarProductoInactivo()
-            MostrarProductosModoActivo()
+        If e.RowIndex >= 0 Then
+
+
+            Dim frmRegistrar As New RegistrarProducto
+            Dim ID As Integer = DGProductoInactivo.Rows(DGProductoInactivo.CurrentCell.RowIndex).Cells("IDProducto").Value
+            If MessageBox.Show("Esta seguro de Restaurar el Producto? ", "Confirmacion de restaurar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
+                oCNProducto.EliminarProducto(ID, "Activo")
+                CargarGridProducto()
+                DGProductoInactivo.DataSource = oCNProducto.MostrarProductoInactivo()
+                MostrarProductosModoActivo()
+            End If
         End If
-        
     End Sub
     Public Sub MostrarProductosModoInactivo()
         btnPapeleraProducto.Text = "Volver"
@@ -380,9 +417,13 @@ Public Class frmMenuPrincipal
     End Sub
 
     Private Sub btnEliminarPedido_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEliminarPedido.Click
-        ID = DGPedido.Rows(DGPedido.CurrentCell.RowIndex).Cells("IDPedido").Value
-        oCNPedido.EliminarPedido(ID)
-        CargarGridPedidos()
+
+        If MessageBox.Show("Esta seguro de eliminar el pedido? ", "Confirmacion de eliminar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
+            oCNPedido.EliminarPedido(ID)
+            CargarGridPedidos()
+        End If
+
+
     End Sub
 
     Private Sub btnBuscarPedido_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscarPedido.Click
@@ -391,21 +432,45 @@ Public Class frmMenuPrincipal
         DGPedido.DataSource = dt
     End Sub
 
-    Private Sub DGPedido_MouseDoubleClick(ByVal sender As Object, ByVal e As MouseEventArgs) Handles DGPedido.MouseDoubleClick
-        ID = DGPedido.Rows(DGPedido.CurrentCell.RowIndex).Cells("IDPedido").Value
-        Dim frmPedido As New FormularioPedido
-        frmPedido.btnAgregarPedidoNuevo.Visible = False
-        frmPedido.btnAgregarPedidoExistente.Visible = True
-        frmPedido.btnGuardarPedido.Visible = False
-        frmPedido.btnGuardarCambios.Visible = True
-        frmPedido.CargarGridDetalles(ID)
-        frmPedido.LLenarFormulario(ID)
-        frmPedido.lblID.Text = ID
-        frmPedido.ShowDialog()
-        CargarGridPedidos()
+    Private Sub DGPedido_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DGPedido.CellClick
+        If e.RowIndex >= 0 Then
+            ID = DGPedido.Rows(e.RowIndex).Cells("IDPedido").Value
+
+        End If
     End Sub
 
-    Private Sub btnRefreshPedido_Click(sender As System.Object, e As System.EventArgs) Handles btnRefreshPedido.Click
+    Private Sub DGPedido_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DGPedido.CellDoubleClick
+        If e.RowIndex >= 0 Then
+
+            Dim frmPedido As New FormularioPedido
+            frmPedido.btnAgregarPedidoNuevo.Visible = False
+            frmPedido.btnAgregarPedidoExistente.Visible = True
+            frmPedido.btnGuardarPedido.Visible = False
+            frmPedido.btnGuardarCambios.Visible = True
+            frmPedido.CargarGridDetalles(ID)
+            frmPedido.LLenarFormulario(ID)
+            frmPedido.lblID.Text = ID
+            frmPedido.ShowDialog()
+            CargarGridPedidos()
+            DGPedido.Rows(e.RowIndex).Selected = True
+        End If
+    End Sub
+
+    'Private Sub DGPedido_MouseDoubleClick(ByVal sender As Object, ByVal e As MouseEventArgs) Handles DGPedido.MouseDoubleClick
+    '    ID = DGPedido.Rows(DGPedido.CurrentCell.RowIndex).Cells("IDPedido").Value
+    '    Dim frmPedido As New FormularioPedido
+    '    frmPedido.btnAgregarPedidoNuevo.Visible = False
+    '    frmPedido.btnAgregarPedidoExistente.Visible = True
+    '    frmPedido.btnGuardarPedido.Visible = False
+    '    frmPedido.btnGuardarCambios.Visible = True
+    '    frmPedido.CargarGridDetalles(ID)
+    '    frmPedido.LLenarFormulario(ID)
+    '    frmPedido.lblID.Text = ID
+    '    frmPedido.ShowDialog()
+    '    CargarGridPedidos()
+    'End Sub
+
+    Private Sub btnRefreshPedido_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRefreshPedido.Click
         CargarGridPedidos()
 
     End Sub
@@ -435,27 +500,17 @@ Public Class frmMenuPrincipal
             cboAño2.Visible = False
             Dim dt As DataTable = oCNGraficas.GraficaPedidosMensual(10, cboAño.SelectedItem)
             For Each dr In dt.Rows
-
                 Dim fecha As Date = dr(0)
                 MsgBox(dr(0))
                 MsgBox(fecha)
-
                 For i = 1 To 30
-
                     If (i = fecha.Day) Then
                         Me.GraficoSegunConsulta.Series("Mensual").Points.AddXY(i, dr(1))
                     Else
                         Me.GraficoSegunConsulta.Series("Mensual").Points.AddXY(i, 0)
                     End If
-
-
-
                 Next
-
-
             Next
-
-
         ElseIf (cboTipoEstadistica.Text = "Anual") Then
 
         End If
@@ -490,14 +545,14 @@ Public Class frmMenuPrincipal
             Next
         End If
     End Sub
-   
+
     Private Sub btnGraficoPedidos_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGraficoPedidos.Click
         GraficoPedidosMensuales()
     End Sub
     Private Sub btnGraficoMedios_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGraficoMedios.Click
         GraficarMedios()
     End Sub
- 
+
     Private Sub btnGraficosProducto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGraficosProducto.Click
         GraficarProductosMensual()
     End Sub
@@ -506,8 +561,8 @@ Public Class frmMenuPrincipal
 
     '--------------------------------------------------------------------------------------------------------------
     '----------------------------------------   POSTICKS         -----------------------------------------------
-   
-   
+
+
     Private Sub TabTareas_Enter(ByVal sender As Object, ByVal e As System.EventArgs) Handles TabTareas.Enter
         AbrirFormInPanel(frmPestañaTareas)
     End Sub
@@ -598,29 +653,104 @@ Public Class frmMenuPrincipal
         DGPresupuesto.DataSource = dt
     End Sub
 
-    Private Sub DGPresupuesto_MouseDoubleClick(ByVal sender As Object, ByVal e As MouseEventArgs) Handles DGPresupuesto.MouseDoubleClick
-        ID = DGPresupuesto.Rows(DGPresupuesto.CurrentCell.RowIndex).Cells("IDPedido").Value
-        Dim frmPresupuesto As New FormularioPresupuesto
-        frmPresupuesto.btnAgregarPedidoNuevo.Visible = False
-        frmPresupuesto.btnAgregarPedidoExistente.Visible = True
-        frmPresupuesto.btnGuardarPedido.Visible = False
-        frmPresupuesto.btnGuardarCambios.Visible = True
-        frmPresupuesto.CargarGridDetalles(ID)
-        frmPresupuesto.LLenarFormulario(ID)
-        frmPresupuesto.lblID.Text = ID
-        frmPresupuesto.ShowDialog()
-        CargarGridPresupuestos()
-    End Sub
-
-    Private Sub btnRefreshPresupuesto_Click(sender As System.Object, e As System.EventArgs) Handles btnRefreshPresupuesto.Click
-        CargarGridPresupuestos()
+    Private Sub DGPresupuesto_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DGPresupuesto.CellClick
+        If e.RowIndex >= 0 Then
+            ID = DGPresupuesto.Rows(DGPresupuesto.CurrentCell.RowIndex).Cells("IDPedido").Value
+        End If
 
     End Sub
 
+    Private Sub DGPresupuesto_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DGPresupuesto.CellDoubleClick
+        If e.RowIndex >= 0 Then
+
+
+            Dim frmPresupuesto As New FormularioPresupuesto
+            frmPresupuesto.btnAgregarPedidoNuevo.Visible = False
+            frmPresupuesto.btnAgregarPedidoExistente.Visible = True
+            frmPresupuesto.btnGuardarPedido.Visible = False
+            frmPresupuesto.btnGuardarCambios.Visible = True
+            frmPresupuesto.CargarGridDetalles(ID)
+            frmPresupuesto.LLenarFormulario(ID)
+            frmPresupuesto.lblID.Text = ID
+            frmPresupuesto.ShowDialog()
+            CargarGridPresupuestos()
+            DGPresupuesto.Rows(e.RowIndex).Selected = True
+        End If
+    End Sub
+
+    'Private Sub DGPresupuesto_MouseDoubleClick(ByVal sender As Object, ByVal e As MouseEventArgs) Handles DGPresupuesto.MouseDoubleClick
+    '    ID = DGPresupuesto.Rows(DGPresupuesto.CurrentCell.RowIndex).Cells("IDPedido").Value
+    '    Dim frmPresupuesto As New FormularioPresupuesto
+    '    frmPresupuesto.btnAgregarPedidoNuevo.Visible = False
+    '    frmPresupuesto.btnAgregarPedidoExistente.Visible = True
+    '    frmPresupuesto.btnGuardarPedido.Visible = False
+    '    frmPresupuesto.btnGuardarCambios.Visible = True
+    '    frmPresupuesto.CargarGridDetalles(ID)
+    '    frmPresupuesto.LLenarFormulario(ID)
+    '    frmPresupuesto.lblID.Text = ID
+    '    frmPresupuesto.ShowDialog()
+    '    CargarGridPresupuestos()
+    'End Sub
+
+    Private Sub btnRefreshPresupuesto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRefreshPresupuesto.Click
+        CargarGridPresupuestos()
+
+    End Sub
+
+
+    '--------------------------------------------------------------------------------------------
+    '-------------------------------USUARIOS-----------------------------------------------------
+
+    Private Sub btnNuevoUsuario_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNuevoUsuario.Click
+        Dim regUser As New frmIngresaralSistema
+        regUser.PanelRegistrar.Visible = True
+        regUser.PanelLogin.Visible = False
+        regUser.ShowDialog()
+    End Sub
+
+    Private Sub btnModificarUsuario_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnModificarUsuario.Click
+        Dim regUser As New frmIngresaralSistema
+        regUser.PanelRegistrar.Visible = True
+        regUser.PanelLogin.Visible = False
+        regUser.ShowDialog()
+    End Sub
+
+    Private Sub btnVerUsuarioInactivo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnVerUsuarioInactivo.Click
+
+    End Sub
+
+    Private Sub btnRestaurarUsuario_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRestaurarUsuario.Click
+
+    End Sub
+
+    Private Sub btnPapeleraUsuario_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnPapeleraUsuario.Click
+
+    End Sub
+
+    Private Sub btnEliminarUsuario_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEliminarUsuario.Click
+
+    End Sub
+
+    Private Sub btnVerUsuario_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnVerUsuario.Click
+
+    End Sub
+
+    Private Sub btnBuscarUsuarioInactivos_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscarUsuarioInactivos.Click
+
+    End Sub
+
+    Private Sub btnBuscarUsuario_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscarUsuario.Click
+
+    End Sub
+
+    Private Sub btnRefreshUsuario_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRefreshUsuario.Click
+
+    End Sub
+
+    '--------------------------------------------------------------------------------------------
+    '-------------------------------CONTROLES DE ACCESO-----------------------------------------------------
     Public Sub enableAdminMode()
-
         TabGeneral.TabPages.Add(TabPresupuesto)
-
     End Sub
     Public Sub enableEsclavoMode()
         If (TabGeneral.TabPages.Contains(TabPresupuesto)) Then
@@ -633,10 +763,11 @@ Public Class frmMenuPrincipal
         Me.lblNombreUsuario.Text = ""
         frmIngresaralSistema.Show()
     End Sub
+    '--------------------------------------------------------------------------------------------
+    '-------------------------------CONTROLES DE ACCESO-------------------------------------------
 
-    Private Sub Panel7_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles Panel7.Paint
 
-    End Sub
-
+ 
+    
 
 End Class

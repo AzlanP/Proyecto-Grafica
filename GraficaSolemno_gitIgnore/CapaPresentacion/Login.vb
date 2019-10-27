@@ -50,7 +50,6 @@ Public Class frmIngresaralSistema
     End Sub
 
     Private Sub linkTab_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles linkTab.LinkClicked
-
         PanelRegistrar.Visible = True
         PanelLogin.Visible = False
     End Sub
