@@ -163,6 +163,7 @@ Public Class CDPedidos
     End Function
     Function BuscarPresupuesto(ByVal campo As String, ByVal pbuscar As String) As DataTable
         oCDConexion.Conectar()
+        Dim da As New SQLiteDataAdapter
         Dim dt As New DataTable
         Try
             Dim instruccionsql As String = "SELECT Pedidos.IDPedido, pedidos.Descripcion, pedidos.Fecha, Clientes.nombre || ' ' || Clientes.apellido as 'cliente' , tipoenvio.Nombre as 'TipoEnvio', medios.nombre as 'Medio', pedidos.Estado, pedidos.seña, Clientes.apellido as 'Apellido' , pedidos.PresupuestoVencimiento as 'Fecha Vencimiento'  FROM Pedidos, Clientes, medios, tipoenvio WHERE " & campo & " =@pbuscar  and (pedidos.IDCliente=clientes.IDCliente and pedidos.IDMedio= medios.IDMedio and pedidos.IDTipoEnvio = TipoEnvio.IDTipoEnvio And pedidos.Estado == 'Presupuesto' )"
