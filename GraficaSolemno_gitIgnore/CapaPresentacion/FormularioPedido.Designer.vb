@@ -63,6 +63,9 @@ Partial Class FormularioPedido
         Me.btnAdd = New System.Windows.Forms.Button()
         Me.cboDesc = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.dtpFechaVencimiento = New System.Windows.Forms.DateTimePicker()
+        Me.lblFechaVencimiento = New System.Windows.Forms.Label()
+        Me.btnGuardarPresupuesto = New System.Windows.Forms.Button()
         CType(Me.TipoEnvioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SolemnoDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -136,7 +139,7 @@ Partial Class FormularioPedido
         '
         Me.dtpFecha.Enabled = False
         Me.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpFecha.Location = New System.Drawing.Point(75, 71)
+        Me.dtpFecha.Location = New System.Drawing.Point(81, 42)
         Me.dtpFecha.Name = "dtpFecha"
         Me.dtpFecha.Size = New System.Drawing.Size(121, 20)
         Me.dtpFecha.TabIndex = 28
@@ -147,7 +150,7 @@ Partial Class FormularioPedido
         Me.cboCliente.DisplayMember = "Nombre"
         Me.cboCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboCliente.FormattingEnabled = True
-        Me.cboCliente.Location = New System.Drawing.Point(75, 38)
+        Me.cboCliente.Location = New System.Drawing.Point(81, 10)
         Me.cboCliente.Name = "cboCliente"
         Me.cboCliente.Size = New System.Drawing.Size(121, 21)
         Me.cboCliente.TabIndex = 27
@@ -201,13 +204,13 @@ Partial Class FormularioPedido
         Me.DGListaDePedido.BackgroundColor = System.Drawing.Color.White
         Me.DGListaDePedido.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DGListaDePedido.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
-        Me.DGListaDePedido.Location = New System.Drawing.Point(12, 120)
+        Me.DGListaDePedido.Location = New System.Drawing.Point(23, 120)
         Me.DGListaDePedido.MultiSelect = False
         Me.DGListaDePedido.Name = "DGListaDePedido"
         Me.DGListaDePedido.ReadOnly = True
         Me.DGListaDePedido.RowHeadersVisible = False
         Me.DGListaDePedido.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DGListaDePedido.Size = New System.Drawing.Size(575, 174)
+        Me.DGListaDePedido.Size = New System.Drawing.Size(564, 174)
         Me.DGListaDePedido.TabIndex = 22
         '
         'lblDetalles
@@ -222,7 +225,7 @@ Partial Class FormularioPedido
         'lblID
         '
         Me.lblID.AutoSize = True
-        Me.lblID.Location = New System.Drawing.Point(20, 14)
+        Me.lblID.Location = New System.Drawing.Point(9, 9)
         Me.lblID.Name = "lblID"
         Me.lblID.Size = New System.Drawing.Size(21, 13)
         Me.lblID.TabIndex = 20
@@ -240,7 +243,7 @@ Partial Class FormularioPedido
         'lblFecha
         '
         Me.lblFecha.AutoSize = True
-        Me.lblFecha.Location = New System.Drawing.Point(20, 77)
+        Me.lblFecha.Location = New System.Drawing.Point(32, 44)
         Me.lblFecha.Name = "lblFecha"
         Me.lblFecha.Size = New System.Drawing.Size(37, 13)
         Me.lblFecha.TabIndex = 18
@@ -249,7 +252,7 @@ Partial Class FormularioPedido
         'lblCliente
         '
         Me.lblCliente.AutoSize = True
-        Me.lblCliente.Location = New System.Drawing.Point(24, 38)
+        Me.lblCliente.Location = New System.Drawing.Point(30, 10)
         Me.lblCliente.Name = "lblCliente"
         Me.lblCliente.Size = New System.Drawing.Size(39, 13)
         Me.lblCliente.TabIndex = 17
@@ -269,7 +272,7 @@ Partial Class FormularioPedido
         'lblEstado
         '
         Me.lblEstado.AutoSize = True
-        Me.lblEstado.Location = New System.Drawing.Point(414, 72)
+        Me.lblEstado.Location = New System.Drawing.Point(418, 74)
         Me.lblEstado.Name = "lblEstado"
         Me.lblEstado.Size = New System.Drawing.Size(40, 13)
         Me.lblEstado.TabIndex = 36
@@ -280,7 +283,7 @@ Partial Class FormularioPedido
         Me.cboEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboEstado.FormattingEnabled = True
         Me.cboEstado.Items.AddRange(New Object() {"Pendiente", "Completado"})
-        Me.cboEstado.Location = New System.Drawing.Point(463, 70)
+        Me.cboEstado.Location = New System.Drawing.Point(479, 70)
         Me.cboEstado.Name = "cboEstado"
         Me.cboEstado.Size = New System.Drawing.Size(108, 21)
         Me.cboEstado.TabIndex = 35
@@ -288,7 +291,7 @@ Partial Class FormularioPedido
         'lblMedio
         '
         Me.lblMedio.AutoSize = True
-        Me.lblMedio.Location = New System.Drawing.Point(335, 41)
+        Me.lblMedio.Location = New System.Drawing.Point(343, 44)
         Me.lblMedio.Name = "lblMedio"
         Me.lblMedio.Size = New System.Drawing.Size(123, 13)
         Me.lblMedio.TabIndex = 38
@@ -300,7 +303,7 @@ Partial Class FormularioPedido
         Me.cboMedio.DisplayMember = "Nombre"
         Me.cboMedio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboMedio.FormattingEnabled = True
-        Me.cboMedio.Location = New System.Drawing.Point(464, 38)
+        Me.cboMedio.Location = New System.Drawing.Point(480, 38)
         Me.cboMedio.Name = "cboMedio"
         Me.cboMedio.Size = New System.Drawing.Size(107, 21)
         Me.cboMedio.TabIndex = 37
@@ -398,9 +401,9 @@ Partial Class FormularioPedido
         Me.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnSearch.FlatAppearance.BorderSize = 0
         Me.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSearch.Location = New System.Drawing.Point(211, 35)
+        Me.btnSearch.Location = New System.Drawing.Point(217, 32)
         Me.btnSearch.Name = "btnSearch"
-        Me.btnSearch.Size = New System.Drawing.Size(38, 40)
+        Me.btnSearch.Size = New System.Drawing.Size(30, 30)
         Me.btnSearch.TabIndex = 47
         Me.btnSearch.UseVisualStyleBackColor = True
         '
@@ -411,9 +414,9 @@ Partial Class FormularioPedido
         Me.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnAdd.FlatAppearance.BorderSize = 0
         Me.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAdd.Location = New System.Drawing.Point(255, 38)
+        Me.btnAdd.Location = New System.Drawing.Point(253, 32)
         Me.btnAdd.Name = "btnAdd"
-        Me.btnAdd.Size = New System.Drawing.Size(30, 30)
+        Me.btnAdd.Size = New System.Drawing.Size(32, 32)
         Me.btnAdd.TabIndex = 48
         Me.btnAdd.UseVisualStyleBackColor = False
         '
@@ -437,12 +440,47 @@ Partial Class FormularioPedido
         Me.Label2.TabIndex = 49
         Me.Label2.Text = "% Desc."
         '
+        'dtpFechaVencimiento
+        '
+        Me.dtpFechaVencimiento.Enabled = False
+        Me.dtpFechaVencimiento.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpFechaVencimiento.Location = New System.Drawing.Point(145, 67)
+        Me.dtpFechaVencimiento.Name = "dtpFechaVencimiento"
+        Me.dtpFechaVencimiento.Size = New System.Drawing.Size(121, 20)
+        Me.dtpFechaVencimiento.TabIndex = 52
+        Me.dtpFechaVencimiento.Visible = False
+        '
+        'lblFechaVencimiento
+        '
+        Me.lblFechaVencimiento.AutoSize = True
+        Me.lblFechaVencimiento.Location = New System.Drawing.Point(30, 72)
+        Me.lblFechaVencimiento.Name = "lblFechaVencimiento"
+        Me.lblFechaVencimiento.Size = New System.Drawing.Size(97, 13)
+        Me.lblFechaVencimiento.TabIndex = 51
+        Me.lblFechaVencimiento.Text = "Fecha vencimiento"
+        Me.lblFechaVencimiento.Visible = False
+        '
+        'btnGuardarPresupuesto
+        '
+        Me.btnGuardarPresupuesto.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnGuardarPresupuesto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnGuardarPresupuesto.Location = New System.Drawing.Point(473, 357)
+        Me.btnGuardarPresupuesto.Name = "btnGuardarPresupuesto"
+        Me.btnGuardarPresupuesto.Size = New System.Drawing.Size(134, 26)
+        Me.btnGuardarPresupuesto.TabIndex = 53
+        Me.btnGuardarPresupuesto.Text = "Guardar presupuesto"
+        Me.btnGuardarPresupuesto.UseVisualStyleBackColor = False
+        Me.btnGuardarPresupuesto.Visible = False
+        '
         'FormularioPedido
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(728, 443)
+        Me.Controls.Add(Me.btnGuardarPresupuesto)
+        Me.Controls.Add(Me.dtpFechaVencimiento)
+        Me.Controls.Add(Me.lblFechaVencimiento)
         Me.Controls.Add(Me.cboDesc)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.btnAdd)
@@ -525,4 +563,7 @@ Partial Class FormularioPedido
     Friend WithEvents btnAdd As System.Windows.Forms.Button
     Friend WithEvents cboDesc As System.Windows.Forms.ComboBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents dtpFechaVencimiento As System.Windows.Forms.DateTimePicker
+    Friend WithEvents lblFechaVencimiento As System.Windows.Forms.Label
+    Friend WithEvents btnGuardarPresupuesto As System.Windows.Forms.Button
 End Class

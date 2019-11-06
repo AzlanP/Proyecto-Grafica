@@ -6,6 +6,9 @@ Public Class CNPedido
     Function MostrarPedido() As DataTable
         Return oCDPedido.MostrarPedido
     End Function
+    Function MostrarPresupuesto() As DataTable
+        Return oCDPedido.MostrarPresupuesto
+    End Function
     'Public Sub AgregarPedido(ByVal oCEPedido As CEPedido)
     '    oCDPedido.AgregarPedido(oCEPedido)
     'End Sub
@@ -22,6 +25,9 @@ Public Class CNPedido
     Function BuscarPedido(ByVal pcampo As String, ByVal pbuscar As String) As DataTable
 
         Return oCDPedido.BuscarPedido(pcampo, pbuscar)
+    End Function
+    Function BuscarPresupuesto(ByVal pcampo As String, ByVal pbuscar As String) As DataTable
+        Return oCDPedido.BuscarPresupuesto(pcampo, pbuscar)
     End Function
     Function ConsultarUltimoID() As Integer
         Return oCDPedido.ConsultarUltimoID()

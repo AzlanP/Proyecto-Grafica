@@ -152,9 +152,7 @@ Public Class FormularioPedido
             Next
         End If
         Dim frmModProducto As New AgregarProductoPedido
-        If dtrow Is Nothing Then
-
-        Else
+        If Not (dtrow Is Nothing) Then
             frmModProducto.CargarDatosModificar(ProductoID, dtrow)
             frmModProducto.ShowDialog()
             TablaItems.Rows.RemoveAt(ValorIndex)
@@ -201,7 +199,7 @@ Public Class FormularioPedido
         Me.MediosTableAdapter.Fill(Me.SolemnoDataSet.Medios)
         'TODO: esta línea de código carga datos en la tabla 'SolemnoDataSet.Clientes' Puede moverla o quitarla según sea necesario.
         Me.ClientesTableAdapter.Fill(Me.SolemnoDataSet.Clientes)
-
+        cboEstado.SelectedIndex = 0
     End Sub
     Private Sub FormularioPedido_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Dim validacion As New Validaciones
@@ -242,7 +240,7 @@ Public Class FormularioPedido
         oCEPedido.Descripcion = Trim(txtDescripcion.Text)
         oCEPedido.Medio = cboMedio.SelectedValue
         oCEPedido.Estado = cboEstado.Text
-       oCEPedido.Seña = CDbl(ValidacionMoneda1.TextBox1.Text)
+        oCEPedido.Seña = CDbl(ValidacionMoneda1.TextBox1.Text)
         oCEPedido.TipoDeEnvio = cboTipoEnvio.SelectedValue
 
             Return oCEPedido
@@ -339,5 +337,26 @@ Public Class FormularioPedido
         busquedaControl.Location = Me.PointToScreen(New Point(btnSearch.Left, btnSearch.Top + btnSearch.Height))
         busquedaControl.ShowDialog()
         AsignarTextCbo(busquedaControl.NombreCompleto, cboCliente)
+    End Sub
+
+    Private Sub btnAdd_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAdd.Click
+        Dim mainFrm As New frmMenuPrincipal
+        mainFrm.btnNuevoCliente_Click(sender, e)
+    End Sub
+
+    Private Sub btnGuardarPresupuesto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGuardarPresupuesto.Click
+        Dim oCEPedido As New CEPedido
+        oCEPedido = CargarPedido()
+        oCEPedido.Estado = "Presupuesto"
+        oCEPedido.PresupuestoVencimiento = FormatISO8601(dtpFechaVencimiento.Text)
+        CargarPedido.Seña = 0
+        If DTDetalles.Rows.Count > 0 And TablaItems.Rows.Count > 0 Then
+            MsgBox("Error en la carga del presupuesto")
+        ElseIf DTDetalles.Rows.Count > 0 And TablaItems.Rows.Count = 0 Then
+            oCNPedido.GenerarElPedido(oCEPedido, DTDetalles)
+        ElseIf DTDetalles.Rows.Count = 0 And TablaItems.Rows.Count > 0 Then
+            oCNPedido.ModificarPedido(oCEPedido, TablaItems)
+        End If
+        Me.Close()
     End Sub
 End Class

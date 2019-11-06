@@ -17,7 +17,7 @@ Public Class Busqueda
         DGBuscar.DataSource = dtGrid.DefaultView.ToTable(True, "IDCliente", "Nombre", "Apellido")
     End Sub
 
-    'fijarme si no combine mas poner solo cellclick ya que el doble click aveces funciona mal
+
     Private Sub DGBuscar_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DGBuscar.CellDoubleClick
         ID = DGBuscar.Rows(e.RowIndex).Cells("IDCliente").Value
         '/CargarDatos(ID)

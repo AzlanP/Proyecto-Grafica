@@ -3,6 +3,7 @@
     Private _Medio As Integer
     Private _Cliente As Integer
     Private _Fecha As String
+    Private _PresupuestoVencimiento As String
     Private _TipoDeEnvio As String
     Private _Descripcion As String
     Private _Estado As String
@@ -15,7 +16,7 @@
             _IDPedido = value
         End Set
     End Property
-   
+
     Public Property Medio() As Integer
         Get
             Return _Medio
@@ -48,6 +49,14 @@
         End Get
         Set(ByVal value As String)
             _Fecha = value
+        End Set
+    End Property
+    Public Property PresupuestoVencimiento() As String
+        Get
+            Return _PresupuestoVencimiento
+        End Get
+        Set(ByVal value As String)
+            _PresupuestoVencimiento = value
         End Set
     End Property
     Public Property TipoDeEnvio() As String

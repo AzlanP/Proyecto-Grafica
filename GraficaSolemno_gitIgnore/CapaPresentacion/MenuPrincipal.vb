@@ -28,7 +28,7 @@ Public Class frmMenuPrincipal
         CargarGridCliente()
         cboBuscarCliente.SelectedIndex = 0
     End Sub
-    Private Sub btnNuevoCliente_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNuevoCliente.Click
+    Public Sub btnNuevoCliente_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNuevoCliente.Click
         Dim frmRegistrar As New RegistrarCliente
         frmRegistrar.lblID.Text = oCNCliente.ConsultarUltimoID
         frmRegistrar.PrecargarCombobox()
@@ -346,7 +346,6 @@ Public Class frmMenuPrincipal
         btnRestaurarProducto.Visible = False
         btnDetalleProductoInactivo.Visible = False
         DGProductoInactivo.Visible = False
-
         btnBuscarProducto.Visible = True
         btnEliminarProducto.Visible = True
         btnVerProducto.Visible = True
@@ -586,20 +585,38 @@ Public Class frmMenuPrincipal
 
     '--------------------------------------------------------------------------------------------
     '-------------------------------presupuesto---------------------------------
+    Public Sub visibilidadFormularioPresupuesto(ByVal frm As FormularioPedido)
+        frm.btnAgregarPedidoExistente.Visible = False
+        frm.btnAgregarPedidoNuevo.Visible = True
+
+        frm.lblEstado.Visible = False
+        frm.cboEstado.Visible = False
+        frm.lblSeña.Visible = False
+        frm.ValidacionMoneda1.Visible = False
+        frm.btnGuardarCambios.Visible = False
+        frm.btnGuardarPedido.Visible = False
+
+
+        frm.dtpFechaVencimiento.Visible = True
+        frm.lblFechaVencimiento.Visible = True
+        frm.btnGuardarPresupuesto.Visible = True
+
+    End Sub
     Dim oCNPresupuesto As New CNPedido
     Private Sub TabPresupuesto_Enter(ByVal sender As Object, ByVal e As System.EventArgs) Handles TabPresupuesto.Enter
         CargarGridPresupuestos()
         cboBuscarPresupuesto.SelectedIndex = 0
     End Sub
     Public Sub CargarGridPresupuestos()
-        DGPresupuesto.DataSource = oCNPresupuesto.MostrarPedido
+        Dim dv As DataView
+        Dim dt As DataTable = oCNPresupuesto.MostrarPresupuesto.DefaultView.ToTable(True, "IDPedido", "Cliente", "Fecha", "Fecha Vencimiento", "Descripcion", "Estado")
+        dv = New DataView(dt, "Estado = 'Presupuesto' ", "IDPedido Asc", DataViewRowState.CurrentRows)
+        DGPresupuesto.DataSource = dv
     End Sub
     Private Sub btnNuevoPresupuesto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNuevoPresupuesto.Click
-        Dim frmPresupuesto As New FormularioPresupuesto
-        frmPresupuesto.btnAgregarPedidoExistente.Visible = False
-        frmPresupuesto.btnAgregarPedidoNuevo.Visible = True
-        frmPresupuesto.btnGuardarPedido.Visible = True
-        frmPresupuesto.btnGuardarCambios.Visible = False
+        Dim frmPresupuesto As New FormularioPedido
+        frmPresupuesto.Text = "Nuevo presupuesto"
+        visibilidadFormularioPresupuesto(frmPresupuesto)
         frmPresupuesto.lblID.Text = oCNPresupuesto.ConsultarUltimoID()
         frmPresupuesto.Detalles()
         'precargar combobox
@@ -610,11 +627,13 @@ Public Class frmMenuPrincipal
 
     Private Sub btnModificarPresupuesto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnModificarPresupuesto.Click
         ID = DGPresupuesto.Rows(DGPresupuesto.CurrentCell.RowIndex).Cells("IDPedido").Value
-        Dim frmPresupuesto As New FormularioPresupuesto
+        Dim frmPresupuesto As New FormularioPedido
+        frmPresupuesto.Text = "Modificar presupuesto"
+        visibilidadFormularioPresupuesto(frmPresupuesto)
         frmPresupuesto.btnAgregarPedidoNuevo.Visible = False
         frmPresupuesto.btnAgregarPedidoExistente.Visible = True
         frmPresupuesto.btnGuardarPedido.Visible = False
-        frmPresupuesto.btnGuardarCambios.Visible = True
+        frmPresupuesto.btnGuardarCambios.Visible = False
         frmPresupuesto.CargarGridDetalles(ID)
         frmPresupuesto.LLenarFormulario(ID)
         frmPresupuesto.lblID.Text = ID
@@ -624,7 +643,9 @@ Public Class frmMenuPrincipal
 
     Private Sub btnVerPresupuesto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnVerPresupuesto.Click
         ID = DGPresupuesto.Rows(DGPresupuesto.CurrentCell.RowIndex).Cells("IDPedido").Value
-        Dim frmPresupuesto As New FormularioPresupuesto
+        Dim frmPresupuesto As New FormularioPedido
+        frmPresupuesto.Text = "Detalles de presupuesto"
+        visibilidadFormularioPresupuesto(frmPresupuesto)
         frmPresupuesto.btnAgregarPedidoNuevo.Visible = False
         frmPresupuesto.btnAgregarPedidoExistente.Visible = True
         frmPresupuesto.btnAgregarPedidoNuevo.Enabled = False
@@ -649,8 +670,8 @@ Public Class frmMenuPrincipal
 
     Private Sub btnBuscarPresupuesto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscarPresupuesto.Click
         Dim dt As DataTable
-        dt = oCNPresupuesto.BuscarPedido(txtBuscarPresupuesto.Text, cboBuscarPresupuesto.Text)
-        DGPresupuesto.DataSource = dt
+        dt = oCNPresupuesto.BuscarPresupuesto(cboBuscarPresupuesto.Text, txtBuscarPresupuesto.Text)
+        DGPresupuesto.DataSource = dt.DefaultView.ToTable(True, "IDPedido", "Cliente", "Fecha", "Fecha Vencimiento", "Descripcion", "Estado")
     End Sub
 
     Private Sub DGPresupuesto_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DGPresupuesto.CellClick
@@ -662,9 +683,8 @@ Public Class frmMenuPrincipal
 
     Private Sub DGPresupuesto_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DGPresupuesto.CellDoubleClick
         If e.RowIndex >= 0 Then
-
-
-            Dim frmPresupuesto As New FormularioPresupuesto
+            Dim frmPresupuesto As New FormularioPedido
+            frmPresupuesto.Text = "Modificar presupuesto"
             frmPresupuesto.btnAgregarPedidoNuevo.Visible = False
             frmPresupuesto.btnAgregarPedidoExistente.Visible = True
             frmPresupuesto.btnGuardarPedido.Visible = False
@@ -678,19 +698,7 @@ Public Class frmMenuPrincipal
         End If
     End Sub
 
-    'Private Sub DGPresupuesto_MouseDoubleClick(ByVal sender As Object, ByVal e As MouseEventArgs) Handles DGPresupuesto.MouseDoubleClick
-    '    ID = DGPresupuesto.Rows(DGPresupuesto.CurrentCell.RowIndex).Cells("IDPedido").Value
-    '    Dim frmPresupuesto As New FormularioPresupuesto
-    '    frmPresupuesto.btnAgregarPedidoNuevo.Visible = False
-    '    frmPresupuesto.btnAgregarPedidoExistente.Visible = True
-    '    frmPresupuesto.btnGuardarPedido.Visible = False
-    '    frmPresupuesto.btnGuardarCambios.Visible = True
-    '    frmPresupuesto.CargarGridDetalles(ID)
-    '    frmPresupuesto.LLenarFormulario(ID)
-    '    frmPresupuesto.lblID.Text = ID
-    '    frmPresupuesto.ShowDialog()
-    '    CargarGridPresupuestos()
-    'End Sub
+
 
     Private Sub btnRefreshPresupuesto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRefreshPresupuesto.Click
         CargarGridPresupuestos()
@@ -770,4 +778,7 @@ Public Class frmMenuPrincipal
  
     
 
+    Private Sub TableLayoutPanel2_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles TableLayoutPanel2.Paint
+
+    End Sub
 End Class

@@ -153,10 +153,12 @@ Partial Class frmMenuPrincipal
         Me.btnModificarUsuario = New System.Windows.Forms.Button()
         Me.btnNuevoUsuario = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.lblNombreUsuario = New System.Windows.Forms.Label()
-        Me.btnDeslogear = New System.Windows.Forms.Button()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.btnDeslogear = New System.Windows.Forms.Button()
+        Me.lblNombreUsuario = New System.Windows.Forms.Label()
+        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.TabGeneral.SuspendLayout()
         Me.TabTareas.SuspendLayout()
         Me.TabCliente.SuspendLayout()
@@ -205,7 +207,9 @@ Partial Class frmMenuPrincipal
         Me.Panel6.SuspendLayout()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
+        Me.TableLayoutPanel2.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TableLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'TabGeneral
@@ -218,11 +222,12 @@ Partial Class frmMenuPrincipal
         Me.TabGeneral.Controls.Add(Me.TabAyuda)
         Me.TabGeneral.Controls.Add(Me.TabPresupuesto)
         Me.TabGeneral.Controls.Add(Me.TabUsuario)
-        Me.TabGeneral.Location = New System.Drawing.Point(8, 103)
+        Me.TabGeneral.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TabGeneral.Location = New System.Drawing.Point(3, 100)
         Me.TabGeneral.Name = "TabGeneral"
         Me.TabGeneral.Padding = New System.Drawing.Point(6, 4)
         Me.TabGeneral.SelectedIndex = 0
-        Me.TabGeneral.Size = New System.Drawing.Size(1129, 601)
+        Me.TabGeneral.Size = New System.Drawing.Size(1147, 584)
         Me.TabGeneral.SizeMode = System.Windows.Forms.TabSizeMode.Fixed
         Me.TabGeneral.TabIndex = 0
         '
@@ -232,7 +237,7 @@ Partial Class frmMenuPrincipal
         Me.TabTareas.Controls.Add(Me.panelTareas)
         Me.TabTareas.Location = New System.Drawing.Point(4, 24)
         Me.TabTareas.Name = "TabTareas"
-        Me.TabTareas.Size = New System.Drawing.Size(1121, 573)
+        Me.TabTareas.Size = New System.Drawing.Size(1139, 556)
         Me.TabTareas.TabIndex = 6
         Me.TabTareas.Text = "Tareas"
         '
@@ -251,7 +256,7 @@ Partial Class frmMenuPrincipal
         Me.TabCliente.Controls.Add(Me.PanelLateralCliente)
         Me.TabCliente.Location = New System.Drawing.Point(4, 24)
         Me.TabCliente.Name = "TabCliente"
-        Me.TabCliente.Size = New System.Drawing.Size(1121, 573)
+        Me.TabCliente.Size = New System.Drawing.Size(1139, 596)
         Me.TabCliente.TabIndex = 0
         Me.TabCliente.Text = "Cliente"
         '
@@ -268,7 +273,7 @@ Partial Class frmMenuPrincipal
         Me.PanelCentralCliente.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelCentralCliente.Location = New System.Drawing.Point(184, 89)
         Me.PanelCentralCliente.Name = "PanelCentralCliente"
-        Me.PanelCentralCliente.Size = New System.Drawing.Size(937, 484)
+        Me.PanelCentralCliente.Size = New System.Drawing.Size(955, 507)
         Me.PanelCentralCliente.TabIndex = 13
         '
         'btnBuscarInactivos
@@ -366,7 +371,7 @@ Partial Class frmMenuPrincipal
         Me.PanelSuperiorCliente.Dock = System.Windows.Forms.DockStyle.Top
         Me.PanelSuperiorCliente.Location = New System.Drawing.Point(184, 0)
         Me.PanelSuperiorCliente.Name = "PanelSuperiorCliente"
-        Me.PanelSuperiorCliente.Size = New System.Drawing.Size(937, 89)
+        Me.PanelSuperiorCliente.Size = New System.Drawing.Size(955, 89)
         Me.PanelSuperiorCliente.TabIndex = 12
         '
         'lbltituloCliente
@@ -393,7 +398,7 @@ Partial Class frmMenuPrincipal
         Me.PanelLateralCliente.Dock = System.Windows.Forms.DockStyle.Left
         Me.PanelLateralCliente.Location = New System.Drawing.Point(0, 0)
         Me.PanelLateralCliente.Name = "PanelLateralCliente"
-        Me.PanelLateralCliente.Size = New System.Drawing.Size(184, 573)
+        Me.PanelLateralCliente.Size = New System.Drawing.Size(184, 596)
         Me.PanelLateralCliente.TabIndex = 11
         '
         'btnRestaurar
@@ -514,7 +519,7 @@ Partial Class frmMenuPrincipal
         Me.TabPedido.Controls.Add(Me.PanelLateralPedido)
         Me.TabPedido.Location = New System.Drawing.Point(4, 24)
         Me.TabPedido.Name = "TabPedido"
-        Me.TabPedido.Size = New System.Drawing.Size(1121, 573)
+        Me.TabPedido.Size = New System.Drawing.Size(1139, 596)
         Me.TabPedido.TabIndex = 2
         Me.TabPedido.Text = "Pedido"
         '
@@ -529,7 +534,7 @@ Partial Class frmMenuPrincipal
         Me.PanelCentralPedido.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelCentralPedido.Location = New System.Drawing.Point(184, 89)
         Me.PanelCentralPedido.Name = "PanelCentralPedido"
-        Me.PanelCentralPedido.Size = New System.Drawing.Size(937, 484)
+        Me.PanelCentralPedido.Size = New System.Drawing.Size(955, 507)
         Me.PanelCentralPedido.TabIndex = 16
         '
         'btnRefreshPedido
@@ -595,7 +600,7 @@ Partial Class frmMenuPrincipal
         Me.PanelSuperiorPedido.Dock = System.Windows.Forms.DockStyle.Top
         Me.PanelSuperiorPedido.Location = New System.Drawing.Point(184, 0)
         Me.PanelSuperiorPedido.Name = "PanelSuperiorPedido"
-        Me.PanelSuperiorPedido.Size = New System.Drawing.Size(937, 89)
+        Me.PanelSuperiorPedido.Size = New System.Drawing.Size(955, 89)
         Me.PanelSuperiorPedido.TabIndex = 15
         '
         'lblTituloPedidos
@@ -619,7 +624,7 @@ Partial Class frmMenuPrincipal
         Me.PanelLateralPedido.Dock = System.Windows.Forms.DockStyle.Left
         Me.PanelLateralPedido.Location = New System.Drawing.Point(0, 0)
         Me.PanelLateralPedido.Name = "PanelLateralPedido"
-        Me.PanelLateralPedido.Size = New System.Drawing.Size(184, 573)
+        Me.PanelLateralPedido.Size = New System.Drawing.Size(184, 596)
         Me.PanelLateralPedido.TabIndex = 14
         '
         'btnEliminarPedido
@@ -696,7 +701,7 @@ Partial Class frmMenuPrincipal
         Me.TabProducto.Controls.Add(Me.panelLateralProducto)
         Me.TabProducto.Location = New System.Drawing.Point(4, 24)
         Me.TabProducto.Name = "TabProducto"
-        Me.TabProducto.Size = New System.Drawing.Size(1121, 573)
+        Me.TabProducto.Size = New System.Drawing.Size(1139, 596)
         Me.TabProducto.TabIndex = 1
         Me.TabProducto.Text = "Producto"
         '
@@ -713,7 +718,7 @@ Partial Class frmMenuPrincipal
         Me.PanelProductos.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelProductos.Location = New System.Drawing.Point(184, 89)
         Me.PanelProductos.Name = "PanelProductos"
-        Me.PanelProductos.Size = New System.Drawing.Size(937, 484)
+        Me.PanelProductos.Size = New System.Drawing.Size(955, 507)
         Me.PanelProductos.TabIndex = 17
         '
         'DGProductoInactivo
@@ -809,7 +814,7 @@ Partial Class frmMenuPrincipal
         Me.panelSuperiorProducto.Dock = System.Windows.Forms.DockStyle.Top
         Me.panelSuperiorProducto.Location = New System.Drawing.Point(184, 0)
         Me.panelSuperiorProducto.Name = "panelSuperiorProducto"
-        Me.panelSuperiorProducto.Size = New System.Drawing.Size(937, 89)
+        Me.panelSuperiorProducto.Size = New System.Drawing.Size(955, 89)
         Me.panelSuperiorProducto.TabIndex = 17
         '
         'lblTituloProducto
@@ -836,7 +841,7 @@ Partial Class frmMenuPrincipal
         Me.panelLateralProducto.Dock = System.Windows.Forms.DockStyle.Left
         Me.panelLateralProducto.Location = New System.Drawing.Point(0, 0)
         Me.panelLateralProducto.Name = "panelLateralProducto"
-        Me.panelLateralProducto.Size = New System.Drawing.Size(184, 573)
+        Me.panelLateralProducto.Size = New System.Drawing.Size(184, 596)
         Me.panelLateralProducto.TabIndex = 16
         '
         'btnDetalleProductoInactivo
@@ -956,7 +961,7 @@ Partial Class frmMenuPrincipal
         Me.TabEstadistica.Controls.Add(Me.PnlLateralEstadistica)
         Me.TabEstadistica.Location = New System.Drawing.Point(4, 24)
         Me.TabEstadistica.Name = "TabEstadistica"
-        Me.TabEstadistica.Size = New System.Drawing.Size(1121, 573)
+        Me.TabEstadistica.Size = New System.Drawing.Size(1139, 596)
         Me.TabEstadistica.TabIndex = 3
         Me.TabEstadistica.Text = "Estadistica"
         '
@@ -975,7 +980,7 @@ Partial Class frmMenuPrincipal
         Me.Panel7.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel7.Location = New System.Drawing.Point(184, 89)
         Me.Panel7.Name = "Panel7"
-        Me.Panel7.Size = New System.Drawing.Size(937, 484)
+        Me.Panel7.Size = New System.Drawing.Size(955, 507)
         Me.Panel7.TabIndex = 6
         '
         'Label8
@@ -1109,7 +1114,7 @@ Partial Class frmMenuPrincipal
         Me.PanelSupEstadistica.Dock = System.Windows.Forms.DockStyle.Top
         Me.PanelSupEstadistica.Location = New System.Drawing.Point(184, 0)
         Me.PanelSupEstadistica.Name = "PanelSupEstadistica"
-        Me.PanelSupEstadistica.Size = New System.Drawing.Size(937, 89)
+        Me.PanelSupEstadistica.Size = New System.Drawing.Size(955, 89)
         Me.PanelSupEstadistica.TabIndex = 5
         '
         'lblTituloEstadistica
@@ -1134,7 +1139,7 @@ Partial Class frmMenuPrincipal
         Me.PnlLateralEstadistica.Dock = System.Windows.Forms.DockStyle.Left
         Me.PnlLateralEstadistica.Location = New System.Drawing.Point(0, 0)
         Me.PnlLateralEstadistica.Name = "PnlLateralEstadistica"
-        Me.PnlLateralEstadistica.Size = New System.Drawing.Size(184, 573)
+        Me.PnlLateralEstadistica.Size = New System.Drawing.Size(184, 596)
         Me.PnlLateralEstadistica.TabIndex = 4
         '
         'lblSubtituloEstadisticas
@@ -1207,7 +1212,7 @@ Partial Class frmMenuPrincipal
         Me.TabAyuda.Controls.Add(Me.PanelLateralAyuda)
         Me.TabAyuda.Location = New System.Drawing.Point(4, 24)
         Me.TabAyuda.Name = "TabAyuda"
-        Me.TabAyuda.Size = New System.Drawing.Size(1121, 573)
+        Me.TabAyuda.Size = New System.Drawing.Size(1139, 596)
         Me.TabAyuda.TabIndex = 4
         Me.TabAyuda.Text = "Ayuda"
         '
@@ -1222,7 +1227,7 @@ Partial Class frmMenuPrincipal
         Me.PanelCentralAyuda.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelCentralAyuda.Location = New System.Drawing.Point(184, 89)
         Me.PanelCentralAyuda.Name = "PanelCentralAyuda"
-        Me.PanelCentralAyuda.Size = New System.Drawing.Size(937, 484)
+        Me.PanelCentralAyuda.Size = New System.Drawing.Size(955, 507)
         Me.PanelCentralAyuda.TabIndex = 19
         '
         'ListBox3
@@ -1288,7 +1293,7 @@ Partial Class frmMenuPrincipal
         Me.PanelSuperiorAyuda.Dock = System.Windows.Forms.DockStyle.Top
         Me.PanelSuperiorAyuda.Location = New System.Drawing.Point(184, 0)
         Me.PanelSuperiorAyuda.Name = "PanelSuperiorAyuda"
-        Me.PanelSuperiorAyuda.Size = New System.Drawing.Size(937, 89)
+        Me.PanelSuperiorAyuda.Size = New System.Drawing.Size(955, 89)
         Me.PanelSuperiorAyuda.TabIndex = 18
         '
         'lblTituloAyuda
@@ -1310,7 +1315,7 @@ Partial Class frmMenuPrincipal
         Me.PanelLateralAyuda.Dock = System.Windows.Forms.DockStyle.Left
         Me.PanelLateralAyuda.Location = New System.Drawing.Point(0, 0)
         Me.PanelLateralAyuda.Name = "PanelLateralAyuda"
-        Me.PanelLateralAyuda.Size = New System.Drawing.Size(184, 573)
+        Me.PanelLateralAyuda.Size = New System.Drawing.Size(184, 596)
         Me.PanelLateralAyuda.TabIndex = 17
         '
         'ListBox1
@@ -1353,7 +1358,7 @@ Partial Class frmMenuPrincipal
         Me.TabPresupuesto.Controls.Add(Me.Panel3)
         Me.TabPresupuesto.Location = New System.Drawing.Point(4, 24)
         Me.TabPresupuesto.Name = "TabPresupuesto"
-        Me.TabPresupuesto.Size = New System.Drawing.Size(1121, 573)
+        Me.TabPresupuesto.Size = New System.Drawing.Size(1139, 596)
         Me.TabPresupuesto.TabIndex = 7
         Me.TabPresupuesto.Text = "Presupuesto"
         Me.TabPresupuesto.UseVisualStyleBackColor = True
@@ -1369,7 +1374,7 @@ Partial Class frmMenuPrincipal
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel4.Location = New System.Drawing.Point(184, 89)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(937, 484)
+        Me.Panel4.Size = New System.Drawing.Size(955, 507)
         Me.Panel4.TabIndex = 18
         '
         'btnRefreshPresupuesto
@@ -1435,7 +1440,7 @@ Partial Class frmMenuPrincipal
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel2.Location = New System.Drawing.Point(184, 0)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(937, 89)
+        Me.Panel2.Size = New System.Drawing.Size(955, 89)
         Me.Panel2.TabIndex = 17
         '
         'Label6
@@ -1459,7 +1464,7 @@ Partial Class frmMenuPrincipal
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Left
         Me.Panel3.Location = New System.Drawing.Point(0, 0)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(184, 573)
+        Me.Panel3.Size = New System.Drawing.Size(184, 596)
         Me.Panel3.TabIndex = 16
         '
         'btnEliminarPresupuesto
@@ -1536,7 +1541,7 @@ Partial Class frmMenuPrincipal
         Me.TabUsuario.Location = New System.Drawing.Point(4, 24)
         Me.TabUsuario.Name = "TabUsuario"
         Me.TabUsuario.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabUsuario.Size = New System.Drawing.Size(1121, 573)
+        Me.TabUsuario.Size = New System.Drawing.Size(1139, 596)
         Me.TabUsuario.TabIndex = 8
         Me.TabUsuario.Text = "Usuario"
         Me.TabUsuario.UseVisualStyleBackColor = True
@@ -1554,7 +1559,7 @@ Partial Class frmMenuPrincipal
         Me.Panel8.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel8.Location = New System.Drawing.Point(187, 92)
         Me.Panel8.Name = "Panel8"
-        Me.Panel8.Size = New System.Drawing.Size(931, 478)
+        Me.Panel8.Size = New System.Drawing.Size(949, 501)
         Me.Panel8.TabIndex = 15
         '
         'btnBuscarUsuarioInactivos
@@ -1652,7 +1657,7 @@ Partial Class frmMenuPrincipal
         Me.Panel5.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel5.Location = New System.Drawing.Point(187, 3)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(931, 89)
+        Me.Panel5.Size = New System.Drawing.Size(949, 89)
         Me.Panel5.TabIndex = 14
         '
         'Label9
@@ -1679,7 +1684,7 @@ Partial Class frmMenuPrincipal
         Me.Panel6.Dock = System.Windows.Forms.DockStyle.Left
         Me.Panel6.Location = New System.Drawing.Point(3, 3)
         Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(184, 567)
+        Me.Panel6.Size = New System.Drawing.Size(184, 590)
         Me.Panel6.TabIndex = 13
         '
         'btnRestaurarUsuario
@@ -1794,14 +1799,62 @@ Partial Class frmMenuPrincipal
         '
         'Panel1
         '
+        Me.Panel1.Controls.Add(Me.TableLayoutPanel2)
         Me.Panel1.Controls.Add(Me.lblNombreUsuario)
-        Me.Panel1.Controls.Add(Me.btnDeslogear)
-        Me.Panel1.Controls.Add(Me.Label1)
-        Me.Panel1.Controls.Add(Me.PictureBox1)
-        Me.Panel1.Location = New System.Drawing.Point(12, 4)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel1.Location = New System.Drawing.Point(3, 3)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1125, 93)
+        Me.Panel1.Size = New System.Drawing.Size(1147, 91)
         Me.Panel1.TabIndex = 1
+        '
+        'TableLayoutPanel2
+        '
+        Me.TableLayoutPanel2.ColumnCount = 3
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.63731!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 61.29032!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.98518!))
+        Me.TableLayoutPanel2.Controls.Add(Me.PictureBox1, 0, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.Label1, 1, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.btnDeslogear, 2, 0)
+        Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(0, 0)
+        Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
+        Me.TableLayoutPanel2.RowCount = 1
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(1147, 91)
+        Me.TableLayoutPanel2.TabIndex = 4
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Right
+        Me.PictureBox1.Image = Global.CapaPresentacion.My.Resources.Resources.slmn
+        Me.PictureBox1.Location = New System.Drawing.Point(198, 3)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(116, 85)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 0
+        Me.PictureBox1.TabStop = False
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label1.Font = New System.Drawing.Font("Impact", 48.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(320, 0)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(697, 91)
+        Me.Label1.TabIndex = 1
+        Me.Label1.Text = "SOLEMNO GRAFICA"
+        '
+        'btnDeslogear
+        '
+        Me.btnDeslogear.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnDeslogear.Location = New System.Drawing.Point(1023, 3)
+        Me.btnDeslogear.Name = "btnDeslogear"
+        Me.btnDeslogear.Size = New System.Drawing.Size(121, 23)
+        Me.btnDeslogear.TabIndex = 2
+        Me.btnDeslogear.Text = "Deslogear"
+        Me.btnDeslogear.UseVisualStyleBackColor = True
         '
         'lblNombreUsuario
         '
@@ -1813,44 +1866,30 @@ Partial Class frmMenuPrincipal
         Me.lblNombreUsuario.Size = New System.Drawing.Size(0, 18)
         Me.lblNombreUsuario.TabIndex = 3
         '
-        'btnDeslogear
+        'TableLayoutPanel1
         '
-        Me.btnDeslogear.Location = New System.Drawing.Point(1050, 0)
-        Me.btnDeslogear.Name = "btnDeslogear"
-        Me.btnDeslogear.Size = New System.Drawing.Size(75, 23)
-        Me.btnDeslogear.TabIndex = 2
-        Me.btnDeslogear.Text = "Deslogear"
-        Me.btnDeslogear.UseVisualStyleBackColor = True
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Impact", 48.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(291, 5)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(491, 80)
-        Me.Label1.TabIndex = 1
-        Me.Label1.Text = "SOLEMNO GRAFICA"
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.CapaPresentacion.My.Resources.Resources.slmn
-        Me.PictureBox1.Location = New System.Drawing.Point(169, 0)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(116, 93)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 0
-        Me.PictureBox1.TabStop = False
+        Me.TableLayoutPanel1.ColumnCount = 1
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel1.Controls.Add(Me.Panel1, 0, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.TabGeneral, 0, 1)
+        Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
+        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
+        Me.TableLayoutPanel1.RowCount = 2
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.16894!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85.83106!))
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1153, 687)
+        Me.TableLayoutPanel1.TabIndex = 2
         '
         'frmMenuPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1153, 734)
-        Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.TabGeneral)
+        Me.ClientSize = New System.Drawing.Size(1153, 687)
+        Me.Controls.Add(Me.TableLayoutPanel1)
         Me.DoubleBuffered = True
+        Me.MinimumSize = New System.Drawing.Size(1169, 600)
         Me.Name = "frmMenuPrincipal"
         Me.Text = "MenuPrincipal"
         Me.TabGeneral.ResumeLayout(False)
@@ -1918,7 +1957,10 @@ Partial Class frmMenuPrincipal
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        Me.TableLayoutPanel2.ResumeLayout(False)
+        Me.TableLayoutPanel2.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TableLayoutPanel1.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -2052,4 +2094,6 @@ Partial Class frmMenuPrincipal
     Friend WithEvents btnVerUsuario As System.Windows.Forms.Button
     Friend WithEvents btnModificarUsuario As System.Windows.Forms.Button
     Friend WithEvents btnNuevoUsuario As System.Windows.Forms.Button
+    Friend WithEvents TableLayoutPanel1 As System.Windows.Forms.TableLayoutPanel
+    Friend WithEvents TableLayoutPanel2 As System.Windows.Forms.TableLayoutPanel
 End Class
