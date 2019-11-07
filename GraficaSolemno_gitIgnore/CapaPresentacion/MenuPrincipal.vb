@@ -368,12 +368,15 @@ Public Class frmMenuPrincipal
     Public Sub CargarGridPedidos()
         DGPedido.DataSource = oCNPedido.MostrarPedido
     End Sub
+
     Private Sub btnNuevoPedido_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNuevoPedido.Click
         Dim frmPedido As New FormularioPedido
-        frmPedido.btnAgregarPedidoExistente.Visible = False
+
         frmPedido.btnAgregarPedidoNuevo.Visible = True
         frmPedido.btnGuardarPedido.Visible = True
-        frmPedido.btnGuardarCambios.Visible = False
+
+
+
         frmPedido.lblID.Text = oCNPedido.ConsultarUltimoID()
         frmPedido.Detalles()
         'precargar combobox
@@ -385,10 +388,13 @@ Public Class frmMenuPrincipal
     Private Sub btnModificarPedido_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnModificarPedido.Click
         ID = DGPedido.Rows(DGPedido.CurrentCell.RowIndex).Cells("IDPedido").Value
         Dim frmPedido As New FormularioPedido
-        frmPedido.btnAgregarPedidoNuevo.Visible = False
-        frmPedido.btnAgregarPedidoExistente.Visible = True
-        frmPedido.btnGuardarPedido.Visible = False
-        frmPedido.btnGuardarCambios.Visible = True
+
+
+        frmPedido.btnGuardarPedido.Visible = True
+
+
+    
+
         frmPedido.CargarGridDetalles(ID)
         frmPedido.LLenarFormulario(ID)
         frmPedido.lblID.Text = ID
@@ -399,14 +405,14 @@ Public Class frmMenuPrincipal
     Private Sub btnVerPedido_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnVerPedido.Click
         ID = DGPedido.Rows(DGPedido.CurrentCell.RowIndex).Cells("IDPedido").Value
         Dim frmPedido As New FormularioPedido
-        frmPedido.btnAgregarPedidoNuevo.Visible = False
-        frmPedido.btnAgregarPedidoExistente.Visible = True
+
+
         frmPedido.btnAgregarPedidoNuevo.Enabled = False
-        frmPedido.btnAgregarPedidoExistente.Enabled = False
+
         frmPedido.btnModificarPedido.Enabled = False
         frmPedido.btnQuitar.Enabled = False
         frmPedido.btnGuardarPedido.Visible = False
-        frmPedido.btnGuardarCambios.Visible = False
+
         frmPedido.btnCancelarPedido.Text = "Aceptar"
         frmPedido.CargarGridDetalles(ID)
         frmPedido.LLenarFormulario(ID)
@@ -442,16 +448,18 @@ Public Class frmMenuPrincipal
         If e.RowIndex >= 0 Then
 
             Dim frmPedido As New FormularioPedido
-            frmPedido.btnAgregarPedidoNuevo.Visible = False
-            frmPedido.btnAgregarPedidoExistente.Visible = True
-            frmPedido.btnGuardarPedido.Visible = False
-            frmPedido.btnGuardarCambios.Visible = True
+
+
+            frmPedido.btnGuardarPedido.Visible = True
+
             frmPedido.CargarGridDetalles(ID)
             frmPedido.LLenarFormulario(ID)
             frmPedido.lblID.Text = ID
             frmPedido.ShowDialog()
             CargarGridPedidos()
-            DGPedido.Rows(e.RowIndex).Selected = True
+            If (DGPedido.Rows.Count <= e.RowIndex) Then
+                DGPedido.Rows(e.RowIndex).Selected = True
+            End If
         End If
     End Sub
 
@@ -586,14 +594,14 @@ Public Class frmMenuPrincipal
     '--------------------------------------------------------------------------------------------
     '-------------------------------presupuesto---------------------------------
     Public Sub visibilidadFormularioPresupuesto(ByVal frm As FormularioPedido)
-        frm.btnAgregarPedidoExistente.Visible = False
+
         frm.btnAgregarPedidoNuevo.Visible = True
 
         frm.lblEstado.Visible = False
         frm.cboEstado.Visible = False
         frm.lblSeña.Visible = False
         frm.ValidacionMoneda1.Visible = False
-        frm.btnGuardarCambios.Visible = False
+
         frm.btnGuardarPedido.Visible = False
 
 
@@ -630,12 +638,12 @@ Public Class frmMenuPrincipal
         Dim frmPresupuesto As New FormularioPedido
         frmPresupuesto.Text = "Modificar presupuesto"
         visibilidadFormularioPresupuesto(frmPresupuesto)
-        frmPresupuesto.btnAgregarPedidoNuevo.Visible = False
-        frmPresupuesto.btnAgregarPedidoExistente.Visible = True
+        frmPresupuesto.btnAgregarPedidoNuevo.Visible = True
+
         frmPresupuesto.btnGuardarPedido.Visible = False
-        frmPresupuesto.btnGuardarCambios.Visible = False
+
         frmPresupuesto.CargarGridDetalles(ID)
-        frmPresupuesto.LLenarFormulario(ID)
+        frmPresupuesto.LLenarFormulario(ID, False)
         frmPresupuesto.lblID.Text = ID
         frmPresupuesto.ShowDialog()
         CargarGridPresupuestos()
@@ -646,17 +654,17 @@ Public Class frmMenuPrincipal
         Dim frmPresupuesto As New FormularioPedido
         frmPresupuesto.Text = "Detalles de presupuesto"
         visibilidadFormularioPresupuesto(frmPresupuesto)
-        frmPresupuesto.btnAgregarPedidoNuevo.Visible = False
-        frmPresupuesto.btnAgregarPedidoExistente.Visible = True
+        frmPresupuesto.btnAgregarPedidoNuevo.Visible = True
+
         frmPresupuesto.btnAgregarPedidoNuevo.Enabled = False
-        frmPresupuesto.btnAgregarPedidoExistente.Enabled = False
+
         frmPresupuesto.btnModificarPedido.Enabled = False
         frmPresupuesto.btnQuitar.Enabled = False
         frmPresupuesto.btnGuardarPedido.Visible = False
-        frmPresupuesto.btnGuardarCambios.Visible = False
+
         frmPresupuesto.btnCancelarPedido.Text = "Aceptar"
         frmPresupuesto.CargarGridDetalles(ID)
-        frmPresupuesto.LLenarFormulario(ID)
+        frmPresupuesto.LLenarFormulario(ID, False)
         frmPresupuesto.Disesabletext()
         frmPresupuesto.ShowDialog()
         CargarGridPresupuestos()
@@ -685,12 +693,14 @@ Public Class frmMenuPrincipal
         If e.RowIndex >= 0 Then
             Dim frmPresupuesto As New FormularioPedido
             frmPresupuesto.Text = "Modificar presupuesto"
-            frmPresupuesto.btnAgregarPedidoNuevo.Visible = False
-            frmPresupuesto.btnAgregarPedidoExistente.Visible = True
+             visibilidadFormularioPresupuesto(frmPresupuesto)
+            frmPresupuesto.btnAgregarPedidoNuevo.Visible = True
+
             frmPresupuesto.btnGuardarPedido.Visible = False
-            frmPresupuesto.btnGuardarCambios.Visible = True
+
+
             frmPresupuesto.CargarGridDetalles(ID)
-            frmPresupuesto.LLenarFormulario(ID)
+            frmPresupuesto.LLenarFormulario(ID, False)
             frmPresupuesto.lblID.Text = ID
             frmPresupuesto.ShowDialog()
             CargarGridPresupuestos()

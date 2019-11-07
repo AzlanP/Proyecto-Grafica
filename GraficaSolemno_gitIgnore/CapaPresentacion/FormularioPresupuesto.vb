@@ -235,7 +235,7 @@ Public Class FormularioPresupuesto
         oCEPedido.Medio = cboMedio.SelectedValue
         oCEPedido.Estado = cboEstado.Text
         oCEPedido.Seña = CDbl(ValidacionMoneda1.TextBox1.Text)
-        oCEPedido.TipoDeEnvio = cboTipoEnvio.SelectedValue
+        oCEPedido.Envio = cboTipoEnvio.SelectedValue
 
         Return oCEPedido
     End Function

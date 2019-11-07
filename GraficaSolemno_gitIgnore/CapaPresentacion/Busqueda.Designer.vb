@@ -32,9 +32,9 @@ Partial Class Busqueda
         '
         Me.btnBuscar.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnBuscar.Location = New System.Drawing.Point(213, 12)
+        Me.btnBuscar.Location = New System.Drawing.Point(213, 13)
         Me.btnBuscar.Name = "btnBuscar"
-        Me.btnBuscar.Size = New System.Drawing.Size(62, 23)
+        Me.btnBuscar.Size = New System.Drawing.Size(60, 22)
         Me.btnBuscar.TabIndex = 27
         Me.btnBuscar.Text = "Buscar"
         Me.btnBuscar.UseVisualStyleBackColor = False

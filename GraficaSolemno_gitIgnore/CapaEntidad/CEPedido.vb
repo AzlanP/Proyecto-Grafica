@@ -4,7 +4,7 @@
     Private _Cliente As Integer
     Private _Fecha As String
     Private _PresupuestoVencimiento As String
-    Private _TipoDeEnvio As String
+    Private _Envio As String
     Private _Descripcion As String
     Private _Estado As String
     Private _Seña As Double
@@ -59,12 +59,12 @@
             _PresupuestoVencimiento = value
         End Set
     End Property
-    Public Property TipoDeEnvio() As String
+    Public Property Envio() As String
         Get
-            Return _TipoDeEnvio
+            Return _Envio
         End Get
         Set(ByVal value As String)
-            _TipoDeEnvio = value
+            _Envio = value
         End Set
     End Property
     Public Property Descripcion() As String

@@ -24,8 +24,6 @@ Partial Class FormularioPedido
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormularioPedido))
-        Me.lblTipoEnvio = New System.Windows.Forms.Label()
-        Me.cboTipoEnvio = New System.Windows.Forms.ComboBox()
         Me.TipoEnvioBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.SolemnoDataSet = New CapaPresentacion.SolemnoDataSet()
         Me.btnCancelarPedido = New System.Windows.Forms.Button()
@@ -43,15 +41,12 @@ Partial Class FormularioPedido
         Me.lblDescripcion = New System.Windows.Forms.Label()
         Me.lblFecha = New System.Windows.Forms.Label()
         Me.lblCliente = New System.Windows.Forms.Label()
-        Me.btnTipoEnvioNuevo = New System.Windows.Forms.Button()
         Me.lblEstado = New System.Windows.Forms.Label()
         Me.cboEstado = New System.Windows.Forms.ComboBox()
         Me.lblMedio = New System.Windows.Forms.Label()
         Me.cboMedio = New System.Windows.Forms.ComboBox()
         Me.MediosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.lblSeña = New System.Windows.Forms.Label()
-        Me.btnAgregarPedidoExistente = New System.Windows.Forms.Button()
-        Me.btnGuardarCambios = New System.Windows.Forms.Button()
         Me.ClientesTableAdapter = New CapaPresentacion.SolemnoDataSetTableAdapters.ClientesTableAdapter()
         Me.MediosTableAdapter = New CapaPresentacion.SolemnoDataSetTableAdapters.MediosTableAdapter()
         Me.TipoEnvioTableAdapter = New CapaPresentacion.SolemnoDataSetTableAdapters.TipoEnvioTableAdapter()
@@ -66,33 +61,13 @@ Partial Class FormularioPedido
         Me.dtpFechaVencimiento = New System.Windows.Forms.DateTimePicker()
         Me.lblFechaVencimiento = New System.Windows.Forms.Label()
         Me.btnGuardarPresupuesto = New System.Windows.Forms.Button()
+        Me.chkEnvio = New System.Windows.Forms.CheckBox()
         CType(Me.TipoEnvioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SolemnoDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DGListaDePedido, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MediosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'lblTipoEnvio
-        '
-        Me.lblTipoEnvio.AutoSize = True
-        Me.lblTipoEnvio.Location = New System.Drawing.Point(346, 353)
-        Me.lblTipoEnvio.Name = "lblTipoEnvio"
-        Me.lblTipoEnvio.Size = New System.Drawing.Size(72, 13)
-        Me.lblTipoEnvio.TabIndex = 33
-        Me.lblTipoEnvio.Text = "Tipo de envio"
-        '
-        'cboTipoEnvio
-        '
-        Me.cboTipoEnvio.DataSource = Me.TipoEnvioBindingSource
-        Me.cboTipoEnvio.DisplayMember = "Nombre"
-        Me.cboTipoEnvio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cboTipoEnvio.FormattingEnabled = True
-        Me.cboTipoEnvio.Location = New System.Drawing.Point(346, 369)
-        Me.cboTipoEnvio.Name = "cboTipoEnvio"
-        Me.cboTipoEnvio.Size = New System.Drawing.Size(90, 21)
-        Me.cboTipoEnvio.TabIndex = 32
-        Me.cboTipoEnvio.ValueMember = "IDTipoEnvio"
         '
         'TipoEnvioBindingSource
         '
@@ -108,7 +83,7 @@ Partial Class FormularioPedido
         '
         Me.btnCancelarPedido.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnCancelarPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnCancelarPedido.Location = New System.Drawing.Point(613, 389)
+        Me.btnCancelarPedido.Location = New System.Drawing.Point(601, 405)
         Me.btnCancelarPedido.Name = "btnCancelarPedido"
         Me.btnCancelarPedido.Size = New System.Drawing.Size(81, 26)
         Me.btnCancelarPedido.TabIndex = 31
@@ -119,11 +94,11 @@ Partial Class FormularioPedido
         '
         Me.btnGuardarPedido.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnGuardarPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnGuardarPedido.Location = New System.Drawing.Point(513, 389)
+        Me.btnGuardarPedido.Location = New System.Drawing.Point(505, 405)
         Me.btnGuardarPedido.Name = "btnGuardarPedido"
         Me.btnGuardarPedido.Size = New System.Drawing.Size(94, 26)
         Me.btnGuardarPedido.TabIndex = 30
-        Me.btnGuardarPedido.Text = "Cargar Nuevo"
+        Me.btnGuardarPedido.Text = "Guardar"
         Me.btnGuardarPedido.UseVisualStyleBackColor = False
         '
         'txtDescripcion
@@ -131,7 +106,7 @@ Partial Class FormularioPedido
         Me.txtDescripcion.Location = New System.Drawing.Point(23, 350)
         Me.txtDescripcion.Multiline = True
         Me.txtDescripcion.Name = "txtDescripcion"
-        Me.txtDescripcion.Size = New System.Drawing.Size(295, 81)
+        Me.txtDescripcion.Size = New System.Drawing.Size(472, 81)
         Me.txtDescripcion.TabIndex = 29
         Me.txtDescripcion.Tag = "3"
         '
@@ -139,7 +114,7 @@ Partial Class FormularioPedido
         '
         Me.dtpFecha.Enabled = False
         Me.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpFecha.Location = New System.Drawing.Point(81, 42)
+        Me.dtpFecha.Location = New System.Drawing.Point(467, 51)
         Me.dtpFecha.Name = "dtpFecha"
         Me.dtpFecha.Size = New System.Drawing.Size(121, 20)
         Me.dtpFecha.TabIndex = 28
@@ -150,9 +125,9 @@ Partial Class FormularioPedido
         Me.cboCliente.DisplayMember = "Nombre"
         Me.cboCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboCliente.FormattingEnabled = True
-        Me.cboCliente.Location = New System.Drawing.Point(81, 10)
+        Me.cboCliente.Location = New System.Drawing.Point(141, 17)
         Me.cboCliente.Name = "cboCliente"
-        Me.cboCliente.Size = New System.Drawing.Size(121, 21)
+        Me.cboCliente.Size = New System.Drawing.Size(107, 21)
         Me.cboCliente.TabIndex = 27
         Me.cboCliente.ValueMember = "IDCliente"
         '
@@ -165,9 +140,9 @@ Partial Class FormularioPedido
         '
         Me.btnModificarPedido.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnModificarPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnModificarPedido.Location = New System.Drawing.Point(593, 192)
+        Me.btnModificarPedido.Location = New System.Drawing.Point(593, 176)
         Me.btnModificarPedido.Name = "btnModificarPedido"
-        Me.btnModificarPedido.Size = New System.Drawing.Size(81, 22)
+        Me.btnModificarPedido.Size = New System.Drawing.Size(89, 24)
         Me.btnModificarPedido.TabIndex = 25
         Me.btnModificarPedido.Text = "Modificar"
         Me.btnModificarPedido.UseVisualStyleBackColor = False
@@ -176,9 +151,9 @@ Partial Class FormularioPedido
         '
         Me.btnQuitar.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnQuitar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnQuitar.Location = New System.Drawing.Point(593, 164)
+        Me.btnQuitar.Location = New System.Drawing.Point(593, 148)
         Me.btnQuitar.Name = "btnQuitar"
-        Me.btnQuitar.Size = New System.Drawing.Size(81, 22)
+        Me.btnQuitar.Size = New System.Drawing.Size(89, 24)
         Me.btnQuitar.TabIndex = 24
         Me.btnQuitar.Text = "Quitar"
         Me.btnQuitar.UseVisualStyleBackColor = False
@@ -189,9 +164,9 @@ Partial Class FormularioPedido
         Me.btnAgregarPedidoNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAgregarPedidoNuevo.Location = New System.Drawing.Point(593, 120)
         Me.btnAgregarPedidoNuevo.Name = "btnAgregarPedidoNuevo"
-        Me.btnAgregarPedidoNuevo.Size = New System.Drawing.Size(81, 38)
+        Me.btnAgregarPedidoNuevo.Size = New System.Drawing.Size(89, 24)
         Me.btnAgregarPedidoNuevo.TabIndex = 23
-        Me.btnAgregarPedidoNuevo.Text = "Agregar a pedido"
+        Me.btnAgregarPedidoNuevo.Text = "Añadir producto "
         Me.btnAgregarPedidoNuevo.UseVisualStyleBackColor = False
         '
         'DGListaDePedido
@@ -225,6 +200,7 @@ Partial Class FormularioPedido
         'lblID
         '
         Me.lblID.AutoSize = True
+        Me.lblID.ForeColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.lblID.Location = New System.Drawing.Point(9, 9)
         Me.lblID.Name = "lblID"
         Me.lblID.Size = New System.Drawing.Size(21, 13)
@@ -243,59 +219,48 @@ Partial Class FormularioPedido
         'lblFecha
         '
         Me.lblFecha.AutoSize = True
-        Me.lblFecha.Location = New System.Drawing.Point(32, 44)
+        Me.lblFecha.Location = New System.Drawing.Point(415, 53)
         Me.lblFecha.Name = "lblFecha"
-        Me.lblFecha.Size = New System.Drawing.Size(37, 13)
+        Me.lblFecha.Size = New System.Drawing.Size(40, 13)
         Me.lblFecha.TabIndex = 18
-        Me.lblFecha.Text = "Fecha"
+        Me.lblFecha.Text = "Fecha:"
         '
         'lblCliente
         '
         Me.lblCliente.AutoSize = True
-        Me.lblCliente.Location = New System.Drawing.Point(30, 10)
+        Me.lblCliente.Location = New System.Drawing.Point(96, 20)
         Me.lblCliente.Name = "lblCliente"
-        Me.lblCliente.Size = New System.Drawing.Size(39, 13)
+        Me.lblCliente.Size = New System.Drawing.Size(42, 13)
         Me.lblCliente.TabIndex = 17
-        Me.lblCliente.Text = "Cliente"
-        '
-        'btnTipoEnvioNuevo
-        '
-        Me.btnTipoEnvioNuevo.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
-        Me.btnTipoEnvioNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnTipoEnvioNuevo.Location = New System.Drawing.Point(346, 397)
-        Me.btnTipoEnvioNuevo.Name = "btnTipoEnvioNuevo"
-        Me.btnTipoEnvioNuevo.Size = New System.Drawing.Size(104, 25)
-        Me.btnTipoEnvioNuevo.TabIndex = 34
-        Me.btnTipoEnvioNuevo.Text = "envio Nuevo"
-        Me.btnTipoEnvioNuevo.UseVisualStyleBackColor = False
+        Me.lblCliente.Text = "Cliente:"
         '
         'lblEstado
         '
         Me.lblEstado.AutoSize = True
-        Me.lblEstado.Location = New System.Drawing.Point(418, 74)
+        Me.lblEstado.Location = New System.Drawing.Point(412, 17)
         Me.lblEstado.Name = "lblEstado"
-        Me.lblEstado.Size = New System.Drawing.Size(40, 13)
+        Me.lblEstado.Size = New System.Drawing.Size(43, 13)
         Me.lblEstado.TabIndex = 36
-        Me.lblEstado.Text = "Estado"
+        Me.lblEstado.Text = "Estado:"
         '
         'cboEstado
         '
         Me.cboEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboEstado.FormattingEnabled = True
         Me.cboEstado.Items.AddRange(New Object() {"Pendiente", "Completado"})
-        Me.cboEstado.Location = New System.Drawing.Point(479, 70)
+        Me.cboEstado.Location = New System.Drawing.Point(467, 13)
         Me.cboEstado.Name = "cboEstado"
-        Me.cboEstado.Size = New System.Drawing.Size(108, 21)
+        Me.cboEstado.Size = New System.Drawing.Size(121, 21)
         Me.cboEstado.TabIndex = 35
         '
         'lblMedio
         '
         Me.lblMedio.AutoSize = True
-        Me.lblMedio.Location = New System.Drawing.Point(343, 44)
+        Me.lblMedio.Location = New System.Drawing.Point(12, 56)
         Me.lblMedio.Name = "lblMedio"
         Me.lblMedio.Size = New System.Drawing.Size(123, 13)
         Me.lblMedio.TabIndex = 38
-        Me.lblMedio.Text = "Medio De Comunicacion"
+        Me.lblMedio.Text = "Medio de comunicacion:"
         '
         'cboMedio
         '
@@ -303,7 +268,7 @@ Partial Class FormularioPedido
         Me.cboMedio.DisplayMember = "Nombre"
         Me.cboMedio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboMedio.FormattingEnabled = True
-        Me.cboMedio.Location = New System.Drawing.Point(480, 38)
+        Me.cboMedio.Location = New System.Drawing.Point(141, 53)
         Me.cboMedio.Name = "cboMedio"
         Me.cboMedio.Size = New System.Drawing.Size(107, 21)
         Me.cboMedio.TabIndex = 37
@@ -317,33 +282,11 @@ Partial Class FormularioPedido
         'lblSeña
         '
         Me.lblSeña.AutoSize = True
-        Me.lblSeña.Location = New System.Drawing.Point(20, 303)
+        Me.lblSeña.Location = New System.Drawing.Point(52, 306)
         Me.lblSeña.Name = "lblSeña"
         Me.lblSeña.Size = New System.Drawing.Size(41, 13)
         Me.lblSeña.TabIndex = 39
         Me.lblSeña.Text = "Seña : "
-        '
-        'btnAgregarPedidoExistente
-        '
-        Me.btnAgregarPedidoExistente.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
-        Me.btnAgregarPedidoExistente.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAgregarPedidoExistente.Location = New System.Drawing.Point(593, 120)
-        Me.btnAgregarPedidoExistente.Name = "btnAgregarPedidoExistente"
-        Me.btnAgregarPedidoExistente.Size = New System.Drawing.Size(81, 38)
-        Me.btnAgregarPedidoExistente.TabIndex = 41
-        Me.btnAgregarPedidoExistente.Text = "Agregar a pedido"
-        Me.btnAgregarPedidoExistente.UseVisualStyleBackColor = False
-        '
-        'btnGuardarCambios
-        '
-        Me.btnGuardarCambios.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
-        Me.btnGuardarCambios.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnGuardarCambios.Location = New System.Drawing.Point(513, 389)
-        Me.btnGuardarCambios.Name = "btnGuardarCambios"
-        Me.btnGuardarCambios.Size = New System.Drawing.Size(94, 26)
-        Me.btnGuardarCambios.TabIndex = 42
-        Me.btnGuardarCambios.Text = "Cargar Cambios"
-        Me.btnGuardarCambios.UseVisualStyleBackColor = False
         '
         'ClientesTableAdapter
         '
@@ -360,7 +303,7 @@ Partial Class FormularioPedido
         'ValidacionMoneda1
         '
         Me.ValidacionMoneda1.labeltext = Nothing
-        Me.ValidacionMoneda1.Location = New System.Drawing.Point(67, 297)
+        Me.ValidacionMoneda1.Location = New System.Drawing.Point(89, 300)
         Me.ValidacionMoneda1.Name = "ValidacionMoneda1"
         Me.ValidacionMoneda1.Size = New System.Drawing.Size(123, 27)
         Me.ValidacionMoneda1.TabIndex = 43
@@ -369,7 +312,7 @@ Partial Class FormularioPedido
         'txtTotal
         '
         Me.txtTotal.labeltext = Nothing
-        Me.txtTotal.Location = New System.Drawing.Point(482, 297)
+        Me.txtTotal.Location = New System.Drawing.Point(482, 300)
         Me.txtTotal.Name = "txtTotal"
         Me.txtTotal.Size = New System.Drawing.Size(117, 27)
         Me.txtTotal.TabIndex = 45
@@ -378,7 +321,7 @@ Partial Class FormularioPedido
         'lblTotal
         '
         Me.lblTotal.AutoSize = True
-        Me.lblTotal.Location = New System.Drawing.Point(442, 303)
+        Me.lblTotal.Location = New System.Drawing.Point(452, 306)
         Me.lblTotal.Name = "lblTotal"
         Me.lblTotal.Size = New System.Drawing.Size(34, 13)
         Me.lblTotal.TabIndex = 44
@@ -388,12 +331,13 @@ Partial Class FormularioPedido
         '
         Me.btnEnvioGuardado.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnEnvioGuardado.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnEnvioGuardado.Location = New System.Drawing.Point(346, 322)
+        Me.btnEnvioGuardado.Location = New System.Drawing.Point(593, 270)
         Me.btnEnvioGuardado.Name = "btnEnvioGuardado"
-        Me.btnEnvioGuardado.Size = New System.Drawing.Size(104, 25)
+        Me.btnEnvioGuardado.Size = New System.Drawing.Size(89, 24)
         Me.btnEnvioGuardado.TabIndex = 46
-        Me.btnEnvioGuardado.Text = "envio guardado"
+        Me.btnEnvioGuardado.Text = "Datos de envio"
         Me.btnEnvioGuardado.UseVisualStyleBackColor = False
+        Me.btnEnvioGuardado.Visible = False
         '
         'btnSearch
         '
@@ -401,7 +345,7 @@ Partial Class FormularioPedido
         Me.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnSearch.FlatAppearance.BorderSize = 0
         Me.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSearch.Location = New System.Drawing.Point(217, 32)
+        Me.btnSearch.Location = New System.Drawing.Point(263, 11)
         Me.btnSearch.Name = "btnSearch"
         Me.btnSearch.Size = New System.Drawing.Size(30, 30)
         Me.btnSearch.TabIndex = 47
@@ -414,7 +358,7 @@ Partial Class FormularioPedido
         Me.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnAdd.FlatAppearance.BorderSize = 0
         Me.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAdd.Location = New System.Drawing.Point(253, 32)
+        Me.btnAdd.Location = New System.Drawing.Point(299, 10)
         Me.btnAdd.Name = "btnAdd"
         Me.btnAdd.Size = New System.Drawing.Size(32, 32)
         Me.btnAdd.TabIndex = 48
@@ -426,7 +370,7 @@ Partial Class FormularioPedido
         Me.cboDesc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboDesc.FormattingEnabled = True
         Me.cboDesc.Items.AddRange(New Object() {"0", "5", "10", "15", "20", "25", "30"})
-        Me.cboDesc.Location = New System.Drawing.Point(196, 300)
+        Me.cboDesc.Location = New System.Drawing.Point(358, 303)
         Me.cboDesc.Name = "cboDesc"
         Me.cboDesc.Size = New System.Drawing.Size(70, 21)
         Me.cboDesc.TabIndex = 50
@@ -434,17 +378,16 @@ Partial Class FormularioPedido
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(272, 303)
+        Me.Label2.Location = New System.Drawing.Point(273, 306)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(46, 13)
+        Me.Label2.Size = New System.Drawing.Size(79, 13)
         Me.Label2.TabIndex = 49
-        Me.Label2.Text = "% Desc."
+        Me.Label2.Text = "Descuento (%):"
         '
         'dtpFechaVencimiento
         '
-        Me.dtpFechaVencimiento.Enabled = False
         Me.dtpFechaVencimiento.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpFechaVencimiento.Location = New System.Drawing.Point(145, 67)
+        Me.dtpFechaVencimiento.Location = New System.Drawing.Point(467, 80)
         Me.dtpFechaVencimiento.Name = "dtpFechaVencimiento"
         Me.dtpFechaVencimiento.Size = New System.Drawing.Size(121, 20)
         Me.dtpFechaVencimiento.TabIndex = 52
@@ -453,24 +396,34 @@ Partial Class FormularioPedido
         'lblFechaVencimiento
         '
         Me.lblFechaVencimiento.AutoSize = True
-        Me.lblFechaVencimiento.Location = New System.Drawing.Point(30, 72)
+        Me.lblFechaVencimiento.Location = New System.Drawing.Point(355, 86)
         Me.lblFechaVencimiento.Name = "lblFechaVencimiento"
-        Me.lblFechaVencimiento.Size = New System.Drawing.Size(97, 13)
+        Me.lblFechaVencimiento.Size = New System.Drawing.Size(100, 13)
         Me.lblFechaVencimiento.TabIndex = 51
-        Me.lblFechaVencimiento.Text = "Fecha vencimiento"
+        Me.lblFechaVencimiento.Text = "Fecha vencimiento:"
         Me.lblFechaVencimiento.Visible = False
         '
         'btnGuardarPresupuesto
         '
         Me.btnGuardarPresupuesto.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnGuardarPresupuesto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnGuardarPresupuesto.Location = New System.Drawing.Point(473, 357)
+        Me.btnGuardarPresupuesto.Location = New System.Drawing.Point(505, 405)
         Me.btnGuardarPresupuesto.Name = "btnGuardarPresupuesto"
-        Me.btnGuardarPresupuesto.Size = New System.Drawing.Size(134, 26)
+        Me.btnGuardarPresupuesto.Size = New System.Drawing.Size(94, 26)
         Me.btnGuardarPresupuesto.TabIndex = 53
         Me.btnGuardarPresupuesto.Text = "Guardar presupuesto"
         Me.btnGuardarPresupuesto.UseVisualStyleBackColor = False
         Me.btnGuardarPresupuesto.Visible = False
+        '
+        'chkEnvio
+        '
+        Me.chkEnvio.AutoSize = True
+        Me.chkEnvio.Location = New System.Drawing.Point(593, 247)
+        Me.chkEnvio.Name = "chkEnvio"
+        Me.chkEnvio.Size = New System.Drawing.Size(53, 17)
+        Me.chkEnvio.TabIndex = 54
+        Me.chkEnvio.Text = "Envio"
+        Me.chkEnvio.UseVisualStyleBackColor = True
         '
         'FormularioPedido
         '
@@ -478,6 +431,7 @@ Partial Class FormularioPedido
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(728, 443)
+        Me.Controls.Add(Me.chkEnvio)
         Me.Controls.Add(Me.btnGuardarPresupuesto)
         Me.Controls.Add(Me.dtpFechaVencimiento)
         Me.Controls.Add(Me.lblFechaVencimiento)
@@ -489,16 +443,11 @@ Partial Class FormularioPedido
         Me.Controls.Add(Me.txtTotal)
         Me.Controls.Add(Me.lblTotal)
         Me.Controls.Add(Me.ValidacionMoneda1)
-        Me.Controls.Add(Me.btnGuardarCambios)
-        Me.Controls.Add(Me.btnAgregarPedidoExistente)
         Me.Controls.Add(Me.lblSeña)
         Me.Controls.Add(Me.lblMedio)
         Me.Controls.Add(Me.cboMedio)
         Me.Controls.Add(Me.lblEstado)
         Me.Controls.Add(Me.cboEstado)
-        Me.Controls.Add(Me.btnTipoEnvioNuevo)
-        Me.Controls.Add(Me.lblTipoEnvio)
-        Me.Controls.Add(Me.cboTipoEnvio)
         Me.Controls.Add(Me.btnCancelarPedido)
         Me.Controls.Add(Me.btnGuardarPedido)
         Me.Controls.Add(Me.txtDescripcion)
@@ -524,8 +473,6 @@ Partial Class FormularioPedido
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents lblTipoEnvio As System.Windows.Forms.Label
-    Friend WithEvents cboTipoEnvio As System.Windows.Forms.ComboBox
     Friend WithEvents btnCancelarPedido As System.Windows.Forms.Button
     Friend WithEvents btnGuardarPedido As System.Windows.Forms.Button
     Friend WithEvents txtDescripcion As System.Windows.Forms.TextBox
@@ -540,14 +487,11 @@ Partial Class FormularioPedido
     Friend WithEvents lblDescripcion As System.Windows.Forms.Label
     Friend WithEvents lblFecha As System.Windows.Forms.Label
     Friend WithEvents lblCliente As System.Windows.Forms.Label
-    Friend WithEvents btnTipoEnvioNuevo As System.Windows.Forms.Button
     Friend WithEvents lblEstado As System.Windows.Forms.Label
     Friend WithEvents cboEstado As System.Windows.Forms.ComboBox
     Friend WithEvents lblMedio As System.Windows.Forms.Label
     Friend WithEvents cboMedio As System.Windows.Forms.ComboBox
     Friend WithEvents lblSeña As System.Windows.Forms.Label
-    Friend WithEvents btnAgregarPedidoExistente As System.Windows.Forms.Button
-    Friend WithEvents btnGuardarCambios As System.Windows.Forms.Button
     Friend WithEvents SolemnoDataSet As CapaPresentacion.SolemnoDataSet
     Friend WithEvents ClientesBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents ClientesTableAdapter As CapaPresentacion.SolemnoDataSetTableAdapters.ClientesTableAdapter
@@ -566,4 +510,5 @@ Partial Class FormularioPedido
     Friend WithEvents dtpFechaVencimiento As System.Windows.Forms.DateTimePicker
     Friend WithEvents lblFechaVencimiento As System.Windows.Forms.Label
     Friend WithEvents btnGuardarPresupuesto As System.Windows.Forms.Button
+    Friend WithEvents chkEnvio As System.Windows.Forms.CheckBox
 End Class

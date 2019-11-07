@@ -51,7 +51,6 @@ Partial Class FormularioEnvio
         Me.lblcp = New System.Windows.Forms.Label()
         Me.ValidacionPrecio = New CapaPresentacion.ValidacionMoneda()
         Me.txtTransporte = New System.Windows.Forms.TextBox()
-        Me.GuardarCambio = New System.Windows.Forms.Button()
         CType(Me.ProvinciasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SolemnoDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -60,7 +59,7 @@ Partial Class FormularioEnvio
         '
         Me.btnCancelarFormEnvio.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnCancelarFormEnvio.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnCancelarFormEnvio.Location = New System.Drawing.Point(240, 394)
+        Me.btnCancelarFormEnvio.Location = New System.Drawing.Point(226, 392)
         Me.btnCancelarFormEnvio.Name = "btnCancelarFormEnvio"
         Me.btnCancelarFormEnvio.Size = New System.Drawing.Size(84, 27)
         Me.btnCancelarFormEnvio.TabIndex = 21
@@ -71,7 +70,7 @@ Partial Class FormularioEnvio
         '
         Me.btnGuardarNuevo.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnGuardarNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnGuardarNuevo.Location = New System.Drawing.Point(109, 394)
+        Me.btnGuardarNuevo.Location = New System.Drawing.Point(80, 394)
         Me.btnGuardarNuevo.Name = "btnGuardarNuevo"
         Me.btnGuardarNuevo.Size = New System.Drawing.Size(99, 27)
         Me.btnGuardarNuevo.TabIndex = 20
@@ -110,6 +109,7 @@ Partial Class FormularioEnvio
         '
         Me.dtpFechaDespacho.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtpFechaDespacho.Location = New System.Drawing.Point(154, 51)
+        Me.dtpFechaDespacho.MinDate = New Date(2019, 11, 7, 0, 0, 0, 0)
         Me.dtpFechaDespacho.Name = "dtpFechaDespacho"
         Me.dtpFechaDespacho.Size = New System.Drawing.Size(170, 20)
         Me.dtpFechaDespacho.TabIndex = 15
@@ -295,24 +295,12 @@ Partial Class FormularioEnvio
         Me.txtTransporte.TabIndex = 141
         Me.txtTransporte.Tag = "3"
         '
-        'GuardarCambio
-        '
-        Me.GuardarCambio.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
-        Me.GuardarCambio.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.GuardarCambio.Location = New System.Drawing.Point(12, 394)
-        Me.GuardarCambio.Name = "GuardarCambio"
-        Me.GuardarCambio.Size = New System.Drawing.Size(93, 27)
-        Me.GuardarCambio.TabIndex = 142
-        Me.GuardarCambio.Text = "GuardarCambio"
-        Me.GuardarCambio.UseVisualStyleBackColor = False
-        '
         'FormularioEnvio
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(413, 431)
-        Me.Controls.Add(Me.GuardarCambio)
         Me.Controls.Add(Me.txtTransporte)
         Me.Controls.Add(Me.ValidacionPrecio)
         Me.Controls.Add(Me.lblcp)
@@ -373,5 +361,4 @@ Partial Class FormularioEnvio
     Friend WithEvents lblcp As System.Windows.Forms.Label
     Friend WithEvents ValidacionPrecio As CapaPresentacion.ValidacionMoneda
     Friend WithEvents txtTransporte As System.Windows.Forms.TextBox
-    Friend WithEvents GuardarCambio As System.Windows.Forms.Button
 End Class

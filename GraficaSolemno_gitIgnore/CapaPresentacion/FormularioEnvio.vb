@@ -130,11 +130,7 @@ Public Class FormularioEnvio
 
 
 
-    Private Sub GuardarCambio_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GuardarCambio.Click
-        TomarInformacion()
-        oCNDetallesEnvio.ModificarDetallesEnvio(oCEDetallesEnvio)
-        Me.Close()
-    End Sub
+    
 
     Private Sub btnGuardarNuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGuardarNuevo.Click
         TomarInformacion()
@@ -142,22 +138,31 @@ Public Class FormularioEnvio
         ' aca se podria verificar si existe el pedido ya (en este caso continuara el curso normal
         'de ejecucion, en caso contrario dara a pasar el ocedetallesenvio a la capa de formulario de pedido
         'cuando se realize la Carga del Nuevo Pedido, este recien sera registrado.
+
+        Dim oCNDetallesEnvio As New CNDetallesEnvio
         Dim oCNPedido As New CNPedido
         Dim dt As New DataTable
         IDDelPedido = Me.Tag
-        dt = oCNPedido.BuscarPedido("IDPedido", IDDelPedido)
-        Dim i As Integer
-        i = dt.Rows.Count
-        If i > 0 Then
-            Dim dt2 As New DataTable
-            dt2 = oCNDetallesEnvio.InformacionDeEnvio(IDDelPedido)
-            Dim CantFilas As Integer = dt2.Rows.Count
-            If CantFilas = 0 Then
-                oCNDetallesEnvio.RegistrarEnvio(oCEDetallesEnvio)
-            End If
+
+        Dim dtInfo As DataTable = oCNDetallesEnvio.InformacionDeEnvio(IDDelPedido)
+        If dtInfo.Rows.Count > 0 Then
+            oCNDetallesEnvio.ModificarDetallesEnvio(oCEDetallesEnvio)
+            Me.Close()
         Else
-            oCNDetallesEnvio.RegistrarEnvio(oCEDetallesEnvio)
-       
+            dt = oCNPedido.BuscarPedido("IDPedido", IDDelPedido)
+            Dim i As Integer
+            i = dt.Rows.Count
+            If i > 0 Then
+                Dim dt2 As New DataTable
+                dt2 = oCNDetallesEnvio.InformacionDeEnvio(IDDelPedido)
+                Dim CantFilas As Integer = dt2.Rows.Count
+                If CantFilas = 0 Then
+                    oCNDetallesEnvio.RegistrarEnvio(oCEDetallesEnvio)
+                End If
+            Else
+                oCNDetallesEnvio.RegistrarEnvio(oCEDetallesEnvio)
+
+            End If
         End If
         
         Me.Close()

@@ -9,19 +9,25 @@ Public Class FormularioPedido
     Dim oCEDetallesDePedido As New CEDetallesDelPedido
     Dim DTDetalles As New DataTable("ItemsPorPedido")
     Dim TablaItems As New DataTable
-    Public Sub LLenarFormulario(ByVal id As Integer)
+    Public Sub LLenarFormulario(ByVal id As Integer, Optional ByVal isPedido As Boolean = True)
         PrecargarCombobox()
         Dim DTPedidoID As New DataTable
-        DTPedidoID = oCNPedido.BuscarPedido("IDPedido", id)
+        If (isPedido = True) Then
+            DTPedidoID = oCNPedido.BuscarPedido("IDPedido", id)
+        Else
+            DTPedidoID = oCNPedido.BuscarPresupuesto("IDPedido", id)
+        End If
+
         Dim DTProw As DataRow = DTPedidoID.Rows(0)
         txtDescripcion.Text = DTProw(1)
         dtpFecha.Text = CDate(DTProw(2))
         AsignarTextCbo(DTProw(3), cboCliente)
-        AsignarTextCbo(DTProw(4), cboTipoEnvio)
-        AsignarTextCbo(DTProw(5), cboMedio)
-        cboEstado.Text = DTProw(6)
-        ValidacionMoneda1.TextBox1.Text = CDbl(DTProw(7))
-
+        'el dtprow(4) es apellido
+        chkEnvio.Checked = DTProw(5)
+        AsignarTextCbo(DTProw(6), cboMedio)
+        cboEstado.Text = DTProw(7)
+        ValidacionMoneda1.TextBox1.Text = CDbl(DTProw(8))
+        'falta reacomodar los datos pasados en este datarow
     End Sub
     Public Sub CargarGridListaPedido(ByVal tabla As DataTable)
         DGListaDePedido.DataSource = tabla.DefaultView.ToTable(True, "IDItems", "Nombre", "Cantidad", "Descripcion", "Precio")
@@ -34,13 +40,23 @@ Public Class FormularioPedido
     Private Sub btnAgregarPedidoNuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAgregarPedidoNuevo.Click
 
         Dim AñadirProducto As New AgregarProductoPedido
-        AñadirProducto.ShowDialog()
-        If (AñadirProducto.oCEproducto.IDProducto <> 0) Then
-            AgregarDatosADetalles(AñadirProducto.oCEproducto, DTDetalles)
-        End If
 
+        If oCNDetallesDePedido.MostrarDetalles(lblID.Text).Rows.Count > 0 Then
+            AñadirProducto.Size = New Point(597, 425)
+            AñadirProducto.ShowDialog()
+            If (AñadirProducto.oCEproducto.IDProducto <> 0) Then
+                AgregarDatosADetalles(AñadirProducto.oCEproducto, TablaItems)
+            End If
+        Else
+            AñadirProducto.ShowDialog()
+            If (AñadirProducto.oCEproducto.IDProducto <> 0) Then
+                AgregarDatosADetalles(AñadirProducto.oCEproducto, DTDetalles)
+            End If
+        End If
+      
 
     End Sub
+
     Public Sub AgregarDatosADetalles(ByVal pProducto As CEProducto, ByVal tabla As DataTable)
         'Dim NuevaFilaDetalles As DataRow = tabla.NewRow()
         'NuevaFilaDetalles(0) = 0
@@ -174,20 +190,24 @@ Public Class FormularioPedido
 
     End Sub
 
-    Private Sub btnTipoEnvioNuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnTipoEnvioNuevo.Click
-        Dim frmEnvioNuevo As New FormularioEnvio
-        'precargado pero con los datos traidos desde la tabla de cliente 
-        frmEnvioNuevo.DatosCliente(cboCliente.SelectedValue)
-        frmEnvioNuevo.Tag = lblID.Text
-        frmEnvioNuevo.ShowDialog()
-    End Sub
 
     Private Sub btnEnvioGuardado_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEnvioGuardado.Click
         Dim frmEnvioNuevo As New FormularioEnvio
-        'precargado pero con los datos traidos desde la tabla envio
-        frmEnvioNuevo.llenarFormularioInfoEnvio(Me.lblID.Text)
-        frmEnvioNuevo.Tag = lblID.Text
-        frmEnvioNuevo.ShowDialog()
+
+        Dim oCNDetallesEnvio As New CNDetallesEnvio
+
+        Dim dt As DataTable = oCNDetallesEnvio.InformacionDeEnvio(Me.lblID.Text)
+        If dt.Rows.Count > 0 Then
+            frmEnvioNuevo.llenarFormularioInfoEnvio(Me.lblID.Text)
+            frmEnvioNuevo.Tag = lblID.Text
+            frmEnvioNuevo.ShowDialog()
+        Else
+
+            frmEnvioNuevo.DatosCliente(cboCliente.SelectedValue)
+            frmEnvioNuevo.Tag = lblID.Text
+            frmEnvioNuevo.ShowDialog()
+        End If
+
     End Sub
     Private Sub btnCancelarPedido_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancelarPedido.Click
         Me.Close()
@@ -200,6 +220,7 @@ Public Class FormularioPedido
         'TODO: esta línea de código carga datos en la tabla 'SolemnoDataSet.Clientes' Puede moverla o quitarla según sea necesario.
         Me.ClientesTableAdapter.Fill(Me.SolemnoDataSet.Clientes)
         cboEstado.SelectedIndex = 0
+        cboDesc.SelectedIndex = 0
     End Sub
     Private Sub FormularioPedido_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Dim validacion As New Validaciones
@@ -221,17 +242,7 @@ Public Class FormularioPedido
         'DTDetalles.Columns.Add("Precio")
         'DTDetalles.Columns.Add("IDProducto")
     End Sub
-    Private Sub btnAgregarPedidoExistente_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAgregarPedidoExistente.Click
-
-        Dim AñadirProducto As New AgregarProductoPedido
-        AñadirProducto.Size = New Point(597, 425)
-        AñadirProducto.ShowDialog()
-        If (AñadirProducto.oCEproducto.IDProducto <> 0) Then
-            AgregarDatosADetalles(AñadirProducto.oCEproducto, TablaItems)
-        End If
-
-
-    End Sub
+  
     Public Function CargarPedido() As CEPedido
         Dim oCEPedido As New CEPedido
         oCEPedido.IDPedido = lblID.Text
@@ -241,36 +252,21 @@ Public Class FormularioPedido
         oCEPedido.Medio = cboMedio.SelectedValue
         oCEPedido.Estado = cboEstado.Text
         oCEPedido.Seña = CDbl(ValidacionMoneda1.TextBox1.Text)
-        oCEPedido.TipoDeEnvio = cboTipoEnvio.SelectedValue
+        oCEPedido.Envio = CStr(chkEnvio.Checked)
 
             Return oCEPedido
     End Function
     Private Sub btnGuardarPedido_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGuardarPedido.Click
-        'en este evento deberan iniciarse los procesos para registrar
-        'en este todo debe ser insert en efecto cascada
-        'oCEPedido
-        'oTablaDetalles (listado de productos)
-        oCNPedido.GenerarElPedido(CargarPedido, DTDetalles)
 
-
-        'oCEDetallesEnvio
-        Dim oCEDetallesEnvio As New CEDetallesEnvio
-
-
+        If oCNDetallesDePedido.MostrarDetalles(lblID.Text).Rows.Count > 0 Then
+            oCNPedido.ModificarPedido(CargarPedido, TablaItems)
+        Else
+            oCNPedido.GenerarElPedido(CargarPedido, DTDetalles)
+        End If
 
         Me.Close()
     End Sub
-    Private Sub btnGuardarCambios_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGuardarCambios.Click
-        'en este evento se iniciaran los procesos para modificar 
-        'el oCEpedido recibira un update
-        'oCEDetallesEnvio si existe alguno con el idpedido recibira update, si no existe recibira un insert.
-      
-        oCNPedido.ModificarPedido(CargarPedido, TablaItems) 'este recibe el update
-        'el proximo a ingresar es el dato de envio como un insert o como update
-        ' si existe --->Update
-        ' Si no existe --->Insert
-        Me.Close()
-    End Sub
+
     Public Sub AsignarTextCbo(ByVal text As String, ByVal cbo As System.Object)
 
         Dim int As Integer
@@ -316,10 +312,10 @@ Public Class FormularioPedido
         Return fecha
     End Function
 
-    Private Sub cboTipoEnvio_SelectedvaluesChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cboTipoEnvio.SelectedValueChanged
+    Private Sub cboTipoEnvio_SelectedvaluesChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Dim oCNDetallesEnvio As New CNDetallesEnvio
 
-        If cboTipoEnvio.Text = "NULO" Then
+        If chkEnvio.Checked Then
             'revisar porque cuando se hace doble click para abrir el pedido 4 que tiene por envio "nulo" 
             'pero el lblid.text tiene ":ID" dentro del label.
             'este metodo no deberia de ejecutarse al momento de abrir el formulario, solo cuando se selecciona manualmente el combobox.
@@ -358,5 +354,9 @@ Public Class FormularioPedido
             oCNPedido.ModificarPedido(oCEPedido, TablaItems)
         End If
         Me.Close()
+    End Sub
+
+    Private Sub chkEnvio_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chkEnvio.CheckedChanged
+        btnEnvioGuardado.Visible = chkEnvio.Checked
     End Sub
 End Class
