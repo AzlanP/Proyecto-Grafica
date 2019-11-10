@@ -9,9 +9,10 @@ Public Class FormularioPedido
     Dim oCEDetallesDePedido As New CEDetallesDelPedido
     Dim DTDetalles As New DataTable("ItemsPorPedido")
     Dim TablaItems As New DataTable
+    Dim DTPedidoID As New DataTable
     Public Sub LLenarFormulario(ByVal id As Integer, Optional ByVal isPedido As Boolean = True)
         PrecargarCombobox()
-        Dim DTPedidoID As New DataTable
+
         If (isPedido = True) Then
             DTPedidoID = oCNPedido.BuscarPedido("IDPedido", id)
         Else
@@ -30,12 +31,12 @@ Public Class FormularioPedido
         'falta reacomodar los datos pasados en este datarow
     End Sub
     Public Sub CargarGridListaPedido(ByVal tabla As DataTable)
-        DGListaDePedido.DataSource = tabla.DefaultView.ToTable(True, "IDItems", "Nombre", "Cantidad", "Descripcion", "Precio")
+        DGListaDePedido.DataSource = tabla.DefaultView.ToTable(True, "IDItems", "Nombre", "Cantidad", "Descripcion", "Descuento", "PrecioUnitario", "PrecioFinal")
         ' esta tabla luego de remover un producto de la lista imprime IDpedido pero por error da el id de producto. niuno deveria mostrarse
     End Sub
     Public Sub CargarGridDetalles(ByVal id As Integer)
         TablaItems = oCNDetallesDePedido.MostrarDetalles(id)
-        DGListaDePedido.DataSource = TablaItems.DefaultView.ToTable(True, "IDItems", "Nombre", "Cantidad", "Descripcion", "Precio")
+        DGListaDePedido.DataSource = TablaItems.DefaultView.ToTable(True, "IDItems", "Nombre", "Cantidad", "Descripcion", "Descuento", "PrecioUnitario", "PrecioFinal")
     End Sub
     Private Sub btnAgregarPedidoNuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAgregarPedidoNuevo.Click
 
@@ -251,7 +252,7 @@ Public Class FormularioPedido
         oCEPedido.Descripcion = Trim(txtDescripcion.Text)
         oCEPedido.Medio = cboMedio.SelectedValue
         oCEPedido.Estado = cboEstado.Text
-        oCEPedido.Seña = CDbl(ValidacionMoneda1.TextBox1.Text)
+        oCEPedido.Seña = CDbl(ValidacionMoneda1.valor)
         oCEPedido.Envio = CStr(chkEnvio.Checked)
 
             Return oCEPedido
@@ -332,12 +333,23 @@ Public Class FormularioPedido
         busquedaControl.StartPosition = FormStartPosition.Manual
         busquedaControl.Location = Me.PointToScreen(New Point(btnSearch.Left, btnSearch.Top + btnSearch.Height))
         busquedaControl.ShowDialog()
-        AsignarTextCbo(busquedaControl.NombreCompleto, cboCliente)
+        txtClienteNombreCompleto.Text = busquedaControl.Nombre + " " + busquedaControl.Apellido
+        AsignarTextCbo(busquedaControl.Nombre, cboCliente)
     End Sub
-
+    Public Sub actualizarNombre()
+        Me.ClientesTableAdapter.Fill(Me.SolemnoDataSet.Clientes)
+        Dim dt As DataTable = Me.ClientesTableAdapter.GetData
+        Dim index As Integer = Me.ClientesTableAdapter.GetData.Count - 1
+        Dim nombre As String = Me.ClientesTableAdapter.GetData.Rows(index)("Nombre")
+        Dim apellido As String = Me.ClientesTableAdapter.GetData.Rows(index)("Apellido")
+        txtClienteNombreCompleto.Text = nombre + " " + apellido
+    End Sub
     Private Sub btnAdd_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAdd.Click
         Dim mainFrm As New frmMenuPrincipal
         mainFrm.btnNuevoCliente_Click(sender, e)
+        actualizarNombre()
+        cboCliente.SelectedIndex = CInt(cboCliente.Items.Count - 1)
+
     End Sub
 
     Private Sub btnGuardarPresupuesto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGuardarPresupuesto.Click
@@ -358,5 +370,33 @@ Public Class FormularioPedido
 
     Private Sub chkEnvio_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chkEnvio.CheckedChanged
         btnEnvioGuardado.Visible = chkEnvio.Checked
+    End Sub
+    Private Sub CalcularTotal(ByVal dt As DataTable)
+        Dim tablaTotal As Double = 0
+        For Each dr As DataRow In dt.Rows
+            tablaTotal += dr.Item("Cantidad") * dr.Item("PrecioUnitario")
+            'tablaTotal += dr.Item("PrecioTotal")
+        Next
+        Dim total As Double = tablaTotal - ValidacionMoneda1.valor - (tablaTotal / 100 * cboDesc.Text)
+    End Sub
+
+    Private Sub ValidacionMoneda1_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles ValidacionMoneda1.KeyPress
+        If DTDetalles.Rows.Count > 0 And TablaItems.Rows.Count > 0 Then
+            MsgBox("Error en la carga del presupuesto")
+        ElseIf DTDetalles.Rows.Count > 0 And TablaItems.Rows.Count = 0 Then
+            CalcularTotal(DTDetalles)
+        ElseIf DTDetalles.Rows.Count = 0 And TablaItems.Rows.Count > 0 Then
+            CalcularTotal(TablaItems)
+        End If
+    End Sub
+
+    Private Sub cboDesc_SelectedValueChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles cboDesc.SelectedValueChanged
+        If DTDetalles.Rows.Count > 0 And TablaItems.Rows.Count > 0 Then
+            MsgBox("Error en la carga del presupuesto")
+        ElseIf DTDetalles.Rows.Count > 0 And TablaItems.Rows.Count = 0 Then
+            CalcularTotal(DTDetalles)
+        ElseIf DTDetalles.Rows.Count = 0 And TablaItems.Rows.Count > 0 Then
+            CalcularTotal(TablaItems)
+        End If
     End Sub
 End Class

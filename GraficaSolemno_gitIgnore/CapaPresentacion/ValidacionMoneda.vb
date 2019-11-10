@@ -2,7 +2,7 @@
     Private _labeltext As String
     Private _valor As Double
     Private _simbolo As String = "$"
-
+    Public frmParent As AgregarProductoPedido
     Public Property labeltext As String
         Get
             Return _labeltext
@@ -13,19 +13,21 @@
             SimboloPeso.Text = value
         End Set
     End Property
+
     Public Property valor As Double
         Get
             Return _valor
 
         End Get
         Set(ByVal value As Double)
+
             _valor = value
             mostrarValor()
-
+       
         End Set
     End Property
 
-    Private Sub TextBox1_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox1.KeyPress
+    Public Sub TextBox1_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox1.KeyPress
 
         If Char.IsDigit(e.KeyChar) Then
             e.Handled = False
@@ -45,6 +47,8 @@
 
             SendKeys.Send("{TAB}")
         End If
+
+     
     End Sub
     'verificar esto problema!
     'Private Sub TextBox1_MouseClick(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles TextBox1.MouseClick
@@ -58,6 +62,16 @@
         TextBox1.Text = _simbolo & " " & FormatNumber(_valor)
     End Sub
 
+    Private Sub TextBox1_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles TextBox1.TextChanged
+        If Not frmParent Is Nothing Then
+            frmParent.calcularPrecioXCantidad()
+        End If
+    End Sub
+
+   
+
+
+
     Private Sub TextBox1_Validating(ByVal sender As Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles TextBox1.Validating
         Try
             valor = TextBox1.Text
@@ -65,5 +79,15 @@
             valor = 0
         End Try
     End Sub
-    
+
+
+
+
+
+
+
+   
 End Class
+
+
+

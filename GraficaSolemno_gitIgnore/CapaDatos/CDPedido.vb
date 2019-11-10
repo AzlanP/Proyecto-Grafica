@@ -191,7 +191,7 @@ Public Class CDPedidos
         oCDConexion.Conectar()
         Dim da As New SQLiteDataAdapter
         Dim dt As New DataTable
-        Dim InstruccionSQL As String = " SELECT Pedidos.IDPedido,Clientes.nombre as 'Nombre Cliente' ,Clientes.apellido as 'Apellido Cliente', pedidos.Descripcion, pedidos.Fecha,  pedidos.Estado FROM(Pedidos, Clientes, medios, tipoenvio) WHERE  (pedidos.IDCliente=clientes.IDCliente and pedidos.IDMedio= medios.IDMedio and pedidos.IDTipoEnvio = TipoEnvio.IDTipoEnvio ) and clientes.IDCliente=" & ID & " and pedidos.estado='Pendiente'"
+        Dim InstruccionSQL As String = " SELECT Pedidos.IDPedido,Clientes.nombre as 'Nombre Cliente' ,Clientes.apellido as 'Apellido Cliente', pedidos.Descripcion, pedidos.Fecha,  pedidos.Estado FROM(Pedidos, Clientes, medios) WHERE  (pedidos.IDCliente=clientes.IDCliente and pedidos.IDMedio= medios.IDMedio  ) and clientes.IDCliente=" & ID & " and pedidos.estado='Pendiente'"
         Dim comando As New SQLiteCommand(InstruccionSQL, oCDConexion.con)
         da.SelectCommand = comando
         da.Fill(dt)

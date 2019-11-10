@@ -30,7 +30,7 @@ Partial Class ValidacionMoneda
         '
         Me.TextBox1.Location = New System.Drawing.Point(6, 3)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(98, 20)
+        Me.TextBox1.Size = New System.Drawing.Size(74, 20)
         Me.TextBox1.TabIndex = 0
         '
         'SimboloPeso
@@ -48,7 +48,7 @@ Partial Class ValidacionMoneda
         Me.Controls.Add(Me.SimboloPeso)
         Me.Controls.Add(Me.TextBox1)
         Me.Name = "ValidacionMoneda"
-        Me.Size = New System.Drawing.Size(109, 27)
+        Me.Size = New System.Drawing.Size(89, 27)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

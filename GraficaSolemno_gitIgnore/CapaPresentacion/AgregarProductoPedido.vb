@@ -14,6 +14,7 @@ Public Class AgregarProductoPedido
         oCEproducto.Descripcion = TextboxDescripcion.Text
         oCEproducto.IDProducto = lblID.Text
         Me.Close()
+        calcularPrecioXCantidad()
     End Sub
     Public Function CasteoNulo(ByVal value As String) As Integer
         value = Trim(value)
@@ -108,7 +109,18 @@ Public Class AgregarProductoPedido
 
 
 
-    Private Sub txtCantidad_TextChanged(sender As Object, e As System.EventArgs) Handles txtCantidad.TextChanged
+    Public Sub txtCantidad_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtCantidad.TextChanged
         calcularPrecioXCantidad()
     End Sub
+
+
+
+
+
+    Private Sub txtboxPrecio_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtboxPrecio.Load
+        calcularPrecioXCantidad()
+        Dim moneda As ValidacionMoneda = txtboxPrecio
+        moneda.frmParent = Me
+    End Sub
+
 End Class

@@ -186,6 +186,7 @@ Partial Class AgregarProductoPedido
         '
         'txtPrecioTotal
         '
+        Me.txtPrecioTotal.Enabled = False
         Me.txtPrecioTotal.labeltext = Nothing
         Me.txtPrecioTotal.Location = New System.Drawing.Point(37, 184)
         Me.txtPrecioTotal.Name = "txtPrecioTotal"

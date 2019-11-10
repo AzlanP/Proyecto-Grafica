@@ -62,6 +62,7 @@ Partial Class FormularioPedido
         Me.lblFechaVencimiento = New System.Windows.Forms.Label()
         Me.btnGuardarPresupuesto = New System.Windows.Forms.Button()
         Me.chkEnvio = New System.Windows.Forms.CheckBox()
+        Me.txtClienteNombreCompleto = New System.Windows.Forms.TextBox()
         CType(Me.TipoEnvioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SolemnoDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -425,12 +426,21 @@ Partial Class FormularioPedido
         Me.chkEnvio.Text = "Envio"
         Me.chkEnvio.UseVisualStyleBackColor = True
         '
+        'txtClienteNombreCompleto
+        '
+        Me.txtClienteNombreCompleto.Enabled = False
+        Me.txtClienteNombreCompleto.Location = New System.Drawing.Point(148, 86)
+        Me.txtClienteNombreCompleto.Name = "txtClienteNombreCompleto"
+        Me.txtClienteNombreCompleto.Size = New System.Drawing.Size(100, 20)
+        Me.txtClienteNombreCompleto.TabIndex = 55
+        '
         'FormularioPedido
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(728, 443)
+        Me.Controls.Add(Me.txtClienteNombreCompleto)
         Me.Controls.Add(Me.chkEnvio)
         Me.Controls.Add(Me.btnGuardarPresupuesto)
         Me.Controls.Add(Me.dtpFechaVencimiento)
@@ -511,4 +521,5 @@ Partial Class FormularioPedido
     Friend WithEvents lblFechaVencimiento As System.Windows.Forms.Label
     Friend WithEvents btnGuardarPresupuesto As System.Windows.Forms.Button
     Friend WithEvents chkEnvio As System.Windows.Forms.CheckBox
+    Friend WithEvents txtClienteNombreCompleto As System.Windows.Forms.TextBox
 End Class

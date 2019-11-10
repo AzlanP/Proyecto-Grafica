@@ -12,7 +12,7 @@ Public Class CDDetallesDelPedido
         Try
             Dim dt As New DataTable
             Dim da As New SQLiteDataAdapter
-            Dim InstruccionSQL As String = "Select itemsporpedido.IDItems , Productos.Nombre , itemsporpedido.cantidad ,itemsporpedido.Descripcion, itemsporpedido.Precio,itemsporpedido.IDProducto from pedidos join itemsporpedido on pedidos.idpedido=itemsporpedido.IDPedido join productos on  itemsporpedido.IDProducto= productos.IDProducto where  pedidos.IDPedido= " & id
+            Dim InstruccionSQL As String = "Select itemsporpedido.IDItems , Productos.Nombre , itemsporpedido.cantidad ,itemsporpedido.Descripcion, itemsporpedido.Descuento, itemsporpedido.PrecioUnitario,itemsporpedido.PrecioFinal ,itemsporpedido.IDProducto from pedidos join itemsporpedido on pedidos.idpedido=itemsporpedido.IDPedido join productos on  itemsporpedido.IDProducto= productos.IDProducto where  pedidos.IDPedido= " & id
             Dim comando As New SQLiteCommand(InstruccionSQL, oCDConexion.con)
             da.SelectCommand = comando
             da.Fill(dt)

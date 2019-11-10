@@ -4,7 +4,8 @@ Imports CapaNegocio
 Public Class frmBusqueda
     Dim dtGrid As New DataTable
     Public ID As Integer
-    Public NombreCompleto As String
+    Public Nombre As String
+    Public Apellido As String
 
     Dim oCNCliente As New CNCliente
     Public Sub CargarGridBuscar()
@@ -21,7 +22,8 @@ Public Class frmBusqueda
 
     'fijarme si no combine mas poner solo cellclick ya que el doble click aveces funciona mal
     Private Sub DGBuscar_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DGBuscar.CellDoubleClick
-        NombreCompleto = DGBuscar.Rows(e.RowIndex).Cells("Nombre").Value
+        Nombre = DGBuscar.Rows(e.RowIndex).Cells("Nombre").Value
+        Apellido = DGBuscar.Rows(e.RowIndex).Cells("Apellido").Value
         Me.Close()
         '/CargarDatos(ID)
     End Sub
