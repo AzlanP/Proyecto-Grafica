@@ -6,7 +6,9 @@ Public Class CDUsuario
 
 
 
+    Public Sub MostrarUsuarios()
 
+    End Sub
     Public Sub RegistrarUsuario(ByVal oCEUsuario As CEUsuario)
         oCDConexion.Conectar()
 

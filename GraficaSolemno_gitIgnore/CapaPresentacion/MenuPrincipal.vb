@@ -718,7 +718,12 @@ Public Class frmMenuPrincipal
 
     '--------------------------------------------------------------------------------------------
     '-------------------------------USUARIOS-----------------------------------------------------
+    Dim oCNUsuario As New CNUsuario
 
+    Public Sub MostrarUsuarios()
+        'oCNUsuario.BuscarUsuario()
+
+    End Sub
     Private Sub btnNuevoUsuario_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNuevoUsuario.Click
         Dim regUser As New frmIngresaralSistema
         regUser.PanelRegistrar.Visible = True

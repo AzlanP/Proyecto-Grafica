@@ -83,7 +83,7 @@ Public Class AgregarProductoPedido
         lblID.Text = id
         txtNombreProducto.Text = dr("Nombre").ToString
         txtCantidad.Text = dr("Cantidad")
-        txtboxPrecio.valor = dr("Precio").ToString
+        txtboxPrecio.valor = dr("PrecioUnitario").ToString
         TextboxDescripcion.Text = dr("Descripcion")
     End Sub
     'fijarme si no combine mas poner solo cellclick ya que el doble click aveces funciona mal
@@ -123,4 +123,8 @@ Public Class AgregarProductoPedido
         moneda.frmParent = Me
     End Sub
 
+    Private Sub btnCancelar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancelar.Click
+        Me.Close()
+
+    End Sub
 End Class

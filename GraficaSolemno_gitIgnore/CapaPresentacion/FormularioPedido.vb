@@ -10,6 +10,7 @@ Public Class FormularioPedido
     Dim DTDetalles As New DataTable("ItemsPorPedido")
     Dim TablaItems As New DataTable
     Dim DTPedidoID As New DataTable
+    Dim IDitemSelected As Integer
     Public Sub LLenarFormulario(ByVal id As Integer, Optional ByVal isPedido As Boolean = True)
         PrecargarCombobox()
 
@@ -54,7 +55,7 @@ Public Class FormularioPedido
                 AgregarDatosADetalles(AñadirProducto.oCEproducto, DTDetalles)
             End If
         End If
-      
+        CalcularTotalBruto()
 
     End Sub
 
@@ -132,7 +133,7 @@ Public Class FormularioPedido
             CargarGridListaPedido(TablaItems)
         End If
 
-
+        CalcularTotalBruto()
     End Sub
 
     Private Sub btnModificarPedido_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnModificarPedido.Click
@@ -172,9 +173,11 @@ Public Class FormularioPedido
         If Not (dtrow Is Nothing) Then
             frmModProducto.CargarDatosModificar(ProductoID, dtrow)
             frmModProducto.ShowDialog()
-            TablaItems.Rows.RemoveAt(ValorIndex)
-            AgregarDatosADetalles(frmModProducto.oCEproducto, TablaItems)
+            If Not frmModProducto.oCEproducto.Nombre Is Nothing Then
 
+                TablaItems.Rows.RemoveAt(ValorIndex)
+                AgregarDatosADetalles(frmModProducto.oCEproducto, TablaItems)
+            End If
             '    If DTDetalles Is Nothing Then
             '        If TablaItems Is Nothing Then
             '            MsgBox("Error")-
@@ -187,7 +190,7 @@ Public Class FormularioPedido
 
         End If
 
-
+        CalcularTotalBruto()
 
     End Sub
 
@@ -378,9 +381,13 @@ Public Class FormularioPedido
             'tablaTotal += dr.Item("PrecioTotal")
         Next
         Dim total As Double = tablaTotal - ValidacionMoneda1.valor - (tablaTotal / 100 * cboDesc.Text)
+        txtTotal.valor = total
     End Sub
 
     Private Sub ValidacionMoneda1_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles ValidacionMoneda1.KeyPress
+        CalcularTotalBruto()
+    End Sub
+    Public Sub CalcularTotalBruto()
         If DTDetalles.Rows.Count > 0 And TablaItems.Rows.Count > 0 Then
             MsgBox("Error en la carga del presupuesto")
         ElseIf DTDetalles.Rows.Count > 0 And TablaItems.Rows.Count = 0 Then
@@ -398,5 +405,75 @@ Public Class FormularioPedido
         ElseIf DTDetalles.Rows.Count = 0 And TablaItems.Rows.Count > 0 Then
             CalcularTotal(TablaItems)
         End If
+    End Sub
+    Private Sub DGListaDePedido_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DGListaDePedido.CellClick
+
+        If e.RowIndex >= 0 Then
+            IDitemSelected = DGListaDePedido.Rows(e.RowIndex).Cells("IDItems").Value
+
+        End If
+    End Sub
+
+
+    Private Sub DGListaDePedido_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DGListaDePedido.CellDoubleClick
+        If e.RowIndex >= 0 Then
+
+
+            Dim ProductoID As Integer
+            Dim dtrow As DataRow
+            Dim ValorIndex As Integer
+            If DTDetalles.Rows.Count > 0 Then
+                Dim i As Integer = DTDetalles.Rows.Count - 1
+                For x As Integer = 0 To DTDetalles.Rows.Count - 1
+                    Dim iditem As Integer = DTDetalles.Rows(x).Item("IDItems")
+                    If (iditem = IDitemSelected) Then
+
+                        ProductoID = DTDetalles.Rows(x).Item("IDProducto")
+                        ValorIndex = x
+                        Exit For
+                    End If
+
+                Next
+            ElseIf TablaItems.Rows.Count > 0 Then
+                Dim i As Integer = TablaItems.Rows.Count - 1
+                For x As Integer = 0 To TablaItems.Rows.Count - 1
+                    Dim iditem As Integer = TablaItems.Rows(x).Item("IDItems")
+                    If (iditem = IDitemSelected) Then
+
+                        ProductoID = TablaItems.Rows(x).Item("IDProducto")
+
+                        dtrow = (DGListaDePedido.Rows(x).DataBoundItem).Row
+                        ValorIndex = x
+
+                        Exit For
+                    End If
+
+                Next
+            End If
+            Dim frmModProducto As New AgregarProductoPedido
+            If Not (dtrow Is Nothing) Then
+                frmModProducto.CargarDatosModificar(ProductoID, dtrow)
+                frmModProducto.ShowDialog()
+                If Not frmModProducto.oCEproducto.Nombre Is Nothing Then
+
+                    TablaItems.Rows.RemoveAt(ValorIndex)
+                    AgregarDatosADetalles(frmModProducto.oCEproducto, TablaItems)
+                End If
+                '    If DTDetalles Is Nothing Then
+                '        If TablaItems Is Nothing Then
+                '            MsgBox("Error")-
+                '        Else
+
+                '        End If
+                '    Else
+                '        AgregarDatosADetalles(frmModProducto.oCEproducto, DTDetalles)
+                '    End If
+
+            End If
+
+
+            DGListaDePedido.Rows(e.RowIndex).Selected = True
+        End If
+        CalcularTotalBruto()
     End Sub
 End Class
