@@ -563,6 +563,36 @@ Public Class frmMenuPrincipal
     Private Sub btnGraficosProducto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGraficosProducto.Click
         GraficarProductosMensual()
     End Sub
+    Public Sub GraficarProductosHistoricos()
+
+        Me.GraficoSegunConsulta.Series("2019").Points.Clear()
+        Me.GraficoSegunConsulta.Series("2019").Enabled = False
+
+        Me.GraficoSegunConsulta.Series("Cantidad").Points.Clear()
+        Me.GraficoSegunConsulta.Series("Cantidad").Enabled = False
+
+
+        Me.GraficoSegunConsulta.Series("Mensual").Points.Clear()
+        Me.GraficoSegunConsulta.Series("Mensual").Enabled = False
+
+        Me.GraficoSegunConsulta.ChartAreas(0).AxisY.Interval = 20
+        Me.GraficoSegunConsulta.ChartAreas(0).AxisY.IntervalOffset = 20
+
+        Dim dt As DataTable = oCNGraficas.GraficarProductosHistoricos()
+        Dim dv As DataView = New DataView(dt)
+
+        For x = 0 To dv.Count - 1
+            GraficoSegunConsulta.Series("topProductos").Points.AddXY(dv(x)("Nombre"), dv(x)("Cantidad"))
+        Next
+
+    End Sub
+
+
+    Private Sub btnGraficosTopProductos_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnGraficosTopProductos.Click
+        GraficarProductosHistoricos()
+    End Sub
+
+
 
 
 

@@ -14,5 +14,8 @@ Public Class CNGraficos
     Public Function GraficaPedidosMensual(ByVal pmes As Integer, ByVal paño As Integer) As DataTable
         Return oCDGraficos.GraficaPedidosMensual(pmes, paño)
     End Function
+    Public Function GraficarProductosHistoricos() As DataTable
+        Return oCDGraficos.GraficarProductosHistoricos()
+    End Function
 
 End Class

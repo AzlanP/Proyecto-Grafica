@@ -86,5 +86,20 @@ Public Class CDGraficos
         fecha = fechaString
         Return fecha
     End Function
-  
+
+
+    Public Function GraficarProductosHistoricos() As DataTable
+        oCDConexion.Conectar()
+        Dim sql As String = "select SUM(itemsPorPedido.cantidad) as Cantidad ,ItemsPorPedido.IDProducto, productos.nombre from(ItemsPorPedido, productos) where(ItemsPorPedido.IDProducto = Productos.IDProducto) group by ItemsPorPedido.IDProducto"
+
+        Dim cmd As New SQLiteCommand(sql, oCDConexion.con)
+        Dim dt As New DataTable
+        Dim da As New SQLiteDataAdapter
+        'Dim sql As String = "select sum(itemsPorPedido.cantidad),ItemsPorPedido.IDProducto, productos.nombre from(ItemsPorPedido, productos) where(ItemsPorPedido.IDProducto = Productos.IDProducto) group by ItemsPorPedido.IDProducto"
+        da.SelectCommand = cmd
+        da.Fill(dt)
+        oCDConexion.Desconectar()
+        Return dt
+    End Function
+
 End Class
