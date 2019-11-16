@@ -169,6 +169,12 @@ Public Class FormularioEnvio
     End Sub
 
     Private Sub FormularioEnvio_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+        Dim validar As New Validaciones
+        validar.Validar(Me)
 
+    End Sub
+
+    Private Sub btnCancelarFormEnvio_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancelarFormEnvio.Click
+        Me.Close()
     End Sub
 End Class

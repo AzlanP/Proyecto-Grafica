@@ -102,4 +102,30 @@ Public Class CDGraficos
         Return dt
     End Function
 
+    'yorsh 16/11
+    Public Function GraficaTopClientes() As DataTable
+        oCDConexion.Conectar()
+        Dim dt As New DataTable
+        Dim sql As String = "select Clientes.Nombre,count(Clientes.Nombre) as 'Pedidos' from(Clientes, Pedidos)where Clientes.IDCliente=Pedidos.IDCliente and Pedidos.Estado='Completado'group by Clientes.Nombre"
+        Dim cmd As New SQLiteCommand(sql, oCDConexion.con)
+        Dim da As New SQLiteDataAdapter
+        da.SelectCommand = cmd
+        da.Fill(dt)
+        oCDConexion.Desconectar()
+        Return dt
+    End Function
+
+    Public Function GraficaProductosMasVendidos() As DataTable
+        oCDConexion.Conectar()
+
+        Dim sql As String = "select sum(itemsPorPedido.cantidad),ItemsPorPedido.IDProducto, productos.nombre from(ItemsPorPedido, productos) where(ItemsPorPedido.IDProducto = Productos.IDProducto) group by ItemsPorPedido.IDProducto"
+        Dim cmd As New SQLiteCommand(sql, oCDConexion.con)
+        Dim da As New SQLiteDataAdapter
+        Dim dt As New DataTable
+        da.SelectCommand = cmd
+        da.Fill(dt)
+        oCDConexion.Desconectar()
+        Return dt
+    End Function
+    '--fin
 End Class

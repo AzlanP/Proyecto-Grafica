@@ -33,17 +33,17 @@ Partial Class frmIngresaralSistema
         Me.btnIngresar = New System.Windows.Forms.Button()
         Me.PanelRegistrar = New System.Windows.Forms.Panel()
         Me.btnRegistrar = New System.Windows.Forms.Button()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.chkMostrarContraseña = New System.Windows.Forms.CheckBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.TxtNombreyApellido = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.TxtConfirmarContraseña = New System.Windows.Forms.TextBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.txtUsuarioRegistro = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.CboCargo = New System.Windows.Forms.ComboBox()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.txtContraRegistrar = New System.Windows.Forms.TextBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.PanelLogin.SuspendLayout()
         Me.PanelRegistrar.SuspendLayout()
@@ -136,17 +136,17 @@ Partial Class frmIngresaralSistema
         'PanelRegistrar
         '
         Me.PanelRegistrar.Controls.Add(Me.btnRegistrar)
-        Me.PanelRegistrar.Controls.Add(Me.CheckBox1)
+        Me.PanelRegistrar.Controls.Add(Me.chkMostrarContraseña)
         Me.PanelRegistrar.Controls.Add(Me.Label8)
         Me.PanelRegistrar.Controls.Add(Me.TxtNombreyApellido)
         Me.PanelRegistrar.Controls.Add(Me.Label6)
         Me.PanelRegistrar.Controls.Add(Me.Label5)
         Me.PanelRegistrar.Controls.Add(Me.TxtConfirmarContraseña)
-        Me.PanelRegistrar.Controls.Add(Me.TextBox1)
+        Me.PanelRegistrar.Controls.Add(Me.txtUsuarioRegistro)
         Me.PanelRegistrar.Controls.Add(Me.Label3)
         Me.PanelRegistrar.Controls.Add(Me.CboCargo)
         Me.PanelRegistrar.Controls.Add(Me.Label4)
-        Me.PanelRegistrar.Controls.Add(Me.TextBox2)
+        Me.PanelRegistrar.Controls.Add(Me.txtContraRegistrar)
         Me.PanelRegistrar.Location = New System.Drawing.Point(265, 36)
         Me.PanelRegistrar.Name = "PanelRegistrar"
         Me.PanelRegistrar.Size = New System.Drawing.Size(245, 298)
@@ -159,21 +159,21 @@ Partial Class frmIngresaralSistema
         Me.btnRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnRegistrar.Location = New System.Drawing.Point(24, 254)
         Me.btnRegistrar.Name = "btnRegistrar"
-        Me.btnRegistrar.Size = New System.Drawing.Size(122, 24)
+        Me.btnRegistrar.Size = New System.Drawing.Size(133, 24)
         Me.btnRegistrar.TabIndex = 24
         Me.btnRegistrar.Text = "Registrar"
         Me.btnRegistrar.UseVisualStyleBackColor = False
         '
-        'CheckBox1
+        'chkMostrarContraseña
         '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.ForeColor = System.Drawing.Color.Black
-        Me.CheckBox1.Location = New System.Drawing.Point(24, 174)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(61, 17)
-        Me.CheckBox1.TabIndex = 23
-        Me.CheckBox1.Text = "Mostrar"
-        Me.CheckBox1.UseVisualStyleBackColor = True
+        Me.chkMostrarContraseña.AutoSize = True
+        Me.chkMostrarContraseña.ForeColor = System.Drawing.Color.Black
+        Me.chkMostrarContraseña.Location = New System.Drawing.Point(24, 174)
+        Me.chkMostrarContraseña.Name = "chkMostrarContraseña"
+        Me.chkMostrarContraseña.Size = New System.Drawing.Size(117, 17)
+        Me.chkMostrarContraseña.TabIndex = 23
+        Me.chkMostrarContraseña.Text = "Mostrar contraseña"
+        Me.chkMostrarContraseña.UseVisualStyleBackColor = True
         '
         'Label8
         '
@@ -181,9 +181,9 @@ Partial Class frmIngresaralSistema
         Me.Label8.ForeColor = System.Drawing.Color.Black
         Me.Label8.Location = New System.Drawing.Point(24, 194)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(35, 13)
+        Me.Label8.Size = New System.Drawing.Size(38, 13)
         Me.Label8.TabIndex = 22
-        Me.Label8.Text = "Cargo"
+        Me.Label8.Text = "Cargo:"
         '
         'TxtNombreyApellido
         '
@@ -197,21 +197,21 @@ Partial Class frmIngresaralSistema
         '
         Me.Label6.AutoSize = True
         Me.Label6.ForeColor = System.Drawing.Color.Black
-        Me.Label6.Location = New System.Drawing.Point(24, 15)
+        Me.Label6.Location = New System.Drawing.Point(24, 18)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(92, 13)
+        Me.Label6.Size = New System.Drawing.Size(95, 13)
         Me.Label6.TabIndex = 16
-        Me.Label6.Text = "Nombre y Apellido"
+        Me.Label6.Text = "Nombre y Apellido:"
         '
         'Label5
         '
         Me.Label5.AutoSize = True
         Me.Label5.ForeColor = System.Drawing.Color.Black
-        Me.Label5.Location = New System.Drawing.Point(24, 132)
+        Me.Label5.Location = New System.Drawing.Point(24, 135)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(108, 13)
+        Me.Label5.Size = New System.Drawing.Size(110, 13)
         Me.Label5.TabIndex = 14
-        Me.Label5.Text = "Confirmar Contraseña"
+        Me.Label5.Text = "Confirmar contraseña:"
         '
         'TxtConfirmarContraseña
         '
@@ -221,26 +221,27 @@ Partial Class frmIngresaralSistema
         Me.TxtConfirmarContraseña.Size = New System.Drawing.Size(133, 20)
         Me.TxtConfirmarContraseña.TabIndex = 15
         '
-        'TextBox1
+        'txtUsuarioRegistro
         '
-        Me.TextBox1.ForeColor = System.Drawing.Color.Black
-        Me.TextBox1.Location = New System.Drawing.Point(24, 70)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(133, 20)
-        Me.TextBox1.TabIndex = 12
+        Me.txtUsuarioRegistro.ForeColor = System.Drawing.Color.Black
+        Me.txtUsuarioRegistro.Location = New System.Drawing.Point(24, 70)
+        Me.txtUsuarioRegistro.Name = "txtUsuarioRegistro"
+        Me.txtUsuarioRegistro.Size = New System.Drawing.Size(133, 20)
+        Me.txtUsuarioRegistro.TabIndex = 12
         '
         'Label3
         '
         Me.Label3.AutoSize = True
         Me.Label3.ForeColor = System.Drawing.Color.Black
-        Me.Label3.Location = New System.Drawing.Point(24, 93)
+        Me.Label3.Location = New System.Drawing.Point(24, 96)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(61, 13)
+        Me.Label3.Size = New System.Drawing.Size(64, 13)
         Me.Label3.TabIndex = 11
-        Me.Label3.Text = "Contraseña"
+        Me.Label3.Text = "Contraseña:"
         '
         'CboCargo
         '
+        Me.CboCargo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.CboCargo.ForeColor = System.Drawing.Color.Black
         Me.CboCargo.FormattingEnabled = True
         Me.CboCargo.Items.AddRange(New Object() {"Administrador", "Empleado"})
@@ -253,19 +254,19 @@ Partial Class frmIngresaralSistema
         '
         Me.Label4.AutoSize = True
         Me.Label4.ForeColor = System.Drawing.Color.Black
-        Me.Label4.Location = New System.Drawing.Point(24, 54)
+        Me.Label4.Location = New System.Drawing.Point(24, 57)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(43, 13)
+        Me.Label4.Size = New System.Drawing.Size(46, 13)
         Me.Label4.TabIndex = 10
-        Me.Label4.Text = "Usuario"
+        Me.Label4.Text = "Usuario:"
         '
-        'TextBox2
+        'txtContraRegistrar
         '
-        Me.TextBox2.ForeColor = System.Drawing.Color.Black
-        Me.TextBox2.Location = New System.Drawing.Point(24, 109)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(133, 20)
-        Me.TextBox2.TabIndex = 13
+        Me.txtContraRegistrar.ForeColor = System.Drawing.Color.Black
+        Me.txtContraRegistrar.Location = New System.Drawing.Point(24, 109)
+        Me.txtContraRegistrar.Name = "txtContraRegistrar"
+        Me.txtContraRegistrar.Size = New System.Drawing.Size(133, 20)
+        Me.txtContraRegistrar.TabIndex = 13
         '
         'PictureBox1
         '
@@ -311,11 +312,11 @@ Partial Class frmIngresaralSistema
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents TxtConfirmarContraseña As System.Windows.Forms.TextBox
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents txtUsuarioRegistro As System.Windows.Forms.TextBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
-    Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
+    Friend WithEvents txtContraRegistrar As System.Windows.Forms.TextBox
+    Friend WithEvents chkMostrarContraseña As System.Windows.Forms.CheckBox
     Friend WithEvents btnIngresar As System.Windows.Forms.Button
     Friend WithEvents btnRegistrar As System.Windows.Forms.Button
 

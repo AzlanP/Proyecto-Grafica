@@ -135,6 +135,7 @@ Partial Class frmMenuPrincipal
         Me.PanelSupEstadistica = New System.Windows.Forms.Panel()
         Me.lblTituloEstadistica = New System.Windows.Forms.Label()
         Me.PnlLateralEstadistica = New System.Windows.Forms.Panel()
+        Me.btnGraficosTopProductos = New System.Windows.Forms.Button()
         Me.lblSubtituloEstadisticas = New System.Windows.Forms.Label()
         Me.btnGraficosProducto = New System.Windows.Forms.Button()
         Me.btnGraficoMedios = New System.Windows.Forms.Button()
@@ -160,7 +161,7 @@ Partial Class frmMenuPrincipal
         Me.btnDeslogear = New System.Windows.Forms.Button()
         Me.lblNombreUsuario = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-        Me.btnGraficosTopProductos = New System.Windows.Forms.Button()
+        Me.BtnGraficarClientes = New System.Windows.Forms.Button()
         Me.TabGeneral.SuspendLayout()
         Me.TabTareas.SuspendLayout()
         Me.TabCliente.SuspendLayout()
@@ -1174,7 +1175,9 @@ Partial Class frmMenuPrincipal
         '
         Me.DGProductoInactivo.AllowUserToAddRows = False
         Me.DGProductoInactivo.AllowUserToDeleteRows = False
+        Me.DGProductoInactivo.AllowUserToOrderColumns = True
         Me.DGProductoInactivo.AllowUserToResizeRows = False
+        Me.DGProductoInactivo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DGProductoInactivo.BackgroundColor = System.Drawing.SystemColors.Window
         Me.DGProductoInactivo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DGProductoInactivo.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
@@ -1195,7 +1198,7 @@ Partial Class frmMenuPrincipal
         Me.btnBuscarProductoInactivo.Name = "btnBuscarProductoInactivo"
         Me.btnBuscarProductoInactivo.Size = New System.Drawing.Size(115, 24)
         Me.btnBuscarProductoInactivo.TabIndex = 17
-        Me.btnBuscarProductoInactivo.Text = "Buscar Inactivo"
+        Me.btnBuscarProductoInactivo.Text = "Buscar"
         Me.btnBuscarProductoInactivo.UseVisualStyleBackColor = False
         Me.btnBuscarProductoInactivo.Visible = False
         '
@@ -1223,6 +1226,7 @@ Partial Class frmMenuPrincipal
         Me.DGProducto.AllowUserToAddRows = False
         Me.DGProducto.AllowUserToDeleteRows = False
         Me.DGProducto.AllowUserToResizeRows = False
+        Me.DGProducto.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DGProducto.BackgroundColor = System.Drawing.SystemColors.Window
         Me.DGProducto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DGProducto.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
@@ -1250,7 +1254,7 @@ Partial Class frmMenuPrincipal
         Me.cboBuscarProducto.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.cboBuscarProducto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboBuscarProducto.FormattingEnabled = True
-        Me.cboBuscarProducto.Items.AddRange(New Object() {"Nombre", "Codigo", "Tipo"})
+        Me.cboBuscarProducto.Items.AddRange(New Object() {"Nombre", "Codigo"})
         Me.cboBuscarProducto.Location = New System.Drawing.Point(415, 35)
         Me.cboBuscarProducto.Name = "cboBuscarProducto"
         Me.cboBuscarProducto.Size = New System.Drawing.Size(114, 21)
@@ -1584,6 +1588,7 @@ Partial Class frmMenuPrincipal
         'PnlLateralEstadistica
         '
         Me.PnlLateralEstadistica.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(134, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.PnlLateralEstadistica.Controls.Add(Me.BtnGraficarClientes)
         Me.PnlLateralEstadistica.Controls.Add(Me.btnGraficosTopProductos)
         Me.PnlLateralEstadistica.Controls.Add(Me.lblSubtituloEstadisticas)
         Me.PnlLateralEstadistica.Controls.Add(Me.btnGraficosProducto)
@@ -1595,6 +1600,20 @@ Partial Class frmMenuPrincipal
         Me.PnlLateralEstadistica.Name = "PnlLateralEstadistica"
         Me.PnlLateralEstadistica.Size = New System.Drawing.Size(184, 556)
         Me.PnlLateralEstadistica.TabIndex = 4
+        '
+        'btnGraficosTopProductos
+        '
+        Me.btnGraficosTopProductos.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnGraficosTopProductos.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnGraficosTopProductos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnGraficosTopProductos.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnGraficosTopProductos.ForeColor = System.Drawing.Color.White
+        Me.btnGraficosTopProductos.Location = New System.Drawing.Point(0, 404)
+        Me.btnGraficosTopProductos.Name = "btnGraficosTopProductos"
+        Me.btnGraficosTopProductos.Size = New System.Drawing.Size(184, 50)
+        Me.btnGraficosTopProductos.TabIndex = 6
+        Me.btnGraficosTopProductos.Text = "productos tito"
+        Me.btnGraficosTopProductos.UseVisualStyleBackColor = False
         '
         'lblSubtituloEstadisticas
         '
@@ -1889,19 +1908,19 @@ Partial Class frmMenuPrincipal
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(1153, 687)
         Me.TableLayoutPanel1.TabIndex = 2
         '
-        'btnGraficosTopProductos
+        'BtnGraficarClientes
         '
-        Me.btnGraficosTopProductos.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
-        Me.btnGraficosTopProductos.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
-        Me.btnGraficosTopProductos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnGraficosTopProductos.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnGraficosTopProductos.ForeColor = System.Drawing.Color.White
-        Me.btnGraficosTopProductos.Location = New System.Drawing.Point(0, 404)
-        Me.btnGraficosTopProductos.Name = "btnGraficosTopProductos"
-        Me.btnGraficosTopProductos.Size = New System.Drawing.Size(184, 50)
-        Me.btnGraficosTopProductos.TabIndex = 6
-        Me.btnGraficosTopProductos.Text = "productos tito"
-        Me.btnGraficosTopProductos.UseVisualStyleBackColor = False
+        Me.BtnGraficarClientes.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.BtnGraficarClientes.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.BtnGraficarClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnGraficarClientes.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnGraficarClientes.ForeColor = System.Drawing.Color.White
+        Me.BtnGraficarClientes.Location = New System.Drawing.Point(0, 471)
+        Me.BtnGraficarClientes.Name = "BtnGraficarClientes"
+        Me.BtnGraficarClientes.Size = New System.Drawing.Size(184, 50)
+        Me.BtnGraficarClientes.TabIndex = 7
+        Me.BtnGraficarClientes.Text = "clientes yorsh"
+        Me.BtnGraficarClientes.UseVisualStyleBackColor = False
         '
         'frmMenuPrincipal
         '
@@ -2119,4 +2138,5 @@ Partial Class frmMenuPrincipal
     Friend WithEvents TableLayoutPanel1 As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents TableLayoutPanel2 As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents btnGraficosTopProductos As System.Windows.Forms.Button
+    Friend WithEvents BtnGraficarClientes As System.Windows.Forms.Button
 End Class

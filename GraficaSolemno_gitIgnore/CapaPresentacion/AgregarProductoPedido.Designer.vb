@@ -47,7 +47,7 @@ Partial Class AgregarProductoPedido
         '
         Me.btnCancelar.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnCancelar.Location = New System.Drawing.Point(145, 324)
+        Me.btnCancelar.Location = New System.Drawing.Point(134, 322)
         Me.btnCancelar.Name = "btnCancelar"
         Me.btnCancelar.Size = New System.Drawing.Size(103, 29)
         Me.btnCancelar.TabIndex = 20
@@ -58,7 +58,7 @@ Partial Class AgregarProductoPedido
         '
         Me.btnAceptar.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAceptar.Location = New System.Drawing.Point(37, 324)
+        Me.btnAceptar.Location = New System.Drawing.Point(26, 322)
         Me.btnAceptar.Name = "btnAceptar"
         Me.btnAceptar.Size = New System.Drawing.Size(102, 29)
         Me.btnAceptar.TabIndex = 19
@@ -67,7 +67,7 @@ Partial Class AgregarProductoPedido
         '
         'TextboxDescripcion
         '
-        Me.TextboxDescripcion.Location = New System.Drawing.Point(37, 237)
+        Me.TextboxDescripcion.Location = New System.Drawing.Point(24, 223)
         Me.TextboxDescripcion.Multiline = True
         Me.TextboxDescripcion.Name = "TextboxDescripcion"
         Me.TextboxDescripcion.Size = New System.Drawing.Size(211, 81)
@@ -77,7 +77,7 @@ Partial Class AgregarProductoPedido
         'lblDescripcionAgrProd
         '
         Me.lblDescripcionAgrProd.AutoSize = True
-        Me.lblDescripcionAgrProd.Location = New System.Drawing.Point(41, 221)
+        Me.lblDescripcionAgrProd.Location = New System.Drawing.Point(28, 207)
         Me.lblDescripcionAgrProd.Name = "lblDescripcionAgrProd"
         Me.lblDescripcionAgrProd.Size = New System.Drawing.Size(63, 13)
         Me.lblDescripcionAgrProd.TabIndex = 17
@@ -86,7 +86,7 @@ Partial Class AgregarProductoPedido
         'lblPrecioAgrProd
         '
         Me.lblPrecioAgrProd.AutoSize = True
-        Me.lblPrecioAgrProd.Location = New System.Drawing.Point(36, 116)
+        Me.lblPrecioAgrProd.Location = New System.Drawing.Point(23, 102)
         Me.lblPrecioAgrProd.Name = "lblPrecioAgrProd"
         Me.lblPrecioAgrProd.Size = New System.Drawing.Size(79, 13)
         Me.lblPrecioAgrProd.TabIndex = 15
@@ -95,7 +95,7 @@ Partial Class AgregarProductoPedido
         'lblCantidadAgrProd
         '
         Me.lblCantidadAgrProd.AutoSize = True
-        Me.lblCantidadAgrProd.Location = New System.Drawing.Point(37, 77)
+        Me.lblCantidadAgrProd.Location = New System.Drawing.Point(24, 63)
         Me.lblCantidadAgrProd.Name = "lblCantidadAgrProd"
         Me.lblCantidadAgrProd.Size = New System.Drawing.Size(49, 13)
         Me.lblCantidadAgrProd.TabIndex = 13
@@ -104,7 +104,7 @@ Partial Class AgregarProductoPedido
         'lblNombre
         '
         Me.lblNombre.AutoSize = True
-        Me.lblNombre.Location = New System.Drawing.Point(35, 36)
+        Me.lblNombre.Location = New System.Drawing.Point(22, 22)
         Me.lblNombre.Name = "lblNombre"
         Me.lblNombre.Size = New System.Drawing.Size(44, 13)
         Me.lblNombre.TabIndex = 12
@@ -112,7 +112,7 @@ Partial Class AgregarProductoPedido
         '
         'txtCantidad
         '
-        Me.txtCantidad.Location = New System.Drawing.Point(39, 93)
+        Me.txtCantidad.Location = New System.Drawing.Point(26, 79)
         Me.txtCantidad.Name = "txtCantidad"
         Me.txtCantidad.Size = New System.Drawing.Size(70, 20)
         Me.txtCantidad.TabIndex = 21
@@ -168,7 +168,7 @@ Partial Class AgregarProductoPedido
         'txtNombreProducto
         '
         Me.txtNombreProducto.Enabled = False
-        Me.txtNombreProducto.Location = New System.Drawing.Point(38, 54)
+        Me.txtNombreProducto.Location = New System.Drawing.Point(25, 40)
         Me.txtNombreProducto.MaxLength = 20
         Me.txtNombreProducto.Name = "txtNombreProducto"
         Me.txtNombreProducto.Size = New System.Drawing.Size(165, 20)
@@ -178,7 +178,8 @@ Partial Class AgregarProductoPedido
         'txtboxPrecio
         '
         Me.txtboxPrecio.labeltext = Nothing
-        Me.txtboxPrecio.Location = New System.Drawing.Point(38, 131)
+        Me.txtboxPrecio.Location = New System.Drawing.Point(24, 120)
+        Me.txtboxPrecio.Margin = New System.Windows.Forms.Padding(0)
         Me.txtboxPrecio.Name = "txtboxPrecio"
         Me.txtboxPrecio.Size = New System.Drawing.Size(128, 34)
         Me.txtboxPrecio.TabIndex = 26
@@ -188,7 +189,8 @@ Partial Class AgregarProductoPedido
         '
         Me.txtPrecioTotal.Enabled = False
         Me.txtPrecioTotal.labeltext = Nothing
-        Me.txtPrecioTotal.Location = New System.Drawing.Point(37, 184)
+        Me.txtPrecioTotal.Location = New System.Drawing.Point(24, 173)
+        Me.txtPrecioTotal.Margin = New System.Windows.Forms.Padding(0)
         Me.txtPrecioTotal.Name = "txtPrecioTotal"
         Me.txtPrecioTotal.Size = New System.Drawing.Size(128, 34)
         Me.txtPrecioTotal.TabIndex = 29
@@ -197,7 +199,7 @@ Partial Class AgregarProductoPedido
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(37, 168)
+        Me.Label1.Location = New System.Drawing.Point(24, 154)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(73, 13)
         Me.Label1.TabIndex = 28
@@ -206,7 +208,7 @@ Partial Class AgregarProductoPedido
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(208, 96)
+        Me.Label2.Location = New System.Drawing.Point(195, 82)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(46, 13)
         Me.Label2.TabIndex = 30
@@ -217,7 +219,7 @@ Partial Class AgregarProductoPedido
         Me.cboDesc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboDesc.FormattingEnabled = True
         Me.cboDesc.Items.AddRange(New Object() {"0", "5", "10", "15", "20", "25", "30"})
-        Me.cboDesc.Location = New System.Drawing.Point(132, 93)
+        Me.cboDesc.Location = New System.Drawing.Point(119, 79)
         Me.cboDesc.Name = "cboDesc"
         Me.cboDesc.Size = New System.Drawing.Size(70, 21)
         Me.cboDesc.TabIndex = 32
@@ -227,7 +229,7 @@ Partial Class AgregarProductoPedido
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(581, 367)
+        Me.ClientSize = New System.Drawing.Size(284, 361)
         Me.Controls.Add(Me.cboDesc)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.txtPrecioTotal)
@@ -246,7 +248,7 @@ Partial Class AgregarProductoPedido
         Me.Controls.Add(Me.lblPrecioAgrProd)
         Me.Controls.Add(Me.lblCantidadAgrProd)
         Me.Controls.Add(Me.lblNombre)
-        Me.MinimumSize = New System.Drawing.Size(292, 370)
+        Me.MinimumSize = New System.Drawing.Size(300, 400)
         Me.Name = "AgregarProductoPedido"
         Me.Text = "Agregar Al Pedido"
         CType(Me.DGBuscar, System.ComponentModel.ISupportInitialize).EndInit()

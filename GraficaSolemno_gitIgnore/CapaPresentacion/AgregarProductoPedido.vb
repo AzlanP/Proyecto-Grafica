@@ -7,14 +7,21 @@ Public Class AgregarProductoPedido
     Dim oCEDetallesDelPedido As New CEDetallesDelPedido
     Dim oCNDetallesDelPedido As New CNDetallesDelPedido
 
+
+    Dim Cantidad As Integer = 1
+    Dim Descuento As Integer = 0
+    Dim Importe As Double = 0.0
     Private Sub btnAceptar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAceptar.Click
         oCEproducto.Nombre = txtNombreProducto.Text
-        oCEproducto.Cantidad = CasteoNulo(txtCantidad.Text)
         oCEproducto.Precio = txtboxPrecio.valor
         oCEproducto.Descripcion = TextboxDescripcion.Text
         oCEproducto.IDProducto = lblID.Text
         Me.Close()
         calcularPrecioXCantidad()
+
+        'prueba
+
+
     End Sub
     Public Function CasteoNulo(ByVal value As String) As Integer
         value = Trim(value)
@@ -30,15 +37,12 @@ Public Class AgregarProductoPedido
         DGBuscar.DataSource = dt.DefaultView.ToTable(True, "IDProducto", "Nombre")
 
     End Sub
-
-
     Private Sub AgregarProductoPedido_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         CargarGridBuscar()
         Dim validacion As New Validaciones
         validacion.Validar(Me)
 
     End Sub
-
     Private Sub btnBuscar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscar.Click
         Dim dt As New DataTable
         dt = oCNProducto.BuscarProducto("Nombre", txtBuscar.Text)
@@ -52,7 +56,7 @@ Public Class AgregarProductoPedido
         dr = dt.Rows(0)
         lblID.Text = dr("IDProducto")
         txtNombreProducto.Text = dr("Nombre").ToString
-        txtCantidad.Text = nullearInteger(dr("Cantidad").ToString)
+        txtCantidad.Text = Cantidad
         txtboxPrecio.valor = nullearDouble(dr("Precio").ToString)
         TextboxDescripcion.Text = ""
     End Sub
@@ -79,7 +83,7 @@ Public Class AgregarProductoPedido
     Public Sub CargarDatosModificar(ByVal id As Integer, ByVal dr As DataRow)
 
         Dim dt As New DataTable
-        Me.Size = New Point(292, 370)
+        Me.Size = New Point(300, 400)
         lblID.Text = id
         txtNombreProducto.Text = dr("Nombre").ToString
         txtCantidad.Text = dr("Cantidad")

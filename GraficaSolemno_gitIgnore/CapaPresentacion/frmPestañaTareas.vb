@@ -227,7 +227,7 @@ Public Class frmPestañaTareas
     End Sub
 
 
-    Private Sub btnEliminarTarea_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEliminarTarea.Click
+    Private Sub btnEliminarTarea_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
 
     End Sub
 
@@ -243,4 +243,8 @@ Public Class frmPestañaTareas
         LimpiarPosticksEnPanels()
         AcomodarPostickEnPanels()
     End Sub
+
+  
+  
+ 
 End Class

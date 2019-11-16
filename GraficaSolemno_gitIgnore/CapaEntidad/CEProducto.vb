@@ -3,7 +3,7 @@
     Private _IDProducto As Integer
     Private _Codigo As String
     Private _Descripcion As String
-    Private _Cantidad As Integer
+
     Private _Precio As Double
     Private _Tipo As String
 
@@ -49,14 +49,7 @@
             _Descripcion = value
         End Set
     End Property
-    Public Property Cantidad() As Integer
-        Get
-            Return _Cantidad
-        End Get
-        Set(ByVal value As Integer)
-            _Cantidad = value
-        End Set
-    End Property
+
 
     Public Property Precio() As Double
         Get

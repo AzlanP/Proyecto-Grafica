@@ -47,6 +47,8 @@ Public Class frmIngresaralSistema
 
     Private Sub frmIngresaralSistema_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         TxtContraseña.UseSystemPasswordChar = True
+        TxtConfirmarContraseña.UseSystemPasswordChar = True
+        CboCargo.SelectedIndex = 0
     End Sub
 
     Private Sub linkTab_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles linkTab.LinkClicked
@@ -55,7 +57,39 @@ Public Class frmIngresaralSistema
     End Sub
 
     Private Sub btnRegistrar_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnRegistrar.Click
-        PanelRegistrar.Visible = False
-        PanelLogin.Visible = True
+        guardar()
+    End Sub
+    Public Sub tomardatos()
+        oCEUsuario.NombreCompleto = Trim(TxtNombreyApellido.Text)
+        oCEUsuario.Usuario = Trim(txtUsuarioRegistro.Text)
+        oCEUsuario.Contrasena = Trim(txtContraRegistrar.Text)
+        oCEUsuario.Cargo = CboCargo.Text
+        oCEUsuario.FechaCreacion = Date.Now().ToString()
+    End Sub
+    Public Sub cargardatos()
+        TxtNombreyApellido.Text = oCEUsuario.NombreCompleto
+        txtUsuarioRegistro.Text = oCEUsuario.Usuario
+        txtContraRegistrar.Text = oCEUsuario.Contrasena
+        CboCargo.Text = oCEUsuario.Cargo
+    End Sub
+    Public Sub guardar()
+        tomardatos()
+        If (oCEUsuario.Contrasena = TxtConfirmarContraseña.Text) And oCEUsuario.NombreCompleto <> "" Then
+            Try
+                oCNUsuario.RegistrarUsuario(oCEUsuario)
+            Catch ex As Exception
+                MsgBox("Error en el registro de usuario")
+            End Try
+        End If
+    End Sub
+
+
+
+    Private Sub chkMostrarContraseña_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chkMostrarContraseña.CheckedChanged
+        If chkMostrarContraseña.Checked = True Then
+            TxtConfirmarContraseña.UseSystemPasswordChar = False
+        Else
+            TxtConfirmarContraseña.UseSystemPasswordChar = True
+        End If
     End Sub
 End Class

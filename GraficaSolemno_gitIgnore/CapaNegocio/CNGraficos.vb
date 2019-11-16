@@ -18,4 +18,13 @@ Public Class CNGraficos
         Return oCDGraficos.GraficarProductosHistoricos()
     End Function
 
+    'yorsh
+    Public Function GraficaTopClientes() As DataTable
+        Return oCDGraficos.GraficaTopClientes()
+    End Function
+
+    Public Function GraficaProductosMasVendidos() As DataTable
+        Return oCDGraficos.GraficaProductosMasVendidos()
+    End Function
+    '---
 End Class

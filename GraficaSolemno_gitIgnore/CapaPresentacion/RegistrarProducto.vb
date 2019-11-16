@@ -8,7 +8,7 @@ Public Class RegistrarProducto
     Public Function TomarDatos() As CEProducto
         oCEProducto.IDProducto = CInt(lblID.Text)
         oCEProducto.Nombre = txtNombre.Text
-        oCEProducto.Cantidad = CasteoNulo(txtCantidad.Text)
+
         oCEProducto.Precio = CDbl(controlPrecio.valor)
         oCEProducto.Descripcion = txtDescripcion.Text
         oCEProducto.Codigo = txtCodigo.Text
@@ -29,8 +29,7 @@ Public Class RegistrarProducto
         dr = dt.Rows(0)
         lblID.Text = dr("IDProducto").ToString
         txtNombre.Text = dr("Nombre").ToString
-        txtCantidad.Text = dr("Cantidad").ToString
-        controlPrecio.valor = dr("Precio").ToString
+        controlPrecio.valor = CasteoNulo(dr("Precio").ToString)
         txtDescripcion.Text = dr("Descripcion").ToString
         txtCodigo.Text = dr("Codigo").ToString
         btnRegistrarProducto.Visible = False
@@ -45,7 +44,7 @@ Public Class RegistrarProducto
         dr = dt.Rows(0)
         lblID.Text = dr("IDProducto").ToString
         txtNombre.Text = dr("Nombre").ToString
-        txtCantidad.Text = dr("Cantidad").ToString
+
         controlPrecio.valor = dr("Precio").ToString
         txtDescripcion.Text = dr("Descripcion").ToString
         txtCodigo.Text = dr("Codigo").ToString
@@ -55,7 +54,7 @@ Public Class RegistrarProducto
 
     End Sub
     Private Sub btnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGuardarProducto.Click
-        If (oCEProducto.Nombre.Trim() = "") Then
+        If (txtNombre.Text.Trim() = "") Then
             MessageBox.Show("El nombre del producto no puede ser nulo")
         Else
             oCNProducto.ModificarProducto(TomarDatos())

@@ -193,7 +193,17 @@ Public Class frmMenuPrincipal
 
     Dim oCNProducto As New CNProducto
     Public Sub CargarGridProducto()
-        DGProducto.DataSource = oCNProducto.MostrarProducto().DefaultView.ToTable(True, "IDProducto", "Nombre", "Precio", "Codigo")
+        Dim dt As DataTable = oCNProducto.MostrarProducto().DefaultView.ToTable(True, "IDProducto", "Nombre", "Precio", "Codigo")
+        dt.Columns("Precio").ColumnName = "Precio Unitario"
+        dt.AcceptChanges()
+
+        DGProducto.DataSource = dt
+    End Sub
+    Public Sub CargarGridProductoInactivo()
+        Dim dt As DataTable = oCNProducto.MostrarProductoInactivo().DefaultView.ToTable(True, "IDProducto", "Nombre", "Precio", "Codigo")
+        dt.Columns("Precio").ColumnName = "Precio Unitario"
+        dt.AcceptChanges()
+        DGProductoInactivo.DataSource = dt
     End Sub
     Private Sub TabProducto_Enter(ByVal sender As Object, ByVal e As System.EventArgs) Handles TabProducto.Enter
         CargarGridProducto()
@@ -228,8 +238,11 @@ Public Class frmMenuPrincipal
     End Sub
     Private Sub btnBuscarProducto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscarProducto.Click
         Dim dt As New DataTable
-        dt = oCNProducto.BuscarProducto(cboBuscarProducto.Text, txtBuscarProducto.Text)
+        dt = oCNProducto.BuscarProducto(cboBuscarProducto.Text, txtBuscarProducto.Text).DefaultView.ToTable(True, "IDProducto", "Nombre", "Precio", "Codigo")
+        dt.Columns("Precio").ColumnName = "Precio Unitario"
+        dt.AcceptChanges()
         DGProducto.DataSource = dt
+
     End Sub
 
     Private Sub DGProducto_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DGProducto.CellClick
@@ -269,7 +282,8 @@ Public Class frmMenuPrincipal
         If MessageBox.Show("Esta seguro de restaurar el producto? ", "Restaurar el producto", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
             oCNProducto.EliminarProducto(ID, "Activo")
             CargarGridProducto()
-            DGProductoInactivo.DataSource = oCNProducto.MostrarProductoInactivo()
+
+            CargarGridProductoInactivo()
             MostrarProductosModoActivo()
         End If
     End Sub
@@ -288,7 +302,7 @@ Public Class frmMenuPrincipal
     End Sub
 
     Private Sub btnPapeleraProducto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnPapeleraProducto.Click
-        DGProductoInactivo.DataSource = oCNProducto.MostrarProductoInactivo()
+        CargarGridProductoInactivo()
         If btnPapeleraProducto.Text = "Papelera Producto" Then
             MostrarProductosModoInactivo()
         ElseIf btnPapeleraProducto.Text = "Volver" Then
@@ -297,10 +311,11 @@ Public Class frmMenuPrincipal
     End Sub
 
     Private Sub btnBuscarProductoInactivo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscarProductoInactivo.Click
-        Dim dt As DataTable
-        dt = oCNProducto.BuscarProductoInactivo(cboBuscarProducto.Text, Trim(txtBuscarProducto.Text))
+        Dim dt As New DataTable
+        dt = oCNProducto.BuscarProductoInactivo(cboBuscarProducto.Text, txtBuscarProducto.Text).DefaultView.ToTable(True, "IDProducto", "Nombre", "Precio", "Codigo")
+        dt.Columns("Precio").ColumnName = "Precio Unitario"
+        dt.AcceptChanges()
         DGProductoInactivo.DataSource = dt
-
     End Sub
 
     Private Sub DGProductoInactivo_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DGProductoInactivo.CellClick
@@ -319,12 +334,13 @@ Public Class frmMenuPrincipal
             If MessageBox.Show("Esta seguro de Restaurar el Producto? ", "Confirmacion de restaurar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
                 oCNProducto.EliminarProducto(ID, "Activo")
                 CargarGridProducto()
-                DGProductoInactivo.DataSource = oCNProducto.MostrarProductoInactivo()
+                CargarGridProductoInactivo()
                 MostrarProductosModoActivo()
             End If
         End If
     End Sub
     Public Sub MostrarProductosModoInactivo()
+        lblTituloProducto.Text = "Papelera de productos"
         btnPapeleraProducto.Text = "Volver"
         btnBuscarProductoInactivo.Visible = True
         btnRestaurarProducto.Visible = True
@@ -341,6 +357,7 @@ Public Class frmMenuPrincipal
         btnModificarProducto.Enabled = False
     End Sub
     Public Sub MostrarProductosModoActivo()
+        lblTituloProducto.Text = "Productos"
         btnPapeleraProducto.Text = "Papelera Producto"
         btnBuscarProductoInactivo.Visible = False
         btnRestaurarProducto.Visible = False
@@ -355,7 +372,8 @@ Public Class frmMenuPrincipal
     End Sub
     Private Sub btnRefreshProduct_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRefreshProduct.Click
         CargarGridProducto()
-        DGProductoInactivo.DataSource = oCNProducto.MostrarProductoInactivo()
+        CargarGridProductoInactivo()
+        txtBuscarProducto.Text = ""
     End Sub
     '--------------------------------------------------------------------------------------------------------------
     '--------------------------------------------------------------------------------------------------------------
@@ -593,7 +611,27 @@ Public Class frmMenuPrincipal
     End Sub
 
 
+    'yorsh--
+    Public Sub GraficarActividadClientes()
+        Me.GraficoSegunConsulta.Series("2019").Points.Clear()
+        Me.GraficoSegunConsulta.Series("Cantidad").Points.Clear()
+        Me.GraficoSegunConsulta.Series("2019").Enabled = False
+        Me.GraficoSegunConsulta.Series("Cantidad").Enabled = False
+        Me.GraficoSegunConsulta.Series("Mensual").Enabled = False
 
+        Dim dt As DataTable = oCNGraficas.GraficaTopClientes()
+        Dim dv As DataView = New DataView(dt)
+        For x = 0 To dv.Count - 1
+            GraficoSegunConsulta.Series("topClientes").Points.AddXY(dv(x)("Nombre"), dv(x)("Pedidos"))
+        Next
+    End Sub
+
+
+
+    Private Sub BtnGraficarClientes_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnGraficarClientes.Click
+        GraficarActividadClientes()
+    End Sub
+    '--
 
 
     '--------------------------------------------------------------------------------------------------------------
@@ -821,9 +859,5 @@ Public Class frmMenuPrincipal
 
 
  
-    
 
-    Private Sub TableLayoutPanel2_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles TableLayoutPanel2.Paint
-
-    End Sub
 End Class

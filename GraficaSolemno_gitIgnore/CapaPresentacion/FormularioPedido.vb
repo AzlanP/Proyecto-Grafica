@@ -72,7 +72,8 @@ Public Class FormularioPedido
         tabla.Columns("IDItems").AutoIncrement = True
         tabla.Columns("IDItems").AutoIncrementSeed = oCNDetallesDePedido.ConsultarUltimoID
         tabla.Columns("IDItems").AutoIncrementStep = 1
-        tabla.Rows.Add(Nothing, pProducto.Nombre, pProducto.Cantidad, pProducto.Descripcion, pProducto.Precio, pProducto.IDProducto)
+        ' tabla.Rows.Add(Nothing, pProducto.Nombre, pProducto.Cantidad, pProducto.Descripcion, pProducto.Precio, pProducto.IDProducto)
+        tabla.Rows.Add(Nothing, 0, 0, pProducto.Nombre, pProducto.Descripcion, pProducto.Precio, pProducto.IDProducto)
 
         CargarGridListaPedido(tabla)
 

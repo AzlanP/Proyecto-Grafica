@@ -22,7 +22,7 @@ Partial Class frmPestañaTareas
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.btnNuevaTarea = New System.Windows.Forms.Button()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPestañaTareas))
         Me.panelPostick = New System.Windows.Forms.Panel()
         Me.Panel7 = New System.Windows.Forms.Panel()
         Me.Panel6 = New System.Windows.Forms.Panel()
@@ -31,7 +31,6 @@ Partial Class frmPestañaTareas
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.btnEliminarTarea = New System.Windows.Forms.Button()
         Me.MesesCalendario = New System.Windows.Forms.Label()
         Me.btnPosteriorSemana = New System.Windows.Forms.Button()
         Me.btnAnteriorSemana = New System.Windows.Forms.Button()
@@ -45,20 +44,10 @@ Partial Class frmPestañaTareas
         Me.Label8 = New System.Windows.Forms.Label()
         Me.BarraInferior = New System.Windows.Forms.Panel()
         Me.btnIrHoy = New System.Windows.Forms.Button()
+        Me.btnNuevaTarea = New System.Windows.Forms.Button()
         Me.panelPostick.SuspendLayout()
         Me.SemanaDias.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'btnNuevaTarea
-        '
-        Me.btnNuevaTarea.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
-        Me.btnNuevaTarea.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnNuevaTarea.Location = New System.Drawing.Point(12, 508)
-        Me.btnNuevaTarea.Name = "btnNuevaTarea"
-        Me.btnNuevaTarea.Size = New System.Drawing.Size(117, 23)
-        Me.btnNuevaTarea.TabIndex = 25
-        Me.btnNuevaTarea.Text = "Nueva Tarea"
-        Me.btnNuevaTarea.UseVisualStyleBackColor = False
         '
         'panelPostick
         '
@@ -147,17 +136,6 @@ Partial Class frmPestañaTareas
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(140, 365)
         Me.Panel1.TabIndex = 0
-        '
-        'btnEliminarTarea
-        '
-        Me.btnEliminarTarea.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
-        Me.btnEliminarTarea.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnEliminarTarea.Location = New System.Drawing.Point(140, 508)
-        Me.btnEliminarTarea.Name = "btnEliminarTarea"
-        Me.btnEliminarTarea.Size = New System.Drawing.Size(117, 23)
-        Me.btnEliminarTarea.TabIndex = 26
-        Me.btnEliminarTarea.Text = "Eliminar Tarea"
-        Me.btnEliminarTarea.UseVisualStyleBackColor = False
         '
         'MesesCalendario
         '
@@ -295,7 +273,7 @@ Partial Class frmPestañaTareas
         '
         Me.btnIrHoy.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnIrHoy.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnIrHoy.Location = New System.Drawing.Point(1024, 508)
+        Me.btnIrHoy.Location = New System.Drawing.Point(98, 23)
         Me.btnIrHoy.Margin = New System.Windows.Forms.Padding(0)
         Me.btnIrHoy.Name = "btnIrHoy"
         Me.btnIrHoy.Size = New System.Drawing.Size(61, 22)
@@ -303,20 +281,32 @@ Partial Class frmPestañaTareas
         Me.btnIrHoy.Text = "Hoy"
         Me.btnIrHoy.UseVisualStyleBackColor = False
         '
+        'btnNuevaTarea
+        '
+        Me.btnNuevaTarea.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
+        Me.btnNuevaTarea.BackgroundImage = CType(resources.GetObject("btnNuevaTarea.BackgroundImage"), System.Drawing.Image)
+        Me.btnNuevaTarea.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnNuevaTarea.FlatAppearance.BorderSize = 0
+        Me.btnNuevaTarea.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnNuevaTarea.Location = New System.Drawing.Point(19, 5)
+        Me.btnNuevaTarea.Name = "btnNuevaTarea"
+        Me.btnNuevaTarea.Size = New System.Drawing.Size(40, 40)
+        Me.btnNuevaTarea.TabIndex = 49
+        Me.btnNuevaTarea.UseVisualStyleBackColor = False
+        '
         'frmPestañaTareas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1125, 560)
+        Me.Controls.Add(Me.btnNuevaTarea)
         Me.Controls.Add(Me.btnIrHoy)
         Me.Controls.Add(Me.BarraInferior)
         Me.Controls.Add(Me.MesesCalendario)
         Me.Controls.Add(Me.btnPosteriorSemana)
         Me.Controls.Add(Me.btnAnteriorSemana)
         Me.Controls.Add(Me.SemanaDias)
-        Me.Controls.Add(Me.btnEliminarTarea)
-        Me.Controls.Add(Me.btnNuevaTarea)
         Me.Controls.Add(Me.panelPostick)
         Me.DoubleBuffered = True
         Me.Name = "frmPestañaTareas"
@@ -328,9 +318,7 @@ Partial Class frmPestañaTareas
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents btnNuevaTarea As System.Windows.Forms.Button
     Friend WithEvents panelPostick As System.Windows.Forms.Panel
-    Friend WithEvents btnEliminarTarea As System.Windows.Forms.Button
     Friend WithEvents MesesCalendario As System.Windows.Forms.Label
     Friend WithEvents btnPosteriorSemana As System.Windows.Forms.Button
     Friend WithEvents btnAnteriorSemana As System.Windows.Forms.Button
@@ -351,4 +339,5 @@ Partial Class frmPestañaTareas
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents BarraInferior As System.Windows.Forms.Panel
     Friend WithEvents btnIrHoy As System.Windows.Forms.Button
+    Friend WithEvents btnNuevaTarea As System.Windows.Forms.Button
 End Class
