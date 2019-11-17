@@ -52,7 +52,7 @@ Public Class CDPedidos
                 oCEDetallesDelPedido.Nombre = row(1)
                 oCEDetallesDelPedido.Cantidad = row(2)
                 oCEDetallesDelPedido.Descripcion = row(3)
-                oCEDetallesDelPedido.Precio = row(4)
+                oCEDetallesDelPedido.PrecioUnitario = row(4)
                 'considerar mostrar solo id de producto para la tabla de items el nombre es irrelevante
                 oCEDetallesDelPedido.IDProducto = row(5)
                 oCDDetallesDelPedido.AgregarItemAlPedido(oCEDetallesDelPedido)
@@ -101,7 +101,7 @@ Public Class CDPedidos
                 oCEDetallesDelPedido.Nombre = row(1)
                 oCEDetallesDelPedido.Cantidad = row(2)
                 oCEDetallesDelPedido.Descripcion = row(3)
-                oCEDetallesDelPedido.Precio = row(4)
+                oCEDetallesDelPedido.PrecioUnitario = row(4)
                 oCEDetallesDelPedido.IDProducto = row(5)
                 oCDDetallesDelPedido.AgregarItemAlPedido(oCEDetallesDelPedido)
             Next

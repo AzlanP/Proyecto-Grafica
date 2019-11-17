@@ -4,14 +4,24 @@
     Private _IDProducto As Integer
     Private _Nombre As String
     Private _Descripcion As String
-    Private _Cantidad As Integer
-    Private _Precio As Double
+    Private _Cantidad As Integer = 1
+    Private _PrecioUnitario As Double = 0.0
+    Private _PrecioFinal As Double = 0.0
+    Private _Descuento As Integer = 0
     Public Property IDItems() As Integer
         Get
             Return _IDItems
         End Get
         Set(ByVal value As Integer)
             _IDItems = value
+        End Set
+    End Property
+    Public Property Descuento() As Integer
+        Get
+            Return _Descuento
+        End Get
+        Set(ByVal value As Integer)
+            _Descuento = value
         End Set
     End Property
     Public Property IDProducto() As Integer
@@ -46,6 +56,7 @@
             _Descripcion = value
         End Set
     End Property
+
     Public Property Nombre() As String
         Get
             Return _Nombre
@@ -55,12 +66,20 @@
         End Set
     End Property
 
-    Public Property Precio() As Double
+    Public Property PrecioUnitario() As Double
         Get
-            Return _Precio
+            Return _PrecioUnitario
         End Get
         Set(ByVal value As Double)
-            _Precio = value
+            _PrecioUnitario = value
+        End Set
+    End Property
+    Public Property PrecioFinal() As Double
+        Get
+            Return _PrecioFinal
+        End Get
+        Set(ByVal value As Double)
+            _PrecioFinal = value
         End Set
     End Property
 

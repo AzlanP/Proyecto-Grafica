@@ -4,20 +4,24 @@ Imports CapaNegocio
 Public Class AgregarProductoPedido
     Public oCEproducto As New CEProducto
     Dim oCNProducto As New CNProducto
-    Dim oCEDetallesDelPedido As New CEDetallesDelPedido
+    Public oCEDetallesDelPedido As New CEDetallesDelPedido
     Dim oCNDetallesDelPedido As New CNDetallesDelPedido
 
 
-    Dim Cantidad As Integer = 1
-    Dim Descuento As Integer = 0
-    Dim Importe As Double = 0.0
     Private Sub btnAceptar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAceptar.Click
         oCEproducto.Nombre = txtNombreProducto.Text
         oCEproducto.Precio = txtboxPrecio.valor
         oCEproducto.Descripcion = TextboxDescripcion.Text
         oCEproducto.IDProducto = lblID.Text
-        Me.Close()
+        oCEDetallesDelPedido.Cantidad = CInt(txtCantidad.Text)
+        oCEDetallesDelPedido.Descuento = CInt(cboDesc.Text)
+
+
         calcularPrecioXCantidad()
+        oCEDetallesDelPedido.PrecioFinal = CDbl(txtPrecioTotal.valor)
+
+        Me.Close()
+
 
         'prueba
 
@@ -56,7 +60,7 @@ Public Class AgregarProductoPedido
         dr = dt.Rows(0)
         lblID.Text = dr("IDProducto")
         txtNombreProducto.Text = dr("Nombre").ToString
-        txtCantidad.Text = Cantidad
+        txtCantidad.Text = oCEDetallesDelPedido.Cantidad
         txtboxPrecio.valor = nullearDouble(dr("Precio").ToString)
         TextboxDescripcion.Text = ""
     End Sub
@@ -86,10 +90,34 @@ Public Class AgregarProductoPedido
         Me.Size = New Point(300, 400)
         lblID.Text = id
         txtNombreProducto.Text = dr("Nombre").ToString
-        txtCantidad.Text = dr("Cantidad")
-        txtboxPrecio.valor = dr("PrecioUnitario").ToString
-        TextboxDescripcion.Text = dr("Descripcion")
+        txtCantidad.Text = CInt(dr("Cantidad"))
+        txtboxPrecio.valor = CDbl(dr("PrecioUnitario").ToString)
+        TextboxDescripcion.Text = dr("Descripcion").ToString
+        oCEDetallesDelPedido.Descuento = CInt(dr("Descuento").ToString)
+
     End Sub
+    Public Function SetNullValues(ByVal value As Object) As Object
+        If IsNumeric(value) Then
+            If value = 0 Then
+                Return DBNull.Value
+            Else
+                Try
+                    Return CInt(value)
+                Catch ex As Exception
+                    Return Str(value)
+                End Try
+
+            End If
+
+        Else
+            If value = Nothing Or value = "" Then
+                Return DBNull.Value
+            Else
+                Return CInt(value)
+            End If
+        End If
+
+    End Function
     'fijarme si no combine mas poner solo cellclick ya que el doble click aveces funciona mal
     Private Sub DGBuscar_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DGBuscar.CellDoubleClick
         Dim ID As Integer = DGBuscar.Rows(e.RowIndex).Cells("IDProducto").Value
@@ -110,17 +138,9 @@ Public Class AgregarProductoPedido
         total = total - total * (cboDesc.Text / 100)
         txtPrecioTotal.valor = total
     End Sub
-
-
-
     Public Sub txtCantidad_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtCantidad.TextChanged
         calcularPrecioXCantidad()
     End Sub
-
-
-
-
-
     Private Sub txtboxPrecio_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtboxPrecio.Load
         calcularPrecioXCantidad()
         Dim moneda As ValidacionMoneda = txtboxPrecio

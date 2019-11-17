@@ -30,7 +30,7 @@ Public Class CDDetallesDelPedido
         oCDConexion.Conectar()
 
         Try
-            Dim instruccionsql As String = "INSERT INTO ItemsPorPedido (IDItems, IDProducto, IDPedido, Cantidad, Descripcion, Precio) VALUES (@IDItems, @IDProducto, @IDPedido, @Cantidad, @Descripcion, @Precio)"
+            Dim instruccionsql As String = "INSERT INTO ItemsPorPedido (IDItems, IDProducto, IDPedido, Cantidad, Descripcion,Descuento, PrecioUnitario, PrecioFinal) VALUES (@IDItems, @IDProducto, @IDPedido, @Cantidad, @Descripcion, @Precio ,@Descuento, @PrecioUnitario, @PrecioFinal)"
             Dim comando As New SQLiteCommand(instruccionsql, oCDConexion.con)
             With comando.Parameters
                 .Add("@IDItems", SqlDbType.Int).Value = pItem.IDItems
@@ -38,7 +38,10 @@ Public Class CDDetallesDelPedido
                 .Add("@IDPedido", SqlDbType.Int).Value = pItem.IDPedido
                 .Add("@Cantidad", SqlDbType.Real).Value = pItem.Cantidad
                 .Add("@Descripcion", SqlDbType.VarChar).Value = pItem.Descripcion
-                .Add("@Precio", SqlDbType.Real).Value = pItem.Precio
+
+                .Add("@Descuento", SqlDbType.Int).Value = pItem.Descuento
+                .Add("@PrecioUnitario", SqlDbType.Real).Value = pItem.PrecioUnitario
+                .Add("@PrecioFinal", SqlDbType.Real).Value = pItem.PrecioFinal
             End With
 
             comando.ExecuteNonQuery()
@@ -63,7 +66,7 @@ Public Class CDDetallesDelPedido
     Public Sub ModificarItem(ByVal oDetalles As CEDetallesDelPedido)
         oCDConexion.Conectar()
         Try
-            Dim instruccionsql As String = "UPDATE ItemsPorPedido SET  IDProducto=@IDProducto, Descripcion=@Descripcion, Cantidad=@Cantidad, Precio=@Precio where IDItems=@IDItems and IDPedido=@IDPedido "
+            Dim instruccionsql As String = "UPDATE ItemsPorPedido SET  IDProducto=@IDProducto, Descripcion=@Descripcion, Cantidad=@Cantidad, Descuento=@Descuento, PrecioUnitario=@PrecioUnitario, PrecioFinal=@PrecioFinal where IDItems=@IDItems and IDPedido=@IDPedido "
             Dim comando As New SQLiteCommand(instruccionsql, oCDConexion.con)
             With comando.Parameters
                 .Add("@IDPedido", SqlDbType.Int).Value = oDetalles.IDPedido
@@ -71,7 +74,10 @@ Public Class CDDetallesDelPedido
                 .Add("@IDProducto", SqlDbType.Int).Value = oDetalles.IDProducto
                 .Add("@Descripcion", SqlDbType.VarChar).Value = oDetalles.Descripcion
                 .Add("@Cantidad", SqlDbType.Real).Value = oDetalles.Cantidad
-                .Add("@Precio", SqlDbType.Real).Value = oDetalles.Precio
+
+                .Add("@Descuento", SqlDbType.Int).Value = oDetalles.Descuento
+                .Add("@PrecioUnitario", SqlDbType.Real).Value = oDetalles.PrecioUnitario
+                .Add("@PrecioFinal", SqlDbType.Real).Value = oDetalles.PrecioFinal
             End With
 
             comando.ExecuteNonQuery()

@@ -58,7 +58,7 @@ Partial Class AgregarProductoPedido
         '
         Me.btnAceptar.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAceptar.Location = New System.Drawing.Point(26, 322)
+        Me.btnAceptar.Location = New System.Drawing.Point(24, 322)
         Me.btnAceptar.Name = "btnAceptar"
         Me.btnAceptar.Size = New System.Drawing.Size(102, 29)
         Me.btnAceptar.TabIndex = 19
@@ -128,7 +128,7 @@ Partial Class AgregarProductoPedido
         Me.DGBuscar.BackgroundColor = System.Drawing.Color.White
         Me.DGBuscar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DGBuscar.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
-        Me.DGBuscar.Location = New System.Drawing.Point(309, 88)
+        Me.DGBuscar.Location = New System.Drawing.Point(312, 79)
         Me.DGBuscar.MultiSelect = False
         Me.DGBuscar.Name = "DGBuscar"
         Me.DGBuscar.ReadOnly = True
@@ -139,7 +139,7 @@ Partial Class AgregarProductoPedido
         '
         'txtBuscar
         '
-        Me.txtBuscar.Location = New System.Drawing.Point(309, 54)
+        Me.txtBuscar.Location = New System.Drawing.Point(312, 37)
         Me.txtBuscar.MaxLength = 20
         Me.txtBuscar.Name = "txtBuscar"
         Me.txtBuscar.Size = New System.Drawing.Size(191, 20)
@@ -150,9 +150,9 @@ Partial Class AgregarProductoPedido
         '
         Me.btnBuscar.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnBuscar.Location = New System.Drawing.Point(506, 49)
+        Me.btnBuscar.Location = New System.Drawing.Point(509, 37)
         Me.btnBuscar.Name = "btnBuscar"
-        Me.btnBuscar.Size = New System.Drawing.Size(62, 29)
+        Me.btnBuscar.Size = New System.Drawing.Size(62, 24)
         Me.btnBuscar.TabIndex = 24
         Me.btnBuscar.Text = "Buscar"
         Me.btnBuscar.UseVisualStyleBackColor = False
@@ -229,7 +229,7 @@ Partial Class AgregarProductoPedido
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(284, 361)
+        Me.ClientSize = New System.Drawing.Size(583, 361)
         Me.Controls.Add(Me.cboDesc)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.txtPrecioTotal)
@@ -248,6 +248,7 @@ Partial Class AgregarProductoPedido
         Me.Controls.Add(Me.lblPrecioAgrProd)
         Me.Controls.Add(Me.lblCantidadAgrProd)
         Me.Controls.Add(Me.lblNombre)
+        Me.MaximumSize = New System.Drawing.Size(600, 400)
         Me.MinimumSize = New System.Drawing.Size(300, 400)
         Me.Name = "AgregarProductoPedido"
         Me.Text = "Agregar Al Pedido"

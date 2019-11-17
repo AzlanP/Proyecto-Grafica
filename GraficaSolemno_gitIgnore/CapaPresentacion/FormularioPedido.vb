@@ -11,6 +11,9 @@ Public Class FormularioPedido
     Dim TablaItems As New DataTable
     Dim DTPedidoID As New DataTable
     Dim IDitemSelected As Integer
+    Dim Cantidad As Integer
+    Dim Descuento As Integer
+    Dim Importe As Double
     Public Sub LLenarFormulario(ByVal id As Integer, Optional ByVal isPedido As Boolean = True)
         PrecargarCombobox()
 
@@ -44,22 +47,29 @@ Public Class FormularioPedido
         Dim AñadirProducto As New AgregarProductoPedido
 
         If oCNDetallesDePedido.MostrarDetalles(lblID.Text).Rows.Count > 0 Then
-            AñadirProducto.Size = New Point(597, 425)
+            AñadirProducto.Size = New Point(600, 400)
             AñadirProducto.ShowDialog()
+
             If (AñadirProducto.oCEproducto.IDProducto <> 0) Then
-                AgregarDatosADetalles(AñadirProducto.oCEproducto, TablaItems)
+
+            
+                AgregarDatosADetalles(AñadirProducto.oCEproducto, TablaItems, AñadirProducto.oCEDetallesDelPedido)
+           
             End If
         Else
+            AñadirProducto.Size = New Point(600, 400)
             AñadirProducto.ShowDialog()
             If (AñadirProducto.oCEproducto.IDProducto <> 0) Then
-                AgregarDatosADetalles(AñadirProducto.oCEproducto, DTDetalles)
+       
+                AgregarDatosADetalles(AñadirProducto.oCEproducto, DTDetalles, AñadirProducto.oCEDetallesDelPedido)
+           
             End If
         End If
         CalcularTotalBruto()
 
     End Sub
 
-    Public Sub AgregarDatosADetalles(ByVal pProducto As CEProducto, ByVal tabla As DataTable)
+    Public Sub AgregarDatosADetalles(ByVal pProducto As CEProducto, ByVal tabla As DataTable, ByVal otras As CEDetallesDelPedido)
         'Dim NuevaFilaDetalles As DataRow = tabla.NewRow()
         'NuevaFilaDetalles(0) = 0
         'NuevaFilaDetalles(1) = pProducto.Nombre
@@ -72,8 +82,8 @@ Public Class FormularioPedido
         tabla.Columns("IDItems").AutoIncrement = True
         tabla.Columns("IDItems").AutoIncrementSeed = oCNDetallesDePedido.ConsultarUltimoID
         tabla.Columns("IDItems").AutoIncrementStep = 1
-        ' tabla.Rows.Add(Nothing, pProducto.Nombre, pProducto.Cantidad, pProducto.Descripcion, pProducto.Precio, pProducto.IDProducto)
-        tabla.Rows.Add(Nothing, 0, 0, pProducto.Nombre, pProducto.Descripcion, pProducto.Precio, pProducto.IDProducto)
+        tabla.Rows.Add(Nothing, pProducto.Nombre, otras.Cantidad, pProducto.Descripcion, otras.Descuento, pProducto.Precio, otras.PrecioFinal, pProducto.IDProducto)
+        'tabla.Rows.Add(Nothing, 0, 0, pProducto.Nombre, pProducto.Descripcion, pProducto.Precio, pProducto.IDProducto)
 
         CargarGridListaPedido(tabla)
 
@@ -171,13 +181,15 @@ Public Class FormularioPedido
             Next
         End If
         Dim frmModProducto As New AgregarProductoPedido
+
         If Not (dtrow Is Nothing) Then
             frmModProducto.CargarDatosModificar(ProductoID, dtrow)
             frmModProducto.ShowDialog()
             If Not frmModProducto.oCEproducto.Nombre Is Nothing Then
 
                 TablaItems.Rows.RemoveAt(ValorIndex)
-                AgregarDatosADetalles(frmModProducto.oCEproducto, TablaItems)
+           
+                AgregarDatosADetalles(frmModProducto.oCEproducto, TablaItems, frmModProducto.oCEDetallesDelPedido)
             End If
             '    If DTDetalles Is Nothing Then
             '        If TablaItems Is Nothing Then
@@ -458,7 +470,7 @@ Public Class FormularioPedido
                 If Not frmModProducto.oCEproducto.Nombre Is Nothing Then
 
                     TablaItems.Rows.RemoveAt(ValorIndex)
-                    AgregarDatosADetalles(frmModProducto.oCEproducto, TablaItems)
+                    AgregarDatosADetalles(frmModProducto.oCEproducto, TablaItems, frmModProducto.oCEDetallesDelPedido)
                 End If
                 '    If DTDetalles Is Nothing Then
                 '        If TablaItems Is Nothing Then
