@@ -28,9 +28,11 @@ Partial Class ValidacionMoneda
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(6, 3)
+        Me.TextBox1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TextBox1.Location = New System.Drawing.Point(0, 0)
+        Me.TextBox1.Margin = New System.Windows.Forms.Padding(0)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(74, 20)
+        Me.TextBox1.Size = New System.Drawing.Size(89, 20)
         Me.TextBox1.TabIndex = 0
         '
         'SimboloPeso
@@ -45,8 +47,10 @@ Partial Class ValidacionMoneda
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoSize = True
         Me.Controls.Add(Me.SimboloPeso)
         Me.Controls.Add(Me.TextBox1)
+        Me.Margin = New System.Windows.Forms.Padding(0)
         Me.Name = "ValidacionMoneda"
         Me.Size = New System.Drawing.Size(89, 27)
         Me.ResumeLayout(False)

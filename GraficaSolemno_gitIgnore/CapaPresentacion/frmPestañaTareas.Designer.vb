@@ -43,8 +43,9 @@ Partial Class frmPestañaTareas
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.BarraInferior = New System.Windows.Forms.Panel()
-        Me.btnIrHoy = New System.Windows.Forms.Button()
         Me.btnNuevaTarea = New System.Windows.Forms.Button()
+        Me.SearchDate = New System.Windows.Forms.DateTimePicker()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.panelPostick.SuspendLayout()
         Me.SemanaDias.SuspendLayout()
         Me.SuspendLayout()
@@ -269,18 +270,6 @@ Partial Class frmPestañaTareas
         Me.BarraInferior.Size = New System.Drawing.Size(1074, 14)
         Me.BarraInferior.TabIndex = 31
         '
-        'btnIrHoy
-        '
-        Me.btnIrHoy.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
-        Me.btnIrHoy.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnIrHoy.Location = New System.Drawing.Point(98, 23)
-        Me.btnIrHoy.Margin = New System.Windows.Forms.Padding(0)
-        Me.btnIrHoy.Name = "btnIrHoy"
-        Me.btnIrHoy.Size = New System.Drawing.Size(61, 22)
-        Me.btnIrHoy.TabIndex = 32
-        Me.btnIrHoy.Text = "Hoy"
-        Me.btnIrHoy.UseVisualStyleBackColor = False
-        '
         'btnNuevaTarea
         '
         Me.btnNuevaTarea.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
@@ -288,11 +277,29 @@ Partial Class frmPestañaTareas
         Me.btnNuevaTarea.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnNuevaTarea.FlatAppearance.BorderSize = 0
         Me.btnNuevaTarea.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnNuevaTarea.Location = New System.Drawing.Point(19, 5)
+        Me.btnNuevaTarea.Location = New System.Drawing.Point(1003, 12)
         Me.btnNuevaTarea.Name = "btnNuevaTarea"
         Me.btnNuevaTarea.Size = New System.Drawing.Size(40, 40)
         Me.btnNuevaTarea.TabIndex = 49
         Me.btnNuevaTarea.UseVisualStyleBackColor = False
+        '
+        'SearchDate
+        '
+        Me.SearchDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.SearchDate.Location = New System.Drawing.Point(875, 20)
+        Me.SearchDate.MinDate = New Date(2018, 1, 1, 0, 0, 0, 0)
+        Me.SearchDate.Name = "SearchDate"
+        Me.SearchDate.Size = New System.Drawing.Size(100, 20)
+        Me.SearchDate.TabIndex = 50
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(844, 23)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(25, 13)
+        Me.Label1.TabIndex = 51
+        Me.Label1.Text = "Ir a:"
         '
         'frmPestañaTareas
         '
@@ -300,8 +307,9 @@ Partial Class frmPestañaTareas
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1125, 560)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnNuevaTarea)
-        Me.Controls.Add(Me.btnIrHoy)
+        Me.Controls.Add(Me.SearchDate)
         Me.Controls.Add(Me.BarraInferior)
         Me.Controls.Add(Me.MesesCalendario)
         Me.Controls.Add(Me.btnPosteriorSemana)
@@ -338,6 +346,7 @@ Partial Class frmPestañaTareas
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents BarraInferior As System.Windows.Forms.Panel
-    Friend WithEvents btnIrHoy As System.Windows.Forms.Button
     Friend WithEvents btnNuevaTarea As System.Windows.Forms.Button
+    Friend WithEvents SearchDate As System.Windows.Forms.DateTimePicker
+    Friend WithEvents Label1 As System.Windows.Forms.Label
 End Class

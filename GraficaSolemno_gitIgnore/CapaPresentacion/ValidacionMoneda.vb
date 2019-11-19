@@ -3,6 +3,14 @@
     Private _valor As Double
     Private _simbolo As String = "$"
     Public frmParent As AgregarProductoPedido
+    Public Alto As Integer
+    Public Ancho As Integer
+    Public Sub SetSize(ByVal s As System.Drawing.Size)
+        Me.TextBox1.Size = s
+        ''New System.Drawing.Size(Altura, Ancho)
+    End Sub
+
+
     Public Property labeltext As String
         Get
             Return _labeltext
@@ -23,7 +31,7 @@
 
             _valor = value
             mostrarValor()
-       
+
         End Set
     End Property
 
@@ -48,7 +56,7 @@
             SendKeys.Send("{TAB}")
         End If
 
-     
+
     End Sub
     'verificar esto problema!
     'Private Sub TextBox1_MouseClick(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles TextBox1.MouseClick
@@ -68,7 +76,7 @@
         End If
     End Sub
 
-   
+
 
 
 
@@ -86,7 +94,7 @@
 
 
 
-   
+
 End Class
 
 

@@ -30,7 +30,7 @@ Public Class CDProducto
                 .Add("@Estado", SqlDbType.VarChar).Value = "Activo"
             End With
             comando.ExecuteNonQuery()
-            MsgBox("El nuevo producto se fue registrado con exito.", , "Registro de producto")
+            MsgBox("El nuevo producto ha sido registrado con exito.", MsgBoxStyle.Information, "Registro de producto")
         Catch ex As Exception
             MsgBox("Error al registrar el producto. Por favor vuelva a intentarlo.", MsgBoxStyle.Exclamation, "Error al registrar producto")
         Finally
@@ -70,7 +70,7 @@ Public Class CDProducto
                 .Add("@Precio", SqlDbType.Real).Value = oCEProducto.Precio
             End With
             comando.ExecuteNonQuery()
-            MsgBox("El producto se modifico con exito.", , "Modificar producto")
+            MsgBox("El producto se modifico con exito.", MsgBoxStyle.Information, "Modificar producto")
         Catch ex As Exception
             MsgBox("Error al modificar el producto. Por favor vuelva a intentarlo.", MsgBoxStyle.Exclamation, "Modificar producto")
 
@@ -96,7 +96,7 @@ Public Class CDProducto
             Return dt
 
         Catch ex As Exception
-            MsgBox("Error la busqueda ah fallado.", , "Busqueda de producto")
+            MsgBox("Error la busqueda ah fallado.", MsgBoxStyle.Exclamation, "Busqueda de producto")
             Return Nothing
         Finally
             oCDConexion.Desconectar()
@@ -120,7 +120,7 @@ Public Class CDProducto
             Return dt
 
         Catch ex As Exception
-            MsgBox("Error la busqueda ah fallado.", , "Busqueda de producto")
+            MsgBox("Error la busqueda ah fallado.", MsgBoxStyle.Exclamation, "Busqueda de producto")
             Return Nothing
         Finally
             oCDConexion.Desconectar()

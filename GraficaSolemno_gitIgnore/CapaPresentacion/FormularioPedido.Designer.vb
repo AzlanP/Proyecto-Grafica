@@ -283,7 +283,7 @@ Partial Class FormularioPedido
         'lblSeña
         '
         Me.lblSeña.AutoSize = True
-        Me.lblSeña.Location = New System.Drawing.Point(52, 306)
+        Me.lblSeña.Location = New System.Drawing.Point(45, 306)
         Me.lblSeña.Name = "lblSeña"
         Me.lblSeña.Size = New System.Drawing.Size(41, 13)
         Me.lblSeña.TabIndex = 39
@@ -303,26 +303,30 @@ Partial Class FormularioPedido
         '
         'ValidacionMoneda1
         '
+        Me.ValidacionMoneda1.AutoSize = True
         Me.ValidacionMoneda1.labeltext = Nothing
         Me.ValidacionMoneda1.Location = New System.Drawing.Point(89, 300)
+        Me.ValidacionMoneda1.Margin = New System.Windows.Forms.Padding(0)
         Me.ValidacionMoneda1.Name = "ValidacionMoneda1"
-        Me.ValidacionMoneda1.Size = New System.Drawing.Size(123, 27)
+        Me.ValidacionMoneda1.Size = New System.Drawing.Size(90, 27)
         Me.ValidacionMoneda1.TabIndex = 43
         Me.ValidacionMoneda1.valor = 0.0R
         '
         'txtTotal
         '
+        Me.txtTotal.AutoSize = True
         Me.txtTotal.labeltext = Nothing
-        Me.txtTotal.Location = New System.Drawing.Point(482, 300)
+        Me.txtTotal.Location = New System.Drawing.Point(498, 303)
+        Me.txtTotal.Margin = New System.Windows.Forms.Padding(0)
         Me.txtTotal.Name = "txtTotal"
-        Me.txtTotal.Size = New System.Drawing.Size(117, 27)
+        Me.txtTotal.Size = New System.Drawing.Size(90, 27)
         Me.txtTotal.TabIndex = 45
         Me.txtTotal.valor = 0.0R
         '
         'lblTotal
         '
         Me.lblTotal.AutoSize = True
-        Me.lblTotal.Location = New System.Drawing.Point(452, 306)
+        Me.lblTotal.Location = New System.Drawing.Point(461, 306)
         Me.lblTotal.Name = "lblTotal"
         Me.lblTotal.Size = New System.Drawing.Size(34, 13)
         Me.lblTotal.TabIndex = 44

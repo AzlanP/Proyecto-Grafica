@@ -105,6 +105,8 @@ Public Class RegistrarProducto
     End Sub
 
     Private Sub controlPrecio_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles controlPrecio.Load
-
+        controlPrecio.SetSize(controlPrecio.Size)
     End Sub
+
+
 End Class

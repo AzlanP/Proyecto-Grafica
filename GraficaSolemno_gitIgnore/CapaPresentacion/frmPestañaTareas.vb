@@ -238,13 +238,11 @@ Public Class frmPestañaTareas
         AcomodarPostickEnPanels()
     End Sub
 
-    Private Sub btnIrHoy_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnIrHoy.Click
-        Rellenar(DateTime.Now)
+  
+ 
+    Private Sub SearchDate_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SearchDate.ValueChanged
+        Rellenar(SearchDate.Value)
         LimpiarPosticksEnPanels()
         AcomodarPostickEnPanels()
     End Sub
-
-  
-  
- 
 End Class
