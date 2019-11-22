@@ -50,7 +50,7 @@ Partial Class FormularioPedido
         Me.ClientesTableAdapter = New CapaPresentacion.SolemnoDataSetTableAdapters.ClientesTableAdapter()
         Me.MediosTableAdapter = New CapaPresentacion.SolemnoDataSetTableAdapters.MediosTableAdapter()
         Me.TipoEnvioTableAdapter = New CapaPresentacion.SolemnoDataSetTableAdapters.TipoEnvioTableAdapter()
-        Me.ValidacionMoneda1 = New CapaPresentacion.ValidacionMoneda()
+        Me.txtAnticipo = New CapaPresentacion.ValidacionMoneda()
         Me.txtTotal = New CapaPresentacion.ValidacionMoneda()
         Me.lblTotal = New System.Windows.Forms.Label()
         Me.btnEnvioGuardado = New System.Windows.Forms.Button()
@@ -63,6 +63,9 @@ Partial Class FormularioPedido
         Me.btnGuardarPresupuesto = New System.Windows.Forms.Button()
         Me.chkEnvio = New System.Windows.Forms.CheckBox()
         Me.txtClienteNombreCompleto = New System.Windows.Forms.TextBox()
+        Me.btnImprimir = New System.Windows.Forms.Button()
+        Me.txtSubTotal = New CapaPresentacion.ValidacionMoneda()
+        Me.Label1 = New System.Windows.Forms.Label()
         CType(Me.TipoEnvioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SolemnoDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -283,7 +286,7 @@ Partial Class FormularioPedido
         'lblSeña
         '
         Me.lblSeña.AutoSize = True
-        Me.lblSeña.Location = New System.Drawing.Point(45, 306)
+        Me.lblSeña.Location = New System.Drawing.Point(16, 304)
         Me.lblSeña.Name = "lblSeña"
         Me.lblSeña.Size = New System.Drawing.Size(41, 13)
         Me.lblSeña.TabIndex = 39
@@ -301,32 +304,32 @@ Partial Class FormularioPedido
         '
         Me.TipoEnvioTableAdapter.ClearBeforeFill = True
         '
-        'ValidacionMoneda1
+        'txtAnticipo
         '
-        Me.ValidacionMoneda1.AutoSize = True
-        Me.ValidacionMoneda1.labeltext = Nothing
-        Me.ValidacionMoneda1.Location = New System.Drawing.Point(89, 300)
-        Me.ValidacionMoneda1.Margin = New System.Windows.Forms.Padding(0)
-        Me.ValidacionMoneda1.Name = "ValidacionMoneda1"
-        Me.ValidacionMoneda1.Size = New System.Drawing.Size(90, 27)
-        Me.ValidacionMoneda1.TabIndex = 43
-        Me.ValidacionMoneda1.valor = 0.0R
+        Me.txtAnticipo.AutoSize = True
+        Me.txtAnticipo.labeltext = Nothing
+        Me.txtAnticipo.Location = New System.Drawing.Point(60, 298)
+        Me.txtAnticipo.Margin = New System.Windows.Forms.Padding(0)
+        Me.txtAnticipo.Name = "txtAnticipo"
+        Me.txtAnticipo.Size = New System.Drawing.Size(75, 27)
+        Me.txtAnticipo.TabIndex = 43
+        Me.txtAnticipo.valor = 0.0R
         '
         'txtTotal
         '
         Me.txtTotal.AutoSize = True
         Me.txtTotal.labeltext = Nothing
-        Me.txtTotal.Location = New System.Drawing.Point(498, 303)
+        Me.txtTotal.Location = New System.Drawing.Point(511, 298)
         Me.txtTotal.Margin = New System.Windows.Forms.Padding(0)
         Me.txtTotal.Name = "txtTotal"
-        Me.txtTotal.Size = New System.Drawing.Size(90, 27)
+        Me.txtTotal.Size = New System.Drawing.Size(75, 27)
         Me.txtTotal.TabIndex = 45
         Me.txtTotal.valor = 0.0R
         '
         'lblTotal
         '
         Me.lblTotal.AutoSize = True
-        Me.lblTotal.Location = New System.Drawing.Point(461, 306)
+        Me.lblTotal.Location = New System.Drawing.Point(474, 301)
         Me.lblTotal.Name = "lblTotal"
         Me.lblTotal.Size = New System.Drawing.Size(34, 13)
         Me.lblTotal.TabIndex = 44
@@ -335,14 +338,14 @@ Partial Class FormularioPedido
         'btnEnvioGuardado
         '
         Me.btnEnvioGuardado.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnEnvioGuardado.Enabled = False
         Me.btnEnvioGuardado.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnEnvioGuardado.Location = New System.Drawing.Point(593, 270)
+        Me.btnEnvioGuardado.Location = New System.Drawing.Point(593, 246)
         Me.btnEnvioGuardado.Name = "btnEnvioGuardado"
         Me.btnEnvioGuardado.Size = New System.Drawing.Size(89, 24)
         Me.btnEnvioGuardado.TabIndex = 46
         Me.btnEnvioGuardado.Text = "Datos de envio"
         Me.btnEnvioGuardado.UseVisualStyleBackColor = False
-        Me.btnEnvioGuardado.Visible = False
         '
         'btnSearch
         '
@@ -375,15 +378,15 @@ Partial Class FormularioPedido
         Me.cboDesc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboDesc.FormattingEnabled = True
         Me.cboDesc.Items.AddRange(New Object() {"0", "5", "10", "15", "20", "25", "30"})
-        Me.cboDesc.Location = New System.Drawing.Point(358, 303)
+        Me.cboDesc.Location = New System.Drawing.Point(244, 298)
         Me.cboDesc.Name = "cboDesc"
-        Me.cboDesc.Size = New System.Drawing.Size(70, 21)
+        Me.cboDesc.Size = New System.Drawing.Size(61, 21)
         Me.cboDesc.TabIndex = 50
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(273, 306)
+        Me.Label2.Location = New System.Drawing.Point(159, 301)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(79, 13)
         Me.Label2.TabIndex = 49
@@ -423,7 +426,7 @@ Partial Class FormularioPedido
         'chkEnvio
         '
         Me.chkEnvio.AutoSize = True
-        Me.chkEnvio.Location = New System.Drawing.Point(593, 247)
+        Me.chkEnvio.Location = New System.Drawing.Point(593, 223)
         Me.chkEnvio.Name = "chkEnvio"
         Me.chkEnvio.Size = New System.Drawing.Size(53, 17)
         Me.chkEnvio.TabIndex = 54
@@ -433,10 +436,43 @@ Partial Class FormularioPedido
         'txtClienteNombreCompleto
         '
         Me.txtClienteNombreCompleto.Enabled = False
-        Me.txtClienteNombreCompleto.Location = New System.Drawing.Point(148, 86)
+        Me.txtClienteNombreCompleto.Location = New System.Drawing.Point(12, 20)
         Me.txtClienteNombreCompleto.Name = "txtClienteNombreCompleto"
+        Me.txtClienteNombreCompleto.ReadOnly = True
         Me.txtClienteNombreCompleto.Size = New System.Drawing.Size(100, 20)
         Me.txtClienteNombreCompleto.TabIndex = 55
+        '
+        'btnImprimir
+        '
+        Me.btnImprimir.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnImprimir.Location = New System.Drawing.Point(593, 298)
+        Me.btnImprimir.Name = "btnImprimir"
+        Me.btnImprimir.Size = New System.Drawing.Size(89, 26)
+        Me.btnImprimir.TabIndex = 56
+        Me.btnImprimir.Text = "Imprimir"
+        Me.btnImprimir.UseVisualStyleBackColor = False
+        Me.btnImprimir.Visible = False
+        '
+        'txtSubTotal
+        '
+        Me.txtSubTotal.AutoSize = True
+        Me.txtSubTotal.labeltext = Nothing
+        Me.txtSubTotal.Location = New System.Drawing.Point(380, 300)
+        Me.txtSubTotal.Margin = New System.Windows.Forms.Padding(0)
+        Me.txtSubTotal.Name = "txtSubTotal"
+        Me.txtSubTotal.Size = New System.Drawing.Size(75, 27)
+        Me.txtSubTotal.TabIndex = 58
+        Me.txtSubTotal.valor = 0.0R
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(328, 304)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(49, 13)
+        Me.Label1.TabIndex = 57
+        Me.Label1.Text = "Subtotal:"
         '
         'FormularioPedido
         '
@@ -444,6 +480,9 @@ Partial Class FormularioPedido
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(728, 443)
+        Me.Controls.Add(Me.txtSubTotal)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.btnImprimir)
         Me.Controls.Add(Me.txtClienteNombreCompleto)
         Me.Controls.Add(Me.chkEnvio)
         Me.Controls.Add(Me.btnGuardarPresupuesto)
@@ -456,7 +495,7 @@ Partial Class FormularioPedido
         Me.Controls.Add(Me.btnEnvioGuardado)
         Me.Controls.Add(Me.txtTotal)
         Me.Controls.Add(Me.lblTotal)
-        Me.Controls.Add(Me.ValidacionMoneda1)
+        Me.Controls.Add(Me.txtAnticipo)
         Me.Controls.Add(Me.lblSeña)
         Me.Controls.Add(Me.lblMedio)
         Me.Controls.Add(Me.cboMedio)
@@ -513,7 +552,7 @@ Partial Class FormularioPedido
     Friend WithEvents MediosTableAdapter As CapaPresentacion.SolemnoDataSetTableAdapters.MediosTableAdapter
     Friend WithEvents TipoEnvioBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents TipoEnvioTableAdapter As CapaPresentacion.SolemnoDataSetTableAdapters.TipoEnvioTableAdapter
-    Friend WithEvents ValidacionMoneda1 As CapaPresentacion.ValidacionMoneda
+    Friend WithEvents txtAnticipo As CapaPresentacion.ValidacionMoneda
     Friend WithEvents txtTotal As CapaPresentacion.ValidacionMoneda
     Friend WithEvents lblTotal As System.Windows.Forms.Label
     Friend WithEvents btnEnvioGuardado As System.Windows.Forms.Button
@@ -526,4 +565,7 @@ Partial Class FormularioPedido
     Friend WithEvents btnGuardarPresupuesto As System.Windows.Forms.Button
     Friend WithEvents chkEnvio As System.Windows.Forms.CheckBox
     Friend WithEvents txtClienteNombreCompleto As System.Windows.Forms.TextBox
+    Friend WithEvents btnImprimir As System.Windows.Forms.Button
+    Friend WithEvents txtSubTotal As CapaPresentacion.ValidacionMoneda
+    Friend WithEvents Label1 As System.Windows.Forms.Label
 End Class

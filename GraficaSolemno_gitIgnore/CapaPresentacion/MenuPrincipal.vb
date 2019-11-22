@@ -7,10 +7,8 @@ Public Class frmMenuPrincipal
         validacion.Validar(Me)
         AbrirFormInPanel(frmPestañaTareas)
     End Sub
-    '--------------------------------------------------------------------------------------------------------------
-    '--------------------------------------------------------------------------------------------------------------
     '---------------------------------------- CLIENTE  -----------------------------------------------------------
-
+#Region "Pestaña Cliente"
     Dim oCECliente As CECliente
     Dim oCNCliente As New CNCliente
     Dim ID As String
@@ -186,11 +184,10 @@ Public Class frmMenuPrincipal
         DGClienteInactivos.Visible = False
         btnBuscarInactivos.Visible = False
     End Sub
+#End Region
 
-    '--------------------------------------------------------------------------------------------------------------
-    '--------------------------------------------------------------------------------------------------------------
     '---------------------------------------- PRODUCTO -----------------------------------------------------------
-
+#Region "Pestaña Producto"
     Dim oCNProducto As New CNProducto
     Public Sub CargarGridProducto()
         Dim dt As DataTable = oCNProducto.MostrarProducto().DefaultView.ToTable(True, "IDProducto", "Nombre", "Precio", "Codigo")
@@ -264,7 +261,7 @@ Public Class frmMenuPrincipal
         End If
     End Sub
 
-   
+
 
     '------------------------para la papelera------ 
     Private Sub btnEliminarProducto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEliminarProducto.Click
@@ -375,9 +372,13 @@ Public Class frmMenuPrincipal
         CargarGridProductoInactivo()
         txtBuscarProducto.Text = ""
     End Sub
-    '--------------------------------------------------------------------------------------------------------------
-    '--------------------------------------------------------------------------------------------------------------
+
+#End Region
+
+
     '---------------------------------------- PEDIDOS -----------------------------------------------------------
+#Region "Pestaña pedido"
+
     Dim oCNPedido As New CNPedido
     Private Sub TabPedido_Enter(ByVal sender As Object, ByVal e As System.EventArgs) Handles TabPedido.Enter
         CargarGridPedidos()
@@ -403,34 +404,15 @@ Public Class frmMenuPrincipal
         CargarGridPedidos()
     End Sub
 
-    Private Sub btnModificarPedido_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnModificarPedido.Click
-        ID = DGPedido.Rows(DGPedido.CurrentCell.RowIndex).Cells("IDPedido").Value
-        Dim frmPedido As New FormularioPedido
 
-
-        frmPedido.btnGuardarPedido.Visible = True
-
-
-    
-
-        frmPedido.CargarGridDetalles(ID)
-        frmPedido.LLenarFormulario(ID)
-        frmPedido.lblID.Text = ID
-        frmPedido.ShowDialog()
-        CargarGridPedidos()
-    End Sub
 
     Private Sub btnVerPedido_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnVerPedido.Click
         ID = DGPedido.Rows(DGPedido.CurrentCell.RowIndex).Cells("IDPedido").Value
         Dim frmPedido As New FormularioPedido
-
-
         frmPedido.btnAgregarPedidoNuevo.Enabled = False
-
         frmPedido.btnModificarPedido.Enabled = False
         frmPedido.btnQuitar.Enabled = False
         frmPedido.btnGuardarPedido.Visible = False
-
         frmPedido.btnCancelarPedido.Text = "Aceptar"
         frmPedido.CargarGridDetalles(ID)
         frmPedido.LLenarFormulario(ID)
@@ -440,13 +422,10 @@ Public Class frmMenuPrincipal
     End Sub
 
     Private Sub btnEliminarPedido_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEliminarPedido.Click
-
         If MessageBox.Show("Esta seguro de eliminar el pedido? ", "Confirmacion de eliminar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
             oCNPedido.EliminarPedido(ID)
             CargarGridPedidos()
         End If
-
-
     End Sub
 
     Private Sub btnBuscarPedido_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscarPedido.Click
@@ -464,12 +443,8 @@ Public Class frmMenuPrincipal
 
     Private Sub DGPedido_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DGPedido.CellDoubleClick
         If e.RowIndex >= 0 Then
-
             Dim frmPedido As New FormularioPedido
-
-
             frmPedido.btnGuardarPedido.Visible = True
-
             frmPedido.CargarGridDetalles(ID)
             frmPedido.LLenarFormulario(ID)
             frmPedido.lblID.Text = ID
@@ -480,7 +455,18 @@ Public Class frmMenuPrincipal
             End If
         End If
     End Sub
-
+    Private Sub btnModificarPedido_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnModificarPedido.Click
+        Dim index As Integer = DGPedido.CurrentCell.RowIndex
+        ID = DGPedido.Rows(DGPedido.CurrentCell.RowIndex).Cells("IDPedido").Value
+        Dim frmPedido As New FormularioPedido
+        frmPedido.btnGuardarPedido.Visible = True
+        frmPedido.CargarGridDetalles(ID)
+        frmPedido.LLenarFormulario(ID)
+        frmPedido.lblID.Text = ID
+        frmPedido.ShowDialog()
+        CargarGridPedidos()
+        DGPedido.Rows(index).Selected = True
+    End Sub
     'Private Sub DGPedido_MouseDoubleClick(ByVal sender As Object, ByVal e As MouseEventArgs) Handles DGPedido.MouseDoubleClick
     '    ID = DGPedido.Rows(DGPedido.CurrentCell.RowIndex).Cells("IDPedido").Value
     '    Dim frmPedido As New FormularioPedido
@@ -499,9 +485,11 @@ Public Class frmMenuPrincipal
         CargarGridPedidos()
 
     End Sub
-    '--------------------------------------------------------------------------------------------------------------
-    '--------------------------------------------------------------------------------------------------------------
+#End Region
+
+
     '---------------------------------------- ESTADISTICAS -----------------------------------------------------------
+#Region "Pestaña estadistica"
     Dim oCNGraficas As New CNGraficos
 
     Dim Meses As String() = {"Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Agos", "Sep", "Oct", "Nov", "Dic"}
@@ -632,12 +620,12 @@ Public Class frmMenuPrincipal
         GraficarActividadClientes()
     End Sub
     '--
+#End Region
 
 
-    '--------------------------------------------------------------------------------------------------------------
-    '----------------------------------------   POSTICKS         -----------------------------------------------
+    '---------------------------------------- POSTICKS   --------------------------------------------------------
 
-
+#Region "Pestaña Postick"
     Private Sub TabTareas_Enter(ByVal sender As Object, ByVal e As System.EventArgs) Handles TabTareas.Enter
         AbrirFormInPanel(frmPestañaTareas)
     End Sub
@@ -658,9 +646,10 @@ Public Class frmMenuPrincipal
         End If
 
     End Sub
+#End Region
+    '----------------------------------------PRESUPUESTO  --------------------------------------------------------
+#Region "Pestaña presupuesto"
 
-    '--------------------------------------------------------------------------------------------
-    '-------------------------------presupuesto---------------------------------
     Public Sub visibilidadFormularioPresupuesto(ByVal frm As FormularioPedido)
 
         frm.btnAgregarPedidoNuevo.Visible = True
@@ -668,7 +657,7 @@ Public Class frmMenuPrincipal
         frm.lblEstado.Visible = False
         frm.cboEstado.Visible = False
         frm.lblSeña.Visible = False
-        frm.ValidacionMoneda1.Visible = False
+        frm.txtAnticipo.Visible = False
 
         frm.btnGuardarPedido.Visible = False
 
@@ -761,7 +750,7 @@ Public Class frmMenuPrincipal
         If e.RowIndex >= 0 Then
             Dim frmPresupuesto As New FormularioPedido
             frmPresupuesto.Text = "Modificar presupuesto"
-             visibilidadFormularioPresupuesto(frmPresupuesto)
+            visibilidadFormularioPresupuesto(frmPresupuesto)
             frmPresupuesto.btnAgregarPedidoNuevo.Visible = True
 
             frmPresupuesto.btnGuardarPedido.Visible = False
@@ -783,9 +772,10 @@ Public Class frmMenuPrincipal
 
     End Sub
 
+#End Region
 
-    '--------------------------------------------------------------------------------------------
-    '-------------------------------USUARIOS-----------------------------------------------------
+    '-----------------------------------  -   USUARIOS  ---------------------------------------------------------
+#Region "Pestaña usuarios"
     Dim oCNUsuario As New CNUsuario
 
     Public Sub MostrarUsuarios()
@@ -837,9 +827,12 @@ Public Class frmMenuPrincipal
     Private Sub btnRefreshUsuario_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRefreshUsuario.Click
 
     End Sub
+#End Region
 
-    '--------------------------------------------------------------------------------------------
-    '-------------------------------CONTROLES DE ACCESO-----------------------------------------------------
+
+    '------------------------------------CONTROLES DE ACCESO-----------------------------------------------------
+#Region "Controles de acceso"
+
     Public Sub enableAdminMode()
         TabGeneral.TabPages.Add(TabPresupuesto)
     End Sub
@@ -857,7 +850,8 @@ Public Class frmMenuPrincipal
     '--------------------------------------------------------------------------------------------
     '-------------------------------CONTROLES DE ACCESO-------------------------------------------
 
+#End Region
 
- 
+
 
 End Class

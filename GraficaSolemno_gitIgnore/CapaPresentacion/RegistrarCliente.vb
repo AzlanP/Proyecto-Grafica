@@ -143,7 +143,7 @@ Public Class RegistrarCliente
 
     Private Sub btnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGuardar.Click
         oCNCliente.ModificarCliente(TomarDatos())
-        MsgBox("Los Datos fueron modificados con exito.")
+
         Close()
     End Sub
 

@@ -30,7 +30,7 @@ Public Class CDDetallesDelPedido
         oCDConexion.Conectar()
 
         Try
-            Dim instruccionsql As String = "INSERT INTO ItemsPorPedido (IDItems, IDProducto, IDPedido, Cantidad, Descripcion,Descuento, PrecioUnitario, PrecioFinal) VALUES (@IDItems, @IDProducto, @IDPedido, @Cantidad, @Descripcion, @Precio ,@Descuento, @PrecioUnitario, @PrecioFinal)"
+            Dim instruccionsql As String = "INSERT INTO ItemsPorPedido (IDItems, IDProducto, IDPedido, Cantidad, Descripcion, Descuento, PrecioUnitario, PrecioFinal) VALUES (@IDItems, @IDProducto, @IDPedido, @Cantidad, @Descripcion ,@Descuento, @PrecioUnitario, @PrecioFinal)"
             Dim comando As New SQLiteCommand(instruccionsql, oCDConexion.con)
             With comando.Parameters
                 .Add("@IDItems", SqlDbType.Int).Value = pItem.IDItems
@@ -38,7 +38,6 @@ Public Class CDDetallesDelPedido
                 .Add("@IDPedido", SqlDbType.Int).Value = pItem.IDPedido
                 .Add("@Cantidad", SqlDbType.Real).Value = pItem.Cantidad
                 .Add("@Descripcion", SqlDbType.VarChar).Value = pItem.Descripcion
-
                 .Add("@Descuento", SqlDbType.Int).Value = pItem.Descuento
                 .Add("@PrecioUnitario", SqlDbType.Real).Value = pItem.PrecioUnitario
                 .Add("@PrecioFinal", SqlDbType.Real).Value = pItem.PrecioFinal

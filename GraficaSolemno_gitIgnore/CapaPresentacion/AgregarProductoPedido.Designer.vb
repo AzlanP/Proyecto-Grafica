@@ -177,6 +177,7 @@ Partial Class AgregarProductoPedido
         '
         'txtboxPrecio
         '
+        Me.txtboxPrecio.AutoSize = True
         Me.txtboxPrecio.labeltext = Nothing
         Me.txtboxPrecio.Location = New System.Drawing.Point(24, 120)
         Me.txtboxPrecio.Margin = New System.Windows.Forms.Padding(0)
@@ -187,6 +188,7 @@ Partial Class AgregarProductoPedido
         '
         'txtPrecioTotal
         '
+        Me.txtPrecioTotal.AutoSize = True
         Me.txtPrecioTotal.Enabled = False
         Me.txtPrecioTotal.labeltext = Nothing
         Me.txtPrecioTotal.Location = New System.Drawing.Point(24, 173)

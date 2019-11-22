@@ -27,12 +27,19 @@ Public Class FormularioPedido
         txtDescripcion.Text = DTProw(1)
         dtpFecha.Text = CDate(DTProw(2))
         AsignarTextCbo(DTProw(3), cboCliente)
-        'el dtprow(4) es apellido
+        txtClienteNombreCompleto.Text = CStr(DTProw(3)) + " " + CStr(DTProw(4))
         chkEnvio.Checked = DTProw(5)
         AsignarTextCbo(DTProw(6), cboMedio)
         cboEstado.Text = DTProw(7)
-        ValidacionMoneda1.TextBox1.Text = CDbl(DTProw(8))
-        'falta reacomodar los datos pasados en este datarow
+        txtAnticipo.valor = CDbl(DTProw(8))
+        cboDesc.Text = DTProw(9)
+        txtTotal.valor = DTProw(10)
+        txtSubTotal.valor = DTProw(11)
+        If CStr(DTProw(7)) = "Presupuesto" Then
+            dtpFechaVencimiento.Text = DTProw(12)
+        Else
+            'CambioAPedido()
+        End If
     End Sub
     Public Sub CargarGridListaPedido(ByVal tabla As DataTable)
         DGListaDePedido.DataSource = tabla.DefaultView.ToTable(True, "IDItems", "Nombre", "Cantidad", "Descripcion", "Descuento", "PrecioUnitario", "PrecioFinal")
@@ -43,26 +50,21 @@ Public Class FormularioPedido
         DGListaDePedido.DataSource = TablaItems.DefaultView.ToTable(True, "IDItems", "Nombre", "Cantidad", "Descripcion", "Descuento", "PrecioUnitario", "PrecioFinal")
     End Sub
     Private Sub btnAgregarPedidoNuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAgregarPedidoNuevo.Click
-
         Dim AñadirProducto As New AgregarProductoPedido
-
         If oCNDetallesDePedido.MostrarDetalles(lblID.Text).Rows.Count > 0 Then
             AñadirProducto.Size = New Point(600, 400)
             AñadirProducto.ShowDialog()
-
             If (AñadirProducto.oCEproducto.IDProducto <> 0) Then
-
-            
                 AgregarDatosADetalles(AñadirProducto.oCEproducto, TablaItems, AñadirProducto.oCEDetallesDelPedido)
-           
             End If
         Else
             AñadirProducto.Size = New Point(600, 400)
             AñadirProducto.ShowDialog()
             If (AñadirProducto.oCEproducto.IDProducto <> 0) Then
-       
+                If (DTDetalles.Columns.Count = 0) Then
+                    Detalles()
+                End If
                 AgregarDatosADetalles(AñadirProducto.oCEproducto, DTDetalles, AñadirProducto.oCEDetallesDelPedido)
-           
             End If
         End If
         CalcularTotalBruto()
@@ -70,33 +72,20 @@ Public Class FormularioPedido
     End Sub
 
     Public Sub AgregarDatosADetalles(ByVal pProducto As CEProducto, ByVal tabla As DataTable, ByVal otras As CEDetallesDelPedido)
-        'Dim NuevaFilaDetalles As DataRow = tabla.NewRow()
-        'NuevaFilaDetalles(0) = 0
-        'NuevaFilaDetalles(1) = pProducto.Nombre
-        'NuevaFilaDetalles(2) = pProducto.Cantidad
-        'NuevaFilaDetalles(3) = pProducto.Descripcion
-        'NuevaFilaDetalles(4) = pProducto.Precio
-        'NuevaFilaDetalles(5) = pProducto.IDProducto
-        'tabla.Rows.Add(NuevaFilaDetalles)
-
         tabla.Columns("IDItems").AutoIncrement = True
         tabla.Columns("IDItems").AutoIncrementSeed = oCNDetallesDePedido.ConsultarUltimoID
         tabla.Columns("IDItems").AutoIncrementStep = 1
         tabla.Rows.Add(Nothing, pProducto.Nombre, otras.Cantidad, pProducto.Descripcion, otras.Descuento, pProducto.Precio, otras.PrecioFinal, pProducto.IDProducto)
-        'tabla.Rows.Add(Nothing, 0, 0, pProducto.Nombre, pProducto.Descripcion, pProducto.Precio, pProducto.IDProducto)
-
         CargarGridListaPedido(tabla)
 
     End Sub
-  
+
     Private Sub btnQuitar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnQuitar.Click
         Dim ID As Integer = DGListaDePedido.Rows(DGListaDePedido.CurrentCell.RowIndex).Cells("IDItems").Value
         ' en esta funcion hay un problema, si 2 articulos son iguales tomara el mismo iditem y borrara las 2 celdas
         If DTDetalles.Rows.Count > 0 Then
-
             Dim i As Integer = DTDetalles.Rows.Count - 1
             Dim posborrado As Integer
-
             For x As Integer = 0 To DTDetalles.Rows.Count - 1
                 Dim iditem As Integer = DTDetalles.Rows(x).Item("IDItems")
                 If (iditem = ID) Then
@@ -162,7 +151,7 @@ Public Class FormularioPedido
                     ValorIndex = x
                     Exit For
                 End If
-                
+
             Next
         ElseIf TablaItems.Rows.Count > 0 Then
             Dim i As Integer = TablaItems.Rows.Count - 1
@@ -176,7 +165,7 @@ Public Class FormularioPedido
                     ValorIndex = x
 
                     Exit For
-        End If
+                End If
 
             Next
         End If
@@ -188,7 +177,6 @@ Public Class FormularioPedido
             If Not frmModProducto.oCEproducto.Nombre Is Nothing Then
 
                 TablaItems.Rows.RemoveAt(ValorIndex)
-           
                 AgregarDatosADetalles(frmModProducto.oCEproducto, TablaItems, frmModProducto.oCEDetallesDelPedido)
             End If
             '    If DTDetalles Is Nothing Then
@@ -219,7 +207,7 @@ Public Class FormularioPedido
             frmEnvioNuevo.Tag = lblID.Text
             frmEnvioNuevo.ShowDialog()
         Else
-
+    
             frmEnvioNuevo.DatosCliente(cboCliente.SelectedValue)
             frmEnvioNuevo.Tag = lblID.Text
             frmEnvioNuevo.ShowDialog()
@@ -242,24 +230,19 @@ Public Class FormularioPedido
     Private Sub FormularioPedido_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Dim validacion As New Validaciones
         validacion.Validar(Me)
-        'DGListaDePedido.AutoGenerateColumns = False
     End Sub
     Public Sub Detalles()
-      
-        DTDetalles.Columns.AddRange(New DataColumn(5) {New DataColumn("IDItems"), _
-                                                       New DataColumn("Nombre"), _
-                                                       New DataColumn("Cantidad"), _
-                                                       New DataColumn("Descripcion"), _
-                                                       New DataColumn("Precio"), _
+        DTDetalles.Columns.AddRange(New DataColumn(7) {New DataColumn("IDItems"),
+                                                       New DataColumn("Nombre"),
+                                                       New DataColumn("Cantidad"),
+                                                       New DataColumn("Descripcion"),
+                                                       New DataColumn("Descuento"),
+                                                       New DataColumn("PrecioUnitario"),
+                                                       New DataColumn("PrecioFinal"),
                                                        New DataColumn("IDProducto")})
-        'DTDetalles.Columns.Add("IDItems")
-        'DTDetalles.Columns.Add("Nombre")
-        'DTDetalles.Columns.Add("Cantidad")
-        'DTDetalles.Columns.Add("Descripcion")
-        'DTDetalles.Columns.Add("Precio")
-        'DTDetalles.Columns.Add("IDProducto")
+      
     End Sub
-  
+
     Public Function CargarPedido() As CEPedido
         Dim oCEPedido As New CEPedido
         oCEPedido.IDPedido = lblID.Text
@@ -268,10 +251,12 @@ Public Class FormularioPedido
         oCEPedido.Descripcion = Trim(txtDescripcion.Text)
         oCEPedido.Medio = cboMedio.SelectedValue
         oCEPedido.Estado = cboEstado.Text
-        oCEPedido.Seña = CDbl(ValidacionMoneda1.valor)
+        oCEPedido.Seña = CDbl(txtAnticipo.valor)
         oCEPedido.Envio = CStr(chkEnvio.Checked)
-
-            Return oCEPedido
+        oCEPedido.SubTotal = CDbl(txtTotal.valor)
+        oCEPedido.Descuento = CInt(cboDesc.Text)
+        oCEPedido.Total = txtTotal.valor
+        Return oCEPedido
     End Function
     Private Sub btnGuardarPedido_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGuardarPedido.Click
 
@@ -299,9 +284,12 @@ Public Class FormularioPedido
                 ctrl.Enabled = False 'Creo que el error es aqui
             End If
         Next
-
+        chkEnvio.Enabled = False
+        btnEnvioGuardado.Enabled = False
+        txtSubTotal.Enabled = False
+        txtAnticipo.Enabled = False
+        txtTotal.Enabled = False
     End Sub
-
     Public Function FormatISO8601(ByVal pfecha As Date) As String
 
         Dim SoloFecha As String
@@ -328,7 +316,6 @@ Public Class FormularioPedido
         fecha = fechaString
         Return fecha
     End Function
-
     Private Sub cboTipoEnvio_SelectedvaluesChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Dim oCNDetallesEnvio As New CNDetallesEnvio
 
@@ -343,7 +330,6 @@ Public Class FormularioPedido
         End If
 
     End Sub
-
     Private Sub btnSearch_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSearch.Click
         Dim busquedaControl As New frmBusqueda
         busquedaControl.StartPosition = FormStartPosition.Manual
@@ -381,23 +367,24 @@ Public Class FormularioPedido
         ElseIf DTDetalles.Rows.Count = 0 And TablaItems.Rows.Count > 0 Then
             oCNPedido.ModificarPedido(oCEPedido, TablaItems)
         End If
+        CalcularTotalBruto()
         Me.Close()
     End Sub
 
     Private Sub chkEnvio_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chkEnvio.CheckedChanged
-        btnEnvioGuardado.Visible = chkEnvio.Checked
+        btnEnvioGuardado.Enabled = chkEnvio.Checked
     End Sub
     Private Sub CalcularTotal(ByVal dt As DataTable)
         Dim tablaTotal As Double = 0
         For Each dr As DataRow In dt.Rows
-            tablaTotal += dr.Item("Cantidad") * dr.Item("PrecioUnitario")
-            'tablaTotal += dr.Item("PrecioTotal")
+            'tablaTotal += dr.Item("Cantidad") * dr.Item("PrecioUnitario")
+            tablaTotal += dr.Item("PrecioFinal")
         Next
-        Dim total As Double = tablaTotal - ValidacionMoneda1.valor - (tablaTotal / 100 * cboDesc.Text)
+        txtSubTotal.valor = tablaTotal
+        Dim total As Double = tablaTotal - txtAnticipo.valor - (tablaTotal / 100 * cboDesc.Text)
         txtTotal.valor = total
     End Sub
-
-    Private Sub ValidacionMoneda1_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles ValidacionMoneda1.KeyPress
+    Private Sub txtAnticipo_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtAnticipo.KeyPress
         CalcularTotalBruto()
     End Sub
     Public Sub CalcularTotalBruto()
@@ -409,7 +396,6 @@ Public Class FormularioPedido
             CalcularTotal(TablaItems)
         End If
     End Sub
-
     Private Sub cboDesc_SelectedValueChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles cboDesc.SelectedValueChanged
         If DTDetalles.Rows.Count > 0 And TablaItems.Rows.Count > 0 Then
             MsgBox("Error en la carga del presupuesto")
@@ -488,5 +474,9 @@ Public Class FormularioPedido
             DGListaDePedido.Rows(e.RowIndex).Selected = True
         End If
         CalcularTotalBruto()
+    End Sub
+
+    Private Sub btnImprimir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnImprimir.Click
+
     End Sub
 End Class

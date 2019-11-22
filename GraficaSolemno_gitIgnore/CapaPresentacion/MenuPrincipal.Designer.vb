@@ -135,6 +135,7 @@ Partial Class frmMenuPrincipal
         Me.PanelSupEstadistica = New System.Windows.Forms.Panel()
         Me.lblTituloEstadistica = New System.Windows.Forms.Label()
         Me.PnlLateralEstadistica = New System.Windows.Forms.Panel()
+        Me.BtnGraficarClientes = New System.Windows.Forms.Button()
         Me.btnGraficosTopProductos = New System.Windows.Forms.Button()
         Me.lblSubtituloEstadisticas = New System.Windows.Forms.Label()
         Me.btnGraficosProducto = New System.Windows.Forms.Button()
@@ -161,7 +162,6 @@ Partial Class frmMenuPrincipal
         Me.btnDeslogear = New System.Windows.Forms.Button()
         Me.lblNombreUsuario = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-        Me.BtnGraficarClientes = New System.Windows.Forms.Button()
         Me.TabGeneral.SuspendLayout()
         Me.TabTareas.SuspendLayout()
         Me.TabCliente.SuspendLayout()
@@ -576,6 +576,7 @@ Partial Class frmMenuPrincipal
         Me.DGPresupuesto.AllowUserToAddRows = False
         Me.DGPresupuesto.AllowUserToDeleteRows = False
         Me.DGPresupuesto.AllowUserToResizeRows = False
+        Me.DGPresupuesto.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DGPresupuesto.BackgroundColor = System.Drawing.SystemColors.ControlLightLight
         Me.DGPresupuesto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DGPresupuesto.Location = New System.Drawing.Point(20, 74)
@@ -758,6 +759,7 @@ Partial Class frmMenuPrincipal
         Me.DGPedido.AllowUserToAddRows = False
         Me.DGPedido.AllowUserToDeleteRows = False
         Me.DGPedido.AllowUserToResizeRows = False
+        Me.DGPedido.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DGPedido.BackgroundColor = System.Drawing.SystemColors.ControlLightLight
         Me.DGPedido.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DGPedido.Location = New System.Drawing.Point(20, 74)
@@ -973,7 +975,7 @@ Partial Class frmMenuPrincipal
         Me.ComboBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"Nombre", "Apellido", "DNI", "CUIT"})
+        Me.ComboBox1.Items.AddRange(New Object() {"Nombre", "Apellido", "Cargo"})
         Me.ComboBox1.Location = New System.Drawing.Point(465, 32)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(96, 21)
@@ -1601,6 +1603,20 @@ Partial Class frmMenuPrincipal
         Me.PnlLateralEstadistica.Size = New System.Drawing.Size(184, 556)
         Me.PnlLateralEstadistica.TabIndex = 4
         '
+        'BtnGraficarClientes
+        '
+        Me.BtnGraficarClientes.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.BtnGraficarClientes.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.BtnGraficarClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnGraficarClientes.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnGraficarClientes.ForeColor = System.Drawing.Color.White
+        Me.BtnGraficarClientes.Location = New System.Drawing.Point(0, 471)
+        Me.BtnGraficarClientes.Name = "BtnGraficarClientes"
+        Me.BtnGraficarClientes.Size = New System.Drawing.Size(184, 50)
+        Me.BtnGraficarClientes.TabIndex = 7
+        Me.BtnGraficarClientes.Text = "clientes yorsh"
+        Me.BtnGraficarClientes.UseVisualStyleBackColor = False
+        '
         'btnGraficosTopProductos
         '
         Me.btnGraficosTopProductos.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
@@ -1907,20 +1923,6 @@ Partial Class frmMenuPrincipal
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85.83106!))
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(1153, 687)
         Me.TableLayoutPanel1.TabIndex = 2
-        '
-        'BtnGraficarClientes
-        '
-        Me.BtnGraficarClientes.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
-        Me.BtnGraficarClientes.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
-        Me.BtnGraficarClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnGraficarClientes.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnGraficarClientes.ForeColor = System.Drawing.Color.White
-        Me.BtnGraficarClientes.Location = New System.Drawing.Point(0, 471)
-        Me.BtnGraficarClientes.Name = "BtnGraficarClientes"
-        Me.BtnGraficarClientes.Size = New System.Drawing.Size(184, 50)
-        Me.BtnGraficarClientes.TabIndex = 7
-        Me.BtnGraficarClientes.Text = "clientes yorsh"
-        Me.BtnGraficarClientes.UseVisualStyleBackColor = False
         '
         'frmMenuPrincipal
         '

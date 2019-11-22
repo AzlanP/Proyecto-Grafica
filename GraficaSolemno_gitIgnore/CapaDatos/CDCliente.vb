@@ -43,6 +43,7 @@ Public Class CDCliente
                 .Add("@Estado", SqlDbType.VarChar).Value = "Activo"
             End With
             comando.ExecuteNonQuery()
+
             MsgBox("El nuevo cliente fue registrado con exito.", , "Registro de Cliente")
         Catch ex As Exception
             Dim errorCuiT As String = "CUIT"

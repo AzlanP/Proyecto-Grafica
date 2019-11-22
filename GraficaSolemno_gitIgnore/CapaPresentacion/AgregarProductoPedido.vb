@@ -151,4 +151,8 @@ Public Class AgregarProductoPedido
         Me.Close()
 
     End Sub
+
+    Private Sub cboDesc_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cboDesc.SelectedIndexChanged
+        calcularPrecioXCantidad()
+    End Sub
 End Class

@@ -1,19 +1,27 @@
 ﻿Public Class CEPedido
     Private _IDPedido As Integer
-    Private _Medio As Integer
+    Private _Medio, _Descuento As Integer
     Private _Cliente As Integer
-    Private _Fecha As String
+    Private _Fecha, _CambioAPedido As String
     Private _PresupuestoVencimiento As String
     Private _Envio As String
     Private _Descripcion As String
     Private _Estado As String
-    Private _Seña As Double
+    Private _Seña, _Total, _SubTotal As Double
     Public Property IDPedido() As Integer
         Get
             Return _IDPedido
         End Get
         Set(ByVal value As Integer)
             _IDPedido = value
+        End Set
+    End Property
+    Public Property Descuento() As Integer
+        Get
+            Return _Descuento
+        End Get
+        Set(ByVal value As Integer)
+            _Descuento = value
         End Set
     End Property
 
@@ -25,12 +33,21 @@
             _Medio = value
         End Set
     End Property
-    Public Property Estado As String
+    Public Property Estado() As String
         Get
             Return _Estado
         End Get
         Set(ByVal value As String)
             _Estado = value
+        End Set
+    End Property
+
+    Public Property CambioAPedido() As String
+        Get
+            Return _CambioAPedido
+        End Get
+        Set(ByVal value As String)
+            _CambioAPedido = value
         End Set
     End Property
 
@@ -83,4 +100,22 @@
             _Seña = value
         End Set
     End Property
+
+    Public Property Total() As Double
+        Get
+            Return _Total
+        End Get
+        Set(ByVal value As Double)
+            _Total = value
+        End Set
+    End Property
+    Public Property SubTotal() As Double
+        Get
+            Return _SubTotal
+        End Get
+        Set(ByVal value As Double)
+            _SubTotal = value
+        End Set
+    End Property
+
 End Class
