@@ -696,9 +696,7 @@ Public Class frmMenuPrincipal
         frmPresupuesto.Text = "Modificar presupuesto"
         visibilidadFormularioPresupuesto(frmPresupuesto)
         frmPresupuesto.btnAgregarPedidoNuevo.Visible = True
-
         frmPresupuesto.btnGuardarPedido.Visible = False
-
         frmPresupuesto.CargarGridDetalles(ID)
         frmPresupuesto.LLenarFormulario(ID, False)
         frmPresupuesto.lblID.Text = ID
@@ -842,11 +840,12 @@ Public Class frmMenuPrincipal
         End If
     End Sub
 
-    Private Sub btnDeslogear_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnDeslogear.Click
+    Private Sub btnLogout_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnLogout.Click
         Me.Hide()
         Me.lblNombreUsuario.Text = ""
         frmIngresaralSistema.Show()
     End Sub
+
     '--------------------------------------------------------------------------------------------
     '-------------------------------CONTROLES DE ACCESO-------------------------------------------
 

@@ -28,6 +28,7 @@ Partial Class frmMenuPrincipal
         Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Dim Series3 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Dim Series4 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMenuPrincipal))
         Me.TabGeneral = New System.Windows.Forms.TabControl()
         Me.TabTareas = New System.Windows.Forms.TabPage()
         Me.panelTareas = New System.Windows.Forms.Panel()
@@ -159,7 +160,10 @@ Partial Class frmMenuPrincipal
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.btnDeslogear = New System.Windows.Forms.Button()
+        Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
+        Me.btnLogout = New System.Windows.Forms.Button()
+        Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
+        Me.lblUsuario = New System.Windows.Forms.Label()
         Me.lblNombreUsuario = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.TabGeneral.SuspendLayout()
@@ -212,6 +216,8 @@ Partial Class frmMenuPrincipal
         Me.Panel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TableLayoutPanel3.SuspendLayout()
+        Me.TableLayoutPanel4.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -1726,8 +1732,8 @@ Partial Class frmMenuPrincipal
         Me.ListBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ListBox3.FormattingEnabled = True
         Me.ListBox3.ItemHeight = 20
-        Me.ListBox3.Items.AddRange(New Object() {"3)Agrege un titulo deceado a su postick para un posterior reconomiento del mismo." & _
-                        "", "4)Describa detalladamente el motivo del postick.", "5)Agrege la Fecha del postick en el cual quiere que sea mostrado.", "6)seleccione ""Guardar""."})
+        Me.ListBox3.Items.AddRange(New Object() {"3)Agrege un titulo deceado a su postick para un posterior reconomiento del mismo." &
+                "", "4)Describa detalladamente el motivo del postick.", "5)Agrege la Fecha del postick en el cual quiere que sea mostrado.", "6)seleccione ""Guardar""."})
         Me.ListBox3.Location = New System.Drawing.Point(352, 145)
         Me.ListBox3.Name = "ListBox3"
         Me.ListBox3.Size = New System.Drawing.Size(589, 300)
@@ -1852,13 +1858,15 @@ Partial Class frmMenuPrincipal
         '
         'TableLayoutPanel2
         '
-        Me.TableLayoutPanel2.ColumnCount = 3
+        Me.TableLayoutPanel2.ColumnCount = 4
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.63731!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 61.29032!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.98518!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.11883!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.27605!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 76.0!))
         Me.TableLayoutPanel2.Controls.Add(Me.PictureBox1, 0, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.Label1, 1, 0)
-        Me.TableLayoutPanel2.Controls.Add(Me.btnDeslogear, 2, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.TableLayoutPanel3, 3, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.TableLayoutPanel4, 2, 0)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel2.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
@@ -1871,7 +1879,7 @@ Partial Class frmMenuPrincipal
         '
         Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Right
         Me.PictureBox1.Image = Global.CapaPresentacion.My.Resources.Resources.slmn
-        Me.PictureBox1.Location = New System.Drawing.Point(198, 3)
+        Me.PictureBox1.Location = New System.Drawing.Point(176, 3)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(116, 85)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -1883,21 +1891,64 @@ Partial Class frmMenuPrincipal
         Me.Label1.AutoSize = True
         Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label1.Font = New System.Drawing.Font("Impact", 48.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(320, 0)
+        Me.Label1.Location = New System.Drawing.Point(298, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(697, 91)
+        Me.Label1.Size = New System.Drawing.Size(584, 91)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "SOLEMNO GRAFICA"
         '
-        'btnDeslogear
+        'TableLayoutPanel3
         '
-        Me.btnDeslogear.Dock = System.Windows.Forms.DockStyle.Top
-        Me.btnDeslogear.Location = New System.Drawing.Point(1023, 3)
-        Me.btnDeslogear.Name = "btnDeslogear"
-        Me.btnDeslogear.Size = New System.Drawing.Size(121, 23)
-        Me.btnDeslogear.TabIndex = 2
-        Me.btnDeslogear.Text = "Deslogear"
-        Me.btnDeslogear.UseVisualStyleBackColor = True
+        Me.TableLayoutPanel3.ColumnCount = 2
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.52941!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 76.47059!))
+        Me.TableLayoutPanel3.Controls.Add(Me.btnLogout, 1, 0)
+        Me.TableLayoutPanel3.Location = New System.Drawing.Point(1072, 3)
+        Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
+        Me.TableLayoutPanel3.RowCount = 2
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 52.94118!))
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 47.05882!))
+        Me.TableLayoutPanel3.Size = New System.Drawing.Size(68, 85)
+        Me.TableLayoutPanel3.TabIndex = 3
+        '
+        'btnLogout
+        '
+        Me.btnLogout.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
+        Me.btnLogout.BackgroundImage = CType(resources.GetObject("btnLogout.BackgroundImage"), System.Drawing.Image)
+        Me.btnLogout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnLogout.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.btnLogout.FlatAppearance.BorderSize = 0
+        Me.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnLogout.Location = New System.Drawing.Point(18, 8)
+        Me.btnLogout.Name = "btnLogout"
+        Me.btnLogout.Size = New System.Drawing.Size(47, 34)
+        Me.btnLogout.TabIndex = 49
+        Me.btnLogout.UseVisualStyleBackColor = False
+        '
+        'TableLayoutPanel4
+        '
+        Me.TableLayoutPanel4.ColumnCount = 1
+        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel4.Controls.Add(Me.lblUsuario, 0, 0)
+        Me.TableLayoutPanel4.Location = New System.Drawing.Point(888, 3)
+        Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
+        Me.TableLayoutPanel4.RowCount = 2
+        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.0!))
+        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
+        Me.TableLayoutPanel4.Size = New System.Drawing.Size(178, 85)
+        Me.TableLayoutPanel4.TabIndex = 4
+        '
+        'lblUsuario
+        '
+        Me.lblUsuario.AutoSize = True
+        Me.lblUsuario.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.lblUsuario.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblUsuario.Location = New System.Drawing.Point(3, 16)
+        Me.lblUsuario.Name = "lblUsuario"
+        Me.lblUsuario.Size = New System.Drawing.Size(172, 18)
+        Me.lblUsuario.TabIndex = 0
+        Me.lblUsuario.Text = "Usuario"
+        Me.lblUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'lblNombreUsuario
         '
@@ -2003,6 +2054,9 @@ Partial Class frmMenuPrincipal
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.TableLayoutPanel2.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TableLayoutPanel3.ResumeLayout(False)
+        Me.TableLayoutPanel4.ResumeLayout(False)
+        Me.TableLayoutPanel4.PerformLayout()
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.ResumeLayout(False)
 
@@ -2111,7 +2165,6 @@ Partial Class frmMenuPrincipal
     Friend WithEvents btnVerPresupuesto As Button
     Friend WithEvents btnNuevoPresupuesto As Button
     Friend WithEvents PictureBox3 As PictureBox
-    Friend WithEvents btnDeslogear As System.Windows.Forms.Button
     Friend WithEvents lblNombreUsuario As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents cboAño2 As System.Windows.Forms.ComboBox
@@ -2141,4 +2194,8 @@ Partial Class frmMenuPrincipal
     Friend WithEvents TableLayoutPanel2 As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents btnGraficosTopProductos As System.Windows.Forms.Button
     Friend WithEvents BtnGraficarClientes As System.Windows.Forms.Button
+    Friend WithEvents TableLayoutPanel3 As TableLayoutPanel
+    Friend WithEvents btnLogout As Button
+    Friend WithEvents TableLayoutPanel4 As TableLayoutPanel
+    Friend WithEvents lblUsuario As Label
 End Class

@@ -51,23 +51,25 @@ Public Class FormularioPedido
     End Sub
     Private Sub btnAgregarPedidoNuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAgregarPedidoNuevo.Click
         Dim AñadirProducto As New AgregarProductoPedido
+
         If oCNDetallesDePedido.MostrarDetalles(lblID.Text).Rows.Count > 0 Then
-            AñadirProducto.Size = New Point(600, 400)
-            AñadirProducto.ShowDialog()
-            If (AñadirProducto.oCEproducto.IDProducto <> 0) Then
-                AgregarDatosADetalles(AñadirProducto.oCEproducto, TablaItems, AñadirProducto.oCEDetallesDelPedido)
-            End If
-        Else
-            AñadirProducto.Size = New Point(600, 400)
-            AñadirProducto.ShowDialog()
-            If (AñadirProducto.oCEproducto.IDProducto <> 0) Then
-                If (DTDetalles.Columns.Count = 0) Then
-                    Detalles()
+                AñadirProducto.Size = New Point(600, 400)
+                AñadirProducto.ShowDialog()
+                If (AñadirProducto.oCEproducto.IDProducto <> 0) Then
+                    AgregarDatosADetalles(AñadirProducto.oCEproducto, TablaItems, AñadirProducto.oCEDetallesDelPedido)
                 End If
-                AgregarDatosADetalles(AñadirProducto.oCEproducto, DTDetalles, AñadirProducto.oCEDetallesDelPedido)
+            Else
+                AñadirProducto.Size = New Point(600, 400)
+                AñadirProducto.ShowDialog()
+                If (AñadirProducto.oCEproducto.IDProducto <> 0) Then
+                    If (DTDetalles.Columns.Count = 0) Then
+                        Detalles()
+                    End If
+                    AgregarDatosADetalles(AñadirProducto.oCEproducto, DTDetalles, AñadirProducto.oCEDetallesDelPedido)
+                End If
             End If
-        End If
-        CalcularTotalBruto()
+            CalcularTotalBruto()
+
 
     End Sub
 
@@ -179,19 +181,19 @@ Public Class FormularioPedido
                 TablaItems.Rows.RemoveAt(ValorIndex)
                 AgregarDatosADetalles(frmModProducto.oCEproducto, TablaItems, frmModProducto.oCEDetallesDelPedido)
             End If
-            '    If DTDetalles Is Nothing Then
-            '        If TablaItems Is Nothing Then
-            '            MsgBox("Error")-
-            '        Else
 
-            '        End If
-            '    Else
-            '        AgregarDatosADetalles(frmModProducto.oCEproducto, DTDetalles)
-            '    End If
+        Else
+            dtrow = DTDetalles.Rows(ValorIndex)
+            frmModProducto.CargarDatosModificar(ProductoID, dtrow)
+            frmModProducto.ShowDialog()
+            If Not frmModProducto.oCEproducto.Nombre Is Nothing Then
+                DTDetalles.Rows.RemoveAt(ValorIndex)
+                AgregarDatosADetalles(frmModProducto.oCEproducto, DTDetalles, frmModProducto.oCEDetallesDelPedido)
+            End If
 
         End If
 
-        CalcularTotalBruto()
+            CalcularTotalBruto()
 
     End Sub
 
@@ -259,14 +261,16 @@ Public Class FormularioPedido
         Return oCEPedido
     End Function
     Private Sub btnGuardarPedido_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGuardarPedido.Click
-
-        If oCNDetallesDePedido.MostrarDetalles(lblID.Text).Rows.Count > 0 Then
-            oCNPedido.ModificarPedido(CargarPedido, TablaItems)
+        If DGListaDePedido.Rows.Count <> 0 Then
+            If oCNDetallesDePedido.MostrarDetalles(lblID.Text).Rows.Count > 0 Then
+                oCNPedido.ModificarPedido(CargarPedido, TablaItems)
+            Else
+                oCNPedido.GenerarElPedido(CargarPedido, DTDetalles)
+            End If
+            Me.Close()
         Else
-            oCNPedido.GenerarElPedido(CargarPedido, DTDetalles)
+            MsgBox("El pedido debe contener como minimo 1 producto. ", , "Error de registro")
         End If
-
-        Me.Close()
     End Sub
 
     Public Sub AsignarTextCbo(ByVal text As String, ByVal cbo As System.Object)
@@ -359,16 +363,21 @@ Public Class FormularioPedido
         oCEPedido = CargarPedido()
         oCEPedido.Estado = "Presupuesto"
         oCEPedido.PresupuestoVencimiento = FormatISO8601(dtpFechaVencimiento.Text)
-        CargarPedido.Seña = 0
-        If DTDetalles.Rows.Count > 0 And TablaItems.Rows.Count > 0 Then
-            MsgBox("Error en la carga del presupuesto")
-        ElseIf DTDetalles.Rows.Count > 0 And TablaItems.Rows.Count = 0 Then
-            oCNPedido.GenerarElPedido(oCEPedido, DTDetalles)
-        ElseIf DTDetalles.Rows.Count = 0 And TablaItems.Rows.Count > 0 Then
-            oCNPedido.ModificarPedido(oCEPedido, TablaItems)
+        oCEPedido.Seña = 0
+        If DGListaDePedido.Rows.Count <> 0 Then
+            If DTDetalles.Rows.Count > 0 And TablaItems.Rows.Count > 0 Then
+                MsgBox("Error en la carga del presupuesto")
+            ElseIf DTDetalles.Rows.Count > 0 And TablaItems.Rows.Count = 0 Then
+                oCNPedido.GenerarElPedido(oCEPedido, DTDetalles)
+            ElseIf DTDetalles.Rows.Count = 0 And TablaItems.Rows.Count > 0 Then
+                oCNPedido.ModificarPedido(oCEPedido, TablaItems)
+            End If
+            CalcularTotalBruto()
+            Me.Close()
+        Else
+            MsgBox("El presupuesto debe contener como minimo 1 producto. ", , "Error de registro")
         End If
-        CalcularTotalBruto()
-        Me.Close()
+
     End Sub
 
     Private Sub chkEnvio_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chkEnvio.CheckedChanged
@@ -458,15 +467,14 @@ Public Class FormularioPedido
                     TablaItems.Rows.RemoveAt(ValorIndex)
                     AgregarDatosADetalles(frmModProducto.oCEproducto, TablaItems, frmModProducto.oCEDetallesDelPedido)
                 End If
-                '    If DTDetalles Is Nothing Then
-                '        If TablaItems Is Nothing Then
-                '            MsgBox("Error")-
-                '        Else
-
-                '        End If
-                '    Else
-                '        AgregarDatosADetalles(frmModProducto.oCEproducto, DTDetalles)
-                '    End If
+            Else
+                dtrow = DTDetalles.Rows(ValorIndex)
+                frmModProducto.CargarDatosModificar(ProductoID, dtrow)
+                frmModProducto.ShowDialog()
+                If Not frmModProducto.oCEproducto.Nombre Is Nothing Then
+                    DTDetalles.Rows.RemoveAt(ValorIndex)
+                    AgregarDatosADetalles(frmModProducto.oCEproducto, DTDetalles, frmModProducto.oCEDetallesDelPedido)
+                End If
 
             End If
 
@@ -479,4 +487,6 @@ Public Class FormularioPedido
     Private Sub btnImprimir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnImprimir.Click
 
     End Sub
+
+
 End Class

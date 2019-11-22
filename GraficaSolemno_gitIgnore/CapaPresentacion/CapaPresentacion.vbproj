@@ -97,12 +97,6 @@
     <Compile Include="FormularioEnvio.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormularioPresupuesto.Designer.vb">
-      <DependentUpon>FormularioPresupuesto.vb</DependentUpon>
-    </Compile>
-    <Compile Include="FormularioPresupuesto.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="FormularioPedido.Designer.vb">
       <DependentUpon>FormularioPedido.vb</DependentUpon>
     </Compile>
@@ -166,12 +160,6 @@
     <Compile Include="RegistrarProducto.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reportes.Designer.vb">
-      <DependentUpon>Reportes.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Reportes.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="SolemnoDataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -194,9 +182,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormularioEnvio.resx">
       <DependentUpon>FormularioEnvio.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormularioPresupuesto.resx">
-      <DependentUpon>FormularioPresupuesto.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormularioPedido.resx">
       <DependentUpon>FormularioPedido.vb</DependentUpon>
@@ -227,10 +212,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RegistrarProducto.resx">
       <DependentUpon>RegistrarProducto.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Report1.rdlc" />
-    <EmbeddedResource Include="Reportes.resx">
-      <DependentUpon>Reportes.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ValidacionMoneda.resx">
       <DependentUpon>ValidacionMoneda.vb</DependentUpon>

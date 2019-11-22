@@ -33,9 +33,9 @@ Public Class CDCliente
                 .Add("@IDLocalidad", SqlDbType.Int).Value = oCECliente.Localidad
                 .Add("@Barrio", SqlDbType.VarChar).Value = oCECliente.Barrio
                 .Add("@Domicilio", SqlDbType.VarChar).Value = oCECliente.Domicilio
-                .Add("@NroCalle", SqlDbType.Int).Value = SetNullValues(oCECliente.NroCalle)
-                .Add("@Dpto", SqlDbType.VarChar).Value = SetNullValues(oCECliente.Dpto)
-                .Add("@CP", SqlDbType.VarChar).Value = SetNullValues(oCECliente.CP)
+                .Add("@NroCalle", SqlDbType.Int).Value = oCECliente.NroCalle
+                .Add("@Dpto", SqlDbType.VarChar).Value = oCECliente.Dpto
+                .Add("@CP", SqlDbType.VarChar).Value = oCECliente.CP
                 .Add("@EMAIL", SqlDbType.VarChar).Value = oCECliente.Email
                 .Add("@IDCondIVA", SqlDbType.Int).Value = oCECliente.CondIVA
                 .Add("@Fecha", SqlDbType.VarChar).Value = oCECliente.Fecha
@@ -114,8 +114,8 @@ Public Class CDCliente
                 .Add("@Barrio", SqlDbType.VarChar).Value = oCECliente.Barrio
                 .Add("@Domicilio", SqlDbType.VarChar).Value = oCECliente.Domicilio
                 .Add("@NroCalle", SqlDbType.Int).Value = SetNullValues(oCECliente.NroCalle)
-                .Add("@Dpto", SqlDbType.VarChar).Value = SetNullValues(oCECliente.Dpto)
-                .Add("@CP", SqlDbType.VarChar).Value = SetNullValues(oCECliente.CP)
+                .Add("@Dpto", SqlDbType.VarChar).Value = oCECliente.Dpto
+                .Add("@CP", SqlDbType.VarChar).Value = oCECliente.CP
                 .Add("@EMAIL", SqlDbType.VarChar).Value = oCECliente.Email
                 .Add("@IDCondIVA", SqlDbType.Int).Value = oCECliente.CondIVA
                 .Add("@Fecha", SqlDbType.VarChar).Value = oCECliente.Fecha

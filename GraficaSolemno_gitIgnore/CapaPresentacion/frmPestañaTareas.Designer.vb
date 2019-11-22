@@ -277,7 +277,7 @@ Partial Class frmPestañaTareas
         Me.btnNuevaTarea.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnNuevaTarea.FlatAppearance.BorderSize = 0
         Me.btnNuevaTarea.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnNuevaTarea.Location = New System.Drawing.Point(1003, 12)
+        Me.btnNuevaTarea.Location = New System.Drawing.Point(993, 9)
         Me.btnNuevaTarea.Name = "btnNuevaTarea"
         Me.btnNuevaTarea.Size = New System.Drawing.Size(40, 40)
         Me.btnNuevaTarea.TabIndex = 49

@@ -107,38 +107,26 @@ Public Class Validaciones
         If dni = "" And cuit = "" Then
             MsgBox("falta un dni o cuit")
             Return False
+        ElseIf (dni.Length > 7 And cuit = "") Or (cuit.Length > 7 And dni = "") Or (dni.Length > 7 And cuit.Length > 7) Then
+            Return True
+
+        End If
+
+        If cuit.Length < 7 Then
+
+            MsgBox("El CUIT no puede ser menor de 7 caracteres")
+            Return False
+        ElseIf dni.Length < 7 Then
+
+            MsgBox("El DNI no puede ser menor de 7 caracteres")
+            Return False
+        ElseIf dni.Length > 7 And cuit.Length > 7 Then
+            Return True
         Else
-           
-            If (dni.Length > 8 And dni.Length < 14) Or dni.Length = 0 Then
-                If dni.Length = 0 Then
+            Return False
 
-                Else
-                    If (cuit.Length > 8 And cuit.Length < 14) Then
-                        Return True
-                    End If
-
-                End If
-
-            Else
-                MsgBox("la cantidad de digitos del dni debe ser mayor a 8 cifras y menor a 14")
-                Return False
-            End If
-            If (cuit.Length > 8 And cuit.Length < 14) Or cuit.Length = 0 Then
-                If cuit.Length = 0 Then
-
-                Else
-
-                    Return True
-
-
-                End If
-            Else
-                MsgBox("la cantidad de digitos del cuit debe ser mayor a 8 cifras y menor a 14")
-                Return False
-            End If
         End If
     End Function
-
 
     Public Sub MaximoCaracteres(ByVal sender As Object, ByVal e As KeyPressEventArgs)
       

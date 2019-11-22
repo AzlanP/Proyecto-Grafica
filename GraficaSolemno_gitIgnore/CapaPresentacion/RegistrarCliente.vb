@@ -103,7 +103,7 @@ Public Class RegistrarCliente
         oCECliente.Domicilio = txtCalle.Text
         oCECliente.NroCalle = CasteoNulo(txtNumeracion.Text)
         oCECliente.Dpto = txtDpto.Text
-        oCECliente.CP = CasteoNulo(txtCP.Text)
+        oCECliente.CP = txtCP.Text
         oCECliente.Email = txtEmail.Text
         oCECliente.CondIVA = CInt(cbIVA.SelectedValue)
         oCECliente.Fecha = CDate(dpFecha.Value.ToShortDateString)

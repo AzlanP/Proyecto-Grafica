@@ -134,6 +134,7 @@ Partial Class FormularioPedido
         Me.cboCliente.Size = New System.Drawing.Size(107, 21)
         Me.cboCliente.TabIndex = 27
         Me.cboCliente.ValueMember = "IDCliente"
+        Me.cboCliente.Visible = False
         '
         'ClientesBindingSource
         '
@@ -166,7 +167,7 @@ Partial Class FormularioPedido
         '
         Me.btnAgregarPedidoNuevo.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnAgregarPedidoNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAgregarPedidoNuevo.Location = New System.Drawing.Point(593, 120)
+        Me.btnAgregarPedidoNuevo.Location = New System.Drawing.Point(593, 118)
         Me.btnAgregarPedidoNuevo.Name = "btnAgregarPedidoNuevo"
         Me.btnAgregarPedidoNuevo.Size = New System.Drawing.Size(89, 24)
         Me.btnAgregarPedidoNuevo.TabIndex = 23
@@ -311,9 +312,9 @@ Partial Class FormularioPedido
         Me.txtAnticipo.Location = New System.Drawing.Point(60, 298)
         Me.txtAnticipo.Margin = New System.Windows.Forms.Padding(0)
         Me.txtAnticipo.Name = "txtAnticipo"
-        Me.txtAnticipo.Size = New System.Drawing.Size(75, 27)
+        Me.txtAnticipo.Size = New System.Drawing.Size(83, 27)
         Me.txtAnticipo.TabIndex = 43
-        Me.txtAnticipo.valor = 0.0R
+        Me.txtAnticipo.valor = 0R
         '
         'txtTotal
         '
@@ -322,9 +323,9 @@ Partial Class FormularioPedido
         Me.txtTotal.Location = New System.Drawing.Point(511, 298)
         Me.txtTotal.Margin = New System.Windows.Forms.Padding(0)
         Me.txtTotal.Name = "txtTotal"
-        Me.txtTotal.Size = New System.Drawing.Size(75, 27)
+        Me.txtTotal.Size = New System.Drawing.Size(83, 27)
         Me.txtTotal.TabIndex = 45
-        Me.txtTotal.valor = 0.0R
+        Me.txtTotal.valor = 0R
         '
         'lblTotal
         '
@@ -436,17 +437,17 @@ Partial Class FormularioPedido
         'txtClienteNombreCompleto
         '
         Me.txtClienteNombreCompleto.Enabled = False
-        Me.txtClienteNombreCompleto.Location = New System.Drawing.Point(12, 20)
+        Me.txtClienteNombreCompleto.Location = New System.Drawing.Point(141, 17)
         Me.txtClienteNombreCompleto.Name = "txtClienteNombreCompleto"
         Me.txtClienteNombreCompleto.ReadOnly = True
-        Me.txtClienteNombreCompleto.Size = New System.Drawing.Size(100, 20)
+        Me.txtClienteNombreCompleto.Size = New System.Drawing.Size(107, 20)
         Me.txtClienteNombreCompleto.TabIndex = 55
         '
         'btnImprimir
         '
         Me.btnImprimir.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnImprimir.Location = New System.Drawing.Point(593, 298)
+        Me.btnImprimir.Location = New System.Drawing.Point(594, 11)
         Me.btnImprimir.Name = "btnImprimir"
         Me.btnImprimir.Size = New System.Drawing.Size(89, 26)
         Me.btnImprimir.TabIndex = 56
@@ -461,9 +462,9 @@ Partial Class FormularioPedido
         Me.txtSubTotal.Location = New System.Drawing.Point(380, 300)
         Me.txtSubTotal.Margin = New System.Windows.Forms.Padding(0)
         Me.txtSubTotal.Name = "txtSubTotal"
-        Me.txtSubTotal.Size = New System.Drawing.Size(75, 27)
+        Me.txtSubTotal.Size = New System.Drawing.Size(83, 27)
         Me.txtSubTotal.TabIndex = 58
-        Me.txtSubTotal.valor = 0.0R
+        Me.txtSubTotal.valor = 0R
         '
         'Label1
         '

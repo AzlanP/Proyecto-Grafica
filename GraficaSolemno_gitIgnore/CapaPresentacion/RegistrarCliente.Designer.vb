@@ -220,7 +220,7 @@ Partial Class RegistrarCliente
         Me.txtNumeracion.Name = "txtNumeracion"
         Me.txtNumeracion.Size = New System.Drawing.Size(38, 21)
         Me.txtNumeracion.TabIndex = 103
-        Me.txtNumeracion.Tag = "3"
+        Me.txtNumeracion.Tag = "2"
         '
         'txtCalle
         '
