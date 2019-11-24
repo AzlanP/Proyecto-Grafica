@@ -53,6 +53,9 @@ Public Class frmMenuPrincipal
 
             Dim frmRegistrar As New RegistrarCliente
             frmRegistrar.LlenarFormulario(ID)
+            frmRegistrar.txtDNI.Enabled = False
+            frmRegistrar.txtCuit.Enabled = False
+
             frmRegistrar.ShowDialog()
             CargarGridCliente()
 
@@ -72,7 +75,11 @@ Public Class frmMenuPrincipal
     Private Sub btnModificarCliente_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnModificarCliente.Click
         ID = DGCliente.Rows(DGCliente.CurrentCell.RowIndex).Cells("IDCliente").Value
         Dim frmRegistrar As New RegistrarCliente
+
         frmRegistrar.LlenarFormulario(ID)
+        frmRegistrar.txtDNI.Enabled = False
+        frmRegistrar.txtCuit.Enabled = False
+
         frmRegistrar.ShowDialog()
         CargarGridCliente()
     End Sub
@@ -657,8 +664,8 @@ Public Class frmMenuPrincipal
         frm.lblEstado.Visible = False
         frm.cboEstado.Visible = False
         frm.lblSeña.Visible = False
-        frm.txtAnticipo.Visible = False
-
+        frm.txtAnticipoSena.Visible = False
+        frm.txtSymbol.Visible = False
         frm.btnGuardarPedido.Visible = False
 
 
@@ -677,6 +684,17 @@ Public Class frmMenuPrincipal
         Dim dt As DataTable = oCNPresupuesto.MostrarPresupuesto.DefaultView.ToTable(True, "IDPedido", "Cliente", "Fecha", "Fecha Vencimiento", "Descripcion", "Estado")
         dv = New DataView(dt, "Estado = 'Presupuesto' ", "IDPedido Asc", DataViewRowState.CurrentRows)
         DGPresupuesto.DataSource = dv
+        For Each row In DGPresupuesto.Rows
+            If Not (row.Cells(3).Value.ToString() <> "") Then
+                Dim vencimiento As Date = row.Cells(3).Value.ToString()
+                Dim hoy As Date = Date.Now()
+
+                If vencimiento < hoy Then
+                    row.DefaultCellStyle.BackColor = Color.Red
+                End If
+            End If
+        Next
+        DGPresupuesto.Refresh()
     End Sub
     Private Sub btnNuevoPresupuesto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNuevoPresupuesto.Click
         Dim frmPresupuesto As New FormularioPedido
@@ -685,6 +703,9 @@ Public Class frmMenuPrincipal
         frmPresupuesto.lblID.Text = oCNPresupuesto.ConsultarUltimoID()
         frmPresupuesto.Detalles()
         'precargar combobox
+        ' frmPresupuesto.btnConfirmarPedido.Visible = True
+        'frmPresupuesto.dtpFechaVencimiento.MinDate = Date.Now()
+        frmPresupuesto.dtpFechaVencimiento.Value = Date.Now().AddDays(7)
         frmPresupuesto.PrecargarCombobox()
         frmPresupuesto.ShowDialog()
         CargarGridPresupuestos()
@@ -700,6 +721,7 @@ Public Class frmMenuPrincipal
         frmPresupuesto.CargarGridDetalles(ID)
         frmPresupuesto.LLenarFormulario(ID, False)
         frmPresupuesto.lblID.Text = ID
+        frmPresupuesto.btnConfirmarPedido.Visible = True
         frmPresupuesto.ShowDialog()
         CargarGridPresupuestos()
     End Sub
@@ -752,14 +774,17 @@ Public Class frmMenuPrincipal
             frmPresupuesto.btnAgregarPedidoNuevo.Visible = True
 
             frmPresupuesto.btnGuardarPedido.Visible = False
-
+            frmPresupuesto.btnConfirmarPedido.Visible = True
 
             frmPresupuesto.CargarGridDetalles(ID)
             frmPresupuesto.LLenarFormulario(ID, False)
             frmPresupuesto.lblID.Text = ID
             frmPresupuesto.ShowDialog()
             CargarGridPresupuestos()
-            DGPresupuesto.Rows(e.RowIndex).Selected = True
+            If e.RowIndex < DGPresupuesto.Rows.Count Then
+                DGPresupuesto.Rows(e.RowIndex).Selected = True
+            End If
+
         End If
     End Sub
 
@@ -832,11 +857,18 @@ Public Class frmMenuPrincipal
 #Region "Controles de acceso"
 
     Public Sub enableAdminMode()
-        TabGeneral.TabPages.Add(TabPresupuesto)
+        If Not (TabGeneral.TabPages.Contains(TabUsuario)) Then
+            TabGeneral.TabPages.Add(TabUsuario)
+            TabGeneral.TabPages.Add(TabEstadistica)
+            TabGeneral.TabPages.Add(TabProducto)
+        End If
     End Sub
-    Public Sub enableEsclavoMode()
-        If (TabGeneral.TabPages.Contains(TabPresupuesto)) Then
-            TabGeneral.TabPages.Remove(TabPresupuesto)
+    Public Sub disabledAdminMode()
+        If (TabGeneral.TabPages.Contains(TabUsuario)) Then
+
+            TabGeneral.TabPages.Remove(TabUsuario)
+            TabGeneral.TabPages.Remove(TabEstadistica)
+            TabGeneral.TabPages.Remove(TabProducto)
         End If
     End Sub
 
@@ -846,8 +878,6 @@ Public Class frmMenuPrincipal
         frmIngresaralSistema.Show()
     End Sub
 
-    '--------------------------------------------------------------------------------------------
-    '-------------------------------CONTROLES DE ACCESO-------------------------------------------
 
 #End Region
 

@@ -19,8 +19,8 @@ Public Class Validaciones
                     AddHandler txt.LostFocus, AddressOf EmailLostFocus
                 ElseIf txt.Tag = 5 Then
                     AddHandler txt.KeyPress, AddressOf KeypressValidarCantidad
-
-
+                ElseIf txt.Tag = 6 Then
+                    AddHandler txt.KeyPress, AddressOf KeypressValidarMoneda
                 End If
 
             End If
@@ -109,26 +109,52 @@ Public Class Validaciones
             Return False
         ElseIf (dni.Length > 7 And cuit = "") Or (cuit.Length > 7 And dni = "") Or (dni.Length > 7 And cuit.Length > 7) Then
             Return True
-
-        End If
-
-        If cuit.Length < 7 Then
-
-            MsgBox("El CUIT no puede ser menor de 7 caracteres")
-            Return False
-        ElseIf dni.Length < 7 Then
-
-            MsgBox("El DNI no puede ser menor de 7 caracteres")
-            Return False
-        ElseIf dni.Length > 7 And cuit.Length > 7 Then
-            Return True
         Else
-            Return False
+            If cuit.Length < 7 And dni = "" Then
 
+                MsgBox("El CUIT no puede ser menor de 7 caracteres")
+                Return False
+            ElseIf dni.Length < 7 And cuit = "" Then
+
+                MsgBox("El DNI no puede ser menor de 7 caracteres")
+                Return False
+            ElseIf dni.Length < 7 And cuit.Length < 7 Then
+                MsgBox("El DNI o CUIT no pueden ser menores de 7 caracteres")
+                Return False
+            Else
+                MsgBox("El DNI o CUIT no pueden ser menores de 7 caracteres")
+                Return False
+
+            End If
         End If
+
+
     End Function
 
     Public Sub MaximoCaracteres(ByVal sender As Object, ByVal e As KeyPressEventArgs)
-      
+
+    End Sub
+
+
+
+    Public Sub KeypressValidarMoneda(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs)
+        If Char.IsDigit(e.KeyChar) Then
+            e.Handled = False
+        ElseIf Char.IsControl(e.KeyChar) Then
+            e.Handled = False
+        ElseIf e.KeyChar = "," Or e.KeyChar = "." Then
+            If e.KeyChar = "." Then
+                e.KeyChar = ","
+            End If
+            e.Handled = False
+        Else
+            e.Handled = True
+        End If
+        If e.KeyChar = ChrW(Keys.Enter) Then
+
+            e.Handled = True
+
+            SendKeys.Send("{TAB}")
+        End If
     End Sub
 End Class

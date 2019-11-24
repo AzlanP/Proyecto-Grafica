@@ -97,7 +97,7 @@ Partial Class RegistrarCliente
         Me.txtCuit.Name = "txtCuit"
         Me.txtCuit.Size = New System.Drawing.Size(203, 21)
         Me.txtCuit.TabIndex = 116
-        Me.txtCuit.Tag = "2"
+        Me.txtCuit.Tag = "3"
         '
         'btnGuardar
         '
@@ -322,11 +322,11 @@ Partial Class RegistrarCliente
         'txtDNI
         '
         Me.txtDNI.Location = New System.Drawing.Point(140, 200)
-        Me.txtDNI.MaxLength = 14
+        Me.txtDNI.MaxLength = 8
         Me.txtDNI.Name = "txtDNI"
         Me.txtDNI.Size = New System.Drawing.Size(203, 21)
         Me.txtDNI.TabIndex = 90
-        Me.txtDNI.Tag = "2"
+        Me.txtDNI.Tag = "3"
         '
         'txtEmail
         '

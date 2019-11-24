@@ -7,9 +7,9 @@ Public Class CNCliente
     Function MostrarCliente() As DataTable
         Return oCDCliente.MostrarCliente
     End Function
-    Public Sub RegistrarCliente(ByVal oCECliente As CECliente)
-        oCDCliente.RegistrarCliente(oCECliente)
-    End Sub
+    Public Function RegistrarCliente(ByVal oCECliente As CECliente) As Boolean
+        Return oCDCliente.RegistrarCliente(oCECliente)
+    End Function
     Public Sub EliminarCliente(ByVal id As Integer, ByVal estado As String)
         oCDCliente.EliminarCliente(id, estado)
     End Sub

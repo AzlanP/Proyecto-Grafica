@@ -9,23 +9,21 @@ Public Class AgregarProductoPedido
 
 
     Private Sub btnAceptar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAceptar.Click
-        oCEproducto.Nombre = txtNombreProducto.Text
-        oCEproducto.Precio = txtboxPrecio.valor
-        oCEproducto.Descripcion = TextboxDescripcion.Text
-        oCEproducto.IDProducto = lblID.Text
         oCEDetallesDelPedido.Cantidad = CInt(txtCantidad.Text)
-        oCEDetallesDelPedido.Descuento = CInt(cboDesc.Text)
 
-
-        calcularPrecioXCantidad()
-        oCEDetallesDelPedido.PrecioFinal = CDbl(txtPrecioTotal.valor)
-
-        Me.Close()
-
-
-        'prueba
-
-
+        If (oCEDetallesDelPedido.Cantidad > 0) Then
+            oCEproducto.Nombre = txtNombreProducto.Text
+            oCEproducto.Precio = txtboxPrecio.valor
+            oCEproducto.Descripcion = TextboxDescripcion.Text
+            oCEproducto.IDProducto = lblID.Text
+            oCEDetallesDelPedido.Cantidad = CInt(txtCantidad.Text)
+            oCEDetallesDelPedido.Descuento = CInt(cboDesc.Text)
+            calcularPrecioXCantidad()
+            oCEDetallesDelPedido.PrecioFinal = CDbl(txtPrecioTotal.valor)
+            Me.Close()
+        Else
+            MsgBox("La cantidad minima es de 1 articulo.", MessageBoxIcon.Exclamation, "Error al agregar producto.")
+        End If
     End Sub
     Public Function CasteoNulo(ByVal value As String) As Integer
         value = Trim(value)
@@ -94,7 +92,7 @@ Public Class AgregarProductoPedido
         txtboxPrecio.valor = CDbl(dr("PrecioUnitario").ToString)
         TextboxDescripcion.Text = dr("Descripcion").ToString
         oCEDetallesDelPedido.Descuento = CInt(dr("Descuento").ToString)
-
+        cboDesc.Text = CInt(dr("Descuento").ToString)
     End Sub
     Public Function SetNullValues(ByVal value As Object) As Object
         If IsNumeric(value) Then

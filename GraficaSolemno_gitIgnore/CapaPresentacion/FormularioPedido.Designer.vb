@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FormularioPedido
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class FormularioPedido
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormularioPedido))
@@ -50,7 +50,6 @@ Partial Class FormularioPedido
         Me.ClientesTableAdapter = New CapaPresentacion.SolemnoDataSetTableAdapters.ClientesTableAdapter()
         Me.MediosTableAdapter = New CapaPresentacion.SolemnoDataSetTableAdapters.MediosTableAdapter()
         Me.TipoEnvioTableAdapter = New CapaPresentacion.SolemnoDataSetTableAdapters.TipoEnvioTableAdapter()
-        Me.txtAnticipo = New CapaPresentacion.ValidacionMoneda()
         Me.txtTotal = New CapaPresentacion.ValidacionMoneda()
         Me.lblTotal = New System.Windows.Forms.Label()
         Me.btnEnvioGuardado = New System.Windows.Forms.Button()
@@ -66,6 +65,9 @@ Partial Class FormularioPedido
         Me.btnImprimir = New System.Windows.Forms.Button()
         Me.txtSubTotal = New CapaPresentacion.ValidacionMoneda()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.btnConfirmarPedido = New System.Windows.Forms.Button()
+        Me.txtAnticipoSena = New System.Windows.Forms.TextBox()
+        Me.txtSymbol = New System.Windows.Forms.TextBox()
         CType(Me.TipoEnvioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SolemnoDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -167,7 +169,7 @@ Partial Class FormularioPedido
         '
         Me.btnAgregarPedidoNuevo.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnAgregarPedidoNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAgregarPedidoNuevo.Location = New System.Drawing.Point(593, 118)
+        Me.btnAgregarPedidoNuevo.Location = New System.Drawing.Point(594, 118)
         Me.btnAgregarPedidoNuevo.Name = "btnAgregarPedidoNuevo"
         Me.btnAgregarPedidoNuevo.Size = New System.Drawing.Size(89, 24)
         Me.btnAgregarPedidoNuevo.TabIndex = 23
@@ -305,32 +307,22 @@ Partial Class FormularioPedido
         '
         Me.TipoEnvioTableAdapter.ClearBeforeFill = True
         '
-        'txtAnticipo
-        '
-        Me.txtAnticipo.AutoSize = True
-        Me.txtAnticipo.labeltext = Nothing
-        Me.txtAnticipo.Location = New System.Drawing.Point(60, 298)
-        Me.txtAnticipo.Margin = New System.Windows.Forms.Padding(0)
-        Me.txtAnticipo.Name = "txtAnticipo"
-        Me.txtAnticipo.Size = New System.Drawing.Size(83, 27)
-        Me.txtAnticipo.TabIndex = 43
-        Me.txtAnticipo.valor = 0R
-        '
         'txtTotal
         '
         Me.txtTotal.AutoSize = True
+        Me.txtTotal.Enabled = False
         Me.txtTotal.labeltext = Nothing
-        Me.txtTotal.Location = New System.Drawing.Point(511, 298)
+        Me.txtTotal.Location = New System.Drawing.Point(503, 298)
         Me.txtTotal.Margin = New System.Windows.Forms.Padding(0)
         Me.txtTotal.Name = "txtTotal"
-        Me.txtTotal.Size = New System.Drawing.Size(83, 27)
+        Me.txtTotal.Size = New System.Drawing.Size(83, 22)
         Me.txtTotal.TabIndex = 45
         Me.txtTotal.valor = 0R
         '
         'lblTotal
         '
         Me.lblTotal.AutoSize = True
-        Me.lblTotal.Location = New System.Drawing.Point(474, 301)
+        Me.lblTotal.Location = New System.Drawing.Point(466, 301)
         Me.lblTotal.Name = "lblTotal"
         Me.lblTotal.Size = New System.Drawing.Size(34, 13)
         Me.lblTotal.TabIndex = 44
@@ -397,6 +389,7 @@ Partial Class FormularioPedido
         '
         Me.dtpFechaVencimiento.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtpFechaVencimiento.Location = New System.Drawing.Point(467, 80)
+        Me.dtpFechaVencimiento.MinDate = New Date(2016, 11, 23, 0, 0, 0, 0)
         Me.dtpFechaVencimiento.Name = "dtpFechaVencimiento"
         Me.dtpFechaVencimiento.Size = New System.Drawing.Size(121, 20)
         Me.dtpFechaVencimiento.TabIndex = 52
@@ -447,22 +440,22 @@ Partial Class FormularioPedido
         '
         Me.btnImprimir.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnImprimir.Location = New System.Drawing.Point(594, 11)
+        Me.btnImprimir.Location = New System.Drawing.Point(594, 9)
         Me.btnImprimir.Name = "btnImprimir"
         Me.btnImprimir.Size = New System.Drawing.Size(89, 26)
         Me.btnImprimir.TabIndex = 56
         Me.btnImprimir.Text = "Imprimir"
         Me.btnImprimir.UseVisualStyleBackColor = False
-        Me.btnImprimir.Visible = False
         '
         'txtSubTotal
         '
         Me.txtSubTotal.AutoSize = True
+        Me.txtSubTotal.Enabled = False
         Me.txtSubTotal.labeltext = Nothing
         Me.txtSubTotal.Location = New System.Drawing.Point(380, 300)
         Me.txtSubTotal.Margin = New System.Windows.Forms.Padding(0)
         Me.txtSubTotal.Name = "txtSubTotal"
-        Me.txtSubTotal.Size = New System.Drawing.Size(83, 27)
+        Me.txtSubTotal.Size = New System.Drawing.Size(83, 22)
         Me.txtSubTotal.TabIndex = 58
         Me.txtSubTotal.valor = 0R
         '
@@ -475,12 +468,46 @@ Partial Class FormularioPedido
         Me.Label1.TabIndex = 57
         Me.Label1.Text = "Subtotal:"
         '
+        'btnConfirmarPedido
+        '
+        Me.btnConfirmarPedido.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnConfirmarPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnConfirmarPedido.Location = New System.Drawing.Point(601, 367)
+        Me.btnConfirmarPedido.Name = "btnConfirmarPedido"
+        Me.btnConfirmarPedido.Size = New System.Drawing.Size(112, 32)
+        Me.btnConfirmarPedido.TabIndex = 59
+        Me.btnConfirmarPedido.Text = "Generar el pedido"
+        Me.btnConfirmarPedido.UseVisualStyleBackColor = False
+        Me.btnConfirmarPedido.Visible = False
+        '
+        'txtAnticipoSena
+        '
+        Me.txtAnticipoSena.Location = New System.Drawing.Point(71, 298)
+        Me.txtAnticipoSena.Name = "txtAnticipoSena"
+        Me.txtAnticipoSena.Size = New System.Drawing.Size(72, 20)
+        Me.txtAnticipoSena.TabIndex = 60
+        Me.txtAnticipoSena.Text = "0.0"
+        '
+        'txtSymbol
+        '
+        Me.txtSymbol.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtSymbol.Location = New System.Drawing.Point(60, 298)
+        Me.txtSymbol.Margin = New System.Windows.Forms.Padding(0)
+        Me.txtSymbol.Name = "txtSymbol"
+        Me.txtSymbol.ReadOnly = True
+        Me.txtSymbol.Size = New System.Drawing.Size(13, 20)
+        Me.txtSymbol.TabIndex = 61
+        Me.txtSymbol.Text = "$"
+        '
         'FormularioPedido
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(728, 443)
+        Me.Controls.Add(Me.txtSymbol)
+        Me.Controls.Add(Me.txtAnticipoSena)
+        Me.Controls.Add(Me.btnConfirmarPedido)
         Me.Controls.Add(Me.txtSubTotal)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnImprimir)
@@ -496,7 +523,6 @@ Partial Class FormularioPedido
         Me.Controls.Add(Me.btnEnvioGuardado)
         Me.Controls.Add(Me.txtTotal)
         Me.Controls.Add(Me.lblTotal)
-        Me.Controls.Add(Me.txtAnticipo)
         Me.Controls.Add(Me.lblSeña)
         Me.Controls.Add(Me.lblMedio)
         Me.Controls.Add(Me.cboMedio)
@@ -553,7 +579,6 @@ Partial Class FormularioPedido
     Friend WithEvents MediosTableAdapter As CapaPresentacion.SolemnoDataSetTableAdapters.MediosTableAdapter
     Friend WithEvents TipoEnvioBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents TipoEnvioTableAdapter As CapaPresentacion.SolemnoDataSetTableAdapters.TipoEnvioTableAdapter
-    Friend WithEvents txtAnticipo As CapaPresentacion.ValidacionMoneda
     Friend WithEvents txtTotal As CapaPresentacion.ValidacionMoneda
     Friend WithEvents lblTotal As System.Windows.Forms.Label
     Friend WithEvents btnEnvioGuardado As System.Windows.Forms.Button
@@ -569,4 +594,7 @@ Partial Class FormularioPedido
     Friend WithEvents btnImprimir As System.Windows.Forms.Button
     Friend WithEvents txtSubTotal As CapaPresentacion.ValidacionMoneda
     Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents btnConfirmarPedido As Button
+    Friend WithEvents txtAnticipoSena As TextBox
+    Friend WithEvents txtSymbol As TextBox
 End Class

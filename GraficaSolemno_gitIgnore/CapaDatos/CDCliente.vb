@@ -15,7 +15,7 @@ Public Class CDCliente
         sentencia = "select clientes.IDCliente, clientes.Nombre, Clientes.Apellido, Clientes.DNI, Clientes.Telefono,Clientes.cuit, Provincias.Nombre as 'provincia' , Localidad.Nombre as 'Localidad', CondIVA.Nombre as 'Condicion de IVA' from Clientes, Provincias, Localidad, CondIVA where  Clientes.IDProvincia=Provincias.IDProvincia and clientes.IDLocalidad=Localidad.IDLocalidad and Clientes.IDCondIVA=CondIVA.IDIVA and Clientes.Estado='Inactivo'"
         Return oCDConexion.MostrarTablaModificada(sentencia)
     End Function
-    Public Sub RegistrarCliente(ByVal oCECliente As CECliente)
+    Public Function RegistrarCliente(ByVal oCECliente As CECliente) As Boolean
         oCDConexion.Conectar()
         Try
 
@@ -27,8 +27,8 @@ Public Class CDCliente
                 .Add("@Apellido", SqlDbType.VarChar).Value = oCECliente.Apellido
                 .Add("@Telefono", SqlDbType.Int).Value = SetNullValues(oCECliente.Telefono)
                 .Add("@Telefono2", SqlDbType.Int).Value = SetNullValues(oCECliente.Telefono2)
-                .Add("@DNI", SqlDbType.Int).Value = SetNullValues(oCECliente.DNI)
-                .Add("@CUIT", SqlDbType.Int).Value = SetNullValues(oCECliente.CUIT)
+                .Add("@DNI", SqlDbType.VarChar).Value = SetNullString(oCECliente.DNI)
+                .Add("@CUIT", SqlDbType.VarChar).Value = SetNullString(oCECliente.CUIT)
                 .Add("@IDProvincia", SqlDbType.Int).Value = oCECliente.Provincia
                 .Add("@IDLocalidad", SqlDbType.Int).Value = oCECliente.Localidad
                 .Add("@Barrio", SqlDbType.VarChar).Value = oCECliente.Barrio
@@ -45,6 +45,7 @@ Public Class CDCliente
             comando.ExecuteNonQuery()
 
             MsgBox("El nuevo cliente fue registrado con exito.", , "Registro de Cliente")
+            Return True
         Catch ex As Exception
             Dim errorCuiT As String = "CUIT"
             Dim errorDNI As String = "DNI"
@@ -58,7 +59,7 @@ Public Class CDCliente
         Finally
             oCDConexion.Desconectar()
         End Try
-    End Sub
+    End Function
     Public Function SetNullValues(ByVal value As Object) As Object
         If IsNumeric(value) Then
             If value = 0 Then
@@ -81,6 +82,14 @@ Public Class CDCliente
         End If
 
     End Function
+    Public Function SetNullString(ByVal value As String) As Object
+        If value = Nothing Or value = "" Then
+            Return DBNull.Value
+        Else
+            Return CStr(value)
+        End If
+    End Function
+
     Public Sub EliminarCliente(ByVal id As Integer, ByVal estado As String)
         oCDConexion.Conectar()
         Try
@@ -107,8 +116,8 @@ Public Class CDCliente
                 .Add("@Apellido", SqlDbType.VarChar).Value = oCECliente.Apellido
                 .Add("@Telefono", SqlDbType.Int).Value = SetNullValues(oCECliente.Telefono)
                 .Add("@Telefono2", SqlDbType.Int).Value = SetNullValues(oCECliente.Telefono2)
-                .Add("@DNI", SqlDbType.Int).Value = SetNullValues(oCECliente.DNI)
-                .Add("@CUIT", SqlDbType.Int).Value = SetNullValues(oCECliente.CUIT)
+                .Add("@DNI", SqlDbType.VarChar).Value = oCECliente.DNI
+                .Add("@CUIT", SqlDbType.VarChar).Value = oCECliente.CUIT
                 .Add("@IDProvincia", SqlDbType.Int).Value = oCECliente.Provincia
                 .Add("@IDLocalidad", SqlDbType.Int).Value = oCECliente.Localidad
                 .Add("@Barrio", SqlDbType.VarChar).Value = oCECliente.Barrio

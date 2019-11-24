@@ -21,14 +21,19 @@ Public Class frmIngresaralSistema
 
             Dim cargo As String = resultado.Rows(0)("Cargo")
             Dim NombreCompleto As String = resultado.Rows(0)("NombreCompleto")
-            frmMenuPrincipal.lblNombreUsuario.Text = NombreCompleto
+            frmMenuPrincipal.lblUsuario.Text = NombreCompleto
 
-            If (cargo = "Admin") Then
+            If (cargo = "Administrador") Then
                 frmMenuPrincipal.enableAdminMode()
-            ElseIf (cargo = "Esclavo") Then
-                frmMenuPrincipal.enableEsclavoMode()
+
+            ElseIf (cargo = "Vendedor") Then
+                frmMenuPrincipal.disabledAdminMode()
             End If
             Me.Hide()
+            oCEUsuario.Usuario = ""
+            oCEUsuario.Contrasena = ""
+            TxtUsuario.Text = ""
+            TxtContraseña.Text = ""
             frmMenuPrincipal.Show()
         End If
     End Sub
@@ -51,7 +56,7 @@ Public Class frmIngresaralSistema
         CboCargo.SelectedIndex = 0
     End Sub
 
-    Private Sub linkTab_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles linkTab.LinkClicked
+    Private Sub linkTab_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs)
         PanelRegistrar.Visible = True
         PanelLogin.Visible = False
     End Sub

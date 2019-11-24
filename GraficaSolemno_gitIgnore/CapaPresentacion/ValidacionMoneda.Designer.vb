@@ -52,7 +52,7 @@ Partial Class ValidacionMoneda
         Me.Controls.Add(Me.TextBox1)
         Me.Margin = New System.Windows.Forms.Padding(0)
         Me.Name = "ValidacionMoneda"
-        Me.Size = New System.Drawing.Size(89, 27)
+        Me.Size = New System.Drawing.Size(89, 23)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

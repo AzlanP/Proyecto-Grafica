@@ -28,7 +28,6 @@ Partial Class frmIngresaralSistema
         Me.TxtUsuario = New System.Windows.Forms.TextBox()
         Me.TxtContraseña = New System.Windows.Forms.TextBox()
         Me.CekMostrar = New System.Windows.Forms.CheckBox()
-        Me.linkTab = New System.Windows.Forms.LinkLabel()
         Me.PanelLogin = New System.Windows.Forms.Panel()
         Me.btnIngresar = New System.Windows.Forms.Button()
         Me.PanelRegistrar = New System.Windows.Forms.Panel()
@@ -54,7 +53,7 @@ Partial Class frmIngresaralSistema
         '
         Me.Label1.AutoSize = True
         Me.Label1.ForeColor = System.Drawing.Color.Black
-        Me.Label1.Location = New System.Drawing.Point(38, 15)
+        Me.Label1.Location = New System.Drawing.Point(36, 66)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(43, 13)
         Me.Label1.TabIndex = 0
@@ -64,7 +63,7 @@ Partial Class frmIngresaralSistema
         '
         Me.Label2.AutoSize = True
         Me.Label2.ForeColor = System.Drawing.Color.Black
-        Me.Label2.Location = New System.Drawing.Point(38, 70)
+        Me.Label2.Location = New System.Drawing.Point(36, 121)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(61, 13)
         Me.Label2.TabIndex = 2
@@ -73,7 +72,7 @@ Partial Class frmIngresaralSistema
         'TxtUsuario
         '
         Me.TxtUsuario.ForeColor = System.Drawing.Color.Black
-        Me.TxtUsuario.Location = New System.Drawing.Point(38, 31)
+        Me.TxtUsuario.Location = New System.Drawing.Point(36, 82)
         Me.TxtUsuario.Name = "TxtUsuario"
         Me.TxtUsuario.Size = New System.Drawing.Size(111, 20)
         Me.TxtUsuario.TabIndex = 5
@@ -81,7 +80,7 @@ Partial Class frmIngresaralSistema
         'TxtContraseña
         '
         Me.TxtContraseña.ForeColor = System.Drawing.Color.Black
-        Me.TxtContraseña.Location = New System.Drawing.Point(38, 86)
+        Me.TxtContraseña.Location = New System.Drawing.Point(36, 137)
         Me.TxtContraseña.Name = "TxtContraseña"
         Me.TxtContraseña.Size = New System.Drawing.Size(112, 20)
         Me.TxtContraseña.TabIndex = 6
@@ -90,34 +89,22 @@ Partial Class frmIngresaralSistema
         '
         Me.CekMostrar.AutoSize = True
         Me.CekMostrar.ForeColor = System.Drawing.Color.Black
-        Me.CekMostrar.Location = New System.Drawing.Point(38, 112)
+        Me.CekMostrar.Location = New System.Drawing.Point(36, 163)
         Me.CekMostrar.Name = "CekMostrar"
         Me.CekMostrar.Size = New System.Drawing.Size(61, 17)
         Me.CekMostrar.TabIndex = 9
         Me.CekMostrar.Text = "Mostrar"
         Me.CekMostrar.UseVisualStyleBackColor = True
         '
-        'linkTab
-        '
-        Me.linkTab.AutoSize = True
-        Me.linkTab.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.linkTab.Location = New System.Drawing.Point(38, 204)
-        Me.linkTab.Name = "linkTab"
-        Me.linkTab.Size = New System.Drawing.Size(91, 18)
-        Me.linkTab.TabIndex = 10
-        Me.linkTab.TabStop = True
-        Me.linkTab.Text = "Registrarte"
-        '
         'PanelLogin
         '
         Me.PanelLogin.Controls.Add(Me.btnIngresar)
         Me.PanelLogin.Controls.Add(Me.TxtUsuario)
         Me.PanelLogin.Controls.Add(Me.Label2)
-        Me.PanelLogin.Controls.Add(Me.linkTab)
         Me.PanelLogin.Controls.Add(Me.CekMostrar)
         Me.PanelLogin.Controls.Add(Me.Label1)
         Me.PanelLogin.Controls.Add(Me.TxtContraseña)
-        Me.PanelLogin.Location = New System.Drawing.Point(265, 39)
+        Me.PanelLogin.Location = New System.Drawing.Point(249, 12)
         Me.PanelLogin.Name = "PanelLogin"
         Me.PanelLogin.Size = New System.Drawing.Size(227, 311)
         Me.PanelLogin.TabIndex = 11
@@ -126,7 +113,7 @@ Partial Class frmIngresaralSistema
         '
         Me.btnIngresar.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnIngresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnIngresar.Location = New System.Drawing.Point(38, 147)
+        Me.btnIngresar.Location = New System.Drawing.Point(36, 198)
         Me.btnIngresar.Name = "btnIngresar"
         Me.btnIngresar.Size = New System.Drawing.Size(122, 24)
         Me.btnIngresar.TabIndex = 25
@@ -147,7 +134,7 @@ Partial Class frmIngresaralSistema
         Me.PanelRegistrar.Controls.Add(Me.CboCargo)
         Me.PanelRegistrar.Controls.Add(Me.Label4)
         Me.PanelRegistrar.Controls.Add(Me.txtContraRegistrar)
-        Me.PanelRegistrar.Location = New System.Drawing.Point(265, 36)
+        Me.PanelRegistrar.Location = New System.Drawing.Point(253, 12)
         Me.PanelRegistrar.Name = "PanelRegistrar"
         Me.PanelRegistrar.Size = New System.Drawing.Size(245, 298)
         Me.PanelRegistrar.TabIndex = 12
@@ -244,7 +231,7 @@ Partial Class frmIngresaralSistema
         Me.CboCargo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.CboCargo.ForeColor = System.Drawing.Color.Black
         Me.CboCargo.FormattingEnabled = True
-        Me.CboCargo.Items.AddRange(New Object() {"Administrador", "Empleado"})
+        Me.CboCargo.Items.AddRange(New Object() {"Administrador", "Vendedor"})
         Me.CboCargo.Location = New System.Drawing.Point(24, 210)
         Me.CboCargo.Name = "CboCargo"
         Me.CboCargo.Size = New System.Drawing.Size(133, 21)
@@ -283,12 +270,13 @@ Partial Class frmIngresaralSistema
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(560, 358)
+        Me.ClientSize = New System.Drawing.Size(498, 310)
         Me.Controls.Add(Me.PanelRegistrar)
         Me.Controls.Add(Me.PanelLogin)
         Me.Controls.Add(Me.PictureBox1)
         Me.Name = "frmIngresaralSistema"
-        Me.Text = "Ingresar"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "Login"
         Me.PanelLogin.ResumeLayout(False)
         Me.PanelLogin.PerformLayout()
         Me.PanelRegistrar.ResumeLayout(False)
@@ -303,7 +291,6 @@ Partial Class frmIngresaralSistema
     Friend WithEvents TxtUsuario As System.Windows.Forms.TextBox
     Friend WithEvents TxtContraseña As System.Windows.Forms.TextBox
     Friend WithEvents CekMostrar As System.Windows.Forms.CheckBox
-    Friend WithEvents linkTab As System.Windows.Forms.LinkLabel
     Friend WithEvents PanelLogin As System.Windows.Forms.Panel
     Friend WithEvents PanelRegistrar As System.Windows.Forms.Panel
     Friend WithEvents CboCargo As System.Windows.Forms.ComboBox

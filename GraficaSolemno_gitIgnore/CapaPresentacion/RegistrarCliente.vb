@@ -7,12 +7,11 @@ Public Class RegistrarCliente
     Private Sub btnRegistrar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRegistrar.Click
         Dim oValidacion As New Validaciones
         If oValidacion.ValidarDNIoCUIT(txtDNI.Text, txtCuit.Text) Then
-            oCNCliente.RegistrarCliente(TomarDatos())
-            Close()
+            Dim val As Boolean = oCNCliente.RegistrarCliente(TomarDatos())
+            If val = True Then
+                Close()
+            End If
         End If
-
-
-
     End Sub
     Public Sub LlenarFormularioInactivo(ByVal ID As Integer)
         PrecargarCombobox()
@@ -84,7 +83,6 @@ Public Class RegistrarCliente
         'Esto es para que segun sea el caso el texto del formulario cambie.
         Me.Text = "Modificar Cliente"
     End Sub
-    '
     Public Function TomarDatos() As CECliente
         'en este metodo debo guardar los datos de los textbox indiferente si es para registrar o para modificar
 
@@ -142,13 +140,15 @@ Public Class RegistrarCliente
     End Sub
 
     Private Sub btnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGuardar.Click
-        oCNCliente.ModificarCliente(TomarDatos())
-
-        Close()
+        Dim oValidacion As New Validaciones
+        If oValidacion.ValidarDNIoCUIT(txtDNI.Text, txtCuit.Text) Then
+            oCNCliente.ModificarCliente(TomarDatos())
+            Close()
+        End If
     End Sub
 
- 
-    
+
+
     Private Sub RegistrarCliente_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
        
         Dim validacion As New Validaciones

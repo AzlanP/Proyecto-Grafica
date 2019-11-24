@@ -31,7 +31,7 @@ Public Class FormularioPedido
         chkEnvio.Checked = DTProw(5)
         AsignarTextCbo(DTProw(6), cboMedio)
         cboEstado.Text = DTProw(7)
-        txtAnticipo.valor = CDbl(DTProw(8))
+        txtAnticipoSena.Text = CDbl(DTProw(8))
         cboDesc.Text = DTProw(9)
         txtTotal.valor = DTProw(10)
         txtSubTotal.valor = DTProw(11)
@@ -39,36 +39,40 @@ Public Class FormularioPedido
             dtpFechaVencimiento.Text = DTProw(12)
         Else
             'CambioAPedido()
+
         End If
     End Sub
     Public Sub CargarGridListaPedido(ByVal tabla As DataTable)
         DGListaDePedido.DataSource = tabla.DefaultView.ToTable(True, "IDItems", "Nombre", "Cantidad", "Descripcion", "Descuento", "PrecioUnitario", "PrecioFinal")
+        DGListaDePedido.Columns("PrecioFinal").HeaderCell.Value = "Importe"
+
         ' esta tabla luego de remover un producto de la lista imprime IDpedido pero por error da el id de producto. niuno deveria mostrarse
     End Sub
     Public Sub CargarGridDetalles(ByVal id As Integer)
         TablaItems = oCNDetallesDePedido.MostrarDetalles(id)
         DGListaDePedido.DataSource = TablaItems.DefaultView.ToTable(True, "IDItems", "Nombre", "Cantidad", "Descripcion", "Descuento", "PrecioUnitario", "PrecioFinal")
+        DGListaDePedido.Columns("PrecioFinal").HeaderCell.Value = "Importe"
     End Sub
     Private Sub btnAgregarPedidoNuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAgregarPedidoNuevo.Click
         Dim AñadirProducto As New AgregarProductoPedido
 
         If oCNDetallesDePedido.MostrarDetalles(lblID.Text).Rows.Count > 0 Then
-                AñadirProducto.Size = New Point(600, 400)
-                AñadirProducto.ShowDialog()
-                If (AñadirProducto.oCEproducto.IDProducto <> 0) Then
-                    AgregarDatosADetalles(AñadirProducto.oCEproducto, TablaItems, AñadirProducto.oCEDetallesDelPedido)
-                End If
-            Else
-                AñadirProducto.Size = New Point(600, 400)
-                AñadirProducto.ShowDialog()
-                If (AñadirProducto.oCEproducto.IDProducto <> 0) Then
-                    If (DTDetalles.Columns.Count = 0) Then
-                        Detalles()
-                    End If
-                    AgregarDatosADetalles(AñadirProducto.oCEproducto, DTDetalles, AñadirProducto.oCEDetallesDelPedido)
-                End If
+            AñadirProducto.Size = New Point(600, 400)
+            AñadirProducto.ShowDialog()
+            If (AñadirProducto.oCEproducto.IDProducto <> 0) Then
+                AgregarDatosADetalles(AñadirProducto.oCEproducto, TablaItems, AñadirProducto.oCEDetallesDelPedido)
             End If
-            CalcularTotalBruto()
+        Else
+            AñadirProducto.Size = New Point(600, 400)
+            AñadirProducto.ShowDialog()
+            If (AñadirProducto.oCEproducto.IDProducto <> 0) Then
+                If (DTDetalles.Columns.Count = 0) Then
+                    Detalles()
+                End If
+                AgregarDatosADetalles(AñadirProducto.oCEproducto, DTDetalles, AñadirProducto.oCEDetallesDelPedido)
+            End If
+        End If
+        CalcularTotalBruto()
 
 
     End Sub
@@ -193,7 +197,7 @@ Public Class FormularioPedido
 
         End If
 
-            CalcularTotalBruto()
+        CalcularTotalBruto()
 
     End Sub
 
@@ -209,7 +213,7 @@ Public Class FormularioPedido
             frmEnvioNuevo.Tag = lblID.Text
             frmEnvioNuevo.ShowDialog()
         Else
-    
+
             frmEnvioNuevo.DatosCliente(cboCliente.SelectedValue)
             frmEnvioNuevo.Tag = lblID.Text
             frmEnvioNuevo.ShowDialog()
@@ -232,6 +236,7 @@ Public Class FormularioPedido
     Private Sub FormularioPedido_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Dim validacion As New Validaciones
         validacion.Validar(Me)
+        ' dtpFechaVencimiento.MinDate = Date.Now()
     End Sub
     Public Sub Detalles()
         DTDetalles.Columns.AddRange(New DataColumn(7) {New DataColumn("IDItems"),
@@ -242,7 +247,7 @@ Public Class FormularioPedido
                                                        New DataColumn("PrecioUnitario"),
                                                        New DataColumn("PrecioFinal"),
                                                        New DataColumn("IDProducto")})
-      
+
     End Sub
 
     Public Function CargarPedido() As CEPedido
@@ -253,7 +258,7 @@ Public Class FormularioPedido
         oCEPedido.Descripcion = Trim(txtDescripcion.Text)
         oCEPedido.Medio = cboMedio.SelectedValue
         oCEPedido.Estado = cboEstado.Text
-        oCEPedido.Seña = CDbl(txtAnticipo.valor)
+        oCEPedido.Seña = CDbl(txtAnticipoSena.Text)
         oCEPedido.Envio = CStr(chkEnvio.Checked)
         oCEPedido.SubTotal = CDbl(txtTotal.valor)
         oCEPedido.Descuento = CInt(cboDesc.Text)
@@ -291,7 +296,8 @@ Public Class FormularioPedido
         chkEnvio.Enabled = False
         btnEnvioGuardado.Enabled = False
         txtSubTotal.Enabled = False
-        txtAnticipo.Enabled = False
+        txtAnticipoSena.Enabled = False
+        txtSymbol.Enabled = False
         txtTotal.Enabled = False
     End Sub
     Public Function FormatISO8601(ByVal pfecha As Date) As String
@@ -390,12 +396,32 @@ Public Class FormularioPedido
             tablaTotal += dr.Item("PrecioFinal")
         Next
         txtSubTotal.valor = tablaTotal
-        Dim total As Double = tablaTotal - txtAnticipo.valor - (tablaTotal / 100 * cboDesc.Text)
+        Dim valueSena As Double = 0.0
+        If (txtAnticipoSena.Text = "") Then
+            valueSena = 0.0
+        Else
+            valueSena = CDbl(txtAnticipoSena.Text)
+        End If
+
+        Dim total As Double = tablaTotal - valueSena - (tablaTotal / 100 * cboDesc.Text)
         txtTotal.valor = total
     End Sub
-    Private Sub txtAnticipo_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtAnticipo.KeyPress
+
+
+    Private Sub txtAnticipoSena_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtAnticipoSena.KeyPress
+        Dim DecimalSeparator As String = Application.CurrentCulture.NumberFormat.NumberDecimalSeparator
+        e.Handled = Not (Char.IsDigit(e.KeyChar) Or
+                     Asc(e.KeyChar) = 8 Or
+                     (e.KeyChar = DecimalSeparator And sender.Text.IndexOf(DecimalSeparator) = -1))
+
+
+    End Sub
+
+    Private Sub txtAnticipoSena_TextChanged(sender As Object, e As EventArgs) Handles txtAnticipoSena.TextChanged
+
         CalcularTotalBruto()
     End Sub
+
     Public Sub CalcularTotalBruto()
         If DTDetalles.Rows.Count > 0 And TablaItems.Rows.Count > 0 Then
             MsgBox("Error en la carga del presupuesto")
@@ -488,5 +514,38 @@ Public Class FormularioPedido
 
     End Sub
 
+    'Private Sub txtAnticipo_LostFocus(sender As Object, e As EventArgs) Handles txtAnticipo.LostFocus
+    '    CalcularTotalBruto()
+    'End Sub
 
+    Private Sub btnConfirmarPedido_Click(sender As Object, e As EventArgs) Handles btnConfirmarPedido.Click
+        visibilidadFormularioPresupuesto()
+
+    End Sub
+
+    Public Sub visibilidadFormularioPresupuesto()
+
+
+        Me.btnConfirmarPedido.Text = "Volver"
+        Me.lblEstado.Visible = Not (Me.lblEstado.Visible)
+        Me.cboEstado.Visible = Not (Me.cboEstado.Visible)
+        Me.lblSeña.Visible = Not (Me.lblSeña.Visible)
+        Me.txtAnticipoSena.Visible = Not (Me.txtAnticipoSena.Visible)
+        Me.txtSymbol.Visible = Not (Me.txtSymbol.Visible)
+
+        If lblSeña.Visible = True Then
+            Me.btnConfirmarPedido.Text = "Volver"
+            Me.Text = "Detalles del pedido"
+        Else
+            Me.btnConfirmarPedido.Text = "Generar el pedido"
+            Me.Text = "Detalles del presupuesto"
+        End If
+        Me.btnGuardarPedido.Visible = Not (Me.btnGuardarPedido.Visible)
+
+
+        Me.dtpFechaVencimiento.Visible = Not (Me.dtpFechaVencimiento.Visible)
+        Me.lblFechaVencimiento.Visible = Not (Me.lblFechaVencimiento.Visible)
+        Me.btnGuardarPresupuesto.Visible = Not (Me.btnGuardarPresupuesto.Visible)
+
+    End Sub
 End Class

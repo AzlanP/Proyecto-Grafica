@@ -740,8 +740,8 @@ Partial Public Class SolemnoDataSet
                     ByVal Apellido As String,  _
                     ByVal Telefono As Long,  _
                     ByVal Telefono2 As Long,  _
-                    ByVal DNI As Long,  _
-                    ByVal CUIT As Long,  _
+                    ByVal DNI As String,  _
+                    ByVal CUIT As String,  _
                     ByVal IDProvincia As Long,  _
                     ByVal IDLocalidad As Long,  _
                     ByVal Barrio As String,  _
@@ -814,9 +814,9 @@ Partial Public Class SolemnoDataSet
             MyBase.Columns.Add(Me.columnTelefono)
             Me.columnTelefono2 = New Global.System.Data.DataColumn("Telefono2", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnTelefono2)
-            Me.columnDNI = New Global.System.Data.DataColumn("DNI", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnDNI = New Global.System.Data.DataColumn("DNI", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnDNI)
-            Me.columnCUIT = New Global.System.Data.DataColumn("CUIT", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnCUIT = New Global.System.Data.DataColumn("CUIT", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCUIT)
             Me.columnIDProvincia = New Global.System.Data.DataColumn("IDProvincia", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnIDProvincia)
@@ -846,6 +846,8 @@ Partial Public Class SolemnoDataSet
             Me.columnIDCliente.Unique = true
             Me.columnNombre.MaxLength = 2147483647
             Me.columnApellido.MaxLength = 2147483647
+            Me.columnDNI.MaxLength = 2147483647
+            Me.columnCUIT.MaxLength = 2147483647
             Me.columnBarrio.MaxLength = 2147483647
             Me.columnDomicilio.MaxLength = 2147483647
             Me.columnDpto.MaxLength = 2147483647
@@ -2830,10 +2832,10 @@ Partial Public Class SolemnoDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property DNI() As Long
+        Public Property DNI() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableClientes.DNIColumn),Long)
+                    Return CType(Me(Me.tableClientes.DNIColumn),String)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("El valor de la columna 'DNI' de la tabla 'Clientes' es DBNull.", e)
                 End Try
@@ -2845,10 +2847,10 @@ Partial Public Class SolemnoDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property CUIT() As Long
+        Public Property CUIT() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableClientes.CUITColumn),Long)
+                    Return CType(Me(Me.tableClientes.CUITColumn),String)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("El valor de la columna 'CUIT' de la tabla 'Clientes' es DBNull.", e)
                 End Try

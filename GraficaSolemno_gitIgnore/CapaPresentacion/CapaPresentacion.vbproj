@@ -165,6 +165,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SolemnoDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="SolemnoDataSet.vb">
+      <DependentUpon>SolemnoDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Validaciones.vb" />
     <Compile Include="ValidacionMoneda.Designer.vb">
       <DependentUpon>ValidacionMoneda.vb</DependentUpon>
