@@ -12,6 +12,10 @@ End Class
 
 Namespace SolemnoDataSetTableAdapters
     
+    Partial Class DTReportePedidoTableAdapter
+
+    End Class
+
     Partial Public Class ClientesTableAdapter
     End Class
 End Namespace
