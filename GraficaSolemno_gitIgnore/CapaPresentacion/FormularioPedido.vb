@@ -260,9 +260,9 @@ Public Class FormularioPedido
         oCEPedido.Estado = cboEstado.Text
         oCEPedido.Seña = CDbl(txtAnticipoSena.Text)
         oCEPedido.Envio = CStr(chkEnvio.Checked)
-        oCEPedido.SubTotal = CDbl(txtTotal.valor)
+        oCEPedido.SubTotal = CDbl(txtSubTotal.valor)
         oCEPedido.Descuento = CInt(cboDesc.Text)
-        oCEPedido.Total = txtTotal.valor
+        oCEPedido.Total = CDbl(txtTotal.valor)
         Return oCEPedido
     End Function
     Private Sub btnGuardarPedido_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGuardarPedido.Click
@@ -366,10 +366,12 @@ Public Class FormularioPedido
 
     Private Sub btnGuardarPresupuesto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGuardarPresupuesto.Click
         Dim oCEPedido As New CEPedido
+        CalcularTotalBruto()
         oCEPedido = CargarPedido()
         oCEPedido.Estado = "Presupuesto"
         oCEPedido.PresupuestoVencimiento = FormatISO8601(dtpFechaVencimiento.Text)
         oCEPedido.Seña = 0
+
         If DGListaDePedido.Rows.Count <> 0 Then
             If DTDetalles.Rows.Count > 0 And TablaItems.Rows.Count > 0 Then
                 MsgBox("Error en la carga del presupuesto")
@@ -452,7 +454,7 @@ Public Class FormularioPedido
     Private Sub DGListaDePedido_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DGListaDePedido.CellDoubleClick
         If e.RowIndex >= 0 Then
 
-
+            CalcularTotalBruto()
             Dim ProductoID As Integer
             Dim dtrow As DataRow
             Dim ValorIndex As Integer
@@ -516,6 +518,8 @@ Public Class FormularioPedido
             report.IDPedido = CInt(lblID.Text)
         End If
         report.ShowDialog()
+        report.Dispose()
+
     End Sub
 
     'Private Sub txtAnticipo_LostFocus(sender As Object, e As EventArgs) Handles txtAnticipo.LostFocus

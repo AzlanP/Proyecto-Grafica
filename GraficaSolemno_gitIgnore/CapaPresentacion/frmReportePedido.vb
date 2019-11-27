@@ -17,7 +17,9 @@ Public Class frmReportePedido
         Me.ReportViewer1.RefreshReport()
     End Sub
 
-
+    Private Sub ListaAPs_Close(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.FormClosed
+        Me.Dispose()
+    End Sub
     'Public Class repPatientList
     '    Private Sub repPatientList_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
     '        Dim dt As New DataTable

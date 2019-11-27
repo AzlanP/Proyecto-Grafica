@@ -317,7 +317,7 @@ Partial Class FormularioPedido
         Me.txtTotal.Name = "txtTotal"
         Me.txtTotal.Size = New System.Drawing.Size(83, 22)
         Me.txtTotal.TabIndex = 45
-        Me.txtTotal.valor = 0R
+        Me.txtTotal.valor = 0.0R
         '
         'lblTotal
         '
@@ -457,7 +457,7 @@ Partial Class FormularioPedido
         Me.txtSubTotal.Name = "txtSubTotal"
         Me.txtSubTotal.Size = New System.Drawing.Size(83, 22)
         Me.txtSubTotal.TabIndex = 58
-        Me.txtSubTotal.valor = 0R
+        Me.txtSubTotal.valor = 0.0R
         '
         'Label1
         '
