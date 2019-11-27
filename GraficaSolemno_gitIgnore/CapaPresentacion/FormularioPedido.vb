@@ -511,7 +511,11 @@ Public Class FormularioPedido
     End Sub
 
     Private Sub btnImprimir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnImprimir.Click
-
+        Dim report As New frmReportePedido
+        If (lblID.Text) Then
+            report.IDPedido = CInt(lblID.Text)
+        End If
+        report.ShowDialog()
     End Sub
 
     'Private Sub txtAnticipo_LostFocus(sender As Object, e As EventArgs) Handles txtAnticipo.LostFocus

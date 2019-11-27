@@ -6,7 +6,10 @@ Public Class frmReportePedido
     Private Sub frmReportePedido_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'TODO: esta línea de código carga datos en la tabla 'SolemnoDataSet.DTReportePedido' Puede moverla o quitarla según sea necesario.
         Me.DTReportePedidoTableAdapter.Fill(Me.SolemnoDataSet.DTReportePedido)
-        Me.DTReportePedidoTableAdapter.GetReportePedidoPorID(Me.SolemnoDataSet.DTReportePedido, 35)
+        If Not (IDPedido) Then
+            Me.DTReportePedidoTableAdapter.GetReportePedidoPorID(Me.SolemnoDataSet.DTReportePedido, IDPedido)
+        End If
+
         'TODO: esta línea de código carga datos en la tabla 'SolemnoDataSet.ItemsPorPedido' Puede moverla o quitarla según sea necesario.
         Me.ItemsPorPedidoTableAdapter.Fill(Me.SolemnoDataSet.ItemsPorPedido)
         ' Filter()
