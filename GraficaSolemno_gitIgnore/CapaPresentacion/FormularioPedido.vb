@@ -259,6 +259,8 @@ Public Class FormularioPedido
         oCEPedido.Descripcion = Trim(txtDescripcion.Text)
         oCEPedido.Medio = cboMedio.SelectedValue
         oCEPedido.Estado = cboEstado.Text
+
+        '//agregar setnullvalues
         oCEPedido.Seña = CDbl(txtAnticipoSena.Text)
         oCEPedido.Envio = CStr(chkEnvio.Checked)
         oCEPedido.SubTotal = CDbl(txtSubTotal.valor)

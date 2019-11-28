@@ -501,12 +501,20 @@ Public Class frmMenuPrincipal
 
     '---------------------------------------- ESTADISTICAS -----------------------------------------------------------
 #Region "Pestaña estadistica"
+    Public Sub ClearSeries()
+        For Each serie In Me.GraficoSegunConsulta.Series
+            serie.Points.Clear()
+        Next
+    End Sub
     Dim oCNGraficas As New CNGraficos
-
+    Private Sub TabEstadistica_Enter(ByVal sender As Object, ByVal e As System.EventArgs) Handles TabEstadistica.Enter
+        cboAño.SelectedIndex = 1
+        cboAño2.SelectedIndex = 0
+        cboMeses.SelectedIndex = 0
+    End Sub
     Dim Meses As String() = {"Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Agos", "Sep", "Oct", "Nov", "Dic"}
     Public Sub GraficoPedidosMensuales()
-        Me.GraficoSegunConsulta.Series("2019").Points.Clear()
-        GraficoSegunConsulta.Series("Cantidad").Points.Clear()
+        ClearSeries()
         Dim i As Integer = 1
         For i = 1 To 12
             Dim cant2018 As Integer = oCNGraficas.GraficaPedidosMensuales(i, 2018)
@@ -517,9 +525,7 @@ Public Class frmMenuPrincipal
     End Sub
 
     Private Sub ComboBox1_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cboTipoEstadistica.SelectedIndexChanged
-        Me.GraficoSegunConsulta.Series("2019").Points.Clear()
-        Me.GraficoSegunConsulta.Series("Cantidad").Points.Clear()
-        Me.GraficoSegunConsulta.Series("Mensual").Points.Clear()
+        ClearSeries()
         If (cboTipoEstadistica.Text = "Mensual") Then
             cboAño2.Visible = False
             Dim dt As DataTable = oCNGraficas.GraficaPedidosMensual(10, cboAño.SelectedItem)
@@ -541,8 +547,7 @@ Public Class frmMenuPrincipal
 
     End Sub
     Public Sub GraficarMedios()
-        Me.GraficoSegunConsulta.Series("2019").Points.Clear()
-        GraficoSegunConsulta.Series("Cantidad").Points.Clear()
+      ClearSeries()
 
         If (cboAño.Text = Nothing) Or (cboMeses.Text = Nothing) Then
             MsgBox("Debe ingresar un valor para los campos mes y año.")
@@ -556,9 +561,7 @@ Public Class frmMenuPrincipal
         End If
     End Sub
     Public Sub GraficarProductosMensual()
-        Me.GraficoSegunConsulta.Series("2019").Points.Clear()
-        GraficoSegunConsulta.Series("Cantidad").Points.Clear()
-
+        ClearSeries()
         If (cboAño.Text = Nothing) Or (cboMeses.Text = Nothing) Then
             MsgBox("Debe ingresar un valor para los campos mes y año.")
         Else
@@ -581,15 +584,10 @@ Public Class frmMenuPrincipal
         GraficarProductosMensual()
     End Sub
     Public Sub GraficarProductosHistoricos()
+        ClearSeries()
 
-        Me.GraficoSegunConsulta.Series("2019").Points.Clear()
         Me.GraficoSegunConsulta.Series("2019").Enabled = False
-
-        Me.GraficoSegunConsulta.Series("Cantidad").Points.Clear()
         Me.GraficoSegunConsulta.Series("Cantidad").Enabled = False
-
-
-        Me.GraficoSegunConsulta.Series("Mensual").Points.Clear()
         Me.GraficoSegunConsulta.Series("Mensual").Enabled = False
 
         Me.GraficoSegunConsulta.ChartAreas(0).AxisY.Interval = 20

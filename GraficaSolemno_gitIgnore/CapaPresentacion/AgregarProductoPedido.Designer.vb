@@ -72,7 +72,7 @@ Partial Class AgregarProductoPedido
         Me.TextboxDescripcion.Name = "TextboxDescripcion"
         Me.TextboxDescripcion.Size = New System.Drawing.Size(211, 81)
         Me.TextboxDescripcion.TabIndex = 18
-        Me.TextboxDescripcion.Tag = "3"
+        Me.TextboxDescripcion.Tag = ""
         '
         'lblDescripcionAgrProd
         '
@@ -213,7 +213,7 @@ Partial Class AgregarProductoPedido
         Me.txtPrecioTotal.Name = "txtPrecioTotal"
         Me.txtPrecioTotal.Size = New System.Drawing.Size(78, 22)
         Me.txtPrecioTotal.TabIndex = 29
-        Me.txtPrecioTotal.valor = 0R
+        Me.txtPrecioTotal.valor = 0.0R
         '
         'txtboxPrecio
         '
@@ -225,7 +225,7 @@ Partial Class AgregarProductoPedido
         Me.txtboxPrecio.Name = "txtboxPrecio"
         Me.txtboxPrecio.Size = New System.Drawing.Size(78, 22)
         Me.txtboxPrecio.TabIndex = 26
-        Me.txtboxPrecio.valor = 0R
+        Me.txtboxPrecio.valor = 0.0R
         '
         'AgregarProductoPedido
         '
