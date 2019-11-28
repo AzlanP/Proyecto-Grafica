@@ -13,7 +13,7 @@ Public Class CDUsuario
         oCDConexion.Conectar()
 
         Try
-            Dim instruccionSQL = "INSERT INTO Usuarios (IDUsuario, NombreCompleto, Usuario, Contrasena, FechaCreacion, Cargo) VALUES (@IDUsuario, @NombreCompleto, @Usuario, @Contrasena, @FechaCreacion, @Cargo)"
+            Dim instruccionSQL = "INSERT INTO Usuarios ( NombreCompleto, Usuario, Contrasena, FechaCreacion, Cargo) VALUES (@NombreCompleto, @Usuario, @Contrasena, @FechaCreacion, @Cargo)"
 
             Dim comando As New SQLiteCommand(instruccionSQL, oCDConexion.con)
             With comando.Parameters

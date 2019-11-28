@@ -69,7 +69,7 @@ Public Class frmIngresaralSistema
         oCEUsuario.Usuario = Trim(txtUsuarioRegistro.Text)
         oCEUsuario.Contrasena = Trim(txtContraRegistrar.Text)
         oCEUsuario.Cargo = CboCargo.Text
-        oCEUsuario.FechaCreacion = Date.Now().ToString()
+        oCEUsuario.FechaCreacion = FormatDateTime(Now, DateFormat.ShortDate)
     End Sub
     Public Sub cargardatos()
         TxtNombreyApellido.Text = oCEUsuario.NombreCompleto

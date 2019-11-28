@@ -3,6 +3,8 @@ Imports CapaEntidad
 
 Public Class frmMenuPrincipal
     Private Sub FrmMenu_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'SolemnoDataSet.Usuarios' Puede moverla o quitarla según sea necesario.
+        Me.UsuariosTableAdapter.Fill(Me.SolemnoDataSet.Usuarios)
         Dim validacion As New Validaciones
         validacion.Validar(Me)
         AbrirFormInPanel(frmPestañaTareas)
@@ -812,6 +814,7 @@ Public Class frmMenuPrincipal
         regUser.PanelRegistrar.Visible = True
         regUser.PanelLogin.Visible = False
         regUser.ShowDialog()
+        Me.UsuariosTableAdapter.Fill(Me.SolemnoDataSet.Usuarios)
     End Sub
 
     Private Sub btnModificarUsuario_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnModificarUsuario.Click
@@ -819,6 +822,7 @@ Public Class frmMenuPrincipal
         regUser.PanelRegistrar.Visible = True
         regUser.PanelLogin.Visible = False
         regUser.ShowDialog()
+        Me.UsuariosTableAdapter.Fill(Me.SolemnoDataSet.Usuarios)
     End Sub
 
     Private Sub btnVerUsuarioInactivo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnVerUsuarioInactivo.Click
@@ -850,7 +854,7 @@ Public Class frmMenuPrincipal
     End Sub
 
     Private Sub btnRefreshUsuario_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRefreshUsuario.Click
-
+        Me.UsuariosTableAdapter.Fill(Me.SolemnoDataSet.Usuarios)
     End Sub
 #End Region
 
