@@ -4200,6 +4200,12 @@ Partial Public Class SolemnoDataSet
         
         Private columnEstado As Global.System.Data.DataColumn
         
+        Private columnFechaEliminado As Global.System.Data.DataColumn
+        
+        Private columnMotivo As Global.System.Data.DataColumn
+        
+        Private columnEliminadoPor As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -4292,6 +4298,30 @@ Partial Public Class SolemnoDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property FechaEliminadoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnFechaEliminado
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property MotivoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnMotivo
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property EliminadoPorColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnEliminadoPor
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -4328,9 +4358,9 @@ Partial Public Class SolemnoDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddPostickRow(ByVal Titulo As String, ByVal Descripcion As String, ByVal Fecha As String, ByVal Prioridad As String, ByVal Responsable As String, ByVal Estado As String) As PostickRow
+        Public Overloads Function AddPostickRow(ByVal Titulo As String, ByVal Descripcion As String, ByVal Fecha As String, ByVal Prioridad As String, ByVal Responsable As String, ByVal Estado As String, ByVal FechaEliminado As String, ByVal Motivo As String, ByVal EliminadoPor As String) As PostickRow
             Dim rowPostickRow As PostickRow = CType(Me.NewRow,PostickRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, Titulo, Descripcion, Fecha, Prioridad, Responsable, Estado}
+            Dim columnValuesArray() As Object = New Object() {Nothing, Titulo, Descripcion, Fecha, Prioridad, Responsable, Estado, FechaEliminado, Motivo, EliminadoPor}
             rowPostickRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowPostickRow)
             Return rowPostickRow
@@ -4366,6 +4396,9 @@ Partial Public Class SolemnoDataSet
             Me.columnPrioridad = MyBase.Columns("Prioridad")
             Me.columnResponsable = MyBase.Columns("Responsable")
             Me.columnEstado = MyBase.Columns("Estado")
+            Me.columnFechaEliminado = MyBase.Columns("FechaEliminado")
+            Me.columnMotivo = MyBase.Columns("Motivo")
+            Me.columnEliminadoPor = MyBase.Columns("EliminadoPor")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4385,6 +4418,12 @@ Partial Public Class SolemnoDataSet
             MyBase.Columns.Add(Me.columnResponsable)
             Me.columnEstado = New Global.System.Data.DataColumn("Estado", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnEstado)
+            Me.columnFechaEliminado = New Global.System.Data.DataColumn("FechaEliminado", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnFechaEliminado)
+            Me.columnMotivo = New Global.System.Data.DataColumn("Motivo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnMotivo)
+            Me.columnEliminadoPor = New Global.System.Data.DataColumn("EliminadoPor", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnEliminadoPor)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnIDPostick}, true))
             Me.columnIDPostick.AutoIncrement = true
             Me.columnIDPostick.AutoIncrementSeed = -1
@@ -4397,6 +4436,9 @@ Partial Public Class SolemnoDataSet
             Me.columnPrioridad.MaxLength = 2147483647
             Me.columnResponsable.MaxLength = 2147483647
             Me.columnEstado.MaxLength = 2147483647
+            Me.columnFechaEliminado.MaxLength = 2147483647
+            Me.columnMotivo.MaxLength = 2147483647
+            Me.columnEliminadoPor.MaxLength = 2147483647
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -7366,6 +7408,51 @@ Partial Public Class SolemnoDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property FechaEliminado() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePostick.FechaEliminadoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'FechaEliminado' de la tabla 'Postick' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePostick.FechaEliminadoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Motivo() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePostick.MotivoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Motivo' de la tabla 'Postick' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePostick.MotivoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property EliminadoPor() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePostick.EliminadoPorColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'EliminadoPor' de la tabla 'Postick' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePostick.EliminadoPorColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsTituloNull() As Boolean
             Return Me.IsNull(Me.tablePostick.TituloColumn)
         End Function
@@ -7434,6 +7521,42 @@ Partial Public Class SolemnoDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetEstadoNull()
             Me(Me.tablePostick.EstadoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsFechaEliminadoNull() As Boolean
+            Return Me.IsNull(Me.tablePostick.FechaEliminadoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetFechaEliminadoNull()
+            Me(Me.tablePostick.FechaEliminadoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsMotivoNull() As Boolean
+            Return Me.IsNull(Me.tablePostick.MotivoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetMotivoNull()
+            Me(Me.tablePostick.MotivoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsEliminadoPorNull() As Boolean
+            Return Me.IsNull(Me.tablePostick.EliminadoPorColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetEliminadoPorNull()
+            Me(Me.tablePostick.EliminadoPorColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -15834,6 +15957,9 @@ Namespace SolemnoDataSetTableAdapters
             tableMapping.ColumnMappings.Add("Prioridad", "Prioridad")
             tableMapping.ColumnMappings.Add("Responsable", "Responsable")
             tableMapping.ColumnMappings.Add("Estado", "Estado")
+            tableMapping.ColumnMappings.Add("FechaEliminado", "FechaEliminado")
+            tableMapping.ColumnMappings.Add("Motivo", "Motivo")
+            tableMapping.ColumnMappings.Add("EliminadoPor", "EliminadoPor")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SQLite.SQLiteCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
@@ -15844,7 +15970,11 @@ Namespace SolemnoDataSetTableAdapters
                 ") OR ([Fecha] = @Original_Fecha)) AND ((@IsNull_Prioridad = 1 AND [Prioridad] IS"& _ 
                 " NULL) OR ([Prioridad] = @Original_Prioridad)) AND ((@IsNull_Responsable = 1 AND"& _ 
                 " [Responsable] IS NULL) OR ([Responsable] = @Original_Responsable)) AND ((@IsNul"& _ 
-                "l_Estado = 1 AND [Estado] IS NULL) OR ([Estado] = @Original_Estado)))"
+                "l_Estado = 1 AND [Estado] IS NULL) OR ([Estado] = @Original_Estado)) AND ((@IsNu"& _ 
+                "ll_FechaEliminado = 1 AND [FechaEliminado] IS NULL) OR ([FechaEliminado] = @Orig"& _ 
+                "inal_FechaEliminado)) AND ((@IsNull_Motivo = 1 AND [Motivo] IS NULL) OR ([Motivo"& _ 
+                "] = @Original_Motivo)) AND ((@IsNull_EliminadoPor = 1 AND [EliminadoPor] IS NULL"& _ 
+                ") OR ([EliminadoPor] = @Original_EliminadoPor)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Dim param As Global.System.Data.SQLite.SQLiteParameter = New Global.System.Data.SQLite.SQLiteParameter()
             param.ParameterName = "@Original_IDPostick"
@@ -15937,11 +16067,54 @@ Namespace SolemnoDataSetTableAdapters
             param.SourceColumn = "Estado"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.DeleteCommand.Parameters.Add(param)
+            param = New Global.System.Data.SQLite.SQLiteParameter()
+            param.ParameterName = "@IsNull_FechaEliminado"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.DbType = Global.System.Data.DbType.Int32
+            param.SourceColumn = "FechaEliminado"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.DeleteCommand.Parameters.Add(param)
+            param = New Global.System.Data.SQLite.SQLiteParameter()
+            param.ParameterName = "@Original_FechaEliminado"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.SourceColumn = "FechaEliminado"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.DeleteCommand.Parameters.Add(param)
+            param = New Global.System.Data.SQLite.SQLiteParameter()
+            param.ParameterName = "@IsNull_Motivo"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.DbType = Global.System.Data.DbType.Int32
+            param.SourceColumn = "Motivo"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.DeleteCommand.Parameters.Add(param)
+            param = New Global.System.Data.SQLite.SQLiteParameter()
+            param.ParameterName = "@Original_Motivo"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.SourceColumn = "Motivo"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.DeleteCommand.Parameters.Add(param)
+            param = New Global.System.Data.SQLite.SQLiteParameter()
+            param.ParameterName = "@IsNull_EliminadoPor"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.DbType = Global.System.Data.DbType.Int32
+            param.SourceColumn = "EliminadoPor"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.DeleteCommand.Parameters.Add(param)
+            param = New Global.System.Data.SQLite.SQLiteParameter()
+            param.ParameterName = "@Original_EliminadoPor"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.SourceColumn = "EliminadoPor"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.DeleteCommand.Parameters.Add(param)
             Me._adapter.InsertCommand = New Global.System.Data.SQLite.SQLiteCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO [main].[sqlite_default_schema].[Postick] ([Titulo], [Descripcion], [F"& _ 
-                "echa], [Prioridad], [Responsable], [Estado]) VALUES (@Titulo, @Descripcion, @Fec"& _ 
-                "ha, @Prioridad, @Responsable, @Estado)"
+                "echa], [Prioridad], [Responsable], [Estado], [FechaEliminado], [Motivo], [Elimin"& _ 
+                "adoPor]) VALUES (@Titulo, @Descripcion, @Fecha, @Prioridad, @Responsable, @Estad"& _ 
+                "o, @FechaEliminado, @Motivo, @EliminadoPor)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             param = New Global.System.Data.SQLite.SQLiteParameter()
             param.ParameterName = "@Titulo"
@@ -15973,18 +16146,38 @@ Namespace SolemnoDataSetTableAdapters
             param.DbType = Global.System.Data.DbType.[String]
             param.SourceColumn = "Estado"
             Me._adapter.InsertCommand.Parameters.Add(param)
+            param = New Global.System.Data.SQLite.SQLiteParameter()
+            param.ParameterName = "@FechaEliminado"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.SourceColumn = "FechaEliminado"
+            Me._adapter.InsertCommand.Parameters.Add(param)
+            param = New Global.System.Data.SQLite.SQLiteParameter()
+            param.ParameterName = "@Motivo"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.SourceColumn = "Motivo"
+            Me._adapter.InsertCommand.Parameters.Add(param)
+            param = New Global.System.Data.SQLite.SQLiteParameter()
+            param.ParameterName = "@EliminadoPor"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.SourceColumn = "EliminadoPor"
+            Me._adapter.InsertCommand.Parameters.Add(param)
             Me._adapter.UpdateCommand = New Global.System.Data.SQLite.SQLiteCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE [main].[sqlite_default_schema].[Postick] SET [Titulo] = @Titulo, [Descripc"& _ 
                 "ion] = @Descripcion, [Fecha] = @Fecha, [Prioridad] = @Prioridad, [Responsable] ="& _ 
-                " @Responsable, [Estado] = @Estado WHERE (([IDPostick] = @Original_IDPostick) AND"& _ 
-                " ((@IsNull_Titulo = 1 AND [Titulo] IS NULL) OR ([Titulo] = @Original_Titulo)) AN"& _ 
-                "D ((@IsNull_Descripcion = 1 AND [Descripcion] IS NULL) OR ([Descripcion] = @Orig"& _ 
-                "inal_Descripcion)) AND ((@IsNull_Fecha = 1 AND [Fecha] IS NULL) OR ([Fecha] = @O"& _ 
-                "riginal_Fecha)) AND ((@IsNull_Prioridad = 1 AND [Prioridad] IS NULL) OR ([Priori"& _ 
-                "dad] = @Original_Prioridad)) AND ((@IsNull_Responsable = 1 AND [Responsable] IS "& _ 
-                "NULL) OR ([Responsable] = @Original_Responsable)) AND ((@IsNull_Estado = 1 AND ["& _ 
-                "Estado] IS NULL) OR ([Estado] = @Original_Estado)))"
+                " @Responsable, [Estado] = @Estado, [FechaEliminado] = @FechaEliminado, [Motivo] "& _ 
+                "= @Motivo, [EliminadoPor] = @EliminadoPor WHERE (([IDPostick] = @Original_IDPost"& _ 
+                "ick) AND ((@IsNull_Titulo = 1 AND [Titulo] IS NULL) OR ([Titulo] = @Original_Tit"& _ 
+                "ulo)) AND ((@IsNull_Descripcion = 1 AND [Descripcion] IS NULL) OR ([Descripcion]"& _ 
+                " = @Original_Descripcion)) AND ((@IsNull_Fecha = 1 AND [Fecha] IS NULL) OR ([Fec"& _ 
+                "ha] = @Original_Fecha)) AND ((@IsNull_Prioridad = 1 AND [Prioridad] IS NULL) OR "& _ 
+                "([Prioridad] = @Original_Prioridad)) AND ((@IsNull_Responsable = 1 AND [Responsa"& _ 
+                "ble] IS NULL) OR ([Responsable] = @Original_Responsable)) AND ((@IsNull_Estado ="& _ 
+                " 1 AND [Estado] IS NULL) OR ([Estado] = @Original_Estado)) AND ((@IsNull_FechaEl"& _ 
+                "iminado = 1 AND [FechaEliminado] IS NULL) OR ([FechaEliminado] = @Original_Fecha"& _ 
+                "Eliminado)) AND ((@IsNull_Motivo = 1 AND [Motivo] IS NULL) OR ([Motivo] = @Origi"& _ 
+                "nal_Motivo)) AND ((@IsNull_EliminadoPor = 1 AND [EliminadoPor] IS NULL) OR ([Eli"& _ 
+                "minadoPor] = @Original_EliminadoPor)))"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             param = New Global.System.Data.SQLite.SQLiteParameter()
             param.ParameterName = "@Titulo"
@@ -16015,6 +16208,21 @@ Namespace SolemnoDataSetTableAdapters
             param.ParameterName = "@Estado"
             param.DbType = Global.System.Data.DbType.[String]
             param.SourceColumn = "Estado"
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.System.Data.SQLite.SQLiteParameter()
+            param.ParameterName = "@FechaEliminado"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.SourceColumn = "FechaEliminado"
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.System.Data.SQLite.SQLiteParameter()
+            param.ParameterName = "@Motivo"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.SourceColumn = "Motivo"
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.System.Data.SQLite.SQLiteParameter()
+            param.ParameterName = "@EliminadoPor"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.SourceColumn = "EliminadoPor"
             Me._adapter.UpdateCommand.Parameters.Add(param)
             param = New Global.System.Data.SQLite.SQLiteParameter()
             param.ParameterName = "@Original_IDPostick"
@@ -16107,6 +16315,48 @@ Namespace SolemnoDataSetTableAdapters
             param.SourceColumn = "Estado"
             param.SourceVersion = Global.System.Data.DataRowVersion.Original
             Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.System.Data.SQLite.SQLiteParameter()
+            param.ParameterName = "@IsNull_FechaEliminado"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.DbType = Global.System.Data.DbType.Int32
+            param.SourceColumn = "FechaEliminado"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.System.Data.SQLite.SQLiteParameter()
+            param.ParameterName = "@Original_FechaEliminado"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.SourceColumn = "FechaEliminado"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.System.Data.SQLite.SQLiteParameter()
+            param.ParameterName = "@IsNull_Motivo"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.DbType = Global.System.Data.DbType.Int32
+            param.SourceColumn = "Motivo"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.System.Data.SQLite.SQLiteParameter()
+            param.ParameterName = "@Original_Motivo"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.SourceColumn = "Motivo"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.System.Data.SQLite.SQLiteParameter()
+            param.ParameterName = "@IsNull_EliminadoPor"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.DbType = Global.System.Data.DbType.Int32
+            param.SourceColumn = "EliminadoPor"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            param.SourceColumnNullMapping = true
+            Me._adapter.UpdateCommand.Parameters.Add(param)
+            param = New Global.System.Data.SQLite.SQLiteParameter()
+            param.ParameterName = "@Original_EliminadoPor"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.SourceColumn = "EliminadoPor"
+            param.SourceVersion = Global.System.Data.DataRowVersion.Original
+            Me._adapter.UpdateCommand.Parameters.Add(param)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -16119,12 +16369,18 @@ Namespace SolemnoDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.SQLite.SQLiteCommand(0) {}
+            Me._commandCollection = New Global.System.Data.SQLite.SQLiteCommand(1) {}
             Me._commandCollection(0) = New Global.System.Data.SQLite.SQLiteCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT [IDPostick], [Titulo], [Descripcion], [Fecha], [Prioridad], [Responsable],"& _ 
-                " [Estado] FROM [Postick]"
+            Me._commandCollection(0).CommandText = "SELECT        IDPostick, Titulo, Descripcion, Fecha, Prioridad, Responsable, Esta"& _ 
+                "do, FechaEliminado, Motivo, EliminadoPor"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Postick"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1) = New Global.System.Data.SQLite.SQLiteCommand()
+            Me._commandCollection(1).Connection = Me.Connection
+            Me._commandCollection(1).CommandText = "SELECT        IDPostick, Titulo, Descripcion, Fecha, Prioridad, Responsable, Fech"& _ 
+                "aEliminado, Motivo, EliminadoPor"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Postick"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (FechaEl"& _ 
+                "iminado <> """")"
+            Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -16146,6 +16402,30 @@ Namespace SolemnoDataSetTableAdapters
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
         Public Overloads Overridable Function GetData() As SolemnoDataSet.PostickDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Dim dataTable As SolemnoDataSet.PostickDataTable = New SolemnoDataSet.PostickDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function GetMotivoEliminacion(ByVal dataTable As SolemnoDataSet.PostickDataTable) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataBy() As SolemnoDataSet.PostickDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
             Dim dataTable As SolemnoDataSet.PostickDataTable = New SolemnoDataSet.PostickDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
@@ -16183,7 +16463,7 @@ Namespace SolemnoDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_IDPostick As Long, ByVal Original_Titulo As String, ByVal Original_Descripcion As String, ByVal Original_Fecha As String, ByVal Original_Prioridad As String, ByVal Original_Responsable As String, ByVal Original_Estado As String) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_IDPostick As Long, ByVal Original_Titulo As String, ByVal Original_Descripcion As String, ByVal Original_Fecha As String, ByVal Original_Prioridad As String, ByVal Original_Responsable As String, ByVal Original_Estado As String, ByVal Original_FechaEliminado As String, ByVal Original_Motivo As String, ByVal Original_EliminadoPor As String) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_IDPostick,Long)
             If (Original_Titulo Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
@@ -16227,6 +16507,27 @@ Namespace SolemnoDataSetTableAdapters
                 Me.Adapter.DeleteCommand.Parameters(11).Value = CType(0,Object)
                 Me.Adapter.DeleteCommand.Parameters(12).Value = CType(Original_Estado,String)
             End If
+            If (Original_FechaEliminado Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(14).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(Original_FechaEliminado,String)
+            End If
+            If (Original_Motivo Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(16).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(16).Value = CType(Original_Motivo,String)
+            End If
+            If (Original_EliminadoPor Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(18).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(18).Value = CType(Original_EliminadoPor,String)
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -16246,7 +16547,7 @@ Namespace SolemnoDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal Titulo As String, ByVal Descripcion As String, ByVal Fecha As String, ByVal Prioridad As String, ByVal Responsable As String, ByVal Estado As String) As Integer
+        Public Overloads Overridable Function Insert(ByVal Titulo As String, ByVal Descripcion As String, ByVal Fecha As String, ByVal Prioridad As String, ByVal Responsable As String, ByVal Estado As String, ByVal FechaEliminado As String, ByVal Motivo As String, ByVal EliminadoPor As String) As Integer
             If (Titulo Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
@@ -16277,6 +16578,21 @@ Namespace SolemnoDataSetTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(5).Value = CType(Estado,String)
             End If
+            If (FechaEliminado Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(6).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(6).Value = CType(FechaEliminado,String)
+            End If
+            If (Motivo Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(7).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(7).Value = CType(Motivo,String)
+            End If
+            If (EliminadoPor Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(8).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(8).Value = CType(EliminadoPor,String)
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -16296,7 +16612,26 @@ Namespace SolemnoDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal Titulo As String, ByVal Descripcion As String, ByVal Fecha As String, ByVal Prioridad As String, ByVal Responsable As String, ByVal Estado As String, ByVal Original_IDPostick As Long, ByVal Original_Titulo As String, ByVal Original_Descripcion As String, ByVal Original_Fecha As String, ByVal Original_Prioridad As String, ByVal Original_Responsable As String, ByVal Original_Estado As String) As Integer
+        Public Overloads Overridable Function Update( _
+                    ByVal Titulo As String,  _
+                    ByVal Descripcion As String,  _
+                    ByVal Fecha As String,  _
+                    ByVal Prioridad As String,  _
+                    ByVal Responsable As String,  _
+                    ByVal Estado As String,  _
+                    ByVal FechaEliminado As String,  _
+                    ByVal Motivo As String,  _
+                    ByVal EliminadoPor As String,  _
+                    ByVal Original_IDPostick As Long,  _
+                    ByVal Original_Titulo As String,  _
+                    ByVal Original_Descripcion As String,  _
+                    ByVal Original_Fecha As String,  _
+                    ByVal Original_Prioridad As String,  _
+                    ByVal Original_Responsable As String,  _
+                    ByVal Original_Estado As String,  _
+                    ByVal Original_FechaEliminado As String,  _
+                    ByVal Original_Motivo As String,  _
+                    ByVal Original_EliminadoPor As String) As Integer
             If (Titulo Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
@@ -16327,48 +16662,84 @@ Namespace SolemnoDataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Estado,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_IDPostick,Long)
-            If (Original_Titulo Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(1,Object)
+            If (FechaEliminado Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(FechaEliminado,String)
+            End If
+            If (Motivo Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Motivo,String)
+            End If
+            If (EliminadoPor Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_Titulo,String)
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(EliminadoPor,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_IDPostick,Long)
+            If (Original_Titulo Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_Titulo,String)
             End If
             If (Original_Descripcion Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_Descripcion,String)
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_Descripcion,String)
             End If
             If (Original_Fecha Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(15).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_Fecha,String)
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(Original_Fecha,String)
             End If
             If (Original_Prioridad Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(14).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(17).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Original_Prioridad,String)
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(Original_Prioridad,String)
             End If
             If (Original_Responsable Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(16).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(19).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(Original_Responsable,String)
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(Original_Responsable,String)
             End If
             If (Original_Estado Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(18).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(21).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(Original_Estado,String)
+                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(Original_Estado,String)
+            End If
+            If (Original_FechaEliminado Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(23).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(Original_FechaEliminado,String)
+            End If
+            If (Original_Motivo Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(25).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(Original_Motivo,String)
+            End If
+            If (Original_EliminadoPor Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(27).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(Original_EliminadoPor,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _

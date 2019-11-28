@@ -127,6 +127,12 @@
     <Compile Include="frmReportePedido.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ListadoPostick.Designer.vb">
+      <DependentUpon>ListadoPostick.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ListadoPostick.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Login.designer.vb">
       <DependentUpon>Login.vb</DependentUpon>
     </Compile>
@@ -206,6 +212,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmReportePedido.resx">
       <DependentUpon>frmReportePedido.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListadoPostick.resx">
+      <DependentUpon>ListadoPostick.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.vb</DependentUpon>

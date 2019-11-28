@@ -41,6 +41,7 @@ Public Class FormularioPedido
             'CambioAPedido()
 
         End If
+        CalcularTotalBruto()
     End Sub
     Public Sub CargarGridListaPedido(ByVal tabla As DataTable)
         DGListaDePedido.DataSource = tabla.DefaultView.ToTable(True, "IDItems", "Nombre", "Cantidad", "Descripcion", "Descuento", "PrecioUnitario", "PrecioFinal")

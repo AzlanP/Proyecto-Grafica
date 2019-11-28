@@ -114,6 +114,7 @@ Public Class frmMenuPrincipal
     End Sub
     Public Sub ControlesRecuperar()
         btnListadoClientesInactivos.Text = "Volver"
+        lbltituloCliente.Text = "Papelera de Clientes"
         DGClienteInactivos.Visible = True
         DGCliente.Visible = False
         btnNuevoCliente.Enabled = False
@@ -179,6 +180,7 @@ Public Class frmMenuPrincipal
     End Sub
     Public Sub VolverAlInicio()
         btnListadoClientesInactivos.Text = "Papelera Clientes"
+        lbltituloCliente.Text = "Clientes"
         DGCliente.Visible = True
         btnNuevoCliente.Enabled = True
         btnModificarCliente.Enabled = True

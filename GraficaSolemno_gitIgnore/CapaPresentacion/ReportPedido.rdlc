@@ -643,7 +643,7 @@
         <Top>6.0325cm</Top>
         <Left>1.4152cm</Left>
         <Height>1.2cm</Height>
-        <Width>16.83793cm</Width>
+        <Width>16.83794cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -665,7 +665,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>NombreCliente1</rd:DefaultName>
-        <Top>2.24868cm</Top>
+        <Top>3.35026cm</Top>
         <Left>4.41007cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
@@ -695,7 +695,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Nombre</rd:DefaultName>
-        <Top>2.24868cm</Top>
+        <Top>3.35026cm</Top>
         <Left>1.4152cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
@@ -725,7 +725,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Telefono</rd:DefaultName>
-        <Top>2.84868cm</Top>
+        <Top>3.95026cm</Top>
         <Left>1.4152cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
@@ -755,41 +755,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>EMAIL</rd:DefaultName>
-        <Top>3.48396cm</Top>
+        <Top>4.58554cm</Top>
         <Left>1.4152cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
         <ZIndex>4</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="Domicilio">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>Domicilio:</Value>
-                <Style />
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Domicilio</rd:DefaultName>
-        <Top>4.15453cm</Top>
-        <Left>1.4152cm</Left>
-        <Height>0.6cm</Height>
-        <Width>2.5cm</Width>
-        <ZIndex>5</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -815,11 +785,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Telefono1</rd:DefaultName>
-        <Top>2.84868cm</Top>
+        <Top>3.95026cm</Top>
         <Left>4.41007cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
-        <ZIndex>6</ZIndex>
+        <ZIndex>5</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -845,11 +815,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>EMAIL1</rd:DefaultName>
-        <Top>3.48396cm</Top>
+        <Top>4.58554cm</Top>
         <Left>4.41007cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
-        <ZIndex>7</ZIndex>
+        <ZIndex>6</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -874,11 +844,11 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>4.01284cm</Top>
-        <Left>13.17248cm</Left>
+        <Top>4.58554cm</Top>
+        <Left>13.16318cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
-        <ZIndex>8</ZIndex>
+        <ZIndex>7</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -903,11 +873,11 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <Top>2.84868cm</Top>
-        <Left>13.17248cm</Left>
+        <Top>3.42138cm</Top>
+        <Left>13.16318cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
-        <ZIndex>9</ZIndex>
+        <ZIndex>8</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -939,11 +909,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>encabezado3</rd:DefaultName>
-        <Top>0.83672cm</Top>
-        <Left>11.00792cm</Left>
+        <Top>0.91609cm</Top>
+        <Left>11.29448cm</Left>
         <Height>0.81167cm</Height>
         <Width>3.62007cm</Width>
-        <ZIndex>10</ZIndex>
+        <ZIndex>9</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -970,11 +940,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Fecha1</rd:DefaultName>
-        <Top>2.84868cm</Top>
-        <Left>16.29161cm</Left>
+        <Top>3.42138cm</Top>
+        <Left>16.28231cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
-        <ZIndex>11</ZIndex>
+        <ZIndex>10</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1000,11 +970,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>FechaVencimiento1</rd:DefaultName>
-        <Top>4.04812cm</Top>
-        <Left>16.29161cm</Left>
+        <Top>4.62082cm</Top>
+        <Left>16.28231cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
-        <ZIndex>12</ZIndex>
+        <ZIndex>11</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1036,7 +1006,7 @@
         <Left>3.62369cm</Left>
         <Height>0.89104cm</Height>
         <Width>3.84937cm</Width>
-        <ZIndex>13</ZIndex>
+        <ZIndex>12</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1069,7 +1039,7 @@
         <Left>11.906cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
-        <ZIndex>14</ZIndex>
+        <ZIndex>13</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1101,7 +1071,7 @@
         <Left>11.906cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
-        <ZIndex>15</ZIndex>
+        <ZIndex>14</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1134,7 +1104,7 @@
         <Left>11.906cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
-        <ZIndex>16</ZIndex>
+        <ZIndex>15</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1151,7 +1121,7 @@
         <Left>11.29448cm</Left>
         <Height>0cm</Height>
         <Width>5.90455cm</Width>
-        <ZIndex>17</ZIndex>
+        <ZIndex>16</ZIndex>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -1179,7 +1149,7 @@
         <Left>11.64142cm</Left>
         <Height>0.6cm</Height>
         <Width>2.76458cm</Width>
-        <ZIndex>18</ZIndex>
+        <ZIndex>17</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1210,7 +1180,7 @@
         <Left>14.69903cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
-        <ZIndex>19</ZIndex>
+        <ZIndex>18</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1240,7 +1210,7 @@
         <Left>14.69903cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
-        <ZIndex>20</ZIndex>
+        <ZIndex>19</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1270,7 +1240,7 @@
         <Left>14.69903cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
-        <ZIndex>21</ZIndex>
+        <ZIndex>20</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1302,7 +1272,7 @@
         <Left>17.19903cm</Left>
         <Height>0.66009cm</Height>
         <Width>0.80666cm</Width>
-        <ZIndex>22</ZIndex>
+        <ZIndex>21</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1333,7 +1303,7 @@
         <Left>14.69903cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
-        <ZIndex>23</ZIndex>
+        <ZIndex>22</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1345,7 +1315,7 @@
         </Style>
       </Textbox>
     </ReportItems>
-    <Height>11.69in</Height>
+    <Height>11.67958in</Height>
     <Style>
       <Border />
       <BackgroundColor>White</BackgroundColor>
