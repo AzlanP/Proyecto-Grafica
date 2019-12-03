@@ -180,7 +180,7 @@ Public Class RegistrarCliente
     End Sub
 
     Private Sub cboLoca_Enter(ByVal sender As Object, ByVal e As System.EventArgs) Handles cboLocalidad.Enter
-        If cboProvincia.Text = "" Or cboProvincia.Text = " " Then
+        If cboProvincia.Text.Trim() = "" Then
             MsgBox("debe ingresar una provincia primero.")
             cboProvincia.Focus()
         ElseIf cboProvincia.SelectedValue = Nothing Then

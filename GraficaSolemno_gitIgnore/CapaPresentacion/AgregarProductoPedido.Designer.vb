@@ -40,6 +40,8 @@ Partial Class AgregarProductoPedido
         Me.cboDesc = New System.Windows.Forms.ComboBox()
         Me.txtPrecioTotal = New CapaPresentacion.ValidacionMoneda()
         Me.txtboxPrecio = New CapaPresentacion.ValidacionMoneda()
+        Me.required = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
         CType(Me.DGBuscar, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -213,7 +215,7 @@ Partial Class AgregarProductoPedido
         Me.txtPrecioTotal.Name = "txtPrecioTotal"
         Me.txtPrecioTotal.Size = New System.Drawing.Size(78, 22)
         Me.txtPrecioTotal.TabIndex = 29
-        Me.txtPrecioTotal.valor = 0.0R
+        Me.txtPrecioTotal.valor = 0R
         '
         'txtboxPrecio
         '
@@ -225,7 +227,31 @@ Partial Class AgregarProductoPedido
         Me.txtboxPrecio.Name = "txtboxPrecio"
         Me.txtboxPrecio.Size = New System.Drawing.Size(78, 22)
         Me.txtboxPrecio.TabIndex = 26
-        Me.txtboxPrecio.valor = 0.0R
+        Me.txtboxPrecio.valor = 0R
+        '
+        'required
+        '
+        Me.required.AutoSize = True
+        Me.required.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.required.ForeColor = System.Drawing.Color.Red
+        Me.required.Location = New System.Drawing.Point(9, 22)
+        Me.required.Margin = New System.Windows.Forms.Padding(0)
+        Me.required.Name = "required"
+        Me.required.Size = New System.Drawing.Size(15, 20)
+        Me.required.TabIndex = 37
+        Me.required.Text = "*"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.Color.Red
+        Me.Label3.Location = New System.Drawing.Point(9, 63)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(0)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(15, 20)
+        Me.Label3.TabIndex = 38
+        Me.Label3.Text = "*"
         '
         'AgregarProductoPedido
         '
@@ -233,6 +259,8 @@ Partial Class AgregarProductoPedido
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(583, 361)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.required)
         Me.Controls.Add(Me.cboDesc)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.txtPrecioTotal)
@@ -278,4 +306,6 @@ Partial Class AgregarProductoPedido
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents cboDesc As System.Windows.Forms.ComboBox
+    Friend WithEvents required As Label
+    Friend WithEvents Label3 As Label
 End Class

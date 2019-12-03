@@ -133,39 +133,45 @@ Public Class FormularioEnvio
     
 
     Private Sub btnGuardarNuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGuardarNuevo.Click
-        TomarInformacion()
+
         'para pedidos-nuevo  envio esto no debe valer, ya que debera mantenerse como temporal hasta que den guardar cambios.
         ' aca se podria verificar si existe el pedido ya (en este caso continuara el curso normal
         'de ejecucion, en caso contrario dara a pasar el ocedetallesenvio a la capa de formulario de pedido
         'cuando se realize la Carga del Nuevo Pedido, este recien sera registrado.
+        If txtTransporte.Text.Trim() <> "" Or txtDomicilio.Text.Trim() <> "" Or cboLocalidad.SelectedValue = Nothing Then
+            TomarInformacion()
 
-        Dim oCNDetallesEnvio As New CNDetallesEnvio
-        Dim oCNPedido As New CNPedido
-        Dim dt As New DataTable
-        IDDelPedido = Me.Tag
+            Dim oCNDetallesEnvio As New CNDetallesEnvio
+            Dim oCNPedido As New CNPedido
+            Dim dt As New DataTable
+            IDDelPedido = Me.Tag
 
-        Dim dtInfo As DataTable = oCNDetallesEnvio.InformacionDeEnvio(IDDelPedido)
-        If dtInfo.Rows.Count > 0 Then
-            oCNDetallesEnvio.ModificarDetallesEnvio(oCEDetallesEnvio)
+            Dim dtInfo As DataTable = oCNDetallesEnvio.InformacionDeEnvio(IDDelPedido)
+            If dtInfo.Rows.Count > 0 Then
+                oCNDetallesEnvio.ModificarDetallesEnvio(oCEDetallesEnvio)
+                Me.Close()
+            Else
+                dt = oCNPedido.BuscarPedido("IDPedido", IDDelPedido)
+                Dim i As Integer
+                i = dt.Rows.Count
+                If i > 0 Then
+                    Dim dt2 As New DataTable
+                    dt2 = oCNDetallesEnvio.InformacionDeEnvio(IDDelPedido)
+                    Dim CantFilas As Integer = dt2.Rows.Count
+                    If CantFilas = 0 Then
+                        oCNDetallesEnvio.RegistrarEnvio(oCEDetallesEnvio)
+                    End If
+                Else
+                    oCNDetallesEnvio.RegistrarEnvio(oCEDetallesEnvio)
+
+                End If
+            End If
+
             Me.Close()
         Else
-            dt = oCNPedido.BuscarPedido("IDPedido", IDDelPedido)
-            Dim i As Integer
-            i = dt.Rows.Count
-            If i > 0 Then
-                Dim dt2 As New DataTable
-                dt2 = oCNDetallesEnvio.InformacionDeEnvio(IDDelPedido)
-                Dim CantFilas As Integer = dt2.Rows.Count
-                If CantFilas = 0 Then
-                    oCNDetallesEnvio.RegistrarEnvio(oCEDetallesEnvio)
-                End If
-            Else
-                oCNDetallesEnvio.RegistrarEnvio(oCEDetallesEnvio)
+            MsgBox("Debe completar los campos requeridos *")
 
-            End If
         End If
-        
-        Me.Close()
     End Sub
 
     Private Sub FormularioEnvio_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load

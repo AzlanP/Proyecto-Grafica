@@ -228,7 +228,7 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="PlanillaPedido.rdlc" />
+    <None Include="ReportPresupuesto.rdlc" />
     <EmbeddedResource Include="RegistrarCliente.resx">
       <DependentUpon>RegistrarCliente.vb</DependentUpon>
     </EmbeddedResource>
@@ -300,6 +300,7 @@
   <ItemGroup>
     <Content Include="Resources\add.png" />
     <Content Include="Resources\search.png" />
+    <None Include="Resources\TRASH.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

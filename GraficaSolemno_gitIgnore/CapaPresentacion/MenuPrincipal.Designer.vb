@@ -23,18 +23,20 @@ Partial Class frmMenuPrincipal
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMenuPrincipal))
         Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
         Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
         Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Dim Series3 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Dim Series4 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMenuPrincipal))
+        Dim Series5 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.TabGeneral = New System.Windows.Forms.TabControl()
         Me.TabTareas = New System.Windows.Forms.TabPage()
         Me.panelTareas = New System.Windows.Forms.Panel()
         Me.TabCliente = New System.Windows.Forms.TabPage()
         Me.PanelCentralCliente = New System.Windows.Forms.Panel()
+        Me.FondoSinResultados = New System.Windows.Forms.Panel()
         Me.btnBuscarInactivos = New System.Windows.Forms.Button()
         Me.DGClienteInactivos = New System.Windows.Forms.DataGridView()
         Me.btnRefresh = New System.Windows.Forms.Button()
@@ -175,7 +177,10 @@ Partial Class frmMenuPrincipal
         Me.lblNombreUsuario = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.UsuariosTableAdapter = New CapaPresentacion.SolemnoDataSetTableAdapters.UsuariosTableAdapter()
-        Me.Panel9 = New System.Windows.Forms.Panel()
+        Me.dtpActual = New System.Windows.Forms.DateTimePicker()
+        Me.dtpCompare = New System.Windows.Forms.DateTimePicker()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
         Me.TabGeneral.SuspendLayout()
         Me.TabTareas.SuspendLayout()
         Me.TabCliente.SuspendLayout()
@@ -285,7 +290,7 @@ Partial Class frmMenuPrincipal
         'PanelCentralCliente
         '
         Me.PanelCentralCliente.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
-        Me.PanelCentralCliente.Controls.Add(Me.Panel9)
+        Me.PanelCentralCliente.Controls.Add(Me.FondoSinResultados)
         Me.PanelCentralCliente.Controls.Add(Me.btnBuscarInactivos)
         Me.PanelCentralCliente.Controls.Add(Me.DGClienteInactivos)
         Me.PanelCentralCliente.Controls.Add(Me.btnRefresh)
@@ -298,6 +303,17 @@ Partial Class frmMenuPrincipal
         Me.PanelCentralCliente.Name = "PanelCentralCliente"
         Me.PanelCentralCliente.Size = New System.Drawing.Size(955, 467)
         Me.PanelCentralCliente.TabIndex = 13
+        '
+        'FondoSinResultados
+        '
+        Me.FondoSinResultados.BackColor = System.Drawing.Color.White
+        Me.FondoSinResultados.BackgroundImage = CType(resources.GetObject("FondoSinResultados.BackgroundImage"), System.Drawing.Image)
+        Me.FondoSinResultados.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.FondoSinResultados.Location = New System.Drawing.Point(24, 98)
+        Me.FondoSinResultados.Name = "FondoSinResultados"
+        Me.FondoSinResultados.Size = New System.Drawing.Size(614, 277)
+        Me.FondoSinResultados.TabIndex = 12
+        Me.FondoSinResultados.Visible = False
         '
         'btnBuscarInactivos
         '
@@ -480,16 +496,18 @@ Partial Class frmMenuPrincipal
         '
         'btnEliminarCliente
         '
-        Me.btnEliminarCliente.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnEliminarCliente.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(134, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.btnEliminarCliente.BackgroundImage = CType(resources.GetObject("btnEliminarCliente.BackgroundImage"), System.Drawing.Image)
+        Me.btnEliminarCliente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnEliminarCliente.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnEliminarCliente.FlatAppearance.BorderSize = 0
         Me.btnEliminarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnEliminarCliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnEliminarCliente.ForeColor = System.Drawing.Color.White
-        Me.btnEliminarCliente.Location = New System.Drawing.Point(0, 386)
+        Me.btnEliminarCliente.Location = New System.Drawing.Point(67, 498)
         Me.btnEliminarCliente.Name = "btnEliminarCliente"
-        Me.btnEliminarCliente.Size = New System.Drawing.Size(184, 50)
+        Me.btnEliminarCliente.Size = New System.Drawing.Size(50, 50)
         Me.btnEliminarCliente.TabIndex = 9
-        Me.btnEliminarCliente.Text = "Eliminar Cliente"
         Me.btnEliminarCliente.UseVisualStyleBackColor = False
         '
         'btnVerCliente
@@ -653,16 +671,18 @@ Partial Class frmMenuPrincipal
         '
         'btnEliminarPresupuesto
         '
-        Me.btnEliminarPresupuesto.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnEliminarPresupuesto.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(134, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.btnEliminarPresupuesto.BackgroundImage = Global.CapaPresentacion.My.Resources.Resources.TRASH
+        Me.btnEliminarPresupuesto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnEliminarPresupuesto.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnEliminarPresupuesto.FlatAppearance.BorderSize = 0
         Me.btnEliminarPresupuesto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnEliminarPresupuesto.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnEliminarPresupuesto.ForeColor = System.Drawing.Color.White
-        Me.btnEliminarPresupuesto.Location = New System.Drawing.Point(0, 386)
+        Me.btnEliminarPresupuesto.Location = New System.Drawing.Point(67, 386)
         Me.btnEliminarPresupuesto.Name = "btnEliminarPresupuesto"
-        Me.btnEliminarPresupuesto.Size = New System.Drawing.Size(184, 50)
+        Me.btnEliminarPresupuesto.Size = New System.Drawing.Size(50, 50)
         Me.btnEliminarPresupuesto.TabIndex = 27
-        Me.btnEliminarPresupuesto.Text = "Eliminar presupuesto"
         Me.btnEliminarPresupuesto.UseVisualStyleBackColor = False
         '
         'btnModificarPresupuesto
@@ -836,16 +856,18 @@ Partial Class frmMenuPrincipal
         '
         'btnEliminarPedido
         '
-        Me.btnEliminarPedido.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnEliminarPedido.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(134, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.btnEliminarPedido.BackgroundImage = Global.CapaPresentacion.My.Resources.Resources.TRASH
+        Me.btnEliminarPedido.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnEliminarPedido.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnEliminarPedido.FlatAppearance.BorderSize = 0
         Me.btnEliminarPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnEliminarPedido.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnEliminarPedido.ForeColor = System.Drawing.Color.White
-        Me.btnEliminarPedido.Location = New System.Drawing.Point(0, 386)
+        Me.btnEliminarPedido.Location = New System.Drawing.Point(67, 386)
         Me.btnEliminarPedido.Name = "btnEliminarPedido"
-        Me.btnEliminarPedido.Size = New System.Drawing.Size(184, 50)
+        Me.btnEliminarPedido.Size = New System.Drawing.Size(50, 50)
         Me.btnEliminarPedido.TabIndex = 27
-        Me.btnEliminarPedido.Text = "Eliminar Pedido"
         Me.btnEliminarPedido.UseVisualStyleBackColor = False
         '
         'btnModificarPedido
@@ -1158,16 +1180,18 @@ Partial Class frmMenuPrincipal
         '
         'btnEliminarUsuario
         '
-        Me.btnEliminarUsuario.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
-        Me.btnEliminarUsuario.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnEliminarUsuario.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(134, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.btnEliminarUsuario.BackgroundImage = Global.CapaPresentacion.My.Resources.Resources.TRASH
+        Me.btnEliminarUsuario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnEliminarUsuario.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(134, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.btnEliminarUsuario.FlatAppearance.BorderSize = 0
         Me.btnEliminarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnEliminarUsuario.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnEliminarUsuario.ForeColor = System.Drawing.Color.White
-        Me.btnEliminarUsuario.Location = New System.Drawing.Point(0, 386)
+        Me.btnEliminarUsuario.Location = New System.Drawing.Point(64, 497)
         Me.btnEliminarUsuario.Name = "btnEliminarUsuario"
-        Me.btnEliminarUsuario.Size = New System.Drawing.Size(184, 50)
+        Me.btnEliminarUsuario.Size = New System.Drawing.Size(50, 50)
         Me.btnEliminarUsuario.TabIndex = 9
-        Me.btnEliminarUsuario.Text = "Eliminar usuario"
         Me.btnEliminarUsuario.UseVisualStyleBackColor = False
         '
         'btnVerUsuario
@@ -1403,7 +1427,7 @@ Partial Class frmMenuPrincipal
         Me.btnPapeleraProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnPapeleraProducto.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnPapeleraProducto.ForeColor = System.Drawing.Color.White
-        Me.btnPapeleraProducto.Location = New System.Drawing.Point(0, 394)
+        Me.btnPapeleraProducto.Location = New System.Drawing.Point(3, 394)
         Me.btnPapeleraProducto.Name = "btnPapeleraProducto"
         Me.btnPapeleraProducto.Size = New System.Drawing.Size(184, 50)
         Me.btnPapeleraProducto.TabIndex = 23
@@ -1440,16 +1464,18 @@ Partial Class frmMenuPrincipal
         '
         'btnEliminarProducto
         '
-        Me.btnEliminarProducto.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnEliminarProducto.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(134, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.btnEliminarProducto.BackgroundImage = Global.CapaPresentacion.My.Resources.Resources.TRASH
+        Me.btnEliminarProducto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnEliminarProducto.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnEliminarProducto.FlatAppearance.BorderSize = 0
         Me.btnEliminarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnEliminarProducto.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnEliminarProducto.ForeColor = System.Drawing.Color.White
-        Me.btnEliminarProducto.Location = New System.Drawing.Point(0, 338)
+        Me.btnEliminarProducto.Location = New System.Drawing.Point(66, 450)
         Me.btnEliminarProducto.Name = "btnEliminarProducto"
-        Me.btnEliminarProducto.Size = New System.Drawing.Size(184, 50)
+        Me.btnEliminarProducto.Size = New System.Drawing.Size(50, 50)
         Me.btnEliminarProducto.TabIndex = 20
-        Me.btnEliminarProducto.Text = "Eliminar Producto"
         Me.btnEliminarProducto.UseVisualStyleBackColor = False
         '
         'btnAgregarProducto
@@ -1490,6 +1516,10 @@ Partial Class frmMenuPrincipal
         'Panel7
         '
         Me.Panel7.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
+        Me.Panel7.Controls.Add(Me.Label11)
+        Me.Panel7.Controls.Add(Me.Label10)
+        Me.Panel7.Controls.Add(Me.dtpCompare)
+        Me.Panel7.Controls.Add(Me.dtpActual)
         Me.Panel7.Controls.Add(Me.Label8)
         Me.Panel7.Controls.Add(Me.cboTipoEstadistica)
         Me.Panel7.Controls.Add(Me.Label7)
@@ -1619,16 +1649,19 @@ Partial Class frmMenuPrincipal
         Series2.Legend = "Legend1"
         Series2.Name = "2019"
         Series3.ChartArea = "ChartArea1"
-        Series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
         Series3.Legend = "Legend1"
         Series3.Name = "Mensual"
         Series4.ChartArea = "ChartArea1"
         Series4.Legend = "Legend1"
         Series4.Name = "topProductos"
+        Series5.ChartArea = "ChartArea1"
+        Series5.Legend = "Legend1"
+        Series5.Name = "Mensual2"
         Me.GraficoSegunConsulta.Series.Add(Series1)
         Me.GraficoSegunConsulta.Series.Add(Series2)
         Me.GraficoSegunConsulta.Series.Add(Series3)
         Me.GraficoSegunConsulta.Series.Add(Series4)
+        Me.GraficoSegunConsulta.Series.Add(Series5)
         Me.GraficoSegunConsulta.Size = New System.Drawing.Size(805, 300)
         Me.GraficoSegunConsulta.TabIndex = 0
         Me.GraficoSegunConsulta.Text = "Chart1"
@@ -1793,8 +1826,8 @@ Partial Class frmMenuPrincipal
         Me.ListBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ListBox3.FormattingEnabled = True
         Me.ListBox3.ItemHeight = 20
-        Me.ListBox3.Items.AddRange(New Object() {"3)Agrege un titulo deceado a su postick para un posterior reconomiento del mismo." & _
-                        "", "4)Describa detalladamente el motivo del postick.", "5)Agrege la Fecha del postick en el cual quiere que sea mostrado.", "6)seleccione ""Guardar""."})
+        Me.ListBox3.Items.AddRange(New Object() {"3)Agrege un titulo deceado a su postick para un posterior reconomiento del mismo." &
+                "", "4)Describa detalladamente el motivo del postick.", "5)Agrege la Fecha del postick en el cual quiere que sea mostrado.", "6)seleccione ""Guardar""."})
         Me.ListBox3.Location = New System.Drawing.Point(352, 145)
         Me.ListBox3.Name = "ListBox3"
         Me.ListBox3.Size = New System.Drawing.Size(589, 300)
@@ -1923,7 +1956,7 @@ Partial Class frmMenuPrincipal
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.63731!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.11883!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.27605!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80.0!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 87.0!))
         Me.TableLayoutPanel2.Controls.Add(Me.PictureBox1, 0, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.Label1, 1, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.TableLayoutPanel3, 3, 0)
@@ -1940,7 +1973,7 @@ Partial Class frmMenuPrincipal
         '
         Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Right
         Me.PictureBox1.Image = Global.CapaPresentacion.My.Resources.Resources.slmn
-        Me.PictureBox1.Location = New System.Drawing.Point(175, 3)
+        Me.PictureBox1.Location = New System.Drawing.Point(173, 3)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(116, 85)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -1952,9 +1985,9 @@ Partial Class frmMenuPrincipal
         Me.Label1.AutoSize = True
         Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label1.Font = New System.Drawing.Font("Impact", 48.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(297, 0)
+        Me.Label1.Location = New System.Drawing.Point(295, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(581, 91)
+        Me.Label1.Size = New System.Drawing.Size(578, 91)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "SOLEMNO GRAFICA"
         '
@@ -1964,7 +1997,7 @@ Partial Class frmMenuPrincipal
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.52941!))
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 76.47059!))
         Me.TableLayoutPanel3.Controls.Add(Me.btnLogout, 1, 0)
-        Me.TableLayoutPanel3.Location = New System.Drawing.Point(1068, 3)
+        Me.TableLayoutPanel3.Location = New System.Drawing.Point(1062, 3)
         Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
         Me.TableLayoutPanel3.RowCount = 2
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 52.94118!))
@@ -1991,12 +2024,12 @@ Partial Class frmMenuPrincipal
         Me.TableLayoutPanel4.ColumnCount = 1
         Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel4.Controls.Add(Me.lblUsuario, 0, 0)
-        Me.TableLayoutPanel4.Location = New System.Drawing.Point(884, 3)
+        Me.TableLayoutPanel4.Location = New System.Drawing.Point(879, 3)
         Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
         Me.TableLayoutPanel4.RowCount = 2
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.0!))
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
-        Me.TableLayoutPanel4.Size = New System.Drawing.Size(178, 85)
+        Me.TableLayoutPanel4.Size = New System.Drawing.Size(177, 85)
         Me.TableLayoutPanel4.TabIndex = 4
         '
         'lblUsuario
@@ -2006,7 +2039,7 @@ Partial Class frmMenuPrincipal
         Me.lblUsuario.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblUsuario.Location = New System.Drawing.Point(3, 16)
         Me.lblUsuario.Name = "lblUsuario"
-        Me.lblUsuario.Size = New System.Drawing.Size(172, 18)
+        Me.lblUsuario.Size = New System.Drawing.Size(171, 18)
         Me.lblUsuario.TabIndex = 0
         Me.lblUsuario.Text = "Usuario"
         Me.lblUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -2040,15 +2073,43 @@ Partial Class frmMenuPrincipal
         '
         Me.UsuariosTableAdapter.ClearBeforeFill = True
         '
-        'Panel9
+        'dtpActual
         '
-        Me.Panel9.BackColor = System.Drawing.Color.White
-        Me.Panel9.BackgroundImage = CType(resources.GetObject("Panel9.BackgroundImage"), System.Drawing.Image)
-        Me.Panel9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Panel9.Location = New System.Drawing.Point(24, 98)
-        Me.Panel9.Name = "Panel9"
-        Me.Panel9.Size = New System.Drawing.Size(614, 277)
-        Me.Panel9.TabIndex = 12
+        Me.dtpActual.CustomFormat = "MM/yyyy"
+        Me.dtpActual.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtpActual.Location = New System.Drawing.Point(456, 371)
+        Me.dtpActual.Name = "dtpActual"
+        Me.dtpActual.ShowUpDown = True
+        Me.dtpActual.Size = New System.Drawing.Size(91, 20)
+        Me.dtpActual.TabIndex = 14
+        '
+        'dtpCompare
+        '
+        Me.dtpCompare.CustomFormat = "MM/yyyy"
+        Me.dtpCompare.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtpCompare.Location = New System.Drawing.Point(456, 395)
+        Me.dtpCompare.Name = "dtpCompare"
+        Me.dtpCompare.ShowUpDown = True
+        Me.dtpCompare.Size = New System.Drawing.Size(91, 20)
+        Me.dtpCompare.TabIndex = 15
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(377, 377)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(73, 13)
+        Me.Label10.TabIndex = 16
+        Me.Label10.Text = "Fecha Actual:"
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(357, 398)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(96, 13)
+        Me.Label11.TabIndex = 17
+        Me.Label11.Text = "Fecha a comparar:"
         '
         'frmMenuPrincipal
         '
@@ -2283,5 +2344,9 @@ Partial Class frmMenuPrincipal
     Friend WithEvents UsuarioDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents FechaCreacionDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents CargoDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Panel9 As System.Windows.Forms.Panel
+    Friend WithEvents FondoSinResultados As System.Windows.Forms.Panel
+    Friend WithEvents dtpActual As DateTimePicker
+    Friend WithEvents Label11 As Label
+    Friend WithEvents Label10 As Label
+    Friend WithEvents dtpCompare As DateTimePicker
 End Class

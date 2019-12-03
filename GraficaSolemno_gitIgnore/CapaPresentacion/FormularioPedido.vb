@@ -437,13 +437,29 @@ Public Class FormularioPedido
         End If
     End Sub
     Private Sub cboDesc_SelectedValueChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles cboDesc.SelectedValueChanged
+
         If DTDetalles.Rows.Count > 0 And TablaItems.Rows.Count > 0 Then
-            MsgBox("Error en la carga del presupuesto")
-        ElseIf DTDetalles.Rows.Count > 0 And TablaItems.Rows.Count = 0 Then
-            CalcularTotal(DTDetalles)
-        ElseIf DTDetalles.Rows.Count = 0 And TablaItems.Rows.Count > 0 Then
-            CalcularTotal(TablaItems)
+                MsgBox("Error en la carga del presupuesto")
+            ElseIf DTDetalles.Rows.Count > 0 And TablaItems.Rows.Count = 0 Then
+                SobrescribirDescuentos(DTDetalles)
+                CalcularTotal(DTDetalles)
+            ElseIf DTDetalles.Rows.Count = 0 And TablaItems.Rows.Count > 0 Then
+                SobrescribirDescuentos(TablaItems)
+                CalcularTotal(TablaItems)
+            End If
+
+
+    End Sub
+    Public Sub SobrescribirDescuentos(ByVal tabla As DataTable)
+        If MessageBox.Show("Decea sobrescribir los descuentos de los productos? ", "Confirmacion de cambiar descuento", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
+            For Each dr In tabla.Rows
+                dr.Item("Descuento") = cboDesc.Text
+            Next
         End If
+
+        DGListaDePedido.DataSource = tabla
+
+
     End Sub
     Private Sub DGListaDePedido_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DGListaDePedido.CellClick
 
@@ -559,4 +575,6 @@ Public Class FormularioPedido
         Me.btnGuardarPresupuesto.Visible = Not (Me.btnGuardarPresupuesto.Visible)
 
     End Sub
+
+
 End Class

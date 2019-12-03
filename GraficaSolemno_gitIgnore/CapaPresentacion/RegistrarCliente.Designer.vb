@@ -65,6 +65,16 @@ Partial Class RegistrarCliente
         Me.ProvinciasTableAdapter = New CapaPresentacion.SolemnoDataSetTableAdapters.ProvinciasTableAdapter()
         Me.cboLocalidad = New System.Windows.Forms.ComboBox()
         Me.CondIVATableAdapter = New CapaPresentacion.SolemnoDataSetTableAdapters.CondIVATableAdapter()
+        Me.required = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.Label22 = New System.Windows.Forms.Label()
+        Me.Label23 = New System.Windows.Forms.Label()
+        Me.Label24 = New System.Windows.Forms.Label()
+        Me.LblDobleAster = New System.Windows.Forms.Label()
         CType(Me.CondIVABindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SolemnoDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ProvinciasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -74,7 +84,7 @@ Partial Class RegistrarCliente
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(13, 199)
+        Me.Label9.Location = New System.Drawing.Point(102, 203)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(32, 15)
         Me.Label9.TabIndex = 118
@@ -84,7 +94,7 @@ Partial Class RegistrarCliente
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(13, 165)
+        Me.Label8.Location = New System.Drawing.Point(95, 168)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(39, 15)
         Me.Label8.TabIndex = 117
@@ -125,7 +135,7 @@ Partial Class RegistrarCliente
         '
         Me.lblIDinfo.AutoSize = True
         Me.lblIDinfo.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblIDinfo.Location = New System.Drawing.Point(24, 64)
+        Me.lblIDinfo.Location = New System.Drawing.Point(113, 61)
         Me.lblIDinfo.Name = "lblIDinfo"
         Me.lblIDinfo.Size = New System.Drawing.Size(21, 15)
         Me.lblIDinfo.TabIndex = 113
@@ -264,7 +274,7 @@ Partial Class RegistrarCliente
         '
         Me.Label17.AutoSize = True
         Me.Label17.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label17.Location = New System.Drawing.Point(12, 233)
+        Me.Label17.Location = New System.Drawing.Point(27, 230)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(107, 15)
         Me.Label17.TabIndex = 97
@@ -274,7 +284,7 @@ Partial Class RegistrarCliente
         '
         Me.Label16.AutoSize = True
         Me.Label16.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label16.Location = New System.Drawing.Point(383, 204)
+        Me.Label16.Location = New System.Drawing.Point(386, 204)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(91, 15)
         Me.Label16.TabIndex = 96
@@ -284,7 +294,7 @@ Partial Class RegistrarCliente
         '
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(383, 239)
+        Me.Label11.Location = New System.Drawing.Point(386, 239)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(48, 15)
         Me.Label11.TabIndex = 95
@@ -294,7 +304,7 @@ Partial Class RegistrarCliente
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(13, 131)
+        Me.Label7.Location = New System.Drawing.Point(76, 128)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(58, 15)
         Me.Label7.TabIndex = 93
@@ -304,7 +314,7 @@ Partial Class RegistrarCliente
         '
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(13, 97)
+        Me.Label12.Location = New System.Drawing.Point(76, 94)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(58, 15)
         Me.Label12.TabIndex = 92
@@ -367,7 +377,7 @@ Partial Class RegistrarCliente
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(383, 135)
+        Me.Label6.Location = New System.Drawing.Point(386, 135)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(66, 15)
         Me.Label6.TabIndex = 85
@@ -377,7 +387,7 @@ Partial Class RegistrarCliente
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(383, 171)
+        Me.Label5.Location = New System.Drawing.Point(386, 171)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(68, 15)
         Me.Label5.TabIndex = 84
@@ -387,7 +397,7 @@ Partial Class RegistrarCliente
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(12, 335)
+        Me.Label4.Location = New System.Drawing.Point(82, 332)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(52, 15)
         Me.Label4.TabIndex = 83
@@ -397,7 +407,7 @@ Partial Class RegistrarCliente
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(14, 301)
+        Me.Label3.Location = New System.Drawing.Point(66, 298)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(68, 15)
         Me.Label3.TabIndex = 82
@@ -407,7 +417,7 @@ Partial Class RegistrarCliente
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(13, 267)
+        Me.Label2.Location = New System.Drawing.Point(73, 264)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(61, 15)
         Me.Label2.TabIndex = 81
@@ -462,12 +472,140 @@ Partial Class RegistrarCliente
         '
         Me.CondIVATableAdapter.ClearBeforeFill = True
         '
+        'required
+        '
+        Me.required.AutoSize = True
+        Me.required.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.required.ForeColor = System.Drawing.Color.Red
+        Me.required.Location = New System.Drawing.Point(65, 94)
+        Me.required.Margin = New System.Windows.Forms.Padding(0)
+        Me.required.Name = "required"
+        Me.required.Size = New System.Drawing.Size(15, 20)
+        Me.required.TabIndex = 124
+        Me.required.Text = "*"
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.ForeColor = System.Drawing.Color.Red
+        Me.Label10.Location = New System.Drawing.Point(65, 129)
+        Me.Label10.Margin = New System.Windows.Forms.Padding(0)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(15, 20)
+        Me.Label10.TabIndex = 125
+        Me.Label10.Text = "*"
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.ForeColor = System.Drawing.Color.Red
+        Me.Label13.Location = New System.Drawing.Point(55, 263)
+        Me.Label13.Margin = New System.Windows.Forms.Padding(0)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(15, 20)
+        Me.Label13.TabIndex = 126
+        Me.Label13.Text = "*"
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label15.ForeColor = System.Drawing.Color.Red
+        Me.Label15.Location = New System.Drawing.Point(81, 168)
+        Me.Label15.Margin = New System.Windows.Forms.Padding(0)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(15, 20)
+        Me.Label15.TabIndex = 127
+        Me.Label15.Text = "*"
+        '
+        'Label20
+        '
+        Me.Label20.AutoSize = True
+        Me.Label20.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label20.ForeColor = System.Drawing.Color.Red
+        Me.Label20.Location = New System.Drawing.Point(84, 202)
+        Me.Label20.Margin = New System.Windows.Forms.Padding(0)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(15, 20)
+        Me.Label20.TabIndex = 128
+        Me.Label20.Text = "*"
+        '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label21.ForeColor = System.Drawing.Color.Red
+        Me.Label21.Location = New System.Drawing.Point(72, 168)
+        Me.Label21.Margin = New System.Windows.Forms.Padding(0)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(15, 20)
+        Me.Label21.TabIndex = 129
+        Me.Label21.Text = "*"
+        '
+        'Label22
+        '
+        Me.Label22.AutoSize = True
+        Me.Label22.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label22.ForeColor = System.Drawing.Color.Red
+        Me.Label22.Location = New System.Drawing.Point(72, 202)
+        Me.Label22.Margin = New System.Windows.Forms.Padding(0)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(15, 20)
+        Me.Label22.TabIndex = 130
+        Me.Label22.Text = "*"
+        '
+        'Label23
+        '
+        Me.Label23.AutoSize = True
+        Me.Label23.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label23.ForeColor = System.Drawing.Color.Red
+        Me.Label23.Location = New System.Drawing.Point(26, 433)
+        Me.Label23.Margin = New System.Windows.Forms.Padding(0)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(15, 20)
+        Me.Label23.TabIndex = 131
+        Me.Label23.Text = "*"
+        '
+        'Label24
+        '
+        Me.Label24.AutoSize = True
+        Me.Label24.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label24.ForeColor = System.Drawing.Color.Red
+        Me.Label24.Location = New System.Drawing.Point(41, 433)
+        Me.Label24.Margin = New System.Windows.Forms.Padding(0)
+        Me.Label24.Name = "Label24"
+        Me.Label24.Size = New System.Drawing.Size(15, 20)
+        Me.Label24.TabIndex = 132
+        Me.Label24.Text = "*"
+        '
+        'LblDobleAster
+        '
+        Me.LblDobleAster.AutoSize = True
+        Me.LblDobleAster.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblDobleAster.Location = New System.Drawing.Point(59, 433)
+        Me.LblDobleAster.Name = "LblDobleAster"
+        Me.LblDobleAster.Size = New System.Drawing.Size(141, 15)
+        Me.LblDobleAster.TabIndex = 133
+        Me.LblDobleAster.Text = "Requerido almenos uno"
+        '
         'RegistrarCliente
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(712, 453)
+        Me.Controls.Add(Me.LblDobleAster)
+        Me.Controls.Add(Me.Label24)
+        Me.Controls.Add(Me.Label23)
+        Me.Controls.Add(Me.Label22)
+        Me.Controls.Add(Me.Label21)
+        Me.Controls.Add(Me.Label20)
+        Me.Controls.Add(Me.Label15)
+        Me.Controls.Add(Me.Label13)
+        Me.Controls.Add(Me.Label10)
+        Me.Controls.Add(Me.required)
         Me.Controls.Add(Me.cboLocalidad)
         Me.Controls.Add(Me.txtDpto)
         Me.Controls.Add(Me.Label14)
@@ -557,4 +695,14 @@ Partial Class RegistrarCliente
     Friend WithEvents cboLocalidad As System.Windows.Forms.ComboBox
     Friend WithEvents CondIVABindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents CondIVATableAdapter As CapaPresentacion.SolemnoDataSetTableAdapters.CondIVATableAdapter
+    Friend WithEvents required As Label
+    Friend WithEvents Label10 As Label
+    Friend WithEvents Label13 As Label
+    Friend WithEvents Label15 As Label
+    Friend WithEvents Label20 As Label
+    Friend WithEvents Label21 As Label
+    Friend WithEvents Label22 As Label
+    Friend WithEvents Label23 As Label
+    Friend WithEvents Label24 As Label
+    Friend WithEvents LblDobleAster As Label
 End Class

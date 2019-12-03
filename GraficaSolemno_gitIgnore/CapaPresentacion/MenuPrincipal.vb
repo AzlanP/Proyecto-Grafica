@@ -8,6 +8,9 @@ Public Class frmMenuPrincipal
         Dim validacion As New Validaciones
         validacion.Validar(Me)
         AbrirFormInPanel(frmPestañaTareas)
+        Dim hoy As Date = Date.Now()
+        dtpActual.Value = New Date(hoy.Year, hoy.Month, 1)
+        dtpCompare.Value = New Date(hoy.Year, hoy.Month - 1, 1)
     End Sub
     '---------------------------------------- CLIENTE  -----------------------------------------------------------
 #Region "Pestaña Cliente"
@@ -22,7 +25,10 @@ Public Class frmMenuPrincipal
     Public Sub CargarGridCliente()
         'la funcion de listar cliente retornara un datatable que contendra la tabla del cliente, y esta sera mostrada en el datagrid
         DGCliente.DataSource = oCNCliente.MostrarCliente
-
+        DGCliente.Columns(0).Visible = False
+        DGCliente.Columns(6).Visible = False
+        DGCliente.Columns(7).Visible = False
+        DGCliente.Columns(8).Visible = False
     End Sub
     Private Sub TabCliente_Enter(ByVal sender As Object, ByVal e As System.EventArgs) Handles TabCliente.Enter
         CargarGridCliente()
@@ -101,13 +107,20 @@ Public Class frmMenuPrincipal
     Private Sub btnBuscar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscarCliente.Click
         Dim dt As DataTable
         dt = oCNCliente.BuscarCliente(cboBuscarCliente.Text, Trim(txtBuscarCliente.Text))
-        DGCliente.DataSource = dt.DefaultView.ToTable(True, "IDCliente", "Nombre", "Apellido", "DNI", "CUIT", "Telefono", "Provincia", "Localidad", "Condicion de IVA")
+        DGCliente.DataSource = dt.DefaultView.ToTable(True, "IDCliente", "Nombre", "Apellido", "DNI", "CUIT", "Telefono")
+        DGCliente.Columns(0).Visible = False
         'para que el combobox no permita escribir, se cambio el dropdownstyle =DropDownList
+    End Sub
+    Public Sub OcultarColumnas(ByVal DGCliente As DataGridView)
+        DGCliente.Columns(0).Visible = False
+        DGCliente.Columns(6).Visible = False
+        DGCliente.Columns(7).Visible = False
+        DGCliente.Columns(8).Visible = False
     End Sub
     '---------- Para el estado eliminar
     Private Sub btnListadoClientesInactivos_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnListadoClientesInactivos.Click
         DGClienteInactivos.DataSource = oCNCliente.MostrarClienteIncativo()
-
+        OcultarColumnas(DGClienteInactivos)
         If btnListadoClientesInactivos.Text = "Papelera Clientes" Then
             ControlesRecuperar()
         ElseIf btnListadoClientesInactivos.Text = "Volver" Then
@@ -524,15 +537,18 @@ Public Class frmMenuPrincipal
         Next
     End Sub
 
-    Private Sub ComboBox1_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cboTipoEstadistica.SelectedIndexChanged
+    Private Sub cboTipoEstadistica_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cboTipoEstadistica.SelectedIndexChanged
+        GraficoPedidosxMes()
+
+    End Sub
+    Public Sub GraficoPedidosxMes()
         ClearSeries()
-        If (cboTipoEstadistica.Text = "Mensual") Then
+        If (cboTipoEstadistica.SelectedIndex = 0) Then
             cboAño2.Visible = False
-            Dim dt As DataTable = oCNGraficas.GraficaPedidosMensual(10, cboAño.SelectedItem)
+            Dim dt As DataTable = oCNGraficas.GraficaPedidosMensual(cboMeses.SelectedIndex + 1, cboAño.SelectedItem)
             For Each dr In dt.Rows
                 Dim fecha As Date = dr(0)
-                MsgBox(dr(0))
-                MsgBox(fecha)
+
                 For i = 1 To 30
                     If (i = fecha.Day) Then
                         Me.GraficoSegunConsulta.Series("Mensual").Points.AddXY(i, dr(1))
@@ -541,10 +557,11 @@ Public Class frmMenuPrincipal
                     End If
                 Next
             Next
-        ElseIf (cboTipoEstadistica.Text = "Anual") Then
+        ElseIf (cboTipoEstadistica.SelectedIndex = 1) Then
+            cboAño2.Visible = True
+
 
         End If
-
     End Sub
     Public Sub GraficarMedios()
       ClearSeries()
@@ -880,6 +897,53 @@ Public Class frmMenuPrincipal
         Me.Hide()
         Me.lblNombreUsuario.Text = ""
         frmIngresaralSistema.Show()
+    End Sub
+
+    Private Sub Label11_Click(sender As Object, e As EventArgs) Handles Label11.Click
+
+    End Sub
+
+    Private Sub dtpCompare_ValueChanged(sender As Object, e As EventArgs) Handles dtpCompare.ValueChanged
+        Me.GraficoSegunConsulta.Series("Mensual2").Points.Clear()
+        Dim comparar As Date = dtpCompare.Value
+        Dim dt2 As DataTable = oCNGraficas.GraficaPedidosMensual(comparar.Month, comparar.Year)
+        For Each dr2 In dt2.Rows
+            Dim fecha2 As Date = dr2(0)
+
+            For i = 1 To 30
+                If (i = fecha2.Day) Then
+
+                    Me.GraficoSegunConsulta.Series("Mensual2").Points.AddXY(i, dr2(1))
+                Else
+
+                    Me.GraficoSegunConsulta.Series("Mensual2").Points.AddXY(i, 0)
+
+                End If
+            Next
+        Next
+    End Sub
+
+    Private Sub dtpActual_ValueChanged(sender As Object, e As EventArgs) Handles dtpActual.ValueChanged
+        cboAño2.Visible = False
+        Me.GraficoSegunConsulta.Series("Mensual").Points.Clear()
+
+        Dim hoy As Date = dtpActual.Value
+        Dim dt As DataTable = oCNGraficas.GraficaPedidosMensual(hoy.Month, hoy.Year)
+        For Each dr In dt.Rows
+            Dim fecha As Date = dr(0)
+
+            For i = 1 To 30
+                If (i = fecha.Day) Then
+                    Me.GraficoSegunConsulta.Series("Mensual").Points.AddXY(i, dr(1))
+
+                Else
+                    Me.GraficoSegunConsulta.Series("Mensual").Points.AddXY(i, 0)
+
+
+                End If
+            Next
+        Next
+
     End Sub
 
 

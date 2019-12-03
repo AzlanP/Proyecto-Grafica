@@ -51,6 +51,10 @@ Partial Class FormularioEnvio
         Me.lblcp = New System.Windows.Forms.Label()
         Me.ValidacionPrecio = New CapaPresentacion.ValidacionMoneda()
         Me.txtTransporte = New System.Windows.Forms.TextBox()
+        Me.required = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
         CType(Me.ProvinciasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SolemnoDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -81,7 +85,7 @@ Partial Class FormularioEnvio
         '
         Me.lblPrecio.AutoSize = True
         Me.lblPrecio.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPrecio.Location = New System.Drawing.Point(48, 126)
+        Me.lblPrecio.Location = New System.Drawing.Point(64, 123)
         Me.lblPrecio.Name = "lblPrecio"
         Me.lblPrecio.Size = New System.Drawing.Size(86, 13)
         Me.lblPrecio.TabIndex = 18
@@ -99,11 +103,11 @@ Partial Class FormularioEnvio
         '
         Me.lblNseguimiento.AutoSize = True
         Me.lblNseguimiento.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNseguimiento.Location = New System.Drawing.Point(48, 91)
+        Me.lblNseguimiento.Location = New System.Drawing.Point(67, 88)
         Me.lblNseguimiento.Name = "lblNseguimiento"
-        Me.lblNseguimiento.Size = New System.Drawing.Size(80, 13)
+        Me.lblNseguimiento.Size = New System.Drawing.Size(83, 13)
         Me.lblNseguimiento.TabIndex = 16
-        Me.lblNseguimiento.Text = "N° Seguimiento"
+        Me.lblNseguimiento.Text = "N° Seguimiento:"
         '
         'dtpFechaDespacho
         '
@@ -118,17 +122,17 @@ Partial Class FormularioEnvio
         '
         Me.lblFechaDespacho.AutoSize = True
         Me.lblFechaDespacho.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblFechaDespacho.Location = New System.Drawing.Point(48, 56)
+        Me.lblFechaDespacho.Location = New System.Drawing.Point(45, 56)
         Me.lblFechaDespacho.Name = "lblFechaDespacho"
-        Me.lblFechaDespacho.Size = New System.Drawing.Size(102, 13)
+        Me.lblFechaDespacho.Size = New System.Drawing.Size(105, 13)
         Me.lblFechaDespacho.TabIndex = 14
-        Me.lblFechaDespacho.Text = "Fecha de despacho"
+        Me.lblFechaDespacho.Text = "Fecha de despacho:"
         '
         'lblTransporte
         '
         Me.lblTransporte.AutoSize = True
         Me.lblTransporte.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTransporte.Location = New System.Drawing.Point(48, 21)
+        Me.lblTransporte.Location = New System.Drawing.Point(86, 16)
         Me.lblTransporte.Name = "lblTransporte"
         Me.lblTransporte.Size = New System.Drawing.Size(64, 13)
         Me.lblTransporte.TabIndex = 12
@@ -156,7 +160,7 @@ Partial Class FormularioEnvio
         '
         Me.lblDomicilio.AutoSize = True
         Me.lblDomicilio.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDomicilio.Location = New System.Drawing.Point(47, 301)
+        Me.lblDomicilio.Location = New System.Drawing.Point(95, 301)
         Me.lblDomicilio.Name = "lblDomicilio"
         Me.lblDomicilio.Size = New System.Drawing.Size(55, 13)
         Me.lblDomicilio.TabIndex = 134
@@ -222,7 +226,7 @@ Partial Class FormularioEnvio
         '
         Me.lblBarrio.AutoSize = True
         Me.lblBarrio.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblBarrio.Location = New System.Drawing.Point(48, 266)
+        Me.lblBarrio.Location = New System.Drawing.Point(110, 266)
         Me.lblBarrio.Name = "lblBarrio"
         Me.lblBarrio.Size = New System.Drawing.Size(40, 13)
         Me.lblBarrio.TabIndex = 126
@@ -232,7 +236,7 @@ Partial Class FormularioEnvio
         '
         Me.lblProvincia.AutoSize = True
         Me.lblProvincia.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblProvincia.Location = New System.Drawing.Point(48, 196)
+        Me.lblProvincia.Location = New System.Drawing.Point(93, 196)
         Me.lblProvincia.Name = "lblProvincia"
         Me.lblProvincia.Size = New System.Drawing.Size(57, 13)
         Me.lblProvincia.TabIndex = 124
@@ -242,7 +246,7 @@ Partial Class FormularioEnvio
         '
         Me.lblLocalidad.AutoSize = True
         Me.lblLocalidad.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblLocalidad.Location = New System.Drawing.Point(48, 231)
+        Me.lblLocalidad.Location = New System.Drawing.Point(91, 231)
         Me.lblLocalidad.Name = "lblLocalidad"
         Me.lblLocalidad.Size = New System.Drawing.Size(59, 13)
         Me.lblLocalidad.TabIndex = 123
@@ -274,18 +278,20 @@ Partial Class FormularioEnvio
         Me.lblcp.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblcp.Location = New System.Drawing.Point(223, 341)
         Me.lblcp.Name = "lblcp"
-        Me.lblcp.Size = New System.Drawing.Size(21, 13)
+        Me.lblcp.Size = New System.Drawing.Size(24, 13)
         Me.lblcp.TabIndex = 139
-        Me.lblcp.Text = "CP"
+        Me.lblcp.Text = "CP:"
         '
         'ValidacionPrecio
         '
+        Me.ValidacionPrecio.AutoSize = True
         Me.ValidacionPrecio.labeltext = Nothing
-        Me.ValidacionPrecio.Location = New System.Drawing.Point(149, 114)
+        Me.ValidacionPrecio.Location = New System.Drawing.Point(154, 123)
+        Me.ValidacionPrecio.Margin = New System.Windows.Forms.Padding(0)
         Me.ValidacionPrecio.Name = "ValidacionPrecio"
         Me.ValidacionPrecio.Size = New System.Drawing.Size(131, 35)
         Me.ValidacionPrecio.TabIndex = 140
-        Me.ValidacionPrecio.valor = 0.0R
+        Me.ValidacionPrecio.valor = 0R
         '
         'txtTransporte
         '
@@ -295,12 +301,64 @@ Partial Class FormularioEnvio
         Me.txtTransporte.TabIndex = 141
         Me.txtTransporte.Tag = "3"
         '
+        'required
+        '
+        Me.required.AutoSize = True
+        Me.required.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.required.ForeColor = System.Drawing.Color.Red
+        Me.required.Location = New System.Drawing.Point(76, 16)
+        Me.required.Margin = New System.Windows.Forms.Padding(0)
+        Me.required.Name = "required"
+        Me.required.Size = New System.Drawing.Size(15, 20)
+        Me.required.TabIndex = 146
+        Me.required.Text = "*"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.Red
+        Me.Label1.Location = New System.Drawing.Point(76, 192)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(0)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(15, 20)
+        Me.Label1.TabIndex = 147
+        Me.Label1.Text = "*"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.Red
+        Me.Label2.Location = New System.Drawing.Point(77, 296)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(0)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(15, 20)
+        Me.Label2.TabIndex = 148
+        Me.Label2.Text = "*"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.Color.Red
+        Me.Label3.Location = New System.Drawing.Point(77, 226)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(0)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(15, 20)
+        Me.Label3.TabIndex = 149
+        Me.Label3.Text = "*"
+        '
         'FormularioEnvio
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(413, 431)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.required)
         Me.Controls.Add(Me.txtTransporte)
         Me.Controls.Add(Me.ValidacionPrecio)
         Me.Controls.Add(Me.lblcp)
@@ -361,4 +419,8 @@ Partial Class FormularioEnvio
     Friend WithEvents lblcp As System.Windows.Forms.Label
     Friend WithEvents ValidacionPrecio As CapaPresentacion.ValidacionMoneda
     Friend WithEvents txtTransporte As System.Windows.Forms.TextBox
+    Friend WithEvents required As Label
+    Friend WithEvents Label1 As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Label3 As Label
 End Class

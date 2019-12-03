@@ -68,6 +68,8 @@ Partial Class FormularioPedido
         Me.btnConfirmarPedido = New System.Windows.Forms.Button()
         Me.txtAnticipoSena = New System.Windows.Forms.TextBox()
         Me.txtSymbol = New System.Windows.Forms.TextBox()
+        Me.required = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
         CType(Me.TipoEnvioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SolemnoDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -317,7 +319,7 @@ Partial Class FormularioPedido
         Me.txtTotal.Name = "txtTotal"
         Me.txtTotal.Size = New System.Drawing.Size(83, 22)
         Me.txtTotal.TabIndex = 45
-        Me.txtTotal.valor = 0.0R
+        Me.txtTotal.valor = 0R
         '
         'lblTotal
         '
@@ -457,7 +459,7 @@ Partial Class FormularioPedido
         Me.txtSubTotal.Name = "txtSubTotal"
         Me.txtSubTotal.Size = New System.Drawing.Size(83, 22)
         Me.txtSubTotal.TabIndex = 58
-        Me.txtSubTotal.valor = 0.0R
+        Me.txtSubTotal.valor = 0R
         '
         'Label1
         '
@@ -499,12 +501,38 @@ Partial Class FormularioPedido
         Me.txtSymbol.TabIndex = 61
         Me.txtSymbol.Text = "$"
         '
+        'required
+        '
+        Me.required.AutoSize = True
+        Me.required.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.required.ForeColor = System.Drawing.Color.Red
+        Me.required.Location = New System.Drawing.Point(78, 17)
+        Me.required.Margin = New System.Windows.Forms.Padding(0)
+        Me.required.Name = "required"
+        Me.required.Size = New System.Drawing.Size(15, 20)
+        Me.required.TabIndex = 62
+        Me.required.Text = "*"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.Color.Red
+        Me.Label3.Location = New System.Drawing.Point(337, 86)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(0)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(15, 20)
+        Me.Label3.TabIndex = 63
+        Me.Label3.Text = "*"
+        '
         'FormularioPedido
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(728, 443)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.required)
         Me.Controls.Add(Me.txtSymbol)
         Me.Controls.Add(Me.txtAnticipoSena)
         Me.Controls.Add(Me.btnConfirmarPedido)
@@ -597,4 +625,6 @@ Partial Class FormularioPedido
     Friend WithEvents btnConfirmarPedido As Button
     Friend WithEvents txtAnticipoSena As TextBox
     Friend WithEvents txtSymbol As TextBox
+    Friend WithEvents required As Label
+    Friend WithEvents Label3 As Label
 End Class

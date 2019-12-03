@@ -36,6 +36,8 @@ Partial Class RegistrarProducto
         Me.controlPrecio = New CapaPresentacion.ValidacionMoneda()
         Me.lblDescripcion = New System.Windows.Forms.Label()
         Me.txtDescripcion = New System.Windows.Forms.TextBox()
+        Me.required = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'Label1
@@ -162,7 +164,7 @@ Partial Class RegistrarProducto
         Me.controlPrecio.Name = "controlPrecio"
         Me.controlPrecio.Size = New System.Drawing.Size(100, 24)
         Me.controlPrecio.TabIndex = 37
-        Me.controlPrecio.valor = 0.0R
+        Me.controlPrecio.valor = 0R
         '
         'lblDescripcion
         '
@@ -185,12 +187,38 @@ Partial Class RegistrarProducto
         Me.txtDescripcion.TabIndex = 39
         Me.txtDescripcion.Tag = "3"
         '
+        'required
+        '
+        Me.required.AutoSize = True
+        Me.required.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.required.ForeColor = System.Drawing.Color.Red
+        Me.required.Location = New System.Drawing.Point(20, 41)
+        Me.required.Margin = New System.Windows.Forms.Padding(0)
+        Me.required.Name = "required"
+        Me.required.Size = New System.Drawing.Size(15, 20)
+        Me.required.TabIndex = 125
+        Me.required.Text = "*"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.Red
+        Me.Label2.Location = New System.Drawing.Point(36, 79)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(0)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(15, 20)
+        Me.Label2.TabIndex = 126
+        Me.Label2.Text = "*"
+        '
         'RegistrarProducto
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(262, 296)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.required)
         Me.Controls.Add(Me.lblDescripcion)
         Me.Controls.Add(Me.txtDescripcion)
         Me.Controls.Add(Me.btnAceptar)
@@ -225,4 +253,6 @@ Partial Class RegistrarProducto
     Friend WithEvents controlPrecio As CapaPresentacion.ValidacionMoneda
     Friend WithEvents lblDescripcion As System.Windows.Forms.Label
     Friend WithEvents txtDescripcion As System.Windows.Forms.TextBox
+    Friend WithEvents required As Label
+    Friend WithEvents Label2 As Label
 End Class

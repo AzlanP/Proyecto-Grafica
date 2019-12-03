@@ -44,6 +44,8 @@ Partial Class frmAgregarNota
         Me.SolemnoDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.SolemnoDataSet = New CapaPresentacion.SolemnoDataSet()
         Me.UsuariosTableAdapter = New CapaPresentacion.SolemnoDataSetTableAdapters.UsuariosTableAdapter()
+        Me.required = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
         CType(Me.UsuariosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SolemnoDataSetBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SolemnoDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -51,7 +53,7 @@ Partial Class frmAgregarNota
         '
         'txtTitulo
         '
-        Me.txtTitulo.Location = New System.Drawing.Point(84, 39)
+        Me.txtTitulo.Location = New System.Drawing.Point(100, 39)
         Me.txtTitulo.Name = "txtTitulo"
         Me.txtTitulo.Size = New System.Drawing.Size(214, 20)
         Me.txtTitulo.TabIndex = 0
@@ -59,7 +61,7 @@ Partial Class frmAgregarNota
         '
         'txtDescripcion
         '
-        Me.txtDescripcion.Location = New System.Drawing.Point(84, 70)
+        Me.txtDescripcion.Location = New System.Drawing.Point(100, 70)
         Me.txtDescripcion.Multiline = True
         Me.txtDescripcion.Name = "txtDescripcion"
         Me.txtDescripcion.Size = New System.Drawing.Size(214, 110)
@@ -69,7 +71,7 @@ Partial Class frmAgregarNota
         'lblTitulo
         '
         Me.lblTitulo.AutoSize = True
-        Me.lblTitulo.Location = New System.Drawing.Point(12, 42)
+        Me.lblTitulo.Location = New System.Drawing.Point(55, 42)
         Me.lblTitulo.Name = "lblTitulo"
         Me.lblTitulo.Size = New System.Drawing.Size(39, 13)
         Me.lblTitulo.TabIndex = 2
@@ -78,7 +80,7 @@ Partial Class frmAgregarNota
         'lblDescripcion
         '
         Me.lblDescripcion.AutoSize = True
-        Me.lblDescripcion.Location = New System.Drawing.Point(12, 73)
+        Me.lblDescripcion.Location = New System.Drawing.Point(25, 73)
         Me.lblDescripcion.Name = "lblDescripcion"
         Me.lblDescripcion.Size = New System.Drawing.Size(69, 13)
         Me.lblDescripcion.TabIndex = 3
@@ -87,7 +89,7 @@ Partial Class frmAgregarNota
         'lblFecha
         '
         Me.lblFecha.AutoSize = True
-        Me.lblFecha.Location = New System.Drawing.Point(12, 196)
+        Me.lblFecha.Location = New System.Drawing.Point(51, 190)
         Me.lblFecha.Name = "lblFecha"
         Me.lblFecha.Size = New System.Drawing.Size(43, 13)
         Me.lblFecha.TabIndex = 4
@@ -97,7 +99,7 @@ Partial Class frmAgregarNota
         '
         Me.dtpFecha.CustomFormat = "dd/MM/yyyy"
         Me.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpFecha.Location = New System.Drawing.Point(84, 190)
+        Me.dtpFecha.Location = New System.Drawing.Point(100, 190)
         Me.dtpFecha.Name = "dtpFecha"
         Me.dtpFecha.Size = New System.Drawing.Size(214, 20)
         Me.dtpFecha.TabIndex = 5
@@ -156,7 +158,7 @@ Partial Class frmAgregarNota
         'lblPrioridad
         '
         Me.lblPrioridad.AutoSize = True
-        Me.lblPrioridad.Location = New System.Drawing.Point(12, 239)
+        Me.lblPrioridad.Location = New System.Drawing.Point(40, 239)
         Me.lblPrioridad.Name = "lblPrioridad"
         Me.lblPrioridad.Size = New System.Drawing.Size(54, 13)
         Me.lblPrioridad.TabIndex = 11
@@ -197,7 +199,7 @@ Partial Class frmAgregarNota
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(12, 266)
+        Me.Label1.Location = New System.Drawing.Point(22, 266)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(72, 13)
         Me.Label1.TabIndex = 15
@@ -234,12 +236,38 @@ Partial Class frmAgregarNota
         '
         Me.UsuariosTableAdapter.ClearBeforeFill = True
         '
+        'required
+        '
+        Me.required.AutoSize = True
+        Me.required.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.required.ForeColor = System.Drawing.Color.Red
+        Me.required.Location = New System.Drawing.Point(39, 39)
+        Me.required.Margin = New System.Windows.Forms.Padding(0)
+        Me.required.Name = "required"
+        Me.required.Size = New System.Drawing.Size(15, 20)
+        Me.required.TabIndex = 36
+        Me.required.Text = "*"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.Red
+        Me.Label2.Location = New System.Drawing.Point(11, 263)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(0)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(15, 20)
+        Me.Label2.TabIndex = 37
+        Me.Label2.Text = "*"
+        '
         'frmAgregarNota
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(348, 374)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.required)
         Me.Controls.Add(Me.cboResponsable)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.ckbCompletado)
@@ -287,4 +315,6 @@ Partial Class frmAgregarNota
     Friend WithEvents SolemnoDataSetBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents UsuariosBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents UsuariosTableAdapter As CapaPresentacion.SolemnoDataSetTableAdapters.UsuariosTableAdapter
+    Friend WithEvents required As Label
+    Friend WithEvents Label2 As Label
 End Class
