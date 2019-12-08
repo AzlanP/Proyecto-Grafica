@@ -11,22 +11,30 @@ Public Class CDPostick
         Return oCDConexion.MostrarTabla("Postick")
     End Function
     Public Sub NuevoPostick(ByVal obj As CEPostick)
-        oCDConexion.Conectar()
-        Dim sql As String = "insert into Postick (IDPostick, Titulo, Descripcion, Fecha, Prioridad, Responsable, Estado) values (@IDPostick, @Titulo, @Descripcion, @Fecha, @Prioridad, @Responsable, @Estado)"
+      
+        Try
 
-        Dim comando As New SQLiteCommand(sql, oCDConexion.con)
-        With comando.Parameters
-            .Add("@IDPostick", SqlDbType.Int).Value = obj.IDPostick
-            .Add("@Titulo", SqlDbType.VarChar).Value = obj.Titulo
-            .Add("@Descripcion", SqlDbType.VarChar).Value = obj.Descripcion
-            .Add("@Fecha", SqlDbType.VarChar).Value = obj.Fecha
-            .Add("@Prioridad", SqlDbType.VarChar).Value = obj.Prioridad
-            .Add("@Responsable", SqlDbType.VarChar).Value = obj.Responsable
-            .Add("@Estado", SqlDbType.VarChar).Value = obj.Estado
-        End With
-        comando.ExecuteNonQuery()
-        MsgBox("El Registro se ah guardado con exito.")
-        oCDConexion.Desconectar()
+            oCDConexion.Conectar()
+            Dim sql As String = "insert into Postick (IDPostick, Titulo, Descripcion, Fecha, Prioridad, Responsable, Estado) values (@IDPostick, @Titulo, @Descripcion, @Fecha, @Prioridad, @Responsable, @Estado)"
+
+            Dim comando As New SQLiteCommand(sql, oCDConexion.con)
+            With comando.Parameters
+                .Add("@IDPostick", SqlDbType.Int).Value = obj.IDPostick
+                .Add("@Titulo", SqlDbType.VarChar).Value = obj.Titulo
+                .Add("@Descripcion", SqlDbType.VarChar).Value = obj.Descripcion
+                .Add("@Fecha", SqlDbType.VarChar).Value = obj.Fecha
+                .Add("@Prioridad", SqlDbType.VarChar).Value = obj.Prioridad
+                .Add("@Responsable", SqlDbType.VarChar).Value = obj.Responsable
+                .Add("@Estado", SqlDbType.VarChar).Value = obj.Estado
+            End With
+            comando.ExecuteNonQuery()
+            MsgBox("El Registro se ah guardado con exito.")
+            oCDConexion.Desconectar()
+
+        Catch ex As Exception
+            MsgBox("Error la busqueda ah fallado.", MsgBoxStyle.Exclamation, "Busqueda de producto")
+        End Try
+      
 
     End Sub
     Public Function ConsultarUltimoID() As Integer

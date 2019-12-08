@@ -8,6 +8,7 @@
     Private _Descripcion As String
     Private _Estado As String
     Private _Seña, _Total, _SubTotal As Double
+    'Private _FechaCancelacion As String
     Public Property IDPedido() As Integer
         Get
             Return _IDPedido
@@ -41,6 +42,15 @@
             _Estado = value
         End Set
     End Property
+
+    'Public Property FechaCancelacion() As String
+    '    Get
+    '        Return _FechaCancelacion
+    '    End Get
+    '    Set(ByVal value As String)
+    '        _FechaCancelacion = value
+    '    End Set
+    'End Property
 
     Public Property CambioAPedido() As String
         Get

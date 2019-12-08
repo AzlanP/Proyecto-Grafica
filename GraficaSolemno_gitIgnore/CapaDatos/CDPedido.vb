@@ -1,5 +1,6 @@
 ﻿Imports System.Data.SQLite
 Imports CapaEntidad
+Imports System.Globalization
 Public Class CDPedidos
     Dim oCDConexion As New CDConexion
     Dim oCEPedido As New CEPedido
@@ -12,7 +13,7 @@ Public Class CDPedidos
         Return oCDConexion.MostrarTablaModificada(consulta)
     End Function
     Function MostrarPresupuesto() As DataTable
-        Dim consulta As String = "SELECT Pedidos.IDPedido, Clientes.nombre as 'Cliente', pedidos.Fecha, pedidos.Estado, pedidos.seña, pedidos.Descripcion, pedidos.PresupuestoVencimiento as 'Fecha Vencimiento' FROM(Pedidos, Clientes, medios, tipoenvio) WHERE(pedidos.IDCliente = clientes.IDCliente And pedidos.IDMedio = medios.IDMedio And pedidos.Estado == 'Presupuesto')"
+        Dim consulta As String = "SELECT Pedidos.IDPedido, Clientes.nombre as 'Cliente', pedidos.Fecha, pedidos.Estado, pedidos.seña, pedidos.Descripcion, pedidos.PresupuestoVencimiento as 'Fecha Vencimiento' FROM(Pedidos, Clientes, medios, tipoenvio) WHERE(pedidos.IDCliente = clientes.IDCliente And pedidos.IDMedio = medios.IDMedio And (pedidos.Estado == 'Presupuesto' or pedidos.Estado == 'Cancelado'))"
         Return oCDConexion.MostrarTablaModificada(consulta)
     End Function
     Public Sub GenerarElPedido(ByVal pPedido As CEPedido, ByVal TablaDetalles As DataTable)
@@ -146,6 +147,69 @@ Public Class CDPedidos
             oCDConexion.Desconectar()
         End Try
     End Sub
+    Public Sub CancelarPresupuesto(ByVal IDPedido As Integer, ByVal FechaCancelacion As Date)
+        oCDConexion.Conectar()
+        Try
+            Dim instruccionsql = "UPDATE Pedidos SET  Estado=@Estado, FechaCancelacion=@FechaCancelacion where  IDPedido=@IDPedido"
+            Dim comando As New SQLiteCommand(instruccionsql, oCDConexion.con)
+            With comando.Parameters
+                .Add("@IDPedido", SqlDbType.Int).Value = IDPedido
+                .Add("@Estado", SqlDbType.VarChar).Value = "Cancelado"
+                .Add("@FechaCancelacion", SqlDbType.VarChar).Value = FormatISO8601(FechaCancelacion)
+            End With
+            comando.ExecuteNonQuery()
+        Catch ex As Exception
+            Throw New Exception("Error al cancelar el presupuesto.")
+        Finally
+            oCDConexion.Desconectar()
+        End Try
+    End Sub
+    Public Sub AutoCancelarPresupuesto()
+
+        oCDConexion.Conectar()
+        Try
+
+            Dim instruccionsql = "UPDATE Pedidos SET  Estado='Cancelado', FechaCancelacion=@FechaCancelacion where (@FechaCancelacion > pedidos.PresupuestoVencimiento)  and pedidos.Estado= 'Presupuesto'"
+            Dim comando As New SQLiteCommand(instruccionsql, oCDConexion.con)
+            Dim hoy As String = FormatISO8601(DateTime.Now)
+            comando.Parameters.Add("@FechaCancelacion", SqlDbType.VarChar).Value = hoy
+            '.Add("@IDPedido", SqlDbType.Int).Value = oCEPedido.IDPedido
+            '.Add("@Estado", SqlDbType.VarChar).Value = oCEPedido.Estado
+
+
+            comando.ExecuteNonQuery()
+        Catch ex As Exception
+            Throw New Exception("Error al cancelar el presupuesto.")
+        Finally
+            oCDConexion.Desconectar()
+        End Try
+    End Sub
+    Public Shared Function FormatISO8601(ByVal pfecha As Date) As String
+
+        Dim SoloFecha As String
+        Dim dia, mes As String
+
+        If pfecha.Month < 10 Then
+            mes = "0" & pfecha.Month
+        Else
+            mes = pfecha.Month
+        End If
+        If pfecha.Day < 10 Then
+            dia = "0" & pfecha.Day
+        Else
+            dia = pfecha.Day
+        End If
+        SoloFecha = pfecha.Year & "/" & mes & "/" & dia
+
+        Return SoloFecha
+    End Function
+    Public Shared Function FormatoFechaNormal(ByVal pfecha As String) As Date
+        Dim fecha As Date
+        Dim OrdenarFecha() As String = pfecha.Split("/")
+        Dim fechaString As String = OrdenarFecha(2) & "/" & OrdenarFecha(1) & "/" & OrdenarFecha(0)
+        fecha = fechaString
+        Return fecha
+    End Function
     Function ConsultarUltimoID() As Integer
         Return oCDConexion.ConsultarUltimoID("Pedidos")
     End Function

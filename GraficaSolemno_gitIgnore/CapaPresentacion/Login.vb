@@ -9,8 +9,8 @@ Public Class frmIngresaralSistema
         oCEUsuario.Usuario = Trim(TxtUsuario.Text)
         oCEUsuario.Contrasena = Trim(TxtContraseña.Text)
 
+        Dim resultado As DataTable = oCNUsuario.ValidarUsuario(oCEUsuario.Usuario, oCEUsuario.Contrasena)
 
-        Dim resultado As DataTable = oCNUsuario.BuscarUsuario(oCEUsuario.Usuario, oCEUsuario.Contrasena)
         If (resultado.Rows.Count = 0) Then
             MsgBox("El usuario o la Contraseña es incorrecta")
             TxtUsuario.Text = ""
@@ -38,8 +38,25 @@ Public Class frmIngresaralSistema
         End If
     End Sub
 
+    'revisar
+    Public Sub llenarFormulario(ByVal ID As Integer)
+        Dim dt As New DataTable
+        Dim dr As DataRow
+
+        'realizo la busqueda del cliente segun su ID
+        dt = oCNUsuario.BuscarUsuario(ID)
+
+        dr = dt.Rows(0)
+        'para mostrar los datos precargados de el registro
+        'txtNombre.Text = dr("Nombre").ToString
+        'txtApellido.Text = dr("Apellido").ToString
+        TxtNombreyApellido.Text = dr("NombreCompleto").ToString
+        txtUsuarioRegistro.Text = dr("Usuario").ToString
+
+        CboCargo.Text = dr("Cargo").ToString
 
 
+    End Sub
 
 
     Private Sub CekMostrar_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CekMostrar.CheckedChanged

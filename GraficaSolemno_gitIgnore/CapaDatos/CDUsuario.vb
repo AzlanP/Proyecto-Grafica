@@ -101,6 +101,26 @@ Public Class CDUsuario
 
     End Function
 
+    Function BuscarUsuario(ByVal ID As Integer) As DataTable
+        oCDConexion.Conectar()
+        Dim da As New SQLiteDataAdapter
+        Dim dt As New DataTable
+        Try
 
+            Dim instruccionSQL = "Select * FROM Usuarios where IDUsuario=@ID"
+            Dim comando As New SQLiteCommand(instruccionSQL, oCDConexion.con)
+            comando.Parameters.Add("@ID", SqlDbType.Int).Value = ID
+
+            da.SelectCommand = comando
+            da.Fill(dt)
+            Return dt
+
+        Catch ex As Exception
+            MsgBox("Error la busqueda ah fallado.", , "Busqueda de Usuario")
+            Return Nothing
+        Finally
+            oCDConexion.Desconectar()
+        End Try
+    End Function
    
 End Class

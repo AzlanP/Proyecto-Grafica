@@ -138,9 +138,8 @@ Public Class FormularioEnvio
         ' aca se podria verificar si existe el pedido ya (en este caso continuara el curso normal
         'de ejecucion, en caso contrario dara a pasar el ocedetallesenvio a la capa de formulario de pedido
         'cuando se realize la Carga del Nuevo Pedido, este recien sera registrado.
-        If txtTransporte.Text.Trim() <> "" Or txtDomicilio.Text.Trim() <> "" Or cboLocalidad.SelectedValue = Nothing Then
+        If txtTransporte.Text.Trim() <> "" And txtDomicilio.Text.Trim() <> "" And cboLocalidad.SelectedValue = Nothing Then
             TomarInformacion()
-
             Dim oCNDetallesEnvio As New CNDetallesEnvio
             Dim oCNPedido As New CNPedido
             Dim dt As New DataTable

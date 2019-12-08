@@ -65,6 +65,7 @@ Partial Class frmMenuPrincipal
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.btnCancelarPresupuesto = New System.Windows.Forms.Button()
         Me.btnEliminarPresupuesto = New System.Windows.Forms.Button()
         Me.btnModificarPresupuesto = New System.Windows.Forms.Button()
         Me.btnVerPresupuesto = New System.Windows.Forms.Button()
@@ -134,6 +135,10 @@ Partial Class frmMenuPrincipal
         Me.IconoProducto = New System.Windows.Forms.PictureBox()
         Me.TabEstadistica = New System.Windows.Forms.TabPage()
         Me.Panel7 = New System.Windows.Forms.Panel()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.dtpCompare = New System.Windows.Forms.DateTimePicker()
+        Me.dtpActual = New System.Windows.Forms.DateTimePicker()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.cboTipoEstadistica = New System.Windows.Forms.ComboBox()
         Me.Label7 = New System.Windows.Forms.Label()
@@ -177,10 +182,6 @@ Partial Class frmMenuPrincipal
         Me.lblNombreUsuario = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.UsuariosTableAdapter = New CapaPresentacion.SolemnoDataSetTableAdapters.UsuariosTableAdapter()
-        Me.dtpActual = New System.Windows.Forms.DateTimePicker()
-        Me.dtpCompare = New System.Windows.Forms.DateTimePicker()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.Label11 = New System.Windows.Forms.Label()
         Me.TabGeneral.SuspendLayout()
         Me.TabTareas.SuspendLayout()
         Me.TabCliente.SuspendLayout()
@@ -477,7 +478,7 @@ Partial Class frmMenuPrincipal
         Me.btnListadoClientesInactivos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnListadoClientesInactivos.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnListadoClientesInactivos.ForeColor = System.Drawing.Color.White
-        Me.btnListadoClientesInactivos.Location = New System.Drawing.Point(0, 442)
+        Me.btnListadoClientesInactivos.Location = New System.Drawing.Point(0, 386)
         Me.btnListadoClientesInactivos.Name = "btnListadoClientesInactivos"
         Me.btnListadoClientesInactivos.Size = New System.Drawing.Size(184, 50)
         Me.btnListadoClientesInactivos.TabIndex = 11
@@ -658,6 +659,7 @@ Partial Class frmMenuPrincipal
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(134, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.Panel3.Controls.Add(Me.btnCancelarPresupuesto)
         Me.Panel3.Controls.Add(Me.btnEliminarPresupuesto)
         Me.Panel3.Controls.Add(Me.btnModificarPresupuesto)
         Me.Panel3.Controls.Add(Me.btnVerPresupuesto)
@@ -669,6 +671,20 @@ Partial Class frmMenuPrincipal
         Me.Panel3.Size = New System.Drawing.Size(184, 556)
         Me.Panel3.TabIndex = 16
         '
+        'btnCancelarPresupuesto
+        '
+        Me.btnCancelarPresupuesto.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnCancelarPresupuesto.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnCancelarPresupuesto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCancelarPresupuesto.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCancelarPresupuesto.ForeColor = System.Drawing.Color.White
+        Me.btnCancelarPresupuesto.Location = New System.Drawing.Point(0, 386)
+        Me.btnCancelarPresupuesto.Name = "btnCancelarPresupuesto"
+        Me.btnCancelarPresupuesto.Size = New System.Drawing.Size(184, 50)
+        Me.btnCancelarPresupuesto.TabIndex = 28
+        Me.btnCancelarPresupuesto.Text = "Cancelar presupuesto"
+        Me.btnCancelarPresupuesto.UseVisualStyleBackColor = False
+        '
         'btnEliminarPresupuesto
         '
         Me.btnEliminarPresupuesto.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(134, Byte), Integer), CType(CType(67, Byte), Integer))
@@ -679,7 +695,7 @@ Partial Class frmMenuPrincipal
         Me.btnEliminarPresupuesto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnEliminarPresupuesto.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnEliminarPresupuesto.ForeColor = System.Drawing.Color.White
-        Me.btnEliminarPresupuesto.Location = New System.Drawing.Point(67, 386)
+        Me.btnEliminarPresupuesto.Location = New System.Drawing.Point(64, 441)
         Me.btnEliminarPresupuesto.Name = "btnEliminarPresupuesto"
         Me.btnEliminarPresupuesto.Size = New System.Drawing.Size(50, 50)
         Me.btnEliminarPresupuesto.TabIndex = 27
@@ -1161,7 +1177,7 @@ Partial Class frmMenuPrincipal
         Me.btnPapeleraUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnPapeleraUsuario.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnPapeleraUsuario.ForeColor = System.Drawing.Color.White
-        Me.btnPapeleraUsuario.Location = New System.Drawing.Point(-3, 442)
+        Me.btnPapeleraUsuario.Location = New System.Drawing.Point(0, 386)
         Me.btnPapeleraUsuario.Name = "btnPapeleraUsuario"
         Me.btnPapeleraUsuario.Size = New System.Drawing.Size(184, 50)
         Me.btnPapeleraUsuario.TabIndex = 11
@@ -1427,7 +1443,7 @@ Partial Class frmMenuPrincipal
         Me.btnPapeleraProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnPapeleraProducto.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnPapeleraProducto.ForeColor = System.Drawing.Color.White
-        Me.btnPapeleraProducto.Location = New System.Drawing.Point(3, 394)
+        Me.btnPapeleraProducto.Location = New System.Drawing.Point(0, 338)
         Me.btnPapeleraProducto.Name = "btnPapeleraProducto"
         Me.btnPapeleraProducto.Size = New System.Drawing.Size(184, 50)
         Me.btnPapeleraProducto.TabIndex = 23
@@ -1534,6 +1550,44 @@ Partial Class frmMenuPrincipal
         Me.Panel7.Name = "Panel7"
         Me.Panel7.Size = New System.Drawing.Size(955, 467)
         Me.Panel7.TabIndex = 6
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(357, 398)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(96, 13)
+        Me.Label11.TabIndex = 17
+        Me.Label11.Text = "Fecha a comparar:"
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(377, 377)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(73, 13)
+        Me.Label10.TabIndex = 16
+        Me.Label10.Text = "Fecha Actual:"
+        '
+        'dtpCompare
+        '
+        Me.dtpCompare.CustomFormat = "MM/yyyy"
+        Me.dtpCompare.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtpCompare.Location = New System.Drawing.Point(456, 395)
+        Me.dtpCompare.Name = "dtpCompare"
+        Me.dtpCompare.ShowUpDown = True
+        Me.dtpCompare.Size = New System.Drawing.Size(91, 20)
+        Me.dtpCompare.TabIndex = 15
+        '
+        'dtpActual
+        '
+        Me.dtpActual.CustomFormat = "MM/yyyy"
+        Me.dtpActual.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtpActual.Location = New System.Drawing.Point(456, 371)
+        Me.dtpActual.Name = "dtpActual"
+        Me.dtpActual.ShowUpDown = True
+        Me.dtpActual.Size = New System.Drawing.Size(91, 20)
+        Me.dtpActual.TabIndex = 14
         '
         'Label8
         '
@@ -1826,8 +1880,8 @@ Partial Class frmMenuPrincipal
         Me.ListBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ListBox3.FormattingEnabled = True
         Me.ListBox3.ItemHeight = 20
-        Me.ListBox3.Items.AddRange(New Object() {"3)Agrege un titulo deceado a su postick para un posterior reconomiento del mismo." &
-                "", "4)Describa detalladamente el motivo del postick.", "5)Agrege la Fecha del postick en el cual quiere que sea mostrado.", "6)seleccione ""Guardar""."})
+        Me.ListBox3.Items.AddRange(New Object() {"3)Agrege un titulo deceado a su postick para un posterior reconomiento del mismo." & _
+                        "", "4)Describa detalladamente el motivo del postick.", "5)Agrege la Fecha del postick en el cual quiere que sea mostrado.", "6)seleccione ""Guardar""."})
         Me.ListBox3.Location = New System.Drawing.Point(352, 145)
         Me.ListBox3.Name = "ListBox3"
         Me.ListBox3.Size = New System.Drawing.Size(589, 300)
@@ -1956,7 +2010,7 @@ Partial Class frmMenuPrincipal
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.63731!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.11883!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.27605!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 87.0!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 93.0!))
         Me.TableLayoutPanel2.Controls.Add(Me.PictureBox1, 0, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.Label1, 1, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.TableLayoutPanel3, 3, 0)
@@ -1973,7 +2027,7 @@ Partial Class frmMenuPrincipal
         '
         Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Right
         Me.PictureBox1.Image = Global.CapaPresentacion.My.Resources.Resources.slmn
-        Me.PictureBox1.Location = New System.Drawing.Point(173, 3)
+        Me.PictureBox1.Location = New System.Drawing.Point(172, 3)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(116, 85)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -1985,9 +2039,9 @@ Partial Class frmMenuPrincipal
         Me.Label1.AutoSize = True
         Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label1.Font = New System.Drawing.Font("Impact", 48.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(295, 0)
+        Me.Label1.Location = New System.Drawing.Point(294, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(578, 91)
+        Me.Label1.Size = New System.Drawing.Size(574, 91)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "SOLEMNO GRAFICA"
         '
@@ -1997,7 +2051,7 @@ Partial Class frmMenuPrincipal
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.52941!))
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 76.47059!))
         Me.TableLayoutPanel3.Controls.Add(Me.btnLogout, 1, 0)
-        Me.TableLayoutPanel3.Location = New System.Drawing.Point(1062, 3)
+        Me.TableLayoutPanel3.Location = New System.Drawing.Point(1056, 3)
         Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
         Me.TableLayoutPanel3.RowCount = 2
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 52.94118!))
@@ -2024,12 +2078,12 @@ Partial Class frmMenuPrincipal
         Me.TableLayoutPanel4.ColumnCount = 1
         Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel4.Controls.Add(Me.lblUsuario, 0, 0)
-        Me.TableLayoutPanel4.Location = New System.Drawing.Point(879, 3)
+        Me.TableLayoutPanel4.Location = New System.Drawing.Point(874, 3)
         Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
         Me.TableLayoutPanel4.RowCount = 2
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.0!))
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
-        Me.TableLayoutPanel4.Size = New System.Drawing.Size(177, 85)
+        Me.TableLayoutPanel4.Size = New System.Drawing.Size(176, 85)
         Me.TableLayoutPanel4.TabIndex = 4
         '
         'lblUsuario
@@ -2039,7 +2093,7 @@ Partial Class frmMenuPrincipal
         Me.lblUsuario.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblUsuario.Location = New System.Drawing.Point(3, 16)
         Me.lblUsuario.Name = "lblUsuario"
-        Me.lblUsuario.Size = New System.Drawing.Size(171, 18)
+        Me.lblUsuario.Size = New System.Drawing.Size(170, 18)
         Me.lblUsuario.TabIndex = 0
         Me.lblUsuario.Text = "Usuario"
         Me.lblUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -2072,44 +2126,6 @@ Partial Class frmMenuPrincipal
         'UsuariosTableAdapter
         '
         Me.UsuariosTableAdapter.ClearBeforeFill = True
-        '
-        'dtpActual
-        '
-        Me.dtpActual.CustomFormat = "MM/yyyy"
-        Me.dtpActual.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpActual.Location = New System.Drawing.Point(456, 371)
-        Me.dtpActual.Name = "dtpActual"
-        Me.dtpActual.ShowUpDown = True
-        Me.dtpActual.Size = New System.Drawing.Size(91, 20)
-        Me.dtpActual.TabIndex = 14
-        '
-        'dtpCompare
-        '
-        Me.dtpCompare.CustomFormat = "MM/yyyy"
-        Me.dtpCompare.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpCompare.Location = New System.Drawing.Point(456, 395)
-        Me.dtpCompare.Name = "dtpCompare"
-        Me.dtpCompare.ShowUpDown = True
-        Me.dtpCompare.Size = New System.Drawing.Size(91, 20)
-        Me.dtpCompare.TabIndex = 15
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(377, 377)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(73, 13)
-        Me.Label10.TabIndex = 16
-        Me.Label10.Text = "Fecha Actual:"
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(357, 398)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(96, 13)
-        Me.Label11.TabIndex = 17
-        Me.Label11.Text = "Fecha a comparar:"
         '
         'frmMenuPrincipal
         '
@@ -2349,4 +2365,5 @@ Partial Class frmMenuPrincipal
     Friend WithEvents Label11 As Label
     Friend WithEvents Label10 As Label
     Friend WithEvents dtpCompare As DateTimePicker
+    Friend WithEvents btnCancelarPresupuesto As System.Windows.Forms.Button
 End Class

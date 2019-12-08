@@ -35,4 +35,10 @@ Public Class CNPedido
     Public Function ValidarEliminarPedido(ByVal ID As Integer) As Boolean
         Return oCDPedido.ValidarEliminarPedido(ID)
     End Function
+    Public Sub CancelarPresupuesto(ByVal IDPedido As Integer, ByVal FechaCancelacion As Date)
+        oCDPedido.CancelarPresupuesto(IDPedido, FechaCancelacion)
+    End Sub
+    Public Sub AutoCancelarPresupuesto()
+        oCDPedido.AutoCancelarPresupuesto()
+    End Sub
 End Class

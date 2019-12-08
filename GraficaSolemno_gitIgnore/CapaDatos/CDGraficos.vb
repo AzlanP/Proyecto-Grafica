@@ -60,7 +60,7 @@ Public Class CDGraficos
         oCDConexion.Desconectar()
         Return dt
     End Function
-    Public Function FormatISO8601(ByVal pfecha As Date) As String
+    Public Shared Function FormatISO8601(ByVal pfecha As Date) As String
 
         Dim SoloFecha As String
         Dim dia, mes As String
@@ -79,7 +79,7 @@ Public Class CDGraficos
 
         Return SoloFecha
     End Function
-    Public Function FormatoFechaNormal(ByVal pfecha As String) As Date
+    Public Shared Function FormatoFechaNormal(ByVal pfecha As String) As Date
         Dim fecha As Date
         Dim OrdenarFecha() As String = pfecha.Split("/")
         Dim fechaString As String = OrdenarFecha(2) & "/" & OrdenarFecha(1) & "/" & OrdenarFecha(0)

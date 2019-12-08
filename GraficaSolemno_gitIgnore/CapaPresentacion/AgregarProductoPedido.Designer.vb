@@ -70,6 +70,7 @@ Partial Class AgregarProductoPedido
         'TextboxDescripcion
         '
         Me.TextboxDescripcion.Location = New System.Drawing.Point(24, 223)
+        Me.TextboxDescripcion.MaxLength = 30000
         Me.TextboxDescripcion.Multiline = True
         Me.TextboxDescripcion.Name = "TextboxDescripcion"
         Me.TextboxDescripcion.Size = New System.Drawing.Size(211, 81)
@@ -115,6 +116,7 @@ Partial Class AgregarProductoPedido
         'txtCantidad
         '
         Me.txtCantidad.Location = New System.Drawing.Point(26, 79)
+        Me.txtCantidad.MaxLength = 6
         Me.txtCantidad.Name = "txtCantidad"
         Me.txtCantidad.Size = New System.Drawing.Size(76, 20)
         Me.txtCantidad.TabIndex = 21
@@ -142,7 +144,7 @@ Partial Class AgregarProductoPedido
         'txtBuscar
         '
         Me.txtBuscar.Location = New System.Drawing.Point(312, 37)
-        Me.txtBuscar.MaxLength = 20
+        Me.txtBuscar.MaxLength = 50
         Me.txtBuscar.Name = "txtBuscar"
         Me.txtBuscar.Size = New System.Drawing.Size(191, 20)
         Me.txtBuscar.TabIndex = 23
@@ -171,7 +173,7 @@ Partial Class AgregarProductoPedido
         '
         Me.txtNombreProducto.Enabled = False
         Me.txtNombreProducto.Location = New System.Drawing.Point(25, 40)
-        Me.txtNombreProducto.MaxLength = 20
+        Me.txtNombreProducto.MaxLength = 50
         Me.txtNombreProducto.Name = "txtNombreProducto"
         Me.txtNombreProducto.Size = New System.Drawing.Size(165, 20)
         Me.txtNombreProducto.TabIndex = 27
@@ -215,7 +217,7 @@ Partial Class AgregarProductoPedido
         Me.txtPrecioTotal.Name = "txtPrecioTotal"
         Me.txtPrecioTotal.Size = New System.Drawing.Size(78, 22)
         Me.txtPrecioTotal.TabIndex = 29
-        Me.txtPrecioTotal.valor = 0R
+        Me.txtPrecioTotal.valor = 0.0R
         '
         'txtboxPrecio
         '
@@ -227,7 +229,7 @@ Partial Class AgregarProductoPedido
         Me.txtboxPrecio.Name = "txtboxPrecio"
         Me.txtboxPrecio.Size = New System.Drawing.Size(78, 22)
         Me.txtboxPrecio.TabIndex = 26
-        Me.txtboxPrecio.valor = 0R
+        Me.txtboxPrecio.valor = 0.0R
         '
         'required
         '

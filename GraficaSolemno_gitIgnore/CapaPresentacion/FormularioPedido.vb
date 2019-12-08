@@ -36,6 +36,8 @@ Public Class FormularioPedido
         txtTotal.valor = DTProw(10)
         txtSubTotal.valor = DTProw(11)
         If CStr(DTProw(7)) = "Presupuesto" Then
+
+            'error dbnull
             dtpFechaVencimiento.Text = DTProw(12)
         Else
             'CambioAPedido()
@@ -374,20 +376,24 @@ Public Class FormularioPedido
         oCEPedido.Estado = "Presupuesto"
         oCEPedido.PresupuestoVencimiento = FormatISO8601(dtpFechaVencimiento.Text)
         oCEPedido.Seña = 0
-
-        If DGListaDePedido.Rows.Count <> 0 Then
-            If DTDetalles.Rows.Count > 0 And TablaItems.Rows.Count > 0 Then
-                MsgBox("Error en la carga del presupuesto")
-            ElseIf DTDetalles.Rows.Count > 0 And TablaItems.Rows.Count = 0 Then
-                oCNPedido.GenerarElPedido(oCEPedido, DTDetalles)
-            ElseIf DTDetalles.Rows.Count = 0 And TablaItems.Rows.Count > 0 Then
-                oCNPedido.ModificarPedido(oCEPedido, TablaItems)
+        If dtpFechaVencimiento.Value >= dtpFecha.Value Then
+            If DGListaDePedido.Rows.Count <> 0 Then
+                If DTDetalles.Rows.Count > 0 And TablaItems.Rows.Count > 0 Then
+                    MsgBox("Error en la carga del presupuesto")
+                ElseIf DTDetalles.Rows.Count > 0 And TablaItems.Rows.Count = 0 Then
+                    oCNPedido.GenerarElPedido(oCEPedido, DTDetalles)
+                ElseIf DTDetalles.Rows.Count = 0 And TablaItems.Rows.Count > 0 Then
+                    oCNPedido.ModificarPedido(oCEPedido, TablaItems)
+                End If
+                CalcularTotalBruto()
+                Me.Close()
+            Else
+                MsgBox("El presupuesto debe contener como minimo 1 producto. ", , "Error de registro")
             End If
-            CalcularTotalBruto()
-            Me.Close()
         Else
-            MsgBox("El presupuesto debe contener como minimo 1 producto. ", , "Error de registro")
+            MsgBox("La fecha de vencimiento no puede ser menor o igual a la fecha de creación.")
         End If
+     
 
     End Sub
 
@@ -407,9 +413,14 @@ Public Class FormularioPedido
         Else
             valueSena = CDbl(txtAnticipoSena.Text)
         End If
-
+        Dim totalSinSena As Double = tablaTotal - 0 - (tablaTotal / 100 * cboDesc.Text)
         Dim total As Double = tablaTotal - valueSena - (tablaTotal / 100 * cboDesc.Text)
-        txtTotal.valor = total
+        If totalSinSena < valueSena Then
+            txtAnticipoSena.Text = 0
+            MsgBox("El valor de la seña no puede superar total", , "Error de validacion")
+        Else
+            txtTotal.valor = total
+        End If
     End Sub
 
 

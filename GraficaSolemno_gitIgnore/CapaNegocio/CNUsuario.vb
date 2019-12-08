@@ -14,7 +14,7 @@ Public Class CNUsuario
     Public Sub ModificarUsuario(ByVal oCEUsuario As CEUsuario)
         oCDUsuario.ModificarUsuario(oCEUsuario)
     End Sub
-    Function BuscarUsuario(ByVal pusuario As String, ByVal pcontrasena As String) As DataTable
+    Function ValidarUsuario(ByVal pusuario As String, ByVal pcontrasena As String) As DataTable
         Dim dt As New DataTable
         dt = oCDUsuario.ValidarUsuario(pusuario, pcontrasena)
         Return dt
@@ -23,5 +23,7 @@ Public Class CNUsuario
     Function ConsultarUltimoID() As Integer
         Return oCDUsuario.ConsultarUltimoID()
     End Function
- 
+    Function BuscarUsuario(ByVal ID As Integer) As DataTable
+        Return oCDUsuario.BuscarUsuario(ID)
+    End Function
 End Class
