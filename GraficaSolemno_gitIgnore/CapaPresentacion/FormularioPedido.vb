@@ -18,9 +18,9 @@ Public Class FormularioPedido
         PrecargarCombobox()
 
         If (isPedido = True) Then
-            DTPedidoID = oCNPedido.BuscarPedido("IDPedido", id)
+            DTPedidoID = oCNPedido.BuscarPedido("IDPedido", id, "Todos")
         Else
-            DTPedidoID = oCNPedido.BuscarPresupuesto("IDPedido", id)
+            DTPedidoID = oCNPedido.BuscarPresupuesto("IDPedido", id, "Todos")
         End If
 
         Dim DTProw As DataRow = DTPedidoID.Rows(0)

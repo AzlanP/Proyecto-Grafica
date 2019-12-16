@@ -54,7 +54,7 @@ Partial Class RegistrarProducto
         '
         Me.btnRegistrarProducto.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnRegistrarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnRegistrarProducto.Location = New System.Drawing.Point(40, 251)
+        Me.btnRegistrarProducto.Location = New System.Drawing.Point(154, 261)
         Me.btnRegistrarProducto.Name = "btnRegistrarProducto"
         Me.btnRegistrarProducto.Size = New System.Drawing.Size(75, 23)
         Me.btnRegistrarProducto.TabIndex = 33
@@ -77,7 +77,7 @@ Partial Class RegistrarProducto
         Me.txtNombre.Location = New System.Drawing.Point(111, 39)
         Me.txtNombre.MaxLength = 50
         Me.txtNombre.Name = "txtNombre"
-        Me.txtNombre.Size = New System.Drawing.Size(100, 24)
+        Me.txtNombre.Size = New System.Drawing.Size(206, 24)
         Me.txtNombre.TabIndex = 21
         Me.txtNombre.Tag = "3"
         '
@@ -95,7 +95,7 @@ Partial Class RegistrarProducto
         '
         Me.btnCancelar.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnCancelar.Location = New System.Drawing.Point(133, 251)
+        Me.btnCancelar.Location = New System.Drawing.Point(247, 261)
         Me.btnCancelar.Name = "btnCancelar"
         Me.btnCancelar.Size = New System.Drawing.Size(75, 23)
         Me.btnCancelar.TabIndex = 19
@@ -106,7 +106,7 @@ Partial Class RegistrarProducto
         '
         Me.btnGuardarProducto.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnGuardarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnGuardarProducto.Location = New System.Drawing.Point(40, 251)
+        Me.btnGuardarProducto.Location = New System.Drawing.Point(154, 261)
         Me.btnGuardarProducto.Name = "btnGuardarProducto"
         Me.btnGuardarProducto.Size = New System.Drawing.Size(75, 23)
         Me.btnGuardarProducto.TabIndex = 18
@@ -117,7 +117,7 @@ Partial Class RegistrarProducto
         '
         Me.btnAceptar.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAceptar.Location = New System.Drawing.Point(133, 251)
+        Me.btnAceptar.Location = New System.Drawing.Point(247, 261)
         Me.btnAceptar.Name = "btnAceptar"
         Me.btnAceptar.Size = New System.Drawing.Size(75, 23)
         Me.btnAceptar.TabIndex = 38
@@ -129,7 +129,7 @@ Partial Class RegistrarProducto
         '
         Me.lblPrecio.AutoSize = True
         Me.lblPrecio.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPrecio.Location = New System.Drawing.Point(49, 79)
+        Me.lblPrecio.Location = New System.Drawing.Point(49, 111)
         Me.lblPrecio.Name = "lblPrecio"
         Me.lblPrecio.Size = New System.Drawing.Size(59, 18)
         Me.lblPrecio.TabIndex = 26
@@ -138,10 +138,10 @@ Partial Class RegistrarProducto
         'txtCodigo
         '
         Me.txtCodigo.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCodigo.Location = New System.Drawing.Point(111, 109)
+        Me.txtCodigo.Location = New System.Drawing.Point(111, 71)
         Me.txtCodigo.MaxLength = 50
         Me.txtCodigo.Name = "txtCodigo"
-        Me.txtCodigo.Size = New System.Drawing.Size(100, 24)
+        Me.txtCodigo.Size = New System.Drawing.Size(206, 24)
         Me.txtCodigo.TabIndex = 31
         Me.txtCodigo.Tag = "3"
         '
@@ -149,17 +149,17 @@ Partial Class RegistrarProducto
         '
         Me.lblCodigo.AutoSize = True
         Me.lblCodigo.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCodigo.Location = New System.Drawing.Point(44, 112)
+        Me.lblCodigo.Location = New System.Drawing.Point(41, 74)
         Me.lblCodigo.Name = "lblCodigo"
         Me.lblCodigo.Size = New System.Drawing.Size(64, 18)
         Me.lblCodigo.TabIndex = 32
-        Me.lblCodigo.Text = "Codigo :"
+        Me.lblCodigo.Text = "Código :"
         '
         'controlPrecio
         '
         Me.controlPrecio.AutoSize = True
         Me.controlPrecio.labeltext = Nothing
-        Me.controlPrecio.Location = New System.Drawing.Point(111, 76)
+        Me.controlPrecio.Location = New System.Drawing.Point(111, 108)
         Me.controlPrecio.Margin = New System.Windows.Forms.Padding(0)
         Me.controlPrecio.Name = "controlPrecio"
         Me.controlPrecio.Size = New System.Drawing.Size(100, 24)
@@ -174,7 +174,7 @@ Partial Class RegistrarProducto
         Me.lblDescripcion.Name = "lblDescripcion"
         Me.lblDescripcion.Size = New System.Drawing.Size(95, 18)
         Me.lblDescripcion.TabIndex = 40
-        Me.lblDescripcion.Text = "Descripcion :"
+        Me.lblDescripcion.Text = "Descripción :"
         '
         'txtDescripcion
         '
@@ -183,7 +183,7 @@ Partial Class RegistrarProducto
         Me.txtDescripcion.MaxLength = 3000
         Me.txtDescripcion.Multiline = True
         Me.txtDescripcion.Name = "txtDescripcion"
-        Me.txtDescripcion.Size = New System.Drawing.Size(212, 77)
+        Me.txtDescripcion.Size = New System.Drawing.Size(301, 77)
         Me.txtDescripcion.TabIndex = 39
         Me.txtDescripcion.Tag = ""
         '
@@ -204,7 +204,7 @@ Partial Class RegistrarProducto
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.Red
-        Me.Label2.Location = New System.Drawing.Point(36, 79)
+        Me.Label2.Location = New System.Drawing.Point(36, 111)
         Me.Label2.Margin = New System.Windows.Forms.Padding(0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(15, 20)
@@ -216,7 +216,7 @@ Partial Class RegistrarProducto
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(262, 296)
+        Me.ClientSize = New System.Drawing.Size(335, 294)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.required)
         Me.Controls.Add(Me.lblDescripcion)

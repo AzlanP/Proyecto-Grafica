@@ -178,7 +178,7 @@ Partial Class AgregarProductoPedido
         Me.txtNombreProducto.Location = New System.Drawing.Point(25, 40)
         Me.txtNombreProducto.MaxLength = 50
         Me.txtNombreProducto.Name = "txtNombreProducto"
-        Me.txtNombreProducto.Size = New System.Drawing.Size(165, 20)
+        Me.txtNombreProducto.Size = New System.Drawing.Size(210, 20)
         Me.txtNombreProducto.TabIndex = 27
         Me.txtNombreProducto.Tag = "3"
         '
