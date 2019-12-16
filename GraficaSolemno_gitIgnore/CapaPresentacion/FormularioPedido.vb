@@ -3,7 +3,7 @@ Imports CapaEntidad
 Public Class FormularioPedido
     Dim oPedido As New CEPedido
     Dim oCECliente As New CECliente
-
+    Dim tipo As String
     Dim oCNPedido As New CNPedido
     Dim oCNDetallesDePedido As New CNDetallesDelPedido
     Dim oCEDetallesDePedido As New CEDetallesDelPedido
@@ -38,12 +38,25 @@ Public Class FormularioPedido
         If CStr(DTProw(7)) = "Presupuesto" Then
 
             'error dbnull
-            dtpFechaVencimiento.Text = DTProw(12)
+            If IsDBNull(DTProw(12)) Then
+                dtpFechaVencimiento.Text = ""
+            Else
+                dtpFechaVencimiento.Text = DTProw(12)
+            End If
+
+
         Else
             'CambioAPedido()
 
         End If
-        CalcularTotalBruto()
+
+            If IsDBNull(DTProw(13)) Then
+                txtResponsable.Text = ""
+            Else
+                txtResponsable.Text = DTProw(13)
+            End If
+
+            CalcularTotalBruto()
     End Sub
     Public Sub CargarGridListaPedido(ByVal tabla As DataTable)
         DGListaDePedido.DataSource = tabla.DefaultView.ToTable(True, "IDItems", "Nombre", "Cantidad", "Descripcion", "Descuento", "PrecioUnitario", "PrecioFinal")
@@ -237,6 +250,8 @@ Public Class FormularioPedido
         cboDesc.SelectedIndex = 0
     End Sub
     Private Sub FormularioPedido_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'SolemnoDataSet.Usuarios' Puede moverla o quitarla según sea necesario.
+
         Dim validacion As New Validaciones
         validacion.Validar(Me)
         ' dtpFechaVencimiento.MinDate = Date.Now()
@@ -268,6 +283,7 @@ Public Class FormularioPedido
         oCEPedido.SubTotal = CDbl(txtSubTotal.valor)
         oCEPedido.Descuento = CInt(cboDesc.Text)
         oCEPedido.Total = CDbl(txtTotal.valor)
+        oCEPedido.Responsable = CStr(txtResponsable.Text)
         Return oCEPedido
     End Function
     Private Sub btnGuardarPedido_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGuardarPedido.Click
@@ -447,28 +463,23 @@ Public Class FormularioPedido
             CalcularTotal(TablaItems)
         End If
     End Sub
+
+ 
     Private Sub cboDesc_SelectedValueChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles cboDesc.SelectedValueChanged
 
-        If DTDetalles.Rows.Count > 0 And TablaItems.Rows.Count > 0 Then
-                MsgBox("Error en la carga del presupuesto")
-            ElseIf DTDetalles.Rows.Count > 0 And TablaItems.Rows.Count = 0 Then
-                SobrescribirDescuentos(DTDetalles)
-                CalcularTotal(DTDetalles)
-            ElseIf DTDetalles.Rows.Count = 0 And TablaItems.Rows.Count > 0 Then
-                SobrescribirDescuentos(TablaItems)
-                CalcularTotal(TablaItems)
-            End If
 
 
     End Sub
     Public Sub SobrescribirDescuentos(ByVal tabla As DataTable)
-        If MessageBox.Show("Decea sobrescribir los descuentos de los productos? ", "Confirmacion de cambiar descuento", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
+        If MessageBox.Show("Decea sobrescribir los descuentos de cada producto? ", "Confirmacion de cambiar descuento", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
             For Each dr In tabla.Rows
                 dr.Item("Descuento") = cboDesc.Text
             Next
+        Else
+            cboDesc.SelectedIndex = 0
         End If
 
-        DGListaDePedido.DataSource = tabla
+        DGListaDePedido.DataSource = tabla.DefaultView.ToTable(True, "IDItems", "Nombre", "Cantidad", "Descripcion", "Descuento", "PrecioUnitario", "PrecioFinal")
 
 
     End Sub
@@ -543,12 +554,20 @@ Public Class FormularioPedido
     End Sub
 
     Private Sub btnImprimir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnImprimir.Click
-        Dim report As New frmReportePedido
         If (lblID.Text) Then
-            report.IDPedido = CInt(lblID.Text)
+            If Not dtpFechaVencimiento.Visible Then
+                Dim report As New frmReportePedido
+                report.IDPedido = CInt(lblID.Text)
+                report.ShowDialog()
+                report.Dispose()
+            ElseIf dtpFechaVencimiento.Visible Then
+                Dim report As New frmReportePresupuesto
+                report.IDPedido = CInt(lblID.Text)
+                report.ShowDialog()
+                report.Dispose()
+            End If
+       
         End If
-        report.ShowDialog()
-        report.Dispose()
 
     End Sub
 
@@ -588,4 +607,21 @@ Public Class FormularioPedido
     End Sub
 
 
+    Private Sub cboDesc_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles cboDesc.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub cboDesc_DropDownClosed(sender As Object, e As System.EventArgs) Handles cboDesc.DropDownClosed
+
+
+        If DTDetalles.Rows.Count > 0 And TablaItems.Rows.Count > 0 Then
+            MsgBox("Error en la carga del presupuesto", "Error")
+        ElseIf DTDetalles.Rows.Count > 0 And TablaItems.Rows.Count = 0 Then
+            SobrescribirDescuentos(DTDetalles)
+            CalcularTotal(DTDetalles)
+        ElseIf DTDetalles.Rows.Count = 0 And TablaItems.Rows.Count > 0 Then
+            SobrescribirDescuentos(TablaItems)
+            CalcularTotal(TablaItems)
+        End If
+    End Sub
 End Class

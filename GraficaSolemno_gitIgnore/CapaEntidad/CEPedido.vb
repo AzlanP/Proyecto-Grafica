@@ -8,6 +8,16 @@
     Private _Descripcion As String
     Private _Estado As String
     Private _Seña, _Total, _SubTotal As Double
+    Private _Responsable As String
+    Public Property Responsable() As String
+        Get
+            Return _Responsable
+
+        End Get
+        Set(value As String)
+            _Responsable = value
+        End Set
+    End Property
     'Private _FechaCancelacion As String
     Public Property IDPedido() As Integer
         Get

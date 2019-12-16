@@ -9,11 +9,11 @@ Public Class CDPedidos
     Dim da As SQLiteDataAdapter
     Function MostrarPedido() As DataTable
         'Return oCDConexion.MostrarTabla("Pedidos")
-        Dim consulta As String = "SELECT Pedidos.IDPedido, Clientes.nombre as 'Cliente', pedidos.Fecha, pedidos.Estado, pedidos.seña, pedidos.Descripcion FROM(Pedidos, Clientes, medios) WHERE(pedidos.IDCliente = clientes.IDCliente And pedidos.IDMedio = medios.IDMedio And  pedidos.Estado != 'Presupuesto')"
+        Dim consulta As String = "SELECT Pedidos.IDPedido, Clientes.nombre as 'Cliente', Clientes.Apellido , pedidos.Fecha, pedidos.Estado, pedidos.Descripcion, Responsable FROM(Pedidos, Clientes, medios) WHERE(pedidos.IDCliente = clientes.IDCliente And pedidos.IDMedio = medios.IDMedio And  pedidos.Estado != 'Presupuesto')"
         Return oCDConexion.MostrarTablaModificada(consulta)
     End Function
     Function MostrarPresupuesto() As DataTable
-        Dim consulta As String = "SELECT Pedidos.IDPedido, Clientes.nombre as 'Cliente', pedidos.Fecha, pedidos.Estado, pedidos.seña, pedidos.Descripcion, pedidos.PresupuestoVencimiento as 'Fecha Vencimiento' FROM(Pedidos, Clientes, medios, tipoenvio) WHERE(pedidos.IDCliente = clientes.IDCliente And pedidos.IDMedio = medios.IDMedio And (pedidos.Estado == 'Presupuesto' or pedidos.Estado == 'Cancelado'))"
+        Dim consulta As String = "SELECT Pedidos.IDPedido, Clientes.nombre as 'Cliente', Clientes.Apellido , pedidos.Fecha, pedidos.Estado, pedidos.Descripcion, pedidos.PresupuestoVencimiento as 'Fecha Vencimiento' , Responsable FROM(Pedidos, Clientes, medios, tipoenvio) WHERE(pedidos.IDCliente = clientes.IDCliente And pedidos.IDMedio = medios.IDMedio And (pedidos.Estado == 'Presupuesto' or pedidos.Estado == 'Cancelado'))"
         Return oCDConexion.MostrarTablaModificada(consulta)
     End Function
     Public Sub GenerarElPedido(ByVal pPedido As CEPedido, ByVal TablaDetalles As DataTable)
@@ -33,7 +33,7 @@ Public Class CDPedidos
             'ElseIf FilasAfectadas = 0 Then
             '    '*significa que el pedido no fue encontrado por lo tanto no existe
             '    '*debemos crear el pedido, y luego asignarle a ese pedido todos los elementos de la lista
-            Dim instruccionsql As String = "Insert into Pedidos (IDPedido, Descripcion ,Fecha , IDCliente, Envio, IDMedio, Estado, Seña, Descuento, Total, SubTotal, PresupuestoVencimiento, CambioAPedido) values (@IDPedido, @Descripcion ,@Fecha , @IDCliente, @Envio, @IDMedio, @Estado, @Seña, @Descuento, @Total, @SubTotal,  @PresupuestoVencimiento, @CambioAPedido)"
+            Dim instruccionsql As String = "Insert into Pedidos (IDPedido, Descripcion ,Fecha , IDCliente, Envio, IDMedio, Estado, Seña, Descuento, Total, SubTotal, PresupuestoVencimiento, CambioAPedido , Responsable) values (@IDPedido, @Descripcion ,@Fecha , @IDCliente, @Envio, @IDMedio, @Estado, @Seña, @Descuento, @Total, @SubTotal,  @PresupuestoVencimiento, @CambioAPedido , @Responsable)"
             Dim cmd As New SQLiteCommand(instruccionsql, oCDConexion.con)
             With cmd.Parameters
                 .Add("@IDPedido", SqlDbType.Int).Value = pPedido.IDPedido
@@ -49,6 +49,7 @@ Public Class CDPedidos
                 .Add("@SubTotal", SqlDbType.Real).Value = pPedido.SubTotal
                 .Add("@CambioAPedido", SqlDbType.VarChar).Value = pPedido.CambioAPedido
                 .Add("@PresupuestoVencimiento", SqlDbType.VarChar).Value = pPedido.PresupuestoVencimiento
+                .Add("Responsable", SqlDbType.VarChar).Value = pPedido.Responsable
             End With
             cmd.ExecuteNonQuery()
             For Each row As DataRow In TablaDetalles.Rows
@@ -213,13 +214,38 @@ Public Class CDPedidos
     Function ConsultarUltimoID() As Integer
         Return oCDConexion.ConsultarUltimoID("Pedidos")
     End Function
-    Function BuscarPedido(ByVal campo As String, ByVal pbuscar As String) As DataTable
+    Function BuscarPedido(ByVal campo As String, ByVal pbuscar As String, Optional pEstado As String = "Todos") As DataTable
         oCDConexion.Conectar()
         Dim da As New SQLiteDataAdapter
         Dim dt As New DataTable
         Try
+            Dim newreplace As String
+            Dim EstadoReplace As String
+            If campo = "Nombre y apellido" Then
+                newreplace = "clientes." & campo & " like  '" & pbuscar & "%'"
+                Dim pbuscarSplit As String() = pbuscar.Trim().Split(" ")
+                If pbuscarSplit.Length = 1 Then
+                    newreplace = " clientes.Nombre Like '" & pbuscar & "%'"
+                Else
+                    newreplace = " clientes.Nombre Like '" & pbuscarSplit(0) & "%' and clientes.Apellido like '" & pbuscarSplit(1) & "%' "
+                End If
 
-            Dim instruccionsql As String = "SELECT Pedidos.IDPedido, pedidos.Descripcion, pedidos.Fecha, Clientes.nombre , Clientes.apellido , pedidos.Envio , medios.nombre as 'Medio', pedidos.Estado, pedidos.seña ,pedidos.Descuento, pedidos.Total, pedidos.SubTotal, pedidos.CambioAPedido FROM Pedidos, Clientes, medios WHERE " & campo & " =@pbuscar  and (pedidos.IDCliente=clientes.IDCliente and pedidos.IDMedio= medios.IDMedio And pedidos.Estado != 'Presupuesto' )"
+            ElseIf campo = "IDPedido" Then
+                newreplace = "Pedidos." & campo & "= @pbuscar"
+            Else
+                newreplace = "Pedidos." & campo & " like  '" & pbuscar & "%'"
+
+            End If
+
+            If pEstado = "Todos" Or pEstado = "" Then
+                EstadoReplace = "(pedidos.Estado == 'Pendiente'  or  pedidos.Estado == 'Completado' or pedidos.Estado == 'Pedido Cancelado')"
+            ElseIf pEstado = "Cancelado" Then
+                EstadoReplace = "pedidos.Estado = 'Pedido Cancelado'"
+            Else
+                EstadoReplace = "pedidos.Estado = '" & pEstado & "'"
+            End If
+            campo = newreplace
+            Dim instruccionsql As String = "SELECT Pedidos.IDPedido, pedidos.Descripcion, pedidos.Fecha, Clientes.nombre , Clientes.apellido , pedidos.Envio , medios.nombre as 'Medio', pedidos.Estado, pedidos.seña ,pedidos.Descuento, pedidos.Total, pedidos.SubTotal, pedidos.CambioAPedido, pedidos.Responsable FROM Pedidos, Clientes, medios WHERE " & campo & "   and (pedidos.IDCliente=clientes.IDCliente and pedidos.IDMedio= medios.IDMedio And " & EstadoReplace & " )"
             Dim comando As New SQLiteCommand(instruccionsql, oCDConexion.con)
 
             If IsNumeric(pbuscar) Then
@@ -239,12 +265,47 @@ Public Class CDPedidos
 
         End Try
     End Function
-    Function BuscarPresupuesto(ByVal campo As String, ByVal pbuscar As String) As DataTable
+    Function BuscarPresupuesto(ByVal campo As String, ByVal pbuscar As String, Optional pEstado As String = "Presupuesto") As DataTable
         oCDConexion.Conectar()
         Dim da As New SQLiteDataAdapter
         Dim dt As New DataTable
+
+
         Try
-            Dim instruccionsql As String = "SELECT Pedidos.IDPedido, pedidos.Descripcion, pedidos.Fecha, Clientes.nombre ,Clientes.apellido, pedidos.Envio , medios.nombre as 'Medio', pedidos.Estado, pedidos.seña ,pedidos.Descuento, pedidos.Total, pedidos.SubTotal, pedidos.PresupuestoVencimiento as 'Fecha Vencimiento'  FROM Pedidos, Clientes, medios WHERE " & campo & " =@pbuscar  and (pedidos.IDCliente=clientes.IDCliente and pedidos.IDMedio= medios.IDMedio and pedidos.Estado == 'Presupuesto' )"
+            Dim newreplace As String
+            Dim EstadoReplace As String
+            If campo = "Nombre y apellido" Then
+                newreplace = "clientes." & campo & " like  '" & pbuscar & "%'"
+                Dim pbuscarSplit As String() = pbuscar.Trim().Split(" ")
+                If pbuscarSplit.Length = 1 Then
+                    newreplace = " clientes.Nombre Like '" & pbuscar & "%'"
+                Else
+                    newreplace = " clientes.Nombre Like '" & pbuscarSplit(0) & "%' and clientes.Apellido like '" & pbuscarSplit(1) & "%' "
+                End If
+
+            ElseIf campo = "IDPedido" Then
+                newreplace = "Pedidos." & campo & "= @pbuscar"
+            Else
+                newreplace = "Pedidos." & campo & " like  '" & pbuscar & "%'"
+
+            End If
+
+            If pEstado = "Todos" Or pEstado = "" Then
+                EstadoReplace = "(pedidos.Estado == 'Presupuesto' or pedidos.Estado == 'Presupuesto Cancelado' )"
+            ElseIf pEstado = "Cancelado" Then
+                EstadoReplace = "pedidos.Estado = 'Presupuesto Cancelado'"
+            Else
+                EstadoReplace = "pedidos.Estado == 'Presupuesto'"
+            End If
+            campo = newreplace
+
+
+
+            Dim instruccionsql As String = "SELECT Pedidos.IDPedido, pedidos.Descripcion, pedidos.Fecha, Clientes.nombre ,Clientes.apellido, pedidos.Envio , medios.nombre as 'Medio', pedidos.Estado, pedidos.seña ,pedidos.Descuento, pedidos.Total, pedidos.SubTotal, pedidos.PresupuestoVencimiento as 'Fecha Vencimiento' , pedidos.Responsable  FROM Pedidos, Clientes, medios WHERE " & campo & "  and (pedidos.IDCliente=clientes.IDCliente and pedidos.IDMedio= medios.IDMedio and  " & EstadoReplace & "  )"
+
+            'instruccionsql = instruccionsql.Replace("'Presupuesto'", "'" + pbuscar + "'")
+
+
             Dim comando As New SQLiteCommand(instruccionsql, oCDConexion.con)
 
             If IsNumeric(pbuscar) Then

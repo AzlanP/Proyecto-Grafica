@@ -1,5 +1,8 @@
 ﻿Imports CapaNegocio
 Imports CapaEntidad
+Imports Microsoft.Reporting.WinForms
+Imports System.Windows.Forms.DataVisualization.Charting
+
 
 Public Class frmMenuPrincipal
     Private Sub FrmMenu_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
@@ -8,9 +11,7 @@ Public Class frmMenuPrincipal
         Dim validacion As New Validaciones
         validacion.Validar(Me)
         AbrirFormInPanel(frmPestañaTareas)
-        Dim hoy As Date = Date.Now()
-        dtpActual.Value = New Date(hoy.Year, hoy.Month, 1)
-        dtpCompare.Value = New Date(hoy.Year, hoy.Month - 1, 1)
+
     End Sub
     '---------------------------------------- CLIENTE  -----------------------------------------------------------
 #Region "Pestaña Cliente"
@@ -19,41 +20,33 @@ Public Class frmMenuPrincipal
     Dim ID As String
     Private Sub btnRefresh_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRefresh.Click
         CargarGridCliente()
-        DGClienteInactivos.DataSource = oCNCliente.MostrarClienteIncativo()
-
-
-        If DGCliente.Visible Then
-            If DGCliente.Rows.Count = 0 Then
-                FondoSinResultados.Visible = True
-            Else
-                FondoSinResultados.Visible = False
-            End If
-        End If
-        If DGClienteInactivos.Visible Then
-            If DGClienteInactivos.Rows.Count = 0 Then
-                FondoSinResultados.Visible = True
-            Else
-                FondoSinResultados.Visible = False
-            End If
-        End If
+        CargarGridClienteInactivo()
 
     End Sub
     Public Sub CargarGridCliente()
         'la funcion de listar cliente retornara un datatable que contendra la tabla del cliente, y esta sera mostrada en el datagrid
-        DGCliente.DataSource = oCNCliente.MostrarCliente
+        Dim dt As New DataTable
+        dt = oCNCliente.MostrarCliente
+        DGCliente.DataSource = dt
         DGCliente.Columns(0).Visible = False
         DGCliente.Columns(6).Visible = False
         DGCliente.Columns(7).Visible = False
         DGCliente.Columns(8).Visible = False
+        MostrarSinResultados(dt, DGPresupuesto)
 
-
-        If DGCliente.Visible Then
-            If DGCliente.Rows.Count = 0 Then
-                FondoSinResultados.Visible = True
-            Else
-                FondoSinResultados.Visible = False
-            End If
-        End If
+        'If DGCliente.Visible Then
+        '    If DGCliente.Rows.Count = 0 Then
+        '        FondoSinResultados.Visible = True
+        '    Else
+        '        FondoSinResultados.Visible = False
+        '    End If
+        'End If
+    End Sub
+    Public Sub CargarGridClienteInactivo()
+        Dim dt As New DataTable
+        dt = oCNCliente.MostrarClienteIncativo()
+        DGClienteInactivos.DataSource = dt
+        MostrarSinResultados(dt, DGClienteInactivos)
     End Sub
     Private Sub TabCliente_Enter(ByVal sender As Object, ByVal e As System.EventArgs) Handles TabCliente.Enter
         CargarGridCliente()
@@ -67,19 +60,10 @@ Public Class frmMenuPrincipal
         CargarGridCliente()
     End Sub
     Private Sub DGCliente_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DGCliente.CellClick
-        'se usa esto para cuando hagan click en alguna celda del datagridview se seleccione la fila completa
-        ' '' '' ''DGCliente.CurrentRow.Selected = True
-        'esta siguiente parte es para cuando das click en el datagridview te de el ID de esa fila
         If e.RowIndex >= 0 Then
             ID = DGCliente.Rows(e.RowIndex).Cells("IDCliente").Value
 
         End If
-
-
-        '---------------------------importante-------------
-        ' aca tenia el metodo LlenarFormulario para precargar los datos. pero en algun momento lo borre,
-        ' y  funciono sin el, debido que al no tener posibilidad de modificar el
-        'id se updateo con el.
     End Sub
     Private Sub DGCliente_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DGCliente.CellDoubleClick
         If e.RowIndex >= 0 Then
@@ -112,7 +96,6 @@ Public Class frmMenuPrincipal
         frmRegistrar.LlenarFormulario(ID)
         frmRegistrar.txtDNI.Enabled = False
         frmRegistrar.txtCuit.Enabled = False
-
         frmRegistrar.ShowDialog()
         CargarGridCliente()
     End Sub
@@ -135,13 +118,7 @@ Public Class frmMenuPrincipal
         DGCliente.DataSource = dt.DefaultView.ToTable(True, "IDCliente", "Nombre", "Apellido", "DNI", "CUIT", "Telefono")
         DGCliente.Columns(0).Visible = False
         'para que el combobox no permita escribir, se cambio el dropdownstyle =DropDownList
-        If DGCliente.Visible Then
-            If DGCliente.Rows.Count = 0 Then
-                FondoSinResultados.Visible = True
-            Else
-                FondoSinResultados.Visible = False
-            End If
-        End If
+        MostrarSinResultados(dt, DGCliente)
     End Sub
     Public Sub OcultarColumnas(ByVal DGCliente As DataGridView)
         DGCliente.Columns(0).Visible = False
@@ -190,7 +167,7 @@ Public Class frmMenuPrincipal
             If MessageBox.Show("Esta seguro de Restaurar el Cliente? ", "Confirmacion de restaurar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
                 oCNCliente.EliminarCliente(ID, "Activo")
                 CargarGridCliente()
-                DGClienteInactivos.DataSource = oCNCliente.MostrarClienteIncativo()
+                CargarGridClienteInactivo()
                 VolverAlInicio()
             End If
 
@@ -205,7 +182,8 @@ Public Class frmMenuPrincipal
         Dim dt As DataTable
         dt = oCNCliente.BuscarInactivo(cboBuscarCliente.Text, Trim(txtBuscarCliente.Text))
         DGClienteInactivos.DataSource = dt.DefaultView.ToTable(True, "IDCliente", "Nombre", "Apellido", "DNI", "CUIT", "Telefono", "Provincia", "Localidad", "Condicion de IVA")
-
+        MostrarSinResultados(dt, DGClienteInactivos)
+        DGClienteInactivos.Columns(0).Visible = False
     End Sub
     Private Sub btnVerInactivo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnVerInactivo.Click
         ID = DGClienteInactivos.Rows(DGClienteInactivos.CurrentCell.RowIndex).Cells("IDCliente").Value
@@ -219,7 +197,7 @@ Public Class frmMenuPrincipal
         If MessageBox.Show("Esta seguro de restaurar el cliente? ", "Confirmacion de restaurar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
             oCNCliente.EliminarCliente(ID, "Activo")
             CargarGridCliente()
-            DGClienteInactivos.DataSource = oCNCliente.MostrarClienteIncativo()
+            CargarGridClienteInactivo()
             VolverAlInicio()
         End If
 
@@ -248,15 +226,20 @@ Public Class frmMenuPrincipal
     Public Sub CargarGridProducto()
         Dim dt As DataTable = oCNProducto.MostrarProducto().DefaultView.ToTable(True, "IDProducto", "Nombre", "Precio", "Codigo")
         dt.Columns("Precio").ColumnName = "Precio Unitario"
+
         dt.AcceptChanges()
 
         DGProducto.DataSource = dt
+        DGProducto.Columns(0).Visible = False
+        MostrarSinResultados(dt, DGProducto)
     End Sub
     Public Sub CargarGridProductoInactivo()
         Dim dt As DataTable = oCNProducto.MostrarProductoInactivo().DefaultView.ToTable(True, "IDProducto", "Nombre", "Precio", "Codigo")
         dt.Columns("Precio").ColumnName = "Precio Unitario"
         dt.AcceptChanges()
         DGProductoInactivo.DataSource = dt
+        DGProductoInactivo.Columns(0).Visible = False
+        MostrarSinResultados(dt, DGProductoInactivo)
     End Sub
     Private Sub TabProducto_Enter(ByVal sender As Object, ByVal e As System.EventArgs) Handles TabProducto.Enter
         CargarGridProducto()
@@ -295,7 +278,8 @@ Public Class frmMenuPrincipal
         dt.Columns("Precio").ColumnName = "Precio Unitario"
         dt.AcceptChanges()
         DGProducto.DataSource = dt
-
+        DGProducto.Columns(0).Visible = False
+        MostrarSinResultados(dt, DGProducto)
     End Sub
 
     Private Sub DGProducto_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DGProducto.CellClick
@@ -369,6 +353,7 @@ Public Class frmMenuPrincipal
         dt.Columns("Precio").ColumnName = "Precio Unitario"
         dt.AcceptChanges()
         DGProductoInactivo.DataSource = dt
+        DGProductoInactivo.Columns(0).Visible = False
     End Sub
 
     Private Sub DGProductoInactivo_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DGProductoInactivo.CellClick
@@ -439,9 +424,20 @@ Public Class frmMenuPrincipal
     Private Sub TabPedido_Enter(ByVal sender As Object, ByVal e As System.EventArgs) Handles TabPedido.Enter
         CargarGridPedidos()
         cboBuscarPedido.SelectedIndex = 0
+        cboFiltroPedido.SelectedIndex = 1
     End Sub
     Public Sub CargarGridPedidos()
-        DGPedido.DataSource = oCNPedido.MostrarPedido
+        Dim dt As DataTable = oCNPedido.MostrarPedido
+        Dim dv As DataView
+        For i As Integer = 0 To dt.Rows.Count - 1
+            dt.Rows(i)("Cliente") = dt.Rows(i)("Cliente") & " " & dt.Rows(i)("Apellido")
+        Next
+
+        dv = New DataView(dt, "Estado = 'Pendiente'   or  Estado = 'Completado' ", "IDPedido Asc", DataViewRowState.CurrentRows)
+        DGPedido.DataSource = dv
+        DGPedido.Columns("IDPedido").Visible = False
+        DGPedido.Columns("Apellido").Visible = False
+        MostrarSinResultados(dt, DGPedido)
     End Sub
 
     Private Sub btnNuevoPedido_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNuevoPedido.Click
@@ -453,6 +449,7 @@ Public Class frmMenuPrincipal
 
 
         frmPedido.lblID.Text = oCNPedido.ConsultarUltimoID()
+        frmPedido.txtResponsable.Text = lblUsuario.Text
         frmPedido.Detalles()
         'precargar combobox
         frmPedido.PrecargarCombobox()
@@ -476,23 +473,29 @@ Public Class frmMenuPrincipal
         frmPedido.Disesabletext()
         frmPedido.ShowDialog()
         CargarGridPedidos()
-
-        If (DGPedido.Rows.Count > index) Then
-            DGPedido.Rows(index).Selected = index
-        End If
+        DGPedido.Rows(index).Selected = index
     End Sub
 
     Private Sub btnEliminarPedido_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEliminarPedido.Click
         If MessageBox.Show("Esta seguro de eliminar el pedido? ", "Confirmacion de eliminar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
             oCNPedido.EliminarPedido(ID)
             CargarGridPedidos()
+         
         End If
     End Sub
 
     Private Sub btnBuscarPedido_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscarPedido.Click
         Dim dt As DataTable
-        dt = oCNPedido.BuscarPedido(txtBuscarPedido.Text, cboBuscarPedido.Text)
-        DGPedido.DataSource = dt
+        dt = oCNPedido.BuscarPedido(cboBuscarPedido.Text, txtBuscarPedido.Text, cboFiltroPedido.Text)
+        For i As Integer = 0 To dt.Rows.Count - 1
+            dt.Rows(i)("Nombre") = dt.Rows(i)("Nombre") & " " & dt.Rows(i)("Apellido")
+        Next
+
+
+        DGPedido.DataSource = dt.DefaultView.ToTable(True, "IDPedido", "Nombre", "Fecha", "Estado", "Descripcion", "Responsable")
+        DGPedido.Columns("Nombre").HeaderCell.Value = "Cliente"
+        DGPedido.Columns(0).Visible = False
+        MostrarSinResultados(dt, DGPedido)
     End Sub
 
     Private Sub DGPedido_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DGPedido.CellClick
@@ -553,55 +556,157 @@ Public Class frmMenuPrincipal
 
     '---------------------------------------- ESTADISTICAS -----------------------------------------------------------
 #Region "Pestaña estadistica"
+    Dim Meses As String() = {"Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Agos", "Sep", "Oct", "Nov", "Dic"}
+    Dim oCNGraficas As New CNGraficos
+    Private Sub TabEstadistica_Enter(ByVal sender As Object, ByVal e As System.EventArgs) Handles TabEstadistica.Enter
+        inicializarPedidosPorFechas()
+        cboTipoEstadistica.SelectedIndex = 0
+    End Sub
     Public Sub ClearSeries()
         For Each serie In Me.GraficoSegunConsulta.Series
             serie.Points.Clear()
         Next
     End Sub
-    Dim oCNGraficas As New CNGraficos
-    Private Sub TabEstadistica_Enter(ByVal sender As Object, ByVal e As System.EventArgs) Handles TabEstadistica.Enter
+    Public Sub DisableSeries()
+        For Each serie In Me.GraficoSegunConsulta.Series
+            serie.Enabled = False
+        Next
+    End Sub
+
+    Public Sub inicializarPedidosPorFechas()
         cboAño.SelectedIndex = 1
         cboAño2.SelectedIndex = 0
         cboMeses.SelectedIndex = 0
-        cboTipoEstadistica.SelectedIndex = 0
+        Dim hoy As Date = Date.Now()
+        dtpActual.Value = New Date(hoy.Year, hoy.Month, 1)
+        dtpCompare.Value = New Date(hoy.Year, hoy.Month - 1, 1)
+        dtpActual.MaxDate = New Date(hoy.Year, hoy.Month, 28)
+        dtpCompare.MaxDate = New Date(hoy.Year, hoy.Month, 28)
     End Sub
-    Dim Meses As String() = {"Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Agos", "Sep", "Oct", "Nov", "Dic"}
-    Public Sub GraficoPedidosMensuales()
-        ClearSeries()
-        Dim i As Integer = 1
-        For i = 1 To 12
-            Dim cant2018 As Integer = oCNGraficas.GraficaPedidosMensuales(i, 2018)
-            Dim cant2019 As Integer = oCNGraficas.GraficaPedidosMensuales(i, cboAño2.SelectedItem)
-            Me.GraficoSegunConsulta.Series("Cantidad").Points.AddXY((Meses(i - 1)), (cant2018))
-            Me.GraficoSegunConsulta.Series("2019").Points.AddXY((Meses(i - 1)), (cant2019))
-        Next
+#Region "Reporte"
+    Dim image As Bitmap
+    Public Function CapturarGrafico(ctrl As Control) As Bitmap
+        Dim size As Size = ctrl.ClientSize
+        Dim tmpBmp As New Bitmap(size.Width, size.Height)
+        Dim g As Graphics
+
+        g = Graphics.FromImage(tmpBmp)
+        g.InterpolationMode = Drawing2D.InterpolationMode.HighQualityBicubic
+        'g.InterpolationMode = Drawing2D.InterpolationMode.High
+        g.CompositingQuality = Drawing2D.CompositingQuality.HighQuality
+        g.PixelOffsetMode = Drawing2D.PixelOffsetMode.HighQuality
+        g.SmoothingMode = Drawing2D.SmoothingMode.AntiAlias
+        g.TextRenderingHint = Drawing.Text.TextRenderingHint.AntiAlias
+        g.CompositingQuality = Drawing.Drawing2D.CompositingQuality.HighSpeed
+
+        g.CopyFromScreen(ctrl.PointToScreen(New Drawing.Point(0, 0)), New Drawing.Point(0, 0),
+                         New Size(size.Width, size.Height))
+        Return tmpBmp
+    End Function
+    Private Sub btnVerReporteEstadistica_Click(sender As System.Object, e As System.EventArgs) Handles btnVerReporteEstadistica.Click
+        Dim report As New frmReporteEstadistica
+        report.imagen = CapturarGrafico(boxEstadistica)
+        report.ReportViewer1.LocalReport.SetParameters(New ReportParameter("titulo", lblTituloEstadistica.Text))
+        report.ShowDialog()
+        report.Dispose()
+    End Sub
+#End Region
+
+    'Public Sub GraficoPedidosMensuales()
+    '    ClearSeries()
+    '    Dim hoy As Date = New Date(2019, 8, 16, 12, 0, 0)
+    '    Dim actualMes = hoy.Month
+    '    Dim actualyear = hoy.Year
+    '    Dim fecha As Date
+
+    '    Dim i As Integer = 1
+    '    For i = 12 To 1 Step -1
+    '        fecha = hoy.AddMonths(-i)
+    '        Dim f As Integer = fecha.Month
+    '        Dim a As Integer = fecha.Year
+
+    '        Dim cant2018 As Integer = oCNGraficas.GraficaPedidosMensuales(i, cboAño.SelectedItem)
+    '        Dim cant2019 As Integer = oCNGraficas.GraficaPedidosMensuales(i, cboAño2.SelectedItem)
+    '        Me.GraficoSegunConsulta.Series("Cantidad").Points.AddXY((Meses(f - 1)), (cant2018))
+    '        Me.GraficoSegunConsulta.Series("2019").Points.AddXY((Meses(f - 1)), (cant2019))
+    '    Next
+    'End Sub
+    Public Sub ToggleTipoEstadistica()
+        lblActual.Visible = Not lblActual.Visible
+        lblComparar.Visible = Not lblComparar.Visible
+        lblAño.Visible = Not lblAño.Visible
+        lblAño2.Visible = Not lblAño2.Visible
+
+        dtpActual.Visible = Not dtpActual.Visible
+        dtpCompare.Visible = Not dtpCompare.Visible
+        cboAño.Visible = Not cboAño.Visible
+        cboAño2.Visible = Not cboAño2.Visible
     End Sub
 
     Private Sub cboTipoEstadistica_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cboTipoEstadistica.SelectedIndexChanged
         If cboTipoEstadistica.SelectedIndex = 0 Then
+
+            checkUltimaFecha.Text = "Utilizar ultimo mes"
+
+            lblActual.Visible = True
+            lblComparar.Visible = True
+            lblAño.Visible = False
+            lblAño2.Visible = False
+
+            dtpActual.Visible = True
+            dtpCompare.Visible = True
+            cboAño.Visible = False
+            cboAño2.Visible = False
+
+
+
             GraficoPedidosxMes()
         ElseIf cboTipoEstadistica.SelectedIndex = 1 Then
+            checkUltimaFecha.Text = "Utilizar ultimo año"
+
+            lblActual.Visible = False
+            lblComparar.Visible = False
+            lblAño.Visible = True
+            lblAño2.Visible = True
+
+            dtpActual.Visible = False
+            dtpCompare.Visible = False
+            cboAño.Visible = True
+            cboAño2.Visible = True
             GraficoPedidosMensuales()
         End If
-
-
     End Sub
+
     Public Sub GraficoPedidosxMes()
         ClearSeries()
+        DisableSeries()
+        If (Me.GraficoSegunConsulta.Series.IndexOf("Mensual") <> -1) Then
+            Me.GraficoSegunConsulta.Series("Mensual").Enabled = True
+        Else
+            Me.GraficoSegunConsulta.Series.Add("Mensual")
+            Me.GraficoSegunConsulta.Series("Mensual").Color = colorPrimario.BackColor
+        End If
         If (cboTipoEstadistica.SelectedIndex = 0) Then
             cboAño2.Visible = False
             Dim dt As DataTable = oCNGraficas.GraficaPedidosMensual(cboMeses.SelectedIndex + 1, cboAño.SelectedItem)
-            For Each dr In dt.Rows
-                Dim fecha As Date = dr(0)
+            If dt.Rows.Count > 0 Then
+                For Each dr In dt.Rows
+                    Dim fecha As Date = dr(0)
 
-                For i = 1 To 30
-                    If (i = fecha.Day) Then
-                        Me.GraficoSegunConsulta.Series("Mensual").Points.AddXY(i, dr(1))
-                    Else
-                        Me.GraficoSegunConsulta.Series("Mensual").Points.AddXY(i, 0)
-                    End If
+                    For i = 1 To 30
+                        If (i = fecha.Day) Then
+                            Me.GraficoSegunConsulta.Series("Mensual").Points.AddXY(i, dr(1))
+                        Else
+                            Me.GraficoSegunConsulta.Series("Mensual").Points.AddXY(i, 0)
+                        End If
+                    Next
                 Next
-            Next
+            Else
+                For i = 1 To 30
+                    Me.GraficoSegunConsulta.Series("Mensual").Points.AddXY(i, 0)
+                Next
+            End If
+
         ElseIf (cboTipoEstadistica.SelectedIndex = 1) Then
             cboAño2.Visible = True
 
@@ -609,17 +714,50 @@ Public Class frmMenuPrincipal
         End If
     End Sub
     Public Sub GraficarMedios()
-      ClearSeries()
+        Me.GraficoSegunConsulta.Series.Clear()
+        Dim Comienzo As String = dtpActual.Value.Year & "/" & dtpActual.Value.Month & "/" & 1
+        Dim Fin As String = dtpCompare.Value.Year & "/" & dtpCompare.Value.Month & "/" & 29
 
+        ClearSeries()
+        Dim DTMedios As DataTable = MediosTableAdapter1.GetDTGraficoMedios(Comienzo, Fin)
+        'GraficoSegunConsulta.Series.Add("Medios")
         If (cboAño.Text = Nothing) Or (cboMeses.Text = Nothing) Then
             MsgBox("Debe ingresar un valor para los campos mes y año.")
         Else
-            Dim dt As DataTable = oCNGraficas.GraficarCantidadPedidosPorMedio(cboMeses.SelectedIndex + 1, cboAño.Text)
-            Dim dv As DataView = New DataView(dt)
+            Dim dt As DataTable = oCNGraficas.GraficarCantidadPedidosPorMedio(dtpActual.Value.Month - 1, dtpActual.Value.Year)
+            Dim dv As DataView = New DataView(DTMedios)
             For x = 0 To dv.Count - 1
 
-                GraficoSegunConsulta.Series("Cantidad").Points.AddXY(dv(x)("Nombre"), dv(x)("Cantidad"))
+                If (Me.GraficoSegunConsulta.Series.IndexOf(dv(x)("Nombre")) <> -1) Then
+
+                Else
+                    Me.GraficoSegunConsulta.Series.Add(dv(x)("Nombre"))
+                    Me.GraficoSegunConsulta.ChartAreas(0).AxisX.Interval = 1
+                    Me.GraficoSegunConsulta.ChartAreas(0).AxisX.IntervalOffset = 1
+                    Me.GraficoSegunConsulta.ChartAreas(0).AxisY.Interval = 5
+                    Me.GraficoSegunConsulta.ChartAreas(0).AxisY.IntervalOffset = 5
+                    Me.GraficoSegunConsulta.Series(dv(x)("Nombre")).ChartType = SeriesChartType.Line
+                End If
+
+
             Next
+            Dim count As Integer = 1
+            For x = 0 To dv.Count - 1
+
+                For i = 1 To 12
+                    Dim value As Integer = CInt(Int((2 * Rnd()) + 1))
+                    Me.GraficoSegunConsulta.Series(dv(x)("Nombre")).Points.AddXY(i, dv(x)("Cantidad") * value)
+
+
+                Next
+
+
+            Next
+
+
+
+
+
         End If
     End Sub
     Public Sub GraficarProductosMensual()
@@ -635,42 +773,35 @@ Public Class frmMenuPrincipal
         End If
     End Sub
 
+#Region "Eventos"
     Private Sub btnGraficoPedidos_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGraficoPedidos.Click
         GraficoPedidosMensuales()
     End Sub
     Private Sub btnGraficoMedios_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGraficoMedios.Click
         GraficarMedios()
     End Sub
-
-    Private Sub btnGraficosProducto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGraficosProducto.Click
-        GraficarProductosMensual()
+    Private Sub BtnGraficarClientes_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnGraficarClientes.Click
+        GraficarActividadClientes()
     End Sub
-    Public Sub GraficarProductosHistoricos()
-        ClearSeries()
-
-        Me.GraficoSegunConsulta.Series("2019").Enabled = False
-        Me.GraficoSegunConsulta.Series("Cantidad").Enabled = False
-        Me.GraficoSegunConsulta.Series("Mensual").Enabled = False
-
-        Me.GraficoSegunConsulta.ChartAreas(0).AxisY.Interval = 20
-        Me.GraficoSegunConsulta.ChartAreas(0).AxisY.IntervalOffset = 20
-
-        Dim dt As DataTable = oCNGraficas.GraficarProductosHistoricos()
-        Dim dv As DataView = New DataView(dt)
-
-        For x = 0 To dv.Count - 1
-            GraficoSegunConsulta.Series("topProductos").Points.AddXY(dv(x)("Nombre"), dv(x)("Cantidad"))
-        Next
+    Private Sub cboAño_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboAño.SelectedIndexChanged
+        If (cboTipoEstadistica.SelectedIndex = 1) Then
+            GraficoPedidosMensuales()
+        End If
 
     End Sub
 
-
-    Private Sub btnGraficosTopProductos_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnGraficosTopProductos.Click
-        GraficarProductosHistoricos()
+    Private Sub cboAño2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboAño2.SelectedIndexChanged
+        If (cboTipoEstadistica.SelectedIndex = 1) Then
+            GraficoPedidosMensuales()
+        End If
     End Sub
 
+#End Region
 
-    'yorsh--
+
+
+
+
     Public Sub GraficarActividadClientes()
         Me.GraficoSegunConsulta.Series("2019").Points.Clear()
         Me.GraficoSegunConsulta.Series("Cantidad").Points.Clear()
@@ -687,15 +818,48 @@ Public Class frmMenuPrincipal
 
 
 
-    Private Sub BtnGraficarClientes_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnGraficarClientes.Click
-        GraficarActividadClientes()
+
+
+#Region "Grafico cantidad de pedidos por mes y por año"
+
+    Public Sub GraficoPedidosMensuales()
+        ClearSeries()
+        Me.GraficoSegunConsulta.Series.Clear()
+
+
+
+        If (Me.GraficoSegunConsulta.Series.IndexOf(cboAño.Text) <> -1) Then
+            MsgBox("ya existe la serie")
+        Else
+            Me.GraficoSegunConsulta.Series.Add(cboAño.Text)
+            Me.GraficoSegunConsulta.Series(cboAño.Text).Color = colorPrimario.BackColor
+        End If
+        If (Me.GraficoSegunConsulta.Series.IndexOf(cboAño2.Text) <> -1) Then
+            MsgBox("ya existe la serie")
+        Else
+            Me.GraficoSegunConsulta.Series.Add(cboAño2.Text)
+            Me.GraficoSegunConsulta.Series(cboAño2.Text).Color = colorSecundario.BackColor
+        End If
+
+
+
+
+        Dim i As Integer = 1
+        For i = 1 To 12
+            Dim cant2018 As Integer = oCNGraficas.GraficaPedidosMensuales(i, cboAño.SelectedItem)
+            Dim cant2019 As Integer = oCNGraficas.GraficaPedidosMensuales(i, cboAño2.SelectedItem)
+            Me.GraficoSegunConsulta.Series(cboAño.Text).Points.AddXY((Meses(i - 1)), (cant2018))
+            Me.GraficoSegunConsulta.Series(cboAño2.Text).Points.AddXY((Meses(i - 1)), (cant2019))
+        Next
     End Sub
-    '--
+
 
     Private Sub dtpCompare_ValueChanged(ByVal sender As Object, ByVal e As EventArgs) Handles dtpCompare.ValueChanged
         Me.GraficoSegunConsulta.Series("Mensual2").Points.Clear()
         Dim comparar As Date = dtpCompare.Value
         Dim dt2 As DataTable = oCNGraficas.GraficaPedidosMensual(comparar.Month, comparar.Year)
+
+
         If dt2.Rows.Count = 0 Then
             For i = 1 To 30
                 Me.GraficoSegunConsulta.Series("Mensual2").Points.AddXY(i, 0)
@@ -705,10 +869,12 @@ Public Class frmMenuPrincipal
                 Dim fecha2 As Date = dr2(0)
 
                 For i = 1 To 30
-                    If (i = fecha2.Day) Then
 
+                    If (i = fecha2.Day) Then
+                        ' Me.GraficoSegunConsulta.Series("Mensual2").Legend = Meses(fecha2.Month) & "-" & fecha2.Year
                         Me.GraficoSegunConsulta.Series("Mensual2").Points.AddXY(i, dr2(1))
                     Else
+
 
                         Me.GraficoSegunConsulta.Series("Mensual2").Points.AddXY(i, 0)
 
@@ -716,7 +882,7 @@ Public Class frmMenuPrincipal
                 Next
             Next
         End If
-       
+
     End Sub
 
     Private Sub dtpActual_ValueChanged(ByVal sender As Object, ByVal e As EventArgs) Handles dtpActual.ValueChanged
@@ -748,6 +914,110 @@ Public Class frmMenuPrincipal
 
 
     End Sub
+
+#End Region
+
+#Region "Grafica Productos x año x cantidad"
+    Dim TopProductos(2) As Integer
+    Private Sub btnGraficosProducto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGraficosProducto.Click
+        GraficarProductosMensual()
+    End Sub
+    Private Sub btnGraficosTopProductos_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnGraficosTopProductos.Click
+        GraficarProductosHistoricos()
+    End Sub
+    Private Sub btnSearchTop1_Click(sender As Object, e As EventArgs) Handles btnSearchTop1.Click
+        TopProductos(0) = SeleccionarItem(txtSeleccion1, btnSearchTop1)
+    End Sub
+
+    Private Sub btnSearchTop2_Click(sender As Object, e As EventArgs) Handles btnSearchTop2.Click
+        TopProductos(1) = SeleccionarItem(txtSeleccion2, btnSearchTop2)
+    End Sub
+
+    Private Sub btnSearchTop3_Click(sender As Object, e As EventArgs) Handles btnSearchTop3.Click
+        TopProductos(2) = SeleccionarItem(txtSeleccion3, btnSearchTop3)
+    End Sub
+    Public Function SeleccionarItem(ByVal nombre As TextBox, ByVal btn As Button) As Integer
+        Dim busquedaControl As New AgregarProductoPedido
+        busquedaControl.StartPosition = FormStartPosition.CenterScreen
+        busquedaControl.Size = New Point(335, 400)
+        busquedaControl.PanelBusqueda.Location = New Point(0, 0)
+
+        busquedaControl.ShowDialog()
+        nombre.Text = busquedaControl.oCEproducto.Nombre
+        If busquedaControl.oCEproducto.IDProducto > -1 Then
+            Return busquedaControl.oCEproducto.IDProducto
+        Else
+            Return -1
+        End If
+    End Function
+
+
+    Public Sub GraficarProductosHistoricos()
+        ClearSeries()
+
+        Me.GraficoSegunConsulta.Series("2019").Enabled = False
+        Me.GraficoSegunConsulta.Series("Cantidad").Enabled = False
+        Me.GraficoSegunConsulta.Series("Mensual").Enabled = False
+
+        Me.GraficoSegunConsulta.ChartAreas(0).AxisY.Interval = 20
+        Me.GraficoSegunConsulta.ChartAreas(0).AxisY.IntervalOffset = 20
+
+        Dim dt As DataTable = oCNGraficas.GraficarProductosHistoricos()
+        Dim dv As DataView = New DataView(dt)
+
+        For x = 0 To dv.Count - 1
+            GraficoSegunConsulta.Series("topProductos").Points.AddXY(dv(x)("Nombre"), dv(x)("Cantidad"))
+        Next
+
+    End Sub
+
+
+
+
+#End Region
+
+    'Private Sub dtpCompare_ValueChanged(sender As Object, e As EventArgs) Handles dtpCompare.ValueChanged
+    '    Me.GraficoSegunConsulta.Series("Mensual2").Points.Clear()
+    '    Dim comparar As Date = dtpCompare.Value
+    '    Dim dt2 As DataTable = oCNGraficas.GraficaPedidosMensual(comparar.Month, comparar.Year)
+    '    For Each dr2 In dt2.Rows
+    '        Dim fecha2 As Date = dr2(0)
+
+    '        For i = 1 To 30
+    '            If (i = fecha2.Day) Then
+
+    '                Me.GraficoSegunConsulta.Series("Mensual2").Points.AddXY(i, dr2(1))
+    '            Else
+
+    '                Me.GraficoSegunConsulta.Series("Mensual2").Points.AddXY(i, 0)
+
+    '            End If
+    '        Next
+    '    Next
+    'End Sub
+    'a revisar si hay cambios comit 8/12/2019 15:32
+    'Private Sub dtpActual_ValueChanged(sender As Object, e As EventArgs) Handles dtpActual.ValueChanged
+    '    cboAño2.Visible = False
+    '    Me.GraficoSegunConsulta.Series("Mensual").Points.Clear()
+
+    '    Dim hoy As Date = dtpActual.Value
+    '    Dim dt As DataTable = oCNGraficas.GraficaPedidosMensual(hoy.Month, hoy.Year)
+    '    For Each dr In dt.Rows
+    '        Dim fecha As Date = dr(0)
+
+    '        For i = 1 To 30
+    '            If (i = fecha.Day) Then
+    '                Me.GraficoSegunConsulta.Series("Mensual").Points.AddXY(i, dr(1))
+
+    '            Else
+    '                Me.GraficoSegunConsulta.Series("Mensual").Points.AddXY(i, 0)
+
+
+    '            End If
+    '        Next
+    '    Next
+
+    'End Sub
 
     'Private Sub GraficoEfectividad()
     '    Dim dt As New DataTable
@@ -814,7 +1084,7 @@ Public Class frmMenuPrincipal
         AutoCancelarPresupuestos()
         CargarGridPresupuestos()
         cboBuscarPresupuesto.SelectedIndex = 0
-
+        cboFiltroEstadoPresupuesto.SelectedIndex = 1
     End Sub
     Public Sub AutoCancelarPresupuestos()
         oCNPresupuesto.AutoCancelarPresupuesto()
@@ -833,17 +1103,26 @@ Public Class frmMenuPrincipal
     Public Sub CargarGridPresupuestos()
         Dim dv As DataView
         Dim dt As New DataTable
-        dt = oCNPresupuesto.MostrarPresupuesto.DefaultView.ToTable(True, "IDPedido", "Cliente", "Fecha", "Fecha Vencimiento", "Descripcion", "Estado")
-        dv = New DataView(dt, "Estado = 'Presupuesto' or  Estado = 'Cancelado' ", "IDPedido Asc", DataViewRowState.CurrentRows)
-        DGPresupuesto.DataSource = dv
-        For Each row As DataGridViewRow In DGPresupuesto.Rows
-            If Not (Convert.IsDBNull(row.Cells(3).Value)) Then
-                Dim Estado As String = row.Cells("Estado").Value.ToString()
-                If Estado = "Cancelado" Then
-                    row.DefaultCellStyle.BackColor = Color.Red
-                End If
-            End If
+        dt = oCNPresupuesto.MostrarPresupuesto
+
+        For i As Integer = 0 To dt.Rows.Count - 1
+            dt.Rows(i)("Cliente") = dt.Rows(i)("Cliente") & " " & dt.Rows(i)("Apellido")
         Next
+
+
+        dt = dt.DefaultView.ToTable(True, "IDPedido", "Cliente", "Fecha", "Fecha Vencimiento", "Estado", "Descripcion", "Responsable")
+        dv = New DataView(dt, "Estado = 'Presupuesto' or  Estado = 'Presupuesto Cancelado' ", "IDPedido Asc", DataViewRowState.CurrentRows)
+        DGPresupuesto.DataSource = dv
+        DGPresupuesto.Columns(0).Visible = False
+        'For Each row As DataGridViewRow In DGPresupuesto.Rows
+        '    If Not (Convert.IsDBNull(row.Cells(3).Value)) Then
+        '        Dim Estado As String = row.Cells("Estado").Value.ToString()
+        '        If Estado = "Cancelado" Then
+        '            row.DefaultCellStyle.BackColor = Color.Red
+        '        End If
+        '    End If
+        'Next
+        MostrarSinResultados(dt, DGPresupuesto)
     End Sub
     Private Sub btnNuevoPresupuesto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNuevoPresupuesto.Click
         Dim frmPresupuesto As New FormularioPedido
@@ -855,6 +1134,7 @@ Public Class frmMenuPrincipal
         ' frmPresupuesto.btnConfirmarPedido.Visible = True
         'frmPresupuesto.dtpFechaVencimiento.MinDate = Date.Now()
         frmPresupuesto.dtpFechaVencimiento.Value = Date.Now().AddDays(7)
+        frmPresupuesto.txtResponsable.Text = lblUsuario.Text
         frmPresupuesto.PrecargarCombobox()
         frmPresupuesto.ShowDialog()
         CargarGridPresupuestos()
@@ -904,8 +1184,17 @@ Public Class frmMenuPrincipal
 
     Private Sub btnBuscarPresupuesto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscarPresupuesto.Click
         Dim dt As DataTable
-        dt = oCNPresupuesto.BuscarPresupuesto(cboBuscarPresupuesto.Text, txtBuscarPresupuesto.Text)
-        DGPresupuesto.DataSource = dt.DefaultView.ToTable(True, "IDPedido", "Cliente", "Fecha", "Fecha Vencimiento", "Descripcion", "Estado")
+
+        dt = oCNPresupuesto.BuscarPresupuesto(cboBuscarPresupuesto.Text, txtBuscarPresupuesto.Text, cboFiltroEstadoPresupuesto.Text)
+
+        For i As Integer = 0 To dt.Rows.Count - 1
+            dt.Rows(i)("Nombre") = dt.Rows(i)("Nombre") & " " & dt.Rows(i)("Apellido")
+        Next
+
+        DGPresupuesto.DataSource = dt.DefaultView.ToTable(True, "IDPedido", "Nombre", "Fecha", "Fecha Vencimiento", "Descripcion", "Estado", "Responsable")
+        DGPresupuesto.Columns("Nombre").HeaderCell.Value = "Cliente"
+        DGPresupuesto.Columns(0).Visible = False
+        MostrarSinResultados(dt, DGPresupuesto)
     End Sub
 
     Private Sub DGPresupuesto_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DGPresupuesto.CellClick
@@ -1049,9 +1338,61 @@ Public Class frmMenuPrincipal
         frmIngresaralSistema.Show()
     End Sub
 
-    Private Sub Label11_Click(sender As Object, e As EventArgs) Handles Label11.Click
+
+#Region "Usar Ultimo mes o ultimo año"
+
+    Private Sub checkUltimaFecha_CheckedChanged(sender As Object, e As EventArgs) Handles checkUltimaFecha.CheckedChanged
+        If checkUltimaFecha.Checked Then
+            dtpActual.Enabled = False
+            dtpCompare.Enabled = False
+            cboAño.Enabled = False
+            cboAño2.Enabled = False
+        Else
+            dtpActual.Enabled = True
+            dtpCompare.Enabled = True
+            cboAño.Enabled = True
+            cboAño2.Enabled = True
+        End If
+    End Sub
+    Private Sub UsarUltimoMes()
+        Dim hoy As Date = Date.Now()
+        Dim UltimaFecha As Date = hoy.AddMonths(-1)
+        Dim alter As Date
+        Dim count As Integer = 0
+
+        Dim dt As DataTable = oCNGraficas.GraficaPedidosMensual(cboMeses.SelectedIndex + 1, cboAño.SelectedItem)
+        If dt.Rows.Count > 0 Then
+            For Each dr In dt.Rows
+                Dim fecha As Date = dr(0)
+
+                For i = 1 To 30
+                    alter = UltimaFecha.AddDays(i)
+                    count = alter.Day
+
+                    If (alter.Day = fecha.Day And alter.Month = fecha.Month) Then
+                        Me.GraficoSegunConsulta.Series("Mensual").Points.AddXY(count, dr(1))
+                    Else
+                        Me.GraficoSegunConsulta.Series("Mensual").Points.AddXY(count, 0)
+                    End If
+                Next
+            Next
+        End If
+
+
+
+
+
 
     End Sub
+    Private Sub UsarUltimoAño()
+
+        Dim hoy As Date = Date.Now()
+        Dim UltimaFecha As Date = hoy.AddYears(-1)
+
+    End Sub
+
+#End Region
+
 
 #End Region
 
@@ -1060,4 +1401,35 @@ Public Class frmMenuPrincipal
 
 
 
+
+
+
+
+
+#Region "Panel Sin Resultados"
+
+    Public Sub MostrarSinResultados(ByVal dt As DataTable, ByVal DG As DataGridView)
+        If dt.Rows.Count = 0 Then
+            Dim pSearch As New Panel
+            Dim alturaHeader As Integer = 32
+
+            pSearch.Location = New Point(DG.Location.X, DG.Location.Y + alturaHeader)
+            pSearch.Name = "Panel" + DG.Name
+            pSearch.Size = New Size(DG.Size.Width, DG.Size.Height - alturaHeader)
+            pSearch.BackColor = Color.White
+            pSearch.BackgroundImage = CType(My.Resources.SinResulatosLupa, Image)
+            pSearch.BackgroundImageLayout = ImageLayout.Stretch
+            pSearch.Visible = True
+            pSearch.BorderStyle = BorderStyle.None
+            pSearch.Parent = DG.Parent
+            pSearch.BringToFront()
+        Else
+            Dim ctrl() As Control
+            ctrl = DG.Parent.Controls.Find("Panel" + DG.Name, True)
+            If Not (ctrl.Length = 0) Then
+                DG.Parent.Controls.Remove(ctrl(0))
+            End If
+        End If
+    End Sub
+#End Region
 End Class

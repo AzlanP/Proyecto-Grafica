@@ -26,4 +26,7 @@ Public Class CNUsuario
     Function BuscarUsuario(ByVal ID As Integer) As DataTable
         Return oCDUsuario.BuscarUsuario(ID)
     End Function
+    Function ValidarContrasenaUsuario(ByVal pcontrasena As String, ByVal id As Integer) As Boolean
+        Return oCDUsuario.ValidarContrasenaUsuario(pcontrasena, id)
+    End Function
 End Class

@@ -121,10 +121,22 @@
     <Compile Include="frmPestañaTareas.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmReporteEstadistica.Designer.vb">
+      <DependentUpon>frmReporteEstadistica.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmReporteEstadistica.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmReportePedido.Designer.vb">
       <DependentUpon>frmReportePedido.vb</DependentUpon>
     </Compile>
     <Compile Include="frmReportePedido.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReportePresupuesto.Designer.vb">
+      <DependentUpon>frmReportePresupuesto.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmReportePresupuesto.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ListadoPostick.Designer.vb">
@@ -210,8 +222,14 @@
     <EmbeddedResource Include="frmPestañaTareas.resx">
       <DependentUpon>frmPestañaTareas.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmReporteEstadistica.resx">
+      <DependentUpon>frmReporteEstadistica.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmReportePedido.resx">
       <DependentUpon>frmReportePedido.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReportePresupuesto.resx">
+      <DependentUpon>frmReportePresupuesto.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ListadoPostick.resx">
       <DependentUpon>ListadoPostick.vb</DependentUpon>
@@ -228,13 +246,14 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <None Include="ReportPresupuesto.rdlc" />
+    <EmbeddedResource Include="ReportPresupuesto.rdlc" />
     <EmbeddedResource Include="RegistrarCliente.resx">
       <DependentUpon>RegistrarCliente.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RegistrarProducto.resx">
       <DependentUpon>RegistrarProducto.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReportEstadistica.rdlc" />
     <EmbeddedResource Include="ReportPedido.rdlc" />
     <EmbeddedResource Include="ValidacionMoneda.resx">
       <DependentUpon>ValidacionMoneda.vb</DependentUpon>
@@ -300,6 +319,8 @@
   <ItemGroup>
     <Content Include="Resources\add.png" />
     <Content Include="Resources\search.png" />
+    <None Include="Resources\SinResulatosLupa.png" />
+    <None Include="Resources\SinResultados.png" />
     <None Include="Resources\TRASH.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

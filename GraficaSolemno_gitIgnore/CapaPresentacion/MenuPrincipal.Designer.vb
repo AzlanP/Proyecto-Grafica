@@ -31,12 +31,13 @@ Partial Class frmMenuPrincipal
         Dim Series3 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Dim Series4 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Dim Series5 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series6 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series7 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.TabGeneral = New System.Windows.Forms.TabControl()
         Me.TabTareas = New System.Windows.Forms.TabPage()
         Me.panelTareas = New System.Windows.Forms.Panel()
         Me.TabCliente = New System.Windows.Forms.TabPage()
         Me.PanelCentralCliente = New System.Windows.Forms.Panel()
-        Me.FondoSinResultados = New System.Windows.Forms.Panel()
         Me.btnBuscarInactivos = New System.Windows.Forms.Button()
         Me.DGClienteInactivos = New System.Windows.Forms.DataGridView()
         Me.btnRefresh = New System.Windows.Forms.Button()
@@ -57,6 +58,9 @@ Partial Class frmMenuPrincipal
         Me.btnNuevoCliente = New System.Windows.Forms.Button()
         Me.TabPresupuesto = New System.Windows.Forms.TabPage()
         Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.cboFiltroEstadoPresupuesto = New System.Windows.Forms.ComboBox()
         Me.btnRefreshPresupuesto = New System.Windows.Forms.Button()
         Me.txtBuscarPresupuesto = New System.Windows.Forms.TextBox()
         Me.btnBuscarPresupuesto = New System.Windows.Forms.Button()
@@ -73,6 +77,9 @@ Partial Class frmMenuPrincipal
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.TabPedido = New System.Windows.Forms.TabPage()
         Me.PanelCentralPedido = New System.Windows.Forms.Panel()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.cboFiltroPedido = New System.Windows.Forms.ComboBox()
         Me.btnRefreshPedido = New System.Windows.Forms.Button()
         Me.txtBuscarPedido = New System.Windows.Forms.TextBox()
         Me.btnBuscarPedido = New System.Windows.Forms.Button()
@@ -135,19 +142,32 @@ Partial Class frmMenuPrincipal
         Me.IconoProducto = New System.Windows.Forms.PictureBox()
         Me.TabEstadistica = New System.Windows.Forms.TabPage()
         Me.Panel7 = New System.Windows.Forms.Panel()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.Label10 = New System.Windows.Forms.Label()
+        Me.checkUltimaFecha = New System.Windows.Forms.CheckBox()
+        Me.Panel9 = New System.Windows.Forms.Panel()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.txtSeleccion3 = New System.Windows.Forms.TextBox()
+        Me.btnSearchTop3 = New System.Windows.Forms.Button()
+        Me.txtSeleccion2 = New System.Windows.Forms.TextBox()
+        Me.btnSearchTop2 = New System.Windows.Forms.Button()
+        Me.txtSeleccion1 = New System.Windows.Forms.TextBox()
+        Me.btnSearchTop1 = New System.Windows.Forms.Button()
+        Me.colorSecundario = New System.Windows.Forms.Label()
+        Me.colorPrimario = New System.Windows.Forms.Label()
+        Me.btnVerReporteEstadistica = New System.Windows.Forms.Button()
+        Me.GraficoSegunConsulta = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.boxEstadistica = New System.Windows.Forms.PictureBox()
+        Me.lblComparar = New System.Windows.Forms.Label()
+        Me.lblActual = New System.Windows.Forms.Label()
         Me.dtpCompare = New System.Windows.Forms.DateTimePicker()
         Me.dtpActual = New System.Windows.Forms.DateTimePicker()
-        Me.Label8 = New System.Windows.Forms.Label()
+        Me.lblTipoGrafico = New System.Windows.Forms.Label()
         Me.cboTipoEstadistica = New System.Windows.Forms.ComboBox()
-        Me.Label7 = New System.Windows.Forms.Label()
+        Me.lblAño2 = New System.Windows.Forms.Label()
         Me.cboAño2 = New System.Windows.Forms.ComboBox()
-        Me.Label5 = New System.Windows.Forms.Label()
+        Me.lblAño = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.cboAño = New System.Windows.Forms.ComboBox()
         Me.cboMeses = New System.Windows.Forms.ComboBox()
-        Me.GraficoSegunConsulta = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.PanelSupEstadistica = New System.Windows.Forms.Panel()
         Me.lblTituloEstadistica = New System.Windows.Forms.Label()
         Me.PnlLateralEstadistica = New System.Windows.Forms.Panel()
@@ -182,6 +202,7 @@ Partial Class frmMenuPrincipal
         Me.lblNombreUsuario = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.UsuariosTableAdapter = New CapaPresentacion.SolemnoDataSetTableAdapters.UsuariosTableAdapter()
+        Me.MediosTableAdapter1 = New CapaPresentacion.SolemnoDataSetTableAdapters.MediosTableAdapter()
         Me.TabGeneral.SuspendLayout()
         Me.TabTareas.SuspendLayout()
         Me.TabCliente.SuspendLayout()
@@ -221,7 +242,9 @@ Partial Class frmMenuPrincipal
         CType(Me.IconoProducto, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabEstadistica.SuspendLayout()
         Me.Panel7.SuspendLayout()
+        Me.Panel9.SuspendLayout()
         CType(Me.GraficoSegunConsulta, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.boxEstadistica, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelSupEstadistica.SuspendLayout()
         Me.PnlLateralEstadistica.SuspendLayout()
         CType(Me.PictureBoxEstadistic, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -254,7 +277,7 @@ Partial Class frmMenuPrincipal
         Me.TabGeneral.Name = "TabGeneral"
         Me.TabGeneral.Padding = New System.Drawing.Point(6, 4)
         Me.TabGeneral.SelectedIndex = 0
-        Me.TabGeneral.Size = New System.Drawing.Size(1147, 584)
+        Me.TabGeneral.Size = New System.Drawing.Size(1180, 584)
         Me.TabGeneral.SizeMode = System.Windows.Forms.TabSizeMode.Fixed
         Me.TabGeneral.TabIndex = 0
         '
@@ -264,7 +287,7 @@ Partial Class frmMenuPrincipal
         Me.TabTareas.Controls.Add(Me.panelTareas)
         Me.TabTareas.Location = New System.Drawing.Point(4, 24)
         Me.TabTareas.Name = "TabTareas"
-        Me.TabTareas.Size = New System.Drawing.Size(1139, 556)
+        Me.TabTareas.Size = New System.Drawing.Size(1172, 556)
         Me.TabTareas.TabIndex = 6
         Me.TabTareas.Text = "Tareas"
         '
@@ -273,7 +296,7 @@ Partial Class frmMenuPrincipal
         Me.panelTareas.Dock = System.Windows.Forms.DockStyle.Fill
         Me.panelTareas.Location = New System.Drawing.Point(0, 0)
         Me.panelTareas.Name = "panelTareas"
-        Me.panelTareas.Size = New System.Drawing.Size(1139, 556)
+        Me.panelTareas.Size = New System.Drawing.Size(1172, 556)
         Me.panelTareas.TabIndex = 0
         '
         'TabCliente
@@ -284,14 +307,13 @@ Partial Class frmMenuPrincipal
         Me.TabCliente.Controls.Add(Me.PanelLateralCliente)
         Me.TabCliente.Location = New System.Drawing.Point(4, 24)
         Me.TabCliente.Name = "TabCliente"
-        Me.TabCliente.Size = New System.Drawing.Size(1139, 556)
+        Me.TabCliente.Size = New System.Drawing.Size(1172, 556)
         Me.TabCliente.TabIndex = 0
         Me.TabCliente.Text = "Cliente"
         '
         'PanelCentralCliente
         '
         Me.PanelCentralCliente.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
-        Me.PanelCentralCliente.Controls.Add(Me.FondoSinResultados)
         Me.PanelCentralCliente.Controls.Add(Me.btnBuscarInactivos)
         Me.PanelCentralCliente.Controls.Add(Me.DGClienteInactivos)
         Me.PanelCentralCliente.Controls.Add(Me.btnRefresh)
@@ -302,19 +324,8 @@ Partial Class frmMenuPrincipal
         Me.PanelCentralCliente.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelCentralCliente.Location = New System.Drawing.Point(184, 89)
         Me.PanelCentralCliente.Name = "PanelCentralCliente"
-        Me.PanelCentralCliente.Size = New System.Drawing.Size(955, 467)
+        Me.PanelCentralCliente.Size = New System.Drawing.Size(988, 467)
         Me.PanelCentralCliente.TabIndex = 13
-        '
-        'FondoSinResultados
-        '
-        Me.FondoSinResultados.BackColor = System.Drawing.Color.White
-        Me.FondoSinResultados.BackgroundImage = CType(resources.GetObject("FondoSinResultados.BackgroundImage"), System.Drawing.Image)
-        Me.FondoSinResultados.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.FondoSinResultados.Location = New System.Drawing.Point(24, 98)
-        Me.FondoSinResultados.Name = "FondoSinResultados"
-        Me.FondoSinResultados.Size = New System.Drawing.Size(614, 277)
-        Me.FondoSinResultados.TabIndex = 12
-        Me.FondoSinResultados.Visible = False
         '
         'btnBuscarInactivos
         '
@@ -411,7 +422,7 @@ Partial Class frmMenuPrincipal
         Me.PanelSuperiorCliente.Dock = System.Windows.Forms.DockStyle.Top
         Me.PanelSuperiorCliente.Location = New System.Drawing.Point(184, 0)
         Me.PanelSuperiorCliente.Name = "PanelSuperiorCliente"
-        Me.PanelSuperiorCliente.Size = New System.Drawing.Size(955, 89)
+        Me.PanelSuperiorCliente.Size = New System.Drawing.Size(988, 89)
         Me.PanelSuperiorCliente.TabIndex = 12
         '
         'lbltituloCliente
@@ -560,7 +571,7 @@ Partial Class frmMenuPrincipal
         Me.TabPresupuesto.Controls.Add(Me.Panel3)
         Me.TabPresupuesto.Location = New System.Drawing.Point(4, 24)
         Me.TabPresupuesto.Name = "TabPresupuesto"
-        Me.TabPresupuesto.Size = New System.Drawing.Size(1139, 556)
+        Me.TabPresupuesto.Size = New System.Drawing.Size(1172, 556)
         Me.TabPresupuesto.TabIndex = 7
         Me.TabPresupuesto.Text = "Presupuesto"
         Me.TabPresupuesto.UseVisualStyleBackColor = True
@@ -568,6 +579,9 @@ Partial Class frmMenuPrincipal
         'Panel4
         '
         Me.Panel4.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
+        Me.Panel4.Controls.Add(Me.Label10)
+        Me.Panel4.Controls.Add(Me.Label11)
+        Me.Panel4.Controls.Add(Me.cboFiltroEstadoPresupuesto)
         Me.Panel4.Controls.Add(Me.btnRefreshPresupuesto)
         Me.Panel4.Controls.Add(Me.txtBuscarPresupuesto)
         Me.Panel4.Controls.Add(Me.btnBuscarPresupuesto)
@@ -576,8 +590,36 @@ Partial Class frmMenuPrincipal
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel4.Location = New System.Drawing.Point(184, 89)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(955, 467)
+        Me.Panel4.Size = New System.Drawing.Size(988, 467)
         Me.Panel4.TabIndex = 18
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(438, 16)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(53, 13)
+        Me.Label10.TabIndex = 20
+        Me.Label10.Text = "Filtrar por:"
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(292, 16)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(88, 13)
+        Me.Label11.TabIndex = 19
+        Me.Label11.Text = "Filtrar por estado:"
+        '
+        'cboFiltroEstadoPresupuesto
+        '
+        Me.cboFiltroEstadoPresupuesto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboFiltroEstadoPresupuesto.FormattingEnabled = True
+        Me.cboFiltroEstadoPresupuesto.Items.AddRange(New Object() {"Todos", "Presupuesto", "Cancelado"})
+        Me.cboFiltroEstadoPresupuesto.Location = New System.Drawing.Point(279, 32)
+        Me.cboFiltroEstadoPresupuesto.Name = "cboFiltroEstadoPresupuesto"
+        Me.cboFiltroEstadoPresupuesto.Size = New System.Drawing.Size(122, 21)
+        Me.cboFiltroEstadoPresupuesto.TabIndex = 15
         '
         'btnRefreshPresupuesto
         '
@@ -593,9 +635,9 @@ Partial Class frmMenuPrincipal
         '
         'txtBuscarPresupuesto
         '
-        Me.txtBuscarPresupuesto.Location = New System.Drawing.Point(67, 36)
+        Me.txtBuscarPresupuesto.Location = New System.Drawing.Point(62, 33)
         Me.txtBuscarPresupuesto.Name = "txtBuscarPresupuesto"
-        Me.txtBuscarPresupuesto.Size = New System.Drawing.Size(342, 20)
+        Me.txtBuscarPresupuesto.Size = New System.Drawing.Size(210, 20)
         Me.txtBuscarPresupuesto.TabIndex = 12
         '
         'btnBuscarPresupuesto
@@ -617,7 +659,7 @@ Partial Class frmMenuPrincipal
         Me.DGPresupuesto.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DGPresupuesto.BackgroundColor = System.Drawing.SystemColors.ControlLightLight
         Me.DGPresupuesto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGPresupuesto.Location = New System.Drawing.Point(20, 74)
+        Me.DGPresupuesto.Location = New System.Drawing.Point(20, 81)
         Me.DGPresupuesto.MultiSelect = False
         Me.DGPresupuesto.Name = "DGPresupuesto"
         Me.DGPresupuesto.ReadOnly = True
@@ -630,10 +672,10 @@ Partial Class frmMenuPrincipal
         '
         Me.cboBuscarPresupuesto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboBuscarPresupuesto.FormattingEnabled = True
-        Me.cboBuscarPresupuesto.Items.AddRange(New Object() {"Nombre", "Apellido", "DNI", "CUIT"})
-        Me.cboBuscarPresupuesto.Location = New System.Drawing.Point(415, 35)
+        Me.cboBuscarPresupuesto.Items.AddRange(New Object() {"Nombre y apellido", "Vendedor", "Fecha"})
+        Me.cboBuscarPresupuesto.Location = New System.Drawing.Point(407, 33)
         Me.cboBuscarPresupuesto.Name = "cboBuscarPresupuesto"
-        Me.cboBuscarPresupuesto.Size = New System.Drawing.Size(114, 21)
+        Me.cboBuscarPresupuesto.Size = New System.Drawing.Size(122, 21)
         Me.cboBuscarPresupuesto.TabIndex = 13
         '
         'Panel2
@@ -643,7 +685,7 @@ Partial Class frmMenuPrincipal
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel2.Location = New System.Drawing.Point(184, 0)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(955, 89)
+        Me.Panel2.Size = New System.Drawing.Size(988, 89)
         Me.Panel2.TabIndex = 17
         '
         'Label6
@@ -761,13 +803,16 @@ Partial Class frmMenuPrincipal
         Me.TabPedido.Controls.Add(Me.PanelLateralPedido)
         Me.TabPedido.Location = New System.Drawing.Point(4, 24)
         Me.TabPedido.Name = "TabPedido"
-        Me.TabPedido.Size = New System.Drawing.Size(1139, 556)
+        Me.TabPedido.Size = New System.Drawing.Size(1172, 556)
         Me.TabPedido.TabIndex = 2
         Me.TabPedido.Text = "Pedido"
         '
         'PanelCentralPedido
         '
         Me.PanelCentralPedido.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
+        Me.PanelCentralPedido.Controls.Add(Me.Label8)
+        Me.PanelCentralPedido.Controls.Add(Me.Label7)
+        Me.PanelCentralPedido.Controls.Add(Me.cboFiltroPedido)
         Me.PanelCentralPedido.Controls.Add(Me.btnRefreshPedido)
         Me.PanelCentralPedido.Controls.Add(Me.txtBuscarPedido)
         Me.PanelCentralPedido.Controls.Add(Me.btnBuscarPedido)
@@ -776,8 +821,36 @@ Partial Class frmMenuPrincipal
         Me.PanelCentralPedido.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelCentralPedido.Location = New System.Drawing.Point(184, 89)
         Me.PanelCentralPedido.Name = "PanelCentralPedido"
-        Me.PanelCentralPedido.Size = New System.Drawing.Size(955, 467)
+        Me.PanelCentralPedido.Size = New System.Drawing.Size(988, 467)
         Me.PanelCentralPedido.TabIndex = 16
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(439, 13)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(53, 13)
+        Me.Label8.TabIndex = 18
+        Me.Label8.Text = "Filtrar por:"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(293, 13)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(88, 13)
+        Me.Label7.TabIndex = 17
+        Me.Label7.Text = "Filtrar por estado:"
+        '
+        'cboFiltroPedido
+        '
+        Me.cboFiltroPedido.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboFiltroPedido.FormattingEnabled = True
+        Me.cboFiltroPedido.Items.AddRange(New Object() {"Todos", "Pendiente", "Completado", "Cancelado"})
+        Me.cboFiltroPedido.Location = New System.Drawing.Point(279, 32)
+        Me.cboFiltroPedido.Name = "cboFiltroPedido"
+        Me.cboFiltroPedido.Size = New System.Drawing.Size(122, 21)
+        Me.cboFiltroPedido.TabIndex = 16
         '
         'btnRefreshPedido
         '
@@ -793,9 +866,9 @@ Partial Class frmMenuPrincipal
         '
         'txtBuscarPedido
         '
-        Me.txtBuscarPedido.Location = New System.Drawing.Point(67, 36)
+        Me.txtBuscarPedido.Location = New System.Drawing.Point(67, 33)
         Me.txtBuscarPedido.Name = "txtBuscarPedido"
-        Me.txtBuscarPedido.Size = New System.Drawing.Size(342, 20)
+        Me.txtBuscarPedido.Size = New System.Drawing.Size(206, 20)
         Me.txtBuscarPedido.TabIndex = 12
         '
         'btnBuscarPedido
@@ -830,10 +903,10 @@ Partial Class frmMenuPrincipal
         '
         Me.cboBuscarPedido.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboBuscarPedido.FormattingEnabled = True
-        Me.cboBuscarPedido.Items.AddRange(New Object() {"Nombre", "Apellido", "DNI", "CUIT"})
-        Me.cboBuscarPedido.Location = New System.Drawing.Point(415, 35)
+        Me.cboBuscarPedido.Items.AddRange(New Object() {"Nombre y apellido", "Vendedor"})
+        Me.cboBuscarPedido.Location = New System.Drawing.Point(407, 33)
         Me.cboBuscarPedido.Name = "cboBuscarPedido"
-        Me.cboBuscarPedido.Size = New System.Drawing.Size(114, 21)
+        Me.cboBuscarPedido.Size = New System.Drawing.Size(122, 21)
         Me.cboBuscarPedido.TabIndex = 13
         '
         'PanelSuperiorPedido
@@ -843,7 +916,7 @@ Partial Class frmMenuPrincipal
         Me.PanelSuperiorPedido.Dock = System.Windows.Forms.DockStyle.Top
         Me.PanelSuperiorPedido.Location = New System.Drawing.Point(184, 0)
         Me.PanelSuperiorPedido.Name = "PanelSuperiorPedido"
-        Me.PanelSuperiorPedido.Size = New System.Drawing.Size(955, 89)
+        Me.PanelSuperiorPedido.Size = New System.Drawing.Size(988, 89)
         Me.PanelSuperiorPedido.TabIndex = 15
         '
         'lblTituloPedidos
@@ -946,7 +1019,7 @@ Partial Class frmMenuPrincipal
         Me.TabUsuario.Location = New System.Drawing.Point(4, 24)
         Me.TabUsuario.Name = "TabUsuario"
         Me.TabUsuario.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabUsuario.Size = New System.Drawing.Size(1139, 556)
+        Me.TabUsuario.Size = New System.Drawing.Size(1172, 556)
         Me.TabUsuario.TabIndex = 8
         Me.TabUsuario.Text = "Usuario"
         Me.TabUsuario.UseVisualStyleBackColor = True
@@ -964,7 +1037,7 @@ Partial Class frmMenuPrincipal
         Me.Panel8.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel8.Location = New System.Drawing.Point(187, 92)
         Me.Panel8.Name = "Panel8"
-        Me.Panel8.Size = New System.Drawing.Size(949, 461)
+        Me.Panel8.Size = New System.Drawing.Size(982, 461)
         Me.Panel8.TabIndex = 15
         '
         'btnBuscarUsuarioInactivos
@@ -1110,7 +1183,7 @@ Partial Class frmMenuPrincipal
         Me.Panel5.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel5.Location = New System.Drawing.Point(187, 3)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(949, 89)
+        Me.Panel5.Size = New System.Drawing.Size(982, 89)
         Me.Panel5.TabIndex = 14
         '
         'Label9
@@ -1260,7 +1333,7 @@ Partial Class frmMenuPrincipal
         Me.TabProducto.Controls.Add(Me.panelLateralProducto)
         Me.TabProducto.Location = New System.Drawing.Point(4, 24)
         Me.TabProducto.Name = "TabProducto"
-        Me.TabProducto.Size = New System.Drawing.Size(1139, 556)
+        Me.TabProducto.Size = New System.Drawing.Size(1172, 556)
         Me.TabProducto.TabIndex = 1
         Me.TabProducto.Text = "Producto"
         '
@@ -1277,7 +1350,7 @@ Partial Class frmMenuPrincipal
         Me.PanelProductos.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelProductos.Location = New System.Drawing.Point(184, 89)
         Me.PanelProductos.Name = "PanelProductos"
-        Me.PanelProductos.Size = New System.Drawing.Size(955, 467)
+        Me.PanelProductos.Size = New System.Drawing.Size(988, 467)
         Me.PanelProductos.TabIndex = 17
         '
         'DGProductoInactivo
@@ -1376,7 +1449,7 @@ Partial Class frmMenuPrincipal
         Me.panelSuperiorProducto.Dock = System.Windows.Forms.DockStyle.Top
         Me.panelSuperiorProducto.Location = New System.Drawing.Point(184, 0)
         Me.panelSuperiorProducto.Name = "panelSuperiorProducto"
-        Me.panelSuperiorProducto.Size = New System.Drawing.Size(955, 89)
+        Me.panelSuperiorProducto.Size = New System.Drawing.Size(988, 89)
         Me.panelSuperiorProducto.TabIndex = 17
         '
         'lblTituloProducto
@@ -1525,148 +1598,167 @@ Partial Class frmMenuPrincipal
         Me.TabEstadistica.Controls.Add(Me.PnlLateralEstadistica)
         Me.TabEstadistica.Location = New System.Drawing.Point(4, 24)
         Me.TabEstadistica.Name = "TabEstadistica"
-        Me.TabEstadistica.Size = New System.Drawing.Size(1139, 556)
+        Me.TabEstadistica.Size = New System.Drawing.Size(1172, 556)
         Me.TabEstadistica.TabIndex = 3
         Me.TabEstadistica.Text = "Estadistica"
         '
         'Panel7
         '
         Me.Panel7.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
-        Me.Panel7.Controls.Add(Me.Label11)
-        Me.Panel7.Controls.Add(Me.Label10)
+        Me.Panel7.Controls.Add(Me.checkUltimaFecha)
+        Me.Panel7.Controls.Add(Me.Panel9)
+        Me.Panel7.Controls.Add(Me.colorSecundario)
+        Me.Panel7.Controls.Add(Me.colorPrimario)
+        Me.Panel7.Controls.Add(Me.btnVerReporteEstadistica)
+        Me.Panel7.Controls.Add(Me.GraficoSegunConsulta)
+        Me.Panel7.Controls.Add(Me.boxEstadistica)
+        Me.Panel7.Controls.Add(Me.lblComparar)
+        Me.Panel7.Controls.Add(Me.lblActual)
         Me.Panel7.Controls.Add(Me.dtpCompare)
         Me.Panel7.Controls.Add(Me.dtpActual)
-        Me.Panel7.Controls.Add(Me.Label8)
+        Me.Panel7.Controls.Add(Me.lblTipoGrafico)
         Me.Panel7.Controls.Add(Me.cboTipoEstadistica)
-        Me.Panel7.Controls.Add(Me.Label7)
+        Me.Panel7.Controls.Add(Me.lblAño2)
         Me.Panel7.Controls.Add(Me.cboAño2)
-        Me.Panel7.Controls.Add(Me.Label5)
+        Me.Panel7.Controls.Add(Me.lblAño)
         Me.Panel7.Controls.Add(Me.Label2)
         Me.Panel7.Controls.Add(Me.cboAño)
         Me.Panel7.Controls.Add(Me.cboMeses)
-        Me.Panel7.Controls.Add(Me.GraficoSegunConsulta)
         Me.Panel7.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel7.Location = New System.Drawing.Point(184, 89)
         Me.Panel7.Name = "Panel7"
-        Me.Panel7.Size = New System.Drawing.Size(955, 467)
+        Me.Panel7.Size = New System.Drawing.Size(988, 467)
         Me.Panel7.TabIndex = 6
         '
-        'Label11
+        'checkUltimaFecha
         '
-        Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(357, 398)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(96, 13)
-        Me.Label11.TabIndex = 17
-        Me.Label11.Text = "Fecha a comparar:"
+        Me.checkUltimaFecha.AutoSize = True
+        Me.checkUltimaFecha.Location = New System.Drawing.Point(682, 27)
+        Me.checkUltimaFecha.Name = "checkUltimaFecha"
+        Me.checkUltimaFecha.Size = New System.Drawing.Size(109, 17)
+        Me.checkUltimaFecha.TabIndex = 65
+        Me.checkUltimaFecha.Text = "Utilizar ultimo mes"
+        Me.checkUltimaFecha.UseVisualStyleBackColor = True
         '
-        'Label10
+        'Panel9
         '
-        Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(377, 377)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(73, 13)
-        Me.Label10.TabIndex = 16
-        Me.Label10.Text = "Fecha Actual:"
-        '
-        'dtpCompare
-        '
-        Me.dtpCompare.CustomFormat = "MM/yyyy"
-        Me.dtpCompare.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpCompare.Location = New System.Drawing.Point(456, 395)
-        Me.dtpCompare.Name = "dtpCompare"
-        Me.dtpCompare.ShowUpDown = True
-        Me.dtpCompare.Size = New System.Drawing.Size(91, 20)
-        Me.dtpCompare.TabIndex = 15
-        '
-        'dtpActual
-        '
-        Me.dtpActual.CustomFormat = "MM/yyyy"
-        Me.dtpActual.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpActual.Location = New System.Drawing.Point(456, 371)
-        Me.dtpActual.Name = "dtpActual"
-        Me.dtpActual.ShowUpDown = True
-        Me.dtpActual.Size = New System.Drawing.Size(91, 20)
-        Me.dtpActual.TabIndex = 14
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(18, 326)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(78, 13)
-        Me.Label8.TabIndex = 13
-        Me.Label8.Text = "Tipo de grafico"
-        '
-        'cboTipoEstadistica
-        '
-        Me.cboTipoEstadistica.BackColor = System.Drawing.SystemColors.Window
-        Me.cboTipoEstadistica.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cboTipoEstadistica.FormattingEnabled = True
-        Me.cboTipoEstadistica.Items.AddRange(New Object() {"Mensual", "Anual"})
-        Me.cboTipoEstadistica.Location = New System.Drawing.Point(18, 342)
-        Me.cboTipoEstadistica.Name = "cboTipoEstadistica"
-        Me.cboTipoEstadistica.Size = New System.Drawing.Size(121, 21)
-        Me.cboTipoEstadistica.TabIndex = 12
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(198, 382)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(29, 13)
-        Me.Label7.TabIndex = 11
-        Me.Label7.Text = "Año:"
-        '
-        'cboAño2
-        '
-        Me.cboAño2.BackColor = System.Drawing.SystemColors.Window
-        Me.cboAño2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cboAño2.FormattingEnabled = True
-        Me.cboAño2.Items.AddRange(New Object() {"2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030"})
-        Me.cboAño2.Location = New System.Drawing.Point(198, 398)
-        Me.cboAño2.Name = "cboAño2"
-        Me.cboAño2.Size = New System.Drawing.Size(121, 21)
-        Me.cboAño2.TabIndex = 10
+        Me.Panel9.Controls.Add(Me.Label5)
+        Me.Panel9.Controls.Add(Me.txtSeleccion3)
+        Me.Panel9.Controls.Add(Me.btnSearchTop3)
+        Me.Panel9.Controls.Add(Me.txtSeleccion2)
+        Me.Panel9.Controls.Add(Me.btnSearchTop2)
+        Me.Panel9.Controls.Add(Me.txtSeleccion1)
+        Me.Panel9.Controls.Add(Me.btnSearchTop1)
+        Me.Panel9.Location = New System.Drawing.Point(821, 95)
+        Me.Panel9.Name = "Panel9"
+        Me.Panel9.Size = New System.Drawing.Size(162, 140)
+        Me.Panel9.TabIndex = 64
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(207, 326)
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(1, 7)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(29, 13)
-        Me.Label5.TabIndex = 9
-        Me.Label5.Text = "Año:"
+        Me.Label5.Size = New System.Drawing.Size(157, 15)
+        Me.Label5.TabIndex = 62
+        Me.Label5.Text = "Seleccion de productos"
         '
-        'Label2
+        'txtSeleccion3
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(343, 324)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(30, 13)
-        Me.Label2.TabIndex = 8
-        Me.Label2.Text = "Mes:"
+        Me.txtSeleccion3.Enabled = False
+        Me.txtSeleccion3.Location = New System.Drawing.Point(3, 109)
+        Me.txtSeleccion3.Name = "txtSeleccion3"
+        Me.txtSeleccion3.ReadOnly = True
+        Me.txtSeleccion3.Size = New System.Drawing.Size(107, 20)
+        Me.txtSeleccion3.TabIndex = 61
         '
-        'cboAño
+        'btnSearchTop3
         '
-        Me.cboAño.BackColor = System.Drawing.SystemColors.Window
-        Me.cboAño.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cboAño.FormattingEnabled = True
-        Me.cboAño.Items.AddRange(New Object() {"2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030"})
-        Me.cboAño.Location = New System.Drawing.Point(201, 344)
-        Me.cboAño.Name = "cboAño"
-        Me.cboAño.Size = New System.Drawing.Size(121, 21)
-        Me.cboAño.TabIndex = 7
+        Me.btnSearchTop3.BackgroundImage = CType(resources.GetObject("btnSearchTop3.BackgroundImage"), System.Drawing.Image)
+        Me.btnSearchTop3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnSearchTop3.FlatAppearance.BorderSize = 0
+        Me.btnSearchTop3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSearchTop3.Location = New System.Drawing.Point(125, 103)
+        Me.btnSearchTop3.Name = "btnSearchTop3"
+        Me.btnSearchTop3.Size = New System.Drawing.Size(30, 30)
+        Me.btnSearchTop3.TabIndex = 60
+        Me.btnSearchTop3.UseVisualStyleBackColor = True
         '
-        'cboMeses
+        'txtSeleccion2
         '
-        Me.cboMeses.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cboMeses.FormattingEnabled = True
-        Me.cboMeses.Items.AddRange(New Object() {"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"})
-        Me.cboMeses.Location = New System.Drawing.Point(346, 344)
-        Me.cboMeses.Name = "cboMeses"
-        Me.cboMeses.Size = New System.Drawing.Size(121, 21)
-        Me.cboMeses.TabIndex = 6
+        Me.txtSeleccion2.Enabled = False
+        Me.txtSeleccion2.Location = New System.Drawing.Point(3, 70)
+        Me.txtSeleccion2.Name = "txtSeleccion2"
+        Me.txtSeleccion2.ReadOnly = True
+        Me.txtSeleccion2.Size = New System.Drawing.Size(107, 20)
+        Me.txtSeleccion2.TabIndex = 59
+        '
+        'btnSearchTop2
+        '
+        Me.btnSearchTop2.BackgroundImage = CType(resources.GetObject("btnSearchTop2.BackgroundImage"), System.Drawing.Image)
+        Me.btnSearchTop2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnSearchTop2.FlatAppearance.BorderSize = 0
+        Me.btnSearchTop2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSearchTop2.Location = New System.Drawing.Point(125, 64)
+        Me.btnSearchTop2.Name = "btnSearchTop2"
+        Me.btnSearchTop2.Size = New System.Drawing.Size(30, 30)
+        Me.btnSearchTop2.TabIndex = 58
+        Me.btnSearchTop2.UseVisualStyleBackColor = True
+        '
+        'txtSeleccion1
+        '
+        Me.txtSeleccion1.Enabled = False
+        Me.txtSeleccion1.Location = New System.Drawing.Point(3, 34)
+        Me.txtSeleccion1.Name = "txtSeleccion1"
+        Me.txtSeleccion1.ReadOnly = True
+        Me.txtSeleccion1.Size = New System.Drawing.Size(107, 20)
+        Me.txtSeleccion1.TabIndex = 57
+        '
+        'btnSearchTop1
+        '
+        Me.btnSearchTop1.BackgroundImage = CType(resources.GetObject("btnSearchTop1.BackgroundImage"), System.Drawing.Image)
+        Me.btnSearchTop1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnSearchTop1.FlatAppearance.BorderSize = 0
+        Me.btnSearchTop1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSearchTop1.Location = New System.Drawing.Point(125, 28)
+        Me.btnSearchTop1.Name = "btnSearchTop1"
+        Me.btnSearchTop1.Size = New System.Drawing.Size(30, 30)
+        Me.btnSearchTop1.TabIndex = 56
+        Me.btnSearchTop1.UseVisualStyleBackColor = True
+        '
+        'colorSecundario
+        '
+        Me.colorSecundario.AutoSize = True
+        Me.colorSecundario.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.colorSecundario.Location = New System.Drawing.Point(640, 27)
+        Me.colorSecundario.Margin = New System.Windows.Forms.Padding(0)
+        Me.colorSecundario.MinimumSize = New System.Drawing.Size(16, 16)
+        Me.colorSecundario.Name = "colorSecundario"
+        Me.colorSecundario.Size = New System.Drawing.Size(16, 16)
+        Me.colorSecundario.TabIndex = 63
+        '
+        'colorPrimario
+        '
+        Me.colorPrimario.AutoSize = True
+        Me.colorPrimario.BackColor = System.Drawing.Color.Fuchsia
+        Me.colorPrimario.Location = New System.Drawing.Point(408, 29)
+        Me.colorPrimario.Margin = New System.Windows.Forms.Padding(0)
+        Me.colorPrimario.MinimumSize = New System.Drawing.Size(16, 16)
+        Me.colorPrimario.Name = "colorPrimario"
+        Me.colorPrimario.Size = New System.Drawing.Size(16, 16)
+        Me.colorPrimario.TabIndex = 62
+        '
+        'btnVerReporteEstadistica
+        '
+        Me.btnVerReporteEstadistica.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnVerReporteEstadistica.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnVerReporteEstadistica.Location = New System.Drawing.Point(821, 24)
+        Me.btnVerReporteEstadistica.Name = "btnVerReporteEstadistica"
+        Me.btnVerReporteEstadistica.Size = New System.Drawing.Size(112, 25)
+        Me.btnVerReporteEstadistica.TabIndex = 61
+        Me.btnVerReporteEstadistica.Text = "Generar el reporte"
+        Me.btnVerReporteEstadistica.UseVisualStyleBackColor = False
         '
         'GraficoSegunConsulta
         '
@@ -1687,21 +1779,25 @@ Partial Class frmMenuPrincipal
         ChartArea1.Name = "ChartArea1"
         Me.GraficoSegunConsulta.ChartAreas.Add(ChartArea1)
         Legend1.DockedToChartArea = "ChartArea1"
-        Legend1.ForeColor = System.Drawing.Color.Maroon
+        Legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top
+        Legend1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Legend1.IsDockedInsideChartArea = False
+        Legend1.IsTextAutoFit = False
         Legend1.ItemColumnSpacing = 0
         Legend1.Name = "Legend1"
         Me.GraficoSegunConsulta.Legends.Add(Legend1)
-        Me.GraficoSegunConsulta.Location = New System.Drawing.Point(18, 21)
+        Me.GraficoSegunConsulta.Location = New System.Drawing.Point(15, 55)
         Me.GraficoSegunConsulta.Name = "GraficoSegunConsulta"
         Me.GraficoSegunConsulta.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Fire
         Series1.ChartArea = "ChartArea1"
         Series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
+        Series1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Series1.Legend = "Legend1"
         Series1.Name = "Cantidad"
         Series2.ChartArea = "ChartArea1"
         Series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
         Series2.Legend = "Legend1"
-        Series2.Name = "2019"
+        Series2.Name = "20199"
         Series3.ChartArea = "ChartArea1"
         Series3.Legend = "Legend1"
         Series3.Name = "Mensual"
@@ -1711,14 +1807,153 @@ Partial Class frmMenuPrincipal
         Series5.ChartArea = "ChartArea1"
         Series5.Legend = "Legend1"
         Series5.Name = "Mensual2"
+        Series6.ChartArea = "ChartArea1"
+        Series6.IsValueShownAsLabel = True
+        Series6.Legend = "Legend1"
+        Series6.Name = "Primario"
+        Series7.ChartArea = "ChartArea1"
+        Series7.IsValueShownAsLabel = True
+        Series7.Legend = "Legend1"
+        Series7.Name = "Secundario"
         Me.GraficoSegunConsulta.Series.Add(Series1)
         Me.GraficoSegunConsulta.Series.Add(Series2)
         Me.GraficoSegunConsulta.Series.Add(Series3)
         Me.GraficoSegunConsulta.Series.Add(Series4)
         Me.GraficoSegunConsulta.Series.Add(Series5)
-        Me.GraficoSegunConsulta.Size = New System.Drawing.Size(805, 300)
+        Me.GraficoSegunConsulta.Series.Add(Series6)
+        Me.GraficoSegunConsulta.Series.Add(Series7)
+        Me.GraficoSegunConsulta.Size = New System.Drawing.Size(800, 300)
         Me.GraficoSegunConsulta.TabIndex = 0
         Me.GraficoSegunConsulta.Text = "Chart1"
+        '
+        'boxEstadistica
+        '
+        Me.boxEstadistica.Location = New System.Drawing.Point(15, 55)
+        Me.boxEstadistica.Name = "boxEstadistica"
+        Me.boxEstadistica.Size = New System.Drawing.Size(800, 300)
+        Me.boxEstadistica.TabIndex = 19
+        Me.boxEstadistica.TabStop = False
+        '
+        'lblComparar
+        '
+        Me.lblComparar.AutoSize = True
+        Me.lblComparar.Location = New System.Drawing.Point(445, 27)
+        Me.lblComparar.Name = "lblComparar"
+        Me.lblComparar.Size = New System.Drawing.Size(95, 13)
+        Me.lblComparar.TabIndex = 17
+        Me.lblComparar.Text = "Fecha secundaria:"
+        '
+        'lblActual
+        '
+        Me.lblActual.AutoSize = True
+        Me.lblActual.Location = New System.Drawing.Point(228, 27)
+        Me.lblActual.Name = "lblActual"
+        Me.lblActual.Size = New System.Drawing.Size(82, 13)
+        Me.lblActual.TabIndex = 16
+        Me.lblActual.Text = "Fecha principal:"
+        '
+        'dtpCompare
+        '
+        Me.dtpCompare.CustomFormat = "MM/yyyy"
+        Me.dtpCompare.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtpCompare.Location = New System.Drawing.Point(546, 25)
+        Me.dtpCompare.Name = "dtpCompare"
+        Me.dtpCompare.ShowUpDown = True
+        Me.dtpCompare.Size = New System.Drawing.Size(91, 20)
+        Me.dtpCompare.TabIndex = 15
+        '
+        'dtpActual
+        '
+        Me.dtpActual.CustomFormat = "MM/yyyy"
+        Me.dtpActual.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtpActual.Location = New System.Drawing.Point(314, 24)
+        Me.dtpActual.Name = "dtpActual"
+        Me.dtpActual.ShowUpDown = True
+        Me.dtpActual.Size = New System.Drawing.Size(91, 20)
+        Me.dtpActual.TabIndex = 14
+        '
+        'lblTipoGrafico
+        '
+        Me.lblTipoGrafico.AutoSize = True
+        Me.lblTipoGrafico.Location = New System.Drawing.Point(54, 27)
+        Me.lblTipoGrafico.Name = "lblTipoGrafico"
+        Me.lblTipoGrafico.Size = New System.Drawing.Size(81, 13)
+        Me.lblTipoGrafico.TabIndex = 13
+        Me.lblTipoGrafico.Text = "Tipo de grafico:"
+        '
+        'cboTipoEstadistica
+        '
+        Me.cboTipoEstadistica.BackColor = System.Drawing.SystemColors.Window
+        Me.cboTipoEstadistica.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboTipoEstadistica.FormattingEnabled = True
+        Me.cboTipoEstadistica.Items.AddRange(New Object() {"Mensual", "Anual"})
+        Me.cboTipoEstadistica.Location = New System.Drawing.Point(139, 24)
+        Me.cboTipoEstadistica.Name = "cboTipoEstadistica"
+        Me.cboTipoEstadistica.Size = New System.Drawing.Size(83, 21)
+        Me.cboTipoEstadistica.TabIndex = 12
+        '
+        'lblAño2
+        '
+        Me.lblAño2.AutoSize = True
+        Me.lblAño2.Location = New System.Drawing.Point(456, 27)
+        Me.lblAño2.Name = "lblAño2"
+        Me.lblAño2.Size = New System.Drawing.Size(84, 13)
+        Me.lblAño2.TabIndex = 11
+        Me.lblAño2.Text = "Año secundario:"
+        Me.lblAño2.Visible = False
+        '
+        'cboAño2
+        '
+        Me.cboAño2.BackColor = System.Drawing.SystemColors.Window
+        Me.cboAño2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboAño2.FormattingEnabled = True
+        Me.cboAño2.Items.AddRange(New Object() {"2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030"})
+        Me.cboAño2.Location = New System.Drawing.Point(546, 24)
+        Me.cboAño2.Name = "cboAño2"
+        Me.cboAño2.Size = New System.Drawing.Size(91, 21)
+        Me.cboAño2.TabIndex = 10
+        Me.cboAño2.Visible = False
+        '
+        'lblAño
+        '
+        Me.lblAño.AutoSize = True
+        Me.lblAño.Location = New System.Drawing.Point(239, 27)
+        Me.lblAño.Name = "lblAño"
+        Me.lblAño.Size = New System.Drawing.Size(71, 13)
+        Me.lblAño.TabIndex = 9
+        Me.lblAño.Text = "Año principal:"
+        Me.lblAño.Visible = False
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(377, 419)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(30, 13)
+        Me.Label2.TabIndex = 8
+        Me.Label2.Text = "Mes:"
+        '
+        'cboAño
+        '
+        Me.cboAño.BackColor = System.Drawing.SystemColors.Window
+        Me.cboAño.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboAño.FormattingEnabled = True
+        Me.cboAño.Items.AddRange(New Object() {"2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030"})
+        Me.cboAño.Location = New System.Drawing.Point(314, 24)
+        Me.cboAño.Name = "cboAño"
+        Me.cboAño.Size = New System.Drawing.Size(91, 21)
+        Me.cboAño.TabIndex = 7
+        Me.cboAño.Visible = False
+        '
+        'cboMeses
+        '
+        Me.cboMeses.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboMeses.FormattingEnabled = True
+        Me.cboMeses.Items.AddRange(New Object() {"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"})
+        Me.cboMeses.Location = New System.Drawing.Point(380, 439)
+        Me.cboMeses.Name = "cboMeses"
+        Me.cboMeses.Size = New System.Drawing.Size(121, 21)
+        Me.cboMeses.TabIndex = 6
         '
         'PanelSupEstadistica
         '
@@ -1727,7 +1962,7 @@ Partial Class frmMenuPrincipal
         Me.PanelSupEstadistica.Dock = System.Windows.Forms.DockStyle.Top
         Me.PanelSupEstadistica.Location = New System.Drawing.Point(184, 0)
         Me.PanelSupEstadistica.Name = "PanelSupEstadistica"
-        Me.PanelSupEstadistica.Size = New System.Drawing.Size(955, 89)
+        Me.PanelSupEstadistica.Size = New System.Drawing.Size(988, 89)
         Me.PanelSupEstadistica.TabIndex = 5
         '
         'lblTituloEstadistica
@@ -1855,7 +2090,7 @@ Partial Class frmMenuPrincipal
         Me.TabAyuda.Controls.Add(Me.PanelLateralAyuda)
         Me.TabAyuda.Location = New System.Drawing.Point(4, 24)
         Me.TabAyuda.Name = "TabAyuda"
-        Me.TabAyuda.Size = New System.Drawing.Size(1139, 556)
+        Me.TabAyuda.Size = New System.Drawing.Size(1172, 556)
         Me.TabAyuda.TabIndex = 4
         Me.TabAyuda.Text = "Ayuda"
         '
@@ -1870,7 +2105,7 @@ Partial Class frmMenuPrincipal
         Me.PanelCentralAyuda.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelCentralAyuda.Location = New System.Drawing.Point(184, 89)
         Me.PanelCentralAyuda.Name = "PanelCentralAyuda"
-        Me.PanelCentralAyuda.Size = New System.Drawing.Size(955, 467)
+        Me.PanelCentralAyuda.Size = New System.Drawing.Size(988, 467)
         Me.PanelCentralAyuda.TabIndex = 19
         '
         'ListBox3
@@ -1881,7 +2116,7 @@ Partial Class frmMenuPrincipal
         Me.ListBox3.FormattingEnabled = True
         Me.ListBox3.ItemHeight = 20
         Me.ListBox3.Items.AddRange(New Object() {"3)Agrege un titulo deceado a su postick para un posterior reconomiento del mismo." & _
-                        "", "4)Describa detalladamente el motivo del postick.", "5)Agrege la Fecha del postick en el cual quiere que sea mostrado.", "6)seleccione ""Guardar""."})
+                "", "4)Describa detalladamente el motivo del postick.", "5)Agrege la Fecha del postick en el cual quiere que sea mostrado.", "6)seleccione ""Guardar""."})
         Me.ListBox3.Location = New System.Drawing.Point(352, 145)
         Me.ListBox3.Name = "ListBox3"
         Me.ListBox3.Size = New System.Drawing.Size(589, 300)
@@ -1936,7 +2171,7 @@ Partial Class frmMenuPrincipal
         Me.PanelSuperiorAyuda.Dock = System.Windows.Forms.DockStyle.Top
         Me.PanelSuperiorAyuda.Location = New System.Drawing.Point(184, 0)
         Me.PanelSuperiorAyuda.Name = "PanelSuperiorAyuda"
-        Me.PanelSuperiorAyuda.Size = New System.Drawing.Size(955, 89)
+        Me.PanelSuperiorAyuda.Size = New System.Drawing.Size(988, 89)
         Me.PanelSuperiorAyuda.TabIndex = 18
         '
         'lblTituloAyuda
@@ -2001,7 +2236,7 @@ Partial Class frmMenuPrincipal
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(3, 3)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1147, 91)
+        Me.Panel1.Size = New System.Drawing.Size(1180, 91)
         Me.Panel1.TabIndex = 1
         '
         'TableLayoutPanel2
@@ -2010,7 +2245,7 @@ Partial Class frmMenuPrincipal
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.63731!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.11883!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.27605!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 93.0!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 112.0!))
         Me.TableLayoutPanel2.Controls.Add(Me.PictureBox1, 0, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.Label1, 1, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.TableLayoutPanel3, 3, 0)
@@ -2020,14 +2255,14 @@ Partial Class frmMenuPrincipal
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 1
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(1147, 91)
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(1180, 91)
         Me.TableLayoutPanel2.TabIndex = 4
         '
         'PictureBox1
         '
         Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Right
         Me.PictureBox1.Image = Global.CapaPresentacion.My.Resources.Resources.slmn
-        Me.PictureBox1.Location = New System.Drawing.Point(172, 3)
+        Me.PictureBox1.Location = New System.Drawing.Point(176, 3)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(116, 85)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -2039,9 +2274,9 @@ Partial Class frmMenuPrincipal
         Me.Label1.AutoSize = True
         Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label1.Font = New System.Drawing.Font("Impact", 48.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(294, 0)
+        Me.Label1.Location = New System.Drawing.Point(298, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(574, 91)
+        Me.Label1.Size = New System.Drawing.Size(582, 91)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "SOLEMNO GRAFICA"
         '
@@ -2051,7 +2286,7 @@ Partial Class frmMenuPrincipal
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.52941!))
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 76.47059!))
         Me.TableLayoutPanel3.Controls.Add(Me.btnLogout, 1, 0)
-        Me.TableLayoutPanel3.Location = New System.Drawing.Point(1056, 3)
+        Me.TableLayoutPanel3.Location = New System.Drawing.Point(1070, 3)
         Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
         Me.TableLayoutPanel3.RowCount = 2
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 52.94118!))
@@ -2078,12 +2313,12 @@ Partial Class frmMenuPrincipal
         Me.TableLayoutPanel4.ColumnCount = 1
         Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel4.Controls.Add(Me.lblUsuario, 0, 0)
-        Me.TableLayoutPanel4.Location = New System.Drawing.Point(874, 3)
+        Me.TableLayoutPanel4.Location = New System.Drawing.Point(886, 3)
         Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
         Me.TableLayoutPanel4.RowCount = 2
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.0!))
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
-        Me.TableLayoutPanel4.Size = New System.Drawing.Size(176, 85)
+        Me.TableLayoutPanel4.Size = New System.Drawing.Size(175, 85)
         Me.TableLayoutPanel4.TabIndex = 4
         '
         'lblUsuario
@@ -2093,7 +2328,7 @@ Partial Class frmMenuPrincipal
         Me.lblUsuario.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblUsuario.Location = New System.Drawing.Point(3, 16)
         Me.lblUsuario.Name = "lblUsuario"
-        Me.lblUsuario.Size = New System.Drawing.Size(170, 18)
+        Me.lblUsuario.Size = New System.Drawing.Size(169, 18)
         Me.lblUsuario.TabIndex = 0
         Me.lblUsuario.Text = "Usuario"
         Me.lblUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -2120,19 +2355,23 @@ Partial Class frmMenuPrincipal
         Me.TableLayoutPanel1.RowCount = 2
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.16894!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85.83106!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1153, 687)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1186, 687)
         Me.TableLayoutPanel1.TabIndex = 2
         '
         'UsuariosTableAdapter
         '
         Me.UsuariosTableAdapter.ClearBeforeFill = True
         '
+        'MediosTableAdapter1
+        '
+        Me.MediosTableAdapter1.ClearBeforeFill = True
+        '
         'frmMenuPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1153, 687)
+        Me.ClientSize = New System.Drawing.Size(1186, 687)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.DoubleBuffered = True
         Me.MinimumSize = New System.Drawing.Size(1169, 600)
@@ -2188,7 +2427,10 @@ Partial Class frmMenuPrincipal
         Me.TabEstadistica.ResumeLayout(False)
         Me.Panel7.ResumeLayout(False)
         Me.Panel7.PerformLayout()
+        Me.Panel9.ResumeLayout(False)
+        Me.Panel9.PerformLayout()
         CType(Me.GraficoSegunConsulta, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.boxEstadistica, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelSupEstadistica.ResumeLayout(False)
         Me.PanelSupEstadistica.PerformLayout()
         Me.PnlLateralEstadistica.ResumeLayout(False)
@@ -2277,7 +2519,7 @@ Partial Class frmMenuPrincipal
     Friend WithEvents IconoAyuda As System.Windows.Forms.PictureBox
     Friend WithEvents Panel7 As System.Windows.Forms.Panel
     Friend WithEvents GraficoSegunConsulta As System.Windows.Forms.DataVisualization.Charting.Chart
-    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents lblAño As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents cboAño As System.Windows.Forms.ComboBox
     Friend WithEvents cboMeses As System.Windows.Forms.ComboBox
@@ -2320,9 +2562,9 @@ Partial Class frmMenuPrincipal
     Friend WithEvents btnNuevoPresupuesto As Button
     Friend WithEvents PictureBox3 As PictureBox
     Friend WithEvents lblNombreUsuario As System.Windows.Forms.Label
-    Friend WithEvents Label7 As System.Windows.Forms.Label
+    Friend WithEvents lblAño2 As System.Windows.Forms.Label
     Friend WithEvents cboAño2 As System.Windows.Forms.ComboBox
-    Friend WithEvents Label8 As System.Windows.Forms.Label
+    Friend WithEvents lblTipoGrafico As System.Windows.Forms.Label
     Friend WithEvents cboTipoEstadistica As System.Windows.Forms.ComboBox
     Friend WithEvents TabUsuario As System.Windows.Forms.TabPage
     Friend WithEvents Panel8 As System.Windows.Forms.Panel
@@ -2360,10 +2602,29 @@ Partial Class frmMenuPrincipal
     Friend WithEvents UsuarioDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents FechaCreacionDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents CargoDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents FondoSinResultados As System.Windows.Forms.Panel
     Friend WithEvents dtpActual As DateTimePicker
-    Friend WithEvents Label11 As Label
-    Friend WithEvents Label10 As Label
+    Friend WithEvents lblComparar As Label
+    Friend WithEvents lblActual As Label
     Friend WithEvents dtpCompare As DateTimePicker
     Friend WithEvents btnCancelarPresupuesto As System.Windows.Forms.Button
+    Friend WithEvents btnVerReporteEstadistica As Button
+    Friend WithEvents boxEstadistica As PictureBox
+    Friend WithEvents colorSecundario As Label
+    Friend WithEvents colorPrimario As Label
+    Friend WithEvents Panel9 As Panel
+    Friend WithEvents txtSeleccion3 As TextBox
+    Friend WithEvents btnSearchTop3 As Button
+    Friend WithEvents txtSeleccion2 As TextBox
+    Friend WithEvents btnSearchTop2 As Button
+    Friend WithEvents txtSeleccion1 As TextBox
+    Friend WithEvents btnSearchTop1 As Button
+    Friend WithEvents Label5 As Label
+    Friend WithEvents checkUltimaFecha As CheckBox
+    Friend WithEvents MediosTableAdapter1 As CapaPresentacion.SolemnoDataSetTableAdapters.MediosTableAdapter
+    Friend WithEvents cboFiltroEstadoPresupuesto As System.Windows.Forms.ComboBox
+    Friend WithEvents cboFiltroPedido As System.Windows.Forms.ComboBox
+    Friend WithEvents Label10 As Label
+    Friend WithEvents Label11 As Label
+    Friend WithEvents Label8 As Label
+    Friend WithEvents Label7 As Label
 End Class

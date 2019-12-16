@@ -13,16 +13,17 @@ Public Class CDUsuario
         oCDConexion.Conectar()
 
         Try
-            Dim instruccionSQL = "INSERT INTO Usuarios ( NombreCompleto, Usuario, Contrasena, FechaCreacion, Cargo) VALUES (@NombreCompleto, @Usuario, @Contrasena, @FechaCreacion, @Cargo)"
+            Dim instruccionSQL = "INSERT INTO Usuarios ( NombreCompleto, Usuario, Contrasena, FechaCreacion, Cargo, Estado) VALUES (@NombreCompleto, @Usuario, @Contrasena, @FechaCreacion, @Cargo, @Estado)"
 
             Dim comando As New SQLiteCommand(instruccionSQL, oCDConexion.con)
             With comando.Parameters
-                   .Add("@IDUsuario", SqlDbType.Int).Value = oCEUsuario.IDUsuario
+                .Add("@IDUsuario", SqlDbType.Int).Value = oCEUsuario.IDUsuario
                 .Add("@NombreCompleto", SqlDbType.VarChar).Value = oCEUsuario.NombreCompleto
                 .Add("@Usuario", SqlDbType.VarChar).Value = oCEUsuario.Usuario
                 .Add("@Contrasena", SqlDbType.VarChar).Value = oCEUsuario.Contrasena
                 .Add("@FechaCreacion", SqlDbType.VarChar).Value = oCEUsuario.FechaCreacion
                 .Add("@Cargo", SqlDbType.VarChar).Value = oCEUsuario.Cargo
+                .Add("@Estado", SqlDbType.VarChar).Value = "Activo"
             End With
             comando.ExecuteNonQuery()
             MsgBox("El nuevo Usuario se fue registrado con exito.", , "Registro de Usuario")
@@ -54,14 +55,12 @@ Public Class CDUsuario
     Public Sub ModificarUsuario(ByVal oCEUsuario As CEUsuario)
         oCDConexion.Conectar()
         Try
-            Dim instruccionsql = " UPDATE Usuarios SET NombreCompleto=@NombreCompleto,Usuario=@Usuario, Contrasena=@Contrasena, FechaCreacion=@FechaCreacion, Cargo=@Cargo where IDUsuario=@IDUsuario"
+            Dim instruccionsql = " UPDATE Usuarios SET Usuario=@Usuario, Contrasena=@Contrasena, Cargo=@Cargo where IDUsuario=@IDUsuario"
             Dim comando As New SQLiteCommand(instruccionsql, oCDConexion.con)
             With comando.Parameters
                 .Add("@IDUsuario", SqlDbType.Int).Value = oCEUsuario.IDUsuario
-                .Add("@NombreCompleto", SqlDbType.VarChar).Value = oCEUsuario.NombreCompleto
                 .Add("@Usuario", SqlDbType.VarChar).Value = oCEUsuario.Usuario
                 .Add("@Contrasena", SqlDbType.VarChar).Value = oCEUsuario.Contrasena
-                .Add("@FechaCreacion", SqlDbType.VarChar).Value = oCEUsuario.FechaCreacion
                 .Add("@Cargo", SqlDbType.VarChar).Value = oCEUsuario.Cargo
             End With
             comando.ExecuteNonQuery()
@@ -72,7 +71,6 @@ Public Class CDUsuario
         End Try
 
     End Sub
-
     Function ValidarUsuario(ByVal pusuario As String, ByVal pcontrasena As String) As DataTable
         oCDConexion.Conectar()
         Dim da As New SQLiteDataAdapter
@@ -94,11 +92,28 @@ Public Class CDUsuario
             oCDConexion.Desconectar()
         End Try
     End Function
+    Function ValidarContrasenaUsuario(ByVal pcontrasena As String, ByVal id As Integer) As Boolean
+        oCDConexion.Conectar()
+        Dim da As New SQLiteDataAdapter
+        Dim dt As New DataTable
+        Try
 
-    Public Function ConsultarUltimoID() As Integer
-
-        Return oCDConexion.ConsultarUltimoID("Usuarios")
-
+            Dim instruccionSQL = "Select Count(*) FROM Usuarios where IDUsuario=@IDUsuario and Contrasena=@contrasena"
+            Dim comando As New SQLiteCommand(instruccionSQL, oCDConexion.con)
+            comando.Parameters.Add("@IDUsuario", SqlDbType.Int).Value = id
+            comando.Parameters.Add("@contrasena", SqlDbType.VarChar).Value = pcontrasena
+            Dim value As Integer = CInt(comando.ExecuteScalar())
+            If value = 0 Then
+                Return False
+            Else
+                Return True
+            End If
+        Catch ex As Exception
+            MsgBox("Error la busqueda ah fallado.", , "Busqueda de Usuario")
+            Return Nothing
+        Finally
+            oCDConexion.Desconectar()
+        End Try
     End Function
 
     Function BuscarUsuario(ByVal ID As Integer) As DataTable
@@ -122,5 +137,12 @@ Public Class CDUsuario
             oCDConexion.Desconectar()
         End Try
     End Function
-   
+    Public Function ConsultarUltimoID() As Integer
+
+        Return oCDConexion.ConsultarUltimoID("Usuarios")
+
+    End Function
+
+
+
 End Class

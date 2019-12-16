@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class frmReportePedido
+Partial Class frmReporteEstadistica
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
@@ -24,39 +24,31 @@ Partial Class frmReportePedido
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Me.DTReportePedidoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.SolemnoDataSet = New CapaPresentacion.SolemnoDataSet()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
+        Me.SolemnoDataSet = New CapaPresentacion.SolemnoDataSet()
         Me.ItemsPorPedidoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ItemsPorPedidoTableAdapter = New CapaPresentacion.SolemnoDataSetTableAdapters.ItemsPorPedidoTableAdapter()
-        Me.DTReportePedidoTableAdapter = New CapaPresentacion.SolemnoDataSetTableAdapters.DTReportePedidoTableAdapter()
-        CType(Me.DTReportePedidoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SolemnoDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ItemsPorPedidoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'DTReportePedidoBindingSource
+        'ReportViewer1
         '
-        Me.DTReportePedidoBindingSource.DataMember = "DTReportePedido"
-        Me.DTReportePedidoBindingSource.DataSource = Me.SolemnoDataSet
+        Me.ReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
+        ReportDataSource1.Name = "ReportEstadistica"
+        ReportDataSource1.Value = Me.ItemsPorPedidoBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
+        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "CapaPresentacion.ReportEstadistica.rdlc"
+        Me.ReportViewer1.Location = New System.Drawing.Point(0, 0)
+        Me.ReportViewer1.Name = "ReportViewer1"
+        Me.ReportViewer1.PageCountMode = Microsoft.Reporting.WinForms.PageCountMode.Actual
+        Me.ReportViewer1.Size = New System.Drawing.Size(770, 467)
+        Me.ReportViewer1.TabIndex = 0
         '
         'SolemnoDataSet
         '
         Me.SolemnoDataSet.DataSetName = "SolemnoDataSet"
         Me.SolemnoDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'ReportViewer1
-        '
-        Me.ReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
-        ReportDataSource1.Name = "ReporteDataSet"
-        ReportDataSource1.Value = Me.DTReportePedidoBindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
-        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "CapaPresentacion.ReportPedido.rdlc"
-        Me.ReportViewer1.Location = New System.Drawing.Point(0, 0)
-        Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.PageCountMode = Microsoft.Reporting.WinForms.PageCountMode.Actual
-        Me.ReportViewer1.Size = New System.Drawing.Size(880, 693)
-        Me.ReportViewer1.TabIndex = 0
         '
         'ItemsPorPedidoBindingSource
         '
@@ -67,21 +59,14 @@ Partial Class frmReportePedido
         '
         Me.ItemsPorPedidoTableAdapter.ClearBeforeFill = True
         '
-        'DTReportePedidoTableAdapter
-        '
-        Me.DTReportePedidoTableAdapter.ClearBeforeFill = True
-        '
-        'frmReportePedido
+        'frmReporteEstadistica
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(880, 693)
+        Me.ClientSize = New System.Drawing.Size(770, 467)
         Me.Controls.Add(Me.ReportViewer1)
-        Me.Name = "frmReportePedido"
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "frmReportePedido"
-        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
-        CType(Me.DTReportePedidoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Name = "frmReporteEstadistica"
+        Me.Text = "frmReporteEstadistica"
         CType(Me.SolemnoDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ItemsPorPedidoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -91,6 +76,4 @@ Partial Class frmReportePedido
     Friend WithEvents ItemsPorPedidoBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents SolemnoDataSet As CapaPresentacion.SolemnoDataSet
     Friend WithEvents ItemsPorPedidoTableAdapter As CapaPresentacion.SolemnoDataSetTableAdapters.ItemsPorPedidoTableAdapter
-    Friend WithEvents DTReportePedidoBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents DTReportePedidoTableAdapter As CapaPresentacion.SolemnoDataSetTableAdapters.DTReportePedidoTableAdapter
 End Class

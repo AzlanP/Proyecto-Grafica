@@ -70,6 +70,8 @@ Partial Class FormularioPedido
         Me.txtSymbol = New System.Windows.Forms.TextBox()
         Me.required = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.lblResponsable = New System.Windows.Forms.Label()
+        Me.txtResponsable = New System.Windows.Forms.TextBox()
         CType(Me.TipoEnvioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SolemnoDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -319,7 +321,7 @@ Partial Class FormularioPedido
         Me.txtTotal.Name = "txtTotal"
         Me.txtTotal.Size = New System.Drawing.Size(83, 22)
         Me.txtTotal.TabIndex = 45
-        Me.txtTotal.valor = 0R
+        Me.txtTotal.valor = 0.0R
         '
         'lblTotal
         '
@@ -442,9 +444,9 @@ Partial Class FormularioPedido
         '
         Me.btnImprimir.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnImprimir.Location = New System.Drawing.Point(594, 9)
+        Me.btnImprimir.Location = New System.Drawing.Point(593, 13)
         Me.btnImprimir.Name = "btnImprimir"
-        Me.btnImprimir.Size = New System.Drawing.Size(89, 26)
+        Me.btnImprimir.Size = New System.Drawing.Size(89, 23)
         Me.btnImprimir.TabIndex = 56
         Me.btnImprimir.Text = "Imprimir"
         Me.btnImprimir.UseVisualStyleBackColor = False
@@ -459,7 +461,7 @@ Partial Class FormularioPedido
         Me.txtSubTotal.Name = "txtSubTotal"
         Me.txtSubTotal.Size = New System.Drawing.Size(83, 22)
         Me.txtSubTotal.TabIndex = 58
-        Me.txtSubTotal.valor = 0R
+        Me.txtSubTotal.valor = 0.0R
         '
         'Label1
         '
@@ -525,12 +527,32 @@ Partial Class FormularioPedido
         Me.Label3.TabIndex = 63
         Me.Label3.Text = "*"
         '
+        'lblResponsable
+        '
+        Me.lblResponsable.AutoSize = True
+        Me.lblResponsable.Location = New System.Drawing.Point(57, 86)
+        Me.lblResponsable.Name = "lblResponsable"
+        Me.lblResponsable.Size = New System.Drawing.Size(72, 13)
+        Me.lblResponsable.TabIndex = 65
+        Me.lblResponsable.Text = "Responsable:"
+        '
+        'txtResponsable
+        '
+        Me.txtResponsable.Enabled = False
+        Me.txtResponsable.Location = New System.Drawing.Point(141, 83)
+        Me.txtResponsable.Name = "txtResponsable"
+        Me.txtResponsable.ReadOnly = True
+        Me.txtResponsable.Size = New System.Drawing.Size(122, 20)
+        Me.txtResponsable.TabIndex = 66
+        '
         'FormularioPedido
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(728, 443)
+        Me.Controls.Add(Me.txtResponsable)
+        Me.Controls.Add(Me.lblResponsable)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.required)
         Me.Controls.Add(Me.txtSymbol)
@@ -627,4 +649,6 @@ Partial Class FormularioPedido
     Friend WithEvents txtSymbol As TextBox
     Friend WithEvents required As Label
     Friend WithEvents Label3 As Label
+    Friend WithEvents lblResponsable As Label
+    Friend WithEvents txtResponsable As TextBox
 End Class

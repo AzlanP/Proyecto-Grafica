@@ -58,7 +58,8 @@ Public Class AgregarProductoPedido
         dr = dt.Rows(0)
         lblID.Text = dr("IDProducto")
         txtNombreProducto.Text = dr("Nombre").ToString
-        txtCantidad.Text = oCEDetallesDelPedido.Cantidad
+        'txtCantidad.Text = oCEDetallesDelPedido.Cantidad
+        txtCantidad.Text = 1
         txtboxPrecio.valor = nullearDouble(dr("Precio").ToString)
         TextboxDescripcion.Text = ""
     End Sub
@@ -85,7 +86,7 @@ Public Class AgregarProductoPedido
     Public Sub CargarDatosModificar(ByVal id As Integer, ByVal dr As DataRow)
 
         Dim dt As New DataTable
-        Me.Size = New Point(300, 400)
+        Me.Size = New Point(275, 400)
         lblID.Text = id
         txtNombreProducto.Text = dr("Nombre").ToString
         txtCantidad.Text = CInt(dr("Cantidad"))
@@ -119,6 +120,7 @@ Public Class AgregarProductoPedido
     'fijarme si no combine mas poner solo cellclick ya que el doble click aveces funciona mal
     Private Sub DGBuscar_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DGBuscar.CellDoubleClick
         Dim ID As Integer = DGBuscar.Rows(e.RowIndex).Cells("IDProducto").Value
+
         CargarDatos(ID)
     End Sub
 
@@ -133,7 +135,7 @@ Public Class AgregarProductoPedido
             cboDesc.Text = 0
         End If
         Dim total = txtboxPrecio.valor * txtCantidad.Text
-        total = total - total * (cboDesc.Text / 100)
+        'total = total - total * (cboDesc.Text / 100) 'para que no recalcule el valor automaticamente con el descuento
         txtPrecioTotal.valor = total
     End Sub
     Public Sub txtCantidad_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtCantidad.TextChanged
@@ -153,4 +155,6 @@ Public Class AgregarProductoPedido
     Private Sub cboDesc_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cboDesc.SelectedIndexChanged
         calcularPrecioXCantidad()
     End Sub
+
+
 End Class

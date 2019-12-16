@@ -127,5 +127,24 @@ Public Class CDGraficos
         oCDConexion.Desconectar()
         Return dt
     End Function
-    '--fin
+
+    Public Function Top10PorTabla(ByVal tabla As String, ByVal fecha As Date) As DataTable
+        Dim dt As New DataTable
+        Try
+            oCDConexion.Conectar()
+
+            Dim sql As String = "select sum(itemsPorPedido.cantidad),ItemsPorPedido.IDProducto, productos.nombre from(ItemsPorPedido, productos) where(ItemsPorPedido.IDProducto = Productos.IDProducto) group by ItemsPorPedido.IDProducto"
+            Dim cmd As New SQLiteCommand(sql, oCDConexion.con)
+            Dim da As New SQLiteDataAdapter
+
+            da.SelectCommand = cmd
+            da.Fill(dt)
+
+        Catch ex As Exception
+            MsgBox("Error al cargar el listado de top 10", , "Error de carga")
+        Finally
+            oCDConexion.Desconectar()
+        End Try
+        Return dt
+    End Function
 End Class

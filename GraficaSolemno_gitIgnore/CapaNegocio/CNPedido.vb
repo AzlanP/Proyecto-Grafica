@@ -22,12 +22,12 @@ Public Class CNPedido
     Public Sub EliminarPedido(ByVal IDPedido As Integer)
         oCDPedido.EliminarPedido(IDPedido)
     End Sub
-    Function BuscarPedido(ByVal pcampo As String, ByVal pbuscar As String) As DataTable
+    Function BuscarPedido(ByVal pcampo As String, ByVal pbuscar As String, Optional pEstado As String = "Todos") As DataTable
 
-        Return oCDPedido.BuscarPedido(pcampo, pbuscar)
+        Return oCDPedido.BuscarPedido(pcampo, pbuscar, pEstado)
     End Function
-    Function BuscarPresupuesto(ByVal pcampo As String, ByVal pbuscar As String) As DataTable
-        Return oCDPedido.BuscarPresupuesto(pcampo, pbuscar)
+    Function BuscarPresupuesto(ByVal pcampo As String, ByVal pbuscar As String, Optional pEstado As String = "Presupuesto") As DataTable
+        Return oCDPedido.BuscarPresupuesto(pcampo, pbuscar, pEstado)
     End Function
     Function ConsultarUltimoID() As Integer
         Return oCDPedido.ConsultarUltimoID()

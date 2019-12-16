@@ -42,14 +42,16 @@ Partial Class AgregarProductoPedido
         Me.txtboxPrecio = New CapaPresentacion.ValidacionMoneda()
         Me.required = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.PanelBusqueda = New System.Windows.Forms.Panel()
         CType(Me.DGBuscar, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PanelBusqueda.SuspendLayout()
         Me.SuspendLayout()
         '
         'btnCancelar
         '
         Me.btnCancelar.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnCancelar.Location = New System.Drawing.Point(134, 322)
+        Me.btnCancelar.Location = New System.Drawing.Point(132, 325)
         Me.btnCancelar.Name = "btnCancelar"
         Me.btnCancelar.Size = New System.Drawing.Size(103, 24)
         Me.btnCancelar.TabIndex = 20
@@ -60,7 +62,7 @@ Partial Class AgregarProductoPedido
         '
         Me.btnAceptar.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAceptar.Location = New System.Drawing.Point(24, 322)
+        Me.btnAceptar.Location = New System.Drawing.Point(27, 325)
         Me.btnAceptar.Name = "btnAceptar"
         Me.btnAceptar.Size = New System.Drawing.Size(102, 24)
         Me.btnAceptar.TabIndex = 19
@@ -129,24 +131,25 @@ Partial Class AgregarProductoPedido
         Me.DGBuscar.AllowUserToDeleteRows = False
         Me.DGBuscar.AllowUserToResizeColumns = False
         Me.DGBuscar.AllowUserToResizeRows = False
+        Me.DGBuscar.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DGBuscar.BackgroundColor = System.Drawing.Color.White
         Me.DGBuscar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DGBuscar.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
-        Me.DGBuscar.Location = New System.Drawing.Point(312, 79)
+        Me.DGBuscar.Location = New System.Drawing.Point(13, 48)
         Me.DGBuscar.MultiSelect = False
         Me.DGBuscar.Name = "DGBuscar"
         Me.DGBuscar.ReadOnly = True
         Me.DGBuscar.RowHeadersVisible = False
         Me.DGBuscar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DGBuscar.Size = New System.Drawing.Size(259, 267)
+        Me.DGBuscar.Size = New System.Drawing.Size(296, 267)
         Me.DGBuscar.TabIndex = 22
         '
         'txtBuscar
         '
-        Me.txtBuscar.Location = New System.Drawing.Point(312, 37)
+        Me.txtBuscar.Location = New System.Drawing.Point(13, 14)
         Me.txtBuscar.MaxLength = 50
         Me.txtBuscar.Name = "txtBuscar"
-        Me.txtBuscar.Size = New System.Drawing.Size(191, 20)
+        Me.txtBuscar.Size = New System.Drawing.Size(228, 20)
         Me.txtBuscar.TabIndex = 23
         Me.txtBuscar.Tag = "3"
         '
@@ -154,7 +157,7 @@ Partial Class AgregarProductoPedido
         '
         Me.btnBuscar.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnBuscar.Location = New System.Drawing.Point(509, 37)
+        Me.btnBuscar.Location = New System.Drawing.Point(247, 13)
         Me.btnBuscar.Name = "btnBuscar"
         Me.btnBuscar.Size = New System.Drawing.Size(62, 24)
         Me.btnBuscar.TabIndex = 24
@@ -255,12 +258,23 @@ Partial Class AgregarProductoPedido
         Me.Label3.TabIndex = 38
         Me.Label3.Text = "*"
         '
+        'PanelBusqueda
+        '
+        Me.PanelBusqueda.Controls.Add(Me.txtBuscar)
+        Me.PanelBusqueda.Controls.Add(Me.DGBuscar)
+        Me.PanelBusqueda.Controls.Add(Me.btnBuscar)
+        Me.PanelBusqueda.Location = New System.Drawing.Point(247, 9)
+        Me.PanelBusqueda.Name = "PanelBusqueda"
+        Me.PanelBusqueda.Size = New System.Drawing.Size(325, 318)
+        Me.PanelBusqueda.TabIndex = 39
+        '
         'AgregarProductoPedido
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(583, 361)
+        Me.ClientSize = New System.Drawing.Size(584, 361)
+        Me.Controls.Add(Me.PanelBusqueda)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.required)
         Me.Controls.Add(Me.cboDesc)
@@ -270,9 +284,6 @@ Partial Class AgregarProductoPedido
         Me.Controls.Add(Me.txtNombreProducto)
         Me.Controls.Add(Me.txtboxPrecio)
         Me.Controls.Add(Me.lblID)
-        Me.Controls.Add(Me.btnBuscar)
-        Me.Controls.Add(Me.txtBuscar)
-        Me.Controls.Add(Me.DGBuscar)
         Me.Controls.Add(Me.txtCantidad)
         Me.Controls.Add(Me.btnCancelar)
         Me.Controls.Add(Me.btnAceptar)
@@ -282,10 +293,12 @@ Partial Class AgregarProductoPedido
         Me.Controls.Add(Me.lblCantidadAgrProd)
         Me.Controls.Add(Me.lblNombre)
         Me.MaximumSize = New System.Drawing.Size(600, 400)
-        Me.MinimumSize = New System.Drawing.Size(300, 400)
+        Me.MinimumSize = New System.Drawing.Size(275, 400)
         Me.Name = "AgregarProductoPedido"
         Me.Text = "Agregar Al Pedido"
         CType(Me.DGBuscar, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.PanelBusqueda.ResumeLayout(False)
+        Me.PanelBusqueda.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -310,4 +323,5 @@ Partial Class AgregarProductoPedido
     Friend WithEvents cboDesc As System.Windows.Forms.ComboBox
     Friend WithEvents required As Label
     Friend WithEvents Label3 As Label
+    Friend WithEvents PanelBusqueda As Panel
 End Class
