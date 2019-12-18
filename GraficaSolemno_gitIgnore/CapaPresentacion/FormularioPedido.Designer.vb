@@ -69,7 +69,6 @@ Partial Class FormularioPedido
         Me.txtAnticipoSena = New System.Windows.Forms.TextBox()
         Me.txtSymbol = New System.Windows.Forms.TextBox()
         Me.required = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.lblResponsable = New System.Windows.Forms.Label()
         Me.txtResponsable = New System.Windows.Forms.TextBox()
         CType(Me.TipoEnvioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -515,18 +514,6 @@ Partial Class FormularioPedido
         Me.required.TabIndex = 62
         Me.required.Text = "*"
         '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.ForeColor = System.Drawing.Color.Red
-        Me.Label3.Location = New System.Drawing.Point(509, 75)
-        Me.Label3.Margin = New System.Windows.Forms.Padding(0)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(15, 20)
-        Me.Label3.TabIndex = 63
-        Me.Label3.Text = "*"
-        '
         'lblResponsable
         '
         Me.lblResponsable.AutoSize = True
@@ -553,7 +540,6 @@ Partial Class FormularioPedido
         Me.ClientSize = New System.Drawing.Size(897, 442)
         Me.Controls.Add(Me.txtResponsable)
         Me.Controls.Add(Me.lblResponsable)
-        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.required)
         Me.Controls.Add(Me.txtSymbol)
         Me.Controls.Add(Me.txtAnticipoSena)
@@ -648,7 +634,6 @@ Partial Class FormularioPedido
     Friend WithEvents txtAnticipoSena As TextBox
     Friend WithEvents txtSymbol As TextBox
     Friend WithEvents required As Label
-    Friend WithEvents Label3 As Label
     Friend WithEvents lblResponsable As Label
     Friend WithEvents txtResponsable As TextBox
 End Class

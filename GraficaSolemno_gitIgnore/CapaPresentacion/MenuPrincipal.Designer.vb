@@ -32,7 +32,6 @@ Partial Class frmMenuPrincipal
         Dim Series4 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Dim Series5 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Dim Series6 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Series7 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.TabGeneral = New System.Windows.Forms.TabControl()
         Me.TabTareas = New System.Windows.Forms.TabPage()
         Me.panelTareas = New System.Windows.Forms.Panel()
@@ -1644,6 +1643,7 @@ Partial Class frmMenuPrincipal
         Me.checkUltimaFecha.TabIndex = 65
         Me.checkUltimaFecha.Text = "Utilizar ultimo mes"
         Me.checkUltimaFecha.UseVisualStyleBackColor = True
+        Me.checkUltimaFecha.Visible = False
         '
         'Panel9
         '
@@ -1748,7 +1748,7 @@ Partial Class frmMenuPrincipal
         '
         Me.colorPrimario.AutoSize = True
         Me.colorPrimario.BackColor = System.Drawing.Color.Fuchsia
-        Me.colorPrimario.Location = New System.Drawing.Point(408, 29)
+        Me.colorPrimario.Location = New System.Drawing.Point(408, 25)
         Me.colorPrimario.Margin = New System.Windows.Forms.Padding(0)
         Me.colorPrimario.MinimumSize = New System.Drawing.Size(16, 16)
         Me.colorPrimario.Name = "colorPrimario"
@@ -1801,33 +1801,28 @@ Partial Class frmMenuPrincipal
         Series1.Legend = "Legend1"
         Series1.Name = "Cantidad"
         Series2.ChartArea = "ChartArea1"
-        Series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
         Series2.Legend = "Legend1"
-        Series2.Name = "20199"
+        Series2.Name = "Mensual"
         Series3.ChartArea = "ChartArea1"
         Series3.Legend = "Legend1"
-        Series3.Name = "Mensual"
+        Series3.Name = "topProductos"
         Series4.ChartArea = "ChartArea1"
         Series4.Legend = "Legend1"
-        Series4.Name = "topProductos"
+        Series4.Name = "Mensual2"
         Series5.ChartArea = "ChartArea1"
+        Series5.IsValueShownAsLabel = True
         Series5.Legend = "Legend1"
-        Series5.Name = "Mensual2"
+        Series5.Name = "Principal"
         Series6.ChartArea = "ChartArea1"
         Series6.IsValueShownAsLabel = True
         Series6.Legend = "Legend1"
-        Series6.Name = "Primario"
-        Series7.ChartArea = "ChartArea1"
-        Series7.IsValueShownAsLabel = True
-        Series7.Legend = "Legend1"
-        Series7.Name = "Secundario"
+        Series6.Name = "Secundaria"
         Me.GraficoSegunConsulta.Series.Add(Series1)
         Me.GraficoSegunConsulta.Series.Add(Series2)
         Me.GraficoSegunConsulta.Series.Add(Series3)
         Me.GraficoSegunConsulta.Series.Add(Series4)
         Me.GraficoSegunConsulta.Series.Add(Series5)
         Me.GraficoSegunConsulta.Series.Add(Series6)
-        Me.GraficoSegunConsulta.Series.Add(Series7)
         Me.GraficoSegunConsulta.Size = New System.Drawing.Size(800, 300)
         Me.GraficoSegunConsulta.TabIndex = 0
         Me.GraficoSegunConsulta.Text = "Chart1"
@@ -1938,6 +1933,7 @@ Partial Class frmMenuPrincipal
         Me.Label2.Size = New System.Drawing.Size(30, 13)
         Me.Label2.TabIndex = 8
         Me.Label2.Text = "Mes:"
+        Me.Label2.Visible = False
         '
         'cboAño
         '
@@ -1960,6 +1956,7 @@ Partial Class frmMenuPrincipal
         Me.cboMeses.Name = "cboMeses"
         Me.cboMeses.Size = New System.Drawing.Size(121, 21)
         Me.cboMeses.TabIndex = 6
+        Me.cboMeses.Visible = False
         '
         'PanelSupEstadistica
         '
@@ -2105,7 +2102,7 @@ Partial Class frmMenuPrincipal
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.63731!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.11883!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.27605!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 121.0!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 123.0!))
         Me.TableLayoutPanel2.Controls.Add(Me.PictureBox1, 0, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.Label1, 1, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.TableLayoutPanel3, 3, 0)
@@ -2136,7 +2133,7 @@ Partial Class frmMenuPrincipal
         Me.Label1.Font = New System.Drawing.Font("Impact", 48.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(295, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(577, 91)
+        Me.Label1.Size = New System.Drawing.Size(576, 91)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "SOLEMNO GRÁFICA"
         '
@@ -2147,7 +2144,7 @@ Partial Class frmMenuPrincipal
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel3.Controls.Add(Me.btnLogout, 1, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.EditarUsuario, 0, 0)
-        Me.TableLayoutPanel3.Location = New System.Drawing.Point(1060, 3)
+        Me.TableLayoutPanel3.Location = New System.Drawing.Point(1059, 3)
         Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
         Me.TableLayoutPanel3.RowCount = 2
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
@@ -2188,7 +2185,7 @@ Partial Class frmMenuPrincipal
         Me.TableLayoutPanel4.ColumnCount = 1
         Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel4.Controls.Add(Me.lblUsuario, 0, 0)
-        Me.TableLayoutPanel4.Location = New System.Drawing.Point(878, 3)
+        Me.TableLayoutPanel4.Location = New System.Drawing.Point(877, 3)
         Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
         Me.TableLayoutPanel4.RowCount = 2
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.0!))

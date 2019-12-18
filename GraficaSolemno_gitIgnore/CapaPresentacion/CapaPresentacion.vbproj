@@ -48,6 +48,9 @@
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>IconoSOLEMNO  ICO.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
@@ -318,6 +321,7 @@
     <None Include="Resources\home.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="IconoSOLEMNO  ICO.ico" />
     <Content Include="Resources\add.png" />
     <None Include="Resources\TRASH1.png" />
     <None Include="Resources\EditUser.png" />

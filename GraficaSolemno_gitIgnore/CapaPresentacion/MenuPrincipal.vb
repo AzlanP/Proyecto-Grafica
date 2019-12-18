@@ -773,7 +773,7 @@ Public Class frmMenuPrincipal
         End If
     End Sub
     Public Sub GraficarProductosMensual()
-        ClearSeries()
+        ' ClearSeries()
         If (cboAño.Text = Nothing) Or (cboMeses.Text = Nothing) Then
             MsgBox("Debe ingresar un valor para los campos mes y año.")
         Else
@@ -835,23 +835,23 @@ Public Class frmMenuPrincipal
 #Region "Grafico cantidad de pedidos por mes y por año"
 
     Public Sub GraficoPedidosMensuales()
-        ClearSeries()
-        Me.GraficoSegunConsulta.Series.Clear()
+        'ClearSeries()
+        ' Me.GraficoSegunConsulta.Series.Clear()
 
 
 
-        If (Me.GraficoSegunConsulta.Series.IndexOf(cboAño.Text) <> -1) Then
-            MsgBox("ya existe la serie")
-        Else
-            Me.GraficoSegunConsulta.Series.Add(cboAño.Text)
-            Me.GraficoSegunConsulta.Series(cboAño.Text).Color = colorPrimario.BackColor
-        End If
-        If (Me.GraficoSegunConsulta.Series.IndexOf(cboAño2.Text) <> -1) Then
-            MsgBox("ya existe la serie")
-        Else
-            Me.GraficoSegunConsulta.Series.Add(cboAño2.Text)
-            Me.GraficoSegunConsulta.Series(cboAño2.Text).Color = colorSecundario.BackColor
-        End If
+        'If (Me.GraficoSegunConsulta.Series.IndexOf(cboAño.Text) <> -1) Then
+        '    MsgBox("ya existe la serie")
+        'Else
+        '    Me.GraficoSegunConsulta.Series.Add(cboAño.Text)
+        '    Me.GraficoSegunConsulta.Series(cboAño.Text).Color = colorPrimario.BackColor
+        'End If
+        'If (Me.GraficoSegunConsulta.Series.IndexOf(cboAño2.Text) <> -1) Then
+        '    MsgBox("ya existe la serie")
+        'Else
+        '    Me.GraficoSegunConsulta.Series.Add(cboAño2.Text)
+        '    Me.GraficoSegunConsulta.Series(cboAño2.Text).Color = colorSecundario.BackColor
+        'End If
 
 
 
@@ -860,8 +860,8 @@ Public Class frmMenuPrincipal
         For i = 1 To 12
             Dim cant2018 As Integer = oCNGraficas.GraficaPedidosMensuales(i, cboAño.SelectedItem)
             Dim cant2019 As Integer = oCNGraficas.GraficaPedidosMensuales(i, cboAño2.SelectedItem)
-            Me.GraficoSegunConsulta.Series(cboAño.Text).Points.AddXY((Meses(i - 1)), (cant2018))
-            Me.GraficoSegunConsulta.Series(cboAño2.Text).Points.AddXY((Meses(i - 1)), (cant2019))
+            Me.GraficoSegunConsulta.Series("Principal").Points.AddXY((Meses(i - 1)), (cant2018))
+            Me.GraficoSegunConsulta.Series("Secundaria").Points.AddXY((Meses(i - 1)), (cant2019))
         Next
     End Sub
 
@@ -899,14 +899,14 @@ Public Class frmMenuPrincipal
 
     Private Sub dtpActual_ValueChanged(ByVal sender As Object, ByVal e As EventArgs) Handles dtpActual.ValueChanged
         cboAño2.Visible = False
-        Me.GraficoSegunConsulta.Series("Mensual").Points.Clear()
+        Me.GraficoSegunConsulta.Series("Principal").Points.Clear()
 
         Dim hoy As Date = dtpActual.Value
         Dim dt As DataTable = oCNGraficas.GraficaPedidosMensual(hoy.Month, hoy.Year)
 
         If dt.Rows.Count = 0 Then
             For i = 1 To 30
-                Me.GraficoSegunConsulta.Series("Mensual").Points.AddXY(i, 0)
+                Me.GraficoSegunConsulta.Series("Principal").Points.AddXY(i, 0)
             Next
         Else
             For Each dr In dt.Rows
@@ -914,7 +914,7 @@ Public Class frmMenuPrincipal
 
                 For i = 1 To 30
                     If (i = fecha.Day) Then
-                        Me.GraficoSegunConsulta.Series("Mensual").Points.AddXY(i, dr(1))
+                        Me.GraficoSegunConsulta.Series("Principal").Points.AddXY(i, dr(1))
 
                     Else
                         Me.GraficoSegunConsulta.Series("Mensual").Points.AddXY(i, 0)

@@ -28,6 +28,7 @@ Public Class FormularioEnvio
             txtCP.Text = dr("CP").ToString
             oCECliente.Fecha = dr("Fecha").ToString
         End If
+
        
         'Me.Tag = dr("IDPedido").ToString
     End Sub
