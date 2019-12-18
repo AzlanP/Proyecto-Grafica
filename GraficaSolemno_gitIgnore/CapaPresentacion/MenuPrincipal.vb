@@ -458,6 +458,7 @@ Public Class frmMenuPrincipal
 
         frmPedido.lblID.Text = oCNPedido.ConsultarUltimoID()
         frmPedido.txtResponsable.Text = lblUsuario.Text
+        frmPedido.btnImprimir.Visible = False
         frmPedido.Detalles()
         'precargar combobox
         frmPedido.PrecargarCombobox()
@@ -476,9 +477,12 @@ Public Class frmMenuPrincipal
         frmPedido.btnQuitar.Enabled = False
         frmPedido.btnGuardarPedido.Visible = False
         frmPedido.btnCancelarPedido.Text = "Aceptar"
+        frmPedido.DGListaDePedido.Enabled = False
         frmPedido.CargarGridDetalles(ID)
         frmPedido.LLenarFormulario(ID)
+        frmPedido.lblID.Text = ID
         frmPedido.Disesabletext()
+        frmPedido.btnEnvioGuardado.Enabled = True
         frmPedido.ShowDialog()
         CargarGridPedidos()
         DGPedido.Rows(index).Selected = index
@@ -1143,6 +1147,7 @@ Public Class frmMenuPrincipal
         'frmPresupuesto.dtpFechaVencimiento.MinDate = Date.Now()
         frmPresupuesto.dtpFechaVencimiento.Value = Date.Now().AddDays(7)
         frmPresupuesto.txtResponsable.Text = lblUsuario.Text
+        frmPresupuesto.btnImprimir.Visible = False
         frmPresupuesto.PrecargarCombobox()
         frmPresupuesto.ShowDialog()
         CargarGridPresupuestos()
@@ -1175,11 +1180,14 @@ Public Class frmMenuPrincipal
         frmPresupuesto.btnModificarPedido.Enabled = False
         frmPresupuesto.btnQuitar.Enabled = False
         frmPresupuesto.btnGuardarPedido.Visible = False
-
+        frmPresupuesto.DGListaDePedido.Enabled = False
         frmPresupuesto.btnCancelarPedido.Text = "Aceptar"
         frmPresupuesto.CargarGridDetalles(ID)
         frmPresupuesto.LLenarFormulario(ID, False)
+        frmPresupuesto.lblID.Text = ID
         frmPresupuesto.Disesabletext()
+        frmPresupuesto.btnEnvioGuardado.Enabled = True
+
         frmPresupuesto.ShowDialog()
         CargarGridPresupuestos()
     End Sub
@@ -1378,9 +1386,32 @@ Public Class frmMenuPrincipal
     Private Sub btnBuscarUsuarioInactivos_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscarUsuarioInactivos.Click
 
     End Sub
-
+    Private Sub cboFiltroUsuarios_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles cboFiltroUsuarios.SelectedIndexChanged
+        If cboFiltroUsuarios.SelectedIndex = 0 Then
+            txtBuscarUsuario.Visible = True
+            cboFilterCargoUsuario.Visible = False
+        Else
+            cboFilterCargoUsuario.Visible = True
+            txtBuscarUsuario.Visible = False
+        End If
+    End Sub
     Private Sub btnBuscarUsuario_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscarUsuario.Click
+        Dim dt As DataTable
+        Dim dv As New DataView
+        If state Then
+            dt = Me.UsuariosTableAdapter.GetUsuarioByEstado("Activo")
+        Else
+            dt = Me.UsuariosTableAdapter.GetUsuarioByEstado("Inactivo")
+        End If
 
+        If cboFiltroUsuarios.SelectedIndex = 0 Then
+            dv = New DataView(dt, "NombreCompleto like '" & txtBuscarUsuario.Text & "%' ", "IDUsuario Asc", DataViewRowState.CurrentRows)
+        ElseIf cboFiltroUsuarios.SelectedIndex = 1 Then
+
+            dv = New DataView(dt, "Cargo = '" & cboFilterCargoUsuario.Text & "'", "IDUsuario Asc", DataViewRowState.CurrentRows)
+        End If
+        DGUsuario.DataSource = dv
+        MostrarSinResultados(dt, DGUsuario)
     End Sub
 
 
@@ -1481,10 +1512,10 @@ Public Class frmMenuPrincipal
 
 
 #Region "Panel Sin Resultados"
-
+    Dim pSearch As New Panel
     Public Sub MostrarSinResultados(ByVal dt As DataTable, ByVal DG As DataGridView)
         If dt.Rows.Count = 0 Then
-            Dim pSearch As New Panel
+
             Dim alturaHeader As Integer = 32
 
             pSearch.Location = New Point(DG.Location.X, DG.Location.Y + alturaHeader)
@@ -1498,6 +1529,7 @@ Public Class frmMenuPrincipal
             pSearch.Parent = DG.Parent
             pSearch.BringToFront()
         Else
+            pSearch.Visible = False
             Dim ctrl() As Control
             ctrl = DG.Parent.Controls.Find("Panel" + DG.Name, True)
             If Not (ctrl.Length = 0) Then
@@ -1525,4 +1557,6 @@ Public Class frmMenuPrincipal
         End If
 
     End Sub
+
+
 End Class

@@ -155,7 +155,7 @@ Public Class CDPedidos
             Dim comando As New SQLiteCommand(instruccionsql, oCDConexion.con)
             With comando.Parameters
                 .Add("@IDPedido", SqlDbType.Int).Value = IDPedido
-                .Add("@Estado", SqlDbType.VarChar).Value = "Cancelado"
+                .Add("@Estado", SqlDbType.VarChar).Value = "Presupuesto Cancelado"
                 .Add("@FechaCancelacion", SqlDbType.VarChar).Value = FormatISO8601(FechaCancelacion)
             End With
             comando.ExecuteNonQuery()
@@ -170,7 +170,7 @@ Public Class CDPedidos
         oCDConexion.Conectar()
         Try
 
-            Dim instruccionsql = "UPDATE Pedidos SET  Estado='Cancelado', FechaCancelacion=@FechaCancelacion where (@FechaCancelacion > pedidos.PresupuestoVencimiento)  and pedidos.Estado= 'Presupuesto'"
+            Dim instruccionsql = "UPDATE Pedidos SET  Estado='Cancelado', FechaCancelacion=@FechaCancelacion where (@FechaCancelacion > pedidos.PresupuestoVencimiento)  and pedidos.Estado= 'Presupuesto Cancelado'"
             Dim comando As New SQLiteCommand(instruccionsql, oCDConexion.con)
             Dim hoy As String = FormatISO8601(DateTime.Now)
             comando.Parameters.Add("@FechaCancelacion", SqlDbType.VarChar).Value = hoy

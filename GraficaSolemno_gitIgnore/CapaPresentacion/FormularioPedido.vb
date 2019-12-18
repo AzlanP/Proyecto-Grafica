@@ -314,12 +314,15 @@ Public Class FormularioPedido
                 ctrl.Enabled = False 'Creo que el error es aqui
             End If
         Next
-        chkEnvio.Enabled = False
-        btnEnvioGuardado.Enabled = False
+        chkEnvio.Enabled = True
+        btnEnvioGuardado.Enabled = True
         txtSubTotal.Enabled = False
         txtAnticipoSena.Enabled = False
         txtSymbol.Enabled = False
         txtTotal.Enabled = False
+        FormularioEnvio.desabilitar = True
+        btnGuardarPedido.Visible = False
+        btnGuardarPresupuesto.Visible = False
     End Sub
     Public Function FormatISO8601(ByVal pfecha As Date) As String
 
@@ -554,20 +557,39 @@ Public Class FormularioPedido
     End Sub
 
     Private Sub btnImprimir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnImprimir.Click
-        If (lblID.Text) Then
-            If Not dtpFechaVencimiento.Visible Then
-                Dim report As New frmReportePedido
-                report.IDPedido = CInt(lblID.Text)
-                report.ShowDialog()
-                report.Dispose()
-            ElseIf dtpFechaVencimiento.Visible Then
-                Dim report As New frmReportePresupuesto
-                report.IDPedido = CInt(lblID.Text)
-                report.ShowDialog()
-                report.Dispose()
+
+        If MessageBox.Show("Para realizar esta accion se guardaran los datos automaticamente, desea continuar? ", "Confirmacion de registro", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
+
+            If dtpFechaVencimiento.Visible Then
+                btnGuardarPresupuesto_Click(sender, e)
+                If (lblID.Text) Then
+                    Dim report As New frmReportePresupuesto
+                    report.IDPedido = CInt(lblID.Text)
+                    report.ShowDialog()
+                    report.Dispose()
+                End If
+            
+            Else
+                btnGuardarPedido_Click(sender, e)
+                If (lblID.Text) Then
+                    Dim report As New frmReportePedido
+                    report.IDPedido = CInt(lblID.Text)
+                    report.ShowDialog()
+                    report.Dispose()
+                End If
             End If
-       
+
+
         End If
+
+        'If (lblID.Text) Then
+        '    If Not dtpFechaVencimiento.Visible Then
+
+        '    ElseIf dtpFechaVencimiento.Visible Then
+
+        '    End If
+
+        'End If
 
     End Sub
 

@@ -212,6 +212,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormularioPedido.resx">
       <DependentUpon>FormularioPedido.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAgregarNota.resx">
       <DependentUpon>frmAgregarNota.vb</DependentUpon>

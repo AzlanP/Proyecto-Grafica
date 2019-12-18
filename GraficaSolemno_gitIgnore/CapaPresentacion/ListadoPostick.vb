@@ -87,8 +87,9 @@
     End Sub
 
     Public Sub MostrarSinResultados(ByVal dt As DataTable, ByVal DG As DataGridView)
+        Dim pSearch As New Panel
         If dt.Rows.Count = 0 Then
-            Dim pSearch As New Panel
+
             Dim alturaHeader As Integer = 32
 
             pSearch.Location = New Point(DG.Location.X, DG.Location.Y + alturaHeader)
@@ -102,6 +103,7 @@
             pSearch.Parent = DG.Parent
             pSearch.BringToFront()
         Else
+            pSearch.Visible = False
             Dim ctrl() As Control
             ctrl = DG.Parent.Controls.Find("Panel" + DG.Name, True)
             If Not (ctrl.Length = 0) Then

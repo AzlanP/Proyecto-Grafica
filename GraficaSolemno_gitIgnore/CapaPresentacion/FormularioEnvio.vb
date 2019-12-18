@@ -13,19 +13,22 @@ Public Class FormularioEnvio
         Dim dt As New DataTable
         Dim dr As DataRow
         dt = oCNCliente.BuscarCliente("IDCliente", Cliente)
-        dr = dt.Rows(0)
-        oCECliente.IDCliente = dr("IDCliente").ToString
+        If dt.Rows.Count > 0 Then
+            dr = dt.Rows(0)
+            oCECliente.IDCliente = dr("IDCliente").ToString
 
-        AsignarTextCbo(dr("Provincia").ToString, cboProvincia)
-        AsignarTextCbo(dr("Localidad").ToString, cboLocalidad)
-        'oCECliente.Provincia = dr("Provincia").ToString
-        'oCECliente.Localidad = dr("Localidad").ToString
-        txtBarrio.Text = dr("Barrio").ToString
-        txtNroCalle.Text = dr("NroCalle").ToString
-        txtDomicilio.Text = dr("Domicilio").ToString
-        txtDpto.Text = dr("Dpto").ToString
-        txtCP.Text = dr("CP").ToString
-        oCECliente.Fecha = dr("Fecha").ToString
+            AsignarTextCbo(dr("Provincia").ToString, cboProvincia)
+            AsignarTextCbo(dr("Localidad").ToString, cboLocalidad)
+            'oCECliente.Provincia = dr("Provincia").ToString
+            'oCECliente.Localidad = dr("Localidad").ToString
+            txtBarrio.Text = dr("Barrio").ToString
+            txtNroCalle.Text = dr("NroCalle").ToString
+            txtDomicilio.Text = dr("Domicilio").ToString
+            txtDpto.Text = dr("Dpto").ToString
+            txtCP.Text = dr("CP").ToString
+            oCECliente.Fecha = dr("Fecha").ToString
+        End If
+       
         'Me.Tag = dr("IDPedido").ToString
     End Sub
     Public Sub llenarFormularioInfoEnvio(ByVal id As Integer)
@@ -36,7 +39,7 @@ Public Class FormularioEnvio
         dt = oCNDetallesEnvio.InformacionDeEnvio(id)
         'aca deberia de hacer la comprobacion si el datatable tiene 0 row, ponga la informacion por defecto.
         Dim dr As DataRow = dt.Rows(0)
-        txtTransporte.Text = dr("Transporte").ToString
+        cboTransporte.Text = dr("Transporte").ToString
         dtpFechaDespacho.Text = CDate(dr("FechaDespacho").ToString)
         txtNroSeguimiento.Text = dr("NroSeguimiento").ToString
         ValidacionPrecio.valor = dr("PrecioEnvio").ToString
@@ -76,7 +79,7 @@ Public Class FormularioEnvio
         oCEDetallesEnvio.Dpto = txtDpto.Text
         oCEDetallesEnvio.CP = txtCP.Text
         oCEDetallesEnvio.Barrio = txtBarrio.Text
-        oCEDetallesEnvio.Transporte = txtTransporte.Text
+        oCEDetallesEnvio.Transporte = cboTransporte.Text
         oCEDetallesEnvio.NroSeguimiento = txtNroSeguimiento.Text
         oCEDetallesEnvio.PrecioEnvio = ValidacionPrecio.valor
         oCEDetallesEnvio.FechaDespacho = CDate(dtpFechaDespacho.Text)
@@ -138,7 +141,7 @@ Public Class FormularioEnvio
         ' aca se podria verificar si existe el pedido ya (en este caso continuara el curso normal
         'de ejecucion, en caso contrario dara a pasar el ocedetallesenvio a la capa de formulario de pedido
         'cuando se realize la Carga del Nuevo Pedido, este recien sera registrado.
-        If txtTransporte.Text.Trim() <> "" And txtDomicilio.Text.Trim() <> "" And cboLocalidad.SelectedValue = Nothing Then
+        If cboTransporte.Text.Trim() <> "" And txtDomicilio.Text.Trim() <> "" And cboLocalidad.SelectedValue IsNot Nothing Then
             TomarInformacion()
             Dim oCNDetallesEnvio As New CNDetallesEnvio
             Dim oCNPedido As New CNPedido
@@ -172,14 +175,31 @@ Public Class FormularioEnvio
 
         End If
     End Sub
-
+    Public Shared desabilitar As Boolean = False
     Private Sub FormularioEnvio_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         Dim validar As New Validaciones
         validar.Validar(Me)
+        If desabilitar Then
+            Disesabletext()
+        End If
 
     End Sub
 
     Private Sub btnCancelarFormEnvio_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancelarFormEnvio.Click
         Me.Close()
+    End Sub
+
+
+    Public Sub Disesabletext()
+        'este codigo es para desabilitar la edicion de todos los campos
+        Dim ctrl As Control
+
+        For Each ctrl In Me.Controls
+            If TypeOf ctrl Is TextBox Or TypeOf ctrl Is ComboBox Or TypeOf ctrl Is DateTimePicker Then
+                ctrl.Enabled = False 'Creo que el error es aqui
+            End If
+        Next
+        btnGuardarNuevo.Enabled = False
+        btnCancelarFormEnvio.Text = "Cerrar"
     End Sub
 End Class

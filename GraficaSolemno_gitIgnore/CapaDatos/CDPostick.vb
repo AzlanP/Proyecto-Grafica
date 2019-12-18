@@ -28,11 +28,12 @@ Public Class CDPostick
                 .Add("@Estado", SqlDbType.VarChar).Value = obj.Estado
             End With
             comando.ExecuteNonQuery()
-            MsgBox("El Registro se ah guardado con exito.")
             oCDConexion.Desconectar()
 
+            MsgBox("El Registro se ah guardado con exito.", MsgBoxStyle.Information, "Registro de postick")
+
         Catch ex As Exception
-            MsgBox("Error la busqueda ah fallado.", MsgBoxStyle.Exclamation, "Busqueda de producto")
+            MsgBox("Error al registrar el postick.", MsgBoxStyle.Exclamation, "Registro de postick")
         End Try
       
 
@@ -118,7 +119,7 @@ Public Class CDPostick
             comando.ExecuteNonQuery()
 
         Catch ex As Exception
-            MsgBox("No se ah podido eliminar el registro", , "Error de eliminacion.")
+            MsgBox("No se ah podido eliminar el postick.", MsgBoxStyle.Exclamation, "Error de eliminacion.")
         Finally
             oCDConexion.Desconectar()
         End Try

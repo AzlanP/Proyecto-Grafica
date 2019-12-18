@@ -23,6 +23,7 @@ Partial Class frmMenuPrincipal
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMenuPrincipal))
         Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
         Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
         Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
@@ -32,7 +33,6 @@ Partial Class frmMenuPrincipal
         Dim Series5 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Dim Series6 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Dim Series7 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMenuPrincipal))
         Me.TabGeneral = New System.Windows.Forms.TabControl()
         Me.TabTareas = New System.Windows.Forms.TabPage()
         Me.panelTareas = New System.Windows.Forms.Panel()
@@ -40,6 +40,7 @@ Partial Class frmMenuPrincipal
         Me.PanelCentralCliente = New System.Windows.Forms.Panel()
         Me.btnBuscarInactivos = New System.Windows.Forms.Button()
         Me.DGClienteInactivos = New System.Windows.Forms.DataGridView()
+        Me.btnRefresh = New System.Windows.Forms.Button()
         Me.txtBuscarCliente = New System.Windows.Forms.TextBox()
         Me.btnBuscarCliente = New System.Windows.Forms.Button()
         Me.cboBuscarCliente = New System.Windows.Forms.ComboBox()
@@ -50,6 +51,7 @@ Partial Class frmMenuPrincipal
         Me.btnRestaurar = New System.Windows.Forms.Button()
         Me.btnVerInactivo = New System.Windows.Forms.Button()
         Me.btnListadoClientesInactivos = New System.Windows.Forms.Button()
+        Me.PictureBoxCliente = New System.Windows.Forms.PictureBox()
         Me.btnEliminarCliente = New System.Windows.Forms.Button()
         Me.btnVerCliente = New System.Windows.Forms.Button()
         Me.btnModificarCliente = New System.Windows.Forms.Button()
@@ -59,6 +61,7 @@ Partial Class frmMenuPrincipal
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.cboFiltroEstadoPresupuesto = New System.Windows.Forms.ComboBox()
+        Me.btnRefreshPresupuesto = New System.Windows.Forms.Button()
         Me.txtBuscarPresupuesto = New System.Windows.Forms.TextBox()
         Me.btnBuscarPresupuesto = New System.Windows.Forms.Button()
         Me.DGPresupuesto = New System.Windows.Forms.DataGridView()
@@ -71,11 +74,13 @@ Partial Class frmMenuPrincipal
         Me.btnModificarPresupuesto = New System.Windows.Forms.Button()
         Me.btnVerPresupuesto = New System.Windows.Forms.Button()
         Me.btnNuevoPresupuesto = New System.Windows.Forms.Button()
+        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.TabPedido = New System.Windows.Forms.TabPage()
         Me.PanelCentralPedido = New System.Windows.Forms.Panel()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.cboFiltroPedido = New System.Windows.Forms.ComboBox()
+        Me.btnRefreshPedido = New System.Windows.Forms.Button()
         Me.txtBuscarPedido = New System.Windows.Forms.TextBox()
         Me.btnBuscarPedido = New System.Windows.Forms.Button()
         Me.DGPedido = New System.Windows.Forms.DataGridView()
@@ -87,11 +92,22 @@ Partial Class frmMenuPrincipal
         Me.btnModificarPedido = New System.Windows.Forms.Button()
         Me.btnVerPedido = New System.Windows.Forms.Button()
         Me.btnNuevoPedido = New System.Windows.Forms.Button()
+        Me.IconoPedido = New System.Windows.Forms.PictureBox()
         Me.TabUsuario = New System.Windows.Forms.TabPage()
         Me.Panel8 = New System.Windows.Forms.Panel()
+        Me.cboFilterCargoUsuario = New System.Windows.Forms.ComboBox()
         Me.btnBuscarUsuarioInactivos = New System.Windows.Forms.Button()
         Me.DGUsuario = New System.Windows.Forms.DataGridView()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.IDUsuarioDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NombreCompletoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.UsuarioDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FechaCreacionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CargoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.EstadoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.UsuariosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.SolemnoDataSet1 = New CapaPresentacion.SolemnoDataSet()
+        Me.btnRefreshUsuario = New System.Windows.Forms.Button()
+        Me.txtBuscarUsuario = New System.Windows.Forms.TextBox()
         Me.btnBuscarUsuario = New System.Windows.Forms.Button()
         Me.cboFiltroUsuarios = New System.Windows.Forms.ComboBox()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
@@ -101,6 +117,7 @@ Partial Class frmMenuPrincipal
         Me.btnRestaurarUsuario = New System.Windows.Forms.Button()
         Me.btnVerUsuarioInactivo = New System.Windows.Forms.Button()
         Me.btnPapeleraUsuario = New System.Windows.Forms.Button()
+        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.btnEliminarUsuario = New System.Windows.Forms.Button()
         Me.btnVerUsuario = New System.Windows.Forms.Button()
         Me.btnModificarUsuario = New System.Windows.Forms.Button()
@@ -109,6 +126,7 @@ Partial Class frmMenuPrincipal
         Me.PanelProductos = New System.Windows.Forms.Panel()
         Me.DGProductoInactivo = New System.Windows.Forms.DataGridView()
         Me.btnBuscarProductoInactivo = New System.Windows.Forms.Button()
+        Me.btnRefreshProduct = New System.Windows.Forms.Button()
         Me.txtBuscarProducto = New System.Windows.Forms.TextBox()
         Me.DGProducto = New System.Windows.Forms.DataGridView()
         Me.btnBuscarProducto = New System.Windows.Forms.Button()
@@ -123,18 +141,23 @@ Partial Class frmMenuPrincipal
         Me.btnModificarProducto = New System.Windows.Forms.Button()
         Me.btnEliminarProducto = New System.Windows.Forms.Button()
         Me.btnAgregarProducto = New System.Windows.Forms.Button()
+        Me.IconoProducto = New System.Windows.Forms.PictureBox()
         Me.TabEstadistica = New System.Windows.Forms.TabPage()
         Me.Panel7 = New System.Windows.Forms.Panel()
         Me.checkUltimaFecha = New System.Windows.Forms.CheckBox()
         Me.Panel9 = New System.Windows.Forms.Panel()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.txtSeleccion3 = New System.Windows.Forms.TextBox()
+        Me.btnSearchTop3 = New System.Windows.Forms.Button()
         Me.txtSeleccion2 = New System.Windows.Forms.TextBox()
+        Me.btnSearchTop2 = New System.Windows.Forms.Button()
         Me.txtSeleccion1 = New System.Windows.Forms.TextBox()
+        Me.btnSearchTop1 = New System.Windows.Forms.Button()
         Me.colorSecundario = New System.Windows.Forms.Label()
         Me.colorPrimario = New System.Windows.Forms.Label()
         Me.btnVerReporteEstadistica = New System.Windows.Forms.Button()
         Me.GraficoSegunConsulta = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.boxEstadistica = New System.Windows.Forms.PictureBox()
         Me.lblComparar = New System.Windows.Forms.Label()
         Me.lblActual = New System.Windows.Forms.Label()
         Me.dtpCompare = New System.Windows.Forms.DateTimePicker()
@@ -156,40 +179,18 @@ Partial Class frmMenuPrincipal
         Me.btnGraficosProducto = New System.Windows.Forms.Button()
         Me.btnGraficoMedios = New System.Windows.Forms.Button()
         Me.btnGraficoPedidos = New System.Windows.Forms.Button()
+        Me.PictureBoxEstadistic = New System.Windows.Forms.PictureBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
+        Me.btnLogout = New System.Windows.Forms.Button()
+        Me.EditarUsuario = New System.Windows.Forms.Button()
         Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
         Me.lblUsuario = New System.Windows.Forms.Label()
         Me.lblNombreUsuario = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.btnLogout = New System.Windows.Forms.Button()
-        Me.EditarUsuario = New System.Windows.Forms.Button()
-        Me.btnRefresh = New System.Windows.Forms.Button()
-        Me.PictureBoxCliente = New System.Windows.Forms.PictureBox()
-        Me.btnRefreshPresupuesto = New System.Windows.Forms.Button()
-        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
-        Me.btnRefreshPedido = New System.Windows.Forms.Button()
-        Me.IconoPedido = New System.Windows.Forms.PictureBox()
-        Me.btnRefreshUsuario = New System.Windows.Forms.Button()
-        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
-        Me.btnRefreshProduct = New System.Windows.Forms.Button()
-        Me.IconoProducto = New System.Windows.Forms.PictureBox()
-        Me.btnSearchTop3 = New System.Windows.Forms.Button()
-        Me.btnSearchTop2 = New System.Windows.Forms.Button()
-        Me.btnSearchTop1 = New System.Windows.Forms.Button()
-        Me.boxEstadistica = New System.Windows.Forms.PictureBox()
-        Me.PictureBoxEstadistic = New System.Windows.Forms.PictureBox()
-        Me.IDUsuarioDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NombreCompletoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.UsuarioDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.FechaCreacionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CargoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.EstadoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.UsuariosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.SolemnoDataSet1 = New CapaPresentacion.SolemnoDataSet()
         Me.SolemnoDataSet = New CapaPresentacion.SolemnoDataSet()
         Me.UsuariosTableAdapter = New CapaPresentacion.SolemnoDataSetTableAdapters.UsuariosTableAdapter()
         Me.MediosTableAdapter1 = New CapaPresentacion.SolemnoDataSetTableAdapters.MediosTableAdapter()
@@ -201,49 +202,49 @@ Partial Class frmMenuPrincipal
         CType(Me.DGCliente, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelSuperiorCliente.SuspendLayout()
         Me.PanelLateralCliente.SuspendLayout()
+        CType(Me.PictureBoxCliente, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPresupuesto.SuspendLayout()
         Me.Panel4.SuspendLayout()
         CType(Me.DGPresupuesto, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPedido.SuspendLayout()
         Me.PanelCentralPedido.SuspendLayout()
         CType(Me.DGPedido, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelSuperiorPedido.SuspendLayout()
         Me.PanelLateralPedido.SuspendLayout()
+        CType(Me.IconoPedido, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabUsuario.SuspendLayout()
         Me.Panel8.SuspendLayout()
         CType(Me.DGUsuario, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.UsuariosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SolemnoDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel5.SuspendLayout()
         Me.Panel6.SuspendLayout()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabProducto.SuspendLayout()
         Me.PanelProductos.SuspendLayout()
         CType(Me.DGProductoInactivo, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DGProducto, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.panelSuperiorProducto.SuspendLayout()
         Me.panelLateralProducto.SuspendLayout()
+        CType(Me.IconoProducto, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabEstadistica.SuspendLayout()
         Me.Panel7.SuspendLayout()
         Me.Panel9.SuspendLayout()
         CType(Me.GraficoSegunConsulta, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.boxEstadistica, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelSupEstadistica.SuspendLayout()
         Me.PnlLateralEstadistica.SuspendLayout()
+        CType(Me.PictureBoxEstadistic, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel3.SuspendLayout()
         Me.TableLayoutPanel4.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBoxCliente, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.IconoPedido, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.IconoProducto, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.boxEstadistica, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBoxEstadistic, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.UsuariosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.SolemnoDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SolemnoDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -341,6 +342,18 @@ Partial Class frmMenuPrincipal
         Me.DGClienteInactivos.TabIndex = 10
         Me.DGClienteInactivos.Visible = False
         '
+        'btnRefresh
+        '
+        Me.btnRefresh.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnRefresh.BackgroundImage = Global.CapaPresentacion.My.Resources.Resources.home
+        Me.btnRefresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnRefresh.Location = New System.Drawing.Point(20, 29)
+        Me.btnRefresh.Name = "btnRefresh"
+        Me.btnRefresh.Size = New System.Drawing.Size(36, 30)
+        Me.btnRefresh.TabIndex = 9
+        Me.btnRefresh.UseVisualStyleBackColor = False
+        '
         'txtBuscarCliente
         '
         Me.txtBuscarCliente.Location = New System.Drawing.Point(70, 32)
@@ -361,7 +374,7 @@ Partial Class frmMenuPrincipal
         '
         'cboBuscarCliente
         '
-        Me.cboBuscarCliente.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.cboBuscarCliente.BackColor = System.Drawing.SystemColors.Window
         Me.cboBuscarCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboBuscarCliente.FormattingEnabled = True
         Me.cboBuscarCliente.Items.AddRange(New Object() {"Nombre", "Apellido", "DNI", "CUIT"})
@@ -467,6 +480,16 @@ Partial Class frmMenuPrincipal
         Me.btnListadoClientesInactivos.TabIndex = 11
         Me.btnListadoClientesInactivos.Text = "Papelera Clientes"
         Me.btnListadoClientesInactivos.UseVisualStyleBackColor = False
+        '
+        'PictureBoxCliente
+        '
+        Me.PictureBoxCliente.Image = Global.CapaPresentacion.My.Resources.Resources.clientes
+        Me.PictureBoxCliente.Location = New System.Drawing.Point(7, 14)
+        Me.PictureBoxCliente.Name = "PictureBoxCliente"
+        Me.PictureBoxCliente.Size = New System.Drawing.Size(170, 150)
+        Me.PictureBoxCliente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBoxCliente.TabIndex = 10
+        Me.PictureBoxCliente.TabStop = False
         '
         'btnEliminarCliente
         '
@@ -583,6 +606,18 @@ Partial Class frmMenuPrincipal
         Me.cboFiltroEstadoPresupuesto.Size = New System.Drawing.Size(122, 21)
         Me.cboFiltroEstadoPresupuesto.TabIndex = 15
         '
+        'btnRefreshPresupuesto
+        '
+        Me.btnRefreshPresupuesto.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnRefreshPresupuesto.BackgroundImage = Global.CapaPresentacion.My.Resources.Resources.home
+        Me.btnRefreshPresupuesto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnRefreshPresupuesto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnRefreshPresupuesto.Location = New System.Drawing.Point(20, 27)
+        Me.btnRefreshPresupuesto.Name = "btnRefreshPresupuesto"
+        Me.btnRefreshPresupuesto.Size = New System.Drawing.Size(36, 30)
+        Me.btnRefreshPresupuesto.TabIndex = 14
+        Me.btnRefreshPresupuesto.UseVisualStyleBackColor = False
+        '
         'txtBuscarPresupuesto
         '
         Me.txtBuscarPresupuesto.Location = New System.Drawing.Point(62, 33)
@@ -622,7 +657,7 @@ Partial Class frmMenuPrincipal
         '
         Me.cboBuscarPresupuesto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboBuscarPresupuesto.FormattingEnabled = True
-        Me.cboBuscarPresupuesto.Items.AddRange(New Object() {"Nombre y apellido", "Vendedor", "Fecha"})
+        Me.cboBuscarPresupuesto.Items.AddRange(New Object() {"Nombre y apellido", "Responsable"})
         Me.cboBuscarPresupuesto.Location = New System.Drawing.Point(407, 33)
         Me.cboBuscarPresupuesto.Name = "cboBuscarPresupuesto"
         Me.cboBuscarPresupuesto.Size = New System.Drawing.Size(122, 21)
@@ -735,6 +770,16 @@ Partial Class frmMenuPrincipal
         Me.btnNuevoPresupuesto.Text = "Nuevo presupuesto"
         Me.btnNuevoPresupuesto.UseVisualStyleBackColor = False
         '
+        'PictureBox3
+        '
+        Me.PictureBox3.Image = Global.CapaPresentacion.My.Resources.Resources.pedidos
+        Me.PictureBox3.Location = New System.Drawing.Point(7, 14)
+        Me.PictureBox3.Name = "PictureBox3"
+        Me.PictureBox3.Size = New System.Drawing.Size(170, 150)
+        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox3.TabIndex = 23
+        Me.PictureBox3.TabStop = False
+        '
         'TabPedido
         '
         Me.TabPedido.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
@@ -792,6 +837,18 @@ Partial Class frmMenuPrincipal
         Me.cboFiltroPedido.Size = New System.Drawing.Size(122, 21)
         Me.cboFiltroPedido.TabIndex = 16
         '
+        'btnRefreshPedido
+        '
+        Me.btnRefreshPedido.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnRefreshPedido.BackgroundImage = Global.CapaPresentacion.My.Resources.Resources.home
+        Me.btnRefreshPedido.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnRefreshPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnRefreshPedido.Location = New System.Drawing.Point(20, 27)
+        Me.btnRefreshPedido.Name = "btnRefreshPedido"
+        Me.btnRefreshPedido.Size = New System.Drawing.Size(36, 30)
+        Me.btnRefreshPedido.TabIndex = 14
+        Me.btnRefreshPedido.UseVisualStyleBackColor = False
+        '
         'txtBuscarPedido
         '
         Me.txtBuscarPedido.Location = New System.Drawing.Point(67, 33)
@@ -831,7 +888,7 @@ Partial Class frmMenuPrincipal
         '
         Me.cboBuscarPedido.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboBuscarPedido.FormattingEnabled = True
-        Me.cboBuscarPedido.Items.AddRange(New Object() {"Nombre y apellido", "Vendedor"})
+        Me.cboBuscarPedido.Items.AddRange(New Object() {"Nombre y apellido", "Responsable"})
         Me.cboBuscarPedido.Location = New System.Drawing.Point(407, 33)
         Me.cboBuscarPedido.Name = "cboBuscarPedido"
         Me.cboBuscarPedido.Size = New System.Drawing.Size(122, 21)
@@ -929,6 +986,16 @@ Partial Class frmMenuPrincipal
         Me.btnNuevoPedido.Text = "Nuevo Pedido"
         Me.btnNuevoPedido.UseVisualStyleBackColor = False
         '
+        'IconoPedido
+        '
+        Me.IconoPedido.Image = Global.CapaPresentacion.My.Resources.Resources.pedidos
+        Me.IconoPedido.Location = New System.Drawing.Point(7, 14)
+        Me.IconoPedido.Name = "IconoPedido"
+        Me.IconoPedido.Size = New System.Drawing.Size(170, 150)
+        Me.IconoPedido.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.IconoPedido.TabIndex = 23
+        Me.IconoPedido.TabStop = False
+        '
         'TabUsuario
         '
         Me.TabUsuario.Controls.Add(Me.Panel8)
@@ -945,10 +1012,11 @@ Partial Class frmMenuPrincipal
         'Panel8
         '
         Me.Panel8.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
+        Me.Panel8.Controls.Add(Me.cboFilterCargoUsuario)
         Me.Panel8.Controls.Add(Me.btnBuscarUsuarioInactivos)
         Me.Panel8.Controls.Add(Me.DGUsuario)
         Me.Panel8.Controls.Add(Me.btnRefreshUsuario)
-        Me.Panel8.Controls.Add(Me.TextBox1)
+        Me.Panel8.Controls.Add(Me.txtBuscarUsuario)
         Me.Panel8.Controls.Add(Me.btnBuscarUsuario)
         Me.Panel8.Controls.Add(Me.cboFiltroUsuarios)
         Me.Panel8.Controls.Add(Me.DataGridView2)
@@ -958,13 +1026,25 @@ Partial Class frmMenuPrincipal
         Me.Panel8.Size = New System.Drawing.Size(982, 461)
         Me.Panel8.TabIndex = 15
         '
+        'cboFilterCargoUsuario
+        '
+        Me.cboFilterCargoUsuario.BackColor = System.Drawing.SystemColors.Window
+        Me.cboFilterCargoUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboFilterCargoUsuario.FormattingEnabled = True
+        Me.cboFilterCargoUsuario.Items.AddRange(New Object() {"Administrador", "Vendedor"})
+        Me.cboFilterCargoUsuario.Location = New System.Drawing.Point(309, 31)
+        Me.cboFilterCargoUsuario.Name = "cboFilterCargoUsuario"
+        Me.cboFilterCargoUsuario.Size = New System.Drawing.Size(129, 21)
+        Me.cboFilterCargoUsuario.TabIndex = 12
+        Me.cboFilterCargoUsuario.Visible = False
+        '
         'btnBuscarUsuarioInactivos
         '
         Me.btnBuscarUsuarioInactivos.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnBuscarUsuarioInactivos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnBuscarUsuarioInactivos.Location = New System.Drawing.Point(567, 28)
+        Me.btnBuscarUsuarioInactivos.Location = New System.Drawing.Point(567, 39)
         Me.btnBuscarUsuarioInactivos.Name = "btnBuscarUsuarioInactivos"
-        Me.btnBuscarUsuarioInactivos.Size = New System.Drawing.Size(83, 24)
+        Me.btnBuscarUsuarioInactivos.Size = New System.Drawing.Size(10, 10)
         Me.btnBuscarUsuarioInactivos.TabIndex = 11
         Me.btnBuscarUsuarioInactivos.Text = "Buscar"
         Me.btnBuscarUsuarioInactivos.UseVisualStyleBackColor = False
@@ -990,33 +1070,97 @@ Partial Class frmMenuPrincipal
         Me.DGUsuario.Size = New System.Drawing.Size(614, 310)
         Me.DGUsuario.TabIndex = 10
         '
-        'TextBox1
+        'IDUsuarioDataGridViewTextBoxColumn
         '
-        Me.TextBox1.Location = New System.Drawing.Point(70, 32)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(389, 20)
-        Me.TextBox1.TabIndex = 0
+        Me.IDUsuarioDataGridViewTextBoxColumn.DataPropertyName = "IDUsuario"
+        Me.IDUsuarioDataGridViewTextBoxColumn.HeaderText = "IDUsuario"
+        Me.IDUsuarioDataGridViewTextBoxColumn.Name = "IDUsuarioDataGridViewTextBoxColumn"
+        Me.IDUsuarioDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'NombreCompletoDataGridViewTextBoxColumn
+        '
+        Me.NombreCompletoDataGridViewTextBoxColumn.DataPropertyName = "NombreCompleto"
+        Me.NombreCompletoDataGridViewTextBoxColumn.HeaderText = "NombreCompleto"
+        Me.NombreCompletoDataGridViewTextBoxColumn.Name = "NombreCompletoDataGridViewTextBoxColumn"
+        Me.NombreCompletoDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'UsuarioDataGridViewTextBoxColumn
+        '
+        Me.UsuarioDataGridViewTextBoxColumn.DataPropertyName = "Usuario"
+        Me.UsuarioDataGridViewTextBoxColumn.HeaderText = "Usuario"
+        Me.UsuarioDataGridViewTextBoxColumn.Name = "UsuarioDataGridViewTextBoxColumn"
+        Me.UsuarioDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'FechaCreacionDataGridViewTextBoxColumn
+        '
+        Me.FechaCreacionDataGridViewTextBoxColumn.DataPropertyName = "FechaCreacion"
+        Me.FechaCreacionDataGridViewTextBoxColumn.HeaderText = "FechaCreacion"
+        Me.FechaCreacionDataGridViewTextBoxColumn.Name = "FechaCreacionDataGridViewTextBoxColumn"
+        Me.FechaCreacionDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'CargoDataGridViewTextBoxColumn
+        '
+        Me.CargoDataGridViewTextBoxColumn.DataPropertyName = "Cargo"
+        Me.CargoDataGridViewTextBoxColumn.HeaderText = "Cargo"
+        Me.CargoDataGridViewTextBoxColumn.Name = "CargoDataGridViewTextBoxColumn"
+        Me.CargoDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'EstadoDataGridViewTextBoxColumn
+        '
+        Me.EstadoDataGridViewTextBoxColumn.DataPropertyName = "Estado"
+        Me.EstadoDataGridViewTextBoxColumn.HeaderText = "Estado"
+        Me.EstadoDataGridViewTextBoxColumn.Name = "EstadoDataGridViewTextBoxColumn"
+        Me.EstadoDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'UsuariosBindingSource
+        '
+        Me.UsuariosBindingSource.DataMember = "Usuarios"
+        Me.UsuariosBindingSource.DataSource = Me.SolemnoDataSet1
+        '
+        'SolemnoDataSet1
+        '
+        Me.SolemnoDataSet1.DataSetName = "SolemnoDataSet"
+        Me.SolemnoDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'btnRefreshUsuario
+        '
+        Me.btnRefreshUsuario.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnRefreshUsuario.BackgroundImage = Global.CapaPresentacion.My.Resources.Resources.home
+        Me.btnRefreshUsuario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnRefreshUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnRefreshUsuario.Location = New System.Drawing.Point(20, 29)
+        Me.btnRefreshUsuario.Name = "btnRefreshUsuario"
+        Me.btnRefreshUsuario.Size = New System.Drawing.Size(36, 30)
+        Me.btnRefreshUsuario.TabIndex = 9
+        Me.btnRefreshUsuario.UseVisualStyleBackColor = False
+        '
+        'txtBuscarUsuario
+        '
+        Me.txtBuscarUsuario.Location = New System.Drawing.Point(70, 32)
+        Me.txtBuscarUsuario.Name = "txtBuscarUsuario"
+        Me.txtBuscarUsuario.Size = New System.Drawing.Size(355, 20)
+        Me.txtBuscarUsuario.TabIndex = 0
         '
         'btnBuscarUsuario
         '
         Me.btnBuscarUsuario.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnBuscarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnBuscarUsuario.Location = New System.Drawing.Point(567, 28)
+        Me.btnBuscarUsuario.Location = New System.Drawing.Point(567, 31)
         Me.btnBuscarUsuario.Name = "btnBuscarUsuario"
-        Me.btnBuscarUsuario.Size = New System.Drawing.Size(83, 24)
+        Me.btnBuscarUsuario.Size = New System.Drawing.Size(83, 21)
         Me.btnBuscarUsuario.TabIndex = 5
         Me.btnBuscarUsuario.Text = "Buscar"
         Me.btnBuscarUsuario.UseVisualStyleBackColor = False
         '
         'cboFiltroUsuarios
         '
-        Me.cboFiltroUsuarios.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.cboFiltroUsuarios.BackColor = System.Drawing.SystemColors.Window
         Me.cboFiltroUsuarios.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboFiltroUsuarios.FormattingEnabled = True
         Me.cboFiltroUsuarios.Items.AddRange(New Object() {"Nombre Completo", "Cargo"})
-        Me.cboFiltroUsuarios.Location = New System.Drawing.Point(465, 32)
+        Me.cboFiltroUsuarios.Location = New System.Drawing.Point(444, 32)
         Me.cboFiltroUsuarios.Name = "cboFiltroUsuarios"
-        Me.cboFiltroUsuarios.Size = New System.Drawing.Size(96, 21)
+        Me.cboFiltroUsuarios.Size = New System.Drawing.Size(117, 21)
         Me.cboFiltroUsuarios.TabIndex = 6
         '
         'DataGridView2
@@ -1117,6 +1261,16 @@ Partial Class frmMenuPrincipal
         Me.btnPapeleraUsuario.TabIndex = 11
         Me.btnPapeleraUsuario.Text = "Papelera usuario"
         Me.btnPapeleraUsuario.UseVisualStyleBackColor = False
+        '
+        'PictureBox4
+        '
+        Me.PictureBox4.Image = Global.CapaPresentacion.My.Resources.Resources.clientes
+        Me.PictureBox4.Location = New System.Drawing.Point(7, 14)
+        Me.PictureBox4.Name = "PictureBox4"
+        Me.PictureBox4.Size = New System.Drawing.Size(170, 150)
+        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox4.TabIndex = 10
+        Me.PictureBox4.TabStop = False
         '
         'btnEliminarUsuario
         '
@@ -1235,6 +1389,18 @@ Partial Class frmMenuPrincipal
         Me.btnBuscarProductoInactivo.UseVisualStyleBackColor = False
         Me.btnBuscarProductoInactivo.Visible = False
         '
+        'btnRefreshProduct
+        '
+        Me.btnRefreshProduct.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnRefreshProduct.BackgroundImage = Global.CapaPresentacion.My.Resources.Resources.home
+        Me.btnRefreshProduct.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnRefreshProduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnRefreshProduct.Location = New System.Drawing.Point(20, 29)
+        Me.btnRefreshProduct.Name = "btnRefreshProduct"
+        Me.btnRefreshProduct.Size = New System.Drawing.Size(36, 30)
+        Me.btnRefreshProduct.TabIndex = 16
+        Me.btnRefreshProduct.UseVisualStyleBackColor = False
+        '
         'txtBuscarProducto
         '
         Me.txtBuscarProducto.Location = New System.Drawing.Point(70, 36)
@@ -1272,7 +1438,7 @@ Partial Class frmMenuPrincipal
         '
         'cboBuscarProducto
         '
-        Me.cboBuscarProducto.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.cboBuscarProducto.BackColor = System.Drawing.SystemColors.Window
         Me.cboBuscarProducto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboBuscarProducto.FormattingEnabled = True
         Me.cboBuscarProducto.Items.AddRange(New Object() {"Nombre", "Codigo"})
@@ -1420,6 +1586,16 @@ Partial Class frmMenuPrincipal
         Me.btnAgregarProducto.Text = "Nuevo Producto"
         Me.btnAgregarProducto.UseVisualStyleBackColor = False
         '
+        'IconoProducto
+        '
+        Me.IconoProducto.Image = Global.CapaPresentacion.My.Resources.Resources.articulos
+        Me.IconoProducto.Location = New System.Drawing.Point(7, 14)
+        Me.IconoProducto.Name = "IconoProducto"
+        Me.IconoProducto.Size = New System.Drawing.Size(170, 150)
+        Me.IconoProducto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.IconoProducto.TabIndex = 18
+        Me.IconoProducto.TabStop = False
+        '
         'TabEstadistica
         '
         Me.TabEstadistica.Controls.Add(Me.Panel7)
@@ -1503,6 +1679,18 @@ Partial Class frmMenuPrincipal
         Me.txtSeleccion3.Size = New System.Drawing.Size(107, 20)
         Me.txtSeleccion3.TabIndex = 61
         '
+        'btnSearchTop3
+        '
+        Me.btnSearchTop3.BackgroundImage = CType(resources.GetObject("btnSearchTop3.BackgroundImage"), System.Drawing.Image)
+        Me.btnSearchTop3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnSearchTop3.FlatAppearance.BorderSize = 0
+        Me.btnSearchTop3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSearchTop3.Location = New System.Drawing.Point(125, 103)
+        Me.btnSearchTop3.Name = "btnSearchTop3"
+        Me.btnSearchTop3.Size = New System.Drawing.Size(30, 30)
+        Me.btnSearchTop3.TabIndex = 60
+        Me.btnSearchTop3.UseVisualStyleBackColor = True
+        '
         'txtSeleccion2
         '
         Me.txtSeleccion2.Enabled = False
@@ -1512,6 +1700,18 @@ Partial Class frmMenuPrincipal
         Me.txtSeleccion2.Size = New System.Drawing.Size(107, 20)
         Me.txtSeleccion2.TabIndex = 59
         '
+        'btnSearchTop2
+        '
+        Me.btnSearchTop2.BackgroundImage = CType(resources.GetObject("btnSearchTop2.BackgroundImage"), System.Drawing.Image)
+        Me.btnSearchTop2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnSearchTop2.FlatAppearance.BorderSize = 0
+        Me.btnSearchTop2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSearchTop2.Location = New System.Drawing.Point(125, 64)
+        Me.btnSearchTop2.Name = "btnSearchTop2"
+        Me.btnSearchTop2.Size = New System.Drawing.Size(30, 30)
+        Me.btnSearchTop2.TabIndex = 58
+        Me.btnSearchTop2.UseVisualStyleBackColor = True
+        '
         'txtSeleccion1
         '
         Me.txtSeleccion1.Enabled = False
@@ -1520,6 +1720,18 @@ Partial Class frmMenuPrincipal
         Me.txtSeleccion1.ReadOnly = True
         Me.txtSeleccion1.Size = New System.Drawing.Size(107, 20)
         Me.txtSeleccion1.TabIndex = 57
+        '
+        'btnSearchTop1
+        '
+        Me.btnSearchTop1.BackgroundImage = CType(resources.GetObject("btnSearchTop1.BackgroundImage"), System.Drawing.Image)
+        Me.btnSearchTop1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnSearchTop1.FlatAppearance.BorderSize = 0
+        Me.btnSearchTop1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSearchTop1.Location = New System.Drawing.Point(125, 28)
+        Me.btnSearchTop1.Name = "btnSearchTop1"
+        Me.btnSearchTop1.Size = New System.Drawing.Size(30, 30)
+        Me.btnSearchTop1.TabIndex = 56
+        Me.btnSearchTop1.UseVisualStyleBackColor = True
         '
         'colorSecundario
         '
@@ -1619,6 +1831,14 @@ Partial Class frmMenuPrincipal
         Me.GraficoSegunConsulta.Size = New System.Drawing.Size(800, 300)
         Me.GraficoSegunConsulta.TabIndex = 0
         Me.GraficoSegunConsulta.Text = "Chart1"
+        '
+        'boxEstadistica
+        '
+        Me.boxEstadistica.Location = New System.Drawing.Point(15, 55)
+        Me.boxEstadistica.Name = "boxEstadistica"
+        Me.boxEstadistica.Size = New System.Drawing.Size(800, 300)
+        Me.boxEstadistica.TabIndex = 19
+        Me.boxEstadistica.TabStop = False
         '
         'lblComparar
         '
@@ -1859,6 +2079,16 @@ Partial Class frmMenuPrincipal
         Me.btnGraficoPedidos.Text = "Pedidos Mensuales"
         Me.btnGraficoPedidos.UseVisualStyleBackColor = False
         '
+        'PictureBoxEstadistic
+        '
+        Me.PictureBoxEstadistic.Image = Global.CapaPresentacion.My.Resources.Resources.barchart1_78007
+        Me.PictureBoxEstadistic.Location = New System.Drawing.Point(7, 14)
+        Me.PictureBoxEstadistic.Name = "PictureBoxEstadistic"
+        Me.PictureBoxEstadistic.Size = New System.Drawing.Size(170, 150)
+        Me.PictureBoxEstadistic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBoxEstadistic.TabIndex = 0
+        Me.PictureBoxEstadistic.TabStop = False
+        '
         'Panel1
         '
         Me.Panel1.Controls.Add(Me.TableLayoutPanel2)
@@ -1875,7 +2105,7 @@ Partial Class frmMenuPrincipal
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.63731!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.11883!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.27605!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 117.0!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 121.0!))
         Me.TableLayoutPanel2.Controls.Add(Me.PictureBox1, 0, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.Label1, 1, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.TableLayoutPanel3, 3, 0)
@@ -1888,14 +2118,25 @@ Partial Class frmMenuPrincipal
         Me.TableLayoutPanel2.Size = New System.Drawing.Size(1180, 91)
         Me.TableLayoutPanel2.TabIndex = 4
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Right
+        Me.PictureBox1.Image = Global.CapaPresentacion.My.Resources.Resources.slmn
+        Me.PictureBox1.Location = New System.Drawing.Point(173, 3)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(116, 85)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 0
+        Me.PictureBox1.TabStop = False
+        '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label1.Font = New System.Drawing.Font("Impact", 48.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(296, 0)
+        Me.Label1.Location = New System.Drawing.Point(295, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(579, 91)
+        Me.Label1.Size = New System.Drawing.Size(577, 91)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "SOLEMNO GRÁFICA"
         '
@@ -1906,74 +2147,13 @@ Partial Class frmMenuPrincipal
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel3.Controls.Add(Me.btnLogout, 1, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.EditarUsuario, 0, 0)
-        Me.TableLayoutPanel3.Location = New System.Drawing.Point(1064, 3)
+        Me.TableLayoutPanel3.Location = New System.Drawing.Point(1060, 3)
         Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
         Me.TableLayoutPanel3.RowCount = 2
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel3.Size = New System.Drawing.Size(100, 85)
         Me.TableLayoutPanel3.TabIndex = 3
-        '
-        'TableLayoutPanel4
-        '
-        Me.TableLayoutPanel4.ColumnCount = 1
-        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel4.Controls.Add(Me.lblUsuario, 0, 0)
-        Me.TableLayoutPanel4.Location = New System.Drawing.Point(881, 3)
-        Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
-        Me.TableLayoutPanel4.RowCount = 2
-        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.0!))
-        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
-        Me.TableLayoutPanel4.Size = New System.Drawing.Size(177, 85)
-        Me.TableLayoutPanel4.TabIndex = 4
-        '
-        'lblUsuario
-        '
-        Me.lblUsuario.AutoSize = True
-        Me.lblUsuario.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.lblUsuario.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblUsuario.Location = New System.Drawing.Point(3, 16)
-        Me.lblUsuario.Name = "lblUsuario"
-        Me.lblUsuario.Size = New System.Drawing.Size(171, 18)
-        Me.lblUsuario.TabIndex = 0
-        Me.lblUsuario.Text = "Usuario"
-        Me.lblUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'lblNombreUsuario
-        '
-        Me.lblNombreUsuario.AutoSize = True
-        Me.lblNombreUsuario.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNombreUsuario.Location = New System.Drawing.Point(954, 5)
-        Me.lblNombreUsuario.Name = "lblNombreUsuario"
-        Me.lblNombreUsuario.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.lblNombreUsuario.Size = New System.Drawing.Size(0, 18)
-        Me.lblNombreUsuario.TabIndex = 3
-        '
-        'TableLayoutPanel1
-        '
-        Me.TableLayoutPanel1.ColumnCount = 1
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel1.Controls.Add(Me.Panel1, 0, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.TabGeneral, 0, 1)
-        Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
-        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
-        Me.TableLayoutPanel1.RowCount = 2
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.16894!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85.83106!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1186, 687)
-        Me.TableLayoutPanel1.TabIndex = 2
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.PictureBox1.Image = Global.CapaPresentacion.My.Resources.Resources.slmn
-        Me.PictureBox1.Location = New System.Drawing.Point(174, 3)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(116, 85)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 0
-        Me.PictureBox1.TabStop = False
         '
         'btnLogout
         '
@@ -2003,221 +2183,55 @@ Partial Class frmMenuPrincipal
         Me.EditarUsuario.TabIndex = 50
         Me.EditarUsuario.UseVisualStyleBackColor = False
         '
-        'btnRefresh
+        'TableLayoutPanel4
         '
-        Me.btnRefresh.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
-        Me.btnRefresh.BackgroundImage = Global.CapaPresentacion.My.Resources.Resources.home
-        Me.btnRefresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnRefresh.Location = New System.Drawing.Point(20, 29)
-        Me.btnRefresh.Name = "btnRefresh"
-        Me.btnRefresh.Size = New System.Drawing.Size(36, 30)
-        Me.btnRefresh.TabIndex = 9
-        Me.btnRefresh.UseVisualStyleBackColor = False
+        Me.TableLayoutPanel4.ColumnCount = 1
+        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel4.Controls.Add(Me.lblUsuario, 0, 0)
+        Me.TableLayoutPanel4.Location = New System.Drawing.Point(878, 3)
+        Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
+        Me.TableLayoutPanel4.RowCount = 2
+        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.0!))
+        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
+        Me.TableLayoutPanel4.Size = New System.Drawing.Size(176, 85)
+        Me.TableLayoutPanel4.TabIndex = 4
         '
-        'PictureBoxCliente
+        'lblUsuario
         '
-        Me.PictureBoxCliente.Image = Global.CapaPresentacion.My.Resources.Resources.clientes
-        Me.PictureBoxCliente.Location = New System.Drawing.Point(7, 14)
-        Me.PictureBoxCliente.Name = "PictureBoxCliente"
-        Me.PictureBoxCliente.Size = New System.Drawing.Size(170, 150)
-        Me.PictureBoxCliente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBoxCliente.TabIndex = 10
-        Me.PictureBoxCliente.TabStop = False
+        Me.lblUsuario.AutoSize = True
+        Me.lblUsuario.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.lblUsuario.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblUsuario.Location = New System.Drawing.Point(3, 16)
+        Me.lblUsuario.Name = "lblUsuario"
+        Me.lblUsuario.Size = New System.Drawing.Size(170, 18)
+        Me.lblUsuario.TabIndex = 0
+        Me.lblUsuario.Text = "Usuario"
+        Me.lblUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'btnRefreshPresupuesto
+        'lblNombreUsuario
         '
-        Me.btnRefreshPresupuesto.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
-        Me.btnRefreshPresupuesto.BackgroundImage = Global.CapaPresentacion.My.Resources.Resources.home
-        Me.btnRefreshPresupuesto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnRefreshPresupuesto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnRefreshPresupuesto.Location = New System.Drawing.Point(20, 27)
-        Me.btnRefreshPresupuesto.Name = "btnRefreshPresupuesto"
-        Me.btnRefreshPresupuesto.Size = New System.Drawing.Size(36, 30)
-        Me.btnRefreshPresupuesto.TabIndex = 14
-        Me.btnRefreshPresupuesto.UseVisualStyleBackColor = False
+        Me.lblNombreUsuario.AutoSize = True
+        Me.lblNombreUsuario.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblNombreUsuario.Location = New System.Drawing.Point(954, 5)
+        Me.lblNombreUsuario.Name = "lblNombreUsuario"
+        Me.lblNombreUsuario.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.lblNombreUsuario.Size = New System.Drawing.Size(0, 18)
+        Me.lblNombreUsuario.TabIndex = 3
         '
-        'PictureBox3
+        'TableLayoutPanel1
         '
-        Me.PictureBox3.Image = Global.CapaPresentacion.My.Resources.Resources.pedidos
-        Me.PictureBox3.Location = New System.Drawing.Point(7, 14)
-        Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(170, 150)
-        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox3.TabIndex = 23
-        Me.PictureBox3.TabStop = False
-        '
-        'btnRefreshPedido
-        '
-        Me.btnRefreshPedido.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
-        Me.btnRefreshPedido.BackgroundImage = Global.CapaPresentacion.My.Resources.Resources.home
-        Me.btnRefreshPedido.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnRefreshPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnRefreshPedido.Location = New System.Drawing.Point(20, 27)
-        Me.btnRefreshPedido.Name = "btnRefreshPedido"
-        Me.btnRefreshPedido.Size = New System.Drawing.Size(36, 30)
-        Me.btnRefreshPedido.TabIndex = 14
-        Me.btnRefreshPedido.UseVisualStyleBackColor = False
-        '
-        'IconoPedido
-        '
-        Me.IconoPedido.Image = Global.CapaPresentacion.My.Resources.Resources.pedidos
-        Me.IconoPedido.Location = New System.Drawing.Point(7, 14)
-        Me.IconoPedido.Name = "IconoPedido"
-        Me.IconoPedido.Size = New System.Drawing.Size(170, 150)
-        Me.IconoPedido.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.IconoPedido.TabIndex = 23
-        Me.IconoPedido.TabStop = False
-        '
-        'btnRefreshUsuario
-        '
-        Me.btnRefreshUsuario.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
-        Me.btnRefreshUsuario.BackgroundImage = Global.CapaPresentacion.My.Resources.Resources.home
-        Me.btnRefreshUsuario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnRefreshUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnRefreshUsuario.Location = New System.Drawing.Point(20, 29)
-        Me.btnRefreshUsuario.Name = "btnRefreshUsuario"
-        Me.btnRefreshUsuario.Size = New System.Drawing.Size(36, 30)
-        Me.btnRefreshUsuario.TabIndex = 9
-        Me.btnRefreshUsuario.UseVisualStyleBackColor = False
-        '
-        'PictureBox4
-        '
-        Me.PictureBox4.Image = Global.CapaPresentacion.My.Resources.Resources.clientes
-        Me.PictureBox4.Location = New System.Drawing.Point(7, 14)
-        Me.PictureBox4.Name = "PictureBox4"
-        Me.PictureBox4.Size = New System.Drawing.Size(170, 150)
-        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox4.TabIndex = 10
-        Me.PictureBox4.TabStop = False
-        '
-        'btnRefreshProduct
-        '
-        Me.btnRefreshProduct.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
-        Me.btnRefreshProduct.BackgroundImage = Global.CapaPresentacion.My.Resources.Resources.home
-        Me.btnRefreshProduct.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnRefreshProduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnRefreshProduct.Location = New System.Drawing.Point(20, 29)
-        Me.btnRefreshProduct.Name = "btnRefreshProduct"
-        Me.btnRefreshProduct.Size = New System.Drawing.Size(36, 30)
-        Me.btnRefreshProduct.TabIndex = 16
-        Me.btnRefreshProduct.UseVisualStyleBackColor = False
-        '
-        'IconoProducto
-        '
-        Me.IconoProducto.Image = Global.CapaPresentacion.My.Resources.Resources.articulos
-        Me.IconoProducto.Location = New System.Drawing.Point(7, 14)
-        Me.IconoProducto.Name = "IconoProducto"
-        Me.IconoProducto.Size = New System.Drawing.Size(170, 150)
-        Me.IconoProducto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.IconoProducto.TabIndex = 18
-        Me.IconoProducto.TabStop = False
-        '
-        'btnSearchTop3
-        '
-        Me.btnSearchTop3.BackgroundImage = CType(resources.GetObject("btnSearchTop3.BackgroundImage"), System.Drawing.Image)
-        Me.btnSearchTop3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnSearchTop3.FlatAppearance.BorderSize = 0
-        Me.btnSearchTop3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSearchTop3.Location = New System.Drawing.Point(125, 103)
-        Me.btnSearchTop3.Name = "btnSearchTop3"
-        Me.btnSearchTop3.Size = New System.Drawing.Size(30, 30)
-        Me.btnSearchTop3.TabIndex = 60
-        Me.btnSearchTop3.UseVisualStyleBackColor = True
-        '
-        'btnSearchTop2
-        '
-        Me.btnSearchTop2.BackgroundImage = CType(resources.GetObject("btnSearchTop2.BackgroundImage"), System.Drawing.Image)
-        Me.btnSearchTop2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnSearchTop2.FlatAppearance.BorderSize = 0
-        Me.btnSearchTop2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSearchTop2.Location = New System.Drawing.Point(125, 64)
-        Me.btnSearchTop2.Name = "btnSearchTop2"
-        Me.btnSearchTop2.Size = New System.Drawing.Size(30, 30)
-        Me.btnSearchTop2.TabIndex = 58
-        Me.btnSearchTop2.UseVisualStyleBackColor = True
-        '
-        'btnSearchTop1
-        '
-        Me.btnSearchTop1.BackgroundImage = CType(resources.GetObject("btnSearchTop1.BackgroundImage"), System.Drawing.Image)
-        Me.btnSearchTop1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnSearchTop1.FlatAppearance.BorderSize = 0
-        Me.btnSearchTop1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSearchTop1.Location = New System.Drawing.Point(125, 28)
-        Me.btnSearchTop1.Name = "btnSearchTop1"
-        Me.btnSearchTop1.Size = New System.Drawing.Size(30, 30)
-        Me.btnSearchTop1.TabIndex = 56
-        Me.btnSearchTop1.UseVisualStyleBackColor = True
-        '
-        'boxEstadistica
-        '
-        Me.boxEstadistica.Location = New System.Drawing.Point(15, 55)
-        Me.boxEstadistica.Name = "boxEstadistica"
-        Me.boxEstadistica.Size = New System.Drawing.Size(800, 300)
-        Me.boxEstadistica.TabIndex = 19
-        Me.boxEstadistica.TabStop = False
-        '
-        'PictureBoxEstadistic
-        '
-        Me.PictureBoxEstadistic.Image = Global.CapaPresentacion.My.Resources.Resources.barchart1_78007
-        Me.PictureBoxEstadistic.Location = New System.Drawing.Point(7, 14)
-        Me.PictureBoxEstadistic.Name = "PictureBoxEstadistic"
-        Me.PictureBoxEstadistic.Size = New System.Drawing.Size(170, 150)
-        Me.PictureBoxEstadistic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBoxEstadistic.TabIndex = 0
-        Me.PictureBoxEstadistic.TabStop = False
-        '
-        'IDUsuarioDataGridViewTextBoxColumn
-        '
-        Me.IDUsuarioDataGridViewTextBoxColumn.DataPropertyName = "IDUsuario"
-        Me.IDUsuarioDataGridViewTextBoxColumn.HeaderText = "IDUsuario"
-        Me.IDUsuarioDataGridViewTextBoxColumn.Name = "IDUsuarioDataGridViewTextBoxColumn"
-        Me.IDUsuarioDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'NombreCompletoDataGridViewTextBoxColumn
-        '
-        Me.NombreCompletoDataGridViewTextBoxColumn.DataPropertyName = "NombreCompleto"
-        Me.NombreCompletoDataGridViewTextBoxColumn.HeaderText = "NombreCompleto"
-        Me.NombreCompletoDataGridViewTextBoxColumn.Name = "NombreCompletoDataGridViewTextBoxColumn"
-        Me.NombreCompletoDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'UsuarioDataGridViewTextBoxColumn
-        '
-        Me.UsuarioDataGridViewTextBoxColumn.DataPropertyName = "Usuario"
-        Me.UsuarioDataGridViewTextBoxColumn.HeaderText = "Usuario"
-        Me.UsuarioDataGridViewTextBoxColumn.Name = "UsuarioDataGridViewTextBoxColumn"
-        Me.UsuarioDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'FechaCreacionDataGridViewTextBoxColumn
-        '
-        Me.FechaCreacionDataGridViewTextBoxColumn.DataPropertyName = "FechaCreacion"
-        Me.FechaCreacionDataGridViewTextBoxColumn.HeaderText = "FechaCreacion"
-        Me.FechaCreacionDataGridViewTextBoxColumn.Name = "FechaCreacionDataGridViewTextBoxColumn"
-        Me.FechaCreacionDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'CargoDataGridViewTextBoxColumn
-        '
-        Me.CargoDataGridViewTextBoxColumn.DataPropertyName = "Cargo"
-        Me.CargoDataGridViewTextBoxColumn.HeaderText = "Cargo"
-        Me.CargoDataGridViewTextBoxColumn.Name = "CargoDataGridViewTextBoxColumn"
-        Me.CargoDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'EstadoDataGridViewTextBoxColumn
-        '
-        Me.EstadoDataGridViewTextBoxColumn.DataPropertyName = "Estado"
-        Me.EstadoDataGridViewTextBoxColumn.HeaderText = "Estado"
-        Me.EstadoDataGridViewTextBoxColumn.Name = "EstadoDataGridViewTextBoxColumn"
-        Me.EstadoDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'UsuariosBindingSource
-        '
-        Me.UsuariosBindingSource.DataMember = "Usuarios"
-        Me.UsuariosBindingSource.DataSource = Me.SolemnoDataSet1
-        '
-        'SolemnoDataSet1
-        '
-        Me.SolemnoDataSet1.DataSetName = "SolemnoDataSet"
-        Me.SolemnoDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        Me.TableLayoutPanel1.ColumnCount = 1
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel1.Controls.Add(Me.Panel1, 0, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.TabGeneral, 0, 1)
+        Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
+        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
+        Me.TableLayoutPanel1.RowCount = 2
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.16894!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85.83106!))
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1186, 687)
+        Me.TableLayoutPanel1.TabIndex = 2
         '
         'SolemnoDataSet
         '
@@ -2253,6 +2267,7 @@ Partial Class frmMenuPrincipal
         Me.PanelSuperiorCliente.ResumeLayout(False)
         Me.PanelSuperiorCliente.PerformLayout()
         Me.PanelLateralCliente.ResumeLayout(False)
+        CType(Me.PictureBoxCliente, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPresupuesto.ResumeLayout(False)
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
@@ -2260,6 +2275,7 @@ Partial Class frmMenuPrincipal
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         Me.Panel3.ResumeLayout(False)
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPedido.ResumeLayout(False)
         Me.PanelCentralPedido.ResumeLayout(False)
         Me.PanelCentralPedido.PerformLayout()
@@ -2267,14 +2283,18 @@ Partial Class frmMenuPrincipal
         Me.PanelSuperiorPedido.ResumeLayout(False)
         Me.PanelSuperiorPedido.PerformLayout()
         Me.PanelLateralPedido.ResumeLayout(False)
+        CType(Me.IconoPedido, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabUsuario.ResumeLayout(False)
         Me.Panel8.ResumeLayout(False)
         Me.Panel8.PerformLayout()
         CType(Me.DGUsuario, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.UsuariosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SolemnoDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel5.ResumeLayout(False)
         Me.Panel5.PerformLayout()
         Me.Panel6.ResumeLayout(False)
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabProducto.ResumeLayout(False)
         Me.PanelProductos.ResumeLayout(False)
         Me.PanelProductos.PerformLayout()
@@ -2283,34 +2303,28 @@ Partial Class frmMenuPrincipal
         Me.panelSuperiorProducto.ResumeLayout(False)
         Me.panelSuperiorProducto.PerformLayout()
         Me.panelLateralProducto.ResumeLayout(False)
+        CType(Me.IconoProducto, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabEstadistica.ResumeLayout(False)
         Me.Panel7.ResumeLayout(False)
         Me.Panel7.PerformLayout()
         Me.Panel9.ResumeLayout(False)
         Me.Panel9.PerformLayout()
         CType(Me.GraficoSegunConsulta, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.boxEstadistica, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelSupEstadistica.ResumeLayout(False)
         Me.PanelSupEstadistica.PerformLayout()
         Me.PnlLateralEstadistica.ResumeLayout(False)
         Me.PnlLateralEstadistica.PerformLayout()
+        CType(Me.PictureBoxEstadistic, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.TableLayoutPanel2.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanel3.ResumeLayout(False)
         Me.TableLayoutPanel4.ResumeLayout(False)
         Me.TableLayoutPanel4.PerformLayout()
         Me.TableLayoutPanel1.ResumeLayout(False)
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBoxCliente, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.IconoPedido, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.IconoProducto, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.boxEstadistica, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBoxEstadistic, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.UsuariosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.SolemnoDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SolemnoDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -2416,7 +2430,7 @@ Partial Class frmMenuPrincipal
     Friend WithEvents btnBuscarUsuarioInactivos As System.Windows.Forms.Button
     Friend WithEvents DGUsuario As System.Windows.Forms.DataGridView
     Friend WithEvents btnRefreshUsuario As System.Windows.Forms.Button
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents txtBuscarUsuario As System.Windows.Forms.TextBox
     Friend WithEvents btnBuscarUsuario As System.Windows.Forms.Button
     Friend WithEvents cboFiltroUsuarios As System.Windows.Forms.ComboBox
     Friend WithEvents DataGridView2 As System.Windows.Forms.DataGridView
@@ -2475,4 +2489,5 @@ Partial Class frmMenuPrincipal
     Friend WithEvents FechaCreacionDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents CargoDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents EstadoDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents cboFilterCargoUsuario As System.Windows.Forms.ComboBox
 End Class

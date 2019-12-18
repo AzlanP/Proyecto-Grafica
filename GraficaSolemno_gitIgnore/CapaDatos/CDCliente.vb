@@ -60,30 +60,9 @@ Public Class CDCliente
             oCDConexion.Desconectar()
         End Try
     End Function
-    Public Function SetNullValues(ByVal value As Object) As Object
-        If IsNumeric(value) Then
-            If value = 0 Then
-                Return DBNull.Value
-            Else
-                Try
-                    Return CInt(value)
-                Catch ex As Exception
-                    Return Str(value)
-                End Try
-
-            End If
-
-        Else
-            If value = Nothing Or value = "" Then
-                Return DBNull.Value
-            Else
-                Return CInt(value)
-            End If
-        End If
-
-    End Function
+   
     Public Function SetNullString(ByVal value As String) As Object
-        If value = Nothing Or value = "" Then
+        If value = Nothing Or value.Trim() = "" Then
             Return DBNull.Value
         Else
             Return CStr(value)
@@ -116,8 +95,8 @@ Public Class CDCliente
                 .Add("@Apellido", SqlDbType.VarChar).Value = oCECliente.Apellido
                 .Add("@Telefono", SqlDbType.Int).Value = SetNullValues(oCECliente.Telefono)
                 .Add("@Telefono2", SqlDbType.Int).Value = SetNullValues(oCECliente.Telefono2)
-                .Add("@DNI", SqlDbType.VarChar).Value = oCECliente.DNI
-                .Add("@CUIT", SqlDbType.VarChar).Value = oCECliente.CUIT
+                .Add("@DNI", SqlDbType.VarChar).Value = SetNullString(oCECliente.DNI)
+                .Add("@CUIT", SqlDbType.VarChar).Value = SetNullString(oCECliente.CUIT)
                 .Add("@IDProvincia", SqlDbType.Int).Value = oCECliente.Provincia
                 .Add("@IDLocalidad", SqlDbType.Int).Value = oCECliente.Localidad
                 .Add("@Barrio", SqlDbType.VarChar).Value = oCECliente.Barrio
@@ -131,14 +110,38 @@ Public Class CDCliente
                 .Add("@Estado", SqlDbType.VarChar).Value = "Activo"
             End With
             comando.ExecuteNonQuery()
-            MsgBox("El cliente se modifico con exito.", , "Registro de producto")
+            MsgBox("El cliente se modifico con exito.", , "Registro de cliente")
         Catch ex As Exception
-            MsgBox("Error al modificar el cliente. Por favor vuelva a intentarlo.", MsgBoxStyle.Exclamation, "Error al registrar producto")
+            MsgBox("Error al modificar el cliente. Por favor vuelva a intentarlo.", MsgBoxStyle.Exclamation, "Error al registrar cliente")
         Finally
             oCDConexion.Desconectar()
         End Try
 
     End Sub
+
+    Public Function SetNullValues(ByVal value As Object) As Object
+        If IsNumeric(value) Then
+            If value = 0 Then
+                Return DBNull.Value
+            Else
+                Try
+                    Return CInt(value)
+                Catch ex As Exception
+                    Return Str(value)
+                End Try
+
+            End If
+
+        Else
+            If value = Nothing Or value = "" Then
+                Return DBNull.Value
+            Else
+                Return CInt(value)
+            End If
+        End If
+
+    End Function
+
     Function BuscarInactivo(ByVal pcampo As String, ByVal pbuscar As String) As DataTable
         oCDConexion.Conectar()
         da = New SQLiteDataAdapter
@@ -169,9 +172,14 @@ Public Class CDCliente
         Dim da As New SQLiteDataAdapter
         Dim dt As New DataTable
         Try
-
+            Dim replace As String = ""
+            If pcampo = "IDCliente" Then
+                replace = "IDCliente = " & pbuscar
+            Else
+                replace = pcampo & "  like  '" + pbuscar + "%'"
+            End If
             'Dim instruccionSQL = "Select * FROM Clientes where " & pcampo & "=@buscar "
-            Dim instruccionSQL As String = "Select Clientes.IDCliente, clientes.nombre, clientes.Apellido, clientes.Telefono, clientes.Telefono2, clientes.DNI, Clientes.CUIT ,  provincias.nombre as 'Provincia' , localidad.nombre as 'Localidad', clientes.barrio, clientes.domicilio, clientes.NroCalle, clientes.Dpto, clientes.CP ,clientes.EMAIL, CondIVA.Nombre as 'Condicion de IVA' ,clientes.Fecha from(clientes, provincias, localidad, CondIVA) where (Clientes.idprovincia = provincias.IDProvincia and clientes.IDLocalidad=Localidad.IDLocalidad and  clientes.IDCondIVA = condiva.IDIVA ) and clientes." & pcampo & "  like  '" + pbuscar + "%' and Clientes.Estado='Activo'"
+            Dim instruccionSQL As String = "Select Clientes.IDCliente, clientes.nombre, clientes.Apellido, clientes.Telefono, clientes.Telefono2, clientes.DNI, Clientes.CUIT ,  provincias.nombre as 'Provincia' , localidad.nombre as 'Localidad', clientes.barrio, clientes.domicilio, clientes.NroCalle, clientes.Dpto, clientes.CP ,clientes.EMAIL, CondIVA.Nombre as 'Condicion de IVA' ,clientes.Fecha from(clientes, provincias, localidad, CondIVA) where (Clientes.idprovincia = provincias.IDProvincia and clientes.IDLocalidad=Localidad.IDLocalidad and  clientes.IDCondIVA = condiva.IDIVA ) and clientes." & replace & " and Clientes.Estado='Activo'"
             Dim comando As New SQLiteCommand(instruccionSQL, oCDConexion.con)
             If IsNumeric(pbuscar) Then
                 comando.Parameters.Add("@pbuscar", SqlDbType.Int).Value = pbuscar
