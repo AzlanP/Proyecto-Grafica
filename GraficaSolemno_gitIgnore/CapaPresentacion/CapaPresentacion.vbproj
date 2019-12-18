@@ -318,6 +318,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\add.png" />
+    <None Include="Resources\TRASH1.png" />
     <None Include="Resources\EditUser.png" />
     <Content Include="Resources\search.png" />
     <None Include="Resources\SinResulatosLupa.png" />

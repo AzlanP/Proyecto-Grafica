@@ -43,9 +43,10 @@ Partial Class frmPestañaTareas
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.BarraInferior = New System.Windows.Forms.Panel()
-        Me.btnNuevaTarea = New System.Windows.Forms.Button()
         Me.SearchDate = New System.Windows.Forms.DateTimePicker()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.btnListadoBorrados = New System.Windows.Forms.Button()
+        Me.btnNuevaTarea = New System.Windows.Forms.Button()
         Me.panelPostick.SuspendLayout()
         Me.SemanaDias.SuspendLayout()
         Me.SuspendLayout()
@@ -270,19 +271,6 @@ Partial Class frmPestañaTareas
         Me.BarraInferior.Size = New System.Drawing.Size(1074, 14)
         Me.BarraInferior.TabIndex = 31
         '
-        'btnNuevaTarea
-        '
-        Me.btnNuevaTarea.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
-        Me.btnNuevaTarea.BackgroundImage = CType(resources.GetObject("btnNuevaTarea.BackgroundImage"), System.Drawing.Image)
-        Me.btnNuevaTarea.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnNuevaTarea.FlatAppearance.BorderSize = 0
-        Me.btnNuevaTarea.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnNuevaTarea.Location = New System.Drawing.Point(993, 9)
-        Me.btnNuevaTarea.Name = "btnNuevaTarea"
-        Me.btnNuevaTarea.Size = New System.Drawing.Size(40, 40)
-        Me.btnNuevaTarea.TabIndex = 49
-        Me.btnNuevaTarea.UseVisualStyleBackColor = False
-        '
         'SearchDate
         '
         Me.SearchDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
@@ -301,12 +289,39 @@ Partial Class frmPestañaTareas
         Me.Label1.TabIndex = 51
         Me.Label1.Text = "Ir a:"
         '
+        'btnListadoBorrados
+        '
+        Me.btnListadoBorrados.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
+        Me.btnListadoBorrados.BackgroundImage = Global.CapaPresentacion.My.Resources.Resources.TRASH1
+        Me.btnListadoBorrados.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnListadoBorrados.FlatAppearance.BorderSize = 0
+        Me.btnListadoBorrados.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnListadoBorrados.Location = New System.Drawing.Point(1039, 9)
+        Me.btnListadoBorrados.Name = "btnListadoBorrados"
+        Me.btnListadoBorrados.Size = New System.Drawing.Size(40, 40)
+        Me.btnListadoBorrados.TabIndex = 52
+        Me.btnListadoBorrados.UseVisualStyleBackColor = False
+        '
+        'btnNuevaTarea
+        '
+        Me.btnNuevaTarea.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
+        Me.btnNuevaTarea.BackgroundImage = CType(resources.GetObject("btnNuevaTarea.BackgroundImage"), System.Drawing.Image)
+        Me.btnNuevaTarea.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnNuevaTarea.FlatAppearance.BorderSize = 0
+        Me.btnNuevaTarea.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnNuevaTarea.Location = New System.Drawing.Point(993, 9)
+        Me.btnNuevaTarea.Name = "btnNuevaTarea"
+        Me.btnNuevaTarea.Size = New System.Drawing.Size(40, 40)
+        Me.btnNuevaTarea.TabIndex = 49
+        Me.btnNuevaTarea.UseVisualStyleBackColor = False
+        '
         'frmPestañaTareas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1125, 560)
+        Me.Controls.Add(Me.btnListadoBorrados)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnNuevaTarea)
         Me.Controls.Add(Me.SearchDate)
@@ -349,4 +364,5 @@ Partial Class frmPestañaTareas
     Friend WithEvents btnNuevaTarea As System.Windows.Forms.Button
     Friend WithEvents SearchDate As System.Windows.Forms.DateTimePicker
     Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents btnListadoBorrados As System.Windows.Forms.Button
 End Class

@@ -50,7 +50,7 @@ Public Class CDPostick
         ' y esta retorna todos los posticks que se encuentren ese dia , estos son guardados en 
         ' un array el cual es devuelto por medio del return
         oCDConexion.Conectar()
-        Dim sql As String = "select * from Postick where (Fecha= '" & FechaString & "')"
+        Dim sql As String = "select * from Postick where (Fecha= '" & FechaString & "')  and  FechaEliminado is null"
         Dim comando As New SQLiteCommand(sql, oCDConexion.con)
         'With comando.Parameters
 
@@ -103,17 +103,22 @@ Public Class CDPostick
 
         Return oPostick
     End Function
-    Public Sub EliminarPostick(ByVal id As Integer)
+    Public Sub EliminarPostick(ByVal IDPostick As Integer, ByVal motivo As String, ByVal responsable As String)
         oCDConexion.Conectar()
+        Dim format As String = "yyyy/MM/dd"
+
+        Dim FechaString As String = Date.Now.ToString(format)
         Try
-            Dim instruccionsql = "DELETE FROM Postick WHERE (IDPostick=@IDPostick)"
+            Dim instruccionsql = "update Postick set FechaEliminado=@FechaEliminado , EliminadoPor=@EliminadoPor, Motivo=@Motivo where IDPostick=@IDPostick"
             Dim comando As New SQLiteCommand(instruccionsql, oCDConexion.con)
-            comando.Parameters.Add("@IDPostick", SqlDbType.Int).Value = id
+            comando.Parameters.Add("@IDPostick", SqlDbType.Int).Value = IDPostick
+            comando.Parameters.Add("@EliminadoPor", SqlDbType.VarChar).Value = responsable
+            comando.Parameters.Add("@FechaEliminado", SqlDbType.VarChar).Value = FechaString
+            comando.Parameters.Add("@Motivo", SqlDbType.VarChar).Value = motivo
             comando.ExecuteNonQuery()
 
-            MsgBox("Registro eliminado")
         Catch ex As Exception
-            Throw New Exception("No se ah podido eliminar el registro:" & ex.Message)
+            MsgBox("No se ah podido eliminar el registro", , "Error de eliminacion.")
         Finally
             oCDConexion.Desconectar()
         End Try

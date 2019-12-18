@@ -4,6 +4,7 @@ Public Class frmAgregarNota
 
     Dim oCEPostick As New CEPostick
     Dim oCNPostick As New CNPostick
+    Dim ActualUsuario As String
 
     Private Sub btnGuardarNota_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGuardarNota.Click
         
@@ -67,9 +68,15 @@ Public Class frmAgregarNota
         Return oCEPostick
     End Function
     Private Sub btnEliminar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEliminar.Click
-        oCNPostick.EliminarPostick(CInt(NroPostick.Text))
-        Me.Close()
+      
 
+        Dim msg As String
+        msg = Microsoft.VisualBasic.InputBox("Ingrese el motivo por el cual desea eliminar el postick.", "Motivo de eliminacion", "", Me.Location.X, Me.Location.Y)
+        If msg <> "" Then
+
+            oCNPostick.EliminarPostick(CInt(NroPostick.Text), msg, frmMenuPrincipal.lblUsuario.Text)
+            Me.Close()
+        End If
     End Sub
     ' estp es para el combobox tenga colores
     Private Sub cboPrioridad_DrawItem(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DrawItemEventArgs) Handles cboPrioridad.DrawItem

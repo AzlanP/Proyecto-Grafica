@@ -302,7 +302,6 @@ Partial Class frmAgregarNota
     Friend WithEvents btnGuardarNota As System.Windows.Forms.Button
     Friend WithEvents btnCancelar As System.Windows.Forms.Button
     Friend WithEvents NroPostick As System.Windows.Forms.Label
-    Protected WithEvents dtpFecha As System.Windows.Forms.DateTimePicker
     Friend WithEvents btnEliminar As System.Windows.Forms.Button
     Friend WithEvents lblidpostick As System.Windows.Forms.Label
     Friend WithEvents lblPrioridad As System.Windows.Forms.Label
@@ -317,4 +316,5 @@ Partial Class frmAgregarNota
     Friend WithEvents UsuariosTableAdapter As CapaPresentacion.SolemnoDataSetTableAdapters.UsuariosTableAdapter
     Friend WithEvents required As Label
     Friend WithEvents Label2 As Label
+    Public WithEvents dtpFecha As System.Windows.Forms.DateTimePicker
 End Class

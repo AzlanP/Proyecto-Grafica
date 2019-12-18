@@ -41,16 +41,16 @@ Partial Class ListadoPostick
         Me.PostickTableAdapter = New CapaPresentacion.SolemnoDataSetTableAdapters.PostickTableAdapter()
         Me.SearchDate = New System.Windows.Forms.DateTimePicker()
         Me.cboResponsables = New System.Windows.Forms.ComboBox()
+        Me.UsuariosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ClientesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ClientesTableAdapter = New CapaPresentacion.SolemnoDataSetTableAdapters.ClientesTableAdapter()
         Me.cboPrioridad = New System.Windows.Forms.ComboBox()
-        Me.UsuariosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.UsuariosTableAdapter = New CapaPresentacion.SolemnoDataSetTableAdapters.UsuariosTableAdapter()
         CType(Me.DGPostick, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PostickBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SolemnoDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UsuariosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnBuscar
@@ -206,6 +206,11 @@ Partial Class ListadoPostick
         Me.cboResponsables.TabIndex = 52
         Me.cboResponsables.ValueMember = "IDUsuario"
         '
+        'UsuariosBindingSource
+        '
+        Me.UsuariosBindingSource.DataMember = "Usuarios"
+        Me.UsuariosBindingSource.DataSource = Me.SolemnoDataSet
+        '
         'ClientesBindingSource
         '
         Me.ClientesBindingSource.DataMember = "Clientes"
@@ -225,11 +230,6 @@ Partial Class ListadoPostick
         Me.cboPrioridad.Name = "cboPrioridad"
         Me.cboPrioridad.Size = New System.Drawing.Size(131, 21)
         Me.cboPrioridad.TabIndex = 53
-        '
-        'UsuariosBindingSource
-        '
-        Me.UsuariosBindingSource.DataMember = "Usuarios"
-        Me.UsuariosBindingSource.DataSource = Me.SolemnoDataSet
         '
         'UsuariosTableAdapter
         '
@@ -253,8 +253,8 @@ Partial Class ListadoPostick
         CType(Me.DGPostick, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PostickBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SolemnoDataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UsuariosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

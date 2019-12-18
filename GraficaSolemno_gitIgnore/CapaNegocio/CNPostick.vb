@@ -19,8 +19,8 @@ Public Class CNPostick
     Public Function BuscarPostick(ByVal id As Integer) As CEPostick
         Return oCDPostick.BuscarPostick(id)
     End Function
-    Public Sub EliminarPostick(ByVal id As Integer)
-        oCDPostick.EliminarPostick(id)
+    Public Sub EliminarPostick(ByVal id As Integer, ByVal motivo As String, ByVal responsable As String)
+        oCDPostick.EliminarPostick(id, motivo, responsable)
     End Sub
     Public Sub ModificarPostick(ByVal oCEPostick As CEPostick)
         oCDPostick.ModificarPostick(oCEPostick)

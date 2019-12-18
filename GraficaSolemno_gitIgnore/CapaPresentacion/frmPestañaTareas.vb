@@ -137,6 +137,9 @@ Public Class frmPestañaTareas
             Postick(i).Margin = New Padding(1, 1, 1, 1)
             PosY = i * 101
             Postick(i).Location = New Point(3, PosY)
+            Postick(i).Font = (New Drawing.Font("Verdana", 9, FontStyle.Regular))
+            Postick(i).HorizontalScrollbar = True
+
             'MsgBox(Postick(i).Location.X & " , " & Postick(i).Location.Y)
             Dim opostick As New CEPostick
             opostick = parrayposticks(i)
@@ -219,6 +222,7 @@ Public Class frmPestañaTareas
         frmPostick.btnGuardarCambios.Visible = False
         frmPostick.btnGuardarNota.Visible = True
         frmPostick.NroPostick.Text = oCNPostick.ConsultarUltimoID()
+        frmPostick.dtpFecha.MinDate = Date.Now.AddDays(-1)
         frmPostick.PrecargarCombobox()
         frmPostick.ShowDialog()
         LimpiarPosticksEnPanels()
@@ -244,5 +248,10 @@ Public Class frmPestañaTareas
         Rellenar(SearchDate.Value)
         LimpiarPosticksEnPanels()
         AcomodarPostickEnPanels()
+    End Sub
+
+    Private Sub btnListadoBorrados_Click(sender As System.Object, e As System.EventArgs) Handles btnListadoBorrados.Click
+        Dim listado As New ListadoPostick
+        listado.ShowDialog()
     End Sub
 End Class

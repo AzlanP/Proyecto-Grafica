@@ -15,7 +15,7 @@
         cboBuscar.SelectedIndex = 0
         Me.PostickTableAdapter.Fill(Me.SolemnoDataSet.Postick)
         Me.PostickTableAdapter.GetMotivoEliminacion(Me.SolemnoDataSet.Postick)
-
+        MostrarSinResultados(Me.SolemnoDataSet.Postick, DGPostick)
     End Sub
 
     Private Sub cboBuscar_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cboBuscar.SelectedIndexChanged
@@ -35,19 +35,39 @@
     End Sub
 
     Private Sub btnBuscar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscar.Click
-        If (cboBuscar.SelectedIndex = 0 Or cboBuscar.SelectedIndex = 1) Then
-            Dim dv As DataView
-            Dim sqlWhere As String = ""
-            If cboBuscar.SelectedIndex = 0 Then
-                sqlWhere = "Fecha = '" + SearchDate.Text + "' "
-            ElseIf cboBuscar.SelectedIndex = 1 Then
-                sqlWhere = "FechaEliminado = '" + SearchDate.Text + "' "
-            End If
 
+        Dim dv As DataView
+        Dim sqlWhere As String = ""
+        Dim format As String = "yyyy/MM/dd"
+        Dim FechaString As String = SearchDate.Value.ToString(format)
+
+        If cboBuscar.SelectedIndex = 0 Then
+            sqlWhere = "Fecha = '" + FechaString + "'"
             dv = New DataView(Me.SolemnoDataSet.Postick, sqlWhere, "IDPostick Asc", DataViewRowState.CurrentRows)
             DGPostick.DataSource = dv
-        Else
+            Dim t As DataTable = dv.ToTable()
+            MostrarSinResultados(t, DGPostick)
+        ElseIf cboBuscar.SelectedIndex = 1 Then
+            sqlWhere = "FechaEliminado = '" + FechaString + "' "
+            dv = New DataView(Me.SolemnoDataSet.Postick, sqlWhere, "IDPostick Asc", DataViewRowState.CurrentRows)
+            DGPostick.DataSource = dv
+            Dim t As DataTable = dv.ToTable()
+            MostrarSinResultados(t, DGPostick)
+        ElseIf cboBuscar.SelectedIndex = 2 Then
+
+            Dim dt As DataTable = Me.PostickTableAdapter.GetListadoByResponsable(cboResponsables.Text)
+            DGPostick.DataSource = dt
+
+            MostrarSinResultados(dt, DGPostick)
+        ElseIf cboBuscar.SelectedIndex = 3 Then
+            Dim dt As DataTable = Me.PostickTableAdapter.GetListadoByPrioridad(cboPrioridad.Text)
+            DGPostick.DataSource = dt
+            MostrarSinResultados(dt, DGPostick)
         End If
+
+
+
+
     End Sub
 
     Private Sub btnBuscarCliente_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
@@ -56,5 +76,37 @@
 
     Private Sub cboResponsables_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cboResponsables.SelectedIndexChanged
 
+    End Sub
+
+    Private Sub btnRefresh_Click(sender As System.Object, e As System.EventArgs) Handles btnRefresh.Click
+        Dim dv As DataView
+        dv = New DataView(Me.SolemnoDataSet.Postick, "", "IDPostick Asc", DataViewRowState.CurrentRows)
+        DGPostick.DataSource = dv
+        Dim t As DataTable = dv.ToTable()
+        MostrarSinResultados(t, DGPostick)
+    End Sub
+
+    Public Sub MostrarSinResultados(ByVal dt As DataTable, ByVal DG As DataGridView)
+        If dt.Rows.Count = 0 Then
+            Dim pSearch As New Panel
+            Dim alturaHeader As Integer = 32
+
+            pSearch.Location = New Point(DG.Location.X, DG.Location.Y + alturaHeader)
+            pSearch.Name = "Panel" + DG.Name
+            pSearch.Size = New Size(DG.Size.Width, DG.Size.Height - alturaHeader)
+            pSearch.BackColor = Color.White
+            pSearch.BackgroundImage = CType(My.Resources.SinResulatosLupa, Image)
+            pSearch.BackgroundImageLayout = ImageLayout.Stretch
+            pSearch.Visible = True
+            pSearch.BorderStyle = BorderStyle.None
+            pSearch.Parent = DG.Parent
+            pSearch.BringToFront()
+        Else
+            Dim ctrl() As Control
+            ctrl = DG.Parent.Controls.Find("Panel" + DG.Name, True)
+            If Not (ctrl.Length = 0) Then
+                DG.Parent.Controls.Remove(ctrl(0))
+            End If
+        End If
     End Sub
 End Class

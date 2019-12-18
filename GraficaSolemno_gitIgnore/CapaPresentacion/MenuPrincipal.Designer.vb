@@ -50,6 +50,7 @@ Partial Class frmMenuPrincipal
         Me.btnRestaurar = New System.Windows.Forms.Button()
         Me.btnVerInactivo = New System.Windows.Forms.Button()
         Me.btnListadoClientesInactivos = New System.Windows.Forms.Button()
+        Me.btnEliminarCliente = New System.Windows.Forms.Button()
         Me.btnVerCliente = New System.Windows.Forms.Button()
         Me.btnModificarCliente = New System.Windows.Forms.Button()
         Me.btnNuevoCliente = New System.Windows.Forms.Button()
@@ -66,6 +67,7 @@ Partial Class frmMenuPrincipal
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.btnCancelarPresupuesto = New System.Windows.Forms.Button()
+        Me.btnEliminarPresupuesto = New System.Windows.Forms.Button()
         Me.btnModificarPresupuesto = New System.Windows.Forms.Button()
         Me.btnVerPresupuesto = New System.Windows.Forms.Button()
         Me.btnNuevoPresupuesto = New System.Windows.Forms.Button()
@@ -81,6 +83,7 @@ Partial Class frmMenuPrincipal
         Me.PanelSuperiorPedido = New System.Windows.Forms.Panel()
         Me.lblTituloPedidos = New System.Windows.Forms.Label()
         Me.PanelLateralPedido = New System.Windows.Forms.Panel()
+        Me.btnEliminarPedido = New System.Windows.Forms.Button()
         Me.btnModificarPedido = New System.Windows.Forms.Button()
         Me.btnVerPedido = New System.Windows.Forms.Button()
         Me.btnNuevoPedido = New System.Windows.Forms.Button()
@@ -88,16 +91,9 @@ Partial Class frmMenuPrincipal
         Me.Panel8 = New System.Windows.Forms.Panel()
         Me.btnBuscarUsuarioInactivos = New System.Windows.Forms.Button()
         Me.DGUsuario = New System.Windows.Forms.DataGridView()
-        Me.IDUsuarioDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NombreCompletoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.UsuarioDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.FechaCreacionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CargoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.UsuariosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.SolemnoDataSet = New CapaPresentacion.SolemnoDataSet()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.btnBuscarUsuario = New System.Windows.Forms.Button()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.cboFiltroUsuarios = New System.Windows.Forms.ComboBox()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.Label9 = New System.Windows.Forms.Label()
@@ -105,6 +101,7 @@ Partial Class frmMenuPrincipal
         Me.btnRestaurarUsuario = New System.Windows.Forms.Button()
         Me.btnVerUsuarioInactivo = New System.Windows.Forms.Button()
         Me.btnPapeleraUsuario = New System.Windows.Forms.Button()
+        Me.btnEliminarUsuario = New System.Windows.Forms.Button()
         Me.btnVerUsuario = New System.Windows.Forms.Button()
         Me.btnModificarUsuario = New System.Windows.Forms.Button()
         Me.btnNuevoUsuario = New System.Windows.Forms.Button()
@@ -124,6 +121,7 @@ Partial Class frmMenuPrincipal
         Me.btnPapeleraProducto = New System.Windows.Forms.Button()
         Me.btnVerProducto = New System.Windows.Forms.Button()
         Me.btnModificarProducto = New System.Windows.Forms.Button()
+        Me.btnEliminarProducto = New System.Windows.Forms.Button()
         Me.btnAgregarProducto = New System.Windows.Forms.Button()
         Me.TabEstadistica = New System.Windows.Forms.TabPage()
         Me.Panel7 = New System.Windows.Forms.Panel()
@@ -166,31 +164,35 @@ Partial Class frmMenuPrincipal
         Me.lblUsuario = New System.Windows.Forms.Label()
         Me.lblNombreUsuario = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-        Me.UsuariosTableAdapter = New CapaPresentacion.SolemnoDataSetTableAdapters.UsuariosTableAdapter()
-        Me.MediosTableAdapter1 = New CapaPresentacion.SolemnoDataSetTableAdapters.MediosTableAdapter()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.btnLogout = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.EditarUsuario = New System.Windows.Forms.Button()
         Me.btnRefresh = New System.Windows.Forms.Button()
         Me.PictureBoxCliente = New System.Windows.Forms.PictureBox()
-        Me.btnEliminarCliente = New System.Windows.Forms.Button()
         Me.btnRefreshPresupuesto = New System.Windows.Forms.Button()
-        Me.btnEliminarPresupuesto = New System.Windows.Forms.Button()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.btnRefreshPedido = New System.Windows.Forms.Button()
-        Me.btnEliminarPedido = New System.Windows.Forms.Button()
         Me.IconoPedido = New System.Windows.Forms.PictureBox()
         Me.btnRefreshUsuario = New System.Windows.Forms.Button()
         Me.PictureBox4 = New System.Windows.Forms.PictureBox()
-        Me.btnEliminarUsuario = New System.Windows.Forms.Button()
         Me.btnRefreshProduct = New System.Windows.Forms.Button()
-        Me.btnEliminarProducto = New System.Windows.Forms.Button()
         Me.IconoProducto = New System.Windows.Forms.PictureBox()
         Me.btnSearchTop3 = New System.Windows.Forms.Button()
         Me.btnSearchTop2 = New System.Windows.Forms.Button()
         Me.btnSearchTop1 = New System.Windows.Forms.Button()
         Me.boxEstadistica = New System.Windows.Forms.PictureBox()
         Me.PictureBoxEstadistic = New System.Windows.Forms.PictureBox()
+        Me.IDUsuarioDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NombreCompletoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.UsuarioDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FechaCreacionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CargoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.EstadoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.UsuariosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.SolemnoDataSet1 = New CapaPresentacion.SolemnoDataSet()
+        Me.SolemnoDataSet = New CapaPresentacion.SolemnoDataSet()
+        Me.UsuariosTableAdapter = New CapaPresentacion.SolemnoDataSetTableAdapters.UsuariosTableAdapter()
+        Me.MediosTableAdapter1 = New CapaPresentacion.SolemnoDataSetTableAdapters.MediosTableAdapter()
         Me.TabGeneral.SuspendLayout()
         Me.TabTareas.SuspendLayout()
         Me.TabCliente.SuspendLayout()
@@ -212,8 +214,6 @@ Partial Class frmMenuPrincipal
         Me.TabUsuario.SuspendLayout()
         Me.Panel8.SuspendLayout()
         CType(Me.DGUsuario, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.UsuariosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.SolemnoDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel5.SuspendLayout()
         Me.Panel6.SuspendLayout()
@@ -242,6 +242,9 @@ Partial Class frmMenuPrincipal
         CType(Me.IconoProducto, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.boxEstadistica, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBoxEstadistic, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.UsuariosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SolemnoDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SolemnoDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TabGeneral
@@ -428,7 +431,7 @@ Partial Class frmMenuPrincipal
         Me.btnRestaurar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnRestaurar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnRestaurar.ForeColor = System.Drawing.Color.White
-        Me.btnRestaurar.Location = New System.Drawing.Point(0, 386)
+        Me.btnRestaurar.Location = New System.Drawing.Point(0, 445)
         Me.btnRestaurar.Name = "btnRestaurar"
         Me.btnRestaurar.Size = New System.Drawing.Size(184, 50)
         Me.btnRestaurar.TabIndex = 13
@@ -464,6 +467,22 @@ Partial Class frmMenuPrincipal
         Me.btnListadoClientesInactivos.TabIndex = 11
         Me.btnListadoClientesInactivos.Text = "Papelera Clientes"
         Me.btnListadoClientesInactivos.UseVisualStyleBackColor = False
+        '
+        'btnEliminarCliente
+        '
+        Me.btnEliminarCliente.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnEliminarCliente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnEliminarCliente.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnEliminarCliente.FlatAppearance.BorderSize = 0
+        Me.btnEliminarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnEliminarCliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEliminarCliente.ForeColor = System.Drawing.Color.White
+        Me.btnEliminarCliente.Location = New System.Drawing.Point(0, 445)
+        Me.btnEliminarCliente.Name = "btnEliminarCliente"
+        Me.btnEliminarCliente.Size = New System.Drawing.Size(184, 50)
+        Me.btnEliminarCliente.TabIndex = 9
+        Me.btnEliminarCliente.Text = "Eliminar Cliente"
+        Me.btnEliminarCliente.UseVisualStyleBackColor = False
         '
         'btnVerCliente
         '
@@ -658,6 +677,22 @@ Partial Class frmMenuPrincipal
         Me.btnCancelarPresupuesto.Text = "Cancelar presupuesto"
         Me.btnCancelarPresupuesto.UseVisualStyleBackColor = False
         '
+        'btnEliminarPresupuesto
+        '
+        Me.btnEliminarPresupuesto.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnEliminarPresupuesto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnEliminarPresupuesto.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnEliminarPresupuesto.FlatAppearance.BorderSize = 0
+        Me.btnEliminarPresupuesto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnEliminarPresupuesto.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEliminarPresupuesto.ForeColor = System.Drawing.Color.White
+        Me.btnEliminarPresupuesto.Location = New System.Drawing.Point(0, 453)
+        Me.btnEliminarPresupuesto.Name = "btnEliminarPresupuesto"
+        Me.btnEliminarPresupuesto.Size = New System.Drawing.Size(184, 50)
+        Me.btnEliminarPresupuesto.TabIndex = 27
+        Me.btnEliminarPresupuesto.Text = "Eliminar Presupuesto"
+        Me.btnEliminarPresupuesto.UseVisualStyleBackColor = False
+        '
         'btnModificarPresupuesto
         '
         Me.btnModificarPresupuesto.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
@@ -836,6 +871,22 @@ Partial Class frmMenuPrincipal
         Me.PanelLateralPedido.Size = New System.Drawing.Size(184, 556)
         Me.PanelLateralPedido.TabIndex = 14
         '
+        'btnEliminarPedido
+        '
+        Me.btnEliminarPedido.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnEliminarPedido.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnEliminarPedido.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnEliminarPedido.FlatAppearance.BorderSize = 0
+        Me.btnEliminarPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnEliminarPedido.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEliminarPedido.ForeColor = System.Drawing.Color.White
+        Me.btnEliminarPedido.Location = New System.Drawing.Point(0, 386)
+        Me.btnEliminarPedido.Name = "btnEliminarPedido"
+        Me.btnEliminarPedido.Size = New System.Drawing.Size(184, 50)
+        Me.btnEliminarPedido.TabIndex = 27
+        Me.btnEliminarPedido.Text = "Eliminar pedido"
+        Me.btnEliminarPedido.UseVisualStyleBackColor = False
+        '
         'btnModificarPedido
         '
         Me.btnModificarPedido.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
@@ -857,7 +908,7 @@ Partial Class frmMenuPrincipal
         Me.btnVerPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnVerPedido.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnVerPedido.ForeColor = System.Drawing.Color.White
-        Me.btnVerPedido.Location = New System.Drawing.Point(0, 330)
+        Me.btnVerPedido.Location = New System.Drawing.Point(3, 330)
         Me.btnVerPedido.Name = "btnVerPedido"
         Me.btnVerPedido.Size = New System.Drawing.Size(184, 50)
         Me.btnVerPedido.TabIndex = 25
@@ -899,7 +950,7 @@ Partial Class frmMenuPrincipal
         Me.Panel8.Controls.Add(Me.btnRefreshUsuario)
         Me.Panel8.Controls.Add(Me.TextBox1)
         Me.Panel8.Controls.Add(Me.btnBuscarUsuario)
-        Me.Panel8.Controls.Add(Me.ComboBox1)
+        Me.Panel8.Controls.Add(Me.cboFiltroUsuarios)
         Me.Panel8.Controls.Add(Me.DataGridView2)
         Me.Panel8.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel8.Location = New System.Drawing.Point(187, 92)
@@ -928,7 +979,7 @@ Partial Class frmMenuPrincipal
         Me.DGUsuario.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DGUsuario.BackgroundColor = System.Drawing.Color.White
         Me.DGUsuario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGUsuario.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IDUsuarioDataGridViewTextBoxColumn, Me.NombreCompletoDataGridViewTextBoxColumn, Me.UsuarioDataGridViewTextBoxColumn, Me.FechaCreacionDataGridViewTextBoxColumn, Me.CargoDataGridViewTextBoxColumn})
+        Me.DGUsuario.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IDUsuarioDataGridViewTextBoxColumn, Me.NombreCompletoDataGridViewTextBoxColumn, Me.UsuarioDataGridViewTextBoxColumn, Me.FechaCreacionDataGridViewTextBoxColumn, Me.CargoDataGridViewTextBoxColumn, Me.EstadoDataGridViewTextBoxColumn})
         Me.DGUsuario.DataSource = Me.UsuariosBindingSource
         Me.DGUsuario.Location = New System.Drawing.Point(24, 78)
         Me.DGUsuario.MultiSelect = False
@@ -938,51 +989,6 @@ Partial Class frmMenuPrincipal
         Me.DGUsuario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DGUsuario.Size = New System.Drawing.Size(614, 310)
         Me.DGUsuario.TabIndex = 10
-        '
-        'IDUsuarioDataGridViewTextBoxColumn
-        '
-        Me.IDUsuarioDataGridViewTextBoxColumn.DataPropertyName = "IDUsuario"
-        Me.IDUsuarioDataGridViewTextBoxColumn.HeaderText = "IDUsuario"
-        Me.IDUsuarioDataGridViewTextBoxColumn.Name = "IDUsuarioDataGridViewTextBoxColumn"
-        Me.IDUsuarioDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'NombreCompletoDataGridViewTextBoxColumn
-        '
-        Me.NombreCompletoDataGridViewTextBoxColumn.DataPropertyName = "NombreCompleto"
-        Me.NombreCompletoDataGridViewTextBoxColumn.HeaderText = "NombreCompleto"
-        Me.NombreCompletoDataGridViewTextBoxColumn.Name = "NombreCompletoDataGridViewTextBoxColumn"
-        Me.NombreCompletoDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'UsuarioDataGridViewTextBoxColumn
-        '
-        Me.UsuarioDataGridViewTextBoxColumn.DataPropertyName = "Usuario"
-        Me.UsuarioDataGridViewTextBoxColumn.HeaderText = "Usuario"
-        Me.UsuarioDataGridViewTextBoxColumn.Name = "UsuarioDataGridViewTextBoxColumn"
-        Me.UsuarioDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'FechaCreacionDataGridViewTextBoxColumn
-        '
-        Me.FechaCreacionDataGridViewTextBoxColumn.DataPropertyName = "FechaCreacion"
-        Me.FechaCreacionDataGridViewTextBoxColumn.HeaderText = "FechaCreacion"
-        Me.FechaCreacionDataGridViewTextBoxColumn.Name = "FechaCreacionDataGridViewTextBoxColumn"
-        Me.FechaCreacionDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'CargoDataGridViewTextBoxColumn
-        '
-        Me.CargoDataGridViewTextBoxColumn.DataPropertyName = "Cargo"
-        Me.CargoDataGridViewTextBoxColumn.HeaderText = "Cargo"
-        Me.CargoDataGridViewTextBoxColumn.Name = "CargoDataGridViewTextBoxColumn"
-        Me.CargoDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'UsuariosBindingSource
-        '
-        Me.UsuariosBindingSource.DataMember = "Usuarios"
-        Me.UsuariosBindingSource.DataSource = Me.SolemnoDataSet
-        '
-        'SolemnoDataSet
-        '
-        Me.SolemnoDataSet.DataSetName = "SolemnoDataSet"
-        Me.SolemnoDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'TextBox1
         '
@@ -1002,16 +1008,16 @@ Partial Class frmMenuPrincipal
         Me.btnBuscarUsuario.Text = "Buscar"
         Me.btnBuscarUsuario.UseVisualStyleBackColor = False
         '
-        'ComboBox1
+        'cboFiltroUsuarios
         '
-        Me.ComboBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
-        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"Nombre", "Apellido", "Cargo"})
-        Me.ComboBox1.Location = New System.Drawing.Point(465, 32)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(96, 21)
-        Me.ComboBox1.TabIndex = 6
+        Me.cboFiltroUsuarios.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.cboFiltroUsuarios.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboFiltroUsuarios.FormattingEnabled = True
+        Me.cboFiltroUsuarios.Items.AddRange(New Object() {"Nombre Completo", "Cargo"})
+        Me.cboFiltroUsuarios.Location = New System.Drawing.Point(465, 32)
+        Me.cboFiltroUsuarios.Name = "cboFiltroUsuarios"
+        Me.cboFiltroUsuarios.Size = New System.Drawing.Size(96, 21)
+        Me.cboFiltroUsuarios.TabIndex = 6
         '
         'DataGridView2
         '
@@ -1075,7 +1081,7 @@ Partial Class frmMenuPrincipal
         Me.btnRestaurarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnRestaurarUsuario.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnRestaurarUsuario.ForeColor = System.Drawing.Color.White
-        Me.btnRestaurarUsuario.Location = New System.Drawing.Point(0, 386)
+        Me.btnRestaurarUsuario.Location = New System.Drawing.Point(-3, 442)
         Me.btnRestaurarUsuario.Name = "btnRestaurarUsuario"
         Me.btnRestaurarUsuario.Size = New System.Drawing.Size(184, 50)
         Me.btnRestaurarUsuario.TabIndex = 13
@@ -1111,6 +1117,22 @@ Partial Class frmMenuPrincipal
         Me.btnPapeleraUsuario.TabIndex = 11
         Me.btnPapeleraUsuario.Text = "Papelera usuario"
         Me.btnPapeleraUsuario.UseVisualStyleBackColor = False
+        '
+        'btnEliminarUsuario
+        '
+        Me.btnEliminarUsuario.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnEliminarUsuario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnEliminarUsuario.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(134, Byte), Integer), CType(CType(67, Byte), Integer))
+        Me.btnEliminarUsuario.FlatAppearance.BorderSize = 0
+        Me.btnEliminarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnEliminarUsuario.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEliminarUsuario.ForeColor = System.Drawing.Color.White
+        Me.btnEliminarUsuario.Location = New System.Drawing.Point(0, 442)
+        Me.btnEliminarUsuario.Name = "btnEliminarUsuario"
+        Me.btnEliminarUsuario.Size = New System.Drawing.Size(181, 50)
+        Me.btnEliminarUsuario.TabIndex = 9
+        Me.btnEliminarUsuario.Text = "Eliminar"
+        Me.btnEliminarUsuario.UseVisualStyleBackColor = False
         '
         'btnVerUsuario
         '
@@ -1318,7 +1340,7 @@ Partial Class frmMenuPrincipal
         Me.btnRestaurarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnRestaurarProducto.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnRestaurarProducto.ForeColor = System.Drawing.Color.White
-        Me.btnRestaurarProducto.Location = New System.Drawing.Point(0, 338)
+        Me.btnRestaurarProducto.Location = New System.Drawing.Point(-3, 394)
         Me.btnRestaurarProducto.Name = "btnRestaurarProducto"
         Me.btnRestaurarProducto.Size = New System.Drawing.Size(184, 50)
         Me.btnRestaurarProducto.TabIndex = 24
@@ -1367,6 +1389,22 @@ Partial Class frmMenuPrincipal
         Me.btnModificarProducto.TabIndex = 21
         Me.btnModificarProducto.Text = "Modificar Producto"
         Me.btnModificarProducto.UseVisualStyleBackColor = False
+        '
+        'btnEliminarProducto
+        '
+        Me.btnEliminarProducto.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnEliminarProducto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnEliminarProducto.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnEliminarProducto.FlatAppearance.BorderSize = 0
+        Me.btnEliminarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnEliminarProducto.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEliminarProducto.ForeColor = System.Drawing.Color.White
+        Me.btnEliminarProducto.Location = New System.Drawing.Point(0, 394)
+        Me.btnEliminarProducto.Name = "btnEliminarProducto"
+        Me.btnEliminarProducto.Size = New System.Drawing.Size(184, 50)
+        Me.btnEliminarProducto.TabIndex = 20
+        Me.btnEliminarProducto.Text = "Eliminar Producto"
+        Me.btnEliminarProducto.UseVisualStyleBackColor = False
         '
         'btnAgregarProducto
         '
@@ -1837,7 +1875,7 @@ Partial Class frmMenuPrincipal
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.63731!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.11883!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.27605!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 104.0!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 117.0!))
         Me.TableLayoutPanel2.Controls.Add(Me.PictureBox1, 0, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.Label1, 1, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.TableLayoutPanel3, 3, 0)
@@ -1855,9 +1893,9 @@ Partial Class frmMenuPrincipal
         Me.Label1.AutoSize = True
         Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label1.Font = New System.Drawing.Font("Impact", 48.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(300, 0)
+        Me.Label1.Location = New System.Drawing.Point(296, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(586, 91)
+        Me.Label1.Size = New System.Drawing.Size(579, 91)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "SOLEMNO GRÁFICA"
         '
@@ -1867,8 +1905,8 @@ Partial Class frmMenuPrincipal
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel3.Controls.Add(Me.btnLogout, 1, 0)
-        Me.TableLayoutPanel3.Controls.Add(Me.Button1, 0, 0)
-        Me.TableLayoutPanel3.Location = New System.Drawing.Point(1077, 3)
+        Me.TableLayoutPanel3.Controls.Add(Me.EditarUsuario, 0, 0)
+        Me.TableLayoutPanel3.Location = New System.Drawing.Point(1064, 3)
         Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
         Me.TableLayoutPanel3.RowCount = 2
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
@@ -1881,12 +1919,12 @@ Partial Class frmMenuPrincipal
         Me.TableLayoutPanel4.ColumnCount = 1
         Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel4.Controls.Add(Me.lblUsuario, 0, 0)
-        Me.TableLayoutPanel4.Location = New System.Drawing.Point(892, 3)
+        Me.TableLayoutPanel4.Location = New System.Drawing.Point(881, 3)
         Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
         Me.TableLayoutPanel4.RowCount = 2
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.0!))
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
-        Me.TableLayoutPanel4.Size = New System.Drawing.Size(175, 85)
+        Me.TableLayoutPanel4.Size = New System.Drawing.Size(177, 85)
         Me.TableLayoutPanel4.TabIndex = 4
         '
         'lblUsuario
@@ -1896,7 +1934,7 @@ Partial Class frmMenuPrincipal
         Me.lblUsuario.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblUsuario.Location = New System.Drawing.Point(3, 16)
         Me.lblUsuario.Name = "lblUsuario"
-        Me.lblUsuario.Size = New System.Drawing.Size(169, 18)
+        Me.lblUsuario.Size = New System.Drawing.Size(171, 18)
         Me.lblUsuario.TabIndex = 0
         Me.lblUsuario.Text = "Usuario"
         Me.lblUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -1926,19 +1964,11 @@ Partial Class frmMenuPrincipal
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(1186, 687)
         Me.TableLayoutPanel1.TabIndex = 2
         '
-        'UsuariosTableAdapter
-        '
-        Me.UsuariosTableAdapter.ClearBeforeFill = True
-        '
-        'MediosTableAdapter1
-        '
-        Me.MediosTableAdapter1.ClearBeforeFill = True
-        '
         'PictureBox1
         '
         Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Right
         Me.PictureBox1.Image = Global.CapaPresentacion.My.Resources.Resources.slmn
-        Me.PictureBox1.Location = New System.Drawing.Point(178, 3)
+        Me.PictureBox1.Location = New System.Drawing.Point(174, 3)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(116, 85)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -1959,19 +1989,19 @@ Partial Class frmMenuPrincipal
         Me.btnLogout.TabIndex = 49
         Me.btnLogout.UseVisualStyleBackColor = False
         '
-        'Button1
+        'EditarUsuario
         '
-        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
-        Me.Button1.BackgroundImage = Global.CapaPresentacion.My.Resources.Resources.EditUser
-        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.Button1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Button1.FlatAppearance.BorderSize = 0
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Location = New System.Drawing.Point(3, 8)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(44, 31)
-        Me.Button1.TabIndex = 50
-        Me.Button1.UseVisualStyleBackColor = False
+        Me.EditarUsuario.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
+        Me.EditarUsuario.BackgroundImage = Global.CapaPresentacion.My.Resources.Resources.EditUser
+        Me.EditarUsuario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.EditarUsuario.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.EditarUsuario.FlatAppearance.BorderSize = 0
+        Me.EditarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.EditarUsuario.Location = New System.Drawing.Point(3, 8)
+        Me.EditarUsuario.Name = "EditarUsuario"
+        Me.EditarUsuario.Size = New System.Drawing.Size(44, 31)
+        Me.EditarUsuario.TabIndex = 50
+        Me.EditarUsuario.UseVisualStyleBackColor = False
         '
         'btnRefresh
         '
@@ -1995,22 +2025,6 @@ Partial Class frmMenuPrincipal
         Me.PictureBoxCliente.TabIndex = 10
         Me.PictureBoxCliente.TabStop = False
         '
-        'btnEliminarCliente
-        '
-        Me.btnEliminarCliente.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(134, Byte), Integer), CType(CType(67, Byte), Integer))
-        Me.btnEliminarCliente.BackgroundImage = CType(resources.GetObject("btnEliminarCliente.BackgroundImage"), System.Drawing.Image)
-        Me.btnEliminarCliente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnEliminarCliente.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
-        Me.btnEliminarCliente.FlatAppearance.BorderSize = 0
-        Me.btnEliminarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnEliminarCliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnEliminarCliente.ForeColor = System.Drawing.Color.White
-        Me.btnEliminarCliente.Location = New System.Drawing.Point(67, 498)
-        Me.btnEliminarCliente.Name = "btnEliminarCliente"
-        Me.btnEliminarCliente.Size = New System.Drawing.Size(50, 50)
-        Me.btnEliminarCliente.TabIndex = 9
-        Me.btnEliminarCliente.UseVisualStyleBackColor = False
-        '
         'btnRefreshPresupuesto
         '
         Me.btnRefreshPresupuesto.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
@@ -2022,22 +2036,6 @@ Partial Class frmMenuPrincipal
         Me.btnRefreshPresupuesto.Size = New System.Drawing.Size(36, 30)
         Me.btnRefreshPresupuesto.TabIndex = 14
         Me.btnRefreshPresupuesto.UseVisualStyleBackColor = False
-        '
-        'btnEliminarPresupuesto
-        '
-        Me.btnEliminarPresupuesto.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(134, Byte), Integer), CType(CType(67, Byte), Integer))
-        Me.btnEliminarPresupuesto.BackgroundImage = Global.CapaPresentacion.My.Resources.Resources.TRASH
-        Me.btnEliminarPresupuesto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnEliminarPresupuesto.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
-        Me.btnEliminarPresupuesto.FlatAppearance.BorderSize = 0
-        Me.btnEliminarPresupuesto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnEliminarPresupuesto.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnEliminarPresupuesto.ForeColor = System.Drawing.Color.White
-        Me.btnEliminarPresupuesto.Location = New System.Drawing.Point(64, 441)
-        Me.btnEliminarPresupuesto.Name = "btnEliminarPresupuesto"
-        Me.btnEliminarPresupuesto.Size = New System.Drawing.Size(50, 50)
-        Me.btnEliminarPresupuesto.TabIndex = 27
-        Me.btnEliminarPresupuesto.UseVisualStyleBackColor = False
         '
         'PictureBox3
         '
@@ -2060,22 +2058,6 @@ Partial Class frmMenuPrincipal
         Me.btnRefreshPedido.Size = New System.Drawing.Size(36, 30)
         Me.btnRefreshPedido.TabIndex = 14
         Me.btnRefreshPedido.UseVisualStyleBackColor = False
-        '
-        'btnEliminarPedido
-        '
-        Me.btnEliminarPedido.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(134, Byte), Integer), CType(CType(67, Byte), Integer))
-        Me.btnEliminarPedido.BackgroundImage = Global.CapaPresentacion.My.Resources.Resources.TRASH
-        Me.btnEliminarPedido.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnEliminarPedido.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
-        Me.btnEliminarPedido.FlatAppearance.BorderSize = 0
-        Me.btnEliminarPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnEliminarPedido.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnEliminarPedido.ForeColor = System.Drawing.Color.White
-        Me.btnEliminarPedido.Location = New System.Drawing.Point(67, 386)
-        Me.btnEliminarPedido.Name = "btnEliminarPedido"
-        Me.btnEliminarPedido.Size = New System.Drawing.Size(50, 50)
-        Me.btnEliminarPedido.TabIndex = 27
-        Me.btnEliminarPedido.UseVisualStyleBackColor = False
         '
         'IconoPedido
         '
@@ -2109,22 +2091,6 @@ Partial Class frmMenuPrincipal
         Me.PictureBox4.TabIndex = 10
         Me.PictureBox4.TabStop = False
         '
-        'btnEliminarUsuario
-        '
-        Me.btnEliminarUsuario.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(134, Byte), Integer), CType(CType(67, Byte), Integer))
-        Me.btnEliminarUsuario.BackgroundImage = Global.CapaPresentacion.My.Resources.Resources.TRASH
-        Me.btnEliminarUsuario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnEliminarUsuario.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(134, Byte), Integer), CType(CType(67, Byte), Integer))
-        Me.btnEliminarUsuario.FlatAppearance.BorderSize = 0
-        Me.btnEliminarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnEliminarUsuario.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnEliminarUsuario.ForeColor = System.Drawing.Color.White
-        Me.btnEliminarUsuario.Location = New System.Drawing.Point(64, 497)
-        Me.btnEliminarUsuario.Name = "btnEliminarUsuario"
-        Me.btnEliminarUsuario.Size = New System.Drawing.Size(50, 50)
-        Me.btnEliminarUsuario.TabIndex = 9
-        Me.btnEliminarUsuario.UseVisualStyleBackColor = False
-        '
         'btnRefreshProduct
         '
         Me.btnRefreshProduct.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
@@ -2136,22 +2102,6 @@ Partial Class frmMenuPrincipal
         Me.btnRefreshProduct.Size = New System.Drawing.Size(36, 30)
         Me.btnRefreshProduct.TabIndex = 16
         Me.btnRefreshProduct.UseVisualStyleBackColor = False
-        '
-        'btnEliminarProducto
-        '
-        Me.btnEliminarProducto.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(134, Byte), Integer), CType(CType(67, Byte), Integer))
-        Me.btnEliminarProducto.BackgroundImage = Global.CapaPresentacion.My.Resources.Resources.TRASH
-        Me.btnEliminarProducto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnEliminarProducto.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
-        Me.btnEliminarProducto.FlatAppearance.BorderSize = 0
-        Me.btnEliminarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnEliminarProducto.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnEliminarProducto.ForeColor = System.Drawing.Color.White
-        Me.btnEliminarProducto.Location = New System.Drawing.Point(66, 450)
-        Me.btnEliminarProducto.Name = "btnEliminarProducto"
-        Me.btnEliminarProducto.Size = New System.Drawing.Size(50, 50)
-        Me.btnEliminarProducto.TabIndex = 20
-        Me.btnEliminarProducto.UseVisualStyleBackColor = False
         '
         'IconoProducto
         '
@@ -2217,6 +2167,71 @@ Partial Class frmMenuPrincipal
         Me.PictureBoxEstadistic.TabIndex = 0
         Me.PictureBoxEstadistic.TabStop = False
         '
+        'IDUsuarioDataGridViewTextBoxColumn
+        '
+        Me.IDUsuarioDataGridViewTextBoxColumn.DataPropertyName = "IDUsuario"
+        Me.IDUsuarioDataGridViewTextBoxColumn.HeaderText = "IDUsuario"
+        Me.IDUsuarioDataGridViewTextBoxColumn.Name = "IDUsuarioDataGridViewTextBoxColumn"
+        Me.IDUsuarioDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'NombreCompletoDataGridViewTextBoxColumn
+        '
+        Me.NombreCompletoDataGridViewTextBoxColumn.DataPropertyName = "NombreCompleto"
+        Me.NombreCompletoDataGridViewTextBoxColumn.HeaderText = "NombreCompleto"
+        Me.NombreCompletoDataGridViewTextBoxColumn.Name = "NombreCompletoDataGridViewTextBoxColumn"
+        Me.NombreCompletoDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'UsuarioDataGridViewTextBoxColumn
+        '
+        Me.UsuarioDataGridViewTextBoxColumn.DataPropertyName = "Usuario"
+        Me.UsuarioDataGridViewTextBoxColumn.HeaderText = "Usuario"
+        Me.UsuarioDataGridViewTextBoxColumn.Name = "UsuarioDataGridViewTextBoxColumn"
+        Me.UsuarioDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'FechaCreacionDataGridViewTextBoxColumn
+        '
+        Me.FechaCreacionDataGridViewTextBoxColumn.DataPropertyName = "FechaCreacion"
+        Me.FechaCreacionDataGridViewTextBoxColumn.HeaderText = "FechaCreacion"
+        Me.FechaCreacionDataGridViewTextBoxColumn.Name = "FechaCreacionDataGridViewTextBoxColumn"
+        Me.FechaCreacionDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'CargoDataGridViewTextBoxColumn
+        '
+        Me.CargoDataGridViewTextBoxColumn.DataPropertyName = "Cargo"
+        Me.CargoDataGridViewTextBoxColumn.HeaderText = "Cargo"
+        Me.CargoDataGridViewTextBoxColumn.Name = "CargoDataGridViewTextBoxColumn"
+        Me.CargoDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'EstadoDataGridViewTextBoxColumn
+        '
+        Me.EstadoDataGridViewTextBoxColumn.DataPropertyName = "Estado"
+        Me.EstadoDataGridViewTextBoxColumn.HeaderText = "Estado"
+        Me.EstadoDataGridViewTextBoxColumn.Name = "EstadoDataGridViewTextBoxColumn"
+        Me.EstadoDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'UsuariosBindingSource
+        '
+        Me.UsuariosBindingSource.DataMember = "Usuarios"
+        Me.UsuariosBindingSource.DataSource = Me.SolemnoDataSet1
+        '
+        'SolemnoDataSet1
+        '
+        Me.SolemnoDataSet1.DataSetName = "SolemnoDataSet"
+        Me.SolemnoDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'SolemnoDataSet
+        '
+        Me.SolemnoDataSet.DataSetName = "SolemnoDataSet"
+        Me.SolemnoDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'UsuariosTableAdapter
+        '
+        Me.UsuariosTableAdapter.ClearBeforeFill = True
+        '
+        'MediosTableAdapter1
+        '
+        Me.MediosTableAdapter1.ClearBeforeFill = True
+        '
         'frmMenuPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -2256,8 +2271,6 @@ Partial Class frmMenuPrincipal
         Me.Panel8.ResumeLayout(False)
         Me.Panel8.PerformLayout()
         CType(Me.DGUsuario, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.UsuariosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.SolemnoDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel5.ResumeLayout(False)
         Me.Panel5.PerformLayout()
@@ -2296,6 +2309,9 @@ Partial Class frmMenuPrincipal
         CType(Me.IconoProducto, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.boxEstadistica, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBoxEstadistic, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.UsuariosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SolemnoDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SolemnoDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -2402,7 +2418,7 @@ Partial Class frmMenuPrincipal
     Friend WithEvents btnRefreshUsuario As System.Windows.Forms.Button
     Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
     Friend WithEvents btnBuscarUsuario As System.Windows.Forms.Button
-    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
+    Friend WithEvents cboFiltroUsuarios As System.Windows.Forms.ComboBox
     Friend WithEvents DataGridView2 As System.Windows.Forms.DataGridView
     Friend WithEvents Panel5 As System.Windows.Forms.Panel
     Friend WithEvents Label9 As System.Windows.Forms.Label
@@ -2424,13 +2440,7 @@ Partial Class frmMenuPrincipal
     Friend WithEvents TableLayoutPanel4 As TableLayoutPanel
     Friend WithEvents lblUsuario As Label
     Friend WithEvents SolemnoDataSet As CapaPresentacion.SolemnoDataSet
-    Friend WithEvents UsuariosBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents UsuariosTableAdapter As CapaPresentacion.SolemnoDataSetTableAdapters.UsuariosTableAdapter
-    Friend WithEvents IDUsuarioDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents NombreCompletoDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents UsuarioDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents FechaCreacionDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents CargoDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents dtpActual As DateTimePicker
     Friend WithEvents lblComparar As Label
     Friend WithEvents lblActual As Label
@@ -2456,5 +2466,13 @@ Partial Class frmMenuPrincipal
     Friend WithEvents Label11 As Label
     Friend WithEvents Label8 As Label
     Friend WithEvents Label7 As Label
-    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents EditarUsuario As System.Windows.Forms.Button
+    Friend WithEvents SolemnoDataSet1 As CapaPresentacion.SolemnoDataSet
+    Friend WithEvents UsuariosBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents IDUsuarioDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents NombreCompletoDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents UsuarioDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents FechaCreacionDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents CargoDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents EstadoDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
 End Class

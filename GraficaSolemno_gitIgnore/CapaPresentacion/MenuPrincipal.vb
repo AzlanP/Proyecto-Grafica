@@ -5,12 +5,18 @@ Imports System.Windows.Forms.DataVisualization.Charting
 
 
 Public Class frmMenuPrincipal
+    Public Shared LocalUsuario As String
     Private Sub FrmMenu_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'SolemnoDataSet1.Usuarios' Puede moverla o quitarla según sea necesario.
+        Me.UsuariosTableAdapter.Fill(Me.SolemnoDataSet1.Usuarios)
         'TODO: esta línea de código carga datos en la tabla 'SolemnoDataSet.Usuarios' Puede moverla o quitarla según sea necesario.
         Me.UsuariosTableAdapter.Fill(Me.SolemnoDataSet.Usuarios)
         Dim validacion As New Validaciones
         validacion.Validar(Me)
         AbrirFormInPanel(frmPestañaTareas)
+        If Me.lblUsuario.Text.ToString().Length > 4 Then
+            LocalUsuario = Me.lblUsuario.Text
+        End If
 
     End Sub
     '---------------------------------------- CLIENTE  -----------------------------------------------------------
@@ -32,7 +38,7 @@ Public Class frmMenuPrincipal
         DGCliente.Columns(6).Visible = False
         DGCliente.Columns(7).Visible = False
         DGCliente.Columns(8).Visible = False
-        MostrarSinResultados(dt, DGPresupuesto)
+        MostrarSinResultados(dt, DGCliente)
 
         'If DGCliente.Visible Then
         '    If DGCliente.Rows.Count = 0 Then
@@ -51,6 +57,7 @@ Public Class frmMenuPrincipal
     Private Sub TabCliente_Enter(ByVal sender As Object, ByVal e As System.EventArgs) Handles TabCliente.Enter
         CargarGridCliente()
         cboBuscarCliente.SelectedIndex = 0
+
     End Sub
     Public Sub btnNuevoCliente_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNuevoCliente.Click
         Dim frmRegistrar As New RegistrarCliente
@@ -189,6 +196,7 @@ Public Class frmMenuPrincipal
         ID = DGClienteInactivos.Rows(DGClienteInactivos.CurrentCell.RowIndex).Cells("IDCliente").Value
         Dim frmRegistrar As New RegistrarCliente
         frmRegistrar.LlenarFormularioInactivo(ID)
+
         frmRegistrar.Disesabletext()
         frmRegistrar.ShowDialog()
     End Sub
@@ -480,7 +488,7 @@ Public Class frmMenuPrincipal
         If MessageBox.Show("Esta seguro de eliminar el pedido? ", "Confirmacion de eliminar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
             oCNPedido.EliminarPedido(ID)
             CargarGridPedidos()
-         
+
         End If
     End Sub
 
@@ -1239,47 +1247,110 @@ Public Class frmMenuPrincipal
 #Region "Pestaña usuarios"
     Dim oCNUsuario As New CNUsuario
     Dim IDUsuario As Integer
-    Public Sub MostrarUsuarios()
-        'oCNUsuario.BuscarUsuario()
+    Dim state As Boolean = True
+
+    Private Sub TabUsuario_Enter(sender As Object, e As System.EventArgs) Handles TabUsuario.Enter
+        cboFiltroUsuarios.SelectedIndex = 0
+    End Sub
+    Public Sub MostrarUsuarios(ByVal state As Boolean)
+        ToggleState(state)
+        If state Then
+            DGUsuario.DataSource = Me.UsuariosTableAdapter.GetUsuarioByEstado("Activo")
+        Else
+            DGUsuario.DataSource = Me.UsuariosTableAdapter.GetUsuarioByEstado("Inactivo")
+        End If
 
     End Sub
+    Public Sub ToggleState(ByVal state As Boolean)
+
+        If state = True Then
+            Label9.Text = "usuarios activos"
+            btnPapeleraUsuario.Text = "papelera"
+            btnEliminarUsuario.Visible = True
+            btnRestaurarUsuario.Visible = False
+        Else
+            Label9.Text = "usuarios inactivos"
+            btnPapeleraUsuario.Text = "volver"
+            btnEliminarUsuario.Visible = False
+            btnRestaurarUsuario.Visible = True
+
+        End If
+    End Sub
+    Private Sub btnRefreshUsuario_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRefreshUsuario.Click
+        MostrarUsuarios(True)
+    End Sub
+
     Private Sub btnNuevoUsuario_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNuevoUsuario.Click
         Dim regUser As New frmIngresaralSistema
         regUser.PanelRegistrar.Visible = True
         regUser.PanelLogin.Visible = False
         regUser.ShowDialog()
-        Me.UsuariosTableAdapter.Fill(Me.SolemnoDataSet.Usuarios)
+        MostrarUsuarios(True)
     End Sub
+
+
     Private Sub DGUsuario_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DGUsuario.CellClick
         If e.RowIndex >= 0 Then
             ID = DGUsuario.Rows(DGUsuario.CurrentCell.RowIndex).Cells(0).Value
         End If
     End Sub
 
-    Private Sub btnModificarUsuario_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnModificarUsuario.Click
-
-        ID = DGUsuario.Rows(DGUsuario.CurrentCell.RowIndex).Cells(0).Value
+    Private Sub DGUsuario_CellDoubleClick(sender As Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DGUsuario.CellDoubleClick
         Dim regUser As New frmIngresaralSistema
-
         regUser.PanelRegistrar.Visible = True
         regUser.PanelLogin.Visible = False
-        'regUser.cargardatos(ID)
+        regUser.Editando = True
+        regUser.EditAdmin = True
+        regUser.chkMostrarContraseña.Visible = True
+        regUser.CboCargo.Enabled = False
+        regUser.TxtNombreyApellido.Enabled = False
+
+        regUser.TxtConfirmarContraseña.Enabled = True
+        regUser.txtContraRegistrar.Enabled = True
+        regUser.llenarFormulario(ID)
         regUser.ShowDialog()
 
 
+        MostrarUsuarios(True)
+    End Sub
+    Private Sub btnModificarUsuario_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnModificarUsuario.Click
 
+        Dim regUser As New frmIngresaralSistema
+
+        regUser.llenarFormulario(ID)
+
+
+        regUser.PanelRegistrar.Visible = True
+        regUser.PanelLogin.Visible = False
+        regUser.Editando = True
+
+        regUser.chkMostrarContraseña.Visible = True
+        regUser.CboCargo.Enabled = True
+        regUser.TxtNombreyApellido.Enabled = False
+        regUser.EditAdmin = True
+        regUser.TxtConfirmarContraseña.Enabled = False
+        regUser.txtContraRegistrar.Enabled = False
+        regUser.chkMostrarContraseña.Enabled = False
+        regUser.ShowDialog()
+
+
+        MostrarUsuarios(True)
     End Sub
 
-    Private Sub btnVerUsuarioInactivo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnVerUsuarioInactivo.Click
 
-    End Sub
 
     Private Sub btnRestaurarUsuario_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRestaurarUsuario.Click
+        If MessageBox.Show("Esta seguro restaurar usuario? ", "Confirmacion restaurar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
+            oCNUsuario.EliminarUsuario(ID, "Activo")
 
+            MostrarUsuarios(True)
+        End If
     End Sub
 
     Private Sub btnPapeleraUsuario_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnPapeleraUsuario.Click
-
+        state = Not state
+        MostrarUsuarios(state)
+        ToggleState(state)
     End Sub
 
     Private Sub btnEliminarUsuario_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEliminarUsuario.Click
@@ -1288,17 +1359,22 @@ Public Class frmMenuPrincipal
             Me.UsuariosTableAdapter.Fill(Me.SolemnoDataSet.Usuarios)
         End If
 
-
+        MostrarUsuarios(True)
     End Sub
 
     Private Sub btnVerUsuario_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnVerUsuario.Click
         Dim regUser As New frmIngresaralSistema
         regUser.PanelRegistrar.Visible = True
         regUser.PanelLogin.Visible = False
-        regUser.ShowDialog()
-        Me.UsuariosTableAdapter.Fill(Me.SolemnoDataSet.Usuarios)
-    End Sub
+        regUser.llenarFormulario(ID)
+        regUser.Disesabletext()
 
+        regUser.ShowDialog()
+        MostrarUsuarios(True)
+    End Sub
+    'Private Sub btnVerUsuarioInactivo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnVerUsuarioInactivo.Click
+
+    'End Sub
     Private Sub btnBuscarUsuarioInactivos_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscarUsuarioInactivos.Click
 
     End Sub
@@ -1307,9 +1383,7 @@ Public Class frmMenuPrincipal
 
     End Sub
 
-    Private Sub btnRefreshUsuario_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRefreshUsuario.Click
-        Me.UsuariosTableAdapter.Fill(Me.SolemnoDataSet.Usuarios)
-    End Sub
+
 #End Region
 
 
@@ -1432,4 +1506,23 @@ Public Class frmMenuPrincipal
         End If
     End Sub
 #End Region
+
+
+
+    Private Sub EditarUsuario_Click(sender As System.Object, e As System.EventArgs) Handles EditarUsuario.Click
+        Dim regUser As New frmIngresaralSistema
+        If (lblUsuario.Tag IsNot Nothing) Then
+            regUser.llenarFormulario(lblUsuario.Tag)
+            regUser.PanelRegistrar.Visible = True
+            regUser.PanelLogin.Visible = False
+            regUser.Editando = True
+            regUser.chkMostrarContraseña.Visible = True
+            regUser.CboCargo.Enabled = False
+            regUser.TxtNombreyApellido.Enabled = False
+            regUser.TxtConfirmarContraseña.Enabled = True
+            regUser.txtContraRegistrar.Enabled = True
+            regUser.ShowDialog()
+        End If
+
+    End Sub
 End Class
