@@ -10,7 +10,12 @@ opción 1)
 
 opción 2)
 1) Ingresa a tu cuanta de github 
-2)![image](https://user-images.githubusercontent.com/38229864/193368785-819183ec-abf1-4b16-b1ae-fee6a4522a61.png)
-3)![image](https://user-images.githubusercontent.com/38229864/193368878-b444543c-5a82-4d75-8d78-709e7416d3a9.png)
-seleccionen el repositorio y den clonar
+2)
+
+![image](https://user-images.githubusercontent.com/38229864/193368785-819183ec-abf1-4b16-b1ae-fee6a4522a61.png)
+
+3)seleccionen el repositorio y den clonar
+
+![image](https://user-images.githubusercontent.com/38229864/193368878-b444543c-5a82-4d75-8d78-709e7416d3a9.png)
+
 4) continuen lo mismo que la opción 1) punto 3 en adelante
