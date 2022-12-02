@@ -105,13 +105,12 @@ Public Class Validaciones
     End Sub
     Public Function ValidarDNIoCUIT(ByVal dni As String, ByVal cuit As String) As Boolean
         If dni = "" And cuit = "" Then
-            MsgBox("falta un dni o cuit")
+            MsgBox("Debe ingresar el DNI o CUIT para continuar")
             Return False
         ElseIf (dni.Length > 7 And cuit = "") Or (cuit.Length > 7 And dni = "") Or (dni.Length > 7 And cuit.Length > 7) Then
             Return True
         Else
             If cuit.Length < 7 And dni = "" Then
-
                 MsgBox("El CUIT no puede ser menor de 7 caracteres")
                 Return False
             ElseIf dni.Length < 7 And cuit = "" Then

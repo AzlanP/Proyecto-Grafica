@@ -106,7 +106,7 @@ Partial Class RegistrarCliente
         Me.txtCuit.MaxLength = 14
         Me.txtCuit.Name = "txtCuit"
         Me.txtCuit.Size = New System.Drawing.Size(203, 21)
-        Me.txtCuit.TabIndex = 116
+        Me.txtCuit.TabIndex = 3
         Me.txtCuit.Tag = "3"
         '
         'btnGuardar
@@ -117,7 +117,7 @@ Partial Class RegistrarCliente
         Me.btnGuardar.Location = New System.Drawing.Point(206, 386)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(137, 33)
-        Me.btnGuardar.TabIndex = 115
+        Me.btnGuardar.TabIndex = 16
         Me.btnGuardar.Text = "Guardar cambios"
         Me.btnGuardar.UseVisualStyleBackColor = False
         Me.btnGuardar.Visible = False
@@ -130,6 +130,7 @@ Partial Class RegistrarCliente
         Me.lblID.Name = "lblID"
         Me.lblID.Size = New System.Drawing.Size(0, 15)
         Me.lblID.TabIndex = 114
+        Me.lblID.Visible = False
         '
         'lblIDinfo
         '
@@ -140,6 +141,7 @@ Partial Class RegistrarCliente
         Me.lblIDinfo.Size = New System.Drawing.Size(21, 15)
         Me.lblIDinfo.TabIndex = 113
         Me.lblIDinfo.Text = "ID:"
+        Me.lblIDinfo.Visible = False
         '
         'btnCancelar
         '
@@ -149,12 +151,13 @@ Partial Class RegistrarCliente
         Me.btnCancelar.Location = New System.Drawing.Point(386, 386)
         Me.btnCancelar.Name = "btnCancelar"
         Me.btnCancelar.Size = New System.Drawing.Size(182, 33)
-        Me.btnCancelar.TabIndex = 112
+        Me.btnCancelar.TabIndex = 20
         Me.btnCancelar.Text = "Cancelar"
         Me.btnCancelar.UseVisualStyleBackColor = False
         '
         'dpFecha
         '
+        Me.dpFecha.Enabled = False
         Me.dpFecha.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dpFecha.Location = New System.Drawing.Point(488, 12)
         Me.dpFecha.Name = "dpFecha"
@@ -173,7 +176,7 @@ Partial Class RegistrarCliente
         Me.cbIVA.Location = New System.Drawing.Point(140, 228)
         Me.cbIVA.Name = "cbIVA"
         Me.cbIVA.Size = New System.Drawing.Size(205, 23)
-        Me.cbIVA.TabIndex = 110
+        Me.cbIVA.TabIndex = 5
         Me.cbIVA.ValueMember = "IDIVA"
         '
         'CondIVABindingSource
@@ -207,7 +210,7 @@ Partial Class RegistrarCliente
         Me.cboProvincia.Location = New System.Drawing.Point(489, 130)
         Me.cboProvincia.Name = "cboProvincia"
         Me.cboProvincia.Size = New System.Drawing.Size(205, 23)
-        Me.cboProvincia.TabIndex = 106
+        Me.cboProvincia.TabIndex = 9
         Me.cboProvincia.ValueMember = "IDProvincia"
         '
         'ProvinciasBindingSource
@@ -220,7 +223,7 @@ Partial Class RegistrarCliente
         Me.txtCP.Location = New System.Drawing.Point(489, 201)
         Me.txtCP.Name = "txtCP"
         Me.txtCP.Size = New System.Drawing.Size(203, 21)
-        Me.txtCP.TabIndex = 104
+        Me.txtCP.TabIndex = 11
         Me.txtCP.Tag = "3"
         '
         'txtNumeracion
@@ -229,7 +232,7 @@ Partial Class RegistrarCliente
         Me.txtNumeracion.MaxLength = 10
         Me.txtNumeracion.Name = "txtNumeracion"
         Me.txtNumeracion.Size = New System.Drawing.Size(38, 21)
-        Me.txtNumeracion.TabIndex = 103
+        Me.txtNumeracion.TabIndex = 14
         Me.txtNumeracion.Tag = "2"
         '
         'txtCalle
@@ -238,7 +241,7 @@ Partial Class RegistrarCliente
         Me.txtCalle.MaxLength = 25
         Me.txtCalle.Name = "txtCalle"
         Me.txtCalle.Size = New System.Drawing.Size(205, 21)
-        Me.txtCalle.TabIndex = 102
+        Me.txtCalle.TabIndex = 13
         Me.txtCalle.Tag = "3"
         '
         'Label19
@@ -249,7 +252,7 @@ Partial Class RegistrarCliente
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(82, 15)
         Me.Label19.TabIndex = 101
-        Me.Label19.Text = "Numeracion :"
+        Me.Label19.Text = "Numeración :"
         '
         'txtBarrio
         '
@@ -257,7 +260,7 @@ Partial Class RegistrarCliente
         Me.txtBarrio.MaxLength = 25
         Me.txtBarrio.Name = "txtBarrio"
         Me.txtBarrio.Size = New System.Drawing.Size(203, 21)
-        Me.txtBarrio.TabIndex = 100
+        Me.txtBarrio.TabIndex = 12
         Me.txtBarrio.Tag = "3"
         '
         'Label18
@@ -326,7 +329,7 @@ Partial Class RegistrarCliente
         Me.txtNombre.MaxLength = 20
         Me.txtNombre.Name = "txtNombre"
         Me.txtNombre.Size = New System.Drawing.Size(203, 21)
-        Me.txtNombre.TabIndex = 91
+        Me.txtNombre.TabIndex = 1
         Me.txtNombre.Tag = "3"
         '
         'txtDNI
@@ -335,7 +338,7 @@ Partial Class RegistrarCliente
         Me.txtDNI.MaxLength = 8
         Me.txtDNI.Name = "txtDNI"
         Me.txtDNI.Size = New System.Drawing.Size(203, 21)
-        Me.txtDNI.TabIndex = 90
+        Me.txtDNI.TabIndex = 4
         Me.txtDNI.Tag = "3"
         '
         'txtEmail
@@ -343,7 +346,7 @@ Partial Class RegistrarCliente
         Me.txtEmail.Location = New System.Drawing.Point(140, 332)
         Me.txtEmail.Name = "txtEmail"
         Me.txtEmail.Size = New System.Drawing.Size(203, 21)
-        Me.txtEmail.TabIndex = 89
+        Me.txtEmail.TabIndex = 8
         Me.txtEmail.Tag = "4"
         '
         'txtCel
@@ -352,7 +355,7 @@ Partial Class RegistrarCliente
         Me.txtCel.MaxLength = 20
         Me.txtCel.Name = "txtCel"
         Me.txtCel.Size = New System.Drawing.Size(203, 21)
-        Me.txtCel.TabIndex = 88
+        Me.txtCel.TabIndex = 7
         Me.txtCel.Tag = "2"
         '
         'txtTel
@@ -361,7 +364,7 @@ Partial Class RegistrarCliente
         Me.txtTel.MaxLength = 20
         Me.txtTel.Name = "txtTel"
         Me.txtTel.Size = New System.Drawing.Size(203, 21)
-        Me.txtTel.TabIndex = 87
+        Me.txtTel.TabIndex = 6
         Me.txtTel.Tag = "2"
         '
         'txtApellido
@@ -370,7 +373,7 @@ Partial Class RegistrarCliente
         Me.txtApellido.MaxLength = 20
         Me.txtApellido.Name = "txtApellido"
         Me.txtApellido.Size = New System.Drawing.Size(203, 21)
-        Me.txtApellido.TabIndex = 86
+        Me.txtApellido.TabIndex = 2
         Me.txtApellido.Tag = "1"
         '
         'Label6
@@ -431,7 +434,7 @@ Partial Class RegistrarCliente
         Me.btnRegistrar.Location = New System.Drawing.Point(206, 386)
         Me.btnRegistrar.Name = "btnRegistrar"
         Me.btnRegistrar.Size = New System.Drawing.Size(137, 33)
-        Me.btnRegistrar.TabIndex = 80
+        Me.btnRegistrar.TabIndex = 18
         Me.btnRegistrar.Text = "Registrar Cliente"
         Me.btnRegistrar.UseVisualStyleBackColor = False
         '
@@ -441,7 +444,7 @@ Partial Class RegistrarCliente
         Me.txtDpto.MaxLength = 10
         Me.txtDpto.Name = "txtDpto"
         Me.txtDpto.Size = New System.Drawing.Size(45, 21)
-        Me.txtDpto.TabIndex = 122
+        Me.txtDpto.TabIndex = 15
         Me.txtDpto.Tag = "3"
         '
         'Label14
@@ -466,7 +469,7 @@ Partial Class RegistrarCliente
         Me.cboLocalidad.Location = New System.Drawing.Point(488, 165)
         Me.cboLocalidad.Name = "cboLocalidad"
         Me.cboLocalidad.Size = New System.Drawing.Size(205, 23)
-        Me.cboLocalidad.TabIndex = 123
+        Me.cboLocalidad.TabIndex = 10
         '
         'CondIVATableAdapter
         '

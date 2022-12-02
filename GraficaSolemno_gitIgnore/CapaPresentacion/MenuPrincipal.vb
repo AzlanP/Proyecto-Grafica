@@ -14,9 +14,9 @@ Public Class frmMenuPrincipal
         Dim validacion As New Validaciones
         validacion.Validar(Me)
         AbrirFormInPanel(frmPestañaTareas)
-        If Me.lblUsuario.Text.ToString().Length > 4 Then
-            LocalUsuario = Me.lblUsuario.Text
-        End If
+        'If Me.lblUsuario.Text.ToString().Length > 4 Then
+        '    LocalUsuario = Me.lblUsuario.Text
+        'End If
 
     End Sub
     '---------------------------------------- CLIENTE  -----------------------------------------------------------
@@ -91,7 +91,9 @@ Public Class frmMenuPrincipal
         ID = DGCliente.Rows(DGCliente.CurrentCell.RowIndex).Cells("IDCliente").Value
         Dim frmRegistrar As New RegistrarCliente
         frmRegistrar.LlenarFormulario(ID)
-
+        frmRegistrar.btnGuardar.Visible = False
+        frmRegistrar.btnRegistrar.Visible = False
+        frmRegistrar.btnCancelar.Visible = False
         frmRegistrar.Disesabletext()
 
         frmRegistrar.ShowDialog()
@@ -1558,5 +1560,11 @@ Public Class frmMenuPrincipal
 
     End Sub
 
+    Private Sub frmMenuPrincipal_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        Application.Exit()
+    End Sub
 
+    Private Sub cboFiltroEstadoPresupuesto_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboFiltroEstadoPresupuesto.SelectedIndexChanged
+
+    End Sub
 End Class

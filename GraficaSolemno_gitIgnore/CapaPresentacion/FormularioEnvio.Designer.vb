@@ -56,15 +56,19 @@ Partial Class FormularioEnvio
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.cboTransporte = New System.Windows.Forms.ComboBox()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         CType(Me.ProvinciasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SolemnoDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox1.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'btnCancelarFormEnvio
         '
         Me.btnCancelarFormEnvio.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnCancelarFormEnvio.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnCancelarFormEnvio.Location = New System.Drawing.Point(239, 349)
+        Me.btnCancelarFormEnvio.Location = New System.Drawing.Point(221, 406)
         Me.btnCancelarFormEnvio.Name = "btnCancelarFormEnvio"
         Me.btnCancelarFormEnvio.Size = New System.Drawing.Size(84, 27)
         Me.btnCancelarFormEnvio.TabIndex = 21
@@ -75,7 +79,7 @@ Partial Class FormularioEnvio
         '
         Me.btnGuardarNuevo.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnGuardarNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnGuardarNuevo.Location = New System.Drawing.Point(123, 349)
+        Me.btnGuardarNuevo.Location = New System.Drawing.Point(110, 406)
         Me.btnGuardarNuevo.Name = "btnGuardarNuevo"
         Me.btnGuardarNuevo.Size = New System.Drawing.Size(99, 27)
         Me.btnGuardarNuevo.TabIndex = 20
@@ -86,7 +90,7 @@ Partial Class FormularioEnvio
         '
         Me.lblPrecio.AutoSize = True
         Me.lblPrecio.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPrecio.Location = New System.Drawing.Point(513, 109)
+        Me.lblPrecio.Location = New System.Drawing.Point(761, 91)
         Me.lblPrecio.Name = "lblPrecio"
         Me.lblPrecio.Size = New System.Drawing.Size(86, 13)
         Me.lblPrecio.TabIndex = 18
@@ -94,7 +98,7 @@ Partial Class FormularioEnvio
         '
         'txtNroSeguimiento
         '
-        Me.txtNroSeguimiento.Location = New System.Drawing.Point(149, 88)
+        Me.txtNroSeguimiento.Location = New System.Drawing.Point(117, 100)
         Me.txtNroSeguimiento.MaxLength = 25
         Me.txtNroSeguimiento.Name = "txtNroSeguimiento"
         Me.txtNroSeguimiento.Size = New System.Drawing.Size(170, 20)
@@ -105,7 +109,7 @@ Partial Class FormularioEnvio
         '
         Me.lblNseguimiento.AutoSize = True
         Me.lblNseguimiento.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNseguimiento.Location = New System.Drawing.Point(60, 88)
+        Me.lblNseguimiento.Location = New System.Drawing.Point(28, 100)
         Me.lblNseguimiento.Name = "lblNseguimiento"
         Me.lblNseguimiento.Size = New System.Drawing.Size(83, 13)
         Me.lblNseguimiento.TabIndex = 16
@@ -114,7 +118,7 @@ Partial Class FormularioEnvio
         'dtpFechaDespacho
         '
         Me.dtpFechaDespacho.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpFechaDespacho.Location = New System.Drawing.Point(149, 51)
+        Me.dtpFechaDespacho.Location = New System.Drawing.Point(117, 63)
         Me.dtpFechaDespacho.MinDate = New Date(2019, 11, 7, 0, 0, 0, 0)
         Me.dtpFechaDespacho.Name = "dtpFechaDespacho"
         Me.dtpFechaDespacho.Size = New System.Drawing.Size(170, 20)
@@ -124,7 +128,7 @@ Partial Class FormularioEnvio
         '
         Me.lblFechaDespacho.AutoSize = True
         Me.lblFechaDespacho.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblFechaDespacho.Location = New System.Drawing.Point(38, 56)
+        Me.lblFechaDespacho.Location = New System.Drawing.Point(6, 68)
         Me.lblFechaDespacho.Name = "lblFechaDespacho"
         Me.lblFechaDespacho.Size = New System.Drawing.Size(105, 13)
         Me.lblFechaDespacho.TabIndex = 14
@@ -134,7 +138,7 @@ Partial Class FormularioEnvio
         '
         Me.lblTransporte.AutoSize = True
         Me.lblTransporte.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTransporte.Location = New System.Drawing.Point(79, 16)
+        Me.lblTransporte.Location = New System.Drawing.Point(47, 28)
         Me.lblTransporte.Name = "lblTransporte"
         Me.lblTransporte.Size = New System.Drawing.Size(64, 13)
         Me.lblTransporte.TabIndex = 12
@@ -142,7 +146,7 @@ Partial Class FormularioEnvio
         '
         'txtDpto
         '
-        Me.txtDpto.Location = New System.Drawing.Point(176, 298)
+        Me.txtDpto.Location = New System.Drawing.Point(125, 183)
         Me.txtDpto.MaxLength = 25
         Me.txtDpto.Name = "txtDpto"
         Me.txtDpto.Size = New System.Drawing.Size(57, 20)
@@ -153,7 +157,7 @@ Partial Class FormularioEnvio
         '
         Me.lblDpto.AutoSize = True
         Me.lblDpto.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDpto.Location = New System.Drawing.Point(186, 280)
+        Me.lblDpto.Location = New System.Drawing.Point(135, 165)
         Me.lblDpto.Name = "lblDpto"
         Me.lblDpto.Size = New System.Drawing.Size(36, 13)
         Me.lblDpto.TabIndex = 135
@@ -163,7 +167,7 @@ Partial Class FormularioEnvio
         '
         Me.lblDomicilio.AutoSize = True
         Me.lblDomicilio.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDomicilio.Location = New System.Drawing.Point(88, 241)
+        Me.lblDomicilio.Location = New System.Drawing.Point(37, 126)
         Me.lblDomicilio.Name = "lblDomicilio"
         Me.lblDomicilio.Size = New System.Drawing.Size(55, 13)
         Me.lblDomicilio.TabIndex = 134
@@ -175,7 +179,7 @@ Partial Class FormularioEnvio
         Me.cboProvincia.DisplayMember = "Nombre"
         Me.cboProvincia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboProvincia.FormattingEnabled = True
-        Me.cboProvincia.Location = New System.Drawing.Point(149, 134)
+        Me.cboProvincia.Location = New System.Drawing.Point(98, 19)
         Me.cboProvincia.MaxLength = 25
         Me.cboProvincia.Name = "cboProvincia"
         Me.cboProvincia.Size = New System.Drawing.Size(170, 21)
@@ -194,7 +198,7 @@ Partial Class FormularioEnvio
         '
         'txtDomicilio
         '
-        Me.txtDomicilio.Location = New System.Drawing.Point(149, 243)
+        Me.txtDomicilio.Location = New System.Drawing.Point(98, 128)
         Me.txtDomicilio.MaxLength = 25
         Me.txtDomicilio.Name = "txtDomicilio"
         Me.txtDomicilio.Size = New System.Drawing.Size(170, 20)
@@ -203,7 +207,7 @@ Partial Class FormularioEnvio
         '
         'txtNroCalle
         '
-        Me.txtNroCalle.Location = New System.Drawing.Point(91, 298)
+        Me.txtNroCalle.Location = New System.Drawing.Point(40, 183)
         Me.txtNroCalle.MaxLength = 25
         Me.txtNroCalle.Name = "txtNroCalle"
         Me.txtNroCalle.Size = New System.Drawing.Size(57, 20)
@@ -214,15 +218,15 @@ Partial Class FormularioEnvio
         '
         Me.lblNumeroCalle.AutoSize = True
         Me.lblNumeroCalle.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNumeroCalle.Location = New System.Drawing.Point(98, 280)
+        Me.lblNumeroCalle.Location = New System.Drawing.Point(30, 165)
         Me.lblNumeroCalle.Name = "lblNumeroCalle"
-        Me.lblNumeroCalle.Size = New System.Drawing.Size(50, 13)
+        Me.lblNumeroCalle.Size = New System.Drawing.Size(70, 13)
         Me.lblNumeroCalle.TabIndex = 129
-        Me.lblNumeroCalle.Text = "Numero :"
+        Me.lblNumeroCalle.Text = "Numeración :"
         '
         'txtBarrio
         '
-        Me.txtBarrio.Location = New System.Drawing.Point(149, 208)
+        Me.txtBarrio.Location = New System.Drawing.Point(98, 93)
         Me.txtBarrio.MaxLength = 25
         Me.txtBarrio.Name = "txtBarrio"
         Me.txtBarrio.Size = New System.Drawing.Size(170, 20)
@@ -233,7 +237,7 @@ Partial Class FormularioEnvio
         '
         Me.lblBarrio.AutoSize = True
         Me.lblBarrio.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblBarrio.Location = New System.Drawing.Point(103, 206)
+        Me.lblBarrio.Location = New System.Drawing.Point(52, 91)
         Me.lblBarrio.Name = "lblBarrio"
         Me.lblBarrio.Size = New System.Drawing.Size(40, 13)
         Me.lblBarrio.TabIndex = 126
@@ -243,7 +247,7 @@ Partial Class FormularioEnvio
         '
         Me.lblProvincia.AutoSize = True
         Me.lblProvincia.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblProvincia.Location = New System.Drawing.Point(86, 136)
+        Me.lblProvincia.Location = New System.Drawing.Point(35, 21)
         Me.lblProvincia.Name = "lblProvincia"
         Me.lblProvincia.Size = New System.Drawing.Size(57, 13)
         Me.lblProvincia.TabIndex = 124
@@ -253,7 +257,7 @@ Partial Class FormularioEnvio
         '
         Me.lblLocalidad.AutoSize = True
         Me.lblLocalidad.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblLocalidad.Location = New System.Drawing.Point(84, 171)
+        Me.lblLocalidad.Location = New System.Drawing.Point(33, 56)
         Me.lblLocalidad.Name = "lblLocalidad"
         Me.lblLocalidad.Size = New System.Drawing.Size(59, 13)
         Me.lblLocalidad.TabIndex = 123
@@ -266,7 +270,7 @@ Partial Class FormularioEnvio
         'cboLocalidad
         '
         Me.cboLocalidad.FormattingEnabled = True
-        Me.cboLocalidad.Location = New System.Drawing.Point(149, 171)
+        Me.cboLocalidad.Location = New System.Drawing.Point(98, 56)
         Me.cboLocalidad.MaxLength = 25
         Me.cboLocalidad.Name = "cboLocalidad"
         Me.cboLocalidad.Size = New System.Drawing.Size(170, 21)
@@ -274,7 +278,7 @@ Partial Class FormularioEnvio
         '
         'txtCP
         '
-        Me.txtCP.Location = New System.Drawing.Point(266, 298)
+        Me.txtCP.Location = New System.Drawing.Point(215, 183)
         Me.txtCP.MaxLength = 25
         Me.txtCP.Name = "txtCP"
         Me.txtCP.Size = New System.Drawing.Size(57, 20)
@@ -285,7 +289,7 @@ Partial Class FormularioEnvio
         '
         Me.lblcp.AutoSize = True
         Me.lblcp.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblcp.Location = New System.Drawing.Point(279, 280)
+        Me.lblcp.Location = New System.Drawing.Point(228, 165)
         Me.lblcp.Name = "lblcp"
         Me.lblcp.Size = New System.Drawing.Size(24, 13)
         Me.lblcp.TabIndex = 139
@@ -295,16 +299,16 @@ Partial Class FormularioEnvio
         '
         Me.ValidacionPrecio.AutoSize = True
         Me.ValidacionPrecio.labeltext = Nothing
-        Me.ValidacionPrecio.Location = New System.Drawing.Point(492, 134)
+        Me.ValidacionPrecio.Location = New System.Drawing.Point(740, 116)
         Me.ValidacionPrecio.Margin = New System.Windows.Forms.Padding(0)
         Me.ValidacionPrecio.Name = "ValidacionPrecio"
         Me.ValidacionPrecio.Size = New System.Drawing.Size(131, 35)
         Me.ValidacionPrecio.TabIndex = 140
-        Me.ValidacionPrecio.valor = 0.0R
+        Me.ValidacionPrecio.valor = 0R
         '
         'txtTransporte
         '
-        Me.txtTransporte.Location = New System.Drawing.Point(149, 13)
+        Me.txtTransporte.Location = New System.Drawing.Point(117, 25)
         Me.txtTransporte.MaxLength = 25
         Me.txtTransporte.Name = "txtTransporte"
         Me.txtTransporte.Size = New System.Drawing.Size(55, 20)
@@ -317,7 +321,7 @@ Partial Class FormularioEnvio
         Me.required.AutoSize = True
         Me.required.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.required.ForeColor = System.Drawing.Color.Red
-        Me.required.Location = New System.Drawing.Point(61, 16)
+        Me.required.Location = New System.Drawing.Point(29, 28)
         Me.required.Margin = New System.Windows.Forms.Padding(0)
         Me.required.Name = "required"
         Me.required.Size = New System.Drawing.Size(15, 20)
@@ -329,7 +333,7 @@ Partial Class FormularioEnvio
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.Red
-        Me.Label1.Location = New System.Drawing.Point(69, 132)
+        Me.Label1.Location = New System.Drawing.Point(18, 17)
         Me.Label1.Margin = New System.Windows.Forms.Padding(0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(15, 20)
@@ -341,7 +345,7 @@ Partial Class FormularioEnvio
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.Red
-        Me.Label2.Location = New System.Drawing.Point(70, 241)
+        Me.Label2.Location = New System.Drawing.Point(19, 126)
         Me.Label2.Margin = New System.Windows.Forms.Padding(0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(15, 20)
@@ -353,7 +357,7 @@ Partial Class FormularioEnvio
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.Red
-        Me.Label3.Location = New System.Drawing.Point(69, 169)
+        Me.Label3.Location = New System.Drawing.Point(18, 54)
         Me.Label3.Margin = New System.Windows.Forms.Padding(0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(15, 20)
@@ -366,51 +370,75 @@ Partial Class FormularioEnvio
         Me.cboTransporte.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboTransporte.FormattingEnabled = True
         Me.cboTransporte.Items.AddRange(New Object() {"Correo Argentino", "Correo OCA", "Andreani", "Via cargo", "Buspack", "Buses Lep", "Integral Express", "Crusero del Norte"})
-        Me.cboTransporte.Location = New System.Drawing.Point(149, 13)
+        Me.cboTransporte.Location = New System.Drawing.Point(117, 25)
         Me.cboTransporte.Name = "cboTransporte"
         Me.cboTransporte.Size = New System.Drawing.Size(170, 21)
         Me.cboTransporte.TabIndex = 150
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.required)
+        Me.GroupBox1.Controls.Add(Me.cboTransporte)
+        Me.GroupBox1.Controls.Add(Me.lblTransporte)
+        Me.GroupBox1.Controls.Add(Me.lblFechaDespacho)
+        Me.GroupBox1.Controls.Add(Me.dtpFechaDespacho)
+        Me.GroupBox1.Controls.Add(Me.lblNseguimiento)
+        Me.GroupBox1.Controls.Add(Me.txtNroSeguimiento)
+        Me.GroupBox1.Controls.Add(Me.txtTransporte)
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(293, 149)
+        Me.GroupBox1.TabIndex = 151
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Información de Transporte"
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.cboProvincia)
+        Me.GroupBox2.Controls.Add(Me.lblLocalidad)
+        Me.GroupBox2.Controls.Add(Me.Label3)
+        Me.GroupBox2.Controls.Add(Me.lblProvincia)
+        Me.GroupBox2.Controls.Add(Me.Label2)
+        Me.GroupBox2.Controls.Add(Me.lblBarrio)
+        Me.GroupBox2.Controls.Add(Me.Label1)
+        Me.GroupBox2.Controls.Add(Me.txtBarrio)
+        Me.GroupBox2.Controls.Add(Me.lblNumeroCalle)
+        Me.GroupBox2.Controls.Add(Me.lblcp)
+        Me.GroupBox2.Controls.Add(Me.txtNroCalle)
+        Me.GroupBox2.Controls.Add(Me.txtCP)
+        Me.GroupBox2.Controls.Add(Me.txtDomicilio)
+        Me.GroupBox2.Controls.Add(Me.cboLocalidad)
+        Me.GroupBox2.Controls.Add(Me.lblDomicilio)
+        Me.GroupBox2.Controls.Add(Me.txtDpto)
+        Me.GroupBox2.Controls.Add(Me.lblDpto)
+        Me.GroupBox2.Location = New System.Drawing.Point(12, 163)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(293, 226)
+        Me.GroupBox2.TabIndex = 152
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Dirección de Envio"
         '
         'FormularioEnvio
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(376, 392)
-        Me.Controls.Add(Me.cboTransporte)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.required)
-        Me.Controls.Add(Me.txtTransporte)
+        Me.ClientSize = New System.Drawing.Size(320, 448)
+        Me.Controls.Add(Me.GroupBox2)
+        Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.ValidacionPrecio)
-        Me.Controls.Add(Me.lblcp)
-        Me.Controls.Add(Me.txtCP)
-        Me.Controls.Add(Me.cboLocalidad)
-        Me.Controls.Add(Me.txtDpto)
-        Me.Controls.Add(Me.lblDpto)
-        Me.Controls.Add(Me.lblDomicilio)
-        Me.Controls.Add(Me.cboProvincia)
-        Me.Controls.Add(Me.txtDomicilio)
-        Me.Controls.Add(Me.txtNroCalle)
-        Me.Controls.Add(Me.lblNumeroCalle)
-        Me.Controls.Add(Me.txtBarrio)
-        Me.Controls.Add(Me.lblBarrio)
-        Me.Controls.Add(Me.lblProvincia)
-        Me.Controls.Add(Me.lblLocalidad)
         Me.Controls.Add(Me.btnCancelarFormEnvio)
         Me.Controls.Add(Me.btnGuardarNuevo)
         Me.Controls.Add(Me.lblPrecio)
-        Me.Controls.Add(Me.txtNroSeguimiento)
-        Me.Controls.Add(Me.lblNseguimiento)
-        Me.Controls.Add(Me.dtpFechaDespacho)
-        Me.Controls.Add(Me.lblFechaDespacho)
-        Me.Controls.Add(Me.lblTransporte)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FormularioEnvio"
         Me.Text = "FormularioEnvio"
         CType(Me.ProvinciasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SolemnoDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -447,4 +475,6 @@ Partial Class FormularioEnvio
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents cboTransporte As System.Windows.Forms.ComboBox
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents GroupBox2 As GroupBox
 End Class

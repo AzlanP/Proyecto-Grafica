@@ -166,6 +166,13 @@ Public Class RegistrarCliente
         Me.ProvinciasTableAdapter.Fill(Me.SolemnoDataSet.Provincias)
         cboProvincia.SelectedIndex = 0
 
+
+        cboProvincia.SelectedValue = 5
+        cboLocalidad.SelectedValue = 22225
+
+
+
+
     End Sub
 
     '------------------------------------------------------------------------------------------------------------

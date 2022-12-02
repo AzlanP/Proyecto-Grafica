@@ -129,25 +129,25 @@ Public Class CDPedidos
             oCDConexion.Desconectar()
         End Try
     End Sub
-    Public Sub EliminarPedido(ByVal IDPedido As Integer)
-        oCDConexion.Conectar()
-        Try
-            'Dim instruccionsql = "DELETE FROM Pedidos WHERE (IDPedido=@IDPedido)"
+    'Public Sub EliminarPedido(ByVal IDPedido As Integer)
+    '    oCDConexion.Conectar()
+    '    Try
+    '        'Dim instruccionsql = "DELETE FROM Pedidos WHERE (IDPedido=@IDPedido)"
 
-            Dim InstruccionSQL = "DELETE FROM Pedidos WHERE (IDPedido=@IDPedido); DELETE FROM ItemsPorPedido where (IDPedido=@IDPedido); DELETE FROM DetallesEnvio where (IDPedido=@IDPedido);"
+    '        Dim InstruccionSQL = "DELETE FROM Pedidos WHERE (IDPedido=@IDPedido); DELETE FROM ItemsPorPedido where (IDPedido=@IDPedido); DELETE FROM DetallesEnvio where (IDPedido=@IDPedido);"
 
-            Dim comando As New SQLiteCommand(instruccionsql, oCDConexion.con)
-            comando.Parameters.Add("@IDPedido", SqlDbType.Int).Value = IDPedido
-            comando.ExecuteNonQuery()
+    '        Dim comando As New SQLiteCommand(instruccionsql, oCDConexion.con)
+    '        comando.Parameters.Add("@IDPedido", SqlDbType.Int).Value = IDPedido
+    '        comando.ExecuteNonQuery()
 
-            MsgBox("El pedido ha sido eliminado con exito.", , "Eliminar")
+    '        MsgBox("El pedido ha sido eliminado con exito.", , "Eliminar")
 
-        Catch ex As Exception
-            Throw New Exception("No se pudo eliminar:" & ex.Message)
-        Finally
-            oCDConexion.Desconectar()
-        End Try
-    End Sub
+    '    Catch ex As Exception
+    '        Throw New Exception("No se pudo eliminar:" & ex.Message)
+    '    Finally
+    '        oCDConexion.Desconectar()
+    '    End Try
+    'End Sub
     Public Sub CancelarPresupuesto(ByVal IDPedido As Integer, ByVal FechaCancelacion As Date)
         oCDConexion.Conectar()
         Try
@@ -159,8 +159,28 @@ Public Class CDPedidos
                 .Add("@FechaCancelacion", SqlDbType.VarChar).Value = FormatISO8601(FechaCancelacion)
             End With
             comando.ExecuteNonQuery()
+            MsgBox("El presupuesto ha sido cancelado con exito.", , "Cancelar presupuesto")
         Catch ex As Exception
             Throw New Exception("Error al cancelar el presupuesto.")
+        Finally
+            oCDConexion.Desconectar()
+        End Try
+    End Sub
+    Public Sub EliminarPedido(ByVal IDPedido As Integer)
+        oCDConexion.Conectar()
+        'agregar motivo de eliminación o cancelación
+        Try
+            Dim instruccionsql = "UPDATE Pedidos SET  Estado=@Estado, FechaCancelacion=@FechaCancelacion where  IDPedido=@IDPedido"
+            Dim comando As New SQLiteCommand(instruccionsql, oCDConexion.con)
+            With comando.Parameters
+                .Add("@IDPedido", SqlDbType.Int).Value = IDPedido
+                .Add("@Estado", SqlDbType.VarChar).Value = "Pedido Eliminado"
+                .Add("@FechaCancelacion", SqlDbType.VarChar).Value = FormatISO8601(DateTime.Now)
+            End With
+            comando.ExecuteNonQuery()
+            MsgBox("El pedido ha sido eliminado con exito.", , "Eliminar")
+        Catch ex As Exception
+            Throw New Exception("Error al eliminar el pedido.")
         Finally
             oCDConexion.Desconectar()
         End Try
@@ -170,7 +190,8 @@ Public Class CDPedidos
         oCDConexion.Conectar()
         Try
 
-            Dim instruccionsql = "UPDATE Pedidos SET  Estado='Cancelado', FechaCancelacion=@FechaCancelacion where (@FechaCancelacion > pedidos.PresupuestoVencimiento)  and pedidos.Estado= 'Presupuesto Cancelado'"
+            'Dim instruccionsql = "UPDATE Pedidos SET  Estado='Cancelado', FechaCancelacion=@FechaCancelacion where (@FechaCancelacion > pedidos.PresupuestoVencimiento)  and pedidos.Estado= 'Presupuesto Cancelado'"
+            Dim instruccionsql = "UPDATE Pedidos SET  Estado='Seña Expirada', FechaCancelacion=@FechaCancelacion where (@FechaCancelacion > pedidos.PresupuestoVencimiento)"
             Dim comando As New SQLiteCommand(instruccionsql, oCDConexion.con)
             Dim hoy As String = FormatISO8601(DateTime.Now)
             comando.Parameters.Add("@FechaCancelacion", SqlDbType.VarChar).Value = hoy
@@ -291,9 +312,11 @@ Public Class CDPedidos
             End If
 
             If pEstado = "Todos" Or pEstado = "" Then
-                EstadoReplace = "(pedidos.Estado == 'Presupuesto' or pedidos.Estado == 'Presupuesto Cancelado' )"
+                EstadoReplace = "(pedidos.Estado == 'Presupuesto' or pedidos.Estado == 'Presupuesto Cancelado' or pedidos.Estado == 'Presupuesto Vencido')"
             ElseIf pEstado = "Cancelado" Then
                 EstadoReplace = "pedidos.Estado = 'Presupuesto Cancelado'"
+            ElseIf pEstado = "Presupuesto Vencido" Then
+                EstadoReplace = "pedidos.Estado = 'Presupuesto Vencido'"
             Else
                 EstadoReplace = "pedidos.Estado == 'Presupuesto'"
             End If

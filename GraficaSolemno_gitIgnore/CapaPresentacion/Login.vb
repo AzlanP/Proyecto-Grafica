@@ -10,6 +10,9 @@ Public Class frmIngresaralSistema
 
     Private Sub btnIngresar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnIngresar.Click
 
+
+        frmMenuPrincipal.Refresh()
+
         oCEUsuario.Usuario = Trim(TxtUsuario.Text)
         oCEUsuario.Contrasena = Trim(TxtContraseña.Text)
 
@@ -39,6 +42,8 @@ Public Class frmIngresaralSistema
             oCEUsuario.Contrasena = ""
             TxtUsuario.Text = ""
             TxtContraseña.Text = ""
+            frmMenuPrincipal.LocalUsuario = NombreCompleto
+
             frmMenuPrincipal.Show()
         End If
     End Sub
@@ -48,7 +53,9 @@ Public Class frmIngresaralSistema
         Dim dt As New DataTable
         Dim dr As DataRow
         dt = oCNUsuario.BuscarUsuario(ID)
+
         dr = dt.Rows(0)
+
         Me.Tag = ID
         TxtNombreyApellido.Text = dr("NombreCompleto").ToString
         txtUsuarioRegistro.Text = dr("Usuario").ToString
@@ -72,6 +79,13 @@ Public Class frmIngresaralSistema
 
         'TxtConfirmarContraseña.Enabled = Editando
         'txtContraRegistrar.Enabled = Editando
+
+
+        frmMenuPrincipal.enableAdminMode()
+        frmMenuPrincipal.Show()
+        frmMenuPrincipal.Activate()
+        Me.Hide()
+
 
         TxtContraseña.UseSystemPasswordChar = True
         TxtConfirmarContraseña.UseSystemPasswordChar = True

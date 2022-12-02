@@ -63,6 +63,12 @@ Public Class FormularioEnvio
     Public Sub PrecargarCbo()
         Me.ProvinciasTableAdapter.Fill(Me.SolemnoDataSet.Provincias)
         cboProvincia.SelectedIndex = 0
+
+        cboTransporte.SelectedIndex = 0
+
+
+        cboProvincia.SelectedValue = 5
+        cboLocalidad.SelectedValue = 22225
     End Sub
 
     'Private Sub FormularioEnvio_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
