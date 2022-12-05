@@ -44,17 +44,19 @@ Partial Class RegistrarProducto
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(68, 9)
+        Me.Label1.Location = New System.Drawing.Point(13, 262)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(34, 18)
         Me.Label1.TabIndex = 34
         Me.Label1.Text = " ID :"
+        Me.Label1.Visible = False
         '
         'btnRegistrarProducto
         '
+        Me.btnRegistrarProducto.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnRegistrarProducto.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnRegistrarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnRegistrarProducto.Location = New System.Drawing.Point(154, 261)
+        Me.btnRegistrarProducto.Location = New System.Drawing.Point(154, 238)
         Me.btnRegistrarProducto.Name = "btnRegistrarProducto"
         Me.btnRegistrarProducto.Size = New System.Drawing.Size(75, 23)
         Me.btnRegistrarProducto.TabIndex = 33
@@ -65,7 +67,7 @@ Partial Class RegistrarProducto
         '
         Me.lblNombre.AutoSize = True
         Me.lblNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNombre.Location = New System.Drawing.Point(38, 42)
+        Me.lblNombre.Location = New System.Drawing.Point(24, 22)
         Me.lblNombre.Name = "lblNombre"
         Me.lblNombre.Size = New System.Drawing.Size(70, 18)
         Me.lblNombre.TabIndex = 22
@@ -73,8 +75,10 @@ Partial Class RegistrarProducto
         '
         'txtNombre
         '
+        Me.txtNombre.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtNombre.Location = New System.Drawing.Point(111, 39)
+        Me.txtNombre.Location = New System.Drawing.Point(97, 19)
         Me.txtNombre.MaxLength = 50
         Me.txtNombre.Name = "txtNombre"
         Me.txtNombre.Size = New System.Drawing.Size(206, 24)
@@ -85,17 +89,19 @@ Partial Class RegistrarProducto
         '
         Me.lblID.AutoSize = True
         Me.lblID.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblID.Location = New System.Drawing.Point(108, 9)
+        Me.lblID.Location = New System.Drawing.Point(53, 239)
         Me.lblID.Name = "lblID"
         Me.lblID.Size = New System.Drawing.Size(12, 18)
         Me.lblID.TabIndex = 20
         Me.lblID.Text = " "
+        Me.lblID.Visible = False
         '
         'btnCancelar
         '
+        Me.btnCancelar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnCancelar.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnCancelar.Location = New System.Drawing.Point(247, 261)
+        Me.btnCancelar.Location = New System.Drawing.Point(247, 238)
         Me.btnCancelar.Name = "btnCancelar"
         Me.btnCancelar.Size = New System.Drawing.Size(75, 23)
         Me.btnCancelar.TabIndex = 19
@@ -104,9 +110,10 @@ Partial Class RegistrarProducto
         '
         'btnGuardarProducto
         '
+        Me.btnGuardarProducto.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnGuardarProducto.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnGuardarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnGuardarProducto.Location = New System.Drawing.Point(154, 261)
+        Me.btnGuardarProducto.Location = New System.Drawing.Point(154, 238)
         Me.btnGuardarProducto.Name = "btnGuardarProducto"
         Me.btnGuardarProducto.Size = New System.Drawing.Size(75, 23)
         Me.btnGuardarProducto.TabIndex = 18
@@ -115,9 +122,10 @@ Partial Class RegistrarProducto
         '
         'btnAceptar
         '
+        Me.btnAceptar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnAceptar.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAceptar.Location = New System.Drawing.Point(247, 261)
+        Me.btnAceptar.Location = New System.Drawing.Point(247, 238)
         Me.btnAceptar.Name = "btnAceptar"
         Me.btnAceptar.Size = New System.Drawing.Size(75, 23)
         Me.btnAceptar.TabIndex = 38
@@ -129,7 +137,7 @@ Partial Class RegistrarProducto
         '
         Me.lblPrecio.AutoSize = True
         Me.lblPrecio.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPrecio.Location = New System.Drawing.Point(49, 111)
+        Me.lblPrecio.Location = New System.Drawing.Point(35, 91)
         Me.lblPrecio.Name = "lblPrecio"
         Me.lblPrecio.Size = New System.Drawing.Size(59, 18)
         Me.lblPrecio.TabIndex = 26
@@ -137,8 +145,10 @@ Partial Class RegistrarProducto
         '
         'txtCodigo
         '
+        Me.txtCodigo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtCodigo.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCodigo.Location = New System.Drawing.Point(111, 71)
+        Me.txtCodigo.Location = New System.Drawing.Point(97, 51)
         Me.txtCodigo.MaxLength = 50
         Me.txtCodigo.Name = "txtCodigo"
         Me.txtCodigo.Size = New System.Drawing.Size(206, 24)
@@ -149,7 +159,7 @@ Partial Class RegistrarProducto
         '
         Me.lblCodigo.AutoSize = True
         Me.lblCodigo.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCodigo.Location = New System.Drawing.Point(41, 74)
+        Me.lblCodigo.Location = New System.Drawing.Point(27, 54)
         Me.lblCodigo.Name = "lblCodigo"
         Me.lblCodigo.Size = New System.Drawing.Size(64, 18)
         Me.lblCodigo.TabIndex = 32
@@ -159,18 +169,18 @@ Partial Class RegistrarProducto
         '
         Me.controlPrecio.AutoSize = True
         Me.controlPrecio.labeltext = Nothing
-        Me.controlPrecio.Location = New System.Drawing.Point(111, 108)
+        Me.controlPrecio.Location = New System.Drawing.Point(97, 88)
         Me.controlPrecio.Margin = New System.Windows.Forms.Padding(0)
         Me.controlPrecio.Name = "controlPrecio"
         Me.controlPrecio.Size = New System.Drawing.Size(100, 24)
         Me.controlPrecio.TabIndex = 37
-        Me.controlPrecio.valor = 0.0R
+        Me.controlPrecio.valor = 0R
         '
         'lblDescripcion
         '
         Me.lblDescripcion.AutoSize = True
         Me.lblDescripcion.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDescripcion.Location = New System.Drawing.Point(13, 147)
+        Me.lblDescripcion.Location = New System.Drawing.Point(13, 124)
         Me.lblDescripcion.Name = "lblDescripcion"
         Me.lblDescripcion.Size = New System.Drawing.Size(95, 18)
         Me.lblDescripcion.TabIndex = 40
@@ -178,8 +188,11 @@ Partial Class RegistrarProducto
         '
         'txtDescripcion
         '
+        Me.txtDescripcion.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtDescripcion.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDescripcion.Location = New System.Drawing.Point(16, 168)
+        Me.txtDescripcion.Location = New System.Drawing.Point(16, 145)
         Me.txtDescripcion.MaxLength = 3000
         Me.txtDescripcion.Multiline = True
         Me.txtDescripcion.Name = "txtDescripcion"
@@ -192,7 +205,7 @@ Partial Class RegistrarProducto
         Me.required.AutoSize = True
         Me.required.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.required.ForeColor = System.Drawing.Color.Red
-        Me.required.Location = New System.Drawing.Point(20, 41)
+        Me.required.Location = New System.Drawing.Point(6, 21)
         Me.required.Margin = New System.Windows.Forms.Padding(0)
         Me.required.Name = "required"
         Me.required.Size = New System.Drawing.Size(15, 20)
@@ -204,7 +217,7 @@ Partial Class RegistrarProducto
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.Red
-        Me.Label2.Location = New System.Drawing.Point(36, 111)
+        Me.Label2.Location = New System.Drawing.Point(22, 91)
         Me.Label2.Margin = New System.Windows.Forms.Padding(0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(15, 20)
@@ -216,7 +229,7 @@ Partial Class RegistrarProducto
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(335, 294)
+        Me.ClientSize = New System.Drawing.Size(335, 283)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.required)
         Me.Controls.Add(Me.lblDescripcion)

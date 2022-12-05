@@ -205,6 +205,26 @@ Public Class FormularioEnvio
             If TypeOf ctrl Is TextBox Or TypeOf ctrl Is ComboBox Or TypeOf ctrl Is DateTimePicker Then
                 ctrl.Enabled = False 'Creo que el error es aqui
             End If
+            If TypeOf ctrl Is GroupBox Then
+                DisesableRecursive(ctrl.Controls)
+            End If
+        Next
+        btnGuardarNuevo.Enabled = False
+        btnGuardarNuevo.Visible = False
+
+        btnCancelarFormEnvio.Text = "Cerrar"
+    End Sub
+    Public Sub DisesableRecursive(controls As Control.ControlCollection)
+        'este codigo es para desabilitar la edicion de todos los campos
+        Dim ctrl As Control
+
+        For Each ctrl In controls
+            If TypeOf ctrl Is TextBox Or TypeOf ctrl Is ComboBox Or TypeOf ctrl Is DateTimePicker Then
+                ctrl.Enabled = False 'Creo que el error es aqui
+            End If
+            If TypeOf ctrl Is GroupBox Then
+                DisesableRecursive(ctrl.Controls)
+            End If
         Next
         btnGuardarNuevo.Enabled = False
         btnCancelarFormEnvio.Text = "Cerrar"

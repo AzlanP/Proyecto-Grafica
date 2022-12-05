@@ -66,6 +66,9 @@ Public Class frmMenuPrincipal
         frmRegistrar.ShowDialog()
         CargarGridCliente()
     End Sub
+
+
+
     Private Sub DGCliente_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DGCliente.CellClick
         If e.RowIndex >= 0 Then
             ID = DGCliente.Rows(e.RowIndex).Cells("IDCliente").Value
@@ -1117,12 +1120,15 @@ Public Class frmMenuPrincipal
     Public Sub CargarGridPresupuestos()
         Dim dv As DataView
         Dim dt As New DataTable
-        dt = oCNPresupuesto.MostrarPresupuesto
+        dt = oCNPresupuesto.MostrarPresupuesto()
 
         For i As Integer = 0 To dt.Rows.Count - 1
             dt.Rows(i)("Cliente") = dt.Rows(i)("Cliente") & " " & dt.Rows(i)("Apellido")
         Next
 
+        cboBuscarPresupuesto.SelectedIndex = 0
+        cboFiltroEstadoPresupuesto.SelectedIndex = 1
+        txtBuscarPresupuesto.Text = ""
 
         dt = dt.DefaultView.ToTable(True, "IDPedido", "Cliente", "Fecha", "Fecha Vencimiento", "Estado", "Descripcion", "Responsable")
         dv = New DataView(dt, "Estado = 'Presupuesto' or  Estado = 'Presupuesto Cancelado' ", "IDPedido Asc", DataViewRowState.CurrentRows)

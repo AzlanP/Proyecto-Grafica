@@ -14,6 +14,10 @@ Public Class FormularioPedido
     Dim Cantidad As Integer
     Dim Descuento As Integer
     Dim Importe As Double
+
+    Dim DisabledControls As Boolean
+
+
     Public Sub LLenarFormulario(ByVal id As Integer, Optional ByVal isPedido As Boolean = True)
         PrecargarCombobox()
 
@@ -50,7 +54,27 @@ Public Class FormularioPedido
 
         End If
 
-            If IsDBNull(DTProw(13)) Then
+        If CStr(DTProw(7)) <> "Presupuesto" And CStr(DTProw(7)) <> "Pendiente" Then
+            DisabledControls = True
+            Disesabletext()
+            btnModificarPedido.Enabled = False
+            btnQuitar.Enabled = False
+            btnGuardarPedido.Visible = False
+            DGListaDePedido.Enabled = False
+            btnCancelarPedido.Text = "Aceptar"
+            btnAdd.Enabled = False
+            btnSearch.Enabled = False
+            btnAdd.Visible = False
+            btnSearch.Visible = False
+            btnConfirmarPedido.Enabled = False
+            btnConfirmarPedido.Visible = False
+            btnAgregarPedidoNuevo.Enabled = False
+            chkEnvio.Enabled = False
+            btnEnvioGuardado.Enabled = True
+        End If
+
+
+        If IsDBNull(DTProw(13)) Then
                 txtResponsable.Text = ""
             Else
                 txtResponsable.Text = DTProw(13)
@@ -220,6 +244,9 @@ Public Class FormularioPedido
 
     Private Sub btnEnvioGuardado_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEnvioGuardado.Click
         Dim frmEnvioNuevo As New FormularioEnvio
+        If DisabledControls Then
+            frmEnvioNuevo.Disesabletext()
+        End If
 
         Dim oCNDetallesEnvio As New CNDetallesEnvio
 
@@ -372,19 +399,26 @@ Public Class FormularioPedido
         txtClienteNombreCompleto.Text = busquedaControl.Nombre + " " + busquedaControl.Apellido
         AsignarTextCbo(busquedaControl.Nombre, cboCliente)
     End Sub
-    Public Sub actualizarNombre()
+    Public Sub actualizarNombre(id As String)
         Me.ClientesTableAdapter.Fill(Me.SolemnoDataSet.Clientes)
         Dim dt As DataTable = Me.ClientesTableAdapter.GetData
-        Dim index As Integer = Me.ClientesTableAdapter.GetData.Count - 1
-        Dim nombre As String = Me.ClientesTableAdapter.GetData.Rows(index)("Nombre")
-        Dim apellido As String = Me.ClientesTableAdapter.GetData.Rows(index)("Apellido")
-        txtClienteNombreCompleto.Text = nombre + " " + apellido
+        Dim dr = dt.Rows.Find(id)
+        If Not IsNothing(dr) Then
+            Dim nombre As String = dr("Nombre")
+            Dim apellido As String = dr("Apellido")
+            txtClienteNombreCompleto.Text = nombre + " " + apellido
+            cboCliente.SelectedIndex = dt.Rows.IndexOf(dr)
+        End If
+
     End Sub
     Private Sub btnAdd_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAdd.Click
-        Dim mainFrm As New frmMenuPrincipal
-        mainFrm.btnNuevoCliente_Click(sender, e)
-        actualizarNombre()
-        cboCliente.SelectedIndex = CInt(cboCliente.Items.Count - 1)
+        Dim frmRegistrar As New RegistrarCliente
+        Dim oCNCliente As New CNCliente
+        frmRegistrar.lblID.Text = oCNCliente.ConsultarUltimoID
+        frmRegistrar.PrecargarCombobox()
+        frmRegistrar.ShowDialog()
+        actualizarNombre(frmRegistrar.lblID.Text)
+
 
     End Sub
 

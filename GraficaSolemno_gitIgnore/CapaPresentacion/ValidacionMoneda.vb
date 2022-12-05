@@ -37,6 +37,11 @@
 
     Public Sub TextBox1_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox1.KeyPress
 
+
+        If TextBox1.Text = "$ 0.00" Then
+            TextBox1.Text = ""
+        End If
+
         If Char.IsDigit(e.KeyChar) Then
             e.Handled = False
         ElseIf Char.IsControl(e.KeyChar) Then
@@ -70,10 +75,8 @@
         TextBox1.Text = _simbolo & " " & FormatNumber(_valor)
     End Sub
 
-    Private Sub TextBox1_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles TextBox1.TextChanged
-        If Not frmParent Is Nothing Then
-            frmParent.calcularPrecioXCantidad()
-        End If
+    Private Sub TextBox1_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs)
+
     End Sub
 
 
@@ -87,12 +90,6 @@
             valor = 0
         End Try
     End Sub
-
-
-
-
-
-
 
 
 End Class

@@ -7,7 +7,11 @@ Public Class frmAgregarNota
     Dim ActualUsuario As String
 
     Private Sub btnGuardarNota_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGuardarNota.Click
-        
+        If (String.IsNullOrEmpty(txtTitulo.Text)) Then
+            MsgBox("El titulo de la tarea es requerido.")
+            Return
+        End If
+
         oCNPostick.NuevoPostick(TomarDatos)
         Me.Close()
     End Sub
@@ -56,6 +60,11 @@ Public Class frmAgregarNota
         ckbCompletado.Checked = oPostick.Estado
     End Sub
     Public Function TomarDatos() As CEPostick
+
+
+
+
+
         Dim oCEPostick As New CEPostick
         oCEPostick.IDPostick = NroPostick.Text
         oCEPostick.Titulo = txtTitulo.Text
@@ -114,10 +123,12 @@ Public Class frmAgregarNota
         Me.UsuariosTableAdapter.Fill(Me.SolemnoDataSet.Usuarios)
     End Sub
     Private Sub frmAgregarNota_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-      
+
         If (Me.cboPrioridad.Text = "") Then
             Me.cboPrioridad.SelectedIndex = 0
         End If
+
+        dtpFecha.MinDate = New DateTime().Now
 
     End Sub
 
@@ -133,6 +144,6 @@ Public Class frmAgregarNota
         int = cbo.FindString(text)
         cbo.SelectedIndex = int
     End Sub
- 
+
 
 End Class
