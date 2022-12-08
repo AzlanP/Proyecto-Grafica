@@ -124,15 +124,39 @@ Public Class RegistrarCliente
         For Each ctrl In Controls
             If TypeOf ctrl Is TextBox Or TypeOf ctrl Is ComboBox Or TypeOf ctrl Is DateTimePicker Then
                 ctrl.Enabled = False 'Creo que el error es aqui
+            ElseIf TypeOf ctrl Is GroupBox Then
+                DisesableRecursive(ctrl.Controls)
             End If
         Next
 
+    End Sub
+
+    Public Sub DisesableRecursive(controls As Control.ControlCollection)
+        'este codigo es para desabilitar la edicion de todos los campos
+        Dim ctrl As Control
+
+        For Each ctrl In controls
+            If TypeOf ctrl Is TextBox Or TypeOf ctrl Is ComboBox Or TypeOf ctrl Is DateTimePicker Then
+                ctrl.Enabled = False 'Creo que el error es aqui
+            ElseIf TypeOf ctrl Is GroupBox Then
+                DisesableRecursive(ctrl.Controls)
+            End If
+        Next
+        btnGuardar.Enabled = False
+        btnGuardar.Visible = False
+        btnCancelar.Text = "Cerrar"
     End Sub
     Private Sub btnCancelar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancelar.Click
         'MsgBox("Esta seguro de descartar los cambios?", vbOKCancel, "Confirmacion!")
         'If DialogResult.OK Then
 
         'End If
+
+        If btnCancelar.Text = "Cerrar" Then
+            Close()
+            Return
+        End If
+
         If MessageBox.Show("Esta seguro de descartar los cambios?", "Confirmacion!", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
             Close()
         End If

@@ -121,7 +121,7 @@ Partial Class frmAgregarNota
         Me.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCancelar.Location = New System.Drawing.Point(156, 339)
         Me.btnCancelar.Name = "btnCancelar"
-        Me.btnCancelar.Size = New System.Drawing.Size(75, 23)
+        Me.btnCancelar.Size = New System.Drawing.Size(75, 24)
         Me.btnCancelar.TabIndex = 7
         Me.btnCancelar.Text = "Cancelar"
         Me.btnCancelar.UseVisualStyleBackColor = False
@@ -141,7 +141,7 @@ Partial Class frmAgregarNota
         Me.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnEliminar.Location = New System.Drawing.Point(255, 339)
         Me.btnEliminar.Name = "btnEliminar"
-        Me.btnEliminar.Size = New System.Drawing.Size(75, 23)
+        Me.btnEliminar.Size = New System.Drawing.Size(75, 24)
         Me.btnEliminar.TabIndex = 9
         Me.btnEliminar.Text = "Eliminar"
         Me.btnEliminar.UseVisualStyleBackColor = False
@@ -181,7 +181,7 @@ Partial Class frmAgregarNota
         Me.btnGuardarCambios.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnGuardarCambios.Location = New System.Drawing.Point(36, 339)
         Me.btnGuardarCambios.Name = "btnGuardarCambios"
-        Me.btnGuardarCambios.Size = New System.Drawing.Size(104, 23)
+        Me.btnGuardarCambios.Size = New System.Drawing.Size(104, 24)
         Me.btnGuardarCambios.TabIndex = 13
         Me.btnGuardarCambios.Text = "Guardar Cambios"
         Me.btnGuardarCambios.UseVisualStyleBackColor = False

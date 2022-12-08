@@ -36,7 +36,7 @@ Partial Class frmBusqueda
         Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnBuscar.Location = New System.Drawing.Point(246, 12)
         Me.btnBuscar.Name = "btnBuscar"
-        Me.btnBuscar.Size = New System.Drawing.Size(62, 23)
+        Me.btnBuscar.Size = New System.Drawing.Size(62, 21)
         Me.btnBuscar.TabIndex = 30
         Me.btnBuscar.Text = "Buscar"
         Me.btnBuscar.UseVisualStyleBackColor = False

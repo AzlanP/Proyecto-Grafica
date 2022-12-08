@@ -94,7 +94,7 @@ Partial Class FormularioPedido
         Me.btnCancelarPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCancelarPedido.Location = New System.Drawing.Point(787, 404)
         Me.btnCancelarPedido.Name = "btnCancelarPedido"
-        Me.btnCancelarPedido.Size = New System.Drawing.Size(81, 26)
+        Me.btnCancelarPedido.Size = New System.Drawing.Size(81, 24)
         Me.btnCancelarPedido.TabIndex = 31
         Me.btnCancelarPedido.Text = "Cancelar"
         Me.btnCancelarPedido.UseVisualStyleBackColor = False
@@ -105,7 +105,7 @@ Partial Class FormularioPedido
         Me.btnGuardarPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnGuardarPedido.Location = New System.Drawing.Point(687, 405)
         Me.btnGuardarPedido.Name = "btnGuardarPedido"
-        Me.btnGuardarPedido.Size = New System.Drawing.Size(94, 26)
+        Me.btnGuardarPedido.Size = New System.Drawing.Size(94, 24)
         Me.btnGuardarPedido.TabIndex = 30
         Me.btnGuardarPedido.Text = "Guardar"
         Me.btnGuardarPedido.UseVisualStyleBackColor = False
@@ -320,7 +320,7 @@ Partial Class FormularioPedido
         Me.txtTotal.Name = "txtTotal"
         Me.txtTotal.Size = New System.Drawing.Size(83, 22)
         Me.txtTotal.TabIndex = 45
-        Me.txtTotal.valor = 0.0R
+        Me.txtTotal.valor = 0R
         '
         'lblTotal
         '
@@ -414,7 +414,7 @@ Partial Class FormularioPedido
         Me.btnGuardarPresupuesto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnGuardarPresupuesto.Location = New System.Drawing.Point(687, 405)
         Me.btnGuardarPresupuesto.Name = "btnGuardarPresupuesto"
-        Me.btnGuardarPresupuesto.Size = New System.Drawing.Size(94, 26)
+        Me.btnGuardarPresupuesto.Size = New System.Drawing.Size(94, 24)
         Me.btnGuardarPresupuesto.TabIndex = 53
         Me.btnGuardarPresupuesto.Text = "Guardar presupuesto"
         Me.btnGuardarPresupuesto.UseVisualStyleBackColor = False
@@ -445,7 +445,7 @@ Partial Class FormularioPedido
         Me.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnImprimir.Location = New System.Drawing.Point(765, 13)
         Me.btnImprimir.Name = "btnImprimir"
-        Me.btnImprimir.Size = New System.Drawing.Size(89, 23)
+        Me.btnImprimir.Size = New System.Drawing.Size(89, 24)
         Me.btnImprimir.TabIndex = 56
         Me.btnImprimir.Text = "Imprimir"
         Me.btnImprimir.UseVisualStyleBackColor = False
@@ -460,7 +460,7 @@ Partial Class FormularioPedido
         Me.txtSubTotal.Name = "txtSubTotal"
         Me.txtSubTotal.Size = New System.Drawing.Size(83, 22)
         Me.txtSubTotal.TabIndex = 58
-        Me.txtSubTotal.valor = 0.0R
+        Me.txtSubTotal.valor = 0R
         '
         'Label1
         '
@@ -477,7 +477,7 @@ Partial Class FormularioPedido
         Me.btnConfirmarPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnConfirmarPedido.Location = New System.Drawing.Point(748, 350)
         Me.btnConfirmarPedido.Name = "btnConfirmarPedido"
-        Me.btnConfirmarPedido.Size = New System.Drawing.Size(120, 27)
+        Me.btnConfirmarPedido.Size = New System.Drawing.Size(120, 24)
         Me.btnConfirmarPedido.TabIndex = 59
         Me.btnConfirmarPedido.Text = "Generar el pedido"
         Me.btnConfirmarPedido.UseVisualStyleBackColor = False

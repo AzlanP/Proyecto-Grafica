@@ -58,7 +58,7 @@ Partial Class RegistrarProducto
         Me.btnRegistrarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnRegistrarProducto.Location = New System.Drawing.Point(154, 238)
         Me.btnRegistrarProducto.Name = "btnRegistrarProducto"
-        Me.btnRegistrarProducto.Size = New System.Drawing.Size(75, 23)
+        Me.btnRegistrarProducto.Size = New System.Drawing.Size(75, 24)
         Me.btnRegistrarProducto.TabIndex = 33
         Me.btnRegistrarProducto.Text = "Guardar"
         Me.btnRegistrarProducto.UseVisualStyleBackColor = False
@@ -103,7 +103,7 @@ Partial Class RegistrarProducto
         Me.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCancelar.Location = New System.Drawing.Point(247, 238)
         Me.btnCancelar.Name = "btnCancelar"
-        Me.btnCancelar.Size = New System.Drawing.Size(75, 23)
+        Me.btnCancelar.Size = New System.Drawing.Size(75, 24)
         Me.btnCancelar.TabIndex = 19
         Me.btnCancelar.Text = "Cancelar"
         Me.btnCancelar.UseVisualStyleBackColor = False
@@ -115,7 +115,7 @@ Partial Class RegistrarProducto
         Me.btnGuardarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnGuardarProducto.Location = New System.Drawing.Point(154, 238)
         Me.btnGuardarProducto.Name = "btnGuardarProducto"
-        Me.btnGuardarProducto.Size = New System.Drawing.Size(75, 23)
+        Me.btnGuardarProducto.Size = New System.Drawing.Size(75, 24)
         Me.btnGuardarProducto.TabIndex = 18
         Me.btnGuardarProducto.Text = "Guardar"
         Me.btnGuardarProducto.UseVisualStyleBackColor = False
@@ -127,7 +127,7 @@ Partial Class RegistrarProducto
         Me.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAceptar.Location = New System.Drawing.Point(247, 238)
         Me.btnAceptar.Name = "btnAceptar"
-        Me.btnAceptar.Size = New System.Drawing.Size(75, 23)
+        Me.btnAceptar.Size = New System.Drawing.Size(75, 24)
         Me.btnAceptar.TabIndex = 38
         Me.btnAceptar.Text = "Aceptar"
         Me.btnAceptar.UseVisualStyleBackColor = False

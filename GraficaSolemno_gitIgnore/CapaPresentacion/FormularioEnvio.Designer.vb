@@ -70,7 +70,7 @@ Partial Class FormularioEnvio
         Me.btnCancelarFormEnvio.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCancelarFormEnvio.Location = New System.Drawing.Point(221, 406)
         Me.btnCancelarFormEnvio.Name = "btnCancelarFormEnvio"
-        Me.btnCancelarFormEnvio.Size = New System.Drawing.Size(84, 27)
+        Me.btnCancelarFormEnvio.Size = New System.Drawing.Size(84, 24)
         Me.btnCancelarFormEnvio.TabIndex = 21
         Me.btnCancelarFormEnvio.Text = "Cancelar"
         Me.btnCancelarFormEnvio.UseVisualStyleBackColor = False
@@ -81,7 +81,7 @@ Partial Class FormularioEnvio
         Me.btnGuardarNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnGuardarNuevo.Location = New System.Drawing.Point(110, 406)
         Me.btnGuardarNuevo.Name = "btnGuardarNuevo"
-        Me.btnGuardarNuevo.Size = New System.Drawing.Size(99, 27)
+        Me.btnGuardarNuevo.Size = New System.Drawing.Size(99, 24)
         Me.btnGuardarNuevo.TabIndex = 20
         Me.btnGuardarNuevo.Text = "Guardar Nuevo"
         Me.btnGuardarNuevo.UseVisualStyleBackColor = False

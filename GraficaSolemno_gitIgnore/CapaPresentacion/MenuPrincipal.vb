@@ -96,7 +96,7 @@ Public Class frmMenuPrincipal
         frmRegistrar.LlenarFormulario(ID)
         frmRegistrar.btnGuardar.Visible = False
         frmRegistrar.btnRegistrar.Visible = False
-        frmRegistrar.btnCancelar.Visible = False
+
         frmRegistrar.Disesabletext()
 
         frmRegistrar.ShowDialog()
