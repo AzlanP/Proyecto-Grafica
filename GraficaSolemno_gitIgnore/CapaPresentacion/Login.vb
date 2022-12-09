@@ -116,7 +116,7 @@ Public Class frmIngresaralSistema
             validar = True
         Else
             validar = (oCEUsuario.Contrasena = TxtConfirmarContraseña.Text)
-            validarlength = (oCEUsuario.Contrasena.Trim().Length >= 5 And oCEUsuario.Usuario.Trim().Length >= 5 And oCEUsuario.NombreCompleto.Trim().Length >= 5)
+            validarlength = (oCEUsuario.Contrasena.Trim().Length >= 5 And oCEUsuario.Usuario.Trim().Length >= 5 And oCEUsuario.NombreCompleto.Trim().Length > 0)
         End If
 
         If validar And validarlength Then
@@ -131,8 +131,8 @@ Public Class frmIngresaralSistema
 
                 MsgBox("Las contraseñas ingresadas no coinciden.", , "Validacion de usuario")
             ElseIf Not validarlength Then
-                    MsgBox("El nombre del usuario, y contraseñas  requiere una cantidad minima de 5 caracteres.", , "Validacion de usuario")
-                End If
+                MsgBox("El nombre del usuario y contraseñas  requieren una cantidad minima de 5 caracteres.", , "Validacion de usuario")
+            End If
 
             End If
             

@@ -23,7 +23,6 @@ Partial Class FormularioEnvio
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormularioEnvio))
         Me.btnCancelarFormEnvio = New System.Windows.Forms.Button()
         Me.btnGuardarNuevo = New System.Windows.Forms.Button()
         Me.lblPrecio = New System.Windows.Forms.Label()
@@ -430,9 +429,8 @@ Partial Class FormularioEnvio
         Me.Controls.Add(Me.btnCancelarFormEnvio)
         Me.Controls.Add(Me.btnGuardarNuevo)
         Me.Controls.Add(Me.lblPrecio)
-        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FormularioEnvio"
-        Me.Text = "FormularioEnvio"
+        Me.Text = "Detalles de envio"
         CType(Me.ProvinciasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SolemnoDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)

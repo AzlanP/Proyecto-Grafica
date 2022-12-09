@@ -24,14 +24,14 @@ Partial Class frmMenuPrincipal
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMenuPrincipal))
-        Dim ChartArea3 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend3 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series13 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Series14 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Series15 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Series16 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Series17 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim Series18 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series7 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series8 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series9 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series10 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series11 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series12 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.TabGeneral = New System.Windows.Forms.TabControl()
         Me.TabTareas = New System.Windows.Forms.TabPage()
         Me.panelTareas = New System.Windows.Forms.Panel()
@@ -1774,59 +1774,59 @@ Partial Class frmMenuPrincipal
         '
         Me.GraficoSegunConsulta.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.GraficoSegunConsulta.BackSecondaryColor = System.Drawing.Color.White
-        ChartArea3.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.[True]
-        ChartArea3.AxisX.Interval = 1.0R
-        ChartArea3.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount
-        ChartArea3.AxisX.LabelAutoFitMinFontSize = 5
-        ChartArea3.AxisX.MaximumAutoSize = 40.0!
-        ChartArea3.AxisX.ScaleBreakStyle.MaxNumberOfBreaks = 1
-        ChartArea3.AxisX.ScaleBreakStyle.Spacing = 1.0R
-        ChartArea3.AxisX.TextOrientation = System.Windows.Forms.DataVisualization.Charting.TextOrientation.Rotated90
-        ChartArea3.AxisX.TitleForeColor = System.Drawing.Color.Tomato
-        ChartArea3.AxisY.Interval = 1.0R
-        ChartArea3.AxisY.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount
-        ChartArea3.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        ChartArea3.Name = "ChartArea1"
-        Me.GraficoSegunConsulta.ChartAreas.Add(ChartArea3)
-        Legend3.DockedToChartArea = "ChartArea1"
-        Legend3.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top
-        Legend3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Legend3.IsDockedInsideChartArea = False
-        Legend3.IsTextAutoFit = False
-        Legend3.ItemColumnSpacing = 0
-        Legend3.Name = "Legend1"
-        Me.GraficoSegunConsulta.Legends.Add(Legend3)
+        ChartArea2.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.[True]
+        ChartArea2.AxisX.Interval = 1.0R
+        ChartArea2.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount
+        ChartArea2.AxisX.LabelAutoFitMinFontSize = 5
+        ChartArea2.AxisX.MaximumAutoSize = 40.0!
+        ChartArea2.AxisX.ScaleBreakStyle.MaxNumberOfBreaks = 1
+        ChartArea2.AxisX.ScaleBreakStyle.Spacing = 1.0R
+        ChartArea2.AxisX.TextOrientation = System.Windows.Forms.DataVisualization.Charting.TextOrientation.Rotated90
+        ChartArea2.AxisX.TitleForeColor = System.Drawing.Color.Tomato
+        ChartArea2.AxisY.Interval = 1.0R
+        ChartArea2.AxisY.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount
+        ChartArea2.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        ChartArea2.Name = "ChartArea1"
+        Me.GraficoSegunConsulta.ChartAreas.Add(ChartArea2)
+        Legend2.DockedToChartArea = "ChartArea1"
+        Legend2.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top
+        Legend2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Legend2.IsDockedInsideChartArea = False
+        Legend2.IsTextAutoFit = False
+        Legend2.ItemColumnSpacing = 0
+        Legend2.Name = "Legend1"
+        Me.GraficoSegunConsulta.Legends.Add(Legend2)
         Me.GraficoSegunConsulta.Location = New System.Drawing.Point(15, 55)
         Me.GraficoSegunConsulta.Name = "GraficoSegunConsulta"
         Me.GraficoSegunConsulta.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Fire
-        Series13.ChartArea = "ChartArea1"
-        Series13.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
-        Series13.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Series13.Legend = "Legend1"
-        Series13.Name = "Cantidad"
-        Series14.ChartArea = "ChartArea1"
-        Series14.Legend = "Legend1"
-        Series14.Name = "Mensual"
-        Series15.ChartArea = "ChartArea1"
-        Series15.Legend = "Legend1"
-        Series15.Name = "topProductos"
-        Series16.ChartArea = "ChartArea1"
-        Series16.Legend = "Legend1"
-        Series16.Name = "Mensual2"
-        Series17.ChartArea = "ChartArea1"
-        Series17.IsValueShownAsLabel = True
-        Series17.Legend = "Legend1"
-        Series17.Name = "Principal"
-        Series18.ChartArea = "ChartArea1"
-        Series18.IsValueShownAsLabel = True
-        Series18.Legend = "Legend1"
-        Series18.Name = "Secundaria"
-        Me.GraficoSegunConsulta.Series.Add(Series13)
-        Me.GraficoSegunConsulta.Series.Add(Series14)
-        Me.GraficoSegunConsulta.Series.Add(Series15)
-        Me.GraficoSegunConsulta.Series.Add(Series16)
-        Me.GraficoSegunConsulta.Series.Add(Series17)
-        Me.GraficoSegunConsulta.Series.Add(Series18)
+        Series7.ChartArea = "ChartArea1"
+        Series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
+        Series7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Series7.Legend = "Legend1"
+        Series7.Name = "Cantidad"
+        Series8.ChartArea = "ChartArea1"
+        Series8.Legend = "Legend1"
+        Series8.Name = "Mensual"
+        Series9.ChartArea = "ChartArea1"
+        Series9.Legend = "Legend1"
+        Series9.Name = "topProductos"
+        Series10.ChartArea = "ChartArea1"
+        Series10.Legend = "Legend1"
+        Series10.Name = "Mensual2"
+        Series11.ChartArea = "ChartArea1"
+        Series11.IsValueShownAsLabel = True
+        Series11.Legend = "Legend1"
+        Series11.Name = "Principal"
+        Series12.ChartArea = "ChartArea1"
+        Series12.IsValueShownAsLabel = True
+        Series12.Legend = "Legend1"
+        Series12.Name = "Secundaria"
+        Me.GraficoSegunConsulta.Series.Add(Series7)
+        Me.GraficoSegunConsulta.Series.Add(Series8)
+        Me.GraficoSegunConsulta.Series.Add(Series9)
+        Me.GraficoSegunConsulta.Series.Add(Series10)
+        Me.GraficoSegunConsulta.Series.Add(Series11)
+        Me.GraficoSegunConsulta.Series.Add(Series12)
         Me.GraficoSegunConsulta.Size = New System.Drawing.Size(800, 300)
         Me.GraficoSegunConsulta.TabIndex = 0
         Me.GraficoSegunConsulta.Text = "Chart1"
@@ -2110,7 +2110,7 @@ Partial Class frmMenuPrincipal
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.63731!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.11883!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.27605!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 126.0!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 127.0!))
         Me.TableLayoutPanel2.Controls.Add(Me.PictureBox1, 0, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.Label1, 1, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.TableLayoutPanel3, 3, 0)
@@ -2127,7 +2127,7 @@ Partial Class frmMenuPrincipal
         '
         Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Right
         Me.PictureBox1.Image = Global.CapaPresentacion.My.Resources.Resources.slmn
-        Me.PictureBox1.Location = New System.Drawing.Point(172, 3)
+        Me.PictureBox1.Location = New System.Drawing.Point(171, 3)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(116, 85)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -2139,7 +2139,7 @@ Partial Class frmMenuPrincipal
         Me.Label1.AutoSize = True
         Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label1.Font = New System.Drawing.Font("Impact", 48.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(294, 0)
+        Me.Label1.Location = New System.Drawing.Point(293, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(574, 91)
         Me.Label1.TabIndex = 1
@@ -2152,7 +2152,7 @@ Partial Class frmMenuPrincipal
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel3.Controls.Add(Me.btnLogout, 1, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.EditarUsuario, 0, 0)
-        Me.TableLayoutPanel3.Location = New System.Drawing.Point(1056, 3)
+        Me.TableLayoutPanel3.Location = New System.Drawing.Point(1054, 3)
         Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
         Me.TableLayoutPanel3.RowCount = 2
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
@@ -2193,12 +2193,12 @@ Partial Class frmMenuPrincipal
         Me.TableLayoutPanel4.ColumnCount = 1
         Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel4.Controls.Add(Me.lblUsuario, 0, 0)
-        Me.TableLayoutPanel4.Location = New System.Drawing.Point(874, 3)
+        Me.TableLayoutPanel4.Location = New System.Drawing.Point(873, 3)
         Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
         Me.TableLayoutPanel4.RowCount = 2
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.0!))
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
-        Me.TableLayoutPanel4.Size = New System.Drawing.Size(176, 85)
+        Me.TableLayoutPanel4.Size = New System.Drawing.Size(175, 85)
         Me.TableLayoutPanel4.TabIndex = 4
         '
         'lblUsuario
@@ -2208,7 +2208,7 @@ Partial Class frmMenuPrincipal
         Me.lblUsuario.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblUsuario.Location = New System.Drawing.Point(3, 16)
         Me.lblUsuario.Name = "lblUsuario"
-        Me.lblUsuario.Size = New System.Drawing.Size(170, 18)
+        Me.lblUsuario.Size = New System.Drawing.Size(169, 18)
         Me.lblUsuario.TabIndex = 0
         Me.lblUsuario.Text = "Usuario"
         Me.lblUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -2259,9 +2259,10 @@ Partial Class frmMenuPrincipal
         Me.ClientSize = New System.Drawing.Size(1186, 687)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.DoubleBuffered = True
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MinimumSize = New System.Drawing.Size(1169, 600)
         Me.Name = "frmMenuPrincipal"
-        Me.Text = "MenuPrincipal"
+        Me.Text = "Solemno Gráfica"
         Me.TabGeneral.ResumeLayout(False)
         Me.TabTareas.ResumeLayout(False)
         Me.TabCliente.ResumeLayout(False)

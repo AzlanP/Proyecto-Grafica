@@ -1267,30 +1267,32 @@ Public Class frmMenuPrincipal
 
     Private Sub TabUsuario_Enter(sender As Object, e As System.EventArgs) Handles TabUsuario.Enter
         cboFiltroUsuarios.SelectedIndex = 0
+        DGUsuario.DataSource = Me.UsuariosTableAdapter.GetUsuarioByEstado("Activo")
     End Sub
     Public Sub MostrarUsuarios(ByVal state As Boolean)
         ToggleState(state)
-        If state Then
-            DGUsuario.DataSource = Me.UsuariosTableAdapter.GetUsuarioByEstado("Activo")
-        Else
-            DGUsuario.DataSource = Me.UsuariosTableAdapter.GetUsuarioByEstado("Inactivo")
-        End If
+        'If state Then
+        DGUsuario.DataSource = Me.UsuariosTableAdapter.GetUsuarioByEstado("Activo")
+        'Else
+        '    DGUsuario.DataSource = Me.UsuariosTableAdapter.GetUsuarioByEstado("Inactivo")
+        'End If
 
     End Sub
     Public Sub ToggleState(ByVal state As Boolean)
 
-        If state = True Then
-            Label9.Text = "usuarios activos"
-            btnPapeleraUsuario.Text = "papelera"
-            btnEliminarUsuario.Visible = True
-            btnRestaurarUsuario.Visible = False
-        Else
-            Label9.Text = "usuarios inactivos"
-            btnPapeleraUsuario.Text = "volver"
-            btnEliminarUsuario.Visible = False
-            btnRestaurarUsuario.Visible = True
+        'If state = True Then
+        Label9.Text = "Usuarios"
+        'btnPapeleraUsuario.Text = "papelera"
+        btnEliminarUsuario.Visible = True
+        btnRestaurarUsuario.Visible = False
+        btnPapeleraUsuario.Enabled = False
+        'Else
+        '    Label9.Text = "Usuarios"
+        '    btnPapeleraUsuario.Text = "volver"
+        '    btnEliminarUsuario.Visible = False
+        '    btnRestaurarUsuario.Visible = True
 
-        End If
+        'End If
     End Sub
     Private Sub btnRefreshUsuario_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRefreshUsuario.Click
         MostrarUsuarios(True)
@@ -1538,11 +1540,10 @@ Public Class frmMenuPrincipal
             pSearch.BringToFront()
         Else
             pSearch.Visible = False
-            Dim ctrl() As Control
-            ctrl = DG.Parent.Controls.Find("Panel" + DG.Name, True)
-            If Not (ctrl.Length = 0) Then
-                DG.Parent.Controls.Remove(ctrl(0))
-            End If
+            Dim ctrl As List(Of Control) = DG.Parent.Controls.OfType(Of Control)().Where(Function(x) x.Name.StartsWith("Panel") And TypeOf x Is Panel).ToList()
+            For Each item As Control In ctrl
+                DG.Parent.Controls.Remove(item)
+            Next
         End If
     End Sub
 #End Region

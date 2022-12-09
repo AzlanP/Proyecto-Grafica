@@ -644,7 +644,7 @@ Partial Class RegistrarCliente
         Me.MaximumSize = New System.Drawing.Size(707, 420)
         Me.MinimumSize = New System.Drawing.Size(707, 420)
         Me.Name = "RegistrarCliente"
-        Me.Text = "Registrar Nuevo Cliente"
+        Me.Text = "Registrar cliente"
         CType(Me.CondIVABindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SolemnoDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ProvinciasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()

@@ -55,6 +55,7 @@ Partial Class ListadoPostick
         '
         'btnBuscar
         '
+        Me.btnBuscar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnBuscar.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnBuscar.Location = New System.Drawing.Point(1029, 18)
@@ -69,6 +70,9 @@ Partial Class ListadoPostick
         Me.DGPostick.AllowUserToAddRows = False
         Me.DGPostick.AllowUserToDeleteRows = False
         Me.DGPostick.AllowUserToResizeRows = False
+        Me.DGPostick.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DGPostick.AutoGenerateColumns = False
         Me.DGPostick.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DGPostick.BackgroundColor = System.Drawing.Color.White
@@ -159,6 +163,8 @@ Partial Class ListadoPostick
         '
         'cboBuscar
         '
+        Me.cboBuscar.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cboBuscar.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.cboBuscar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboBuscar.FormattingEnabled = True
@@ -222,6 +228,7 @@ Partial Class ListadoPostick
         '
         'cboPrioridad
         '
+        Me.cboPrioridad.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cboPrioridad.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.cboPrioridad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboPrioridad.FormattingEnabled = True
@@ -249,7 +256,7 @@ Partial Class ListadoPostick
         Me.Controls.Add(Me.btnRefresh)
         Me.Controls.Add(Me.cboBuscar)
         Me.Name = "ListadoPostick"
-        Me.Text = "ListadoPostick"
+        Me.Text = "Listado de tareas"
         CType(Me.DGPostick, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PostickBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SolemnoDataSet, System.ComponentModel.ISupportInitialize).EndInit()

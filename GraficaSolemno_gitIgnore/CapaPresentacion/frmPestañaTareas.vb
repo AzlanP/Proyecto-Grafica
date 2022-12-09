@@ -204,9 +204,10 @@ Public Class frmPestañaTareas
         Dim olistbox As ListBox
         olistbox = sender
         Dim OpenPostick As New frmAgregarNota
-        OpenPostick.AbrirPostick(olistbox.Tag)
         OpenPostick.btnGuardarNota.Visible = False
         OpenPostick.btnGuardarCambios.Visible = True
+        OpenPostick.AbrirPostick(olistbox.Tag)
+
         OpenPostick.ShowDialog()
         LimpiarPosticksEnPanels()
         AcomodarPostickEnPanels()
@@ -221,6 +222,8 @@ Public Class frmPestañaTareas
         Dim frmPostick As New frmAgregarNota
         frmPostick.btnGuardarCambios.Visible = False
         frmPostick.btnGuardarNota.Visible = True
+        frmPostick.btnEliminar.Visible = False
+        frmPostick.ckbCompletado.Visible = False
         frmPostick.NroPostick.Text = oCNPostick.ConsultarUltimoID()
         frmPostick.dtpFecha.MinDate = Date.Now.AddDays(-1)
         frmPostick.PrecargarCombobox()

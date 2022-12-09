@@ -58,6 +58,25 @@ Public Class frmAgregarNota
         AsignarTextCbo(oPostick.Responsable, cboResponsable)
 
         ckbCompletado.Checked = oPostick.Estado
+
+
+        If (ckbCompletado.Checked) Then
+            Disesabletext()
+        End If
+    End Sub
+    Public Sub Disesabletext()
+        'este codigo es para desabilitar la edicion de todos los campos
+        Dim ctrl As Control
+        For Each ctrl In Controls
+            If TypeOf ctrl Is TextBox Or TypeOf ctrl Is ComboBox Or TypeOf ctrl Is DateTimePicker Then
+                ctrl.Enabled = False 'Creo que el error es aqui
+            End If
+        Next
+        btnGuardarCambios.Visible = False
+        btnGuardarNota.Visible = False
+        btnCancelar.Text = "Cerrar"
+        ckbCompletado.Enabled = False
+
     End Sub
     Public Function TomarDatos() As CEPostick
 

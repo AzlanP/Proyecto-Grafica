@@ -31,7 +31,7 @@
             SearchDate.Visible = False
             cboPrioridad.Visible = True
             cboResponsables.Visible = False
-            End If
+        End If
     End Sub
 
     Private Sub btnBuscar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscar.Click
@@ -90,7 +90,7 @@
         Dim pSearch As New Panel
         If dt.Rows.Count = 0 Then
 
-            Dim alturaHeader As Integer = 32
+            Dim alturaHeader As Integer = 22
 
             pSearch.Location = New Point(DG.Location.X, DG.Location.Y + alturaHeader)
             pSearch.Name = "Panel" + DG.Name
@@ -104,11 +104,10 @@
             pSearch.BringToFront()
         Else
             pSearch.Visible = False
-            Dim ctrl() As Control
-            ctrl = DG.Parent.Controls.Find("Panel" + DG.Name, True)
-            If Not (ctrl.Length = 0) Then
-                DG.Parent.Controls.Remove(ctrl(0))
-            End If
+            Dim ctrl As List(Of Control) = DG.Parent.Controls.OfType(Of Control)().Where(Function(x) x.Name.StartsWith("Panel") And TypeOf x Is Panel).ToList()
+            For Each item As Control In ctrl
+                DG.Parent.Controls.Remove(item)
+            Next
         End If
     End Sub
 End Class

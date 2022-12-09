@@ -45,7 +45,6 @@ Partial Class frmAgregarNota
         Me.SolemnoDataSet = New CapaPresentacion.SolemnoDataSet()
         Me.UsuariosTableAdapter = New CapaPresentacion.SolemnoDataSetTableAdapters.UsuariosTableAdapter()
         Me.required = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
         CType(Me.UsuariosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SolemnoDataSetBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SolemnoDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -53,7 +52,7 @@ Partial Class frmAgregarNota
         '
         'txtTitulo
         '
-        Me.txtTitulo.Location = New System.Drawing.Point(100, 39)
+        Me.txtTitulo.Location = New System.Drawing.Point(95, 6)
         Me.txtTitulo.Name = "txtTitulo"
         Me.txtTitulo.Size = New System.Drawing.Size(214, 20)
         Me.txtTitulo.TabIndex = 0
@@ -61,17 +60,17 @@ Partial Class frmAgregarNota
         '
         'txtDescripcion
         '
-        Me.txtDescripcion.Location = New System.Drawing.Point(100, 70)
+        Me.txtDescripcion.Location = New System.Drawing.Point(95, 37)
         Me.txtDescripcion.Multiline = True
         Me.txtDescripcion.Name = "txtDescripcion"
-        Me.txtDescripcion.Size = New System.Drawing.Size(214, 110)
+        Me.txtDescripcion.Size = New System.Drawing.Size(214, 133)
         Me.txtDescripcion.TabIndex = 1
         Me.txtDescripcion.Tag = "3"
         '
         'lblTitulo
         '
         Me.lblTitulo.AutoSize = True
-        Me.lblTitulo.Location = New System.Drawing.Point(55, 42)
+        Me.lblTitulo.Location = New System.Drawing.Point(50, 9)
         Me.lblTitulo.Name = "lblTitulo"
         Me.lblTitulo.Size = New System.Drawing.Size(39, 13)
         Me.lblTitulo.TabIndex = 2
@@ -80,16 +79,16 @@ Partial Class frmAgregarNota
         'lblDescripcion
         '
         Me.lblDescripcion.AutoSize = True
-        Me.lblDescripcion.Location = New System.Drawing.Point(25, 73)
+        Me.lblDescripcion.Location = New System.Drawing.Point(20, 40)
         Me.lblDescripcion.Name = "lblDescripcion"
         Me.lblDescripcion.Size = New System.Drawing.Size(69, 13)
         Me.lblDescripcion.TabIndex = 3
-        Me.lblDescripcion.Text = "Descripcion :"
+        Me.lblDescripcion.Text = "Descripción :"
         '
         'lblFecha
         '
         Me.lblFecha.AutoSize = True
-        Me.lblFecha.Location = New System.Drawing.Point(51, 190)
+        Me.lblFecha.Location = New System.Drawing.Point(46, 176)
         Me.lblFecha.Name = "lblFecha"
         Me.lblFecha.Size = New System.Drawing.Size(43, 13)
         Me.lblFecha.TabIndex = 4
@@ -99,7 +98,7 @@ Partial Class frmAgregarNota
         '
         Me.dtpFecha.CustomFormat = "dd/MM/yyyy"
         Me.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpFecha.Location = New System.Drawing.Point(100, 190)
+        Me.dtpFecha.Location = New System.Drawing.Point(95, 176)
         Me.dtpFecha.Name = "dtpFecha"
         Me.dtpFecha.Size = New System.Drawing.Size(214, 20)
         Me.dtpFecha.TabIndex = 5
@@ -108,7 +107,7 @@ Partial Class frmAgregarNota
         '
         Me.btnGuardarNota.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnGuardarNota.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnGuardarNota.Location = New System.Drawing.Point(65, 339)
+        Me.btnGuardarNota.Location = New System.Drawing.Point(153, 283)
         Me.btnGuardarNota.Name = "btnGuardarNota"
         Me.btnGuardarNota.Size = New System.Drawing.Size(75, 23)
         Me.btnGuardarNota.TabIndex = 6
@@ -119,7 +118,7 @@ Partial Class frmAgregarNota
         '
         Me.btnCancelar.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnCancelar.Location = New System.Drawing.Point(156, 339)
+        Me.btnCancelar.Location = New System.Drawing.Point(234, 282)
         Me.btnCancelar.Name = "btnCancelar"
         Me.btnCancelar.Size = New System.Drawing.Size(75, 24)
         Me.btnCancelar.TabIndex = 7
@@ -129,17 +128,18 @@ Partial Class frmAgregarNota
         'NroPostick
         '
         Me.NroPostick.AutoSize = True
-        Me.NroPostick.Location = New System.Drawing.Point(81, 9)
+        Me.NroPostick.Location = New System.Drawing.Point(531, 39)
         Me.NroPostick.Name = "NroPostick"
         Me.NroPostick.Size = New System.Drawing.Size(59, 13)
         Me.NroPostick.TabIndex = 8
         Me.NroPostick.Text = "NroPostick"
+        Me.NroPostick.Visible = False
         '
         'btnEliminar
         '
         Me.btnEliminar.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnEliminar.Location = New System.Drawing.Point(255, 339)
+        Me.btnEliminar.Location = New System.Drawing.Point(12, 282)
         Me.btnEliminar.Name = "btnEliminar"
         Me.btnEliminar.Size = New System.Drawing.Size(75, 24)
         Me.btnEliminar.TabIndex = 9
@@ -149,16 +149,17 @@ Partial Class frmAgregarNota
         'lblidpostick
         '
         Me.lblidpostick.AutoSize = True
-        Me.lblidpostick.Location = New System.Drawing.Point(12, 9)
+        Me.lblidpostick.Location = New System.Drawing.Point(462, 39)
         Me.lblidpostick.Name = "lblidpostick"
         Me.lblidpostick.Size = New System.Drawing.Size(62, 13)
         Me.lblidpostick.TabIndex = 10
         Me.lblidpostick.Text = "ID Postick :"
+        Me.lblidpostick.Visible = False
         '
         'lblPrioridad
         '
         Me.lblPrioridad.AutoSize = True
-        Me.lblPrioridad.Location = New System.Drawing.Point(40, 239)
+        Me.lblPrioridad.Location = New System.Drawing.Point(35, 206)
         Me.lblPrioridad.Name = "lblPrioridad"
         Me.lblPrioridad.Size = New System.Drawing.Size(54, 13)
         Me.lblPrioridad.TabIndex = 11
@@ -170,7 +171,7 @@ Partial Class frmAgregarNota
         Me.cboPrioridad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboPrioridad.FormattingEnabled = True
         Me.cboPrioridad.Items.AddRange(New Object() {"BAJA", "MEDIA", "ALTA", "URGENTE"})
-        Me.cboPrioridad.Location = New System.Drawing.Point(100, 236)
+        Me.cboPrioridad.Location = New System.Drawing.Point(95, 203)
         Me.cboPrioridad.Name = "cboPrioridad"
         Me.cboPrioridad.Size = New System.Drawing.Size(214, 21)
         Me.cboPrioridad.TabIndex = 12
@@ -179,17 +180,17 @@ Partial Class frmAgregarNota
         '
         Me.btnGuardarCambios.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnGuardarCambios.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnGuardarCambios.Location = New System.Drawing.Point(36, 339)
+        Me.btnGuardarCambios.Location = New System.Drawing.Point(153, 282)
         Me.btnGuardarCambios.Name = "btnGuardarCambios"
-        Me.btnGuardarCambios.Size = New System.Drawing.Size(104, 24)
+        Me.btnGuardarCambios.Size = New System.Drawing.Size(75, 24)
         Me.btnGuardarCambios.TabIndex = 13
-        Me.btnGuardarCambios.Text = "Guardar Cambios"
+        Me.btnGuardarCambios.Text = "Guardar"
         Me.btnGuardarCambios.UseVisualStyleBackColor = False
         '
         'ckbCompletado
         '
         Me.ckbCompletado.AutoSize = True
-        Me.ckbCompletado.Location = New System.Drawing.Point(12, 303)
+        Me.ckbCompletado.Location = New System.Drawing.Point(95, 259)
         Me.ckbCompletado.Name = "ckbCompletado"
         Me.ckbCompletado.Size = New System.Drawing.Size(113, 17)
         Me.ckbCompletado.TabIndex = 14
@@ -199,7 +200,7 @@ Partial Class frmAgregarNota
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(22, 266)
+        Me.Label1.Location = New System.Drawing.Point(17, 233)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(72, 13)
         Me.Label1.TabIndex = 15
@@ -211,7 +212,7 @@ Partial Class frmAgregarNota
         Me.cboResponsable.DisplayMember = "NombreCompleto"
         Me.cboResponsable.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboResponsable.FormattingEnabled = True
-        Me.cboResponsable.Location = New System.Drawing.Point(100, 263)
+        Me.cboResponsable.Location = New System.Drawing.Point(95, 230)
         Me.cboResponsable.Name = "cboResponsable"
         Me.cboResponsable.Size = New System.Drawing.Size(214, 21)
         Me.cboResponsable.TabIndex = 17
@@ -241,32 +242,19 @@ Partial Class frmAgregarNota
         Me.required.AutoSize = True
         Me.required.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.required.ForeColor = System.Drawing.Color.Red
-        Me.required.Location = New System.Drawing.Point(39, 39)
+        Me.required.Location = New System.Drawing.Point(34, 6)
         Me.required.Margin = New System.Windows.Forms.Padding(0)
         Me.required.Name = "required"
         Me.required.Size = New System.Drawing.Size(15, 20)
         Me.required.TabIndex = 36
         Me.required.Text = "*"
         '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.ForeColor = System.Drawing.Color.Red
-        Me.Label2.Location = New System.Drawing.Point(11, 263)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(0)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(15, 20)
-        Me.Label2.TabIndex = 37
-        Me.Label2.Text = "*"
-        '
         'frmAgregarNota
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(348, 374)
-        Me.Controls.Add(Me.Label2)
+        Me.ClientSize = New System.Drawing.Size(326, 324)
         Me.Controls.Add(Me.required)
         Me.Controls.Add(Me.cboResponsable)
         Me.Controls.Add(Me.Label1)
@@ -286,7 +274,7 @@ Partial Class frmAgregarNota
         Me.Controls.Add(Me.txtDescripcion)
         Me.Controls.Add(Me.txtTitulo)
         Me.Name = "frmAgregarNota"
-        Me.Text = "Posticks"
+        Me.Text = "Tarea"
         CType(Me.UsuariosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SolemnoDataSetBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SolemnoDataSet, System.ComponentModel.ISupportInitialize).EndInit()
@@ -315,6 +303,5 @@ Partial Class frmAgregarNota
     Friend WithEvents UsuariosBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents UsuariosTableAdapter As CapaPresentacion.SolemnoDataSetTableAdapters.UsuariosTableAdapter
     Friend WithEvents required As Label
-    Friend WithEvents Label2 As Label
     Public WithEvents dtpFecha As System.Windows.Forms.DateTimePicker
 End Class
