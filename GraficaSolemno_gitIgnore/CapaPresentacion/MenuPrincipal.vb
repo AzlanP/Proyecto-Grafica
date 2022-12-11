@@ -38,7 +38,7 @@ Public Class frmMenuPrincipal
         DGCliente.Columns(6).Visible = False
         DGCliente.Columns(7).Visible = False
         DGCliente.Columns(8).Visible = False
-        MostrarSinResultados(dt, DGCliente)
+        MostrarSinResultados(dt.Rows.Count, DGCliente)
 
         'If DGCliente.Visible Then
         '    If DGCliente.Rows.Count = 0 Then
@@ -52,12 +52,12 @@ Public Class frmMenuPrincipal
         Dim dt As New DataTable
         dt = oCNCliente.MostrarClienteIncativo()
         DGClienteInactivos.DataSource = dt
-        MostrarSinResultados(dt, DGClienteInactivos)
+        MostrarSinResultados(dt.Rows.Count, DGClienteInactivos)
     End Sub
     Private Sub TabCliente_Enter(ByVal sender As Object, ByVal e As System.EventArgs) Handles TabCliente.Enter
         CargarGridCliente()
         cboBuscarCliente.SelectedIndex = 0
-
+        SetGridSelectedId(DGCliente)
     End Sub
     Public Sub btnNuevoCliente_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNuevoCliente.Click
         Dim frmRegistrar As New RegistrarCliente
@@ -96,7 +96,7 @@ Public Class frmMenuPrincipal
         frmRegistrar.LlenarFormulario(ID)
         frmRegistrar.btnGuardar.Visible = False
         frmRegistrar.btnRegistrar.Visible = False
-
+        frmRegistrar.Text = "Detalles de Cliente"
         frmRegistrar.Disesabletext()
 
         frmRegistrar.ShowDialog()
@@ -104,7 +104,7 @@ Public Class frmMenuPrincipal
     Private Sub btnModificarCliente_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnModificarCliente.Click
         ID = DGCliente.Rows(DGCliente.CurrentCell.RowIndex).Cells("IDCliente").Value
         Dim frmRegistrar As New RegistrarCliente
-
+        frmRegistrar.Text = "Modificar Cliente"
         frmRegistrar.LlenarFormulario(ID)
         frmRegistrar.txtDNI.Enabled = False
         frmRegistrar.txtCuit.Enabled = False
@@ -115,7 +115,7 @@ Public Class frmMenuPrincipal
         'ID = DGCliente.Rows(DGCliente.CurrentCell.RowIndex).Cells("IDCliente").Value
         If oCNPedido.ValidarEliminarPedido(ID) Then
             '--
-            If MessageBox.Show("Esta seguro de mandar a la papelera el cliente? ", "Confirmacion de eliminar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
+            If MessageBox.Show("Esta seguro de eliminar el cliente? ", "Confirmación", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
                 oCNCliente.EliminarCliente(ID, "Inactivo")
                 CargarGridCliente()
             End If
@@ -130,7 +130,7 @@ Public Class frmMenuPrincipal
         DGCliente.DataSource = dt.DefaultView.ToTable(True, "IDCliente", "Nombre", "Apellido", "DNI", "CUIT", "Telefono")
         DGCliente.Columns(0).Visible = False
         'para que el combobox no permita escribir, se cambio el dropdownstyle =DropDownList
-        MostrarSinResultados(dt, DGCliente)
+        MostrarSinResultados(dt.Rows.Count, DGCliente)
     End Sub
     Public Sub OcultarColumnas(ByVal DGCliente As DataGridView)
         DGCliente.Columns(0).Visible = False
@@ -176,7 +176,7 @@ Public Class frmMenuPrincipal
 
 
             Dim frmRegistrar As New RegistrarCliente
-            If MessageBox.Show("Esta seguro de Restaurar el Cliente? ", "Confirmacion de restaurar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
+            If MessageBox.Show("Esta seguro de Restaurar el Cliente? ", "Confirmación de restaurar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
                 oCNCliente.EliminarCliente(ID, "Activo")
                 CargarGridCliente()
                 CargarGridClienteInactivo()
@@ -194,7 +194,7 @@ Public Class frmMenuPrincipal
         Dim dt As DataTable
         dt = oCNCliente.BuscarInactivo(cboBuscarCliente.Text, Trim(txtBuscarCliente.Text))
         DGClienteInactivos.DataSource = dt.DefaultView.ToTable(True, "IDCliente", "Nombre", "Apellido", "DNI", "CUIT", "Telefono", "Provincia", "Localidad", "Condicion de IVA")
-        MostrarSinResultados(dt, DGClienteInactivos)
+        MostrarSinResultados(dt.Rows.Count, DGClienteInactivos)
         DGClienteInactivos.Columns(0).Visible = False
     End Sub
     Private Sub btnVerInactivo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnVerInactivo.Click
@@ -207,7 +207,7 @@ Public Class frmMenuPrincipal
     End Sub
     Private Sub btnRestaurar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRestaurar.Click
         ID = DGClienteInactivos.Rows(DGClienteInactivos.CurrentCell.RowIndex).Cells("IDCliente").Value
-        If MessageBox.Show("Esta seguro de restaurar el cliente? ", "Confirmacion de restaurar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
+        If MessageBox.Show("Esta seguro de restaurar el cliente? ", "Confirmación de restaurar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
             oCNCliente.EliminarCliente(ID, "Activo")
             CargarGridCliente()
             CargarGridClienteInactivo()
@@ -244,7 +244,7 @@ Public Class frmMenuPrincipal
 
         DGProducto.DataSource = dt
         DGProducto.Columns(0).Visible = False
-        MostrarSinResultados(dt, DGProducto)
+        MostrarSinResultados(dt.Rows.Count, DGProducto)
     End Sub
     Public Sub CargarGridProductoInactivo()
         Dim dt As DataTable = oCNProducto.MostrarProductoInactivo().DefaultView.ToTable(True, "IDProducto", "Nombre", "Precio", "Codigo")
@@ -252,11 +252,12 @@ Public Class frmMenuPrincipal
         dt.AcceptChanges()
         DGProductoInactivo.DataSource = dt
         DGProductoInactivo.Columns(0).Visible = False
-        MostrarSinResultados(dt, DGProductoInactivo)
+        MostrarSinResultados(dt.Rows.Count, DGProductoInactivo)
     End Sub
     Private Sub TabProducto_Enter(ByVal sender As Object, ByVal e As System.EventArgs) Handles TabProducto.Enter
         CargarGridProducto()
         cboBuscarProducto.SelectedIndex = 0
+        SetGridSelectedId(DGProducto)
     End Sub
     Private Sub btnAgregarProducto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAgregarProducto.Click
         Dim frmRegistrar As New RegistrarProducto
@@ -287,12 +288,13 @@ Public Class frmMenuPrincipal
     End Sub
     Private Sub btnBuscarProducto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscarProducto.Click
         Dim dt As New DataTable
-        dt = oCNProducto.BuscarProducto(cboBuscarProducto.Text, txtBuscarProducto.Text).DefaultView.ToTable(True, "IDProducto", "Nombre", "Precio", "Codigo")
+        Dim searchText = txtBuscarProducto.Text.TrimStart().TrimEnd()
+        dt = oCNProducto.BuscarProducto(cboBuscarProducto.Text, searchText).DefaultView.ToTable(True, "IDProducto", "Nombre", "Precio", "Codigo")
         dt.Columns("Precio").ColumnName = "Precio Unitario"
         dt.AcceptChanges()
         DGProducto.DataSource = dt
         DGProducto.Columns(0).Visible = False
-        MostrarSinResultados(dt, DGProducto)
+        MostrarSinResultados(dt.Rows.Count, DGProducto)
     End Sub
 
     Private Sub DGProducto_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DGProducto.CellClick
@@ -319,7 +321,7 @@ Public Class frmMenuPrincipal
     '------------------------para la papelera------ 
     Private Sub btnEliminarProducto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEliminarProducto.Click
         ID = DGProducto.Rows(DGProducto.CurrentCell.RowIndex).Cells("IDProducto").Value
-        If MessageBox.Show("Esta seguro de mandar a la papelera el Producto? ", "Confirmacion de eliminar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
+        If MessageBox.Show("Esta seguro de eliminar el producto? ", "Confirmación", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
             oCNProducto.EliminarProducto(ID, "Inactivo")
             CargarGridProducto()
         End If
@@ -382,7 +384,7 @@ Public Class frmMenuPrincipal
 
             Dim frmRegistrar As New RegistrarProducto
             Dim ID As Integer = DGProductoInactivo.Rows(DGProductoInactivo.CurrentCell.RowIndex).Cells("IDProducto").Value
-            If MessageBox.Show("Esta seguro de Restaurar el Producto? ", "Confirmacion de restaurar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
+            If MessageBox.Show("Esta seguro de Restaurar el Producto? ", "Confirmación de restaurar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
                 oCNProducto.EliminarProducto(ID, "Activo")
                 CargarGridProducto()
                 CargarGridProductoInactivo()
@@ -438,6 +440,7 @@ Public Class frmMenuPrincipal
         CargarGridPedidos()
         cboBuscarPedido.SelectedIndex = 0
         cboFiltroPedido.SelectedIndex = 1
+        SetGridSelectedId(DGPedido)
     End Sub
     Public Sub CargarGridPedidos()
         Dim dt As DataTable = oCNPedido.MostrarPedido
@@ -450,7 +453,7 @@ Public Class frmMenuPrincipal
         DGPedido.DataSource = dv
         DGPedido.Columns("IDPedido").Visible = False
         DGPedido.Columns("Apellido").Visible = False
-        MostrarSinResultados(dt, DGPedido)
+        MostrarSinResultados(dt.Rows.Count, DGPedido)
     End Sub
 
     Private Sub btnNuevoPedido_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNuevoPedido.Click
@@ -460,10 +463,13 @@ Public Class frmMenuPrincipal
         frmPedido.btnGuardarPedido.Visible = True
 
 
-
+        frmPedido.Text = "Nuevo pedido"
         frmPedido.lblID.Text = oCNPedido.ConsultarUltimoID()
         frmPedido.txtResponsable.Text = lblUsuario.Text
         frmPedido.btnImprimir.Visible = False
+        'frmPedido.pnlBuscarPresupuesto.Visible = True
+        'frmPedido.pnlBuscarPresupuesto.Location = New Point(23, 9)
+        'frmPedido.pnlData.Location = New Point(171, 9)
         frmPedido.Detalles()
         'precargar combobox
         frmPedido.PrecargarCombobox()
@@ -477,11 +483,13 @@ Public Class frmMenuPrincipal
         ID = DGPedido.Rows(DGPedido.CurrentCell.RowIndex).Cells("IDPedido").Value
         Dim index As Integer = DGPedido.CurrentCell.RowIndex
         Dim frmPedido As New FormularioPedido
+
+        frmPedido.Text = "Detalles del pedido"
         frmPedido.btnAgregarPedidoNuevo.Enabled = False
         frmPedido.btnModificarPedido.Enabled = False
         frmPedido.btnQuitar.Enabled = False
         frmPedido.btnGuardarPedido.Visible = False
-        frmPedido.btnCancelarPedido.Text = "Aceptar"
+        frmPedido.btnCancelarPedido.Text = "Cerrar"
         frmPedido.DGListaDePedido.Enabled = False
         frmPedido.CargarGridDetalles(ID)
         frmPedido.LLenarFormulario(ID)
@@ -494,7 +502,7 @@ Public Class frmMenuPrincipal
     End Sub
 
     Private Sub btnEliminarPedido_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEliminarPedido.Click
-        If MessageBox.Show("Esta seguro de eliminar el pedido? ", "Confirmacion de eliminar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
+        If MessageBox.Show("Esta seguro de eliminar el pedido? ", "Confirmación", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
             oCNPedido.EliminarPedido(ID)
             CargarGridPedidos()
 
@@ -503,7 +511,8 @@ Public Class frmMenuPrincipal
 
     Private Sub btnBuscarPedido_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscarPedido.Click
         Dim dt As DataTable
-        dt = oCNPedido.BuscarPedido(cboBuscarPedido.Text, txtBuscarPedido.Text, cboFiltroPedido.Text)
+        Dim searchText = txtBuscarPedido.Text.TrimStart().TrimEnd()
+        dt = oCNPedido.BuscarPedido(cboBuscarPedido.Text, searchText, cboFiltroPedido.Text)
         For i As Integer = 0 To dt.Rows.Count - 1
             dt.Rows(i)("Nombre") = dt.Rows(i)("Nombre") & " " & dt.Rows(i)("Apellido")
         Next
@@ -512,7 +521,7 @@ Public Class frmMenuPrincipal
         DGPedido.DataSource = dt.DefaultView.ToTable(True, "IDPedido", "Nombre", "Fecha", "Estado", "Descripcion", "Responsable")
         DGPedido.Columns("Nombre").HeaderCell.Value = "Cliente"
         DGPedido.Columns(0).Visible = False
-        MostrarSinResultados(dt, DGPedido)
+        MostrarSinResultados(dt.Rows.Count, DGPedido)
     End Sub
 
     Private Sub DGPedido_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DGPedido.CellClick
@@ -540,6 +549,7 @@ Public Class frmMenuPrincipal
         Dim index As Integer = DGPedido.CurrentCell.RowIndex
         ID = DGPedido.Rows(DGPedido.CurrentCell.RowIndex).Cells("IDPedido").Value
         Dim frmPedido As New FormularioPedido
+        frmPedido.Text = "Modificar pedido"
         frmPedido.btnGuardarPedido.Visible = True
         frmPedido.CargarGridDetalles(ID)
         frmPedido.LLenarFormulario(ID)
@@ -1102,19 +1112,24 @@ Public Class frmMenuPrincipal
         CargarGridPresupuestos()
         cboBuscarPresupuesto.SelectedIndex = 0
         cboFiltroEstadoPresupuesto.SelectedIndex = 1
+        SetGridSelectedId(DGPresupuesto)
     End Sub
     Public Sub AutoCancelarPresupuestos()
         oCNPresupuesto.AutoCancelarPresupuesto()
     End Sub
 
     Private Sub btnCancelarPresupuesto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancelarPresupuesto.Click
-        Dim fecha As Date = Date.Now()
-        Try
-            oCNPresupuesto.CancelarPresupuesto(ID, fecha)
-        Catch ex As Exception
-        Finally
-            CargarGridPresupuestos()
-        End Try
+        If MessageBox.Show("Esta seguro de cancelar el presupuesto?", "Cancelar presupuesto", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
+            Close()
+
+            Dim fecha As Date = Date.Now()
+            Try
+                oCNPresupuesto.CancelarPresupuesto(ID, fecha)
+            Catch ex As Exception
+            Finally
+                CargarGridPresupuestos()
+            End Try
+        End If
 
     End Sub
     Public Sub CargarGridPresupuestos()
@@ -1142,10 +1157,16 @@ Public Class frmMenuPrincipal
         '        End If
         '    End If
         'Next
-        MostrarSinResultados(dt, DGPresupuesto)
+        MostrarSinResultados(dt.Rows.Count, DGPresupuesto)
     End Sub
     Private Sub btnNuevoPresupuesto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNuevoPresupuesto.Click
-        Dim frmPresupuesto As New FormularioPedido
+        Dim frmPresupuesto As FormularioPedido
+        Try
+            frmPresupuesto = New FormularioPedido()
+        Catch ex As Exception
+            frmPresupuesto = New FormularioPedido()
+        End Try
+
         frmPresupuesto.Text = "Nuevo presupuesto"
         visibilidadFormularioPresupuesto(frmPresupuesto)
         frmPresupuesto.lblID.Text = oCNPresupuesto.ConsultarUltimoID()
@@ -1189,7 +1210,7 @@ Public Class frmMenuPrincipal
         frmPresupuesto.btnQuitar.Enabled = False
         frmPresupuesto.btnGuardarPedido.Visible = False
         frmPresupuesto.DGListaDePedido.Enabled = False
-        frmPresupuesto.btnCancelarPedido.Text = "Aceptar"
+        frmPresupuesto.btnCancelarPedido.Text = "Cerrar"
         frmPresupuesto.CargarGridDetalles(ID)
         frmPresupuesto.LLenarFormulario(ID, False)
         frmPresupuesto.lblID.Text = ID
@@ -1208,8 +1229,9 @@ Public Class frmMenuPrincipal
 
     Private Sub btnBuscarPresupuesto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscarPresupuesto.Click
         Dim dt As DataTable
+        Dim searchText = txtBuscarPresupuesto.Text.TrimStart().TrimEnd()
 
-        dt = oCNPresupuesto.BuscarPresupuesto(cboBuscarPresupuesto.Text, txtBuscarPresupuesto.Text, cboFiltroEstadoPresupuesto.Text)
+        dt = oCNPresupuesto.BuscarPresupuesto(cboBuscarPresupuesto.Text, searchText, cboFiltroEstadoPresupuesto.Text)
 
         For i As Integer = 0 To dt.Rows.Count - 1
             dt.Rows(i)("Nombre") = dt.Rows(i)("Nombre") & " " & dt.Rows(i)("Apellido")
@@ -1218,7 +1240,7 @@ Public Class frmMenuPrincipal
         DGPresupuesto.DataSource = dt.DefaultView.ToTable(True, "IDPedido", "Nombre", "Fecha", "Fecha Vencimiento", "Descripcion", "Estado", "Responsable")
         DGPresupuesto.Columns("Nombre").HeaderCell.Value = "Cliente"
         DGPresupuesto.Columns(0).Visible = False
-        MostrarSinResultados(dt, DGPresupuesto)
+        MostrarSinResultados(dt.Rows.Count, DGPresupuesto)
     End Sub
 
     Private Sub DGPresupuesto_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DGPresupuesto.CellClick
@@ -1268,15 +1290,17 @@ Public Class frmMenuPrincipal
     Private Sub TabUsuario_Enter(sender As Object, e As System.EventArgs) Handles TabUsuario.Enter
         cboFiltroUsuarios.SelectedIndex = 0
         DGUsuario.DataSource = Me.UsuariosTableAdapter.GetUsuarioByEstado("Activo")
+        SetGridSelectedId(DGUsuario)
     End Sub
     Public Sub MostrarUsuarios(ByVal state As Boolean)
         ToggleState(state)
         'If state Then
-        DGUsuario.DataSource = Me.UsuariosTableAdapter.GetUsuarioByEstado("Activo")
+        Dim dt = Me.UsuariosTableAdapter.GetUsuarioByEstado("Activo")
+        DGUsuario.DataSource = dt
         'Else
         '    DGUsuario.DataSource = Me.UsuariosTableAdapter.GetUsuarioByEstado("Inactivo")
         'End If
-
+        MostrarSinResultados(dt.Count, DGUsuario)
     End Sub
     Public Sub ToggleState(ByVal state As Boolean)
 
@@ -1299,9 +1323,14 @@ Public Class frmMenuPrincipal
     End Sub
 
     Private Sub btnNuevoUsuario_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNuevoUsuario.Click
-        Dim regUser As New frmIngresaralSistema
-        regUser.PanelRegistrar.Visible = True
-        regUser.PanelLogin.Visible = False
+        Dim regUser As New frmModificarUsuario
+        regUser.Text = "Nuevo usuario"
+        regUser.Editando = False
+        regUser.CboCargo.Enabled = True
+        regUser.TxtNombreyApellido.Enabled = True
+        regUser.txtUsuarioRegistro.Enabled = True
+        regUser.CheckBox1.Visible = False
+        regUser.CheckBox1.Checked = True
         regUser.ShowDialog()
         MostrarUsuarios(True)
     End Sub
@@ -1314,51 +1343,33 @@ Public Class frmMenuPrincipal
     End Sub
 
     Private Sub DGUsuario_CellDoubleClick(sender As Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DGUsuario.CellDoubleClick
-        Dim regUser As New frmIngresaralSistema
-        regUser.PanelRegistrar.Visible = True
-        regUser.PanelLogin.Visible = False
-        regUser.Editando = True
-        regUser.EditAdmin = True
-        regUser.chkMostrarContraseña.Visible = True
-        regUser.CboCargo.Enabled = False
-        regUser.TxtNombreyApellido.Enabled = False
-
-        regUser.TxtConfirmarContraseña.Enabled = True
-        regUser.txtContraRegistrar.Enabled = True
-        regUser.llenarFormulario(ID)
-        regUser.ShowDialog()
-
-
-        MostrarUsuarios(True)
+        ModificarUsuario()
     End Sub
     Private Sub btnModificarUsuario_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnModificarUsuario.Click
+        ModificarUsuario()
+    End Sub
 
-        Dim regUser As New frmIngresaralSistema
+    Private Sub ModificarUsuario()
+        If IsNothing(DGUsuario.CurrentCell) Then
+            Return
+        End If
+        ID = DGUsuario.Rows(DGUsuario.CurrentCell.RowIndex).Cells(0).Value
+        Dim regUser As New frmModificarUsuario
 
         regUser.llenarFormulario(ID)
-
-
-        regUser.PanelRegistrar.Visible = True
-        regUser.PanelLogin.Visible = False
+        regUser.Text = "Modificar usuario"
         regUser.Editando = True
-
         regUser.chkMostrarContraseña.Visible = True
         regUser.CboCargo.Enabled = True
         regUser.TxtNombreyApellido.Enabled = False
         regUser.EditAdmin = True
-        regUser.TxtConfirmarContraseña.Enabled = False
-        regUser.txtContraRegistrar.Enabled = False
-        regUser.chkMostrarContraseña.Enabled = False
+        regUser.EditPassword()
         regUser.ShowDialog()
-
-
         MostrarUsuarios(True)
     End Sub
 
-
-
     Private Sub btnRestaurarUsuario_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRestaurarUsuario.Click
-        If MessageBox.Show("Esta seguro restaurar usuario? ", "Confirmacion restaurar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
+        If MessageBox.Show("Esta seguro restaurar usuario? ", "Confirmación restaurar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
             oCNUsuario.EliminarUsuario(ID, "Activo")
 
             MostrarUsuarios(True)
@@ -1372,7 +1383,8 @@ Public Class frmMenuPrincipal
     End Sub
 
     Private Sub btnEliminarUsuario_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEliminarUsuario.Click
-        If MessageBox.Show("Esta seguro eliminar usuario? ", "Confirmacion de eliminar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
+        If MessageBox.Show("Esta seguro eliminar el usuario? ", "Confirmación", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
+            ID = DGUsuario.Rows(DGUsuario.CurrentCell.RowIndex).Cells(0).Value
             oCNUsuario.EliminarUsuario(ID, "Inactivo")
             Me.UsuariosTableAdapter.Fill(Me.SolemnoDataSet.Usuarios)
         End If
@@ -1384,11 +1396,26 @@ Public Class frmMenuPrincipal
         Dim regUser As New frmIngresaralSistema
         regUser.PanelRegistrar.Visible = True
         regUser.PanelLogin.Visible = False
+        regUser.TxtContraseña.Visible = False
+        regUser.TxtConfirmarContraseña.Visible = False
         regUser.llenarFormulario(ID)
         regUser.Disesabletext()
-
+        regUser.Text = "Detalles del usuario"
         regUser.ShowDialog()
         MostrarUsuarios(True)
+    End Sub
+
+    Private Sub SetGridSelectedId(ByVal dgv As DataGridView)
+        Try
+            If dgv IsNot Nothing And dgv.SelectedRows IsNot Nothing And dgv.Rows.Count > 0 And dgv.CurrentCell IsNot Nothing Then
+                Dim id = dgv.Rows(dgv.CurrentCell.RowIndex).Cells(0).Value
+                If id IsNot Nothing Then
+                    Me.ID = id
+                End If
+            End If
+        Catch ex As Exception
+
+        End Try
     End Sub
     'Private Sub btnVerUsuarioInactivo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnVerUsuarioInactivo.Click
 
@@ -1408,20 +1435,20 @@ Public Class frmMenuPrincipal
     Private Sub btnBuscarUsuario_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscarUsuario.Click
         Dim dt As DataTable
         Dim dv As New DataView
-        If state Then
-            dt = Me.UsuariosTableAdapter.GetUsuarioByEstado("Activo")
-        Else
-            dt = Me.UsuariosTableAdapter.GetUsuarioByEstado("Inactivo")
-        End If
-
+        'If state Then
+        dt = Me.UsuariosTableAdapter.GetUsuarioByEstado("Activo")
+        'Else
+        '    dt = Me.UsuariosTableAdapter.GetUsuarioByEstado("Inactivo")
+        'End If
+        Dim searchText = txtBuscarUsuario.Text.TrimStart().TrimEnd()
         If cboFiltroUsuarios.SelectedIndex = 0 Then
-            dv = New DataView(dt, "NombreCompleto like '" & txtBuscarUsuario.Text & "%' ", "IDUsuario Asc", DataViewRowState.CurrentRows)
+            dv = New DataView(dt, "NombreCompleto like '%" & searchText & "%' ", "IDUsuario Asc", DataViewRowState.CurrentRows)
         ElseIf cboFiltroUsuarios.SelectedIndex = 1 Then
 
             dv = New DataView(dt, "Cargo = '" & cboFilterCargoUsuario.Text & "'", "IDUsuario Asc", DataViewRowState.CurrentRows)
         End If
         DGUsuario.DataSource = dv
-        MostrarSinResultados(dt, DGUsuario)
+        MostrarSinResultados(dv.Count, DGUsuario)
     End Sub
 
 
@@ -1523,10 +1550,10 @@ Public Class frmMenuPrincipal
 
 #Region "Panel Sin Resultados"
     Dim pSearch As New Panel
-    Public Sub MostrarSinResultados(ByVal dt As DataTable, ByVal DG As DataGridView)
-        If dt.Rows.Count = 0 Then
+    Public Sub MostrarSinResultados(ByVal countRows As Integer, ByVal DG As DataGridView)
+        If countRows = 0 Then
 
-            Dim alturaHeader As Integer = 32
+            Dim alturaHeader As Integer = DG.ColumnHeadersHeight + 1
 
             pSearch.Location = New Point(DG.Location.X, DG.Location.Y + alturaHeader)
             pSearch.Name = "Panel" + DG.Name
@@ -1540,6 +1567,9 @@ Public Class frmMenuPrincipal
             pSearch.BringToFront()
         Else
             pSearch.Visible = False
+            If DG.Parent Is Nothing Then
+                Return
+            End If
             Dim ctrl As List(Of Control) = DG.Parent.Controls.OfType(Of Control)().Where(Function(x) x.Name.StartsWith("Panel") And TypeOf x Is Panel).ToList()
             For Each item As Control In ctrl
                 DG.Parent.Controls.Remove(item)
@@ -1551,17 +1581,19 @@ Public Class frmMenuPrincipal
 
 
     Private Sub EditarUsuario_Click(sender As System.Object, e As System.EventArgs) Handles EditarUsuario.Click
-        Dim regUser As New frmIngresaralSistema
+
         If (lblUsuario.Tag IsNot Nothing) Then
+            Dim regUser As New frmModificarUsuario
             regUser.llenarFormulario(lblUsuario.Tag)
-            regUser.PanelRegistrar.Visible = True
-            regUser.PanelLogin.Visible = False
+            regUser.Text = "Modificar usuario"
             regUser.Editando = True
             regUser.chkMostrarContraseña.Visible = True
             regUser.CboCargo.Enabled = False
             regUser.TxtNombreyApellido.Enabled = False
-            regUser.TxtConfirmarContraseña.Enabled = True
-            regUser.txtContraRegistrar.Enabled = True
+            regUser.CheckBox1.Checked = True
+            regUser.CheckBox1.Visible = False
+            regUser.EditAdmin = True
+            regUser.EditPassword()
             regUser.ShowDialog()
         End If
 

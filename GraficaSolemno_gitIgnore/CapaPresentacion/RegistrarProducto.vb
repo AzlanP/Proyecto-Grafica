@@ -55,7 +55,7 @@ Public Class RegistrarProducto
     End Sub
     Private Sub btnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGuardarProducto.Click
         If (txtNombre.Text.Trim() = "") Then
-            MessageBox.Show("El nombre del producto no puede ser nulo")
+            MessageBox.Show("El nombre del producto es requerido")
         Else
             oCNProducto.ModificarProducto(TomarDatos())
             Close()
@@ -65,7 +65,7 @@ Public Class RegistrarProducto
     End Sub
 
     Private Sub btnCancelar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancelar.Click
-        If MessageBox.Show("Esta seguro de descartar los cambios?", "Confirmacion!", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
+        If MessageBox.Show("Esta seguro de descartar los cambios?", "Descartar cambios", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
             Close()
         End If
 

@@ -28,20 +28,23 @@ Partial Class ValidacionMoneda
         '
         'TextBox1
         '
-        Me.TextBox1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TextBox1.Location = New System.Drawing.Point(0, 0)
-        Me.TextBox1.Margin = New System.Windows.Forms.Padding(0)
+        Me.TextBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TextBox1.Location = New System.Drawing.Point(16, 1)
+        Me.TextBox1.Margin = New System.Windows.Forms.Padding(0, 0, 1, 0)
+        Me.TextBox1.MaxLength = 10
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(89, 20)
+        Me.TextBox1.Size = New System.Drawing.Size(127, 20)
         Me.TextBox1.TabIndex = 0
         '
         'SimboloPeso
         '
         Me.SimboloPeso.AutoSize = True
-        Me.SimboloPeso.Location = New System.Drawing.Point(3, 9)
+        Me.SimboloPeso.Location = New System.Drawing.Point(0, 3)
         Me.SimboloPeso.Name = "SimboloPeso"
-        Me.SimboloPeso.Size = New System.Drawing.Size(0, 13)
+        Me.SimboloPeso.Size = New System.Drawing.Size(13, 13)
         Me.SimboloPeso.TabIndex = 1
+        Me.SimboloPeso.Text = "$"
         '
         'ValidacionMoneda
         '
@@ -52,7 +55,7 @@ Partial Class ValidacionMoneda
         Me.Controls.Add(Me.TextBox1)
         Me.Margin = New System.Windows.Forms.Padding(0)
         Me.Name = "ValidacionMoneda"
-        Me.Size = New System.Drawing.Size(89, 23)
+        Me.Size = New System.Drawing.Size(146, 23)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

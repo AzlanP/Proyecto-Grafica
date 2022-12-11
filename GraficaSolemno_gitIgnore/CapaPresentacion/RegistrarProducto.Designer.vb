@@ -172,7 +172,7 @@ Partial Class RegistrarProducto
         Me.controlPrecio.Location = New System.Drawing.Point(97, 88)
         Me.controlPrecio.Margin = New System.Windows.Forms.Padding(0)
         Me.controlPrecio.Name = "controlPrecio"
-        Me.controlPrecio.Size = New System.Drawing.Size(100, 24)
+        Me.controlPrecio.Size = New System.Drawing.Size(107, 24)
         Me.controlPrecio.TabIndex = 37
         Me.controlPrecio.valor = 0R
         '

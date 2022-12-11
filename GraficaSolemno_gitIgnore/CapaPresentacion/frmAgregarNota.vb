@@ -8,7 +8,7 @@ Public Class frmAgregarNota
 
     Private Sub btnGuardarNota_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGuardarNota.Click
         If (String.IsNullOrEmpty(txtTitulo.Text)) Then
-            MsgBox("El titulo de la tarea es requerido.")
+            MsgBox("El título de la tarea es requerido.", , "Validación")
             Return
         End If
 
@@ -99,7 +99,7 @@ Public Class frmAgregarNota
       
 
         Dim msg As String
-        msg = Microsoft.VisualBasic.InputBox("Ingrese el motivo por el cual desea eliminar el postick.", "Motivo de eliminacion", "", Me.Location.X, Me.Location.Y)
+        msg = Microsoft.VisualBasic.InputBox("Ingrese el motivo por el cual desea eliminar la tarea.", "Motivo de eliminacion", "", Me.Location.X, Me.Location.Y)
         If msg <> "" Then
 
             oCNPostick.EliminarPostick(CInt(NroPostick.Text), msg, frmMenuPrincipal.lblUsuario.Text)

@@ -48,7 +48,7 @@ Public Class CDProducto
 
         Catch ex As Exception
             If estado = "Activo" Then
-                MsgBox("Error al mover a la papelera el producto. Por favor vuelva a intentarlo.", MsgBoxStyle.Exclamation, "Error al eliminar el producto")
+                MsgBox("Error al eliminar el producto. Por favor vuelva a intentarlo.", MsgBoxStyle.Exclamation, "Error al eliminar el producto")
             Else
                 MsgBox("Error al restaurar el producto. Por favor vuelva a intentarlo.", MsgBoxStyle.Exclamation, "Error al restaurar el producto")
             End If

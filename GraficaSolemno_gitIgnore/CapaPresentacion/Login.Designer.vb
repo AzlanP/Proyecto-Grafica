@@ -31,6 +31,7 @@ Partial Class frmIngresaralSistema
         Me.PanelLogin = New System.Windows.Forms.Panel()
         Me.btnIngresar = New System.Windows.Forms.Button()
         Me.PanelRegistrar = New System.Windows.Forms.Panel()
+        Me.btnCerrar = New System.Windows.Forms.Button()
         Me.btnRegistrar = New System.Windows.Forms.Button()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.CboCargo = New System.Windows.Forms.ComboBox()
@@ -44,7 +45,6 @@ Partial Class frmIngresaralSistema
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txtContraRegistrar = New System.Windows.Forms.TextBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.btnCerrar = New System.Windows.Forms.Button()
         Me.PanelLogin.SuspendLayout()
         Me.PanelRegistrar.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -141,6 +141,18 @@ Partial Class frmIngresaralSistema
         Me.PanelRegistrar.Size = New System.Drawing.Size(204, 298)
         Me.PanelRegistrar.TabIndex = 12
         Me.PanelRegistrar.Visible = False
+        '
+        'btnCerrar
+        '
+        Me.btnCerrar.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCerrar.Location = New System.Drawing.Point(34, 248)
+        Me.btnCerrar.Name = "btnCerrar"
+        Me.btnCerrar.Size = New System.Drawing.Size(133, 24)
+        Me.btnCerrar.TabIndex = 25
+        Me.btnCerrar.Text = "Cerrar"
+        Me.btnCerrar.UseVisualStyleBackColor = False
+        Me.btnCerrar.Visible = False
         '
         'btnRegistrar
         '
@@ -268,24 +280,12 @@ Partial Class frmIngresaralSistema
         Me.PictureBox1.TabIndex = 1
         Me.PictureBox1.TabStop = False
         '
-        'btnCerrar
-        '
-        Me.btnCerrar.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
-        Me.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnCerrar.Location = New System.Drawing.Point(34, 248)
-        Me.btnCerrar.Name = "btnCerrar"
-        Me.btnCerrar.Size = New System.Drawing.Size(133, 24)
-        Me.btnCerrar.TabIndex = 25
-        Me.btnCerrar.Text = "Cerrar"
-        Me.btnCerrar.UseVisualStyleBackColor = False
-        Me.btnCerrar.Visible = False
-        '
         'frmIngresaralSistema
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(676, 338)
+        Me.ClientSize = New System.Drawing.Size(524, 338)
         Me.Controls.Add(Me.PanelRegistrar)
         Me.Controls.Add(Me.PanelLogin)
         Me.Controls.Add(Me.PictureBox1)

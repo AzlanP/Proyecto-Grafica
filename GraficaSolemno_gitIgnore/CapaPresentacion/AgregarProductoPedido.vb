@@ -62,6 +62,8 @@ Public Class AgregarProductoPedido
         txtCantidad.Text = 1
         txtboxPrecio.valor = nullearDouble(dr("Precio").ToString)
         TextboxDescripcion.Text = ""
+        calcularPrecioXCantidad()
+
     End Sub
     Public Function nullearInteger(ByVal ob As Object) As Integer
         Dim value As Integer
@@ -94,6 +96,10 @@ Public Class AgregarProductoPedido
         TextboxDescripcion.Text = dr("Descripcion").ToString
         oCEDetallesDelPedido.Descuento = CInt(dr("Descuento").ToString)
         cboDesc.Text = CInt(dr("Descuento").ToString)
+
+        Me.PanelBusqueda.Visible = False
+
+
     End Sub
     Public Function SetNullValues(ByVal value As Object) As Object
         If IsNumeric(value) Then

@@ -36,18 +36,23 @@ Public Class CDUsuario
     Public Sub EliminarUsuario(ByVal id As Integer, ByVal estado As String)
         oCDConexion.Conectar()
         Try
-            Dim instruccionSQL = "Update Usuarios set Estado=@esta WHERE (IDUsuario = @IDUsuario)"
-            Dim comando As New SQLiteCommand(instruccionSQL, oCDConexion.con)
+            'Dim instruccionSQL = "Update Usuarios set Estado=@esta WHERE (IDUsuario = @IDUsuario)"
+            'Dim comando As New SQLiteCommand(instruccionSQL, oCDConexion.con)
+            'comando.Parameters.Add("@IDUsuario", SqlDbType.Int).Value = id
+            'comando.Parameters.Add("@esta", SqlDbType.VarChar).Value = estado
+            'comando.ExecuteNonQuery()
+            Dim instruccionsql = "DELETE FROM Usuarios WHERE (IDUsuario = @IDUsuario)"
+            Dim comando As New SQLiteCommand(instruccionsql, oCDConexion.con)
             comando.Parameters.Add("@IDUsuario", SqlDbType.Int).Value = id
-            comando.Parameters.Add("@esta", SqlDbType.VarChar).Value = estado
+
             comando.ExecuteNonQuery()
 
         Catch ex As Exception
-            If estado = "Activo" Then
-                MsgBox("Error al mover a la papelera el Usuario. Por favor vuelva a intentarlo.", MsgBoxStyle.Exclamation, "Error al eliminar el Usuario")
-            Else
-                MsgBox("Error al restaurar el Usuario. Por favor vuelva a intentarlo.", MsgBoxStyle.Exclamation, "Error al restaurar el Usuario")
-            End If
+            'If estado = "Activo" Then
+            MsgBox("Error al eliminar el Usuario. Por favor vuelva a intentarlo.", MsgBoxStyle.Exclamation, "Error al eliminar el Usuario")
+            'Else
+            '    MsgBox("Error al restaurar el Usuario. Por favor vuelva a intentarlo.", MsgBoxStyle.Exclamation, "Error al restaurar el Usuario")
+            'End If
         Finally
             oCDConexion.Desconectar()
         End Try
@@ -55,14 +60,20 @@ Public Class CDUsuario
     Public Sub ModificarUsuario(ByVal oCEUsuario As CEUsuario)
         oCDConexion.Conectar()
         Try
-            Dim instruccionsql = " UPDATE Usuarios SET Usuario=@Usuario, Contrasena=@Contrasena, Cargo=@Cargo where IDUsuario=@IDUsuario"
+            Dim passwordIsNothing As Boolean = IsNothing(oCEUsuario.Contrasena)
+            Dim addPasswordText As String = IIf(passwordIsNothing, "", "Contrasena=@Contrasena, ")
+            Dim instruccionsql = " UPDATE Usuarios SET " & addPasswordText & " Cargo=@Cargo where IDUsuario=@IDUsuario and Usuario=@Usuario"
             Dim comando As New SQLiteCommand(instruccionsql, oCDConexion.con)
             With comando.Parameters
                 .Add("@IDUsuario", SqlDbType.Int).Value = oCEUsuario.IDUsuario
                 .Add("@Usuario", SqlDbType.VarChar).Value = oCEUsuario.Usuario
-                .Add("@Contrasena", SqlDbType.VarChar).Value = oCEUsuario.Contrasena
+
                 .Add("@Cargo", SqlDbType.VarChar).Value = oCEUsuario.Cargo
             End With
+
+            If Not passwordIsNothing Then
+                comando.Parameters.Add("@Contrasena", SqlDbType.VarChar).Value = oCEUsuario.Contrasena
+            End If
             comando.ExecuteNonQuery()
             MsgBox("El Usuario se modifico con exito.", , "Modificar Usuario")
         Catch ex As Exception

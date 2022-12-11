@@ -82,7 +82,7 @@ Partial Class AgregarProductoPedido
         'lblDescripcionAgrProd
         '
         Me.lblDescripcionAgrProd.AutoSize = True
-        Me.lblDescripcionAgrProd.Location = New System.Drawing.Point(28, 207)
+        Me.lblDescripcionAgrProd.Location = New System.Drawing.Point(23, 207)
         Me.lblDescripcionAgrProd.Name = "lblDescripcionAgrProd"
         Me.lblDescripcionAgrProd.Size = New System.Drawing.Size(66, 13)
         Me.lblDescripcionAgrProd.TabIndex = 17
@@ -91,7 +91,7 @@ Partial Class AgregarProductoPedido
         'lblPrecioAgrProd
         '
         Me.lblPrecioAgrProd.AutoSize = True
-        Me.lblPrecioAgrProd.Location = New System.Drawing.Point(23, 102)
+        Me.lblPrecioAgrProd.Location = New System.Drawing.Point(21, 162)
         Me.lblPrecioAgrProd.Name = "lblPrecioAgrProd"
         Me.lblPrecioAgrProd.Size = New System.Drawing.Size(79, 13)
         Me.lblPrecioAgrProd.TabIndex = 15
@@ -100,7 +100,7 @@ Partial Class AgregarProductoPedido
         'lblCantidadAgrProd
         '
         Me.lblCantidadAgrProd.AutoSize = True
-        Me.lblCantidadAgrProd.Location = New System.Drawing.Point(24, 63)
+        Me.lblCantidadAgrProd.Location = New System.Drawing.Point(19, 112)
         Me.lblCantidadAgrProd.Name = "lblCantidadAgrProd"
         Me.lblCantidadAgrProd.Size = New System.Drawing.Size(52, 13)
         Me.lblCantidadAgrProd.TabIndex = 13
@@ -117,7 +117,7 @@ Partial Class AgregarProductoPedido
         '
         'txtCantidad
         '
-        Me.txtCantidad.Location = New System.Drawing.Point(26, 79)
+        Me.txtCantidad.Location = New System.Drawing.Point(21, 128)
         Me.txtCantidad.MaxLength = 6
         Me.txtCantidad.Name = "txtCantidad"
         Me.txtCantidad.Size = New System.Drawing.Size(76, 20)
@@ -171,21 +171,24 @@ Partial Class AgregarProductoPedido
         Me.lblID.Name = "lblID"
         Me.lblID.Size = New System.Drawing.Size(0, 13)
         Me.lblID.TabIndex = 25
+        Me.lblID.Visible = False
         '
         'txtNombreProducto
         '
         Me.txtNombreProducto.Enabled = False
         Me.txtNombreProducto.Location = New System.Drawing.Point(25, 40)
         Me.txtNombreProducto.MaxLength = 50
+        Me.txtNombreProducto.Multiline = True
         Me.txtNombreProducto.Name = "txtNombreProducto"
-        Me.txtNombreProducto.Size = New System.Drawing.Size(210, 20)
+        Me.txtNombreProducto.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+        Me.txtNombreProducto.Size = New System.Drawing.Size(210, 43)
         Me.txtNombreProducto.TabIndex = 27
         Me.txtNombreProducto.Tag = "3"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(24, 154)
+        Me.Label1.Location = New System.Drawing.Point(111, 162)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(45, 13)
         Me.Label1.TabIndex = 28
@@ -194,7 +197,7 @@ Partial Class AgregarProductoPedido
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(195, 82)
+        Me.Label2.Location = New System.Drawing.Point(190, 131)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(46, 13)
         Me.Label2.TabIndex = 30
@@ -205,7 +208,7 @@ Partial Class AgregarProductoPedido
         Me.cboDesc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboDesc.FormattingEnabled = True
         Me.cboDesc.Items.AddRange(New Object() {"0", "5", "10", "15", "20", "25", "30"})
-        Me.cboDesc.Location = New System.Drawing.Point(119, 79)
+        Me.cboDesc.Location = New System.Drawing.Point(114, 128)
         Me.cboDesc.Name = "cboDesc"
         Me.cboDesc.Size = New System.Drawing.Size(70, 21)
         Me.cboDesc.TabIndex = 32
@@ -215,24 +218,24 @@ Partial Class AgregarProductoPedido
         Me.txtPrecioTotal.AutoSize = True
         Me.txtPrecioTotal.Enabled = False
         Me.txtPrecioTotal.labeltext = Nothing
-        Me.txtPrecioTotal.Location = New System.Drawing.Point(24, 173)
+        Me.txtPrecioTotal.Location = New System.Drawing.Point(111, 181)
         Me.txtPrecioTotal.Margin = New System.Windows.Forms.Padding(0)
         Me.txtPrecioTotal.Name = "txtPrecioTotal"
-        Me.txtPrecioTotal.Size = New System.Drawing.Size(78, 22)
+        Me.txtPrecioTotal.Size = New System.Drawing.Size(90, 22)
         Me.txtPrecioTotal.TabIndex = 29
-        Me.txtPrecioTotal.valor = 0.0R
+        Me.txtPrecioTotal.valor = 0R
         '
         'txtboxPrecio
         '
         Me.txtboxPrecio.AutoSize = True
         Me.txtboxPrecio.Enabled = False
         Me.txtboxPrecio.labeltext = Nothing
-        Me.txtboxPrecio.Location = New System.Drawing.Point(24, 120)
+        Me.txtboxPrecio.Location = New System.Drawing.Point(22, 180)
         Me.txtboxPrecio.Margin = New System.Windows.Forms.Padding(0)
         Me.txtboxPrecio.Name = "txtboxPrecio"
         Me.txtboxPrecio.Size = New System.Drawing.Size(78, 22)
         Me.txtboxPrecio.TabIndex = 26
-        Me.txtboxPrecio.valor = 0.0R
+        Me.txtboxPrecio.valor = 0R
         '
         'required
         '
@@ -251,7 +254,7 @@ Partial Class AgregarProductoPedido
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.Red
-        Me.Label3.Location = New System.Drawing.Point(9, 63)
+        Me.Label3.Location = New System.Drawing.Point(4, 112)
         Me.Label3.Margin = New System.Windows.Forms.Padding(0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(15, 20)
@@ -263,7 +266,7 @@ Partial Class AgregarProductoPedido
         Me.PanelBusqueda.Controls.Add(Me.txtBuscar)
         Me.PanelBusqueda.Controls.Add(Me.DGBuscar)
         Me.PanelBusqueda.Controls.Add(Me.btnBuscar)
-        Me.PanelBusqueda.Location = New System.Drawing.Point(247, 9)
+        Me.PanelBusqueda.Location = New System.Drawing.Point(247, 22)
         Me.PanelBusqueda.Name = "PanelBusqueda"
         Me.PanelBusqueda.Size = New System.Drawing.Size(325, 318)
         Me.PanelBusqueda.TabIndex = 39
@@ -295,7 +298,7 @@ Partial Class AgregarProductoPedido
         Me.MaximumSize = New System.Drawing.Size(600, 400)
         Me.MinimumSize = New System.Drawing.Size(275, 400)
         Me.Name = "AgregarProductoPedido"
-        Me.Text = "Agregar Al Pedido"
+        Me.Text = "Agregar"
         CType(Me.DGBuscar, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelBusqueda.ResumeLayout(False)
         Me.PanelBusqueda.PerformLayout()

@@ -79,7 +79,7 @@ Public Class CDCliente
             comando.ExecuteNonQuery()
 
         Catch ex As Exception
-            MsgBox("Error al mover a la papelera el cliente. Por favor vuelva a intentarlo.", MsgBoxStyle.Exclamation, "Error al registrar producto")
+            MsgBox("Error al eliminar el cliente. Por favor vuelva a intentarlo.", MsgBoxStyle.Exclamation, "Error al eliminar")
         Finally
             oCDConexion.Desconectar()
         End Try
@@ -112,7 +112,7 @@ Public Class CDCliente
             comando.ExecuteNonQuery()
             MsgBox("El cliente se modifico con exito.", , "Registro de cliente")
         Catch ex As Exception
-            MsgBox("Error al modificar el cliente. Por favor vuelva a intentarlo.", MsgBoxStyle.Exclamation, "Error al registrar cliente")
+            MsgBox("Error al modificar el cliente. Por favor vuelva a intentarlo.", MsgBoxStyle.Exclamation, "Error al modificar")
         Finally
             oCDConexion.Desconectar()
         End Try

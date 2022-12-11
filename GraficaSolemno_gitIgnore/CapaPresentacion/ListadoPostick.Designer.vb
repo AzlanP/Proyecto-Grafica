@@ -256,7 +256,7 @@ Partial Class ListadoPostick
         Me.Controls.Add(Me.btnRefresh)
         Me.Controls.Add(Me.cboBuscar)
         Me.Name = "ListadoPostick"
-        Me.Text = "Listado de tareas"
+        Me.Text = "Listado de tareas eliminadas"
         CType(Me.DGPostick, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PostickBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SolemnoDataSet, System.ComponentModel.ISupportInitialize).EndInit()

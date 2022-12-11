@@ -37,7 +37,6 @@ Partial Class FormularioPedido
         Me.btnAgregarPedidoNuevo = New System.Windows.Forms.Button()
         Me.DGListaDePedido = New System.Windows.Forms.DataGridView()
         Me.lblDetalles = New System.Windows.Forms.Label()
-        Me.lblID = New System.Windows.Forms.Label()
         Me.lblDescripcion = New System.Windows.Forms.Label()
         Me.lblFecha = New System.Windows.Forms.Label()
         Me.lblCliente = New System.Windows.Forms.Label()
@@ -71,11 +70,19 @@ Partial Class FormularioPedido
         Me.required = New System.Windows.Forms.Label()
         Me.lblResponsable = New System.Windows.Forms.Label()
         Me.txtResponsable = New System.Windows.Forms.TextBox()
+        Me.pnlData = New System.Windows.Forms.Panel()
+        Me.txtIdPresupuesto = New System.Windows.Forms.TextBox()
+        Me.btnBuscarPresupuesto = New System.Windows.Forms.Button()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.pnlBuscarPresupuesto = New System.Windows.Forms.Panel()
+        Me.lblID = New System.Windows.Forms.Label()
         CType(Me.TipoEnvioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SolemnoDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DGListaDePedido, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MediosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pnlData.SuspendLayout()
+        Me.pnlBuscarPresupuesto.SuspendLayout()
         Me.SuspendLayout()
         '
         'TipoEnvioBindingSource
@@ -134,7 +141,7 @@ Partial Class FormularioPedido
         Me.cboCliente.DisplayMember = "Nombre"
         Me.cboCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboCliente.FormattingEnabled = True
-        Me.cboCliente.Location = New System.Drawing.Point(141, 17)
+        Me.cboCliente.Location = New System.Drawing.Point(144, 11)
         Me.cboCliente.Name = "cboCliente"
         Me.cboCliente.Size = New System.Drawing.Size(107, 21)
         Me.cboCliente.TabIndex = 27
@@ -207,16 +214,6 @@ Partial Class FormularioPedido
         Me.lblDetalles.TabIndex = 21
         Me.lblDetalles.Text = "Detalle:"
         '
-        'lblID
-        '
-        Me.lblID.AutoSize = True
-        Me.lblID.ForeColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
-        Me.lblID.Location = New System.Drawing.Point(9, 9)
-        Me.lblID.Name = "lblID"
-        Me.lblID.Size = New System.Drawing.Size(21, 13)
-        Me.lblID.TabIndex = 20
-        Me.lblID.Text = "ID:"
-        '
         'lblDescripcion
         '
         Me.lblDescripcion.AutoSize = True
@@ -238,7 +235,7 @@ Partial Class FormularioPedido
         'lblCliente
         '
         Me.lblCliente.AutoSize = True
-        Me.lblCliente.Location = New System.Drawing.Point(96, 20)
+        Me.lblCliente.Location = New System.Drawing.Point(93, 14)
         Me.lblCliente.Name = "lblCliente"
         Me.lblCliente.Size = New System.Drawing.Size(42, 13)
         Me.lblCliente.TabIndex = 17
@@ -266,7 +263,7 @@ Partial Class FormularioPedido
         'lblMedio
         '
         Me.lblMedio.AutoSize = True
-        Me.lblMedio.Location = New System.Drawing.Point(12, 56)
+        Me.lblMedio.Location = New System.Drawing.Point(12, 51)
         Me.lblMedio.Name = "lblMedio"
         Me.lblMedio.Size = New System.Drawing.Size(123, 13)
         Me.lblMedio.TabIndex = 38
@@ -278,7 +275,7 @@ Partial Class FormularioPedido
         Me.cboMedio.DisplayMember = "Nombre"
         Me.cboMedio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboMedio.FormattingEnabled = True
-        Me.cboMedio.Location = New System.Drawing.Point(141, 53)
+        Me.cboMedio.Location = New System.Drawing.Point(144, 47)
         Me.cboMedio.Name = "cboMedio"
         Me.cboMedio.Size = New System.Drawing.Size(164, 21)
         Me.cboMedio.TabIndex = 37
@@ -345,11 +342,11 @@ Partial Class FormularioPedido
         '
         'btnSearch
         '
-        Me.btnSearch.BackgroundImage = CType(resources.GetObject("btnSearch.BackgroundImage"), System.Drawing.Image)
+        Me.btnSearch.BackgroundImage = Global.CapaPresentacion.My.Resources.Resources.LUPA
         Me.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnSearch.FlatAppearance.BorderSize = 0
         Me.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSearch.Location = New System.Drawing.Point(316, 9)
+        Me.btnSearch.Location = New System.Drawing.Point(319, 3)
         Me.btnSearch.Name = "btnSearch"
         Me.btnSearch.Size = New System.Drawing.Size(30, 30)
         Me.btnSearch.TabIndex = 47
@@ -362,7 +359,7 @@ Partial Class FormularioPedido
         Me.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnAdd.FlatAppearance.BorderSize = 0
         Me.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAdd.Location = New System.Drawing.Point(352, 8)
+        Me.btnAdd.Location = New System.Drawing.Point(355, 2)
         Me.btnAdd.Name = "btnAdd"
         Me.btnAdd.Size = New System.Drawing.Size(32, 32)
         Me.btnAdd.TabIndex = 48
@@ -433,7 +430,7 @@ Partial Class FormularioPedido
         'txtClienteNombreCompleto
         '
         Me.txtClienteNombreCompleto.Enabled = False
-        Me.txtClienteNombreCompleto.Location = New System.Drawing.Point(141, 17)
+        Me.txtClienteNombreCompleto.Location = New System.Drawing.Point(144, 11)
         Me.txtClienteNombreCompleto.Name = "txtClienteNombreCompleto"
         Me.txtClienteNombreCompleto.ReadOnly = True
         Me.txtClienteNombreCompleto.Size = New System.Drawing.Size(164, 20)
@@ -443,7 +440,7 @@ Partial Class FormularioPedido
         '
         Me.btnImprimir.BackColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnImprimir.Location = New System.Drawing.Point(765, 13)
+        Me.btnImprimir.Location = New System.Drawing.Point(778, 11)
         Me.btnImprimir.Name = "btnImprimir"
         Me.btnImprimir.Size = New System.Drawing.Size(89, 24)
         Me.btnImprimir.TabIndex = 56
@@ -507,7 +504,7 @@ Partial Class FormularioPedido
         Me.required.AutoSize = True
         Me.required.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.required.ForeColor = System.Drawing.Color.Red
-        Me.required.Location = New System.Drawing.Point(78, 17)
+        Me.required.Location = New System.Drawing.Point(81, 11)
         Me.required.Margin = New System.Windows.Forms.Padding(0)
         Me.required.Name = "required"
         Me.required.Size = New System.Drawing.Size(15, 20)
@@ -517,7 +514,7 @@ Partial Class FormularioPedido
         'lblResponsable
         '
         Me.lblResponsable.AutoSize = True
-        Me.lblResponsable.Location = New System.Drawing.Point(57, 86)
+        Me.lblResponsable.Location = New System.Drawing.Point(63, 81)
         Me.lblResponsable.Name = "lblResponsable"
         Me.lblResponsable.Size = New System.Drawing.Size(72, 13)
         Me.lblResponsable.TabIndex = 65
@@ -526,11 +523,78 @@ Partial Class FormularioPedido
         'txtResponsable
         '
         Me.txtResponsable.Enabled = False
-        Me.txtResponsable.Location = New System.Drawing.Point(141, 83)
+        Me.txtResponsable.Location = New System.Drawing.Point(144, 77)
         Me.txtResponsable.Name = "txtResponsable"
         Me.txtResponsable.ReadOnly = True
         Me.txtResponsable.Size = New System.Drawing.Size(164, 20)
         Me.txtResponsable.TabIndex = 66
+        '
+        'pnlData
+        '
+        Me.pnlData.Controls.Add(Me.txtClienteNombreCompleto)
+        Me.pnlData.Controls.Add(Me.lblCliente)
+        Me.pnlData.Controls.Add(Me.txtResponsable)
+        Me.pnlData.Controls.Add(Me.cboCliente)
+        Me.pnlData.Controls.Add(Me.lblResponsable)
+        Me.pnlData.Controls.Add(Me.cboMedio)
+        Me.pnlData.Controls.Add(Me.required)
+        Me.pnlData.Controls.Add(Me.lblMedio)
+        Me.pnlData.Controls.Add(Me.btnSearch)
+        Me.pnlData.Controls.Add(Me.btnAdd)
+        Me.pnlData.Location = New System.Drawing.Point(22, 2)
+        Me.pnlData.Name = "pnlData"
+        Me.pnlData.Size = New System.Drawing.Size(390, 99)
+        Me.pnlData.TabIndex = 68
+        '
+        'txtIdPresupuesto
+        '
+        Me.txtIdPresupuesto.Enabled = False
+        Me.txtIdPresupuesto.Location = New System.Drawing.Point(6, 33)
+        Me.txtIdPresupuesto.Name = "txtIdPresupuesto"
+        Me.txtIdPresupuesto.ReadOnly = True
+        Me.txtIdPresupuesto.Size = New System.Drawing.Size(62, 20)
+        Me.txtIdPresupuesto.TabIndex = 71
+        '
+        'btnBuscarPresupuesto
+        '
+        Me.btnBuscarPresupuesto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnBuscarPresupuesto.FlatAppearance.BorderSize = 0
+        Me.btnBuscarPresupuesto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnBuscarPresupuesto.Location = New System.Drawing.Point(74, 27)
+        Me.btnBuscarPresupuesto.Name = "btnBuscarPresupuesto"
+        Me.btnBuscarPresupuesto.Size = New System.Drawing.Size(30, 30)
+        Me.btnBuscarPresupuesto.TabIndex = 70
+        Me.btnBuscarPresupuesto.UseVisualStyleBackColor = True
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(7, 8)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(104, 13)
+        Me.Label3.TabIndex = 72
+        Me.Label3.Text = "Buscar presupuesto:"
+        '
+        'pnlBuscarPresupuesto
+        '
+        Me.pnlBuscarPresupuesto.Controls.Add(Me.Label3)
+        Me.pnlBuscarPresupuesto.Controls.Add(Me.txtIdPresupuesto)
+        Me.pnlBuscarPresupuesto.Controls.Add(Me.btnBuscarPresupuesto)
+        Me.pnlBuscarPresupuesto.Location = New System.Drawing.Point(427, 8)
+        Me.pnlBuscarPresupuesto.Name = "pnlBuscarPresupuesto"
+        Me.pnlBuscarPresupuesto.Size = New System.Drawing.Size(114, 62)
+        Me.pnlBuscarPresupuesto.TabIndex = 73
+        Me.pnlBuscarPresupuesto.Visible = False
+        '
+        'lblID
+        '
+        Me.lblID.AutoSize = True
+        Me.lblID.ForeColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
+        Me.lblID.Location = New System.Drawing.Point(784, 58)
+        Me.lblID.Name = "lblID"
+        Me.lblID.Size = New System.Drawing.Size(21, 13)
+        Me.lblID.TabIndex = 20
+        Me.lblID.Text = "ID:"
         '
         'FormularioPedido
         '
@@ -538,46 +602,39 @@ Partial Class FormularioPedido
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(126, Byte), Integer), CType(CType(206, Byte), Integer), CType(CType(126, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(897, 442)
-        Me.Controls.Add(Me.txtResponsable)
-        Me.Controls.Add(Me.lblResponsable)
-        Me.Controls.Add(Me.required)
+        Me.Controls.Add(Me.pnlBuscarPresupuesto)
+        Me.Controls.Add(Me.lblID)
+        Me.Controls.Add(Me.pnlData)
         Me.Controls.Add(Me.txtSymbol)
         Me.Controls.Add(Me.txtAnticipoSena)
         Me.Controls.Add(Me.btnConfirmarPedido)
         Me.Controls.Add(Me.txtSubTotal)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnImprimir)
-        Me.Controls.Add(Me.txtClienteNombreCompleto)
         Me.Controls.Add(Me.chkEnvio)
         Me.Controls.Add(Me.btnGuardarPresupuesto)
         Me.Controls.Add(Me.dtpFechaVencimiento)
         Me.Controls.Add(Me.lblFechaVencimiento)
         Me.Controls.Add(Me.cboDesc)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.btnAdd)
-        Me.Controls.Add(Me.btnSearch)
         Me.Controls.Add(Me.btnEnvioGuardado)
         Me.Controls.Add(Me.txtTotal)
         Me.Controls.Add(Me.lblTotal)
         Me.Controls.Add(Me.lblSeña)
-        Me.Controls.Add(Me.lblMedio)
-        Me.Controls.Add(Me.cboMedio)
         Me.Controls.Add(Me.lblEstado)
         Me.Controls.Add(Me.cboEstado)
         Me.Controls.Add(Me.btnCancelarPedido)
         Me.Controls.Add(Me.btnGuardarPedido)
         Me.Controls.Add(Me.txtDescripcion)
         Me.Controls.Add(Me.dtpFecha)
-        Me.Controls.Add(Me.cboCliente)
         Me.Controls.Add(Me.btnModificarPedido)
         Me.Controls.Add(Me.btnQuitar)
         Me.Controls.Add(Me.btnAgregarPedidoNuevo)
         Me.Controls.Add(Me.DGListaDePedido)
         Me.Controls.Add(Me.lblDetalles)
-        Me.Controls.Add(Me.lblID)
         Me.Controls.Add(Me.lblDescripcion)
         Me.Controls.Add(Me.lblFecha)
-        Me.Controls.Add(Me.lblCliente)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FormularioPedido"
         Me.Text = "Detalles del Pedido"
         CType(Me.TipoEnvioBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
@@ -585,6 +642,10 @@ Partial Class FormularioPedido
         CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DGListaDePedido, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.MediosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.pnlData.ResumeLayout(False)
+        Me.pnlData.PerformLayout()
+        Me.pnlBuscarPresupuesto.ResumeLayout(False)
+        Me.pnlBuscarPresupuesto.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -599,7 +660,6 @@ Partial Class FormularioPedido
     Friend WithEvents btnAgregarPedidoNuevo As System.Windows.Forms.Button
     Friend WithEvents DGListaDePedido As System.Windows.Forms.DataGridView
     Friend WithEvents lblDetalles As System.Windows.Forms.Label
-    Friend WithEvents lblID As System.Windows.Forms.Label
     Friend WithEvents lblDescripcion As System.Windows.Forms.Label
     Friend WithEvents lblFecha As System.Windows.Forms.Label
     Friend WithEvents lblCliente As System.Windows.Forms.Label
@@ -636,4 +696,10 @@ Partial Class FormularioPedido
     Friend WithEvents required As Label
     Friend WithEvents lblResponsable As Label
     Friend WithEvents txtResponsable As TextBox
+    Friend WithEvents pnlData As Panel
+    Friend WithEvents txtIdPresupuesto As TextBox
+    Friend WithEvents btnBuscarPresupuesto As Button
+    Friend WithEvents Label3 As Label
+    Friend WithEvents pnlBuscarPresupuesto As Panel
+    Friend WithEvents lblID As Label
 End Class

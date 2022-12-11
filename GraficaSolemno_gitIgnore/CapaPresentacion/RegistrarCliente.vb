@@ -147,7 +147,7 @@ Public Class RegistrarCliente
         btnCancelar.Text = "Cerrar"
     End Sub
     Private Sub btnCancelar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancelar.Click
-        'MsgBox("Esta seguro de descartar los cambios?", vbOKCancel, "Confirmacion!")
+        'MsgBox("Esta seguro de descartar los cambios?", vbOKCancel, "Confirmación!")
         'If DialogResult.OK Then
 
         'End If
@@ -157,7 +157,7 @@ Public Class RegistrarCliente
             Return
         End If
 
-        If MessageBox.Show("Esta seguro de descartar los cambios?", "Confirmacion!", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
+        If MessageBox.Show("Esta seguro de descartar los cambios?", "Confirmación", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
             Close()
         End If
 

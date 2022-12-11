@@ -18,6 +18,8 @@ Public Class FormularioPedido
     Dim DisabledControls As Boolean
 
 
+
+
     Public Sub LLenarFormulario(ByVal id As Integer, Optional ByVal isPedido As Boolean = True)
         PrecargarCombobox()
 
@@ -61,7 +63,7 @@ Public Class FormularioPedido
             btnQuitar.Enabled = False
             btnGuardarPedido.Visible = False
             DGListaDePedido.Enabled = False
-            btnCancelarPedido.Text = "Aceptar"
+            btnCancelarPedido.Text = "Cerrar"
             btnAdd.Enabled = False
             btnSearch.Enabled = False
             btnAdd.Visible = False
@@ -339,8 +341,12 @@ Public Class FormularioPedido
         For Each ctrl In Controls
             If TypeOf ctrl Is TextBox Or TypeOf ctrl Is ComboBox Or TypeOf ctrl Is DateTimePicker Then
                 ctrl.Enabled = False 'Creo que el error es aqui
+            ElseIf TypeOf ctrl Is GroupBox Or TypeOf ctrl Is Panel Then
+                DisesableRecursive(ctrl.Controls)
             End If
         Next
+        btnSearch.Visible = False
+        btnAdd.Visible = False
         chkEnvio.Enabled = True
         btnEnvioGuardado.Enabled = True
         txtSubTotal.Enabled = False
@@ -350,6 +356,16 @@ Public Class FormularioPedido
         FormularioEnvio.desabilitar = True
         btnGuardarPedido.Visible = False
         btnGuardarPresupuesto.Visible = False
+    End Sub
+    Public Sub DisesableRecursive(controls As Control.ControlCollection)
+        Dim ctrl As Control
+        For Each ctrl In controls
+            If TypeOf ctrl Is TextBox Or TypeOf ctrl Is ComboBox Or TypeOf ctrl Is DateTimePicker Then
+                ctrl.Enabled = False
+            ElseIf TypeOf ctrl Is GroupBox Or TypeOf ctrl Is Panel Then
+                DisesableRecursive(ctrl.Controls)
+            End If
+        Next
     End Sub
     Public Function FormatISO8601(ByVal pfecha As Date) As String
 
@@ -508,7 +524,7 @@ Public Class FormularioPedido
 
     End Sub
     Public Sub SobrescribirDescuentos(ByVal tabla As DataTable)
-        If MessageBox.Show("Decea sobrescribir los descuentos de cada producto? ", "Confirmacion de cambiar descuento", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
+        If MessageBox.Show("Decea sobrescribir los descuentos de cada producto? ", "Confirmación de cambiar descuento", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
             For Each dr In tabla.Rows
                 dr.Item("Descuento") = cboDesc.Text
             Next
@@ -592,7 +608,7 @@ Public Class FormularioPedido
 
     Private Sub btnImprimir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnImprimir.Click
 
-        If MessageBox.Show("Para realizar esta accion se guardaran los datos automaticamente, desea continuar? ", "Confirmacion de registro", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
+        If MessageBox.Show("Para realizar esta accion se guardaran los datos automaticamente, desea continuar? ", "Confirmación de registro", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
 
             If dtpFechaVencimiento.Visible Then
                 btnGuardarPresupuesto_Click(sender, e)
@@ -602,7 +618,7 @@ Public Class FormularioPedido
                     report.ShowDialog()
                     report.Dispose()
                 End If
-            
+
             Else
                 btnGuardarPedido_Click(sender, e)
                 If (lblID.Text) Then
@@ -679,5 +695,14 @@ Public Class FormularioPedido
             SobrescribirDescuentos(TablaItems)
             CalcularTotal(TablaItems)
         End If
+    End Sub
+
+    Private Sub btnBuscarPresupuesto_Click(sender As Object, e As EventArgs) Handles btnBuscarPresupuesto.Click
+        'Dim busquedaControl As New frmBusquedaPresupuestos
+        'busquedaControl.StartPosition = FormStartPosition.Manual
+        'busquedaControl.Location = Me.PointToScreen(New Point(btnSearch.Left, btnSearch.Top + btnSearch.Height))
+        'busquedaControl.ShowDialog()
+        'txtClienteNombreCompleto.Text = busquedaControl.Nombre + " " + busquedaControl.Apellido
+        'AsignarTextCbo(busquedaControl.Nombre, cboCliente)
     End Sub
 End Class

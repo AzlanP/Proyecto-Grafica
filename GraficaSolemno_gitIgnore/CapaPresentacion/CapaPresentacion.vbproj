@@ -30,7 +30,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationRevision>3</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -162,6 +162,12 @@
     <Compile Include="frmBusqueda.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmBusquedaPresupuestos.Designer.vb">
+      <DependentUpon>frmBusquedaPresupuestos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmBusquedaPresupuestos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmPestañaTareas.Designer.vb">
       <DependentUpon>frmPestañaTareas.vb</DependentUpon>
     </Compile>
@@ -190,6 +196,12 @@
       <DependentUpon>ListadoPostick.vb</DependentUpon>
     </Compile>
     <Compile Include="ListadoPostick.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModificarUsuario.designer.vb">
+      <DependentUpon>frmModificarUsuario.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmModificarUsuario.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Login.designer.vb">
@@ -267,6 +279,12 @@
     <EmbeddedResource Include="frmBusqueda.resx">
       <DependentUpon>frmBusqueda.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmBusquedaPresupuestos.resx">
+      <DependentUpon>frmBusquedaPresupuestos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModificarUsuario.resx">
+      <DependentUpon>frmModificarUsuario.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPestañaTareas.resx">
       <DependentUpon>frmPestañaTareas.vb</DependentUpon>
     </EmbeddedResource>
@@ -290,9 +308,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportPresupuesto.rdlc" />
     <EmbeddedResource Include="RegistrarCliente.resx">
@@ -360,9 +378,6 @@
     <None Include="Resources\slmn.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Screenshot_2.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\home.png" />
   </ItemGroup>
   <ItemGroup>
@@ -370,6 +385,7 @@
     <Content Include="Resources\add.png" />
     <None Include="Resources\TRASH1.png" />
     <None Include="Resources\EditUser.png" />
+    <EmbeddedResource Include="Resources\LUPA.png" />
     <Content Include="Resources\search.png" />
     <None Include="Resources\SinResulatosLupa.png" />
     <None Include="Resources\SinResultados.png" />

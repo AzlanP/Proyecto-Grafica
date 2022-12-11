@@ -23,3 +23,4 @@ Namespace SolemnoDataSetTableAdapters
     Partial Public Class ClientesTableAdapter
     End Class
 End Namespace
+
