@@ -9,6 +9,7 @@ Public Class RegistrarCliente
         If oValidacion.ValidarDNIoCUIT(txtDNI.Text, txtCuit.Text) Then
             Dim val As Boolean = oCNCliente.RegistrarCliente(TomarDatos())
             If val = True Then
+                Me.DialogResult = DialogResult.OK
                 Close()
             End If
         End If
@@ -167,6 +168,7 @@ Public Class RegistrarCliente
         Dim oValidacion As New Validaciones
         If oValidacion.ValidarDNIoCUIT(txtDNI.Text, txtCuit.Text) Then
             oCNCliente.ModificarCliente(TomarDatos())
+            Me.DialogResult = DialogResult.OK
             Close()
         End If
     End Sub

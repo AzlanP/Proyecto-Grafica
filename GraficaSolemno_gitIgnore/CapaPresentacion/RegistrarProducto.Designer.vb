@@ -168,7 +168,7 @@ Partial Class RegistrarProducto
         'controlPrecio
         '
         Me.controlPrecio.AutoSize = True
-        Me.controlPrecio.labeltext = Nothing
+        Me.controlPrecio.labeltext = "$"
         Me.controlPrecio.Location = New System.Drawing.Point(97, 88)
         Me.controlPrecio.Margin = New System.Windows.Forms.Padding(0)
         Me.controlPrecio.Name = "controlPrecio"

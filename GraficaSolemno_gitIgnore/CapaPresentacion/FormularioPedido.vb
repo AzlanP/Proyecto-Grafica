@@ -411,9 +411,11 @@ Public Class FormularioPedido
         Dim busquedaControl As New frmBusqueda
         busquedaControl.StartPosition = FormStartPosition.Manual
         busquedaControl.Location = Me.PointToScreen(New Point(btnSearch.Left, btnSearch.Top + btnSearch.Height))
-        busquedaControl.ShowDialog()
-        txtClienteNombreCompleto.Text = busquedaControl.Nombre + " " + busquedaControl.Apellido
-        AsignarTextCbo(busquedaControl.Nombre, cboCliente)
+        Dim result = busquedaControl.ShowDialog()
+        If result = DialogResult.OK Then
+            txtClienteNombreCompleto.Text = busquedaControl.Nombre + " " + busquedaControl.Apellido
+            AsignarTextCbo(busquedaControl.Nombre, cboCliente)
+        End If
     End Sub
     Public Sub actualizarNombre(id As String)
         Me.ClientesTableAdapter.Fill(Me.SolemnoDataSet.Clientes)
@@ -432,9 +434,10 @@ Public Class FormularioPedido
         Dim oCNCliente As New CNCliente
         frmRegistrar.lblID.Text = oCNCliente.ConsultarUltimoID
         frmRegistrar.PrecargarCombobox()
-        frmRegistrar.ShowDialog()
-        actualizarNombre(frmRegistrar.lblID.Text)
-
+        Dim result = frmRegistrar.ShowDialog()
+        If result = DialogResult.OK Then
+            actualizarNombre(frmRegistrar.lblID.Text)
+        End If
 
     End Sub
 
@@ -471,9 +474,17 @@ Public Class FormularioPedido
     End Sub
     Private Sub CalcularTotal(ByVal dt As DataTable)
         Dim tablaTotal As Double = 0
+        Dim subTotal As Double = 0
         For Each dr As DataRow In dt.Rows
             'tablaTotal += dr.Item("Cantidad") * dr.Item("PrecioUnitario")
-            tablaTotal += dr.Item("PrecioFinal")
+            Dim importe = dr.Item("PrecioFinal")
+            Dim desc = dr.Item("Descuento")
+            Dim descInt As Integer
+            Int32.TryParse(desc, descInt)
+            Dim t = importe - (importe / 100 * (descInt + cboDesc.Text))
+
+            tablaTotal += t
+
         Next
         txtSubTotal.valor = tablaTotal
         Dim valueSena As Double = 0.0
@@ -482,8 +493,10 @@ Public Class FormularioPedido
         Else
             valueSena = CDbl(txtAnticipoSena.Text)
         End If
-        Dim totalSinSena As Double = tablaTotal - 0 - (tablaTotal / 100 * cboDesc.Text)
-        Dim total As Double = tablaTotal - valueSena - (tablaTotal / 100 * cboDesc.Text)
+        'Dim totalSinSena As Double = tablaTotal - 0 - (tablaTotal / 100 * cboDesc.Text)
+        Dim totalSinSena As Double = tablaTotal
+        'Dim total As Double = tablaTotal - valueSena - (tablaTotal / 100 * cboDesc.Text)
+        Dim total As Double = tablaTotal - valueSena
         If totalSinSena < valueSena Then
             txtAnticipoSena.Text = 0
             MsgBox("El valor de la seña no puede superar total", , "Error de validacion")
@@ -524,15 +537,25 @@ Public Class FormularioPedido
 
     End Sub
     Public Sub SobrescribirDescuentos(ByVal tabla As DataTable)
-        If MessageBox.Show("Decea sobrescribir los descuentos de cada producto? ", "Confirmación de cambiar descuento", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
+        Dim result As DialogResult = MessageBox.Show("Decea sobrescribir los descuentos de cada producto? ", "Confirmación", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1)
+        If result = DialogResult.No Then
+
+        ElseIf result = DialogResult.Yes Then
             For Each dr In tabla.Rows
                 dr.Item("Descuento") = cboDesc.Text
             Next
         Else
             cboDesc.SelectedIndex = 0
         End If
+        'If MessageBox.Show("Decea sobrescribir los descuentos de cada producto? ", "Confirmación de cambiar descuento", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
+
+        'Else
+        '    cboDesc.SelectedIndex = 0
+        'End If
 
         DGListaDePedido.DataSource = tabla.DefaultView.ToTable(True, "IDItems", "Nombre", "Cantidad", "Descripcion", "Descuento", "PrecioUnitario", "PrecioFinal")
+
+        CalcularTotalBruto()
 
 
     End Sub

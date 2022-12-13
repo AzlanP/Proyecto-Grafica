@@ -24,6 +24,8 @@ Public Class frmBusqueda
     Private Sub DGBuscar_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DGBuscar.CellDoubleClick
         Nombre = DGBuscar.Rows(e.RowIndex).Cells("Nombre").Value
         Apellido = DGBuscar.Rows(e.RowIndex).Cells("Apellido").Value
+
+        Me.DialogResult = DialogResult.OK
         Me.Close()
         '/CargarDatos(ID)
     End Sub

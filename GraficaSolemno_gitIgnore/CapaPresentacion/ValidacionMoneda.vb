@@ -5,6 +5,7 @@
     Public frmParent As AgregarProductoPedido
     Public Alto As Integer
     Public Ancho As Integer
+    Public isValid As Boolean = True
     Public Sub SetSize(ByVal s As System.Drawing.Size)
         'Me.TextBox1.Size = s
         SimboloPeso.Visible = True
@@ -62,18 +63,7 @@
             SendKeys.Send("{TAB}")
         End If
 
-        If e.Handled = False Then
 
-            Dim value = TextBox1.Text.Replace("$", "").Trim().Replace(",", ".")
-            Dim dou As Double
-            Double.TryParse(value, dou)
-            If dou > 1000000 Then
-
-                e.Handled = True
-
-            End If
-
-        End If
     End Sub
     'verificar esto problema!
     'Private Sub TextBox1_MouseClick(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles TextBox1.MouseClick
@@ -97,11 +87,21 @@
 
     Private Sub TextBox1_Validating(ByVal sender As Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles TextBox1.Validating
         Try
-            Dim value = TextBox1.Text.Replace("$", "").Trim().Replace(",", ".")
-            Double.TryParse(value, valor)
+            Dim value = TextBox1.Text
+            Double.TryParse(value, _valor)
+
+
+
+            If _valor > 1000000 Then
+                MsgBox("El valor execede el monto máximo permitido (1000000)")
+                isValid = False
+            Else
+                isValid = True
+            End If
 
         Catch ex As Exception
             valor = 0
+            isValid = False
         End Try
     End Sub
 

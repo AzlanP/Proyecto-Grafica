@@ -85,10 +85,13 @@ Public Class RegistrarProducto
     End Sub
 
     Private Sub btnRegistrarProducto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRegistrarProducto.Click
-        If (TomarDatos().Nombre = "") Then
-            MessageBox.Show("El nombre del producto no puede ser nulo")
+        Dim data = TomarDatos()
+        If (data.Nombre.Trim() = "") Then
+            MessageBox.Show("El nombre del producto es requerido", "Validación")
+        ElseIf (data.Precio = 0) Then
+            MessageBox.Show("El precio no puede ser 0", "Validación")
         Else
-            oCNProducto.RegistrarProducto(TomarDatos())
+            oCNProducto.RegistrarProducto(data)
             Close()
         End If
 
