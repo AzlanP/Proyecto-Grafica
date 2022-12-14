@@ -57,11 +57,21 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("data source=C:\Users\Admin\Documents\GitHub\Proyecto-Grafica\GraficaSolemno_gitIg"& _ 
-            "nore\CapaPresentacion\bin\Debug\Solemno.db")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("data source=.\Solemno.db")>  _
         Public ReadOnly Property SolemnoConnectionString() As String
             Get
                 Return CType(Me("SolemnoConnectionString"),String)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("data source=D:\Bibliotecas\Desktop\tesis\Grafica\Proyecto-Grafica\GraficaSolemno_"& _ 
+            "gitIgnore\CapaPresentacion\bin\Debug\Solemno.db;synchronous=Full")>  _
+        Public ReadOnly Property SolemnoConnectionString1() As String
+            Get
+                Return CType(Me("SolemnoConnectionString1"),String)
             End Get
         End Property
     End Class

@@ -81,10 +81,10 @@ Public Class frmIngresaralSistema
         'txtContraRegistrar.Enabled = Editando
 
 
-        frmMenuPrincipal.enableAdminMode()
-        frmMenuPrincipal.Show()
-        frmMenuPrincipal.Activate()
-        Me.Hide()
+        'frmMenuPrincipal.enableAdminMode()
+        'frmMenuPrincipal.Show()
+        'frmMenuPrincipal.Activate()
+        'Me.Hide()
 
 
         TxtContraseña.UseSystemPasswordChar = True

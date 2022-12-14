@@ -79,8 +79,10 @@ Public Class FormularioPedido
         If IsDBNull(DTProw(13)) Then
                 txtResponsable.Text = ""
             Else
-                txtResponsable.Text = DTProw(13)
-            End If
+            txtResponsable.Text = DTProw(13)
+            cboResponsable.SelectedText = Me.txtResponsable.Text
+            cboResponsable.SelectedValue = Me.txtResponsable.Text
+        End If
 
             CalcularTotalBruto()
     End Sub
@@ -275,6 +277,11 @@ Public Class FormularioPedido
         Me.MediosTableAdapter.Fill(Me.SolemnoDataSet.Medios)
         'TODO: esta línea de código carga datos en la tabla 'SolemnoDataSet.Clientes' Puede moverla o quitarla según sea necesario.
         Me.ClientesTableAdapter.Fill(Me.SolemnoDataSet.Clientes)
+
+        Me.UsuariosTableAdapter1.Fill(Me.SolemnoDataSet.Usuarios)
+
+        cboResponsable.SelectedText = Me.txtResponsable.Text
+        cboResponsable.SelectedValue = Me.txtResponsable.Text
         cboEstado.SelectedIndex = 0
         cboDesc.SelectedIndex = 0
     End Sub
@@ -307,12 +314,18 @@ Public Class FormularioPedido
         oCEPedido.Estado = cboEstado.Text
 
         '//agregar setnullvalues
-        oCEPedido.Seña = CDbl(txtAnticipoSena.Text)
+        If Not String.IsNullOrEmpty(txtAnticipoSena.Text) Then
+            oCEPedido.Seña = txtAnticipoSena.Text
+        End If
+
         oCEPedido.Envio = CStr(chkEnvio.Checked)
         oCEPedido.SubTotal = CDbl(txtSubTotal.valor)
         oCEPedido.Descuento = CInt(cboDesc.Text)
         oCEPedido.Total = CDbl(txtTotal.valor)
-        oCEPedido.Responsable = CStr(txtResponsable.Text)
+        'oCEPedido.Responsable = CStr(txtResponsable.Text)
+
+        oCEPedido.Responsable = cboResponsable.SelectedValue
+
         Return oCEPedido
     End Function
     Private Sub btnGuardarPedido_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGuardarPedido.Click
@@ -679,6 +692,7 @@ Public Class FormularioPedido
 
 
         Me.btnConfirmarPedido.Text = "Volver"
+        Me.btnConfirmarPedido.Visible = False
         Me.lblEstado.Visible = Not (Me.lblEstado.Visible)
         Me.cboEstado.Visible = Not (Me.cboEstado.Visible)
         Me.lblSeña.Visible = Not (Me.lblSeña.Visible)
@@ -693,6 +707,9 @@ Public Class FormularioPedido
             Me.Text = "Detalles del presupuesto"
         End If
         Me.btnGuardarPedido.Visible = Not (Me.btnGuardarPedido.Visible)
+
+        dtpFecha.Value = DateTime.Now
+
 
 
         Me.dtpFechaVencimiento.Visible = Not (Me.dtpFechaVencimiento.Visible)

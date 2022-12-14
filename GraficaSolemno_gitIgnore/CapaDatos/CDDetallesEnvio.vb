@@ -86,7 +86,7 @@ Public Class CDDetallesEnvio
             If value = Nothing Or value = "" Then
                 Return DBNull.Value
             Else
-                Return CInt(value)
+                Return value
             End If
         End If
 

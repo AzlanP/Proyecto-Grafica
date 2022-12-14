@@ -76,6 +76,9 @@ Partial Class FormularioPedido
         Me.Label3 = New System.Windows.Forms.Label()
         Me.pnlBuscarPresupuesto = New System.Windows.Forms.Panel()
         Me.lblID = New System.Windows.Forms.Label()
+        Me.cboResponsable = New System.Windows.Forms.ComboBox()
+        Me.UsuariosTableAdapter1 = New CapaPresentacion.SolemnoDataSetTableAdapters.UsuariosTableAdapter()
+        Me.UsuariosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         CType(Me.TipoEnvioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SolemnoDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -83,6 +86,7 @@ Partial Class FormularioPedido
         CType(Me.MediosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlData.SuspendLayout()
         Me.pnlBuscarPresupuesto.SuspendLayout()
+        CType(Me.UsuariosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TipoEnvioBindingSource
@@ -263,7 +267,7 @@ Partial Class FormularioPedido
         'lblMedio
         '
         Me.lblMedio.AutoSize = True
-        Me.lblMedio.Location = New System.Drawing.Point(12, 51)
+        Me.lblMedio.Location = New System.Drawing.Point(15, 45)
         Me.lblMedio.Name = "lblMedio"
         Me.lblMedio.Size = New System.Drawing.Size(123, 13)
         Me.lblMedio.TabIndex = 38
@@ -275,7 +279,7 @@ Partial Class FormularioPedido
         Me.cboMedio.DisplayMember = "Nombre"
         Me.cboMedio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboMedio.FormattingEnabled = True
-        Me.cboMedio.Location = New System.Drawing.Point(144, 47)
+        Me.cboMedio.Location = New System.Drawing.Point(144, 42)
         Me.cboMedio.Name = "cboMedio"
         Me.cboMedio.Size = New System.Drawing.Size(164, 21)
         Me.cboMedio.TabIndex = 37
@@ -311,7 +315,7 @@ Partial Class FormularioPedido
         '
         Me.txtTotal.AutoSize = True
         Me.txtTotal.Enabled = False
-        Me.txtTotal.labeltext = Nothing
+        Me.txtTotal.labeltext = "$"
         Me.txtTotal.Location = New System.Drawing.Point(677, 302)
         Me.txtTotal.Margin = New System.Windows.Forms.Padding(0)
         Me.txtTotal.Name = "txtTotal"
@@ -451,7 +455,7 @@ Partial Class FormularioPedido
         '
         Me.txtSubTotal.AutoSize = True
         Me.txtSubTotal.Enabled = False
-        Me.txtSubTotal.labeltext = Nothing
+        Me.txtSubTotal.labeltext = "$"
         Me.txtSubTotal.Location = New System.Drawing.Point(554, 302)
         Me.txtSubTotal.Margin = New System.Windows.Forms.Padding(0)
         Me.txtSubTotal.Name = "txtSubTotal"
@@ -514,7 +518,7 @@ Partial Class FormularioPedido
         'lblResponsable
         '
         Me.lblResponsable.AutoSize = True
-        Me.lblResponsable.Location = New System.Drawing.Point(63, 81)
+        Me.lblResponsable.Location = New System.Drawing.Point(63, 76)
         Me.lblResponsable.Name = "lblResponsable"
         Me.lblResponsable.Size = New System.Drawing.Size(72, 13)
         Me.lblResponsable.TabIndex = 65
@@ -523,7 +527,7 @@ Partial Class FormularioPedido
         'txtResponsable
         '
         Me.txtResponsable.Enabled = False
-        Me.txtResponsable.Location = New System.Drawing.Point(144, 77)
+        Me.txtResponsable.Location = New System.Drawing.Point(144, 74)
         Me.txtResponsable.Name = "txtResponsable"
         Me.txtResponsable.ReadOnly = True
         Me.txtResponsable.Size = New System.Drawing.Size(164, 20)
@@ -531,6 +535,7 @@ Partial Class FormularioPedido
         '
         'pnlData
         '
+        Me.pnlData.Controls.Add(Me.cboResponsable)
         Me.pnlData.Controls.Add(Me.txtClienteNombreCompleto)
         Me.pnlData.Controls.Add(Me.lblCliente)
         Me.pnlData.Controls.Add(Me.txtResponsable)
@@ -596,6 +601,27 @@ Partial Class FormularioPedido
         Me.lblID.TabIndex = 20
         Me.lblID.Text = "ID:"
         '
+        'cboResponsable
+        '
+        Me.cboResponsable.DataSource = Me.UsuariosBindingSource
+        Me.cboResponsable.DisplayMember = "NombreCompleto"
+        Me.cboResponsable.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboResponsable.FormattingEnabled = True
+        Me.cboResponsable.Location = New System.Drawing.Point(144, 73)
+        Me.cboResponsable.Name = "cboResponsable"
+        Me.cboResponsable.Size = New System.Drawing.Size(164, 21)
+        Me.cboResponsable.TabIndex = 67
+        Me.cboResponsable.ValueMember = "NombreCompleto"
+        '
+        'UsuariosTableAdapter1
+        '
+        Me.UsuariosTableAdapter1.ClearBeforeFill = True
+        '
+        'UsuariosBindingSource
+        '
+        Me.UsuariosBindingSource.DataMember = "Usuarios"
+        Me.UsuariosBindingSource.DataSource = Me.SolemnoDataSet
+        '
         'FormularioPedido
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -646,6 +672,7 @@ Partial Class FormularioPedido
         Me.pnlData.PerformLayout()
         Me.pnlBuscarPresupuesto.ResumeLayout(False)
         Me.pnlBuscarPresupuesto.PerformLayout()
+        CType(Me.UsuariosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -702,4 +729,7 @@ Partial Class FormularioPedido
     Friend WithEvents Label3 As Label
     Friend WithEvents pnlBuscarPresupuesto As Panel
     Friend WithEvents lblID As Label
+    Friend WithEvents cboResponsable As ComboBox
+    Friend WithEvents UsuariosTableAdapter1 As SolemnoDataSetTableAdapters.UsuariosTableAdapter
+    Friend WithEvents UsuariosBindingSource As BindingSource
 End Class

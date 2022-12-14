@@ -7,6 +7,8 @@ Imports System.Windows.Forms.DataVisualization.Charting
 Public Class frmMenuPrincipal
     Public Shared LocalUsuario As String
     Private Sub FrmMenu_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'SolemnoDataSet1.Provincias' Puede moverla o quitarla según sea necesario.
+        Me.ProvinciasTableAdapter.Fill(Me.SolemnoDataSet1.Provincias)
         'TODO: esta línea de código carga datos en la tabla 'SolemnoDataSet1.Usuarios' Puede moverla o quitarla según sea necesario.
         Me.UsuariosTableAdapter.Fill(Me.SolemnoDataSet1.Usuarios)
         'TODO: esta línea de código carga datos en la tabla 'SolemnoDataSet.Usuarios' Puede moverla o quitarla según sea necesario.
@@ -443,13 +445,35 @@ Public Class frmMenuPrincipal
         SetGridSelectedId(DGPedido)
     End Sub
     Public Sub CargarGridPedidos()
+        'Dim dt As DataTable = oCNPedido.MostrarPedido
+        'Dim dv As DataView
+        'For i As Integer = 0 To dt.Rows.Count - 1
+        '    dt.Rows(i)("Cliente") = dt.Rows(i)("Cliente") & " " & dt.Rows(i)("Apellido")
+        'Next
+
+        'dv = New DataView(dt, "Estado = 'Pendiente'   or  Estado = 'Completado' ", "IDPedido Asc", DataViewRowState.CurrentRows)
+        'DGPedido.DataSource = dv
+        'DGPedido.Columns("IDPedido").Visible = False
+        'DGPedido.Columns("Apellido").Visible = False
+        'MostrarSinResultados(dt.Rows.Count, DGPedido)
+
+        If String.IsNullOrEmpty(cboBuscarPedido.Text) And String.IsNullOrEmpty(txtBuscarPedido.Text) And String.IsNullOrEmpty(cboFiltroPedido.Text) Then
+            GetPedidosInicial()
+        Else
+            btnBuscarPedido_Click(Nothing, Nothing)
+        End If
+
+
+    End Sub
+
+    Public Sub GetPedidosInicial()
         Dim dt As DataTable = oCNPedido.MostrarPedido
         Dim dv As DataView
         For i As Integer = 0 To dt.Rows.Count - 1
             dt.Rows(i)("Cliente") = dt.Rows(i)("Cliente") & " " & dt.Rows(i)("Apellido")
         Next
 
-        dv = New DataView(dt, "Estado = 'Pendiente'   or  Estado = 'Completado' ", "IDPedido Asc", DataViewRowState.CurrentRows)
+        dv = New DataView(dt, "Estado = 'Pendiente' ", "IDPedido Asc", DataViewRowState.CurrentRows)
         DGPedido.DataSource = dv
         DGPedido.Columns("IDPedido").Visible = False
         DGPedido.Columns("Apellido").Visible = False
@@ -586,8 +610,9 @@ Public Class frmMenuPrincipal
     Dim Meses As String() = {"Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Agos", "Sep", "Oct", "Nov", "Dic"}
     Dim oCNGraficas As New CNGraficos
     Private Sub TabEstadistica_Enter(ByVal sender As Object, ByVal e As System.EventArgs) Handles TabEstadistica.Enter
-        inicializarPedidosPorFechas()
-        cboTipoEstadistica.SelectedIndex = 0
+        'inicializarPedidosPorFechas()
+        'cboTipoEstadistica.SelectedIndex = 0
+        cboProvinciaReporte.SelectedValue = 5
     End Sub
     Public Sub ClearSeries()
         For Each serie In Me.GraficoSegunConsulta.Series
@@ -1120,7 +1145,7 @@ Public Class frmMenuPrincipal
 
     Private Sub btnCancelarPresupuesto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancelarPresupuesto.Click
         If MessageBox.Show("Esta seguro de cancelar el presupuesto?", "Cancelar presupuesto", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
-            Close()
+
 
             Dim fecha As Date = Date.Now()
             Try
@@ -1605,5 +1630,80 @@ Public Class frmMenuPrincipal
 
     Private Sub cboFiltroEstadoPresupuesto_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboFiltroEstadoPresupuesto.SelectedIndexChanged
 
+    End Sub
+
+    Private Sub IngresosPorPeriodos_Click(sender As System.Object, e As System.EventArgs) Handles IngresosPorPeriodos.Click
+        Dim form As VisorDeReportes = New VisorDeReportes
+
+        form.AddReportResultados()
+        form.ShowDialog()
+
+    End Sub
+
+    Private Sub TendenciaMedios_Click(sender As System.Object, e As System.EventArgs) Handles TendenciaMedios.Click
+        Dim form As VisorDeReportes = New VisorDeReportes
+
+        form.AddReportMedios()
+        form.ShowDialog()
+    End Sub
+
+    Private Sub VentasDeProductos_Click(sender As System.Object, e As System.EventArgs) Handles VentasDeProductos.Click
+        Dim form As VisorDeReportes = New VisorDeReportes
+
+        form.AddReportProductos()
+        form.ShowDialog()
+    End Sub
+
+    Private Sub pedidosPorPeriodos_Click(sender As System.Object, e As System.EventArgs) Handles pedidosPorPeriodos.Click
+        Dim form As VisorDeReportes = New VisorDeReportes
+        form.AddReportPedidosPorPeriodos()
+        form.ShowDialog()
+    End Sub
+
+    Private Sub EstadosPorCliente_Click(sender As System.Object, e As System.EventArgs) Handles EstadosPorCliente.Click
+        Dim form As VisorDeReportes = New VisorDeReportes
+        form.AddReportEstadosPorClientes()
+        form.ShowDialog()
+    End Sub
+
+    Private Sub IngresosPorClientes_Click(sender As System.Object, e As System.EventArgs) Handles IngresosPorClientes.Click
+        Dim form As VisorDeReportes = New VisorDeReportes
+        form.AddReportResultadoPorCliente()
+        form.ShowDialog()
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnReportProvincias.Click
+        Dim form As VisorDeReportes = New VisorDeReportes
+        form.AddReportProvincia()
+        form.ShowDialog()
+    End Sub
+
+    Private Sub btnReportProvinciasPorPeriodos_Click(sender As Object, e As EventArgs) Handles btnReportProvinciasPorPeriodos.Click
+        Dim form As VisorDeReportes = New VisorDeReportes
+        form.AddReportProvinciasPorPeriodos()
+        form.ShowDialog()
+    End Sub
+
+    Private Sub btnReportLocalidad_Click(sender As Object, e As EventArgs) Handles btnReportLocalidad.Click
+        Dim form As VisorDeReportes = New VisorDeReportes
+        Dim id = cboProvinciaReporte.SelectedValue
+        If Not String.IsNullOrEmpty(cboProvinciaReporte.SelectedValue) Then
+            form.AddReportLocalidad(id)
+            form.ShowDialog()
+        Else
+            MsgBox("Error al obtener el id de la provincia seleccionada")
+        End If
+
+    End Sub
+
+    Private Sub btnReportLocalidadPorPeriodo_Click(sender As Object, e As EventArgs) Handles btnReportLocalidadPorPeriodo.Click
+        Dim form As VisorDeReportes = New VisorDeReportes
+        Dim id = cboProvinciaReporte.SelectedValue
+        If Not String.IsNullOrEmpty(cboProvinciaReporte.SelectedValue) Then
+            form.AddReportLocalidadPorPeriodos(id)
+            form.ShowDialog()
+        Else
+            MsgBox("Error al obtener el id de la provincia seleccionada")
+        End If
     End Sub
 End Class

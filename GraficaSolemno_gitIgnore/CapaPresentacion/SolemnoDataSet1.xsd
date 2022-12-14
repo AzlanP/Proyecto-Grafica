@@ -1,0 +1,443 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="SolemnoDataSet1" targetNamespace="http://tempuri.org/SolemnoDataSet1.xsd" xmlns:mstns="http://tempuri.org/SolemnoDataSet1.xsd" xmlns="http://tempuri.org/SolemnoDataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="SolemnoConnectionString1" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="SolemnoConnectionString1 (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.CapaPresentacion.My.MySettings.GlobalReference.Default.SolemnoConnectionString1" Provider="System.Data.SQLite.EF6" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="SolemnoConnectionString1 (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetReporteResutados" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetReporteResutados" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetReporteResutados" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        SUM(pedidos.total) AS Total, substr(Pedidos.Fecha, 0, 5) AS Año, substr(Pedidos.Fecha, 6, 2) AS Mes
+FROM            ItemsPorPedido, Pedidos
+WHERE        (ItemsPorPedido.IDPedido = Pedidos.IDPedido) AND (Pedidos.Estado = 'Completado')
+GROUP BY Mes, Año</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Total" DataSetColumn="Total" />
+              <Mapping SourceColumn="Año" DataSetColumn="Año" />
+              <Mapping SourceColumn="Mes" DataSetColumn="Mes" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="MediosTableAdapter" GeneratorDataComponentClassName="MediosTableAdapter" Name="Medios" UserDataComponentName="MediosTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="SolemnoConnectionString1 (MySettings)" DbObjectName="main.Medios" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select medios.Nombre, count(medios.Nombre) as Cantidad
+, substr(Pedidos.Fecha, 0, 5) as Año 
+,  substr(Pedidos.Fecha, 6, 2) as Mes 
+FROM  medios,pedidos 
+where pedidos.IDMedio = medios.IDMedio
+group by  medios.IDMedio
+, Mes, Año</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Nombre" DataSetColumn="Nombre" />
+              <Mapping SourceColumn="Cantidad" DataSetColumn="Cantidad" />
+              <Mapping SourceColumn="Año" DataSetColumn="Año" />
+              <Mapping SourceColumn="Mes" DataSetColumn="Mes" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable2TableAdapter" GeneratorDataComponentClassName="DataTable2TableAdapter" Name="DataTable2" UserDataComponentName="DataTable2TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="SolemnoConnectionString1 (MySettings)" DbObjectName="main.Productos" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Productos.Nombre AS Producto, SUM(ItemsPorPedido.Cantidad) AS Ventas, substr(Pedidos.Fecha, 0, 5) AS Year
+FROM            ItemsPorPedido INNER JOIN
+                         Productos ON ItemsPorPedido.IDProducto = Productos.IDProducto INNER JOIN
+                         Pedidos ON ItemsPorPedido.IDPedido = Pedidos.IDPedido
+WHERE        (Pedidos.Estado = 'Completado')
+GROUP BY Productos.IDProducto, Year
+ORDER BY ventas DESC</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Producto" DataSetColumn="Producto" />
+              <Mapping SourceColumn="Ventas" DataSetColumn="Ventas" />
+              <Mapping SourceColumn="Year" DataSetColumn="Year" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PedidosPorPeriodosTableAdapter" GeneratorDataComponentClassName="PedidosPorPeriodosTableAdapter" Name="PedidosPorPeriodos" UserDataComponentName="PedidosPorPeriodosTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="SolemnoConnectionString1 (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        COUNT(IDPedido) AS Pedidos, substr(Fecha, 0, 5) AS Año, substr(Fecha, 6, 2) AS Mes
+FROM            Pedidos
+GROUP BY Año, Mes</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Pedidos" DataSetColumn="Pedidos" />
+              <Mapping SourceColumn="Año" DataSetColumn="Año" />
+              <Mapping SourceColumn="Mes" DataSetColumn="Mes" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="EstadoPorClienteTableAdapter" GeneratorDataComponentClassName="EstadoPorClienteTableAdapter" Name="EstadoPorCliente" UserDataComponentName="EstadoPorClienteTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="SolemnoConnectionString1 (MySettings)" DbObjectName="" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select  clientes.nombre || ' ' || clientes.Apellido as Cliente , pedidos.Estado 
+from Pedidos , clientes where clientes.IDCliente = Pedidos.IDCliente
+and 
+Pedidos.Estado in ('Completado' , 'Pendiente', 'Pedido Eliminado')
+order by Cliente</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Cliente" DataSetColumn="Cliente" />
+              <Mapping SourceColumn="Estado" DataSetColumn="Estado" />
+              <Mapping SourceColumn="Cantidad" DataSetColumn="Cantidad" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="SolemnoConnectionString1 (MySettings)" DbObjectName="" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillTop10By" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetTop10" GeneratorSourceName="FillTop10By" GetMethodModifier="Public" GetMethodName="GetTop10" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetTop10" UserSourceName="FillTop10By">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select clientes.nombre || ' ' || clientes.Apellido as Cliente , pedidos.Estado , count(clientes.IDCliente) as Cantidad
+from Pedidos , clientes where clientes.IDCliente = Pedidos.IDCliente
+and 
+Pedidos.Estado in ('Completado' , 'Pendiente', 'Pedido Eliminado')
+group by clientes.IDCliente
+order by Cantidad desc
+Limit 10</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ComprasDeClientesPorPeriodoTableAdapter" GeneratorDataComponentClassName="ComprasDeClientesPorPeriodoTableAdapter" Name="ComprasDeClientesPorPeriodo" UserDataComponentName="ComprasDeClientesPorPeriodoTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="SolemnoConnectionString1 (MySettings)" DbObjectName="main.Clientes" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        COUNT(Pedidos.IDPedido) AS Cantidad, Clientes.Nombre, SUM(Pedidos.Total) AS Total
+FROM            ItemsPorPedido INNER JOIN
+                         Pedidos ON ItemsPorPedido.IDPedido = Pedidos.IDPedido INNER JOIN
+                         Clientes ON Pedidos.IDCliente = Clientes.IDCliente
+WHERE        (Pedidos.Estado = 'Completado') AND (Pedidos.Fecha BETWEEN @Inicio AND @Fin)
+GROUP BY Pedidos.IDCliente</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Inicio" ColumnName="Fecha" DataSourceName="main.Pedidos" DataTypeServer="text" DbType="String" Direction="Input" ParameterName="@Inicio" Precision="0" ProviderType="String" Scale="0" Size="2147483647" SourceColumn="Fecha" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Fin" ColumnName="Fecha" DataSourceName="main.Pedidos" DataTypeServer="text" DbType="String" Direction="Input" ParameterName="@Fin" Precision="0" ProviderType="String" Scale="0" Size="2147483647" SourceColumn="Fecha" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Nombre" DataSetColumn="Nombre" />
+              <Mapping SourceColumn="Total" DataSetColumn="Total" />
+              <Mapping SourceColumn="Cantidad" DataSetColumn="Cantidad" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ComprasDeClientesTableAdapter" GeneratorDataComponentClassName="ComprasDeClientesTableAdapter" Name="ComprasDeClientes" UserDataComponentName="ComprasDeClientesTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="SolemnoConnectionString1 (MySettings)" DbObjectName="" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT    clientes.nombre || ' ' || clientes.Apellido as Nombre, SUM(Pedidos.Total) AS Total, substr(Pedidos.Fecha, 0, 5) AS Año, substr(Pedidos.Fecha, 6, 2) AS Mes
+FROM            ItemsPorPedido INNER JOIN
+                         Pedidos ON ItemsPorPedido.IDPedido = Pedidos.IDPedido INNER JOIN
+                         Clientes ON Pedidos.IDCliente = Clientes.IDCliente
+WHERE        (Pedidos.Estado = 'Completado') and REPLACE(Pedidos.Fecha,'/','-') BETWEEN DATE('now','-1 year') and DATE('now')
+GROUP BY Pedidos.IDCliente, año, mes
+Order by Año, Mes</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Nombre" DataSetColumn="Nombre" />
+              <Mapping SourceColumn="Total" DataSetColumn="Total" />
+              <Mapping SourceColumn="Año" DataSetColumn="Año" />
+              <Mapping SourceColumn="Mes" DataSetColumn="Mes" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ProvinciasTableAdapter" GeneratorDataComponentClassName="ProvinciasTableAdapter" Name="Provincias" UserDataComponentName="ProvinciasTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="SolemnoConnectionString1 (MySettings)" DbObjectName="main.Provincias" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        COUNT(Provincias.IDProvincia) AS Cantidad, Provincias.Nombre AS Provincia
+FROM            Pedidos INNER JOIN
+                         DetallesEnvio ON Pedidos.IDPedido = DetallesEnvio.IDPedido INNER JOIN
+                         Provincias ON DetallesEnvio.IDProvincia = Provincias.IDProvincia
+WHERE        (Pedidos.Estado = 'Completado') AND (Pedidos.Envio = 'True')
+GROUP BY Provincias.IDProvincia</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Cantidad" DataSetColumn="Cantidad" />
+              <Mapping SourceColumn="Provincia" DataSetColumn="Provincia" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="LocalidadTableAdapter" GeneratorDataComponentClassName="LocalidadTableAdapter" Name="Localidad" UserDataComponentName="LocalidadTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="SolemnoConnectionString1 (MySettings)" DbObjectName="main.Localidad" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        COUNT(Localidad.IDLocalidad) AS Cantidad, Localidad.Nombre AS Localidad
+FROM            Pedidos INNER JOIN
+                         DetallesEnvio ON Pedidos.IDPedido = DetallesEnvio.IDPedido INNER JOIN
+                         Localidad ON DetallesEnvio.IDLocalidad = Localidad.IDLocalidad
+WHERE        (Pedidos.Estado = 'Completado') AND (Pedidos.Envio = 'True') AND (Localidad.IDProvincia = @Provincia)
+GROUP BY Localidad.IDLocalidad</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Provincia" ColumnName="IDProvincia" DataSourceName="main.Localidad" DataTypeServer="text" DbType="String" Direction="Input" ParameterName="@Provincia" Precision="0" ProviderType="String" Scale="0" Size="2147483647" SourceColumn="IDProvincia" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Cantidad" DataSetColumn="Cantidad" />
+              <Mapping SourceColumn="Localidad" DataSetColumn="Localidad" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="LocalidadPorPeriodosTableAdapter" GeneratorDataComponentClassName="LocalidadPorPeriodosTableAdapter" Name="LocalidadPorPeriodos" UserDataComponentName="LocalidadPorPeriodosTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="SolemnoConnectionString1 (MySettings)" DbObjectName="" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select count(Localidad.IDLocalidad) as Cantidad, Localidad.Nombre as Localidad  ,substr(Pedidos.Fecha, 0, 5) as Año ,  substr(Pedidos.Fecha, 6, 2) as Mes
+from Pedidos, DetallesEnvio, Localidad
+where DetallesEnvio.IDPedido=Pedidos.IDPedido and Pedidos.Estado='Completado' and pedidos.Envio = 'True' and DetallesEnvio.IDLocalidad = Localidad.IDLocalidad
+and Localidad.IDProvincia = @Provincia and REPLACE(Fecha,'/','-') BETWEEN DATE('now','-1 year') and DATE('now')
+GROUP by Localidad.Nombre  ,año,  mes</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Provincia" ColumnName="IDProvincia" DataSourceName="" DataTypeServer="text" DbType="String" Direction="Input" ParameterName="@Provincia" Precision="0" ProviderType="String" Scale="0" Size="2147483647" SourceColumn="IDProvincia" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Cantidad" DataSetColumn="Cantidad" />
+              <Mapping SourceColumn="Localidad" DataSetColumn="Localidad" />
+              <Mapping SourceColumn="Año" DataSetColumn="Año" />
+              <Mapping SourceColumn="Mes" DataSetColumn="Mes" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ProvinciasPorPeriodosTableAdapter" GeneratorDataComponentClassName="ProvinciasPorPeriodosTableAdapter" Name="ProvinciasPorPeriodos" UserDataComponentName="ProvinciasPorPeriodosTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="SolemnoConnectionString1 (MySettings)" DbObjectName="" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        COUNT(Provincias.IDProvincia) AS Cantidad, Provincias.Nombre AS Provincia ,substr(Pedidos.Fecha, 0, 5) as Año ,  substr(Pedidos.Fecha, 6, 2) as Mes
+FROM            Pedidos INNER JOIN
+                         DetallesEnvio ON Pedidos.IDPedido = DetallesEnvio.IDPedido INNER JOIN
+                         Provincias ON DetallesEnvio.IDProvincia = Provincias.IDProvincia
+WHERE        (Pedidos.Estado = 'Completado') AND (Pedidos.Envio = 'True') and REPLACE(Fecha,'/','-') BETWEEN DATE('now','-1 year') and DATE('now')
+GROUP BY Provincias.IDProvincia  ,año,  mes</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Cantidad" DataSetColumn="Cantidad" />
+              <Mapping SourceColumn="Provincia" DataSetColumn="Provincia" />
+              <Mapping SourceColumn="Año" DataSetColumn="Año" />
+              <Mapping SourceColumn="Mes" DataSetColumn="Mes" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="SolemnoDataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="SolemnoDataSet1" msprop:Generator_UserDSName="SolemnoDataSet1">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Total" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnPropNameInTable="TotalColumn" msprop:Generator_UserColumnName="Total" type="xs:anyType" minOccurs="0" />
+              <xs:element name="Año" msprop:Generator_ColumnVarNameInTable="columnAño" msprop:Generator_ColumnPropNameInRow="Año" msprop:Generator_ColumnPropNameInTable="AñoColumn" msprop:Generator_UserColumnName="Año" type="xs:anyType" minOccurs="0" />
+              <xs:element name="Mes" msprop:Generator_ColumnVarNameInTable="columnMes" msprop:Generator_ColumnPropNameInRow="Mes" msprop:Generator_ColumnPropNameInTable="MesColumn" msprop:Generator_UserColumnName="Mes" type="xs:anyType" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Medios" msprop:Generator_TableClassName="MediosDataTable" msprop:Generator_TableVarName="tableMedios" msprop:Generator_TablePropName="Medios" msprop:Generator_RowDeletingName="MediosRowDeleting" msprop:Generator_RowChangingName="MediosRowChanging" msprop:Generator_RowEvHandlerName="MediosRowChangeEventHandler" msprop:Generator_RowDeletedName="MediosRowDeleted" msprop:Generator_UserTableName="Medios" msprop:Generator_RowChangedName="MediosRowChanged" msprop:Generator_RowEvArgName="MediosRowChangeEvent" msprop:Generator_RowClassName="MediosRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Nombre" msprop:Generator_ColumnVarNameInTable="columnNombre" msprop:Generator_ColumnPropNameInRow="Nombre" msprop:Generator_ColumnPropNameInTable="NombreColumn" msprop:Generator_UserColumnName="Nombre" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Cantidad" msprop:Generator_ColumnVarNameInTable="columnCantidad" msprop:Generator_ColumnPropNameInRow="Cantidad" msprop:Generator_ColumnPropNameInTable="CantidadColumn" msprop:Generator_UserColumnName="Cantidad" type="xs:anyType" minOccurs="0" />
+              <xs:element name="Año" msprop:Generator_ColumnVarNameInTable="columnAño" msprop:Generator_ColumnPropNameInRow="Año" msprop:Generator_ColumnPropNameInTable="AñoColumn" msprop:Generator_UserColumnName="Año" type="xs:anyType" minOccurs="0" />
+              <xs:element name="Mes" msprop:Generator_ColumnVarNameInTable="columnMes" msprop:Generator_ColumnPropNameInRow="Mes" msprop:Generator_ColumnPropNameInTable="MesColumn" msprop:Generator_UserColumnName="Mes" type="xs:anyType" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable2" msprop:Generator_TableClassName="DataTable2DataTable" msprop:Generator_TableVarName="tableDataTable2" msprop:Generator_TablePropName="DataTable2" msprop:Generator_RowDeletingName="DataTable2RowDeleting" msprop:Generator_RowChangingName="DataTable2RowChanging" msprop:Generator_RowEvHandlerName="DataTable2RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable2RowDeleted" msprop:Generator_UserTableName="DataTable2" msprop:Generator_RowChangedName="DataTable2RowChanged" msprop:Generator_RowEvArgName="DataTable2RowChangeEvent" msprop:Generator_RowClassName="DataTable2Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Producto" msprop:Generator_ColumnVarNameInTable="columnProducto" msprop:Generator_ColumnPropNameInRow="Producto" msprop:Generator_ColumnPropNameInTable="ProductoColumn" msprop:Generator_UserColumnName="Producto" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Ventas" msprop:Generator_ColumnVarNameInTable="columnVentas" msprop:Generator_ColumnPropNameInRow="Ventas" msprop:Generator_ColumnPropNameInTable="VentasColumn" msprop:Generator_UserColumnName="Ventas" type="xs:anyType" minOccurs="0" />
+              <xs:element name="Year" msprop:Generator_ColumnVarNameInTable="columnYear" msprop:Generator_ColumnPropNameInRow="Year" msprop:Generator_ColumnPropNameInTable="YearColumn" msprop:Generator_UserColumnName="Year" type="xs:anyType" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="PedidosPorPeriodos" msprop:Generator_TableClassName="PedidosPorPeriodosDataTable" msprop:Generator_TableVarName="tablePedidosPorPeriodos" msprop:Generator_RowChangedName="PedidosPorPeriodosRowChanged" msprop:Generator_TablePropName="PedidosPorPeriodos" msprop:Generator_RowDeletingName="PedidosPorPeriodosRowDeleting" msprop:Generator_RowChangingName="PedidosPorPeriodosRowChanging" msprop:Generator_RowEvHandlerName="PedidosPorPeriodosRowChangeEventHandler" msprop:Generator_RowDeletedName="PedidosPorPeriodosRowDeleted" msprop:Generator_RowClassName="PedidosPorPeriodosRow" msprop:Generator_UserTableName="PedidosPorPeriodos" msprop:Generator_RowEvArgName="PedidosPorPeriodosRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Pedidos" msprop:Generator_ColumnVarNameInTable="columnPedidos" msprop:Generator_ColumnPropNameInRow="Pedidos" msprop:Generator_ColumnPropNameInTable="PedidosColumn" msprop:Generator_UserColumnName="Pedidos" type="xs:anyType" minOccurs="0" />
+              <xs:element name="Año" msprop:Generator_ColumnVarNameInTable="columnAño" msprop:Generator_ColumnPropNameInRow="Año" msprop:Generator_ColumnPropNameInTable="AñoColumn" msprop:Generator_UserColumnName="Año" type="xs:anyType" minOccurs="0" />
+              <xs:element name="Mes" msprop:Generator_ColumnVarNameInTable="columnMes" msprop:Generator_ColumnPropNameInRow="Mes" msprop:Generator_ColumnPropNameInTable="MesColumn" msprop:Generator_UserColumnName="Mes" type="xs:anyType" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="EstadoPorCliente" msprop:Generator_TableClassName="EstadoPorClienteDataTable" msprop:Generator_TableVarName="tableEstadoPorCliente" msprop:Generator_TablePropName="EstadoPorCliente" msprop:Generator_RowDeletingName="EstadoPorClienteRowDeleting" msprop:Generator_RowChangingName="EstadoPorClienteRowChanging" msprop:Generator_RowEvHandlerName="EstadoPorClienteRowChangeEventHandler" msprop:Generator_RowDeletedName="EstadoPorClienteRowDeleted" msprop:Generator_UserTableName="EstadoPorCliente" msprop:Generator_RowChangedName="EstadoPorClienteRowChanged" msprop:Generator_RowEvArgName="EstadoPorClienteRowChangeEvent" msprop:Generator_RowClassName="EstadoPorClienteRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Cliente" msprop:Generator_ColumnVarNameInTable="columnCliente" msprop:Generator_ColumnPropNameInRow="Cliente" msprop:Generator_ColumnPropNameInTable="ClienteColumn" msprop:Generator_UserColumnName="Cliente" type="xs:anyType" minOccurs="0" />
+              <xs:element name="Estado" msprop:Generator_ColumnVarNameInTable="columnEstado" msprop:Generator_ColumnPropNameInRow="Estado" msprop:Generator_ColumnPropNameInTable="EstadoColumn" msprop:Generator_UserColumnName="Estado" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Cantidad" msprop:Generator_ColumnVarNameInTable="columnCantidad" msprop:Generator_ColumnPropNameInRow="Cantidad" msprop:Generator_ColumnPropNameInTable="CantidadColumn" msprop:Generator_UserColumnName="Cantidad" type="xs:anyType" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ComprasDeClientesPorPeriodo" msprop:Generator_TableClassName="ComprasDeClientesPorPeriodoDataTable" msprop:Generator_TableVarName="tableComprasDeClientesPorPeriodo" msprop:Generator_RowChangedName="ComprasDeClientesPorPeriodoRowChanged" msprop:Generator_TablePropName="ComprasDeClientesPorPeriodo" msprop:Generator_RowDeletingName="ComprasDeClientesPorPeriodoRowDeleting" msprop:Generator_RowChangingName="ComprasDeClientesPorPeriodoRowChanging" msprop:Generator_RowEvHandlerName="ComprasDeClientesPorPeriodoRowChangeEventHandler" msprop:Generator_RowDeletedName="ComprasDeClientesPorPeriodoRowDeleted" msprop:Generator_RowClassName="ComprasDeClientesPorPeriodoRow" msprop:Generator_UserTableName="ComprasDeClientesPorPeriodo" msprop:Generator_RowEvArgName="ComprasDeClientesPorPeriodoRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Nombre" msprop:Generator_ColumnVarNameInTable="columnNombre" msprop:Generator_ColumnPropNameInRow="Nombre" msprop:Generator_ColumnPropNameInTable="NombreColumn" msprop:Generator_UserColumnName="Nombre" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Total" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnPropNameInTable="TotalColumn" msprop:Generator_UserColumnName="Total" type="xs:anyType" minOccurs="0" />
+              <xs:element name="Cantidad" msprop:Generator_ColumnVarNameInTable="columnCantidad" msprop:Generator_ColumnPropNameInRow="Cantidad" msprop:Generator_ColumnPropNameInTable="CantidadColumn" msprop:Generator_UserColumnName="Cantidad" type="xs:anyType" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ComprasDeClientes" msprop:Generator_TableClassName="ComprasDeClientesDataTable" msprop:Generator_TableVarName="tableComprasDeClientes" msprop:Generator_RowChangedName="ComprasDeClientesRowChanged" msprop:Generator_TablePropName="ComprasDeClientes" msprop:Generator_RowDeletingName="ComprasDeClientesRowDeleting" msprop:Generator_RowChangingName="ComprasDeClientesRowChanging" msprop:Generator_RowEvHandlerName="ComprasDeClientesRowChangeEventHandler" msprop:Generator_RowDeletedName="ComprasDeClientesRowDeleted" msprop:Generator_RowClassName="ComprasDeClientesRow" msprop:Generator_UserTableName="ComprasDeClientes" msprop:Generator_RowEvArgName="ComprasDeClientesRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Nombre" msprop:Generator_ColumnVarNameInTable="columnNombre" msprop:Generator_ColumnPropNameInRow="Nombre" msprop:Generator_ColumnPropNameInTable="NombreColumn" msprop:Generator_UserColumnName="Nombre" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Total" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnPropNameInTable="TotalColumn" msprop:Generator_UserColumnName="Total" type="xs:anyType" minOccurs="0" />
+              <xs:element name="Año" msprop:Generator_ColumnVarNameInTable="columnAño" msprop:Generator_ColumnPropNameInRow="Año" msprop:Generator_ColumnPropNameInTable="AñoColumn" msprop:Generator_UserColumnName="Año" type="xs:anyType" minOccurs="0" />
+              <xs:element name="Mes" msprop:Generator_ColumnVarNameInTable="columnMes" msprop:Generator_ColumnPropNameInRow="Mes" msprop:Generator_ColumnPropNameInTable="MesColumn" msprop:Generator_UserColumnName="Mes" type="xs:anyType" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Provincias" msprop:Generator_TableClassName="ProvinciasDataTable" msprop:Generator_TableVarName="tableProvincias" msprop:Generator_RowChangedName="ProvinciasRowChanged" msprop:Generator_TablePropName="Provincias" msprop:Generator_RowDeletingName="ProvinciasRowDeleting" msprop:Generator_RowChangingName="ProvinciasRowChanging" msprop:Generator_RowEvHandlerName="ProvinciasRowChangeEventHandler" msprop:Generator_RowDeletedName="ProvinciasRowDeleted" msprop:Generator_RowClassName="ProvinciasRow" msprop:Generator_UserTableName="Provincias" msprop:Generator_RowEvArgName="ProvinciasRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Cantidad" msprop:Generator_ColumnVarNameInTable="columnCantidad" msprop:Generator_ColumnPropNameInRow="Cantidad" msprop:Generator_ColumnPropNameInTable="CantidadColumn" msprop:Generator_UserColumnName="Cantidad" type="xs:anyType" minOccurs="0" />
+              <xs:element name="Provincia" msprop:Generator_ColumnVarNameInTable="columnProvincia" msprop:Generator_ColumnPropNameInRow="Provincia" msprop:Generator_ColumnPropNameInTable="ProvinciaColumn" msprop:Generator_UserColumnName="Provincia" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Localidad" msprop:Generator_TableClassName="LocalidadDataTable" msprop:Generator_TableVarName="tableLocalidad" msprop:Generator_RowChangedName="LocalidadRowChanged" msprop:Generator_TablePropName="Localidad" msprop:Generator_RowDeletingName="LocalidadRowDeleting" msprop:Generator_RowChangingName="LocalidadRowChanging" msprop:Generator_RowEvHandlerName="LocalidadRowChangeEventHandler" msprop:Generator_RowDeletedName="LocalidadRowDeleted" msprop:Generator_RowClassName="LocalidadRow" msprop:Generator_UserTableName="Localidad" msprop:Generator_RowEvArgName="LocalidadRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Cantidad" msprop:Generator_ColumnVarNameInTable="columnCantidad" msprop:Generator_ColumnPropNameInRow="Cantidad" msprop:Generator_ColumnPropNameInTable="CantidadColumn" msprop:Generator_UserColumnName="Cantidad" type="xs:anyType" minOccurs="0" />
+              <xs:element name="Localidad" msprop:Generator_ColumnVarNameInTable="columnLocalidad" msprop:Generator_ColumnPropNameInRow="Localidad" msprop:Generator_ColumnPropNameInTable="LocalidadColumn" msprop:Generator_UserColumnName="Localidad" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="LocalidadPorPeriodos" msprop:Generator_TableClassName="LocalidadPorPeriodosDataTable" msprop:Generator_TableVarName="tableLocalidadPorPeriodos" msprop:Generator_RowChangedName="LocalidadPorPeriodosRowChanged" msprop:Generator_TablePropName="LocalidadPorPeriodos" msprop:Generator_RowDeletingName="LocalidadPorPeriodosRowDeleting" msprop:Generator_RowChangingName="LocalidadPorPeriodosRowChanging" msprop:Generator_RowEvHandlerName="LocalidadPorPeriodosRowChangeEventHandler" msprop:Generator_RowDeletedName="LocalidadPorPeriodosRowDeleted" msprop:Generator_RowClassName="LocalidadPorPeriodosRow" msprop:Generator_UserTableName="LocalidadPorPeriodos" msprop:Generator_RowEvArgName="LocalidadPorPeriodosRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Cantidad" msprop:Generator_ColumnVarNameInTable="columnCantidad" msprop:Generator_ColumnPropNameInRow="Cantidad" msprop:Generator_ColumnPropNameInTable="CantidadColumn" msprop:Generator_UserColumnName="Cantidad" type="xs:anyType" minOccurs="0" />
+              <xs:element name="Localidad" msprop:Generator_ColumnVarNameInTable="columnLocalidad" msprop:Generator_ColumnPropNameInRow="Localidad" msprop:Generator_ColumnPropNameInTable="LocalidadColumn" msprop:Generator_UserColumnName="Localidad" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Año" msprop:Generator_ColumnVarNameInTable="columnAño" msprop:Generator_ColumnPropNameInRow="Año" msprop:Generator_ColumnPropNameInTable="AñoColumn" msprop:Generator_UserColumnName="Año" type="xs:anyType" minOccurs="0" />
+              <xs:element name="Mes" msprop:Generator_ColumnVarNameInTable="columnMes" msprop:Generator_ColumnPropNameInRow="Mes" msprop:Generator_ColumnPropNameInTable="MesColumn" msprop:Generator_UserColumnName="Mes" type="xs:anyType" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ProvinciasPorPeriodos" msprop:Generator_TableClassName="ProvinciasPorPeriodosDataTable" msprop:Generator_TableVarName="tableProvinciasPorPeriodos" msprop:Generator_TablePropName="ProvinciasPorPeriodos" msprop:Generator_RowDeletingName="ProvinciasPorPeriodosRowDeleting" msprop:Generator_RowChangingName="ProvinciasPorPeriodosRowChanging" msprop:Generator_RowEvHandlerName="ProvinciasPorPeriodosRowChangeEventHandler" msprop:Generator_RowDeletedName="ProvinciasPorPeriodosRowDeleted" msprop:Generator_UserTableName="ProvinciasPorPeriodos" msprop:Generator_RowChangedName="ProvinciasPorPeriodosRowChanged" msprop:Generator_RowEvArgName="ProvinciasPorPeriodosRowChangeEvent" msprop:Generator_RowClassName="ProvinciasPorPeriodosRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Cantidad" msdata:DataType="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnVarNameInTable="columnCantidad" msprop:Generator_ColumnPropNameInRow="Cantidad" msprop:Generator_ColumnPropNameInTable="CantidadColumn" msprop:Generator_UserColumnName="Cantidad" type="xs:anyType" minOccurs="0" />
+              <xs:element name="Provincia" msprop:Generator_ColumnVarNameInTable="columnProvincia" msprop:Generator_ColumnPropNameInRow="Provincia" msprop:Generator_ColumnPropNameInTable="ProvinciaColumn" msprop:Generator_UserColumnName="Provincia" type="xs:string" minOccurs="0" />
+              <xs:element name="Año" msprop:Generator_ColumnVarNameInTable="columnAño" msprop:Generator_ColumnPropNameInRow="Año" msprop:Generator_ColumnPropNameInTable="AñoColumn" msprop:Generator_UserColumnName="Año" type="xs:string" minOccurs="0" />
+              <xs:element name="Mes" msprop:Generator_ColumnVarNameInTable="columnMes" msprop:Generator_ColumnPropNameInRow="Mes" msprop:Generator_ColumnPropNameInTable="MesColumn" msprop:Generator_UserColumnName="Mes" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

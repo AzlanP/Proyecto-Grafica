@@ -138,6 +138,12 @@
     <Compile Include="Busqueda.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="FormReporte\VisorDeReportes.Designer.vb">
+      <DependentUpon>VisorDeReportes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormReporte\VisorDeReportes.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormularioEnvio.Designer.vb">
       <DependentUpon>FormularioEnvio.vb</DependentUpon>
     </Compile>
@@ -251,6 +257,11 @@
     <Compile Include="SolemnoDataSet.vb">
       <DependentUpon>SolemnoDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="SolemnoDataSet1.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SolemnoDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Validaciones.vb" />
     <Compile Include="ValidacionMoneda.Designer.vb">
       <DependentUpon>ValidacionMoneda.vb</DependentUpon>
@@ -265,6 +276,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Busqueda.resx">
       <DependentUpon>Busqueda.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReporte\VisorDeReportes.resx">
+      <DependentUpon>VisorDeReportes.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormularioEnvio.resx">
       <DependentUpon>FormularioEnvio.vb</DependentUpon>
@@ -312,6 +326,16 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\ComprasPorClientes.rdlc" />
+    <EmbeddedResource Include="Reportes\EstadoPorCliente.rdlc" />
+    <EmbeddedResource Include="Reportes\LocalidadPorPeriodos.rdlc" />
+    <EmbeddedResource Include="Reportes\Medios.rdlc" />
+    <EmbeddedResource Include="Reportes\PedidosPorPeriodos.rdlc" />
+    <EmbeddedResource Include="Reportes\ProvinciasPorPeriodos.rdlc" />
+    <EmbeddedResource Include="Reportes\ReportLocalidad.rdlc" />
+    <EmbeddedResource Include="Reportes\ReportProvincias.rdlc" />
+    <EmbeddedResource Include="Reportes\Resultados.rdlc" />
+    <EmbeddedResource Include="Reportes\TendenciaProductos.rdlc" />
     <EmbeddedResource Include="ReportPresupuesto.rdlc" />
     <EmbeddedResource Include="RegistrarCliente.resx">
       <DependentUpon>RegistrarCliente.vb</DependentUpon>
@@ -347,6 +371,17 @@
     </None>
     <None Include="SolemnoDataSet.xss">
       <DependentUpon>SolemnoDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SolemnoDataSet1.xsc">
+      <DependentUpon>SolemnoDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="SolemnoDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SolemnoDataSet1.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SolemnoDataSet1.xss">
+      <DependentUpon>SolemnoDataSet1.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -398,6 +433,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

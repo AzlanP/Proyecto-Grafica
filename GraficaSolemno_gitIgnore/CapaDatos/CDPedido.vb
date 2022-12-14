@@ -363,7 +363,7 @@ Public Class CDPedidos
             Next
 
             'en un futuro hacer una descripcion mas detallada de los pedidos del cliente.
-            MsgBox("Fallo mover a la pepelera. El cliente " & NombreCliente & " tiene " & dt.Rows.Count & " pedido/s pendiente/s.", , "Mover a la papelera")
+            MsgBox("No es posible eliminar el cliente " & NombreCliente & " ya que tiene " & dt.Rows.Count & " pedido/s pendiente/s.", , "Eliminar cliente")
             Return False
         Else
             Return True
