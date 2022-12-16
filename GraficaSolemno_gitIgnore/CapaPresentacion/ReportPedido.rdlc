@@ -973,7 +973,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!SubTotal.Value, "ReporteDataSet") / 100 * First(Fields!Descuento.Value, "ReporteDataSet")</Value>
+                <Value>=Sum(Fields!Descuento.Value, "ReporteDataSet")</Value>
                 <Style />
               </TextRun>
             </TextRuns>

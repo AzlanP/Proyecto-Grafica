@@ -79,7 +79,6 @@ Partial Class frmReportePedido
         Me.Controls.Add(Me.ReportViewer1)
         Me.Name = "frmReportePedido"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "frmReportePedido"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.DTReportePedidoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SolemnoDataSet, System.ComponentModel.ISupportInitialize).EndInit()

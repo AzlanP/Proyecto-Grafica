@@ -49,7 +49,7 @@ Public Class CDPedidos
                 .Add("@SubTotal", SqlDbType.Real).Value = pPedido.SubTotal
                 .Add("@CambioAPedido", SqlDbType.VarChar).Value = pPedido.CambioAPedido
                 .Add("@PresupuestoVencimiento", SqlDbType.VarChar).Value = pPedido.PresupuestoVencimiento
-                .Add("Responsable", SqlDbType.VarChar).Value = pPedido.Responsable
+                .Add("@Responsable", SqlDbType.VarChar).Value = pPedido.Responsable
             End With
             cmd.ExecuteNonQuery()
             For Each row As DataRow In TablaDetalles.Rows
@@ -77,7 +77,7 @@ Public Class CDPedidos
 
         oCDConexion.Conectar()
         Try
-            Dim instruccionsql = "UPDATE Pedidos SET Descripcion=@Descripcion, Fecha=@Fecha, IDCliente=@IDCliente, Envio=@Envio, IDMedio=@IDMedio, Estado=@Estado, Seña=@Seña ,Descuento=@Descuento,  Total=@Total, SubTotal=@SubTotal, CambioAPedido=@CambioAPedido, PresupuestoVencimiento=@PresupuestoVencimiento  where  IDPedido=@IDPedido"
+            Dim instruccionsql = "UPDATE Pedidos SET Descripcion=@Descripcion, Fecha=@Fecha, IDCliente=@IDCliente, Envio=@Envio, IDMedio=@IDMedio, Estado=@Estado, Seña=@Seña ,Descuento=@Descuento,  Total=@Total, SubTotal=@SubTotal, CambioAPedido=@CambioAPedido, PresupuestoVencimiento=@PresupuestoVencimiento  , Responsable=@Responsable where  IDPedido=@IDPedido"
             Dim comando As New SQLiteCommand(instruccionsql, oCDConexion.con)
             With comando.Parameters
                 .Add("@IDPedido", SqlDbType.Int).Value = oCEPedido.IDPedido
@@ -93,6 +93,7 @@ Public Class CDPedidos
                 .Add("@SubTotal", SqlDbType.Real).Value = oCEPedido.SubTotal
                 .Add("@CambioAPedido", SqlDbType.VarChar).Value = oCEPedido.CambioAPedido
                 .Add("@PresupuestoVencimiento", SqlDbType.VarChar).Value = oCEPedido.PresupuestoVencimiento
+                .Add("@Responsable", SqlDbType.VarChar).Value = oCEPedido.Responsable
             End With
             comando.ExecuteNonQuery()
 

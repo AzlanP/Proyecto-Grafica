@@ -490,7 +490,7 @@ FROM            Usuarios</CommandText>
               <Mapping SourceColumn="Estado" DataSetColumn="Estado" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="SolemnoConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetUsuarioByEstado" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetUsuarioByEstado" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetUsuarioByEstado" UserSourceName="FillBy">
+              <DbSource ConnectionRef="SolemnoConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetUsuarioByEstado" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetUsuarioByEstado" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetUsuarioByEstado" UserSourceName="FillBy">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT Cargo, FechaCreacion, IDUsuario, NombreCompleto, Usuario FROM Usuarios WHERE (Estado = @Estado)</CommandText>
@@ -1060,7 +1060,7 @@ WHERE        (FechaEliminado &lt;&gt; " ") OR
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DTReportePedidoTableAdapter" GeneratorDataComponentClassName="DTReportePedidoTableAdapter" Name="DTReportePedido" UserDataComponentName="DTReportePedidoTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="SolemnoConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="SolemnoConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        Pedidos.IDPedido, ItemsPorPedido.IDItems, Clientes.Nombre AS NombreCliente, Clientes.Apellido AS ApellidoCliente, Clientes.Telefono, Clientes.EMAIL, Productos.Nombre AS Producto, 
@@ -1096,19 +1096,20 @@ FROM            Productos INNER JOIN
               <Mapping SourceColumn="IDPedido" DataSetColumn="IDPedido" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="SolemnoConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="GetReportePedidoPorID" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="GetReportePedidoPorID" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="GetReportePedidoPorID">
+              <DbSource ConnectionRef="SolemnoConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="GetReportePedidoPorID" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="GetReportePedidoPorID" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="GetReportePedidoPorID">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        ItemsPorPedido.IDItems, Clientes.Nombre AS NombreCliente, Clientes.Apellido AS ApellidoCliente, Clientes.Telefono, Clientes.EMAIL, Productos.Nombre AS Producto, ItemsPorPedido.Descripcion AS DescripcionItem, 
                          ItemsPorPedido.Descuento AS DescItem, ItemsPorPedido.Cantidad, ItemsPorPedido.PrecioUnitario, ItemsPorPedido.PrecioFinal AS ImporteItem, Pedidos.Fecha, Pedidos.PresupuestoVencimiento AS FechaVencimiento, 
-                         Pedidos.Seña, Pedidos.Descuento, Pedidos.SubTotal, Pedidos.Total
+                         Pedidos.Seña, Pedidos.SubTotal, Pedidos.Total , Pedidos.IDPedido
+ , (ItemsPorPedido.PrecioFinal /100 *  ItemsPorPedido.Descuento )  as Descuento
 FROM            Productos INNER JOIN
                          ItemsPorPedido ON Productos.IDProducto = ItemsPorPedido.IDProducto INNER JOIN
                          Pedidos ON ItemsPorPedido.IDPedido = Pedidos.IDPedido INNER JOIN
                          Clientes ON Pedidos.IDCliente = Clientes.IDCliente
 WHERE        (Pedidos.IDPedido = @IDPedido)</CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="IDPedido" ColumnName="IDPedido" DataSourceName="main.Pedidos" DataTypeServer="integer(8)" DbType="Int64" Direction="Input" ParameterName="@IDPedido" Precision="0" ProviderType="Int64" Scale="0" Size="8" SourceColumn="IDPedido" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="IDPedido" ColumnName="IDPedido" DataSourceName="" DataTypeServer="unknown" DbType="Object" Direction="Input" ParameterName="@IDPedido" Precision="0" Scale="0" Size="1024" SourceColumn="IDPedido" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </SelectCommand>

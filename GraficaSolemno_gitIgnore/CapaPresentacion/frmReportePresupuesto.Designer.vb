@@ -24,16 +24,21 @@ Partial Class frmReportePresupuesto
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Me.DTReportePedidoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.SolemnoDataSet = New CapaPresentacion.SolemnoDataSet()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.ItemsPorPedidoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ItemsPorPedidoTableAdapter = New CapaPresentacion.SolemnoDataSetTableAdapters.ItemsPorPedidoTableAdapter()
-        Me.DTReportePedidoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DTReportePedidoTableAdapter = New CapaPresentacion.SolemnoDataSetTableAdapters.DTReportePedidoTableAdapter()
+        CType(Me.DTReportePedidoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SolemnoDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ItemsPorPedidoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DTReportePedidoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'DTReportePedidoBindingSource
+        '
+        Me.DTReportePedidoBindingSource.DataMember = "DTReportePedido"
+        Me.DTReportePedidoBindingSource.DataSource = Me.SolemnoDataSet
         '
         'SolemnoDataSet
         '
@@ -61,11 +66,6 @@ Partial Class frmReportePresupuesto
         '
         Me.ItemsPorPedidoTableAdapter.ClearBeforeFill = True
         '
-        'DTReportePedidoBindingSource
-        '
-        Me.DTReportePedidoBindingSource.DataMember = "DTReportePedido"
-        Me.DTReportePedidoBindingSource.DataSource = Me.SolemnoDataSet
-        '
         'DTReportePedidoTableAdapter
         '
         Me.DTReportePedidoTableAdapter.ClearBeforeFill = True
@@ -78,11 +78,10 @@ Partial Class frmReportePresupuesto
         Me.Controls.Add(Me.ReportViewer1)
         Me.Name = "frmReportePresupuesto"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "frmReportePresupuesto"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
+        CType(Me.DTReportePedidoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SolemnoDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ItemsPorPedidoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DTReportePedidoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

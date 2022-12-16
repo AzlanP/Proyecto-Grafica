@@ -1201,7 +1201,7 @@ Public Class frmMenuPrincipal
         'frmPresupuesto.dtpFechaVencimiento.MinDate = Date.Now()
         frmPresupuesto.dtpFechaVencimiento.Value = Date.Now().AddDays(7)
         frmPresupuesto.txtResponsable.Text = lblUsuario.Text
-        frmPresupuesto.btnImprimir.Visible = False
+        'frmPresupuesto.btnImprimir.Visible = False
         frmPresupuesto.PrecargarCombobox()
         frmPresupuesto.ShowDialog()
         CargarGridPresupuestos()

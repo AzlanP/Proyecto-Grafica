@@ -71,22 +71,22 @@ Partial Class FormularioPedido
         Me.lblResponsable = New System.Windows.Forms.Label()
         Me.txtResponsable = New System.Windows.Forms.TextBox()
         Me.pnlData = New System.Windows.Forms.Panel()
+        Me.cboResponsable = New System.Windows.Forms.ComboBox()
+        Me.UsuariosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.txtIdPresupuesto = New System.Windows.Forms.TextBox()
         Me.btnBuscarPresupuesto = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.pnlBuscarPresupuesto = New System.Windows.Forms.Panel()
         Me.lblID = New System.Windows.Forms.Label()
-        Me.cboResponsable = New System.Windows.Forms.ComboBox()
         Me.UsuariosTableAdapter1 = New CapaPresentacion.SolemnoDataSetTableAdapters.UsuariosTableAdapter()
-        Me.UsuariosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         CType(Me.TipoEnvioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SolemnoDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DGListaDePedido, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MediosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlData.SuspendLayout()
-        Me.pnlBuscarPresupuesto.SuspendLayout()
         CType(Me.UsuariosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pnlBuscarPresupuesto.SuspendLayout()
         Me.SuspendLayout()
         '
         'TipoEnvioBindingSource
@@ -293,7 +293,7 @@ Partial Class FormularioPedido
         'lblSeña
         '
         Me.lblSeña.AutoSize = True
-        Me.lblSeña.Location = New System.Drawing.Point(190, 307)
+        Me.lblSeña.Location = New System.Drawing.Point(368, 305)
         Me.lblSeña.Name = "lblSeña"
         Me.lblSeña.Size = New System.Drawing.Size(41, 13)
         Me.lblSeña.TabIndex = 39
@@ -375,19 +375,21 @@ Partial Class FormularioPedido
         Me.cboDesc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboDesc.FormattingEnabled = True
         Me.cboDesc.Items.AddRange(New Object() {"0", "5", "10", "15", "20", "25", "30"})
-        Me.cboDesc.Location = New System.Drawing.Point(418, 304)
+        Me.cboDesc.Location = New System.Drawing.Point(122, 302)
         Me.cboDesc.Name = "cboDesc"
         Me.cboDesc.Size = New System.Drawing.Size(61, 21)
         Me.cboDesc.TabIndex = 50
+        Me.cboDesc.Visible = False
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(333, 307)
+        Me.Label2.Location = New System.Drawing.Point(37, 305)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(79, 13)
         Me.Label2.TabIndex = 49
         Me.Label2.Text = "Descuento (%):"
+        Me.Label2.Visible = False
         '
         'dtpFechaVencimiento
         '
@@ -486,7 +488,7 @@ Partial Class FormularioPedido
         '
         'txtAnticipoSena
         '
-        Me.txtAnticipoSena.Location = New System.Drawing.Point(246, 305)
+        Me.txtAnticipoSena.Location = New System.Drawing.Point(424, 303)
         Me.txtAnticipoSena.Name = "txtAnticipoSena"
         Me.txtAnticipoSena.Size = New System.Drawing.Size(72, 20)
         Me.txtAnticipoSena.TabIndex = 60
@@ -495,7 +497,7 @@ Partial Class FormularioPedido
         'txtSymbol
         '
         Me.txtSymbol.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtSymbol.Location = New System.Drawing.Point(235, 305)
+        Me.txtSymbol.Location = New System.Drawing.Point(413, 303)
         Me.txtSymbol.Margin = New System.Windows.Forms.Padding(0)
         Me.txtSymbol.Name = "txtSymbol"
         Me.txtSymbol.ReadOnly = True
@@ -551,6 +553,23 @@ Partial Class FormularioPedido
         Me.pnlData.Size = New System.Drawing.Size(390, 99)
         Me.pnlData.TabIndex = 68
         '
+        'cboResponsable
+        '
+        Me.cboResponsable.DataSource = Me.UsuariosBindingSource
+        Me.cboResponsable.DisplayMember = "NombreCompleto"
+        Me.cboResponsable.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboResponsable.FormattingEnabled = True
+        Me.cboResponsable.Location = New System.Drawing.Point(144, 73)
+        Me.cboResponsable.Name = "cboResponsable"
+        Me.cboResponsable.Size = New System.Drawing.Size(164, 21)
+        Me.cboResponsable.TabIndex = 67
+        Me.cboResponsable.ValueMember = "NombreCompleto"
+        '
+        'UsuariosBindingSource
+        '
+        Me.UsuariosBindingSource.DataMember = "Usuarios"
+        Me.UsuariosBindingSource.DataSource = Me.SolemnoDataSet
+        '
         'txtIdPresupuesto
         '
         Me.txtIdPresupuesto.Enabled = False
@@ -601,26 +620,9 @@ Partial Class FormularioPedido
         Me.lblID.TabIndex = 20
         Me.lblID.Text = "ID:"
         '
-        'cboResponsable
-        '
-        Me.cboResponsable.DataSource = Me.UsuariosBindingSource
-        Me.cboResponsable.DisplayMember = "NombreCompleto"
-        Me.cboResponsable.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cboResponsable.FormattingEnabled = True
-        Me.cboResponsable.Location = New System.Drawing.Point(144, 73)
-        Me.cboResponsable.Name = "cboResponsable"
-        Me.cboResponsable.Size = New System.Drawing.Size(164, 21)
-        Me.cboResponsable.TabIndex = 67
-        Me.cboResponsable.ValueMember = "NombreCompleto"
-        '
         'UsuariosTableAdapter1
         '
         Me.UsuariosTableAdapter1.ClearBeforeFill = True
-        '
-        'UsuariosBindingSource
-        '
-        Me.UsuariosBindingSource.DataMember = "Usuarios"
-        Me.UsuariosBindingSource.DataSource = Me.SolemnoDataSet
         '
         'FormularioPedido
         '
@@ -670,9 +672,9 @@ Partial Class FormularioPedido
         CType(Me.MediosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlData.ResumeLayout(False)
         Me.pnlData.PerformLayout()
+        CType(Me.UsuariosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlBuscarPresupuesto.ResumeLayout(False)
         Me.pnlBuscarPresupuesto.PerformLayout()
-        CType(Me.UsuariosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

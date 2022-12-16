@@ -489,17 +489,29 @@ Public Class FormularioPedido
         Dim tablaTotal As Double = 0
         Dim subTotal As Double = 0
         For Each dr As DataRow In dt.Rows
-            'tablaTotal += dr.Item("Cantidad") * dr.Item("PrecioUnitario")
-            Dim importe = dr.Item("PrecioFinal")
+
+            Dim precioUnit As Double
+            Double.TryParse(dr.Item("PrecioUnitario"), precioUnit)
+            Dim cantidad As Integer
+            Int32.TryParse(dr.Item("Cantidad"), cantidad)
+            Dim precio = cantidad * precioUnit
+
             Dim desc = dr.Item("Descuento")
             Dim descInt As Integer
             Int32.TryParse(desc, descInt)
-            Dim t = importe - (importe / 100 * (descInt + cboDesc.Text))
 
-            tablaTotal += t
+            Dim result = precio - (precio / 100 * descInt)
+
+
+            'Dim importe = dr.Item("PrecioFinal")
+            'Dim t = importe - (importe / 100 * descInt)
+            'Dim t = importe - (importe / 100 * (descInt+ cboDesc.Text))
+            subTotal += precio
+
+            tablaTotal += result
 
         Next
-        txtSubTotal.valor = tablaTotal
+
         Dim valueSena As Double = 0.0
         If (txtAnticipoSena.Text = "") Then
             valueSena = 0.0
@@ -510,11 +522,13 @@ Public Class FormularioPedido
         Dim totalSinSena As Double = tablaTotal
         'Dim total As Double = tablaTotal - valueSena - (tablaTotal / 100 * cboDesc.Text)
         Dim total As Double = tablaTotal - valueSena
+
         If totalSinSena < valueSena Then
             txtAnticipoSena.Text = 0
             MsgBox("El valor de la seña no puede superar total", , "Error de validacion")
         Else
             txtTotal.valor = total
+            txtSubTotal.valor = subTotal
         End If
     End Sub
 

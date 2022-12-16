@@ -633,7 +633,7 @@
         <Top>8.0148cm</Top>
         <Left>2.00365cm</Left>
         <Height>1.2cm</Height>
-        <Width>16.44635cm</Width>
+        <Width>16.44634cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -782,8 +782,8 @@
             </Style>
           </Paragraph>
         </Paragraphs>
-        <Top>6.40027cm</Top>
-        <Left>11.16894cm</Left>
+        <Top>6.80624cm</Top>
+        <Left>11.19768cm</Left>
         <Height>0.6cm</Height>
         <Width>4.35742cm</Width>
         <ZIndex>5</ZIndex>
@@ -813,8 +813,8 @@
             </Style>
           </Paragraph>
         </Paragraphs>
-        <Top>5.65916cm</Top>
-        <Left>13.12818cm</Left>
+        <Top>6.06513cm</Top>
+        <Left>13.15692cm</Left>
         <Height>0.6cm</Height>
         <Width>2.39818cm</Width>
         <ZIndex>6</ZIndex>
@@ -844,8 +844,8 @@
             </Style>
           </Paragraph>
         </Paragraphs>
-        <Top>5.65916cm</Top>
-        <Left>15.63219cm</Left>
+        <Top>6.06513cm</Top>
+        <Left>15.66093cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
         <ZIndex>7</ZIndex>
@@ -875,8 +875,8 @@
             </Style>
           </Paragraph>
         </Paragraphs>
-        <Top>6.36499cm</Top>
-        <Left>15.6322cm</Left>
+        <Top>6.77096cm</Top>
+        <Left>15.66094cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
         <ZIndex>8</ZIndex>
@@ -984,7 +984,7 @@
         <Top>17.20882cm</Top>
         <Left>16.06659cm</Left>
         <Height>0.6cm</Height>
-        <Width>2.5cm</Width>
+        <Width>2.38341cm</Width>
         <ZIndex>12</ZIndex>
         <Style>
           <Border>
@@ -1003,7 +1003,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!SubTotal.Value, "ReporteDataSet") / 100 * First(Fields!Descuento.Value, "ReporteDataSet")</Value>
+                <Value>=Sum(Fields!Descuento.Value, "ReporteDataSet")</Value>
                 <Style />
               </TextRun>
             </TextRuns>
@@ -1071,8 +1071,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox63</rd:DefaultName>
-        <Top>17.55306cm</Top>
-        <Left>3.30487cm</Left>
+        <Top>17.20882cm</Top>
+        <Left>1.93207cm</Left>
         <Height>0.89104cm</Height>
         <Width>3.84937cm</Width>
         <ZIndex>15</ZIndex>
@@ -1104,8 +1104,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox63</rd:DefaultName>
-        <Top>18.71586cm</Top>
-        <Left>3.30487cm</Left>
+        <Top>18.37162cm</Top>
+        <Left>1.93207cm</Left>
         <Height>0.89104cm</Height>
         <Width>3.84937cm</Width>
         <ZIndex>16</ZIndex>
@@ -1223,7 +1223,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>ID Pedido:</Value>
+                <Value>ID:</Value>
                 <Style />
               </TextRun>
             </TextRuns>
@@ -1234,9 +1234,9 @@
         </Paragraphs>
         <rd:DefaultName>encabezado3</rd:DefaultName>
         <Top>4.59173cm</Top>
-        <Left>1.75503cm</Left>
+        <Left>2.97211cm</Left>
         <Height>0.6cm</Height>
-        <Width>2.12927cm</Width>
+        <Width>0.91219cm</Width>
         <ZIndex>20</ZIndex>
         <Style>
           <Border>
@@ -1385,17 +1385,17 @@
         </Style>
       </Textbox>
     </ReportItems>
-    <Height>11.69in</Height>
+    <Height>7.85667in</Height>
     <Style />
   </Body>
-  <Width>8.39636in</Width>
+  <Width>7.38595in</Width>
   <Page>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>
-    <LeftMargin>2cm</LeftMargin>
-    <RightMargin>2cm</RightMargin>
-    <TopMargin>2cm</TopMargin>
-    <BottomMargin>2cm</BottomMargin>
+    <LeftMargin>0cm</LeftMargin>
+    <RightMargin>0cm</RightMargin>
+    <TopMargin>0cm</TopMargin>
+    <BottomMargin>0cm</BottomMargin>
     <ColumnSpacing>0.13cm</ColumnSpacing>
     <Style />
   </Page>
